@@ -543,7 +543,7 @@ button{cursor:pointer;font-family:var(--font-main);}
       <label style="display:flex;align-items:flex-start;gap:10px;cursor:pointer;margin-bottom:22px;">
         <input type="checkbox" id="terms-check" style="width:16px;height:16px;accent-color:var(--green);flex-shrink:0;margin-top:3px;">
         <span style="font-size:13.5px;color:var(--gray-600);line-height:1.55;">
-          私は読んで理解し、同意します： <a href="#" style="color:var(--green);font-weight:600;">契約条項</a> と <a href="/ja/privacy/" style="color:var(--green);font-weight:600;">プライバシーポリシー</a> のHouseLINK条項。提供した企業情報が正確であることを確認します。
+          私は読んで理解し、同意します： <a href="#" onclick="goStep2(); return false;" style="color:var(--green);font-weight:600;">契約条項</a> と <a href="/ja/privacy/" style="color:var(--green);font-weight:600;">プライバシーポリシー</a> のHouseLINK条項。提供した企業情報が正確であることを確認します。
         </span>
       </label>
 
@@ -634,28 +634,28 @@ const PLANS = {
     tag:'Pro-Contractor Basic',
     priceUSD:'$899',
     priceVND:'≈ 23.500.000 VND',
-    features:['01 tài khoản HOUSELINK','リアルタイムFDI/DDIプロジェクト検索','Lọc theo tỉnh, ngành, loại công trình','Nhận thông báo dự án mới phù hợp','Profile nhà thầu cơ bản'],
+    features:['01 HOUSELINKアカウント','FDI/DDI案件をリアルタイム検索','省・業種・工事種別で絞り込み','条件に合う新規案件通知を受信','基本請負業者プロフィール'],
   },
   standard: {
     name:'Standard – Pro-Contractor Plus',
     tag:'Pro-Contractor Plus',
     priceUSD:'$1.699',
     priceVND:'≈ 44.300.000 VND',
-    features:['02つのHouseLINKアカウント','リアルタイムFDI/DDIプロジェクト検索','ライブチャットサポート＆アクセスアドバイザリー','意思決定者の連絡先','Verifiedラベル＋CSIランキング','HouseLINKホームページロゴ'],
+    features:['02 HOUSELINKアカウント','FDI/DDI案件をリアルタイム検索','ライブチャットサポートとアクセス相談','意思決定者の連絡先','Verifiedラベル + CSIランキング','HOUSELINKホームページへのロゴ掲載'],
   },
   professional: {
     name:'Professional – Pro-Contractor Pro',
     tag:'Pro-Contractor Pro',
     priceUSD:'$2.499',
     priceVND:'≈ 65.100.000 VND',
-    features:['02つのHouseLINKアカウント','Tất cả tính năng Standard','Banner VietnamConstruction.vn','04 bài viết PR/năm','12 social media posts/năm','Báo cáo hiệu quả marketing'],
+    features:['02 HOUSELINKアカウント','Standardの全機能','VietnamConstruction.vnバナー掲載','年間PR記事4本','年間SNS投稿12本','マーケティング効果レポート'],
   },
   premium: {
     name:'Premium – Pro-Contractor Premium',
     tag:'Pro-Contractor Premium',
     priceUSD:'$3.999',
     priceVND:'≈ 104.100.000 VND',
-    features:['03 tài khoản HOUSELINK','Tất cả tính năng Professional','Email Marketing 80.000 chủ đầu tư','02 báo cáo thị trường/năm (EN/VI/ZH)','Account Manager riêng','Ưu tiên kết nối KCN chiến lược'],
+    features:['03 HOUSELINKアカウント','Professionalの全機能','8万人の投資家向けメールマーケティング','市場レポート年2回（EN/VI/ZH）','専任アカウントマネージャー','戦略工業団地との優先マッチング'],
   },
 };
 
@@ -683,7 +683,7 @@ function updateSidebar(planKey) {
   var p = PLANS[planKey];
   document.getElementById('s-plan-name').textContent = p.name.split('–')[0].trim();
   document.getElementById('s-plan-tag').textContent = p.tag;
-  document.getElementById('s-base-price').textContent = p.priceUSD + '/năm';
+  document.getElementById('s-base-price').textContent = p.priceUSD + '/年';
   document.getElementById('s-total').textContent = p.priceVND;
   var fl = document.getElementById('s-features');
   fl.innerHTML = p.features.map(f => '<li class="order-feat">'+f+'</li>').join('');
@@ -715,7 +715,7 @@ function goStep3() { goStep(3); updatePayContent(); }
 
 function submitContract() {
   if(!document.getElementById('terms-check').checked) {
-    alert('Vui lòng đồng ý với điều khoản hợp đồng trước khi tiếp tục.');
+    alert('続行する前に契約条件に同意してください。');
     return;
   }
   // Generate contract number
@@ -723,7 +723,7 @@ function submitContract() {
   var seq = String(Math.floor(Math.random()*9000)+1000);
   var cno = 'HL-'+d.getFullYear()+'-'+seq;
   document.getElementById('success-contract-no').textContent = cno;
-  document.getElementById('success-email').textContent = document.getElementById('f-email').value || 'email của bạn';
+  document.getElementById('success-email').textContent = document.getElementById('f-email').value || 'あなたのメールアドレス';
   goStep(4);
 }
 

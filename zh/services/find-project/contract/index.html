@@ -543,7 +543,7 @@ button{cursor:pointer;font-family:var(--font-main);}
       <label style="display:flex;align-items:flex-start;gap:10px;cursor:pointer;margin-bottom:22px;">
         <input type="checkbox" id="terms-check" style="width:16px;height:16px;accent-color:var(--green);flex-shrink:0;margin-top:3px;">
         <span style="font-size:13.5px;color:var(--gray-600);line-height:1.55;">
-          我已阅读、理解并同意 <a href="#" style="color:var(--green);font-weight:600;">合同条款</a> 和 <a href="/zh/privacy/" style="color:var(--green);font-weight:600;">隐私政策</a> 的HOUSELINK条款。我确认所提供的企业信息准确无误。
+          我已阅读、理解并同意 <a href="#" onclick="goStep2(); return false;" style="color:var(--green);font-weight:600;">合同条款</a> 和 <a href="/zh/privacy/" style="color:var(--green);font-weight:600;">隐私政策</a> 的HOUSELINK条款。我确认所提供的企业信息准确无误。
         </span>
       </label>
 
@@ -634,7 +634,7 @@ const PLANS = {
     tag:'Pro-Contractor Basic',
     priceUSD:'$899',
     priceVND:'≈ 23.500.000 VND',
-    features:['01 tài khoản HOUSELINK','实时FDI/DDI项目查询','Lọc theo tỉnh, ngành, loại công trình','Nhận thông báo dự án mới phù hợp','Profile nhà thầu cơ bản'],
+    features:['01个HOUSELINK账户','实时FDI/DDI项目查询','按省份、行业、工程类型筛选','接收匹配的新项目通知','基础承包商档案展示'],
   },
   standard: {
     name:'Standard – Pro-Contractor Plus',
@@ -648,14 +648,14 @@ const PLANS = {
     tag:'Pro-Contractor Pro',
     priceUSD:'$2.499',
     priceVND:'≈ 65.100.000 VND',
-    features:['02个HOUSELINK账户','Tất cả tính năng Standard','Banner VietnamConstruction.vn','04 bài viết PR/năm','12 social media posts/năm','Báo cáo hiệu quả marketing'],
+    features:['02个HOUSELINK账户','包含Standard全部功能','VietnamConstruction.vn横幅广告','每年04篇PR文章','每年12条社交媒体发布','营销效果报告'],
   },
   premium: {
     name:'Premium – Pro-Contractor Premium',
     tag:'Pro-Contractor Premium',
     priceUSD:'$3.999',
     priceVND:'≈ 104.100.000 VND',
-    features:['03 tài khoản HOUSELINK','Tất cả tính năng Professional','Email Marketing 80.000 chủ đầu tư','02 báo cáo thị trường/năm (EN/VI/ZH)','Account Manager riêng','Ưu tiên kết nối KCN chiến lược'],
+    features:['03个HOUSELINK账户','包含Professional全部功能','向80,000位业主进行邮件营销','每年02份市场报告（EN/VI/ZH）','专属客户经理服务','优先对接战略工业园区资源'],
   },
 };
 
@@ -683,7 +683,7 @@ function updateSidebar(planKey) {
   var p = PLANS[planKey];
   document.getElementById('s-plan-name').textContent = p.name.split('–')[0].trim();
   document.getElementById('s-plan-tag').textContent = p.tag;
-  document.getElementById('s-base-price').textContent = p.priceUSD + '/năm';
+  document.getElementById('s-base-price').textContent = p.priceUSD + '/年';
   document.getElementById('s-total').textContent = p.priceVND;
   var fl = document.getElementById('s-features');
   fl.innerHTML = p.features.map(f => '<li class="order-feat">'+f+'</li>').join('');
@@ -715,7 +715,7 @@ function goStep3() { goStep(3); updatePayContent(); }
 
 function submitContract() {
   if(!document.getElementById('terms-check').checked) {
-    alert('Vui lòng đồng ý với điều khoản hợp đồng trước khi tiếp tục.');
+    alert('请先同意合同条款后再继续。');
     return;
   }
   // Generate contract number
@@ -723,7 +723,7 @@ function submitContract() {
   var seq = String(Math.floor(Math.random()*9000)+1000);
   var cno = 'HL-'+d.getFullYear()+'-'+seq;
   document.getElementById('success-contract-no').textContent = cno;
-  document.getElementById('success-email').textContent = document.getElementById('f-email').value || 'email của bạn';
+  document.getElementById('success-email').textContent = document.getElementById('f-email').value || '您的邮箱';
   goStep(4);
 }
 
