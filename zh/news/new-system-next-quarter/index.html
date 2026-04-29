@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HOUSELINK将于下季度发布全新系统 – HOUSELINK</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --navy: #00466E; --navy-deep: #003457; --navy-mid: #005585; --navy-light: #006BA0;
+  --green: #2D8B48; --green-light: #3AAD5C; --green-pale: #EBF7EF; --green-mid: #1E7038;
+  --teal: #1E6464; --teal-light: #2A8080;
+  --white: #FFFFFF; --off-white: #F4F6F8; --gray-50: #EEF1F4; --gray-100: #DDE3E8;
+  --gray-200: #BEC8D0; --gray-400: #7E8F9A; --gray-600: #4A5A65; --text: #0D1F2D;
+  --font-main: 'Inter', sans-serif; --font-serif: var(--font-main);
+  --header-h: 72px; --max-w: 1240px;
+}
+html { scroll-behavior: smooth; }
+body { font-family: var(--font-main); color: var(--text); background: var(--white); overflow-x: hidden; line-height: 1.7; }
+.pg-hero{background:linear-gradient(150deg,var(--navy-deep) 0%,var(--navy) 100%);padding:96px 0 64px;position:relative;overflow:hidden;}
+.pg-hero::after{content:'';position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.03) 1px,transparent 1px);background-size:28px 28px;pointer-events:none;}
+.pg-inner{max-width:var(--max-w);margin:0 auto;padding:0 40px;position:relative;z-index:1;}
+.pg-eye{font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#7ED49A;margin-bottom:14px;}
+.pg-h1{font-family:var(--font-serif);font-size:clamp(26px,3.2vw,44px);font-weight:600;color:#fff;line-height:1.2;letter-spacing:-.02em;margin-bottom:16px;}
+.pg-h1 em{color:#7ED49A;font-style:normal;}
+.pg-sub{font-size:15.5px;color:rgba(255,255,255,.62);line-height:1.75;max-width:640px;}
+.sec{padding:72px 0;}.sec .si{max-width:var(--max-w);margin:0 auto;padding:0 40px;}
+.si{max-width:var(--max-w);margin:0 auto;padding:0 40px;}
+.bc{display:flex;align-items:center;gap:8px;font-size:12.5px;color:rgba(255,255,255,.5);margin-bottom:16px;}
+.bc a{color:rgba(255,255,255,.55);text-decoration:none;}.bc a:hover{color:#7ED49A;}
+.bc span{color:rgba(255,255,255,.25);}
+.art-layout{display:grid;grid-template-columns:1fr 320px;gap:52px;align-items:start;}
+.art-cover{width:100%;border-radius:16px;margin-bottom:36px;display:block;max-height:480px;object-fit:cover;}
+.art-meta-bar{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:24px;padding-bottom:20px;border-bottom:1px solid var(--gray-100);}
+.art-cat{font-size:10.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--green);background:var(--green-pale);padding:4px 12px;border-radius:100px;}
+.art-date{font-size:13px;color:var(--gray-400);}
+.art-read{font-size:13px;color:var(--gray-400);}
+.art-sep{width:3px;height:3px;border-radius:50%;background:var(--gray-200);}
+.art-lead{font-size:17px;color:var(--gray-600);line-height:1.78;font-weight:500;margin-bottom:28px;padding:20px 22px;background:var(--off-white);border-left:4px solid var(--green);border-radius:0 8px 8px 0;}
+.art-content p{font-size:15.5px;color:var(--gray-600);line-height:1.82;margin-bottom:20px;}
+.art-content h2{font-family:var(--font-serif);font-size:22px;font-weight:600;color:var(--navy);margin:36px 0 14px;}
+.art-content ul{margin:0 0 20px 20px;display:flex;flex-direction:column;gap:7px;}
+.art-content li{font-size:15px;color:var(--gray-600);line-height:1.72;}
+.art-content blockquote{border-left:4px solid var(--green);padding:16px 20px;margin:24px 0;background:var(--off-white);border-radius:0 10px 10px 0;font-size:15.5px;color:var(--navy);font-style:italic;line-height:1.7;}
+.art-content .data-box{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:28px 0;}
+.art-content .db-item{background:var(--navy);border-radius:12px;padding:20px 16px;text-align:center;}
+.art-content .db-n{font-family:var(--font-serif);font-size:30px;font-weight:600;color:#7ED49A;line-height:1;}
+.art-content .db-l{font-size:12px;color:rgba(255,255,255,.5);margin-top:5px;line-height:1.4;}
+.art-tags{display:flex;flex-wrap:wrap;gap:8px;margin:32px 0;padding-top:24px;border-top:1px solid var(--gray-100);}
+.art-tag{font-size:12px;font-weight:600;color:var(--navy);background:var(--gray-50);padding:5px 14px;border-radius:100px;border:1px solid var(--gray-100);}
+.art-share{display:flex;align-items:center;gap:12px;margin-top:8px;}
+.art-share span{font-size:13px;font-weight:600;color:var(--gray-600);}
+.share-btn{background:var(--navy);color:#fff;font-size:12px;font-weight:600;padding:7px 14px;border-radius:7px;text-decoration:none;transition:background .2s;}
+.share-btn:hover{background:var(--green);}
+.sidebar-card{background:var(--white);border:1px solid var(--gray-100);border-radius:14px;padding:24px 20px;margin-bottom:24px;}
+.sc-title{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--green);margin-bottom:16px;}
+.author-row{display:flex;gap:14px;align-items:center;margin-bottom:14px;}
+.author-av{width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,var(--navy),#005585);display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:600;color:#7ED49A;flex-shrink:0;}
+.author-name{font-size:14px;font-weight:700;color:var(--navy);}
+.author-role{font-size:12px;color:var(--gray-400);margin-top:2px;}
+.rel-item{display:flex;gap:12px;align-items:flex-start;padding:12px 0;border-bottom:1px solid var(--gray-50);}
+.rel-item:last-child{border-bottom:none;padding-bottom:0;}
+.rel-img{width:60px;height:48px;border-radius:7px;object-fit:cover;flex-shrink:0;}
+.rel-ttl{font-size:13px;font-weight:600;color:var(--navy);line-height:1.35;}
+.rel-ttl a{color:inherit;text-decoration:none;}
+.rel-ttl a:hover{color:var(--green);}
+.rel-date{font-size:11px;color:var(--gray-400);margin-top:3px;}
+.sidebar-cta{background:var(--navy);border-radius:14px;padding:24px 20px;margin-bottom:24px;text-align:center;}
+.sidebar-cta h4{font-family:var(--font-serif);font-size:17px;color:#fff;margin-bottom:8px;}
+.sidebar-cta p{font-size:13px;color:rgba(255,255,255,.55);line-height:1.55;margin-bottom:16px;}
+.sidebar-cta a{display:block;background:var(--green);color:#fff;font-size:13px;font-weight:700;padding:11px;border-radius:8px;text-decoration:none;}
+@media(max-width:960px){.art-layout{grid-template-columns:1fr;}.art-content .data-box{grid-template-columns:1fr 1fr;}.pg-inner{padding:0 20px;}.si{padding:0 20px;}}
+</style>
+  <link rel="stylesheet" href="../../../landing-chrome.css">
+</head>
+<body class="hl-with-fixed-header" data-hl-page="news-new-system">
+<div id="hl-chrome-header"></div>
+
+<section class="pg-hero" style="padding-bottom:52px;">
+  <div class="pg-inner">
+    <div class="bc">
+      <a href="/zh/">首页</a><span>›</span>
+      <a href="/zh/news/">新闻与活动</a><span>›</span>
+      <span style="color:rgba(255,255,255,.7);">新系统发布</span>
+    </div>
+    <div class="pg-eye">HOUSELINK动态 · 2026年4月</div>
+    <h1 class="pg-h1" style="max-width:780px;">HOUSELINK将于下季度<br>发布<em>全新系统</em></h1>
+    <p class="pg-sub">新一代平台升级计划于2026年第三季度发布——更快的匹配、更智能的工作流程以及更深度的集成，服务越南工业生态系统。</p>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="si">
+    <div class="art-layout">
+      <div class="art-body">
+        <img class="art-cover" src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=1100&q=80&auto=format&fit=crop" alt="HOUSELINK新系统">
+        <div class="art-meta-bar">
+          <span class="art-cat">HOUSELINK动态</span>
+          <span class="art-sep"></span>
+          <span class="art-date">2026年4月</span>
+          <span class="art-sep"></span>
+          <span class="art-read">阅读4分钟</span>
+          <span class="art-sep"></span>
+          <span class="art-date">来源：HOUSELINK产品团队</span>
+        </div>
+
+        <div class="art-lead">HOUSELINK正准备于2026年第三季度推出新一代平台——这是一次全面升级，旨在改变FDI投资者、工业园区运营商和承包商在越南工业生态系统中连接、交易和协作的方式。</div>
+
+        <div class="art-content">
+          <div class="data-box">
+            <div class="db-item"><div class="db-n">3×</div><div class="db-l">AI驱动的选址速度提升</div></div>
+            <div class="db-item"><div class="db-n">50+</div><div class="db-l">政府数据库集成</div></div>
+            <div class="db-item"><div class="db-n">Q3/2026</div><div class="db-l">计划发布窗口</div></div>
+          </div>
+
+          <h2>系统新功能</h2>
+          <p>新HOUSELINK平台推出重新设计的投资者仪表板，将项目跟踪、文件管理和实时通信整合到单一统一工作空间中。核心是AI驱动的选址匹配引擎，分析200多个数据点——包括土地可用性、物流基础设施、劳动力成本和ESG就绪程度——为每个投资者档案匹配最相关的工业园区选项。</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 承包商市场已从头重建，具备经过验证的供应商档案、投标管理工具和集成支付托管系统。</p>
+
+          <h2>核心功能一览</h2>
+          <ul>
+            <li><strong>AI选址匹配：</strong>即时推荐越南300多个工业园区和经济区</li>
+            <li><strong>数字尽职调查：</strong>自动化法律文件核查、土地使用权验证和许可证跟踪</li>
+            <li><strong>承包商市场：</strong>招标管理、报价比较和里程碑付款</li>
+            <li><strong>ESG仪表板：</strong>实时碳排放跟踪、DPPA电力采购和RE100进度监控</li>
+            <li><strong>多语言支持：</strong>完整的越南语、英语、中文、日语和韩语界面</li>
+          </ul>
+
+          <h2>时间表与发布计划</h2>
+          <p>分阶段发布从2026年5月开始，面向现有HOUSELINK企业客户进行封闭测试。正式发布计划于2026年第三季度，届时将在河内北部工业园区投资网络论坛举行公开发布活动。所有现有订阅用户将在过渡期间实现零停机自动迁移。</p>
+
+          <blockquote>"这个新系统是我们与客户两年密切合作的成果。我们为速度、透明度和规模而打造。" — HOUSELINK产品团队</blockquote>
+
+          <h2>为何这对市场意义重大</h2>
+          <p>越南工业房地产市场正经历空前需求，2026年第一季度FDI流入量达67.4亿美元——同比增长34%。新HOUSELINK平台专为将决策周期从数周压缩到数天而打造，为投资者和工业园区运营商提供显著竞争优势。</p>
+
+          <h2>如何加入早期访问计划</h2>
+          <p>现有HOUSELINK客户可从2026年5月1日起直接通过账户仪表板注册早期访问。有意参与测试计划的新客户可通过联系页面提交申请。优先考虑拥有有效选址任务的FDI投资者和平台上有在线房源的工业园区运营商。</p>
+        </div>
+
+        <div class="art-tags">
+          <span class="art-tag">HOUSELINK动态</span>
+          <span class="art-tag">平台更新</span>
+          <span class="art-tag">Q3/2026</span>
+          <span class="art-tag">AI匹配</span>
+          <span class="art-tag">产品发布</span>
+        </div>
+        <div class="art-share">
+          <span>分享：</span>
+          <a href="https://www.linkedin.com/company/houselink-jsc" class="share-btn" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a href="https://www.facebook.com/houselink.com.vn" class="share-btn" target="_blank" rel="noopener noreferrer">Facebook</a>
+          <a href="https://www.youtube.com/@houselink5096" class="share-btn" target="_blank" rel="noopener noreferrer">YouTube</a>
+        </div>
+      </div>
+
+      <div class="art-sidebar">
+        <div class="sidebar-card">
+          <div class="sc-title">作者</div>
+          <div class="author-row">
+            <div class="author-av">HL</div>
+            <div><div class="author-name">HOUSELINK Team</div><div class="author-role">产品与传播</div></div>
+          </div>
+        </div>
+        <div class="sidebar-cta">
+          <h4>申请早期访问</h4>
+          <p>成为首批体验新HOUSELINK平台的用户之一。</p>
+          <a href="/zh/contact/">立即联系 →</a>
+        </div>
+        <div class="sidebar-card">
+          <div class="sc-title">相关文章</div>
+          <div class="rel-item">
+            <img class="rel-img" src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=200&q=70" alt="">
+            <div><div class="rel-ttl"><a href="/zh/news/fdi/">2026年一季度越南FDI达67.4亿美元</a></div><div class="rel-date">2026年4月</div></div>
+          </div>
+          <div class="rel-item">
+            <img class="rel-img" src="https://images.unsplash.com/photo-1560439514-4e9645039924?w=200&q=70" alt="">
+            <div><div class="rel-ttl"><a href="/zh/news/esg-forum/">平阳ESG论坛，2026年3月31日</a></div><div class="rel-date">2026年3月</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="hl-chrome-footer"></div>
+  <script src="../../../landing-chrome.js" defer></script>
+</body>
+</html>
