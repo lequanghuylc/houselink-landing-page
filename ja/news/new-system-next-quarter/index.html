@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HOUSELINKが来四半期に新システムをリリース予定 – HOUSELINK</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --navy: #00466E; --navy-deep: #003457; --navy-mid: #005585; --navy-light: #006BA0;
+  --green: #2D8B48; --green-light: #3AAD5C; --green-pale: #EBF7EF; --green-mid: #1E7038;
+  --teal: #1E6464; --teal-light: #2A8080;
+  --white: #FFFFFF; --off-white: #F4F6F8; --gray-50: #EEF1F4; --gray-100: #DDE3E8;
+  --gray-200: #BEC8D0; --gray-400: #7E8F9A; --gray-600: #4A5A65; --text: #0D1F2D;
+  --font-main: 'Inter', sans-serif; --font-serif: var(--font-main);
+  --header-h: 72px; --max-w: 1240px;
+}
+html { scroll-behavior: smooth; }
+body { font-family: var(--font-main); color: var(--text); background: var(--white); overflow-x: hidden; line-height: 1.7; }
+.pg-hero{background:linear-gradient(150deg,var(--navy-deep) 0%,var(--navy) 100%);padding:96px 0 64px;position:relative;overflow:hidden;}
+.pg-hero::after{content:'';position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.03) 1px,transparent 1px);background-size:28px 28px;pointer-events:none;}
+.pg-inner{max-width:var(--max-w);margin:0 auto;padding:0 40px;position:relative;z-index:1;}
+.pg-eye{font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#7ED49A;margin-bottom:14px;}
+.pg-h1{font-family:var(--font-serif);font-size:clamp(26px,3.2vw,44px);font-weight:600;color:#fff;line-height:1.2;letter-spacing:-.02em;margin-bottom:16px;}
+.pg-h1 em{color:#7ED49A;font-style:normal;}
+.pg-sub{font-size:15.5px;color:rgba(255,255,255,.62);line-height:1.75;max-width:640px;}
+.sec{padding:72px 0;}.sec .si{max-width:var(--max-w);margin:0 auto;padding:0 40px;}
+.si{max-width:var(--max-w);margin:0 auto;padding:0 40px;}
+.bc{display:flex;align-items:center;gap:8px;font-size:12.5px;color:rgba(255,255,255,.5);margin-bottom:16px;}
+.bc a{color:rgba(255,255,255,.55);text-decoration:none;}.bc a:hover{color:#7ED49A;}
+.bc span{color:rgba(255,255,255,.25);}
+.art-layout{display:grid;grid-template-columns:1fr 320px;gap:52px;align-items:start;}
+.art-cover{width:100%;border-radius:16px;margin-bottom:36px;display:block;max-height:480px;object-fit:cover;}
+.art-meta-bar{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:24px;padding-bottom:20px;border-bottom:1px solid var(--gray-100);}
+.art-cat{font-size:10.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--green);background:var(--green-pale);padding:4px 12px;border-radius:100px;}
+.art-date{font-size:13px;color:var(--gray-400);}
+.art-read{font-size:13px;color:var(--gray-400);}
+.art-sep{width:3px;height:3px;border-radius:50%;background:var(--gray-200);}
+.art-lead{font-size:17px;color:var(--gray-600);line-height:1.78;font-weight:500;margin-bottom:28px;padding:20px 22px;background:var(--off-white);border-left:4px solid var(--green);border-radius:0 8px 8px 0;}
+.art-content p{font-size:15.5px;color:var(--gray-600);line-height:1.82;margin-bottom:20px;}
+.art-content h2{font-family:var(--font-serif);font-size:22px;font-weight:600;color:var(--navy);margin:36px 0 14px;}
+.art-content ul{margin:0 0 20px 20px;display:flex;flex-direction:column;gap:7px;}
+.art-content li{font-size:15px;color:var(--gray-600);line-height:1.72;}
+.art-content blockquote{border-left:4px solid var(--green);padding:16px 20px;margin:24px 0;background:var(--off-white);border-radius:0 10px 10px 0;font-size:15.5px;color:var(--navy);font-style:italic;line-height:1.7;}
+.art-content .data-box{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:28px 0;}
+.art-content .db-item{background:var(--navy);border-radius:12px;padding:20px 16px;text-align:center;}
+.art-content .db-n{font-family:var(--font-serif);font-size:30px;font-weight:600;color:#7ED49A;line-height:1;}
+.art-content .db-l{font-size:12px;color:rgba(255,255,255,.5);margin-top:5px;line-height:1.4;}
+.art-tags{display:flex;flex-wrap:wrap;gap:8px;margin:32px 0;padding-top:24px;border-top:1px solid var(--gray-100);}
+.art-tag{font-size:12px;font-weight:600;color:var(--navy);background:var(--gray-50);padding:5px 14px;border-radius:100px;border:1px solid var(--gray-100);}
+.art-share{display:flex;align-items:center;gap:12px;margin-top:8px;}
+.art-share span{font-size:13px;font-weight:600;color:var(--gray-600);}
+.share-btn{background:var(--navy);color:#fff;font-size:12px;font-weight:600;padding:7px 14px;border-radius:7px;text-decoration:none;transition:background .2s;}
+.share-btn:hover{background:var(--green);}
+.sidebar-card{background:var(--white);border:1px solid var(--gray-100);border-radius:14px;padding:24px 20px;margin-bottom:24px;}
+.sc-title{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--green);margin-bottom:16px;}
+.author-row{display:flex;gap:14px;align-items:center;margin-bottom:14px;}
+.author-av{width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,var(--navy),#005585);display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:600;color:#7ED49A;flex-shrink:0;}
+.author-name{font-size:14px;font-weight:700;color:var(--navy);}
+.author-role{font-size:12px;color:var(--gray-400);margin-top:2px;}
+.rel-item{display:flex;gap:12px;align-items:flex-start;padding:12px 0;border-bottom:1px solid var(--gray-50);}
+.rel-item:last-child{border-bottom:none;padding-bottom:0;}
+.rel-img{width:60px;height:48px;border-radius:7px;object-fit:cover;flex-shrink:0;}
+.rel-ttl{font-size:13px;font-weight:600;color:var(--navy);line-height:1.35;}
+.rel-ttl a{color:inherit;text-decoration:none;}
+.rel-ttl a:hover{color:var(--green);}
+.rel-date{font-size:11px;color:var(--gray-400);margin-top:3px;}
+.sidebar-cta{background:var(--navy);border-radius:14px;padding:24px 20px;margin-bottom:24px;text-align:center;}
+.sidebar-cta h4{font-family:var(--font-serif);font-size:17px;color:#fff;margin-bottom:8px;}
+.sidebar-cta p{font-size:13px;color:rgba(255,255,255,.55);line-height:1.55;margin-bottom:16px;}
+.sidebar-cta a{display:block;background:var(--green);color:#fff;font-size:13px;font-weight:700;padding:11px;border-radius:8px;text-decoration:none;}
+@media(max-width:960px){.art-layout{grid-template-columns:1fr;}.art-content .data-box{grid-template-columns:1fr 1fr;}.pg-inner{padding:0 20px;}.si{padding:0 20px;}}
+</style>
+  <link rel="stylesheet" href="../../../landing-chrome.css">
+</head>
+<body class="hl-with-fixed-header" data-hl-page="news-new-system">
+<div id="hl-chrome-header"></div>
+
+<section class="pg-hero" style="padding-bottom:52px;">
+  <div class="pg-inner">
+    <div class="bc">
+      <a href="/ja/">ホーム</a><span>›</span>
+      <a href="/ja/news/">ニュース＆イベント</a><span>›</span>
+      <span style="color:rgba(255,255,255,.7);">新システムリリース</span>
+    </div>
+    <div class="pg-eye">HOUSELINKニュース · 2026年4月</div>
+    <h1 class="pg-h1" style="max-width:780px;">HOUSELINKが来四半期に<br><em>新システム</em>をリリース予定</h1>
+    <p class="pg-sub">2026年第3四半期に予定される次世代プラットフォームアップグレード — より速いマッチング、よりスマートなワークフロー、ベトナム産業エコシステム向けの深い統合。</p>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="si">
+    <div class="art-layout">
+      <div class="art-body">
+        <img class="art-cover" src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=1100&q=80&auto=format&fit=crop" alt="HOUSELINKの新システム">
+        <div class="art-meta-bar">
+          <span class="art-cat">HOUSELINKニュース</span>
+          <span class="art-sep"></span>
+          <span class="art-date">2026年4月</span>
+          <span class="art-sep"></span>
+          <span class="art-read">4分で読む</span>
+          <span class="art-sep"></span>
+          <span class="art-date">出典：HOUSELINKプロダクトチーム</span>
+        </div>
+
+        <div class="art-lead">HOUSELINKは2026年第3四半期に次世代プラットフォームをリリースする準備を進めています。これはFDI投資家、工業団地オペレーター、承請業者がベトナムの産業エコシステム内でつながり、取引し、協業する方法を変革するための包括的なアップグレードです。</div>
+
+        <div class="art-content">
+          <div class="data-box">
+            <div class="db-item"><div class="db-n">3×</div><div class="db-l">AIエンジンによる立地マッチング高速化</div></div>
+            <div class="db-item"><div class="db-n">50+</div><div class="db-l">政府データベース統合</div></div>
+            <div class="db-item"><div class="db-n">Q3/2026</div><div class="db-l">リリース予定ウィンドウ</div></div>
+          </div>
+
+          <h2>システムの新機能</h2>
+          <p>新HOUSELINKプラットフォームは、プロジェクト追跡、文書管理、リアルタイムコミュニケーションを単一の統合ワークスペースに集約した、再設計された投資家ダッシュボードを導入します。中核となるのは200以上のデータポイントを分析するAI駆動の立地マッチングエンジンです。土地の利用可能性、物流インフラ、人件費、ESG対応度などを分析し、各投資家プロファイルに最適な工業団地オプションを提示します。</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 承請業者マーケットプレイスはゼロから再構築され、認証済みサプライヤープロファイル、入札管理ツール、統合決済エスクローシステムが搭載されています。</p>
+
+          <h2>主要機能一覧</h2>
+          <ul>
+            <li><strong>AI立地マッチング：</strong>ベトナムの300以上の工業団地・経済区への即時推薦</li>
+            <li><strong>デジタルデューデリジェンス：</strong>法的文書の自動チェック、土地利用権確認、許可証追跡</li>
+            <li><strong>承請業者マーケット：</strong>入札管理、見積比較、マイルストーン払い</li>
+            <li><strong>ESGダッシュボード：</strong>リアルタイム炭素追跡、DPPA電力調達、RE100進捗モニタリング</li>
+            <li><strong>多言語対応：</strong>ベトナム語、英語、中国語、日本語、韓国語の完全UI</li>
+          </ul>
+
+          <h2>タイムラインとロールアウト</h2>
+          <p>段階的なロールアウトは、2026年5月に既存のHOUSELINKエンタープライズクライアント向けのクローズドベータから始まります。一般提供は2026年第3四半期に予定されており、ハノイの北部工業団地投資ネットワーキングフォーラムで公開ローンチイベントが計画されています。</p>
+
+          <blockquote>「この新システムは、お客様との2年間の緊密な協業の成果です。スピード、透明性、スケールのために構築しました。」 — HOUSELINKプロダクトチーム</blockquote>
+
+          <h2>市場にとっての重要性</h2>
+          <p>ベトナムの工業用不動産市場は前例のない需要を経験しており、2026年第1四半期のFDI流入額は67.4億ドルに達し、前年同期比34%増となっています。新HOUSELINKプラットフォームは、意思決定サイクルを数週間から数日に短縮するために特別に構築されています。</p>
+
+          <h2>早期アクセスプログラムへの参加方法</h2>
+          <p>既存のHOUSELINKクライアントは、2026年5月1日からアカウントダッシュボードから直接早期アクセスに登録できます。ベータプログラムに興味のある新規クライアントは、お問い合わせページからリクエストを送信できます。</p>
+        </div>
+
+        <div class="art-tags">
+          <span class="art-tag">HOUSELINKニュース</span>
+          <span class="art-tag">プラットフォーム更新</span>
+          <span class="art-tag">Q3/2026</span>
+          <span class="art-tag">AIマッチング</span>
+          <span class="art-tag">製品リリース</span>
+        </div>
+        <div class="art-share">
+          <span>シェア：</span>
+          <a href="https://www.linkedin.com/company/houselink-jsc" class="share-btn" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a href="https://www.facebook.com/houselink.com.vn" class="share-btn" target="_blank" rel="noopener noreferrer">Facebook</a>
+          <a href="https://www.youtube.com/@houselink5096" class="share-btn" target="_blank" rel="noopener noreferrer">YouTube</a>
+        </div>
+      </div>
+
+      <div class="art-sidebar">
+        <div class="sidebar-card">
+          <div class="sc-title">著者</div>
+          <div class="author-row">
+            <div class="author-av">HL</div>
+            <div><div class="author-name">HOUSELINK Team</div><div class="author-role">製品＆コミュニケーション</div></div>
+          </div>
+        </div>
+        <div class="sidebar-cta">
+          <h4>早期アクセスをリクエスト</h4>
+          <p>新HOUSELINKプラットフォームをいち早く体験する。</p>
+          <a href="/ja/contact/">お問い合わせ →</a>
+        </div>
+        <div class="sidebar-card">
+          <div class="sc-title">関連記事</div>
+          <div class="rel-item">
+            <img class="rel-img" src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=200&q=70" alt="">
+            <div><div class="rel-ttl"><a href="/ja/news/fdi/">2026年Q1ベトナムFDI 67.4億ドル</a></div><div class="rel-date">2026年4月</div></div>
+          </div>
+          <div class="rel-item">
+            <img class="rel-img" src="https://images.unsplash.com/photo-1560439514-4e9645039924?w=200&q=70" alt="">
+            <div><div class="rel-ttl"><a href="/ja/news/esg-forum/">ビンズオンESGフォーラム 2026年3月31日</a></div><div class="rel-date">2026年3月</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="hl-chrome-footer"></div>
+  <script src="../../../landing-chrome.js" defer></script>
+</body>
+</html>

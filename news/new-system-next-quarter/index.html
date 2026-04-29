@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HOUSELINK Releases New System in the Next Quarter – HOUSELINK</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --navy: #00466E;
+  --navy-deep: #003457;
+  --navy-mid: #005585;
+  --navy-light: #006BA0;
+  --green: #2D8B48;
+  --green-light: #3AAD5C;
+  --green-pale: #EBF7EF;
+  --green-mid: #1E7038;
+  --teal: #1E6464;
+  --teal-light: #2A8080;
+  --white: #FFFFFF;
+  --off-white: #F4F6F8;
+  --gray-50: #EEF1F4;
+  --gray-100: #DDE3E8;
+  --gray-200: #BEC8D0;
+  --gray-400: #7E8F9A;
+  --gray-600: #4A5A65;
+  --text: #0D1F2D;
+  --font-main: 'Inter', sans-serif;
+  --font-serif: var(--font-main);
+  --header-h: 72px;
+  --max-w: 1240px;
+}
+html { scroll-behavior: smooth; }
+body { font-family: var(--font-main); color: var(--text); background: var(--white); overflow-x: hidden; line-height: 1.7; }
+.lang-switcher { display:flex; align-items:center; gap:4px; margin-right:4px; }
+.lang-btn { font-size:12px; font-weight:700; letter-spacing:0.06em; color:var(--gray-400); background:none; border:none; cursor:pointer; padding:4px 6px; border-radius:5px; transition:all 0.15s; font-family:var(--font-main); }
+.lang-btn.active { color:var(--navy); background:var(--gray-50); }
+.lang-btn:hover:not(.active) { color:var(--navy); }
+.lang-sep { font-size:11px; color:var(--gray-200); }
+.pg-hero{background:linear-gradient(150deg,var(--navy-deep) 0%,var(--navy) 100%);padding:96px 0 64px;position:relative;overflow:hidden;}
+.pg-hero::after{content:'';position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.03) 1px,transparent 1px);background-size:28px 28px;pointer-events:none;}
+.pg-inner{max-width:var(--max-w);margin:0 auto;padding:0 40px;position:relative;z-index:1;}
+.pg-eye{font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#7ED49A;margin-bottom:14px;}
+.pg-h1{font-family:var(--font-serif);font-size:clamp(26px,3.2vw,44px);font-weight:600;color:#fff;line-height:1.2;letter-spacing:-.02em;margin-bottom:16px;}
+.pg-h1 em{color:#7ED49A;font-style:normal;}
+.pg-sub{font-size:15.5px;color:rgba(255,255,255,.62);line-height:1.75;max-width:640px;}
+.sec{padding:72px 0;}.sec .si{max-width:var(--max-w);margin:0 auto;padding:0 40px;}
+.si{max-width:var(--max-w);margin:0 auto;padding:0 40px;}
+.bc{display:flex;align-items:center;gap:8px;font-size:12.5px;color:rgba(255,255,255,.5);margin-bottom:16px;}
+.bc a{color:rgba(255,255,255,.55);text-decoration:none;}.bc a:hover{color:#7ED49A;}
+.bc span{color:rgba(255,255,255,.25);}
+.art-layout{display:grid;grid-template-columns:1fr 320px;gap:52px;align-items:start;}
+.art-cover{width:100%;border-radius:16px;margin-bottom:36px;display:block;max-height:480px;object-fit:cover;}
+.art-meta-bar{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:24px;padding-bottom:20px;border-bottom:1px solid var(--gray-100);}
+.art-cat{font-size:10.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--green);background:var(--green-pale);padding:4px 12px;border-radius:100px;}
+.art-date{font-size:13px;color:var(--gray-400);}
+.art-read{font-size:13px;color:var(--gray-400);}
+.art-sep{width:3px;height:3px;border-radius:50%;background:var(--gray-200);}
+.art-h1{font-family:var(--font-serif);font-size:clamp(22px,2.8vw,38px);font-weight:600;color:var(--navy);line-height:1.25;letter-spacing:-.02em;margin-bottom:18px;}
+.art-lead{font-size:17px;color:var(--gray-600);line-height:1.78;font-weight:500;margin-bottom:28px;padding:20px 22px;background:var(--off-white);border-left:4px solid var(--green);border-radius:0 8px 8px 0;}
+.art-content p{font-size:15.5px;color:var(--gray-600);line-height:1.82;margin-bottom:20px;}
+.art-content h2{font-family:var(--font-serif);font-size:22px;font-weight:600;color:var(--navy);margin:36px 0 14px;}
+.art-content h3{font-size:17px;font-weight:700;color:var(--navy);margin:28px 0 10px;}
+.art-content ul{margin:0 0 20px 20px;display:flex;flex-direction:column;gap:7px;}
+.art-content li{font-size:15px;color:var(--gray-600);line-height:1.72;}
+.art-content .highlight{background:var(--navy);color:#fff;padding:20px 24px;border-radius:12px;margin:28px 0;font-size:15px;line-height:1.7;}
+.art-content .highlight em{color:#7ED49A;font-style:normal;}
+.art-content blockquote{border-left:4px solid var(--green);padding:16px 20px;margin:24px 0;background:var(--off-white);border-radius:0 10px 10px 0;font-size:15.5px;color:var(--navy);font-style:italic;line-height:1.7;}
+.art-content .data-box{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:28px 0;}
+.art-content .db-item{background:var(--navy);border-radius:12px;padding:20px 16px;text-align:center;}
+.art-content .db-n{font-family:var(--font-serif);font-size:30px;font-weight:600;color:#7ED49A;line-height:1;}
+.art-content .db-l{font-size:12px;color:rgba(255,255,255,.5);margin-top:5px;line-height:1.4;}
+.art-tags{display:flex;flex-wrap:wrap;gap:8px;margin:32px 0;padding-top:24px;border-top:1px solid var(--gray-100);}
+.art-tag{font-size:12px;font-weight:600;color:var(--navy);background:var(--gray-50);padding:5px 14px;border-radius:100px;border:1px solid var(--gray-100);}
+.art-share{display:flex;align-items:center;gap:12px;margin-top:8px;}
+.art-share span{font-size:13px;font-weight:600;color:var(--gray-600);}
+.share-btn{background:var(--navy);color:#fff;font-size:12px;font-weight:600;padding:7px 14px;border-radius:7px;text-decoration:none;transition:background .2s;}
+.share-btn:hover{background:var(--green);}
+.art-sidebar{}
+.sidebar-card{background:var(--white);border:1px solid var(--gray-100);border-radius:14px;padding:24px 20px;margin-bottom:24px;}
+.sc-title{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--green);margin-bottom:16px;}
+.author-row{display:flex;gap:14px;align-items:center;margin-bottom:14px;}
+.author-av{width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,var(--navy),#005585);display:flex;align-items:center;justify-content:center;font-family:var(--font-serif);font-size:18px;font-weight:600;color:#7ED49A;flex-shrink:0;}
+.author-name{font-size:14px;font-weight:700;color:var(--navy);}
+.author-role{font-size:12px;color:var(--gray-400);margin-top:2px;}
+.rel-item{display:flex;gap:12px;align-items:flex-start;padding:12px 0;border-bottom:1px solid var(--gray-50);}
+.rel-item:last-child{border-bottom:none;padding-bottom:0;}
+.rel-img{width:60px;height:48px;border-radius:7px;object-fit:cover;flex-shrink:0;}
+.rel-ttl{font-size:13px;font-weight:600;color:var(--navy);line-height:1.35;}
+.rel-ttl a{color:inherit;text-decoration:none;}
+.rel-ttl a:hover{color:var(--green);}
+.rel-date{font-size:11px;color:var(--gray-400);margin-top:3px;}
+.sidebar-cta{background:var(--navy);border-radius:14px;padding:24px 20px;margin-bottom:24px;text-align:center;}
+.sidebar-cta h4{font-family:var(--font-serif);font-size:17px;color:#fff;margin-bottom:8px;}
+.sidebar-cta p{font-size:13px;color:rgba(255,255,255,.55);line-height:1.55;margin-bottom:16px;}
+.sidebar-cta a{display:block;background:var(--green);color:#fff;font-size:13px;font-weight:700;padding:11px;border-radius:8px;text-decoration:none;}
+@media(max-width:960px){.art-layout{grid-template-columns:1fr;}.art-content .data-box{grid-template-columns:1fr 1fr;}.pg-inner{padding:0 20px;}.si{padding:0 20px;}}
+</style>
+  <link rel="stylesheet" href="../../landing-chrome.css">
+</head>
+<body class="hl-with-fixed-header" data-hl-page="news-new-system">
+<div id="hl-chrome-header"></div>
+
+<section class="pg-hero" style="padding-bottom:52px;">
+  <div class="pg-inner">
+    <div class="bc">
+      <a href="/">Home</a><span>›</span>
+      <a href="/news/">News &amp; Events</a><span>›</span>
+      <span style="color:rgba(255,255,255,.7);">New System Launch</span>
+    </div>
+    <div class="pg-eye">Tin HOUSELINK · April 2026</div>
+    <h1 class="pg-h1" style="max-width:780px;">HOUSELINK Releases <em>New System</em><br>in the Next Quarter</h1>
+    <p class="pg-sub">A next-generation platform upgrade set for Q3/2026 — faster matching, smarter workflows, and deeper integrations for Vietnam's industrial ecosystem.</p>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="si">
+    <div class="art-layout">
+      <div class="art-body">
+        <img class="art-cover" src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=1100&q=80&auto=format&fit=crop" alt="HOUSELINK New System">
+        <div class="art-meta-bar">
+          <span class="art-cat">Tin HOUSELINK</span>
+          <span class="art-sep"></span>
+          <span class="art-date">April 2026</span>
+          <span class="art-sep"></span>
+          <span class="art-read">4 min read</span>
+          <span class="art-sep"></span>
+          <span class="art-date">Source: HOUSELINK Product Team</span>
+        </div>
+
+        <div class="art-lead">HOUSELINK is preparing to launch its next-generation platform in Q3/2026 — a comprehensive upgrade designed to transform how FDI investors, industrial park operators, and contractors connect, transact, and collaborate across Vietnam's industrial ecosystem.</div>
+
+        <div class="art-content">
+          <div class="data-box">
+            <div class="db-item"><div class="db-n">3×</div><div class="db-l">Faster site-matching with AI engine</div></div>
+            <div class="db-item"><div class="db-n">50+</div><div class="db-l">Government database integrations</div></div>
+            <div class="db-item"><div class="db-n">Q3/2026</div><div class="db-l">Planned launch window</div></div>
+          </div>
+
+          <h2>What's New in the System</h2>
+          <p>The new HOUSELINK platform introduces a redesigned investor dashboard that consolidates project tracking, document management, and real-time communication into a single unified workspace. At the core is an AI-powered site-matching engine that analyses over 200 data points — including land availability, logistics infrastructure, labour costs, and ESG readiness — to surface the most relevant industrial park options for each investor profile.</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. The contractor marketplace has been rebuilt from the ground up, featuring verified supplier profiles, bid management tools, and an integrated payment escrow system.</p>
+
+          <h2>Key Features at a Glance</h2>
+          <ul>
+            <li><strong>AI Site Matching:</strong> Instant recommendations across 300+ industrial parks and zones in Vietnam</li>
+            <li><strong>Digital Due Diligence:</strong> Automated legal document checks, land-use verification, and permit tracking</li>
+            <li><strong>Contractor Marketplace:</strong> Tender management, bid comparison, and milestone-based payments</li>
+            <li><strong>ESG Dashboard:</strong> Real-time carbon tracking, DPPA energy procurement, and RE100 progress monitoring</li>
+            <li><strong>Multi-language Support:</strong> Full UI in Vietnamese, English, Chinese, Japanese, and Korean</li>
+          </ul>
+
+          <h2>Timeline and Rollout</h2>
+          <p>The phased rollout begins with a closed beta for existing HOUSELINK enterprise clients in May 2026. General availability is scheduled for Q3/2026, with a public launch event planned at the Northern IP Investment Networking Forum in Hanoi. All current subscribers will be migrated automatically with zero downtime during the transition window.</p>
+          <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. The legacy system will remain fully operational in parallel for 90 days post-launch to ensure business continuity for all clients.</p>
+
+          <blockquote>"This new system is the result of two years of close collaboration with our clients. We built it for speed, transparency, and scale." — HOUSELINK Product Team</blockquote>
+
+          <h2>Why This Matters for the Market</h2>
+          <p>Vietnam's industrial real estate sector is experiencing unprecedented demand, with Q1/2026 FDI inflows reaching USD 6.74 billion — up 34% year on year. The speed and accuracy of investment facilitation is now a critical differentiator. The new HOUSELINK platform is purpose-built to compress decision cycles from weeks to days, giving both investors and industrial park operators a significant competitive advantage in a fast-moving market.</p>
+
+          <h2>How to Join the Early Access Programme</h2>
+          <p>Existing HOUSELINK clients can register for early access directly from their account dashboard starting 1 May 2026. New clients interested in the beta programme can submit a request via the contact page. Priority will be given to FDI investors with active site-search mandates and industrial park operators with live listings on the platform.</p>
+        </div>
+
+        <div class="art-tags">
+          <span class="art-tag">Tin HOUSELINK</span>
+          <span class="art-tag">Platform Update</span>
+          <span class="art-tag">Q3/2026</span>
+          <span class="art-tag">AI Matching</span>
+          <span class="art-tag">Product Launch</span>
+        </div>
+        <div class="art-share">
+          <span>Share:</span>
+          <a href="https://www.linkedin.com/company/houselink-jsc" class="share-btn" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a href="https://www.facebook.com/houselink.com.vn" class="share-btn" target="_blank" rel="noopener noreferrer">Facebook</a>
+          <a href="https://www.youtube.com/@houselink5096" class="share-btn" target="_blank" rel="noopener noreferrer">YouTube</a>
+        </div>
+      </div>
+
+      <div class="art-sidebar">
+        <div class="sidebar-card">
+          <div class="sc-title">Author</div>
+          <div class="author-row">
+            <div class="author-av">HL</div>
+            <div><div class="author-name">HOUSELINK Team</div><div class="author-role">Product & Communications</div></div>
+          </div>
+        </div>
+        <div class="sidebar-cta">
+          <h4>Request Early Access</h4>
+          <p>Be among the first to experience the new HOUSELINK platform.</p>
+          <a href="/contact/">Contact us →</a>
+        </div>
+        <div class="sidebar-card">
+          <div class="sc-title">Related articles</div>
+          <div class="rel-item">
+            <img class="rel-img" src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=200&q=70" alt="">
+            <div><div class="rel-ttl"><a href="/news/fdi/">Vietnam FDI Q1/2026: USD 6.74 bn — up 34%</a></div><div class="rel-date">Apr 2026</div></div>
+          </div>
+          <div class="rel-item">
+            <img class="rel-img" src="https://images.unsplash.com/photo-1560439514-4e9645039924?w=200&q=70" alt="">
+            <div><div class="rel-ttl"><a href="/news/esg-forum/">Binh Duong ESG Forum, 31 Mar 2026</a></div><div class="rel-date">Mar 2026</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="hl-chrome-footer"></div>
+  <script src="../../landing-chrome.js" defer></script>
+</body>
+</html>
