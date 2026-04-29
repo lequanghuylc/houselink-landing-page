@@ -810,6 +810,35 @@ footer { background: var(--navy); color: rgba(255,255,255,0.55); padding: 72px 0
 }
 .scm-btn:hover { background: #2a7d3f; }
 
+/* ── CONSULT FORM MODAL ── */
+.consult-form-modal {
+  position: fixed; inset: 0; z-index: 9999;
+  display: none; align-items: center; justify-content: center;
+  background: rgba(15, 23, 42, .6);
+  padding: 20px;
+}
+.consult-form-modal.open { display: flex; }
+.consult-form-dialog {
+  width: min(860px, 100%);
+  height: min(88vh, 760px);
+  background: #fff; border-radius: 12px; overflow: hidden;
+  box-shadow: 0 20px 50px rgba(0,0,0,.3);
+}
+.consult-form-header {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 12px 14px; border-bottom: 1px solid var(--gray-100);
+}
+.consult-form-title { font-size: 14px; font-weight: 700; color: var(--navy); }
+.consult-form-close {
+  border: 0; background: transparent; cursor: pointer;
+  width: 30px; height: 30px; border-radius: 6px;
+  color: var(--gray-600); font-size: 20px; line-height: 1;
+}
+.consult-form-close:hover { background: var(--off-white); }
+.consult-form-frame {
+  width: 100%; height: calc(100% - 55px); border: 0;
+}
+
 /* ── FAQ CONTENT ── */
 .faq-content { min-width: 0; }
 .faq-section { margin-bottom: 56px; }
@@ -967,10 +996,11 @@ footer { background: var(--navy); color: rgba(255,255,255,0.55); padding: 72px 0
       <a href="#cat-contractor"  class="faq-cat" onclick="setActive(this)"><span class="faq-cat-ico">🔍</span>Nhà thầu & NCC tham gia<span class="faq-cat-count">5</span></a>
       <a href="#cat-pricing"     class="faq-cat" onclick="setActive(this)"><span class="faq-cat-ico">💰</span>Phí dịch vụ & Quy trình<span class="faq-cat-count">5</span></a>
     </div>
-    <div class="sidebar-cta-mini">
-      <div class="scm-title">Không tìm được câu trả lời?</div>
-      <div class="scm-sub">Chuyên gia HOUSELINK sẵn sàng hỗ trợ bạn trực tiếp.</div>
-      <a href="/vi/contact/" class="scm-btn">Liên hệ ngay →</a>
+    <div style="text-align:center;padding:28px 20px;background:var(--off-white);border-radius:14px;">
+      <div style="font-size:28px;margin-bottom:12px;">📅</div>
+      <div style="font-size:15px;font-weight:700;color:var(--navy);margin-bottom:6px;">Đặt lịch tư vấn</div>
+      <div style="font-size:13px;color:var(--gray-600);margin-bottom:14px;">30 phút thảo luận về dự án của bạn với chuyên gia HOUSELINK.</div>
+      <a href="#" id="openConsultFormBtn" style="display:inline-block;background:var(--navy);color:#fff;font-size:13px;font-weight:700;padding:10px 22px;border-radius:8px;">Chọn khung giờ →</a>
     </div>
   </aside>
 
@@ -1838,6 +1868,22 @@ footer { background: var(--navy); color: rgba(255,255,255,0.55); padding: 72px 0
   </main>
 </div>
 
+<div id="consultFormModal" class="consult-form-modal" aria-hidden="true">
+  <div class="consult-form-dialog">
+    <div class="consult-form-header">
+      <div class="consult-form-title">Đặt lịch tư vấn với HOUSELINK</div>
+      <button type="button" id="closeConsultFormBtn" class="consult-form-close" aria-label="Đóng form">×</button>
+    </div>
+    <iframe
+      id="consultFormFrame"
+      class="consult-form-frame"
+      src="https://docs.google.com/forms/d/e/REPLACE_WITH_YOUR_FORM_ID/viewform?embedded=true"
+      loading="lazy"
+      title="Google Form đặt lịch tư vấn">
+    </iframe>
+  </div>
+</div>
+
 
 <!-- ══ CTA SECTION ══ -->
 <section style="background:linear-gradient(135deg,var(--navy-deep) 0%,var(--navy) 100%);padding:72px 0;text-align:center;position:relative;overflow:hidden;">
@@ -1936,6 +1982,33 @@ window.addEventListener('scroll', () => {
 document.querySelectorAll('.faq-section').forEach(sec => {
   const first = sec.querySelector('.faq-item');
   if (first) first.classList.add('open');
+});
+
+// ── CONSULT FORM MODAL ──
+const consultModal = document.getElementById('consultFormModal');
+const openConsultFormBtn = document.getElementById('openConsultFormBtn');
+const closeConsultFormBtn = document.getElementById('closeConsultFormBtn');
+
+function openConsultForm(event) {
+  if (event) event.preventDefault();
+  consultModal.classList.add('open');
+  consultModal.setAttribute('aria-hidden', 'false');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeConsultForm() {
+  consultModal.classList.remove('open');
+  consultModal.setAttribute('aria-hidden', 'true');
+  document.body.style.overflow = '';
+}
+
+openConsultFormBtn?.addEventListener('click', openConsultForm);
+closeConsultFormBtn?.addEventListener('click', closeConsultForm);
+consultModal?.addEventListener('click', e => {
+  if (e.target === consultModal) closeConsultForm();
+});
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape' && consultModal?.classList.contains('open')) closeConsultForm();
 });
 </script>
 </body>
