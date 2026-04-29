@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Đăng ký & Hợp đồng Dịch vụ – HOUSELINK</title>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --navy:#00466E;--navy-deep:#003457;--navy-mid:#005585;
+  --green:#2D8B48;--green-light:#3AAD5C;--green-pale:#EBF7EF;
+  --white:#FFFFFF;--off-white:#F4F6F8;
+  --gray-50:#EEF1F4;--gray-100:#DDE3E8;--gray-200:#BEC8D0;
+  --gray-400:#7E8F9A;--gray-600:#4A5A65;--text:#0D1F2D;
+  --amber:#D4860B;--amber-pale:#FEF3E0;
+  --red:#DC2626;--red-pale:#FEF2F2;
+  --font-main:'Be Vietnam Pro',sans-serif;
+  --font-serif:'DM Serif Display',serif;
+}
+body{font-family:var(--font-main);color:var(--text);background:var(--off-white);line-height:1.7;}
+a{text-decoration:none;color:inherit;}
+button{cursor:pointer;font-family:var(--font-main);}
+
+/* TOPBAR */
+.topbar{background:var(--navy-deep);padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.08);position:relative;}
+.topbar-inner{max-width:1100px;margin:0 auto;padding:0 32px;display:flex;align-items:center;justify-content:space-between;}
+.back-link{display:flex;align-items:center;gap:8px;color:rgba(255,255,255,0.6);font-size:13px;font-weight:500;transition:color .2s;}
+.back-link:hover{color:#fff;}
+.topbar-brand{display:flex;align-items:center;gap:8px;}
+.tb-icon{width:28px;height:28px;border-radius:7px;background:rgba(255,255,255,0.08);border:1.5px solid rgba(45,139,72,0.5);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:900;color:var(--green);}
+.tb-name{font-size:13px;font-weight:800;color:rgba(255,255,255,0.85);letter-spacing:.06em;text-transform:uppercase;}
+
+/* STEPS HEADER */
+.steps-bar{background:var(--white);border-bottom:1px solid var(--gray-100);padding:16px 0;}
+.steps-inner{max-width:1100px;margin:0 auto;padding:0 32px;display:flex;align-items:center;gap:0;}
+.step-item{display:flex;align-items:center;gap:10px;flex:1;}
+.step-item:not(:last-child)::after{content:'';flex:1;height:2px;background:var(--gray-100);margin:0 16px;}
+.step-item.active:not(:last-child)::after{background:var(--green);}
+.step-num{width:32px;height:32px;border-radius:50%;border:2px solid var(--gray-200);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:var(--gray-400);flex-shrink:0;transition:all .3s;}
+.step-item.active .step-num{background:var(--green);border-color:var(--green);color:#fff;}
+.step-item.done .step-num{background:var(--green);border-color:var(--green);color:#fff;}
+.step-label{font-size:13px;font-weight:600;color:var(--gray-400);white-space:nowrap;}
+.step-item.active .step-label{color:var(--navy);}
+.step-item.done .step-label{color:var(--green);}
+
+/* MAIN LAYOUT */
+.main-wrap{max-width:1100px;margin:0 auto;padding:32px 32px;display:grid;grid-template-columns:1fr 360px;gap:28px;align-items:start;}
+
+/* FORM CARD */
+.form-card{background:var(--white);border:1px solid var(--gray-100);border-radius:16px;padding:36px 36px;}
+.form-section-title{font-family:var(--font-serif);font-size:20px;font-weight:600;color:var(--navy);margin-bottom:6px;}
+.form-section-sub{font-size:13.5px;color:var(--gray-400);margin-bottom:24px;}
+.form-grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.form-group{margin-bottom:18px;}
+.form-group.full{grid-column:1/-1;}
+.form-label{display:block;font-size:13px;font-weight:600;color:var(--navy);margin-bottom:6px;}
+.form-label span{color:var(--red);margin-left:2px;}
+.form-input{width:100%;padding:11px 14px;border:1.5px solid var(--gray-100);border-radius:9px;font-size:14px;font-family:var(--font-main);color:var(--text);background:var(--white);transition:border-color .2s,box-shadow .2s;outline:none;}
+.form-input:focus{border-color:var(--green);box-shadow:0 0 0 3px rgba(45,139,72,.1);}
+.form-input.error{border-color:var(--red);}
+.form-select{width:100%;padding:11px 14px;border:1.5px solid var(--gray-100);border-radius:9px;font-size:14px;font-family:var(--font-main);color:var(--text);background:var(--white);outline:none;cursor:pointer;}
+.form-select:focus{border-color:var(--green);box-shadow:0 0 0 3px rgba(45,139,72,.1);}
+.field-hint{font-size:11.5px;color:var(--gray-400);margin-top:4px;}
+.field-error{font-size:11.5px;color:var(--red);margin-top:4px;display:none;}
+
+/* PLAN SELECTOR */
+.plan-selector{display:flex;flex-direction:column;gap:10px;margin-bottom:24px;}
+.plan-option{border:1.5px solid var(--gray-100);border-radius:11px;padding:16px 18px;cursor:pointer;transition:all .2s;display:flex;align-items:center;gap:14px;}
+.plan-option:hover{border-color:var(--green);background:var(--green-pale);}
+.plan-option.selected{border-color:var(--green);background:var(--green-pale);}
+.plan-option input[type=radio]{accent-color:var(--green);width:17px;height:17px;flex-shrink:0;}
+.po-info{flex:1;}
+.po-name{font-size:14.5px;font-weight:700;color:var(--navy);}
+.po-desc{font-size:12.5px;color:var(--gray-600);}
+.po-price{font-size:14px;font-weight:700;color:var(--green);text-align:right;flex-shrink:0;}
+.po-price small{display:block;font-size:11px;font-weight:500;color:var(--gray-400);}
+
+/* PAYMENT OPTIONS */
+.payment-methods{display:flex;gap:12px;margin-bottom:20px;flex-wrap:wrap;}
+.pay-method{flex:1;min-width:140px;border:1.5px solid var(--gray-100);border-radius:10px;padding:14px 16px;cursor:pointer;transition:all .2s;display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center;}
+.pay-method:hover{border-color:var(--green);}
+.pay-method.selected{border-color:var(--green);background:var(--green-pale);}
+.pay-method input{accent-color:var(--green);}
+.pay-icon{font-size:26px;}
+.pay-name{font-size:13px;font-weight:700;color:var(--navy);}
+.pay-note{font-size:11.5px;color:var(--gray-400);}
+
+/* BANK INFO */
+.bank-info{background:var(--off-white);border:1px solid var(--gray-100);border-radius:10px;padding:18px 20px;margin-bottom:20px;}
+.bank-row{display:flex;justify-content:space-between;align-items:center;padding:7px 0;border-bottom:1px solid var(--gray-100);font-size:13.5px;}
+.bank-row:last-child{border-bottom:none;}
+.bank-key{color:var(--gray-400);font-weight:500;}
+.bank-val{font-weight:700;color:var(--navy);text-align:right;}
+.copy-btn{background:none;border:1px solid var(--gray-200);border-radius:5px;padding:2px 8px;font-size:11px;color:var(--gray-600);cursor:pointer;margin-left:8px;transition:all .15s;}
+.copy-btn:hover{border-color:var(--green);color:var(--green);}
+
+/* DIGITAL SIGN */
+.sign-area{border:1.5px dashed var(--gray-200);border-radius:10px;padding:24px;text-align:center;margin-bottom:16px;cursor:pointer;transition:all .2s;}
+.sign-area:hover{border-color:var(--green);}
+.sign-area.signed{border-color:var(--green);border-style:solid;background:var(--green-pale);}
+.sig-canvas-wrap{display:none;}
+.sig-canvas-wrap.active{display:block;}
+#sig-canvas{border:1px solid var(--gray-200);border-radius:8px;background:#fff;touch-action:none;width:100%;height:140px;}
+
+/* BUTTONS */
+.btn-primary{background:var(--green);color:#fff;font-size:15px;font-weight:700;padding:14px 28px;border-radius:9px;border:none;width:100%;transition:background .2s;}
+.btn-primary:hover{background:var(--green-light);}
+.btn-primary:disabled{background:var(--gray-200);cursor:not-allowed;}
+.btn-secondary{background:var(--white);color:var(--navy);font-size:14px;font-weight:600;padding:12px 24px;border-radius:9px;border:1.5px solid var(--gray-100);transition:all .2s;}
+.btn-secondary:hover{border-color:var(--green);color:var(--green);}
+.btn-row{display:flex;gap:12px;margin-top:24px;}
+.btn-row .btn-primary{flex:2;}
+.btn-row .btn-secondary{flex:1;}
+
+/* SIDEBAR */
+.sidebar{position:sticky;top:80px;}
+.order-card{background:var(--white);border:1px solid var(--gray-100);border-radius:16px;padding:28px 26px;}
+.order-title{font-size:15px;font-weight:700;color:var(--navy);margin-bottom:18px;padding-bottom:14px;border-bottom:1px solid var(--gray-100);}
+.order-plan-name{font-family:var(--font-serif);font-size:18px;font-weight:600;color:var(--navy);margin-bottom:4px;}
+.order-plan-tag{display:inline-block;font-size:11px;font-weight:700;color:var(--green);background:var(--green-pale);border-radius:100px;padding:3px 10px;margin-bottom:14px;}
+.order-features{list-style:none;margin-bottom:20px;}
+.order-feat{font-size:13px;color:var(--gray-600);padding:5px 0;display:flex;gap:8px;align-items:flex-start;}
+.order-feat::before{content:'✓';color:var(--green);font-weight:700;flex-shrink:0;}
+.order-divider{height:1px;background:var(--gray-100);margin:16px 0;}
+.price-row{display:flex;justify-content:space-between;font-size:13.5px;margin-bottom:8px;}
+.price-row.total{font-size:15px;font-weight:700;color:var(--navy);border-top:1px solid var(--gray-100);padding-top:12px;margin-top:4px;}
+.price-row .label{color:var(--gray-600);}
+.price-row .val{font-weight:600;color:var(--navy);}
+.price-row.total .val{color:var(--green);}
+.validity-note{background:var(--amber-pale);border:1px solid rgba(212,134,11,.25);border-radius:8px;padding:12px 14px;font-size:12.5px;color:var(--amber);margin-top:14px;line-height:1.55;}
+.trust-badges{display:flex;flex-direction:column;gap:8px;margin-top:18px;}
+.trust-item{display:flex;align-items:center;gap:8px;font-size:12.5px;color:var(--gray-600);}
+.trust-item span{font-size:16px;}
+
+/* TABS */
+.tab-bar{display:flex;border-bottom:1px solid var(--gray-100);margin-bottom:24px;}
+.tab-btn{padding:10px 18px;font-size:13.5px;font-weight:600;color:var(--gray-400);background:none;border:none;border-bottom:2px solid transparent;cursor:pointer;margin-bottom:-1px;transition:all .2s;}
+.tab-btn.active{color:var(--navy);border-bottom-color:var(--green);}
+
+/* CONTRACT PREVIEW */
+.contract-preview{font-size:13px;line-height:1.8;color:var(--gray-600);}
+.contract-preview h4{font-size:13.5px;font-weight:700;color:var(--navy);margin:18px 0 6px;}
+.contract-preview p{margin-bottom:10px;}
+.contract-preview .party{background:var(--off-white);border-left:3px solid var(--green);padding:12px 16px;border-radius:0 8px 8px 0;margin-bottom:12px;}
+.contract-preview .clause{padding:8px 0;border-bottom:1px solid var(--gray-50);}
+.contract-preview .highlight{background:#FFFBEB;padding:2px 6px;border-radius:4px;font-weight:600;color:var(--amber);}
+
+/* SUCCESS SCREEN */
+.success-screen{display:none;text-align:center;padding:48px 32px;}
+.success-screen.show{display:block;}
+.success-icon{font-size:64px;margin-bottom:20px;}
+.success-title{font-family:var(--font-serif);font-size:28px;font-weight:600;color:var(--navy);margin-bottom:10px;}
+.success-sub{font-size:15px;color:var(--gray-600);max-width:420px;margin:0 auto 28px;}
+.success-actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
+.btn-download{background:var(--navy);color:#fff;font-size:14px;font-weight:700;padding:13px 24px;border-radius:9px;border:none;display:flex;align-items:center;gap:8px;transition:all .2s;}
+.btn-download:hover{background:var(--navy-mid);}
+.contract-number{background:var(--green-pale);border:1px solid rgba(45,139,72,.25);border-radius:10px;padding:14px 20px;display:inline-block;margin-bottom:24px;}
+.cn-label{font-size:12px;color:var(--gray-400);font-weight:500;margin-bottom:4px;}
+.cn-val{font-size:18px;font-weight:700;color:var(--green);font-family:var(--font-serif);}
+
+@media print{
+  .topbar,.steps-bar,.sidebar,.btn-row,.tab-bar,button,.step-item:not(:last-child)::after{display:none!important;}
+  .main-wrap{grid-template-columns:1fr;padding:0;}
+  .form-card{border:none;padding:0;}
+  body{background:white;}
+}
+@media(max-width:900px){
+  .main-wrap{grid-template-columns:1fr;}
+  .sidebar{position:static;}
+  .steps-inner{gap:8px;}
+  .step-label{display:none;}
+  .form-grid2{grid-template-columns:1fr;}
+}
+@media(max-width:600px){
+  .main-wrap{padding:16px 16px;}
+  .form-card{padding:24px 20px;}
+}
+</style>
+  <link rel="stylesheet" href="../../../../landing-chrome.css">
+  <link rel="stylesheet" href="../../../../css/hl-find-project-flow.css">
+</head>
+<body class="hl-with-fixed-header" data-hl-page="services-find-project-contract">
+
+<div id="hl-chrome-header"></div>
+
+
+<!-- STEPS -->
+<div class="steps-bar">
+  <div class="steps-inner">
+    <div class="step-item active" id="step-1-indicator">
+      <div class="step-num">1</div>
+      <span class="step-label">Chọn gói & Thông tin</span>
+    </div>
+    <div class="step-item" id="step-2-indicator">
+      <div class="step-num">2</div>
+      <span class="step-label">Xem hợp đồng</span>
+    </div>
+    <div class="step-item" id="step-3-indicator">
+      <div class="step-num">3</div>
+      <span class="step-label">Ký & Thanh toán</span>
+    </div>
+    <div class="step-item" id="step-4-indicator">
+      <div class="step-num">4</div>
+      <span class="step-label">Hoàn tất</span>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN -->
+<div class="main-wrap" id="main-wrap">
+
+  <!-- LEFT FORM AREA -->
+  <div>
+
+    <!-- STEP 1: INFO + PLAN -->
+    <div id="step-1" class="form-card">
+      <div class="form-section-title">Thông tin doanh nghiệp</div>
+      <div class="form-section-sub">Thông tin sẽ được điền tự động vào hợp đồng. Vui lòng nhập chính xác theo giấy phép kinh doanh.</div>
+
+      <div class="form-grid2">
+        <div class="form-group full">
+          <label class="form-label">Tên công ty (đầy đủ) <span>*</span></label>
+          <input class="form-input" id="f-company" type="text" placeholder="CÔNG TY CỔ PHẦN / TNHH ...">
+          <div class="field-error" id="e-company">Vui lòng nhập tên công ty</div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Mã số thuế <span>*</span></label>
+          <input class="form-input" id="f-tax" type="text" placeholder="0123456789">
+          <div class="field-error" id="e-tax">Vui lòng nhập MST</div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Số điện thoại <span>*</span></label>
+          <input class="form-input" id="f-phone" type="tel" placeholder="024 xxxx xxxx">
+          <div class="field-error" id="e-phone">Vui lòng nhập số điện thoại</div>
+        </div>
+        <div class="form-group full">
+          <label class="form-label">Địa chỉ trụ sở <span>*</span></label>
+          <input class="form-input" id="f-address" type="text" placeholder="Số nhà, đường, phường, quận/huyện, tỉnh/thành phố">
+          <div class="field-error" id="e-address">Vui lòng nhập địa chỉ</div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Họ và tên người đại diện <span>*</span></label>
+          <input class="form-input" id="f-rep-name" type="text" placeholder="Nguyễn Văn A">
+          <div class="field-error" id="e-rep-name">Vui lòng nhập tên người đại diện</div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Chức vụ <span>*</span></label>
+          <input class="form-input" id="f-rep-title" type="text" placeholder="Tổng Giám Đốc / Giám Đốc">
+          <div class="field-error" id="e-rep-title">Vui lòng nhập chức vụ</div>
+        </div>
+        <div class="form-group full">
+          <label class="form-label">Email nhận hợp đồng <span>*</span></label>
+          <input class="form-input" id="f-email" type="email" placeholder="name@company.com">
+          <div class="field-error" id="e-email">Vui lòng nhập email hợp lệ</div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Lĩnh vực kinh doanh <span>*</span></label>
+          <input class="form-input" id="f-industry" type="text" placeholder="Xây dựng công nghiệp / Cơ điện...">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Tỉnh / Thành phố hoạt động chính</label>
+          <input class="form-input" id="f-province" type="text" placeholder="Hà Nội / TP. HCM / ...">
+        </div>
+      </div>
+
+      <div style="height:1px;background:var(--gray-100);margin:24px 0;"></div>
+      <div class="form-section-title">Chọn gói dịch vụ</div>
+      <div class="form-section-sub" style="margin-bottom:20px;">Tất cả gói đều có hiệu lực 12 tháng · Đã bao gồm 8% VAT</div>
+
+      <div class="plan-selector" id="plan-selector">
+        <label class="plan-option" onclick="selectPlan(this,'starter','$899/năm','≈23,5 triệu VND')">
+          <input type="radio" name="plan" value="starter">
+          <div class="po-info">
+            <div class="po-name">🔍 Starter — Pro-Contractor Basic</div>
+            <div class="po-desc">1 tài khoản · Tra cứu dự án FDI/DDI · Thông báo dự án mới</div>
+          </div>
+          <div class="po-price">$899/năm<small>≈ 23,5 tr VND</small></div>
+        </label>
+        <label class="plan-option selected" onclick="selectPlan(this,'standard','$1.699/năm','≈44,3 triệu VND')">
+          <input type="radio" name="plan" value="standard" checked>
+          <div class="po-info">
+            <div class="po-name">🚀 Standard — Pro-Contractor Plus <span style="background:var(--green);color:#fff;font-size:10px;padding:2px 7px;border-radius:100px;margin-left:4px;">⭐ Phổ biến</span></div>
+            <div class="po-desc">2 tài khoản · Live chat hỗ trợ · Thông tin liên hệ người quyết định · Verified badge</div>
+          </div>
+          <div class="po-price">$1.699/năm<small>≈ 44,3 tr VND</small></div>
+        </label>
+        <label class="plan-option" onclick="selectPlan(this,'professional','$2.499/năm','≈65,1 triệu VND')">
+          <input type="radio" name="plan" value="professional">
+          <div class="po-info">
+            <div class="po-name">📢 Professional — Pro-Contractor Pro</div>
+            <div class="po-desc">Tất cả Standard + Banner VietnamConstruction · 4 bài PR · 12 social posts</div>
+          </div>
+          <div class="po-price">$2.499/năm<small>≈ 65,1 tr VND</small></div>
+        </label>
+        <label class="plan-option" onclick="selectPlan(this,'premium','$3.999/năm','≈104,1 triệu VND')">
+          <input type="radio" name="plan" value="premium">
+          <div class="po-info">
+            <div class="po-name">🏆 Premium — Pro-Contractor Premium</div>
+            <div class="po-desc">Tất cả Professional + Email Marketing 80.000 · Báo cáo thị trường · Account Manager riêng</div>
+          </div>
+          <div class="po-price">$3.999/năm<small>≈ 104,1 tr VND</small></div>
+        </label>
+      </div>
+
+      <button class="btn-primary" onclick="goStep2()">Tiếp tục → Xem hợp đồng</button>
+    </div><!-- /step-1 -->
+
+    <!-- STEP 2: CONTRACT PREVIEW -->
+    <div id="step-2" class="form-card" style="display:none;">
+      <div class="form-section-title">Xem trước hợp đồng</div>
+      <div class="form-section-sub">Đọc kỹ điều khoản trước khi ký. Hợp đồng sẽ gửi bản PDF về email sau khi hoàn tất.</div>
+
+      <div class="tab-bar">
+        <button class="tab-btn active" onclick="switchTab(this,'contract-vi')">🇻🇳 Tiếng Việt</button>
+        <button class="tab-btn" onclick="switchTab(this,'contract-en')">🇬🇧 English</button>
+      </div>
+
+      <!-- VN CONTRACT -->
+      <div id="contract-vi" class="contract-preview">
+        <div style="text-align:center;margin-bottom:24px;padding-bottom:20px;border-bottom:2px solid var(--gray-100);">
+          <div style="font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gray-400);margin-bottom:4px;">CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM</div>
+          <div style="font-size:11px;font-weight:600;color:var(--gray-600);margin-bottom:16px;">Độc lập – Tự do – Hạnh phúc</div>
+          <div style="font-family:var(--font-serif);font-size:18px;font-weight:600;color:var(--navy);">HỢP ĐỒNG DỊCH VỤ TƯ VẤN KINH DOANH</div>
+          <div style="font-size:13px;color:var(--gray-600);margin-top:4px;">Số: <span id="c-contract-no" class="highlight">HL-2026-XXXX</span></div>
+        </div>
+        <p>Hợp đồng này được lập vào ngày <span id="c-date" class="highlight"></span>, tại Hà Nội, giữa:</p>
+        <h4>BÊN B (Bên cung cấp dịch vụ):</h4>
+        <div class="party">
+          <b>CÔNG TY CỔ PHẦN HOUSELINK</b><br>
+          Địa chỉ: Tầng 9, Tòa nhà Sannam, Đường Duy Tân, Phường Cầu Giấy, Hà Nội<br>
+          Điện thoại: 024 3795 5620 · MST: 0104585924<br>
+          Đại diện: <b>Ông Nguyễn Thành Long</b> – Chức vụ: <b>Tổng Giám Đốc</b><br>
+          Tài khoản: <b>13410 8888</b> – Ngân hàng TMCP Quân Đội, Chi nhánh Hai Bà Trưng
+        </div>
+        <h4>BÊN A (Bên sử dụng dịch vụ):</h4>
+        <div class="party">
+          <b id="c-company">— Tên công ty —</b><br>
+          Địa chỉ: <span id="c-address">—</span><br>
+          MST: <span id="c-tax">—</span> · Điện thoại: <span id="c-phone">—</span><br>
+          Đại diện: <span id="c-rep-name">—</span> – Chức vụ: <span id="c-rep-title">—</span>
+        </div>
+        <h4>Điều 1 – Đối tượng hợp đồng</h4>
+        <div class="clause"><p>Bên A đăng ký và Bên B cung cấp <b id="c-plan-name">Gói HOUSELINK Standard – Pro-Contractor Plus</b> trong thời hạn 12 tháng kể từ ngày kích hoạt, bao gồm: quyền truy cập nền tảng HOUSELINK.vn, tối thiểu 50 project leads chất lượng/tháng đã xác minh, hỗ trợ tư vấn và các tính năng theo gói đã chọn.</p></div>
+        <h4>Điều 2 – Giá trị & Thanh toán</h4>
+        <div class="clause">
+          <p>Giá trị hợp đồng: <b id="c-price" class="highlight">$1.699 USD (≈ 44.300.000 VND)</b>, đã bao gồm 8% VAT theo tỷ giá Vietcombank tại ngày ký.</p>
+          <p>Thanh toán 100% sau khi ký hợp đồng. Hình thức: chuyển khoản ngân hàng hoặc thẻ tín dụng. Dịch vụ kích hoạt trong 01 ngày làm việc sau khi nhận thanh toán.</p>
+        </div>
+        <h4>Điều 3 – Trách nhiệm các bên</h4>
+        <div class="clause"><p><b>Bên A:</b> Thanh toán đúng hạn; không chia sẻ tài khoản cho bên thứ ba; bảo mật thông tin theo hợp đồng; cung cấp danh sách người dùng trong 07 ngày.</p></div>
+        <div class="clause"><p><b>Bên B:</b> Cung cấp dịch vụ đúng cam kết; kích hoạt tài khoản trong 01 ngày làm việc; hỗ trợ xuyên suốt 12 tháng; đảm bảo chất lượng và tính chính xác của thông tin dự án.</p></div>
+        <h4>Điều 4 – Bảo mật & Dữ liệu cá nhân</h4>
+        <div class="clause"><p>Hai bên cam kết bảo mật thông tin theo Nghị định 13/2023/NĐ-CP về Bảo vệ dữ liệu cá nhân. Thông tin chỉ dùng cho mục đích hợp đồng. Vi phạm bảo mật thông báo trong 72 giờ.</p></div>
+        <h4>Điều 5 – Chống tham nhũng & Luật áp dụng</h4>
+        <div class="clause"><p>Hai bên cam kết tuân thủ luật chống tham nhũng, hối lộ. Tranh chấp giải quyết qua thương lượng trong 60 ngày; nếu không giải quyết được, đưa ra Tòa án Nhân dân có thẩm quyền tại Hà Nội.</p></div>
+        <h4>Điều 6 – Hiệu lực & Chấm dứt</h4>
+        <div class="clause"><p>Hợp đồng có hiệu lực từ ngày ký và tự động kết thúc sau 12 tháng. Hợp đồng lập thành 02 bản tiếng Việt và tiếng Anh có giá trị pháp lý ngang nhau; bản tiếng Việt ưu tiên trong trường hợp mâu thuẫn.</p></div>
+      </div><!-- /contract-vi -->
+
+      <!-- EN CONTRACT (hidden by default) -->
+      <div id="contract-en" class="contract-preview" style="display:none;">
+        <div style="text-align:center;margin-bottom:24px;padding-bottom:20px;border-bottom:2px solid var(--gray-100);">
+          <div style="font-family:var(--font-serif);font-size:18px;font-weight:600;color:var(--navy);">BUSINESS CONSULTING SERVICES CONTRACT</div>
+          <div style="font-size:13px;color:var(--gray-600);margin-top:4px;">No: <span class="highlight">HL-2026-XXXX</span></div>
+        </div>
+        <p>This Contract is entered into on <span class="highlight" id="c-date-en"></span>, in Hanoi, between:</p>
+        <h4>PARTY B (Service Provider):</h4>
+        <div class="party">
+          <b>HOUSELINK JOINT STOCK COMPANY</b><br>
+          Address: Level 9, Sannam Building, Duy Tan Road, Cau Giay, Ha Noi<br>
+          Tel: 024 3795 5620 · Tax ID: 0104585924<br>
+          Representative: <b>Mr. Nguyen Thanh Long</b> – Position: <b>General Director</b><br>
+          Bank: 13410 8888 – Military Commercial Joint Stock Bank, Hai Ba Trung Branch
+        </div>
+        <h4>PARTY A (Client):</h4>
+        <div class="party">
+          <b id="c-company-en">— Company Name —</b><br>
+          Address: <span id="c-address-en">—</span><br>
+          Tax ID: <span id="c-tax-en">—</span> · Tel: <span id="c-phone-en">—</span><br>
+          Representative: <span id="c-rep-en">—</span> – Title: <span id="c-title-en">—</span>
+        </div>
+        <h4>Article 1 – Subject of Contract</h4>
+        <div class="clause"><p>Party A registers and Party B provides the <b id="c-plan-en">HOUSELINK Standard – Pro-Contractor Plus</b> for 12 months from activation date, including: access to HOUSELINK.vn platform, minimum 50 verified quality leads/month, consultation support and features per selected package.</p></div>
+        <h4>Article 2 – Price & Payment</h4>
+        <div class="clause"><p>Contract value: <b id="c-price-en" class="highlight">$1,699 USD (≈ VND 44,300,000)</b>, inclusive of 8% VAT at Vietcombank rate on signing date. Payment: 100% upon signing. Service activated within 1 business day of receipt of payment.</p></div>
+        <h4>Article 3 – Obligations</h4>
+        <div class="clause"><p><b>Party A:</b> Timely payment; no account sharing; information confidentiality; provide user list within 07 days.</p></div>
+        <div class="clause"><p><b>Party B:</b> Deliver services as committed; activate within 1 business day; support throughout 12 months; guarantee data quality and accuracy.</p></div>
+        <h4>Article 4 – Confidentiality & Data Protection</h4>
+        <div class="clause"><p>Both parties comply with Decree 13/2023/ND-CP on Personal Data Protection. Information used only for contract purposes. Data breaches notified within 72 hours.</p></div>
+        <h4>Article 5 – Anti-Corruption & Governing Law</h4>
+        <div class="clause"><p>Both parties comply with anti-corruption and anti-bribery laws. Disputes resolved by negotiation within 60 days; unresolved disputes submitted to competent People's Court in Hanoi.</p></div>
+        <h4>Article 6 – Effectiveness & Termination</h4>
+        <div class="clause"><p>Contract effective upon signing, automatically terminates after 12 months. Made in 02 copies in Vietnamese and English of equal validity; Vietnamese version prevails in case of discrepancy.</p></div>
+      </div><!-- /contract-en -->
+
+      <div class="btn-row">
+        <button class="btn-secondary" onclick="goStep1()">← Sửa thông tin</button>
+        <button class="btn-primary" onclick="goStep3()">Đồng ý & Tiến hành ký →</button>
+      </div>
+    </div><!-- /step-2 -->
+
+    <!-- STEP 3: SIGN & PAY -->
+    <div id="step-3" class="form-card" style="display:none;">
+      <div class="form-section-title">Ký hợp đồng & Thanh toán</div>
+      <div class="form-section-sub">Chọn hình thức ký và phương thức thanh toán phù hợp.</div>
+
+      <!-- SIGNATURE -->
+      <div style="margin-bottom:28px;">
+        <div class="form-label" style="font-size:14px;margin-bottom:12px;">Chữ ký của Bên A <span style="color:var(--red);">*</span></div>
+        <div style="display:flex;gap:10px;margin-bottom:16px;flex-wrap:wrap;">
+          <button onclick="setSigMode('digital')" id="sig-btn-digital" style="flex:1;padding:10px;border-radius:8px;border:1.5px solid var(--green);background:var(--green-pale);color:var(--green);font-weight:700;font-size:13px;">✍️ Ký số điện tử (trên màn hình)</button>
+          <button onclick="setSigMode('upload')" id="sig-btn-upload" style="flex:1;padding:10px;border-radius:8px;border:1.5px solid var(--gray-200);background:var(--white);color:var(--navy);font-weight:600;font-size:13px;">📎 Tải lên chữ ký (ảnh .png)</button>
+          <button onclick="setSigMode('print')" id="sig-btn-print" style="flex:1;padding:10px;border-radius:8px;border:1.5px solid var(--gray-200);background:var(--white);color:var(--navy);font-weight:600;font-size:13px;">🖨️ In PDF ký tay & gửi lại</button>
+        </div>
+
+        <!-- Digital signature canvas -->
+        <div id="sig-digital" style="display:block;">
+          <div style="font-size:13px;color:var(--gray-600);margin-bottom:8px;">Vẽ chữ ký của bạn trong ô dưới đây:</div>
+          <canvas id="sig-canvas" width="600" height="140"></canvas>
+          <div style="display:flex;gap:8px;margin-top:8px;">
+            <button onclick="clearSig()" style="padding:6px 14px;border-radius:6px;border:1px solid var(--gray-200);background:var(--white);font-size:13px;color:var(--gray-600);">Xóa lại</button>
+            <div style="font-size:12.5px;color:var(--gray-400);align-self:center;flex:1;">Chữ ký sẽ được nhúng vào PDF hợp đồng</div>
+          </div>
+        </div>
+
+        <!-- Upload -->
+        <div id="sig-upload" style="display:none;">
+          <input type="file" id="sig-file" accept="image/png,image/jpeg" style="display:none;" onchange="handleSigUpload(this)">
+          <div onclick="document.getElementById('sig-file').click()" style="border:1.5px dashed var(--gray-200);border-radius:10px;padding:28px;text-align:center;cursor:pointer;transition:all .2s;" onmouseover="this.style.borderColor='var(--green)'" onmouseout="this.style.borderColor='var(--gray-200)'">
+            <div style="font-size:32px;margin-bottom:8px;">📤</div>
+            <div style="font-size:14px;font-weight:600;color:var(--navy);">Nhấp để tải ảnh chữ ký</div>
+            <div style="font-size:12px;color:var(--gray-400);">Định dạng PNG hoặc JPG, nền trắng, tối thiểu 300×100px</div>
+          </div>
+          <div id="sig-upload-preview" style="margin-top:12px;display:none;"><img id="sig-upload-img" style="max-height:80px;border:1px solid var(--gray-100);border-radius:6px;"></div>
+        </div>
+
+        <!-- Print option -->
+        <div id="sig-print" style="display:none;">
+          <div style="background:var(--amber-pale);border:1px solid rgba(212,134,11,.3);border-radius:10px;padding:18px 20px;">
+            <div style="font-size:14px;font-weight:700;color:var(--amber);margin-bottom:8px;">📋 Quy trình ký tay:</div>
+            <ol style="font-size:13.5px;color:var(--gray-600);padding-left:18px;line-height:1.9;">
+              <li>Tải PDF hợp đồng xuống</li>
+              <li>In ra, ký tên và đóng dấu công ty</li>
+              <li>Scan hoặc chụp ảnh rõ nét</li>
+              <li>Gửi về <strong>contract@houselink.com.vn</strong> hoặc Zalo: <strong>024 3795 5620</strong></li>
+              <li>HOUSELINK xác nhận và kích hoạt dịch vụ trong 01 ngày làm việc</li>
+            </ol>
+            <button onclick="printContract()" style="margin-top:14px;padding:10px 20px;background:var(--amber);color:#fff;border:none;border-radius:8px;font-weight:700;font-size:13.5px;">📥 Tải PDF ngay</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- PAYMENT -->
+      <div style="height:1px;background:var(--gray-100);margin-bottom:24px;"></div>
+      <div class="form-label" style="font-size:14px;margin-bottom:12px;">Phương thức thanh toán <span style="color:var(--red);">*</span></div>
+
+      <div class="payment-methods">
+        <div class="pay-method selected" onclick="selectPayment(this,'bank')">
+          <input type="radio" name="payment" value="bank" checked>
+          <div class="pay-icon">🏦</div>
+          <div class="pay-name">Chuyển khoản<br>ngân hàng</div>
+          <div class="pay-note">Miễn phí</div>
+        </div>
+        <div class="pay-method" onclick="selectPayment(this,'card')">
+          <input type="radio" name="payment" value="card">
+          <div class="pay-icon">💳</div>
+          <div class="pay-name">Thẻ tín dụng<br>doanh nghiệp</div>
+          <div class="pay-note">Visa / MC / JCB</div>
+        </div>
+        <div class="pay-method" onclick="selectPayment(this,'qr')">
+          <input type="radio" name="payment" value="qr">
+          <div class="pay-icon">📱</div>
+          <div class="pay-name">QR Code<br>VietQR</div>
+          <div class="pay-note">Mọi ngân hàng</div>
+        </div>
+      </div>
+
+      <!-- Bank details -->
+      <div id="pay-bank">
+        <div class="bank-info">
+          <div style="font-size:12px;font-weight:700;color:var(--green);letter-spacing:.08em;text-transform:uppercase;margin-bottom:12px;">Thông tin chuyển khoản</div>
+          <div class="bank-row"><span class="bank-key">Ngân hàng</span><span class="bank-val">Ngân hàng TMCP Quân Đội (MB Bank)</span></div>
+          <div class="bank-row"><span class="bank-key">Chi nhánh</span><span class="bank-val">Chi nhánh Hai Bà Trưng, Hà Nội</span></div>
+          <div class="bank-row">
+            <span class="bank-key">Số tài khoản</span>
+            <span class="bank-val">13410 8888 <button class="copy-btn" onclick="copyText('13410 8888',this)">Sao chép</button></span>
+          </div>
+          <div class="bank-row"><span class="bank-key">Chủ tài khoản</span><span class="bank-val">CÔNG TY CỔ PHẦN HOUSELINK</span></div>
+          <div class="bank-row"><span class="bank-key">MST</span><span class="bank-val">0104585924</span></div>
+          <div class="bank-row">
+            <span class="bank-key">Nội dung chuyển khoản</span>
+            <span class="bank-val" id="pay-content" style="max-width:200px;text-align:right;"></span>
+          </div>
+          <div class="bank-row"><span class="bank-key">Số tiền</span><span class="bank-val" id="pay-amount" style="color:var(--green);">—</span></div>
+        </div>
+        <div style="font-size:12.5px;color:var(--gray-400);background:var(--off-white);border-radius:8px;padding:12px 14px;">💡 Sau khi chuyển khoản, vui lòng chụp màn hình xác nhận giao dịch và đính kèm vào bước tiếp theo. HOUSELINK sẽ kích hoạt tài khoản trong <strong>01 ngày làm việc</strong> sau khi xác nhận thanh toán.</div>
+      </div>
+
+      <!-- Card payment -->
+      <div id="pay-card" style="display:none;">
+        <div class="form-grid2">
+          <div class="form-group full">
+            <label class="form-label">Số thẻ <span>*</span></label>
+            <input class="form-input" placeholder="1234 5678 9012 3456" maxlength="19" oninput="formatCard(this)">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Họ tên chủ thẻ <span>*</span></label>
+            <input class="form-input" placeholder="NGUYEN VAN A" style="text-transform:uppercase;">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Ngày hết hạn <span>*</span></label>
+            <input class="form-input" placeholder="MM / YY" maxlength="7">
+          </div>
+          <div class="form-group">
+            <label class="form-label">CVV <span>*</span></label>
+            <input class="form-input" type="password" placeholder="•••" maxlength="4">
+          </div>
+        </div>
+        <div style="display:flex;gap:8px;align-items:center;font-size:12.5px;color:var(--gray-400);margin-top:-4px;margin-bottom:16px;">
+          <span>🔒</span><span>Kết nối bảo mật SSL. Thông tin thẻ không được lưu trữ.</span>
+        </div>
+      </div>
+
+      <!-- QR -->
+      <div id="pay-qr" style="display:none;text-align:center;padding:24px;background:var(--off-white);border-radius:10px;margin-bottom:16px;">
+        <div style="font-size:14px;font-weight:600;color:var(--navy);margin-bottom:12px;">Quét mã để thanh toán</div>
+        <div style="width:160px;height:160px;background:var(--gray-100);border-radius:8px;margin:0 auto;display:flex;align-items:center;justify-content:center;font-size:40px;">📱</div>
+        <div style="font-size:12.5px;color:var(--gray-400);margin-top:12px;">QR tương thích tất cả ứng dụng ngân hàng Việt Nam<br>MB Bank · VCB · TCB · ACB · BIDV · VietinBank…</div>
+      </div>
+
+      <!-- Upload payment proof -->
+      <div style="margin-bottom:24px;">
+        <label class="form-label">Đính kèm xác nhận thanh toán <span style="color:var(--gray-400);font-weight:400;">(Không bắt buộc, nhưng giúp xử lý nhanh hơn)</span></label>
+        <input type="file" id="payment-proof" accept="image/*,application/pdf" style="display:none;">
+        <div onclick="document.getElementById('payment-proof').click()" style="border:1.5px dashed var(--gray-200);border-radius:9px;padding:16px;text-align:center;cursor:pointer;font-size:13.5px;color:var(--gray-600);" onmouseover="this.style.borderColor='var(--green)'" onmouseout="this.style.borderColor='var(--gray-200)'">
+          📎 Tải ảnh chụp màn hình chuyển khoản
+        </div>
+      </div>
+
+      <!-- Terms checkbox -->
+      <label style="display:flex;align-items:flex-start;gap:10px;cursor:pointer;margin-bottom:22px;">
+        <input type="checkbox" id="terms-check" style="width:16px;height:16px;accent-color:var(--green);flex-shrink:0;margin-top:3px;">
+        <span style="font-size:13.5px;color:var(--gray-600);line-height:1.55;">
+          Tôi đã đọc, hiểu và đồng ý với <a href="#" style="color:var(--green);font-weight:600;">Điều khoản hợp đồng</a> và <a href="/vi/privacy/" style="color:var(--green);font-weight:600;">Chính sách bảo mật</a> của HOUSELINK. Tôi xác nhận thông tin doanh nghiệp được cung cấp là chính xác.
+        </span>
+      </label>
+
+      <div class="btn-row">
+        <button class="btn-secondary" onclick="goStep2()">← Xem lại hợp đồng</button>
+        <button class="btn-primary" id="submit-btn" onclick="submitContract()">🔒 Xác nhận & Hoàn tất đăng ký</button>
+      </div>
+    </div><!-- /step-3 -->
+
+    <!-- STEP 4: SUCCESS -->
+    <div id="step-4" class="form-card" style="display:none;">
+      <div class="success-screen show">
+        <div class="success-icon">🎉</div>
+        <div class="contract-number">
+          <div class="cn-label">Mã hợp đồng của bạn</div>
+          <div class="cn-val" id="success-contract-no">HL-2026-XXXX</div>
+        </div>
+        <div class="success-title">Đăng ký thành công!</div>
+        <div class="success-sub">Cảm ơn bạn đã đăng ký dịch vụ HOUSELINK. Hợp đồng đã được ghi nhận. Đội ngũ HOUSELINK sẽ kích hoạt tài khoản và liên hệ trong vòng <strong>01 ngày làm việc</strong>.</div>
+        <div class="success-actions">
+          <button class="btn-download" onclick="printContract()">
+            📥 Tải PDF Hợp đồng
+          </button>
+          <a href="/vi/services/find-project/" style="background:var(--white);color:var(--navy);font-size:14px;font-weight:600;padding:13px 22px;border-radius:9px;border:1.5px solid var(--gray-100);">← Về trang dịch vụ</a>
+        </div>
+        <div style="margin-top:28px;padding:18px 20px;background:var(--off-white);border-radius:12px;text-align:left;font-size:13.5px;color:var(--gray-600);">
+          <div style="font-weight:700;color:var(--navy);margin-bottom:8px;">📋 Các bước tiếp theo:</div>
+          <div style="display:flex;flex-direction:column;gap:6px;">
+            <div>✅ Email xác nhận + bản PDF hợp đồng đã gửi về <strong id="success-email"></strong></div>
+            <div>⏳ HOUSELINK xác nhận thanh toán và kích hoạt tài khoản trong 01 ngày làm việc</div>
+            <div>📱 Account Manager sẽ liên hệ để hướng dẫn sử dụng nền tảng</div>
+            <div>🔍 Bắt đầu tra cứu dự án tại <a href="https://houselink.com.vn" style="color:var(--green);">houselink.com.vn</a></div>
+          </div>
+        </div>
+      </div>
+    </div><!-- /step-4 -->
+
+  </div><!-- /left -->
+
+  <!-- SIDEBAR -->
+  <div class="sidebar">
+    <div class="order-card">
+      <div class="order-title">📋 Tóm tắt đơn hàng</div>
+      <div class="order-plan-name" id="s-plan-name">Standard</div>
+      <div class="order-plan-tag" id="s-plan-tag">Pro-Contractor Plus</div>
+      <ul class="order-features" id="s-features">
+        <li class="order-feat">02 tài khoản HOUSELINK</li>
+        <li class="order-feat">Tra cứu dự án FDI/DDI real-time</li>
+        <li class="order-feat">Live chat hỗ trợ & tư vấn tiếp cận</li>
+        <li class="order-feat">Thông tin liên hệ người quyết định</li>
+        <li class="order-feat">Nhãn Verified + xếp hạng CSI</li>
+        <li class="order-feat">Logo trên homepage HOUSELINK</li>
+      </ul>
+      <div class="order-divider"></div>
+      <div class="price-row"><span class="label">Giá gói</span><span class="val" id="s-base-price">$1.699 USD</span></div>
+      <div class="price-row"><span class="label">VAT 8%</span><span class="val" id="s-vat">Đã bao gồm</span></div>
+      <div class="price-row"><span class="label">Hiệu lực</span><span class="val">12 tháng</span></div>
+      <div class="price-row total"><span>Tổng thanh toán</span><span id="s-total">≈ 44.300.000 VND</span></div>
+      <div class="validity-note">⏰ Hiệu lực báo giá 30 ngày. Tỷ giá USD/VND theo Vietcombank tại ngày ký hợp đồng.</div>
+      <div class="trust-badges">
+        <div class="trust-item"><span>🔒</span> Kết nối SSL 256-bit</div>
+        <div class="trust-item"><span>📋</span> Hợp đồng theo Luật Doanh nghiệp VN</div>
+        <div class="trust-item"><span>🏦</span> Thanh toán qua MB Bank</div>
+        <div class="trust-item"><span>📞</span> Hỗ trợ: 024 3795 5620</div>
+      </div>
+    </div>
+  </div><!-- /sidebar -->
+
+</div><!-- /main-wrap -->
+
+<script>
+// ── State ──────────────────────────────────────────────────────────────────
+var state = {
+  step: 1,
+  plan: 'standard',
+  planName: 'Standard – Pro-Contractor Plus',
+  planTag: 'Pro-Contractor Plus',
+  priceUSD: '$1.699',
+  priceVND: '≈ 44.300.000 VND',
+  sigMode: 'digital',
+  signed: false,
+  payMethod: 'bank',
+};
+
+const PLANS = {
+  starter: {
+    name:'Starter – Pro-Contractor Basic',
+    tag:'Pro-Contractor Basic',
+    priceUSD:'$899',
+    priceVND:'≈ 23.500.000 VND',
+    features:['01 tài khoản HOUSELINK','Tra cứu dự án FDI/DDI real-time','Lọc theo tỉnh, ngành, loại công trình','Nhận thông báo dự án mới phù hợp','Profile nhà thầu cơ bản'],
+  },
+  standard: {
+    name:'Standard – Pro-Contractor Plus',
+    tag:'Pro-Contractor Plus',
+    priceUSD:'$1.699',
+    priceVND:'≈ 44.300.000 VND',
+    features:['02 tài khoản HOUSELINK','Tra cứu dự án FDI/DDI real-time','Live chat hỗ trợ & tư vấn tiếp cận','Thông tin liên hệ người quyết định','Nhãn Verified + xếp hạng CSI','Logo trên homepage HOUSELINK'],
+  },
+  professional: {
+    name:'Professional – Pro-Contractor Pro',
+    tag:'Pro-Contractor Pro',
+    priceUSD:'$2.499',
+    priceVND:'≈ 65.100.000 VND',
+    features:['02 tài khoản HOUSELINK','Tất cả tính năng Standard','Banner VietnamConstruction.vn','04 bài viết PR/năm','12 social media posts/năm','Báo cáo hiệu quả marketing'],
+  },
+  premium: {
+    name:'Premium – Pro-Contractor Premium',
+    tag:'Pro-Contractor Premium',
+    priceUSD:'$3.999',
+    priceVND:'≈ 104.100.000 VND',
+    features:['03 tài khoản HOUSELINK','Tất cả tính năng Professional','Email Marketing 80.000 chủ đầu tư','02 báo cáo thị trường/năm (EN/VI/ZH)','Account Manager riêng','Ưu tiên kết nối KCN chiến lược'],
+  },
+};
+
+// Read URL param
+var urlPlan = new URLSearchParams(location.search).get('plan');
+if(urlPlan && PLANS[urlPlan]) {
+  state.plan = urlPlan;
+  document.querySelectorAll('input[name=plan]').forEach(r => r.checked = (r.value === urlPlan));
+  document.querySelectorAll('.plan-option').forEach(o => {
+    o.classList.toggle('selected', o.querySelector('input').value === urlPlan);
+  });
+  updateSidebar(urlPlan);
+}
+
+// ── Plan selection ─────────────────────────────────────────────────────────
+function selectPlan(el, planKey, price, vnd) {
+  document.querySelectorAll('.plan-option').forEach(o => o.classList.remove('selected'));
+  el.classList.add('selected');
+  el.querySelector('input').checked = true;
+  state.plan = planKey;
+  updateSidebar(planKey);
+}
+
+function updateSidebar(planKey) {
+  var p = PLANS[planKey];
+  document.getElementById('s-plan-name').textContent = p.name.split('–')[0].trim();
+  document.getElementById('s-plan-tag').textContent = p.tag;
+  document.getElementById('s-base-price').textContent = p.priceUSD + '/năm';
+  document.getElementById('s-total').textContent = p.priceVND;
+  var fl = document.getElementById('s-features');
+  fl.innerHTML = p.features.map(f => '<li class="order-feat">'+f+'</li>').join('');
+  // update pay content
+  updatePayContent();
+}
+
+// ── Navigation ─────────────────────────────────────────────────────────────
+function goStep(n) {
+  [1,2,3,4].forEach(i => {
+    document.getElementById('step-'+i).style.display = (i===n)?'block':'none';
+    var ind = document.getElementById('step-'+i+'-indicator');
+    ind.classList.toggle('active', i===n);
+    ind.classList.toggle('done', i<n);
+  });
+  state.step = n;
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function goStep1() { goStep(1); }
+
+function goStep2() {
+  if(!validateStep1()) return;
+  fillContract();
+  goStep(2);
+}
+
+function goStep3() { goStep(3); updatePayContent(); }
+
+function submitContract() {
+  if(!document.getElementById('terms-check').checked) {
+    alert('Vui lòng đồng ý với điều khoản hợp đồng trước khi tiếp tục.');
+    return;
+  }
+  // Generate contract number
+  var d = new Date();
+  var seq = String(Math.floor(Math.random()*9000)+1000);
+  var cno = 'HL-'+d.getFullYear()+'-'+seq;
+  document.getElementById('success-contract-no').textContent = cno;
+  document.getElementById('success-email').textContent = document.getElementById('f-email').value || 'email của bạn';
+  goStep(4);
+}
+
+// ── Validation ─────────────────────────────────────────────────────────────
+function validateStep1() {
+  var fields = [
+    {id:'f-company', eid:'e-company', test: v => v.length > 2},
+    {id:'f-tax', eid:'e-tax', test: v => v.length >= 10},
+    {id:'f-phone', eid:'e-phone', test: v => v.length >= 9},
+    {id:'f-address', eid:'e-address', test: v => v.length > 5},
+    {id:'f-rep-name', eid:'e-rep-name', test: v => v.length > 2},
+    {id:'f-rep-title', eid:'e-rep-title', test: v => v.length > 2},
+    {id:'f-email', eid:'e-email', test: v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)},
+  ];
+  var ok = true;
+  fields.forEach(f => {
+    var inp = document.getElementById(f.id);
+    var err = document.getElementById(f.eid);
+    if(!f.test(inp.value.trim())){
+      inp.classList.add('error');
+      err.style.display = 'block';
+      ok = false;
+    } else {
+      inp.classList.remove('error');
+      err.style.display = 'none';
+    }
+  });
+  if(!ok) document.getElementById('f-company').scrollIntoView({behavior:'smooth',block:'center'});
+  return ok;
+}
+
+// ── Fill contract ──────────────────────────────────────────────────────────
+function fillContract() {
+  var p = PLANS[state.plan];
+  var d = new Date();
+  var dateStr = 'ngày '+d.getDate()+' tháng '+(d.getMonth()+1)+' năm '+d.getFullYear();
+  var dateEnStr = ['January','February','March','April','May','June','July','August','September','October','November','December'][d.getMonth()]+' '+d.getDate()+', '+d.getFullYear();
+  
+  function set(id,val){ var el=document.getElementById(id); if(el) el.textContent=val; }
+  function setAll(ids, vals){ ids.forEach((id,i) => set(id, vals[i]||vals[0])); }
+
+  set('c-date', dateStr);  set('c-date-en', dateEnStr);
+  var co = document.getElementById('f-company').value;
+  setAll(['c-company','c-company-en'], [co]);
+  setAll(['c-address','c-address-en'], [document.getElementById('f-address').value]);
+  setAll(['c-tax','c-tax-en'], [document.getElementById('f-tax').value]);
+  setAll(['c-phone','c-phone-en'], [document.getElementById('f-phone').value]);
+  setAll(['c-rep-name'], [document.getElementById('f-rep-name').value]);
+  set('c-rep-en', document.getElementById('f-rep-name').value);
+  setAll(['c-rep-title'], [document.getElementById('f-rep-title').value]);
+  set('c-title-en', document.getElementById('f-rep-title').value);
+  set('c-plan-name','Gói HOUSELINK '+p.name);
+  set('c-plan-en','HOUSELINK '+p.name);
+  set('c-price', p.priceUSD+' USD ('+p.priceVND+')');
+  set('c-price-en', p.priceUSD+' USD ('+p.priceVND+')');
+
+  // Contract number
+  var d2 = new Date();
+  var cno = 'HL-'+d2.getFullYear()+'-'+String(Math.floor(Math.random()*9000)+1000);
+  document.querySelectorAll('[id^=c-contract-no], .highlight').forEach(el => {
+    if(el.textContent && el.textContent.includes('HL-2026-XXXX')) el.textContent = cno;
+  });
+}
+
+// ── Payment ────────────────────────────────────────────────────────────────
+function updatePayContent() {
+  var co = document.getElementById('f-company').value || '[Tên công ty]';
+  var p = PLANS[state.plan];
+  var content = 'HL '+p.priceUSD+' '+co.slice(0,20).toUpperCase();
+  var pc = document.getElementById('pay-content');
+  if(pc) pc.textContent = content;
+  var pa = document.getElementById('pay-amount');
+  if(pa) pa.textContent = p.priceUSD + ' USD / ' + p.priceVND;
+}
+
+function selectPayment(el, method) {
+  document.querySelectorAll('.pay-method').forEach(m => m.classList.remove('selected'));
+  el.classList.add('selected');
+  el.querySelector('input').checked = true;
+  state.payMethod = method;
+  document.getElementById('pay-bank').style.display = method==='bank'?'block':'none';
+  document.getElementById('pay-card').style.display = method==='card'?'block':'none';
+  document.getElementById('pay-qr').style.display = method==='qr'?'block':'none';
+}
+
+function copyText(text, btn) {
+  navigator.clipboard.writeText(text).then(() => {
+    var orig = btn.textContent;
+    btn.textContent = 'Đã chép!';
+    btn.style.color = 'var(--green)';
+    setTimeout(() => { btn.textContent = orig; btn.style.color = ''; }, 1500);
+  }).catch(() => {
+    var ta = document.createElement('textarea');
+    ta.value = text;
+    document.body.appendChild(ta);
+    ta.select();
+    document.execCommand('copy');
+    document.body.removeChild(ta);
+    btn.textContent = 'Đã chép!';
+    setTimeout(() => btn.textContent = 'Sao chép', 1500);
+  });
+}
+
+function formatCard(inp) {
+  var v = inp.value.replace(/\D/g,'').substring(0,16);
+  inp.value = v.match(/.{1,4}/g)?.join(' ') || v;
+}
+
+// ── Signature ─────────────────────────────────────────────────────────────
+function setSigMode(mode) {
+  state.sigMode = mode;
+  ['digital','upload','print'].forEach(m => {
+    document.getElementById('sig-'+m).style.display = (m===mode)?'block':'none';
+    var btn = document.getElementById('sig-btn-'+m);
+    if(btn) {
+      btn.style.borderColor = m===mode ? 'var(--green)' : 'var(--gray-200)';
+      btn.style.background = m===mode ? 'var(--green-pale)' : 'var(--white)';
+      btn.style.color = m===mode ? 'var(--green)' : 'var(--navy)';
+    }
+  });
+  if(mode==='digital') initCanvas();
+}
+
+var drawing = false, lastX = 0, lastY = 0, ctx;
+function initCanvas() {
+  var canvas = document.getElementById('sig-canvas');
+  if(!canvas || ctx) return;
+  ctx = canvas.getContext('2d');
+  ctx.strokeStyle = '#003457';
+  ctx.lineWidth = 2.5;
+  ctx.lineCap = 'round';
+  canvas.addEventListener('mousedown', e => { drawing=true; [lastX,lastY]=getPos(e,canvas); });
+  canvas.addEventListener('mousemove', e => { if(!drawing) return; var [x,y]=getPos(e,canvas); ctx.beginPath(); ctx.moveTo(lastX,lastY); ctx.lineTo(x,y); ctx.stroke(); [lastX,lastY]=[x,y]; });
+  canvas.addEventListener('mouseup', () => { drawing=false; state.signed=true; });
+  canvas.addEventListener('mouseleave', () => drawing=false);
+  canvas.addEventListener('touchstart', e => { e.preventDefault(); drawing=true; [lastX,lastY]=getPos(e.touches[0],canvas); });
+  canvas.addEventListener('touchmove', e => { e.preventDefault(); if(!drawing) return; var [x,y]=getPos(e.touches[0],canvas); ctx.beginPath(); ctx.moveTo(lastX,lastY); ctx.lineTo(x,y); ctx.stroke(); [lastX,lastY]=[x,y]; });
+  canvas.addEventListener('touchend', () => { drawing=false; state.signed=true; });
+}
+function getPos(e, canvas) {
+  var r = canvas.getBoundingClientRect();
+  return [e.clientX - r.left, e.clientY - r.top];
+}
+function clearSig() { if(ctx) { var c=document.getElementById('sig-canvas'); ctx.clearRect(0,0,c.width,c.height); } state.signed=false; }
+
+function handleSigUpload(inp) {
+  var file = inp.files[0];
+  if(!file) return;
+  var reader = new FileReader();
+  reader.onload = function(e) {
+    document.getElementById('sig-upload-img').src = e.target.result;
+    document.getElementById('sig-upload-preview').style.display = 'block';
+    state.signed = true;
+  };
+  reader.readAsDataURL(file);
+}
+
+// ── Tab switching ──────────────────────────────────────────────────────────
+function switchTab(btn, tabId) {
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('contract-vi').style.display = tabId==='contract-vi'?'block':'none';
+  document.getElementById('contract-en').style.display = tabId==='contract-en'?'block':'none';
+}
+
+// ── Print / PDF ────────────────────────────────────────────────────────────
+function printContract() {
+  window.print();
+}
+
+// ── Init ───────────────────────────────────────────────────────────────────
+initCanvas();
+updatePayContent();
+</script>
+
+<div id="hl-chrome-footer"></div>
+<script src="../../../../landing-chrome.js" defer></script>
+</body>
+</html>

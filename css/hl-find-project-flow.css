@@ -1,0 +1,398 @@
+/**
+ * Responsive layout for Find Project contract & pricing flows.
+ * Loaded after page inline styles + landing-chrome.css (see import_find_project_contract_pricing.py).
+ */
+
+body[data-hl-page="services-find-project-contract"],
+body[data-hl-page="services-find-project-pricing"] {
+  padding-left: env(safe-area-inset-left, 0px);
+  padding-right: env(safe-area-inset-right, 0px);
+}
+
+/* ── Contract: step strip ── */
+body[data-hl-page="services-find-project-contract"] .steps-inner {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x proximity;
+  padding-left: max(12px, env(safe-area-inset-left));
+  padding-right: max(12px, env(safe-area-inset-right));
+  gap: 2px;
+}
+
+body[data-hl-page="services-find-project-contract"] .step-item {
+  flex-shrink: 0;
+}
+
+body[data-hl-page="services-find-project-contract"] .step-item:not(:last-child)::after {
+  min-width: 6px;
+  margin: 0 6px;
+}
+
+/*
+ * Step strip: inline CSS hides .step-label at ≤900px. Replace cramped “tiny centered”
+ * labels with a readable grid: 2×2 tablets, single column on narrow phones.
+ * Connector pseudo-elements are hidden — they don’t work with wrapping layout.
+ */
+@media (max-width: 900px) {
+  body[data-hl-page="services-find-project-contract"] .steps-inner {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px 12px;
+    align-items: stretch;
+    overflow-x: visible;
+    scroll-snap-type: none;
+    padding-left: max(14px, env(safe-area-inset-left));
+    padding-right: max(14px, env(safe-area-inset-right));
+  }
+
+  body[data-hl-page="services-find-project-contract"] .step-item {
+    flex: none !important;
+    min-width: 0;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    background: var(--white, #fff);
+    border: 1px solid var(--gray-100, #dde3e8);
+    border-radius: 12px;
+    box-sizing: border-box;
+  }
+
+  body[data-hl-page="services-find-project-contract"] .step-item.active {
+    border-color: rgba(45, 139, 72, 0.55);
+    box-shadow: 0 0 0 1px rgba(45, 139, 72, 0.12);
+  }
+
+  body[data-hl-page="services-find-project-contract"] .step-item:not(:last-child)::after {
+    display: none !important;
+    content: none !important;
+  }
+
+  body[data-hl-page="services-find-project-contract"] .step-label {
+    display: block !important;
+    font-size: 12px;
+    font-weight: 600;
+    white-space: normal;
+    line-height: 1.3;
+    max-width: none;
+    text-align: left;
+    flex: 1;
+    min-width: 0;
+    overflow-wrap: anywhere;
+  }
+
+  body[data-hl-page="services-find-project-contract"] .step-num {
+    width: 30px;
+    height: 30px;
+    font-size: 12px;
+    flex-shrink: 0;
+  }
+}
+
+@media (max-width: 520px) {
+  body[data-hl-page="services-find-project-contract"] .steps-inner {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  body[data-hl-page="services-find-project-contract"] .steps-bar {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  body[data-hl-page="services-find-project-contract"] .step-item {
+    padding: 9px 10px;
+    gap: 8px;
+  }
+
+  body[data-hl-page="services-find-project-contract"] .step-label {
+    font-size: 11.5px;
+  }
+
+  body[data-hl-page="services-find-project-contract"] .step-num {
+    width: 28px;
+    height: 28px;
+    font-size: 11px;
+  }
+}
+
+/* ── Contract: forms & plans ── */
+@media (max-width: 640px) {
+  body[data-hl-page="services-find-project-contract"] .plan-option {
+    flex-wrap: wrap;
+    align-items: flex-start;
+  }
+
+  body[data-hl-page="services-find-project-contract"] .po-price {
+    width: 100%;
+    text-align: left;
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px solid var(--gray-100, #dde3e8);
+  }
+
+  body[data-hl-page="services-find-project-contract"] .tab-bar {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    flex-wrap: nowrap;
+    gap: 4px;
+  }
+
+  body[data-hl-page="services-find-project-contract"] .tab-btn {
+    flex-shrink: 0;
+    padding: 10px 14px;
+    font-size: 13px;
+  }
+
+  body[data-hl-page="services-find-project-contract"] .btn-row {
+    flex-direction: column;
+  }
+
+  body[data-hl-page="services-find-project-contract"] .btn-row .btn-primary,
+  body[data-hl-page="services-find-project-contract"] .btn-row .btn-secondary {
+    width: 100%;
+    flex: none;
+  }
+
+  body[data-hl-page="services-find-project-contract"] .payment-methods {
+    flex-direction: column;
+  }
+
+  body[data-hl-page="services-find-project-contract"] .pay-method {
+    min-width: 0;
+    width: 100%;
+  }
+
+  body[data-hl-page="services-find-project-contract"] .bank-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+
+  body[data-hl-page="services-find-project-contract"] .bank-val {
+    text-align: left;
+  }
+
+  body[data-hl-page="services-find-project-contract"] .success-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  body[data-hl-page="services-find-project-contract"] .success-actions .btn-download,
+  body[data-hl-page="services-find-project-contract"] .success-actions a,
+  body[data-hl-page="services-find-project-contract"] .success-actions button {
+    justify-content: center;
+    width: 100%;
+  }
+}
+
+/* ── Pricing: billing toggle (hero) — stack on narrow screens; avoid squeezed 42% labels ── */
+@media (max-width: 768px) {
+  body[data-hl-page="services-find-project-pricing"] .toggle-wrap {
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: 14px;
+    width: 100%;
+    max-width: min(28rem, 100%);
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: max(0px, env(safe-area-inset-left));
+    padding-right: max(0px, env(safe-area-inset-right));
+    box-sizing: border-box;
+  }
+
+  body[data-hl-page="services-find-project-pricing"] .toggle-label {
+    font-size: 13px;
+    line-height: 1.35;
+    text-align: center;
+    max-width: 100%;
+    width: 100%;
+    padding: 0 12px;
+    box-sizing: border-box;
+  }
+
+  body[data-hl-page="services-find-project-pricing"] .toggle {
+    flex-shrink: 0;
+  }
+}
+
+/* ── Pricing: hero & toggles ── */
+@media (max-width: 640px) {
+  body[data-hl-page="services-find-project-pricing"] .pricing-hero {
+    padding-left: max(16px, env(safe-area-inset-left));
+    padding-right: max(16px, env(safe-area-inset-right));
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+
+  body[data-hl-page="services-find-project-pricing"] .ph-sub {
+    font-size: 15px;
+    padding: 0 4px;
+  }
+
+  body[data-hl-page="services-find-project-pricing"] .pricing-section,
+  body[data-hl-page="services-find-project-pricing"] .compare-section,
+  body[data-hl-page="services-find-project-pricing"] .faq-section {
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
+
+  body[data-hl-page="services-find-project-pricing"] .plan-card {
+    padding: 24px 20px;
+  }
+
+  body[data-hl-page="services-find-project-pricing"] .plan-price-num {
+    font-size: clamp(28px, 9vw, 36px);
+  }
+
+  body[data-hl-page="services-find-project-pricing"] .cta-bar {
+    padding: 40px max(16px, env(safe-area-inset-left)) 44px max(16px, env(safe-area-inset-right));
+  }
+
+  body[data-hl-page="services-find-project-pricing"] .cta-btns {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 0 8px;
+  }
+
+  body[data-hl-page="services-find-project-pricing"] .cta-btns .btn-white,
+  body[data-hl-page="services-find-project-pricing"] .cta-btns .btn-outline-green {
+    width: 100%;
+    box-sizing: border-box;
+  }
+}
+
+/* Wide compare table: horizontal scroll without breaking table layout */
+body[data-hl-page="services-find-project-pricing"] .compare-section .si {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  max-width: 100%;
+}
+
+body[data-hl-page="services-find-project-pricing"] .compare-table {
+  min-width: 720px;
+}
+
+@media (max-width: 900px) {
+  body[data-hl-page="services-find-project-pricing"] .compare-table th,
+  body[data-hl-page="services-find-project-pricing"] .compare-table td {
+    padding: 10px 12px;
+    font-size: 12.5px;
+  }
+}
+
+/* Compare table: mobile stacked cards (overrides inline CSS that hides the table at 640px) */
+@media (max-width: 640px) {
+  body[data-hl-page="services-find-project-pricing"] .compare-section .si {
+    overflow-x: visible;
+  }
+
+  body[data-hl-page="services-find-project-pricing"] .compare-table {
+    display: block !important;
+    width: 100%;
+    min-width: 0;
+    margin-top: 28px;
+    border-collapse: separate;
+  }
+
+  body[data-hl-page="services-find-project-pricing"] .compare-table thead {
+    display: none;
+  }
+
+  body[data-hl-page="services-find-project-pricing"] .compare-table tbody,
+  body[data-hl-page="services-find-project-pricing"] .compare-table tr,
+  body[data-hl-page="services-find-project-pricing"] .compare-table td {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  body[data-hl-page="services-find-project-pricing"] .compare-table tr {
+    background: var(--white, #fff);
+    border: 1px solid var(--gray-100, #dde3e8);
+    border-radius: 14px;
+    overflow: hidden;
+    margin: 10px 0;
+  }
+
+  body[data-hl-page="services-find-project-pricing"] .compare-table tr:hover td {
+    background: transparent;
+  }
+
+  body[data-hl-page="services-find-project-pricing"] .compare-table td {
+    padding: 12px 14px;
+    border-bottom: 1px solid var(--gray-50, #eef1f4);
+  }
+
+  body[data-hl-page="services-find-project-pricing"] .compare-table td:last-child {
+    border-bottom: none;
+  }
+
+  /* Group headers become section dividers */
+  body[data-hl-page="services-find-project-pricing"] .compare-table tr.group-row {
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    margin: 18px 0 6px;
+  }
+
+  body[data-hl-page="services-find-project-pricing"] .compare-table tr.group-row td {
+    background: var(--off-white, #f4f6f8);
+    border: 1px solid var(--gray-100, #dde3e8);
+    border-radius: 12px;
+    padding: 10px 12px;
+  }
+
+  /* Feature name */
+  body[data-hl-page="services-find-project-pricing"] .compare-table td:first-child {
+    font-weight: 700;
+    color: var(--navy, #00466e);
+  }
+
+  /* Plan cells: show header label on the left */
+  body[data-hl-page="services-find-project-pricing"] .compare-table td.plan-col {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-align: left;
+    gap: 12px;
+  }
+
+  body[data-hl-page="services-find-project-pricing"] .compare-table td.plan-col::before {
+    content: attr(data-label);
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--gray-400, #7e8f9a);
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  body[data-hl-page="services-find-project-pricing"] .compare-table td.plan-col > * {
+    flex-shrink: 0;
+  }
+}
+
+/* FAQ grid already collapses at 640 in inline CSS; tighten on small phones */
+@media (max-width: 480px) {
+  body[data-hl-page="services-find-project-pricing"] .faq-item {
+    padding: 18px 16px;
+  }
+
+  body[data-hl-page="services-find-project-pricing"] #lbl-annual {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+  }
+
+  body[data-hl-page="services-find-project-pricing"] #lbl-annual .save-badge {
+    margin-left: 0;
+  }
+
+  body[data-hl-page="services-find-project-pricing"] .toggle-label {
+    font-size: 12.5px;
+  }
+}

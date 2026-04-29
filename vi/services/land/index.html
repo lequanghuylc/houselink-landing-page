@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tìm kiếm Địa điểm &amp; Lựa chọn KCN – HOUSELINK</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --navy:#00466E;--navy-deep:#003457;--navy-mid:#005585;--navy-light:#006BA0;
+  --green:#2D8B48;--green-light:#3AAD5C;--green-pale:#EBF7EF;
+  --white:#FFFFFF;--off-white:#F4F6F8;
+  --gray-50:#EEF1F4;--gray-100:#DDE3E8;--gray-200:#BEC8D0;
+  --gray-400:#7E8F9A;--gray-600:#4A5A65;--text:#0D1F2D;
+  --font-main: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-serif: var(--font-main);
+}
+body{font-family:var(--font-main);color:var(--text);background:var(--white);line-height:1.7;}
+a{text-decoration:none;color:inherit;}
+img{max-width:100%;display:block;}
+.si{max-width:1200px;margin:0 auto;padding:0 40px;}
+
+/* ── TOPBAR ── */
+.topbar{background:var(--navy-deep);padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.08);}
+.topbar-inner{max-width:1200px;margin:0 auto;padding:0 40px;display:flex;align-items:center;justify-content:space-between;}
+.back-link{display:flex;align-items:center;gap:8px;color:rgba(255,255,255,0.6);font-size:13px;font-weight:500;transition:color .2s;}
+.back-link:hover{color:#fff;}
+.topbar-brand{display:flex;align-items:center;gap:8px;}
+.tb-icon{width:28px;height:28px;border-radius:7px;background:rgba(255,255,255,0.08);border:1.5px solid rgba(45,139,72,0.5);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:900;color:var(--green);}
+.tb-name{font-size:13px;font-weight:800;color:rgba(255,255,255,0.85);letter-spacing:.06em;text-transform:uppercase;}
+.topbar-cta{background:var(--green);color:#fff;font-size:12.5px;font-weight:700;padding:7px 18px;border-radius:7px;transition:background .2s;}
+.topbar-cta:hover{background:var(--green-light);}
+
+/* ── HERO ── */
+.svc-hero{background:linear-gradient(135deg,var(--navy-deep) 0%,var(--navy) 60%,#004060 100%);padding:72px 0 64px;position:relative;overflow:hidden;}
+.svc-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 55% 80% at 80% 50%,rgba(45,139,72,0.12) 0%,transparent 60%);pointer-events:none;}
+.svc-hero::after{content:'';position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,0.03) 1px,transparent 1px);background-size:28px 28px;pointer-events:none;}
+.hero-inner{max-width:1200px;margin:0 auto;padding:0 40px;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;position:relative;z-index:1;}
+.hero-badge{display:inline-flex;align-items:center;gap:7px;background:rgba(45,139,72,0.15);border:1px solid rgba(45,139,72,0.35);border-radius:100px;padding:5px 14px;font-size:11px;font-weight:700;color:#7ED49A;letter-spacing:.1em;text-transform:uppercase;margin-bottom:20px;}
+.hero-badge::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--green);}
+.hero-h1{font-family:var(--font-serif);font-size:clamp(28px,3.8vw,50px);font-weight:600;color:#fff;line-height:1.18;letter-spacing:-.02em;margin-bottom:18px;}
+.hero-h1 em{color:#7ED49A;font-style:normal;}
+.hero-sub{font-size:15.5px;color:rgba(255,255,255,.62);line-height:1.7;margin-bottom:28px;}
+.hero-tags{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:32px;}
+.h-tag{font-size:11.5px;font-weight:600;color:rgba(255,255,255,.7);background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:100px;padding:5px 13px;}
+.hero-ctas{display:flex;gap:12px;flex-wrap:wrap;}
+.btn-g{background:var(--green);color:#fff;font-size:13.5px;font-weight:700;padding:12px 26px;border-radius:8px;border:2px solid var(--green);transition:all .2s;}
+.btn-g:hover{background:var(--green-light);border-color:var(--green-light);}
+.btn-outline-w{color:rgba(255,255,255,.8);border:1.5px solid rgba(255,255,255,.25);border-radius:8px;padding:12px 22px;font-size:13.5px;font-weight:600;transition:all .2s;}
+.btn-outline-w:hover{border-color:rgba(255,255,255,.6);color:#fff;}
+.hero-right{display:flex;flex-direction:column;gap:13px;}
+.hsc{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:13px;padding:18px 20px;display:flex;align-items:center;gap:15px;transition:all .2s;}
+.hsc:hover{background:rgba(45,139,72,.12);border-color:rgba(45,139,72,.3);}
+.hsc-ico{font-size:24px;flex-shrink:0;}
+.hsc-n{font-family:var(--font-serif);font-size:22px;font-weight:600;color:#7ED49A;line-height:1;}
+.hsc-l{font-size:12px;color:rgba(255,255,255,.5);margin-top:2px;}
+
+/* ── SECTIONS ── */
+.section{padding:72px 0;}
+.sec-label{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--green);margin-bottom:10px;}
+.sec-title{font-family:var(--font-serif);font-size:clamp(24px,3vw,38px);font-weight:600;color:var(--navy);line-height:1.22;letter-spacing:-.02em;}
+.sec-title em{color:var(--green);font-style:normal;}
+.sec-sub{font-size:15.5px;color:var(--gray-600);line-height:1.72;max-width:580px;margin-top:14px;}
+
+/* ── SERVICE CARDS ── */
+.svc-grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:44px;}
+.svc-card-sm{background:var(--white);border:1px solid var(--gray-100);border-radius:14px;padding:28px 24px;transition:all 0.25s;position:relative;overflow:hidden;}
+.svc-card-sm::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--green),var(--navy-mid));transform:scaleX(0);transform-origin:left;transition:transform 0.3s;}
+.svc-card-sm:hover{box-shadow:0 8px 32px rgba(0,70,110,0.09);transform:translateY(-2px);}
+.svc-card-sm:hover::before{transform:scaleX(1);}
+.svc-card-sm.featured{background:var(--navy);border-color:var(--navy);}
+.svc-card-sm.featured::before{transform:scaleX(1);background:var(--green);}
+.svc-card-sm.featured .sc-title{color:#fff;}
+.svc-card-sm.featured .sc-desc{color:rgba(255,255,255,0.75);}
+.sc-icon{font-size:26px;margin-bottom:14px;}
+.sc-title{font-size:15.5px;font-weight:700;color:var(--navy);margin-bottom:8px;line-height:1.3;}
+.sc-desc{font-size:13.5px;color:var(--gray-600);line-height:1.65;}
+.sc-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px;}
+.sc-tag{font-size:11px;font-weight:600;color:var(--green);background:var(--green-pale);border-radius:100px;padding:3px 10px;}
+.svc-card-sm.featured .sc-tag{color:#7ED49A;background:rgba(45,139,72,0.15);}
+
+/* ── CHAL-PILL ACCORDION ── */
+.chal-compact{display:flex;flex-direction:column;gap:8px;}
+.chal-pill{border:1px solid var(--gray-100);border-radius:10px;overflow:hidden;cursor:pointer;transition:all 0.2s;background:var(--white);}
+.chal-pill:hover{border-color:var(--green);}
+.chal-pill.open{border-color:var(--green);}
+.cp-head{display:flex;align-items:center;gap:10px;padding:13px 16px;font-size:13.5px;font-weight:600;color:var(--navy);}
+.cp-icon{font-size:16px;flex-shrink:0;}
+.cp-title{flex:1;}
+.cp-arrow{font-size:16px;color:var(--gray-400);transition:transform 0.2s;}
+.chal-pill.open .cp-arrow{transform:rotate(90deg);color:var(--green);}
+.cp-body{display:none;padding:0 16px 14px 42px;font-size:13.5px;color:var(--gray-600);line-height:1.65;}
+.chal-pill.open .cp-body{display:block;}
+.cp-body strong{color:var(--navy);}
+
+/* ── PROCESS LAYOUT ── */
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start;}
+.img-block{border-radius:16px;overflow:hidden;position:relative;}
+.img-block img{width:100%;height:400px;object-fit:cover;display:block;filter:brightness(0.85);}
+.img-overlay-badge{position:absolute;bottom:24px;left:24px;background:var(--navy);border-radius:10px;padding:16px 20px;color:#fff;}
+.iob-n{font-family:var(--font-serif);font-size:24px;font-weight:600;color:#7ED49A;line-height:1;}
+.iob-l{font-size:11px;color:rgba(255,255,255,0.5);margin-top:4px;text-transform:uppercase;letter-spacing:.06em;}
+
+/* ── CAPABILITY GRID ── */
+.cap-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:40px;}
+.cap-card{background:var(--gray-50);border:1px solid var(--gray-100);border-radius:12px;padding:20px 16px;text-align:center;transition:all .2s;}
+.cap-card:hover{background:var(--green-pale);border-color:rgba(45,139,72,.2);}
+.cap-icon{font-size:24px;margin-bottom:10px;}
+.cap-name{font-size:13px;font-weight:700;color:var(--navy);margin-bottom:4px;}
+.cap-desc{font-size:11.5px;color:var(--gray-400);line-height:1.5;}
+
+/* ── CTA ── */
+.cta-bar{background:var(--green);padding:60px 0;text-align:center;}
+.cta-bar h2{font-family:var(--font-serif);font-size:clamp(24px,3vw,38px);font-weight:600;color:#fff;margin-bottom:12px;}
+.cta-bar p{font-size:15.5px;color:rgba(255,255,255,.75);margin-bottom:32px;max-width:620px;margin-left:auto;margin-right:auto;}
+.cta-btns{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;}
+.btn-white{background:#fff;color:var(--green);font-size:14px;font-weight:700;padding:13px 28px;border-radius:8px;transition:all .2s;}
+.btn-white:hover{background:var(--green-pale);}
+.btn-outline-green{border:2px solid rgba(255,255,255,.6);color:#fff;font-size:14px;font-weight:600;padding:13px 24px;border-radius:8px;transition:all .2s;}
+.btn-outline-green:hover{border-color:#fff;}
+
+/* ── FOOTER ── */
+.footer-mini{background:var(--navy-deep);padding:24px 0;text-align:center;font-size:13px;color:rgba(255,255,255,.3);}
+
+@media(max-width:960px){
+  .hero-inner,.two-col,.svc-grid3,.cap-grid{grid-template-columns:1fr;}
+  .hero-right{display:none;}
+  .cap-grid{grid-template-columns:1fr 1fr;}
+  .si{padding:0 20px;}
+}
+.cta-bar-btns{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;}
+.hero-ctas{display:flex;gap:12px;flex-wrap:wrap;margin-top:32px;}
+
+</style>
+  <link rel="stylesheet" href="../../../landing-chrome.css">
+</head>
+<body class="hl-with-fixed-header" data-hl-page="services-land">
+
+<div id="hl-chrome-header"></div>
+
+<section class="svc-hero">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-badge">Land Searching · Site Selection</div>
+      <h1 class="hero-h1">Tìm kiếm địa điểm<br>& <em>Lựa chọn KCN</em> tối ưu</h1>
+      <p class="hero-sub">Hệ thống sàng lọc 400+ khu công nghiệp với dữ liệu thực tế về hạ tầng, giá thuê, lao động và pháp lý — giúp bạn chọn đúng địa điểm ngay lần đầu.</p>
+      <div class="hero-tags">
+        <span class="h-tag">Site Evaluation</span>
+        <span class="h-tag">Due Diligence</span>
+        <span class="h-tag">Technical Assessment</span>
+        <span class="h-tag">Commercial Analysis</span>
+        <span class="h-tag">Legal Review</span>
+        <span class="h-tag">LEED Sustainability</span>
+        <span class="h-tag">Logistics Analysis</span>
+      </div>
+      <div class="hero-ctas">
+        <a href="/vi/contact/" class="btn-g">Tư vấn miễn phí →</a>
+        <a href="/vi/services/" class="btn-outline-w">Xem dịch vụ</a>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hsc"><div class="hsc-ico">🏢</div><div><div class="hsc-n">400+</div><div class="hsc-l">KCN trong database</div></div></div>
+      <div class="hsc"><div class="hsc-ico">📍</div><div><div class="hsc-n">34</div><div class="hsc-l">Tỉnh thành được theo dõi</div></div></div>
+      <div class="hsc"><div class="hsc-ico">⚖️</div><div><div class="hsc-n">Due Diligence</div><div class="hsc-l">Kỹ thuật · Thương mại · Pháp lý</div></div></div>
+      <div class="hsc"><div class="hsc-ico">📊</div><div><div class="hsc-n">Scoring Tool</div><div class="hsc-l">Hệ thống chấm điểm địa điểm</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- DỊCH VỤ -->
+<section id="services" class="section" style="background:var(--off-white);">
+  <div class="si">
+    <div class="sec-label">Phạm vi dịch vụ</div>
+    <h2 class="sec-title">Tìm đúng địa điểm —<br><em>ngay lần đầu tiên</em></h2>
+    <p class="sec-sub">Dịch vụ tìm kiếm và lựa chọn địa điểm toàn diện dựa trên database 400+ KCN — từ sàng lọc nhanh đến khảo sát thực địa và đàm phán.</p>
+    <div class="svc-grid3">
+      <div class="svc-card-sm featured">
+        <div class="sc-icon">🗺️</div>
+        <div class="sc-title">Sàng lọc địa điểm ban đầu</div>
+        <div class="sc-desc">Dựa trên tiêu chí của khách hàng, HOUSELINK nhanh chóng sàng lọc danh sách 3–5 địa điểm tiềm năng từ database 400+ KCN toàn quốc.</div>
+        <div class="sc-tags"><span class="sc-tag">Rapid Screening</span><span class="sc-tag">34 Tỉnh thành</span></div>
+      </div>
+      <div class="svc-card-sm">
+        <div class="sc-icon">🔬</div>
+        <div class="sc-title">Due Diligence toàn diện</div>
+        <div class="sc-desc">Đánh giá kỹ thuật (hạ tầng, điện, nước, xử lý nước thải), thương mại (giá thuê, chi phí, điều kiện hợp đồng) và pháp lý (giấy phép, quy hoạch).</div>
+        <div class="sc-tags"><span class="sc-tag">Technical</span><span class="sc-tag">Commercial</span><span class="sc-tag">Legal</span></div>
+      </div>
+      <div class="svc-card-sm">
+        <div class="sc-icon">📍</div>
+        <div class="sc-title">Khảo sát thực địa</div>
+        <div class="sc-desc">Thăm quan trực tiếp các địa điểm được chọn, đánh giá hiện trạng thực tế và tổ chức gặp gỡ với ban quản lý KCN để thảo luận điều kiện.</div>
+        <div class="sc-tags"><span class="sc-tag">Site Visit</span><span class="sc-tag">IP Meeting</span></div>
+      </div>
+      <div class="svc-card-sm">
+        <div class="sc-icon">⚖️</div>
+        <div class="sc-title">Hệ thống chấm điểm</div>
+        <div class="sc-desc">Áp dụng scoring tool tùy chỉnh theo tiêu chí ưu tiên của từng dự án — nhanh chóng loại bỏ địa điểm không phù hợp, tập trung vào lựa chọn tốt nhất.</div>
+        <div class="sc-tags"><span class="sc-tag">Scoring Matrix</span><span class="sc-tag">Custom Criteria</span></div>
+      </div>
+      <div class="svc-card-sm">
+        <div class="sc-icon">🌿</div>
+        <div class="sc-title">Đánh giá LEED & Bền vững</div>
+        <div class="sc-desc">Phân tích tiêu chí ESG và LEED của địa điểm — quan trọng cho dự án muốn đạt chứng nhận xanh và tiếp cận vốn đầu tư bền vững.</div>
+        <div class="sc-tags"><span class="sc-tag">LEED</span><span class="sc-tag">ESG Ready</span></div>
+      </div>
+      <div class="svc-card-sm">
+        <div class="sc-icon">🤝</div>
+        <div class="sc-title">Đàm phán & Ký kết</div>
+        <div class="sc-desc">Hỗ trợ đàm phán điều khoản thuê đất, ưu đãi đầu tư với KCN và địa phương — đảm bảo điều kiện tốt nhất cho dự án.</div>
+        <div class="sc-tags"><span class="sc-tag">Lease Negotiation</span><span class="sc-tag">Incentives</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUY TRÌNH THỰC HIỆN -->
+<section class="section" style="background:var(--white);">
+  <div class="si">
+    <div class="two-col">
+      <div>
+        <div class="sec-label">Quy trình thực hiện</div>
+        <h2 class="sec-title">Lộ trình rõ ràng —<br><em>kết quả cụ thể</em></h2>
+        <p class="sec-sub" style="margin-bottom:28px;">Mỗi dự án được thiết kế riêng theo ngành nghề, quy mô và tiêu chí ưu tiên — từ sàng lọc database đến báo cáo khuyến nghị hoàn chỉnh.</p>
+
+        <div class="chal-compact">
+
+          <div class="chal-pill" onclick="this.classList.toggle('open')">
+            <div class="cp-head">
+              <span class="cp-icon">💬</span>
+              <span class="cp-title">01 · Xác định tiêu chí lựa chọn</span>
+              <span class="cp-arrow">›</span>
+            </div>
+            <div class="cp-body">
+              Thảo luận yêu cầu về diện tích, ngành nghề, vị trí địa lý, hạ tầng, lao động và ngân sách thuê đất. Xây dựng <strong>ma trận tiêu chí ưu tiên</strong> (must-have vs. nice-to-have) làm cơ sở sàng lọc.
+            </div>
+          </div>
+
+          <div class="chal-pill" onclick="this.classList.toggle('open')">
+            <div class="cp-head">
+              <span class="cp-icon">🗄️</span>
+              <span class="cp-title">02 · Sàng lọc nhanh từ database</span>
+              <span class="cp-arrow">›</span>
+            </div>
+            <div class="cp-body">
+              Khai thác <strong>HOUSELINK Database 400+ KCN</strong> trải dài 34 tỉnh thành để lập danh sách ngắn 5–8 địa điểm tiềm năng trong vài ngày — tiết kiệm hàng tuần tự tìm kiếm thủ công.
+            </div>
+          </div>
+
+          <div class="chal-pill" onclick="this.classList.toggle('open')">
+            <div class="cp-head">
+              <span class="cp-icon">📊</span>
+              <span class="cp-title">03 · Phân tích sơ bộ & chấm điểm</span>
+              <span class="cp-arrow">›</span>
+            </div>
+            <div class="cp-body">
+              So sánh các địa điểm theo <strong>scoring tool tùy chỉnh</strong>, loại bỏ những địa điểm không đáp ứng tiêu chí tối thiểu. Kết quả: danh sách 3 địa điểm tốt nhất để khảo sát thực địa.
+            </div>
+          </div>
+
+          <div class="chal-pill" onclick="this.classList.toggle('open')">
+            <div class="cp-head">
+              <span class="cp-icon">📍</span>
+              <span class="cp-title">04 · Khảo sát thực địa</span>
+              <span class="cp-arrow">›</span>
+            </div>
+            <div class="cp-body">
+              Thăm quan trực tiếp 3–5 địa điểm được chọn, đánh giá thực trạng hạ tầng và gặp gỡ ban quản lý KCN. Thu thập <strong>dữ liệu thực tế</strong> không có trong báo cáo thứ cấp — điều kiện thuê, ưu đãi, tiến độ xây dựng.
+            </div>
+          </div>
+
+          <div class="chal-pill" onclick="this.classList.toggle('open')">
+            <div class="cp-head">
+              <span class="cp-icon">🔬</span>
+              <span class="cp-title">05 · Due Diligence & Báo cáo</span>
+              <span class="cp-arrow">›</span>
+            </div>
+            <div class="cp-body">
+              Phân tích chuyên sâu kỹ thuật (điện, nước, xử lý thải), thương mại (giá thuê, chi phí vận hành) và pháp lý (giấy phép, quy hoạch). Trình bày <strong>báo cáo so sánh và khuyến nghị cuối cùng</strong> kèm lộ trình đàm phán.
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div>
+        <div class="img-block">
+          <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=800&q=80&auto=format&fit=crop" alt="Site Selection Vietnam">
+          <div class="img-overlay-badge">
+            <div class="iob-n">HOUSELINK</div>
+            <div class="iob-l">Đồng hành từ ngày đầu tiên</div>
+          </div>
+        </div>
+        <div style="margin-top:20px;background:var(--green-pale);border:1px solid rgba(45,139,72,0.2);border-radius:14px;padding:22px 24px;">
+          <div style="font-size:12px;font-weight:700;color:var(--green);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:14px;">Cam kết dịch vụ</div>
+          <div style="display:flex;flex-direction:column;gap:10px;">
+            <div style="display:flex;align-items:center;gap:10px;font-size:13.5px;color:var(--navy);"><span>✅</span><span>Danh sách địa điểm trong 7 ngày làm việc</span></div>
+            <div style="display:flex;align-items:center;gap:10px;font-size:13.5px;color:var(--navy);"><span>✅</span><span>400+ KCN · 34 tỉnh thành phủ sóng</span></div>
+            <div style="display:flex;align-items:center;gap:10px;font-size:13.5px;color:var(--navy);"><span>✅</span><span>Scoring tool tùy chỉnh theo ngành nghề</span></div>
+            <div style="display:flex;align-items:center;gap:10px;font-size:13.5px;color:var(--navy);"><span>✅</span><span>Hỗ trợ đàm phán điều kiện thuê đất</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NĂNG LỰC -->
+<section class="section" style="background:var(--off-white);">
+  <div class="si">
+    <div style="text-align:center;max-width:560px;margin:0 auto;">
+      <div class="sec-label">Tiêu chí đánh giá</div>
+      <h2 class="sec-title">Năng lực <em>chuyên sâu</em></h2>
+    </div>
+    <div class="cap-grid">
+      <div class="cap-card"><div class="cap-icon">🏢</div><div class="cap-name">400+ KCN</div><div class="cap-desc">Database toàn quốc · 34 tỉnh</div></div>
+      <div class="cap-card"><div class="cap-icon">⚡</div><div class="cap-name">Hạ tầng điện</div><div class="cap-desc">Phân tích công suất & chi phí</div></div>
+      <div class="cap-card"><div class="cap-icon">🚛</div><div class="cap-name">Logistics</div><div class="cap-desc">Giao thông & cảng biển</div></div>
+      <div class="cap-card"><div class="cap-icon">💧</div><div class="cap-name">Utilities</div><div class="cap-desc">Nước, khí, xử lý thải</div></div>
+      <div class="cap-card"><div class="cap-icon">👷</div><div class="cap-name">Labor</div><div class="cap-desc">Thị trường lao động địa phương</div></div>
+      <div class="cap-card"><div class="cap-icon">⚖️</div><div class="cap-name">Legal</div><div class="cap-desc">Quy hoạch & giấy phép</div></div>
+      <div class="cap-card"><div class="cap-icon">🌿</div><div class="cap-name">LEED & ESG</div><div class="cap-desc">Tiêu chí bền vững</div></div>
+      <div class="cap-card"><div class="cap-icon">💰</div><div class="cap-name">Commercial</div><div class="cap-desc">Giá thuê & điều kiện hợp đồng</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="contact" class="cta-bar">
+  <div class="si">
+    <h2>Tìm ngay địa điểm KCN phù hợp</h2>
+    <p>Chuyên gia HOUSELINK sẵn sàng tư vấn và lập danh sách địa điểm tiềm năng trong 7 ngày làm việc.</p>
+    <div class="cta-bar-btns">
+      <a href="/vi/contact/" class="btn-white">Đặt lịch tư vấn miễn phí</a>
+      <a href="/vi/" class="btn-outline-green">← Về trang chủ HOUSELINK</a>
+    </div>
+  </div>
+</section>
+
+<div id="hl-chrome-footer"></div>
+  <script src="../../../landing-chrome.js" defer></script>
+</body>
+</html>

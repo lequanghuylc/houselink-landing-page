@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ESG与绿色能源 – 工业园区综合平台 | HOUSELINK</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#00466E;--navy-deep:#003457;--navy-mid:#005585;--navy-light:#006BA0;
+  --green:#2D8B48;--green-light:#3AAD5C;--green-pale:#EBF7EF;
+  --teal:#1E6464;--teal-light:#2A8080;
+  --amber:#D4860B;--amber-pale:#FEF3E0;
+  --white:#fff;--off-white:#F4F6F8;
+  --gray-50:#EEF1F4;--gray-100:#DDE3E8;--gray-200:#BEC8D0;
+  --gray-400:#7E8F9A;--gray-600:#4A5A65;--text:#0D1F2D;
+  --font-main: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; --font-serif: var(--font-main);
+}
+body{font-family:var(--font-main);color:var(--text);background:var(--white);line-height:1.7;}
+a{text-decoration:none;color:inherit;}
+img{max-width:100%;display:block;}
+.si{max-width:1200px;margin:0 auto;padding:0 40px;}
+
+/* ── TOPBAR ── */
+.topbar{background:var(--navy-deep);padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.08);}
+.topbar-inner{max-width:1200px;margin:0 auto;padding:0 40px;display:flex;align-items:center;justify-content:space-between;}
+.back-link{display:flex;align-items:center;gap:8px;color:rgba(255,255,255,0.6);font-size:13px;font-weight:500;transition:color .2s;}
+.back-link:hover{color:#fff;}
+.topbar-brand{display:flex;align-items:center;gap:8px;}
+.tb-icon{width:28px;height:28px;border-radius:7px;background:rgba(255,255,255,0.08);border:1.5px solid rgba(45,139,72,0.5);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:900;color:var(--green);}
+.tb-name{font-size:13px;font-weight:800;color:rgba(255,255,255,0.85);letter-spacing:.06em;text-transform:uppercase;}
+.topbar-cta{background:var(--green);color:#fff;font-size:12.5px;font-weight:700;padding:7px 18px;border-radius:7px;transition:background .2s;}
+.topbar-cta:hover{background:var(--green-light);}
+
+
+/* ── HERO ── */
+.svc-hero{background:linear-gradient(135deg,var(--navy-deep) 0%,var(--navy) 60%,#004060 100%);padding:72px 0 64px;position:relative;overflow:hidden;}
+.svc-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 55% 80% at 80% 50%,rgba(45,139,72,0.12) 0%,transparent 60%);pointer-events:none;}
+.svc-hero::after{content:'';position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,0.03) 1px,transparent 1px);background-size:28px 28px;pointer-events:none;}
+.hero-wrap{max-width:1200px;margin:0 auto;padding:0 40px;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;position:relative;z-index:1;}
+.hero-badge{display:inline-flex;align-items:center;gap:7px;background:rgba(45,139,72,0.15);border:1px solid rgba(45,139,72,0.35);border-radius:100px;padding:5px 14px;font-size:11px;font-weight:700;color:#7ED49A;letter-spacing:.1em;text-transform:uppercase;margin-bottom:20px;}
+.hero-badge::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--green);}
+.hero-h1{font-family:var(--font-serif);font-size:clamp(28px,3.8vw,50px);font-weight:600;color:#fff;line-height:1.16;letter-spacing:-.02em;margin-bottom:18px;}
+.hero-h1 em{color:#7ED49A;font-style:normal;}
+.hero-sub{font-size:15.5px;color:rgba(255,255,255,.62);line-height:1.7;margin-bottom:28px;}
+.hero-tags{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:32px;}
+.h-tag{font-size:11.5px;font-weight:600;color:rgba(255,255,255,.7);background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:100px;padding:5px 13px;}
+.hero-ctas{display:flex;gap:12px;flex-wrap:wrap;margin-top:32px;}
+.btn-g{background:var(--green);color:#fff;font-size:13.5px;font-weight:700;padding:12px 26px;border-radius:8px;border:2px solid var(--green);transition:all .2s;}
+.btn-g:hover{background:var(--green-light);border-color:var(--green-light);}
+.btn-outline-w{color:rgba(255,255,255,.8);border:1.5px solid rgba(255,255,255,.25);border-radius:8px;padding:12px 22px;font-size:13.5px;font-weight:600;transition:all .2s;}
+.btn-outline-w:hover{border-color:rgba(255,255,255,.6);color:#fff;}
+.hero-right{display:flex;flex-direction:column;gap:13px;}
+.hsc{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:13px;padding:18px 20px;display:flex;align-items:center;gap:15px;transition:all .2s;}
+.hsc:hover{background:rgba(45,139,72,.12);border-color:rgba(45,139,72,.3);}
+.hsc-ico{font-size:24px;flex-shrink:0;}
+.hsc-n{font-family:var(--font-serif);font-size:22px;font-weight:600;color:#7ED49A;line-height:1;}
+.hsc-l{font-size:12px;color:rgba(255,255,255,.5);margin-top:2px;}
+
+/* ── SECTION ── */
+.section{padding:72px 0;}
+.sec-label{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--green);margin-bottom:10px;}
+.sec-title{font-family:var(--font-serif);font-size:clamp(24px,3vw,38px);font-weight:600;color:var(--navy);line-height:1.22;letter-spacing:-.02em;}
+.sec-title em{color:var(--green);font-style:normal;}
+.sec-sub{font-size:15.5px;color:var(--gray-600);line-height:1.72;max-width:600px;margin-top:14px;}
+
+/* ── 3 PILLAR ARCHITECTURE ── */
+.arch-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:52px;position:relative;}
+.arch-grid::before{content:'→';position:absolute;left:calc(33.33% - 12px);top:50%;transform:translateY(-50%);font-size:22px;color:var(--green);z-index:2;}
+.arch-grid::after{content:'→';position:absolute;left:calc(66.66% - 12px);top:50%;transform:translateY(-50%);font-size:22px;color:var(--green);z-index:2;}
+.pillar{padding:36px 32px;position:relative;}
+.pillar:nth-child(1){background:var(--navy-deep);border-radius:16px 0 0 16px;}
+.pillar:nth-child(2){background:var(--navy);border-left:1px solid rgba(255,255,255,.08);border-right:1px solid rgba(255,255,255,.08);}
+.pillar:nth-child(3){background:var(--navy-mid);border-radius:0 16px 16px 0;}
+.pillar-icon{font-size:32px;margin-bottom:16px;}
+.pillar-provider{font-size:10.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#7ED49A;margin-bottom:8px;}
+.pillar-title{font-size:18px;font-weight:700;color:#fff;margin-bottom:12px;line-height:1.3;}
+.pillar-desc{font-size:13.5px;color:rgba(255,255,255,.6);line-height:1.65;}
+.pillar-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:16px;}
+.pillar-tag{font-size:11px;font-weight:600;color:#7ED49A;background:rgba(45,139,72,.15);border-radius:100px;padding:3px 10px;}
+
+/* ── ESG INFRA SECTION ── */
+.esgi-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;margin-top:52px;}
+.offer-cards{display:flex;flex-direction:column;gap:20px;}
+.offer-card{background:var(--white);border:1px solid var(--gray-100);border-radius:14px;padding:28px 26px;border-left:4px solid var(--green);transition:all .25s;}
+.offer-card:hover{box-shadow:0 8px 32px rgba(0,70,110,.08);transform:translateY(-2px);}
+.offer-card.dark{background:var(--navy);border-left-color:var(--green-light);}
+.offer-num{font-size:10.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--green);margin-bottom:8px;}
+.offer-card.dark .offer-num{color:#7ED49A;}
+.offer-title{font-size:16px;font-weight:700;color:var(--navy);margin-bottom:10px;line-height:1.3;}
+.offer-card.dark .offer-title{color:#fff;}
+.offer-desc{font-size:13.5px;color:var(--gray-600);line-height:1.65;}
+.offer-card.dark .offer-desc{color:rgba(255,255,255,.65);}
+.offer-pills{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px;}
+.offer-pill{font-size:11px;font-weight:600;color:var(--teal);background:rgba(30,100,100,.07);border-radius:100px;padding:3px 10px;}
+.offer-card.dark .offer-pill{color:#7ED49A;background:rgba(45,139,72,.15);}
+.glassdome-card{background:var(--off-white);border:1px solid var(--gray-100);border-radius:16px;padding:32px 28px;}
+.gd-logo{display:flex;align-items:center;gap:10px;margin-bottom:20px;}
+.gd-logo-icon{width:44px;height:44px;border-radius:10px;background:var(--navy);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:#7ED49A;letter-spacing:.02em;}
+.gd-name{font-size:16px;font-weight:800;color:var(--navy);}
+.gd-sub{font-size:11px;color:var(--gray-400);letter-spacing:.06em;text-transform:uppercase;}
+.gd-cred{display:flex;flex-direction:column;gap:12px;margin-top:20px;}
+.gd-cred-item{display:flex;align-items:flex-start;gap:12px;padding:12px 14px;background:var(--white);border:1px solid var(--gray-100);border-radius:10px;}
+.gd-cred-icon{font-size:18px;flex-shrink:0;margin-top:2px;}
+.gd-cred-title{font-size:13px;font-weight:700;color:var(--navy);margin-bottom:3px;}
+.gd-cred-desc{font-size:12px;color:var(--gray-600);line-height:1.5;}
+.mou-box{background:var(--green-pale);border:1.5px solid rgba(45,139,72,.25);border-radius:12px;padding:20px 22px;margin-top:20px;}
+.mou-label{font-size:10.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--green);margin-bottom:8px;}
+.mou-title{font-size:15px;font-weight:700;color:var(--navy);margin-bottom:6px;line-height:1.3;}
+.mou-desc{font-size:13px;color:var(--gray-600);line-height:1.55;}
+.mou-logos{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap;}
+.mou-logo{font-size:11.5px;font-weight:700;color:var(--navy);background:var(--white);border:1px solid var(--gray-100);border-radius:7px;padding:6px 14px;}
+
+.model-card:hover{background:rgba(45,139,72,.1);border-color:rgba(45,139,72,.3);}
+
+
+
+
+/* ── STANDARDS GRID ── */
+.std-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:40px;}
+.std-card{background:var(--gray-50);border:1px solid var(--gray-100);border-radius:11px;padding:18px 14px;text-align:center;transition:all .2s;}
+.std-card:hover{background:var(--green-pale);border-color:rgba(45,139,72,.2);}
+.std-ico{font-size:22px;margin-bottom:8px;}
+.std-name{font-size:13px;font-weight:700;color:var(--navy);margin-bottom:3px;}
+.std-desc{font-size:11px;color:var(--gray-400);line-height:1.4;}
+
+/* ── CTA ── */
+.cta-bar{background:var(--green);padding:60px 0;text-align:center;}
+.cta-bar h2{font-family:var(--font-serif);font-size:clamp(24px,3vw,38px);font-weight:600;color:#fff;margin-bottom:12px;}
+.cta-bar p{font-size:15.5px;color:rgba(255,255,255,.75);margin-bottom:32px;max-width:620px;margin-left:auto;margin-right:auto;}
+.cta-bar-btns{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;}
+.btn-white{background:#fff;color:var(--green);font-size:14px;font-weight:700;padding:13px 28px;border-radius:8px;transition:all .2s;}
+.btn-white:hover{background:var(--green-pale);}
+.btn-outline-green{border:2px solid rgba(255,255,255,.6);color:#fff;font-size:14px;font-weight:600;padding:13px 24px;border-radius:8px;transition:all .2s;}
+.btn-outline-green:hover{border-color:#fff;}
+.cta-contact{margin-top:24px;font-size:13px;color:rgba(255,255,255,.55);}
+
+/* ── FOOTER MINI ── */
+.footer-mini{background:var(--navy-deep);padding:24px 0;text-align:center;font-size:13px;color:rgba(255,255,255,.3);}
+.footer-mini a{color:rgba(255,255,255,.4);}
+
+@media(max-width:960px){
+  .hero-wrap,.esgi-grid,.energy-wrap,.who-grid,.event-grid,.roadmap-grid{grid-template-columns:1fr;}
+  .arch-grid{grid-template-columns:1fr;}
+  .arch-grid::before,.arch-grid::after{display:none;}
+  .pillar:nth-child(1){border-radius:12px 12px 0 0;}
+  .pillar:nth-child(3){border-radius:0 0 12px 12px;}
+  .std-grid{grid-template-columns:1fr 1fr;}
+  .hero-right{display:none;}
+  .si{padding:0 20px;}
+}
+
+/* ── CHAL-PILL ACCORDION (same as landing page) ── */
+.chal-compact { display:flex; flex-direction:column; gap:8px; }
+.chal-pill {
+  border:1px solid var(--gray-100); border-radius:10px;
+  overflow:hidden; cursor:pointer; transition:all 0.2s;
+  background:var(--white);
+}
+.chal-pill:hover { border-color:var(--green); }
+.chal-pill.open  { border-color:var(--green); }
+.cp-head {
+  display:flex; align-items:center; gap:10px;
+  padding:13px 16px; font-size:13.5px; font-weight:600; color:var(--navy);
+}
+.cp-icon  { font-size:16px; flex-shrink:0; }
+.cp-title { flex:1; min-width:0; line-height:1.35; }
+.cp-arrow {
+  font-size:16px; color:var(--gray-400); transition:transform 0.2s;
+}
+.chal-pill.open .cp-arrow { transform:rotate(90deg); color:var(--green); }
+.cp-body {
+  display:none;
+  padding:0 16px 14px 42px;
+  font-size:13.5px; color:var(--gray-600); line-height:1.65;
+}
+.chal-pill.open .cp-body { display:block; }
+.cp-body strong { color:var(--navy); }
+
+
+/* ── SERVICE CARDS (from first ESG) ── */
+.svc-grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+.svc-card-sm{background:var(--white);border:1px solid var(--gray-100);border-radius:14px;padding:28px 24px;transition:all 0.25s;position:relative;overflow:hidden;}
+.svc-card-sm::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--green),var(--navy-mid));transform:scaleX(0);transform-origin:left;transition:transform 0.3s;}
+.svc-card-sm:hover{box-shadow:0 8px 32px rgba(0,70,110,0.09);transform:translateY(-2px);}
+.svc-card-sm:hover::before{transform:scaleX(1);}
+.svc-card-sm.featured{background:var(--navy);border-color:var(--navy);}
+.svc-card-sm.featured::before{transform:scaleX(1);background:var(--green);}
+.svc-card-sm.featured .sc-title{color:#fff;}
+.svc-card-sm.featured .sc-desc{color:rgba(255,255,255,0.75);}
+.sc-icon{font-size:26px;margin-bottom:14px;}
+.sc-title{font-size:15.5px;font-weight:700;color:var(--navy);margin-bottom:8px;line-height:1.3;}
+.sc-desc{font-size:13.5px;color:var(--gray-600);line-height:1.65;}
+.sc-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px;}
+.sc-tag{font-size:11px;font-weight:600;color:var(--green);background:var(--green-pale);border-radius:100px;padding:3px 10px;}
+.svc-card-sm.featured .sc-tag{color:#7ED49A;background:rgba(45,139,72,0.15);}
+
+/* ── PROCESS (from first ESG) ── */
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start;}
+.esg-process-cols{gap:72px;}
+.img-block{border-radius:16px;overflow:hidden;position:relative;}
+.img-block img{width:100%;height:380px;object-fit:cover;display:block;filter:brightness(0.85);}
+.esg-partners-box{
+  margin-top:20px;background:var(--green-pale);border:1px solid rgba(45,139,72,0.2);
+  border-radius:14px;padding:22px 24px;
+}
+.esg-partners-h{
+  font-size:13px;font-weight:700;color:var(--green);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:16px;
+}
+.esg-partners-badges{display:flex;flex-wrap:wrap;gap:12px;align-items:center;}
+.esg-partner-chip{
+  background:#fff;border:1px solid var(--gray-100);border-radius:10px;padding:10px 16px;display:inline-flex;align-items:center;
+}
+.img-overlay-badge{position:absolute;bottom:24px;left:24px;background:var(--navy);border-radius:10px;padding:16px 20px;color:#fff;}
+.iob-n{font-family:var(--font-serif);font-size:24px;font-weight:600;color:#7ED49A;line-height:1;}
+.iob-l{font-size:11px;color:rgba(255,255,255,0.5);margin-top:4px;text-transform:uppercase;letter-spacing:0.06em;}
+.pv-item{display:grid;grid-template-columns:48px 1fr;gap:20px;padding:18px 0;border-bottom:1px solid var(--gray-50);}
+.pv-item:last-child{border-bottom:none;}
+.pv-num{width:40px;height:40px;border-radius:50%;background:var(--navy);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:800;color:#7ED49A;flex-shrink:0;margin-top:2px;transition:background 0.2s;}
+.pv-title{font-size:15px;font-weight:700;color:var(--navy);margin-bottom:0;}
+@media(max-width:960px){
+  .svc-grid3{grid-template-columns:1fr;}
+  .two-col{grid-template-columns:1fr;}
+  .esg-process-cols{gap:36px;}
+  .img-block img{height:auto;aspect-ratio:16/10;min-height:220px;max-height:420px;}
+  .esg-partners-box{padding:18px 16px;}
+}
+@media(max-width:520px){
+  .cp-head{padding:12px 12px;gap:8px;}
+  .cp-title{font-size:13px;}
+  .cp-body{padding:0 12px 12px 36px;font-size:13px;}
+  .esg-partners-badges{gap:8px;}
+  .esg-partner-chip{padding:8px 12px;}
+  .img-overlay-badge{bottom:14px;left:14px;padding:12px 14px;}
+  .iob-n{font-size:20px;}
+}
+
+</style>
+  <link rel="stylesheet" href="../../../landing-chrome.css">
+</head>
+<body class="hl-with-fixed-header" data-hl-page="services-esg">
+
+<div id="hl-chrome-header"></div>
+
+<!-- HERO -->
+<section class="svc-hero">
+  <div class="hero-wrap">
+    <div>
+      <div class="hero-badge">ESG Infrastructure Platform · Energy Trader DPPA</div>
+      <h1 class="hero-h1">
+        工业园区<br><em>综合ESG平台</em><br>与制造型企业
+      </h1>
+      <p class="hero-sub">
+        HOUSELINK结合Glassdome和可再生能源网络，为工业园区提供全面的ESG生态系统：从实时碳监测、按第57号法令提供绿色DPPA电力，到帮助租户达到CBAM合规和全球供应链要求。
+      </p>
+      <div class="hero-tags">
+        <span class="h-tag">ESG Infrastructure</span>
+        <span class="h-tag">DPPA · 第57/2025号法令</span>
+        <span class="h-tag">Glassdome Platform</span>
+        <span class="h-tag">ISO 14067 Verified</span>
+        <span class="h-tag">CBAM Compliance</span>
+        <span class="h-tag">Eco-Industrial Park</span>
+        <span class="h-tag">RE100 · Carbon Transfer</span>
+      </div>
+      <div class="hero-ctas">
+        <a href="/zh/contact/" class="btn-g">免费ESG与DPPA咨询 →</a>
+        <a href="#architecture" class="btn-outline-w">查看集成模型</a>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hsc">
+        <div class="hsc-ico">🏭</div>
+        <div><div class="hsc-n">478 KCN</div><div class="hsc-l">全国——40–50%必须在2030年前达到EIP</div></div>
+      </div>
+      <div class="hsc">
+        <div class="hsc-ico">🌿</div>
+        <div><div class="hsc-n">ISO 14067</div><div class="hsc-l">Glassdome——首个经验证的PCF平台</div></div>
+      </div>
+      <div class="hsc">
+        <div class="hsc-ico">⚡</div>
+        <div><div class="hsc-n">30–70%</div><div class="hsc-l">工业园区DPPA直供绿色电力比例</div></div>
+      </div>
+      <div class="hsc">
+        <div class="hsc-ico">📅</div>
+        <div><div class="hsc-n">01/01/2026</div><div class="hsc-l">CBAM正式生效——需立即行动</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3-PILLAR ARCHITECTURE -->
+<section id="architecture" class="section" style="background:var(--off-white);">
+  <div class="si">
+    <div style="text-align:center;max-width:680px;margin:0 auto;">
+      <div class="sec-label">综合平台架构</div>
+      <h2 class="sec-title">三个协同层构成<br><em>ESG Infrastructure Platform</em></h2>
+      <p class="sec-sub" style="margin:14px auto 0;text-align:center;">不是一次性ESG咨询——而是持续运营的ESG系统，从绿色电力、碳数据到租户支持全面整合。</p>
+    </div>
+    <div class="arch-grid">
+      <div class="pillar">
+        <div class="pillar-icon">⚡</div>
+        <div class="pillar-provider">HOUSELINK提供</div>
+        <div class="pillar-title">Energy Layer<br>DPPA Renewable Sourcing</div>
+        <div class="pillar-desc">HOUSELINK按第57/2025/ND-CP号法令扮演能源交易商和聚合商角色——将工业园区与可再生能源（太阳能、风能、生物质）连接，直接提供30–70%绿色电力。无需前期投资。</div>
+        <div class="pillar-tags">
+          <span class="pillar-tag">DPPA Virtual</span>
+          <span class="pillar-tag">第57/2025号法令</span>
+          <span class="pillar-tag">Solar · Wind</span>
+          <span class="pillar-tag">REC Allocation</span>
+        </div>
+      </div>
+      <div class="pillar">
+        <div class="pillar-icon">📊</div>
+        <div class="pillar-provider">GLASSDOME提供</div>
+        <div class="pillar-title">Data Layer<br>Carbon Dashboard & ISO 14067</div>
+        <div class="pillar-desc">Glassdome提供实时监测系统、碳排放仪表盘和ISO 14067认证PCF数据——将工业园区转变为能为租户导出碳数据以满足欧盟、苹果、三星、耐克合规要求的平台。</div>
+        <div class="pillar-tags">
+          <span class="pillar-tag">ISO 14067 Verified</span>
+          <span class="pillar-tag">Real-time Monitoring</span>
+          <span class="pillar-tag">LRQA Audited</span>
+          <span class="pillar-tag">Catena-X Certified</span>
+        </div>
+      </div>
+      <div class="pillar">
+        <div class="pillar-icon">🌿</div>
+        <div class="pillar-provider">HOUSELINK协调</div>
+        <div class="pillar-title">ESG Services<br>Tenant Activation Program</div>
+        <div class="pillar-desc">从免费诊断、Glassdome平台入驻到持续报告的租户支持计划——帮助租户实现CBAM合规、保留全球OEM订单并降低离开工业园区的风险。</div>
+        <div class="pillar-tags">
+          <span class="pillar-tag">Free Diagnostic</span>
+          <span class="pillar-tag">CBAM Support</span>
+          <span class="pillar-tag">EIP Certification</span>
+          <span class="pillar-tag">Tenant Retention</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ESG 服务目录 -->
+<section id="services" class="section" style="background:var(--off-white);">
+  <div class="si">
+    <div class="sec-label">ESG服务目录</div>
+    <h2 class="sec-title">全面解决方案：从<br><em>测量到认证</em></h2>
+    <p class="sec-sub">HOUSELINK提供闭环ESG服务链——从战略咨询、Glassdome技术平台到独立核查和对接国际认证机构。</p>
+    <div class="svc-grid3" style="margin-top:44px;">
+      <div class="svc-card-sm featured">
+        <div class="sc-icon">📊</div>
+        <div class="sc-title">碳排放清单（PCF/GHG）</div>
+        <div class="sc-desc">通过Glassdome平台按ISO 14064-1（组织）和ISO 14067（产品）测量和报告温室气体排放——来自机器的真实数据，按ISAE 3000独立核查。</div>
+        <div class="sc-tags"><span class="sc-tag">ISO 14064-1</span><span class="sc-tag">ISO 14067 (PCF)</span><span class="sc-tag">ISAE 3000</span><span class="sc-tag">Glassdome Platform</span></div>
+      </div>
+      <div class="svc-card-sm">
+        <div class="sc-icon">🌍</div>
+        <div class="sc-title">CBAM与CSRD合规</div>
+        <div class="sc-desc">提供为欧盟碳边境调节机制（CBAM）和企业可持续发展报告指令（CSRD）准备报告和文件的咨询——确保企业出口欧盟不受中断。</div>
+        <div class="sc-tags"><span class="sc-tag">CBAM 2026</span><span class="sc-tag">CSRD</span><span class="sc-tag">EU Compliance</span></div>
+      </div>
+      <div class="svc-card-sm">
+        <div class="sc-icon">🏆</div>
+        <div class="sc-title">工业园区ESG基础设施平台</div>
+        <div class="sc-desc">全园区实时能源与碳监测平台（Glassdome）+ 30–70% DPPA绿色电力（HOUSELINK）+ 租户合规支持——帮助工业园区按第35号法令达到EIP标准。</div>
+        <div class="sc-tags"><span class="sc-tag">Park Monitoring</span><span class="sc-tag">Tenant Program</span><span class="sc-tag">EIP Certification</span><span class="sc-tag">第35/2022号法令</span></div>
+      </div>
+      <div class="svc-card-sm">
+        <div class="sc-icon">⚡</div>
+        <div class="sc-title">DPPA绿色电力与能源交易商</div>
+        <div class="sc-desc">HOUSELINK按第57/2025/ND-CP号法令扮演聚合商和能源交易商角色——将工业园区和FDI企业与可再生能源（太阳能、风能、生物质）连接，直接提供30–70%绿色电力，管理REC和ESG套餐。</div>
+        <div class="sc-tags"><span class="sc-tag">DPPA第57/2025号法令</span><span class="sc-tag">RE100</span><span class="sc-tag">REC Allocation</span><span class="sc-tag">PPA Structuring</span></div>
+      </div>
+      <div class="svc-card-sm">
+        <div class="sc-icon">🔄</div>
+        <div class="sc-title">碳转让与抵消排放</div>
+        <div class="sc-desc">提供碳信用转让机制咨询，对接REDD+和可再生能源项目，以抵消生产过程中无法直接减少的排放。</div>
+        <div class="sc-tags"><span class="sc-tag">Carbon Credit</span><span class="sc-tag">REDD+</span><span class="sc-tag">Carbon Offset</span></div>
+      </div>
+      <div class="svc-card-sm">
+        <div class="sc-icon">🌱</div>
+        <div class="sc-title">战略与环境影响评估（SEA与EIA）</div>
+        <div class="sc-desc">按照越南法规和国际IFC标准编制战略环境评估（SEA）和环境影响评估（EIA）报告——是获取绿色融资的必要条件。</div>
+        <div class="sc-tags"><span class="sc-tag">SEA Report</span><span class="sc-tag">EIA Report</span><span class="sc-tag">IFC Standards</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 从评估到国际认证 -->
+<section class="section" style="background:var(--white);">
+  <div class="si">
+    <div class="two-col esg-process-cols">
+      <div>
+        <div class="sec-label">实施流程</div>
+        <h2 class="sec-title">从评估到<br><em>国际认证</em></h2>
+        <p class="sec-sub" style="margin-bottom:28px;">ESG路线图专为每个企业量身定制——符合行业、规模和供应链要求。</p>
+        <div class="chal-compact">
+
+          <div class="chal-pill" onclick="this.classList.toggle('open')">
+            <div class="cp-head">
+              <span class="cp-icon">🔍</span>
+              <span class="cp-title">01 · ESG现状评估</span>
+              <span class="cp-arrow">›</span>
+            </div>
+            <div class="cp-body">
+              审查所有生产活动，识别Scope 1、2、3排放源及与目标标准的差距。初步诊断 <strong>免费</strong> 通过Glassdome平台进行——无需提前投资系统。
+            </div>
+          </div>
+
+          <div class="chal-pill" onclick="this.classList.toggle('open')">
+            <div class="cp-head">
+              <span class="cp-icon">🎯</span>
+              <span class="cp-title">02 · 制定路线图与目标</span>
+              <span class="cp-arrow">›</span>
+            </div>
+            <div class="cp-body">
+              建立排放基准，设定基于科学的减排目标（SBTi）和年度行动路线图——符合企业的规模、行业和净零目标。
+            </div>
+          </div>
+
+          <div class="chal-pill" onclick="this.classList.toggle('open')">
+            <div class="cp-head">
+              <span class="cp-icon">📊</span>
+              <span class="cp-title">03 · 清单与测量</span>
+              <span class="cp-arrow">›</span>
+            </div>
+            <div class="cp-body">
+              通过Glassdome平台从机器收集真实数据（不使用平均估算系数），按ISO 14064-1计算GHG排放量和按ISO 14067计算产品碳足迹，编制详细报告。
+            </div>
+          </div>
+
+          <div class="chal-pill" onclick="this.classList.toggle('open')">
+            <div class="cp-head">
+              <span class="cp-icon">✅</span>
+              <span class="cp-title">04 · 独立核查</span>
+              <span class="cp-arrow">›</span>
+            </div>
+            <div class="cp-body">
+              与国际认可的核查机构（LRQA、Bureau Veritas、SGS、TÜV Nord）对接，按ISAE 3000/ISO 14064-3进行核查——集成在Glassdome平台内的流程大幅减少审计时间和成本。
+            </div>
+          </div>
+
+          <div class="chal-pill" onclick="this.classList.toggle('open')">
+            <div class="cp-head">
+              <span class="cp-icon">🏆</span>
+              <span class="cp-title">05 · 认证与报告</span>
+              <span class="cp-arrow">›</span>
+            </div>
+            <div class="cp-body">
+              完成国际ESG认证，按GRI/SASB标准发布可持续发展报告，准备所有CBAM/CSRD合规文件——确保出口欧盟不受中断，满足苹果、三星、耐克、联合利华的要求。
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div>
+        <div class="img-block">
+          <img src="../../../images/unsplash-1466611653911-95081537e5b7.jpg" alt="ESG Sustainability">
+          <div class="img-overlay-badge">
+            <div class="iob-n">Net Zero</div>
+            <div class="iob-l">正确的战略是旅程的开始</div>
+          </div>
+        </div>
+      <div class="esg-partners-box">
+          <div class="esg-partners-h">认证与合作伙伴</div>
+          <div class="esg-partners-badges">
+
+            <span class="esg-partner-chip" title="Glassdome">
+              <span style="font-size:12px;font-weight:800;color:#00313C;">Glassdome</span>
+            </span>
+
+            <span class="esg-partner-chip" title="LRQA">
+              <span style="font-size:12px;font-weight:800;color:#C8102E;">LRQA</span>
+            </span>
+
+            <span class="esg-partner-chip" title="Bureau Veritas">
+              <span style="font-size:12px;font-weight:800;color:#00539F;">Bureau Veritas</span>
+            </span>
+
+            <span class="esg-partner-chip" title="SGS">
+              <span style="font-size:12px;font-weight:800;color:#00A0E0;">SGS</span>
+            </span>
+
+            <span class="esg-partner-chip" title="TÜV Nord">
+              <span style="font-size:12px;font-weight:800;color:#003C8F;">TÜV Nord</span>
+            </span>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STANDARDS -->
+<section class="section" style="background:var(--off-white);">
+  <div class="si">
+    <div style="text-align:center;max-width:560px;margin:0 auto;">
+      <div class="sec-label">标准与法律框架</div>
+      <h2 class="sec-title">构建于<br><em>国际标准</em></h2>
+    </div>
+    <div class="std-grid">
+      <div class="std-card"><div class="std-ico">📋</div><div class="std-name">ISO 14064-1</div><div class="std-desc">组织级温室气体排放清单</div></div>
+      <div class="std-card"><div class="std-ico">🏭</div><div class="std-name">ISO 14067</div><div class="std-desc">PCF——产品碳足迹</div></div>
+      <div class="std-card"><div class="std-ico">✅</div><div class="std-name">ISAE 3000</div><div class="std-desc">非财务独立核查</div></div>
+      <div class="std-card"><div class="std-ico">🌍</div><div class="std-name">CBAM 2026</div><div class="std-desc">欧盟碳边境调节机制</div></div>
+      <div class="std-card"><div class="std-ico">⚡</div><div class="std-name">第57/2025号法令</div><div class="std-desc">越南DPPA虚拟与直接</div></div>
+      <div class="std-card"><div class="std-ico">🏢</div><div class="std-name">第35/2022号法令</div><div class="std-desc">越南EIP法律框架</div></div>
+      <div class="std-card"><div class="std-ico">🚗</div><div class="std-name">Catena-X</div><div class="std-desc">汽车碳互操作标准</div></div>
+      <div class="std-card"><div class="std-ico">⚡</div><div class="std-name">RE100</div><div class="std-desc">FDI 100%可再生能源</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="contact" class="cta-bar">
+  <div class="si">
+    <h2>开始构建ESG基础设施<br>为您的工业园区与企业</h2>
+    <p>HOUSELINK和Glassdome准备进行免费初步评估——识别您的ESG差距、DPPA路线图和最适合您的第一步。</p>
+    <div class="cta-bar-btns">
+      <a href="/zh/contact/" class="btn-white">预约免费咨询</a>
+      <a href="/zh/" class="btn-outline-green">← 返回HOUSELINK首页</a>
+    </div>
+
+  </div>
+</section>
+
+<div id="hl-chrome-footer"></div>
+  <script src="../../../landing-chrome.js" defer></script>
+</body>
+</html>

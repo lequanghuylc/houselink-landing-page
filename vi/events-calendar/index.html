@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lịch Sự kiện & Business Matching 2026 – HOUSELINK</title>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --navy:#00466E;--navy-deep:#003457;--navy-mid:#005585;
+  --green:#2D8B48;--green-light:#3AAD5C;--green-pale:#EBF7EF;
+  --amber:#D4860B;--amber-pale:#FEF3E0;
+  --violet:#6B3FA0;--violet-pale:#F3EEFF;
+  --blue:#1D6FA4;--blue-pale:#E8F4FC;
+  --white:#FFFFFF;--off-white:#F4F6F8;
+  --gray-50:#EEF1F4;--gray-100:#DDE3E8;--gray-200:#BEC8D0;
+  --gray-400:#7E8F9A;--gray-600:#4A5A65;--text:#0D1F2D;
+  --font-main:'Be Vietnam Pro',sans-serif;
+  --font-serif:'DM Serif Display',serif;
+}
+body{font-family:var(--font-main);color:var(--text);background:var(--white);line-height:1.7;}
+a{text-decoration:none;color:inherit;}
+.si{max-width:1200px;margin:0 auto;padding:0 40px;}
+
+/* ── TOPBAR ── */
+.topbar{background:var(--navy-deep);padding:12px 0;position:sticky;top:0;z-index:100;border-bottom:1px solid rgba(255,255,255,.08);}
+.topbar-inner{max-width:1200px;margin:0 auto;padding:0 40px;display:flex;align-items:center;justify-content:space-between;}
+.back-link{color:rgba(255,255,255,.6);font-size:13px;font-weight:500;transition:color .2s;}
+.back-link:hover{color:#fff;}
+.topbar-brand{display:flex;align-items:center;gap:8px;}
+.tb-icon{width:28px;height:28px;border-radius:7px;background:rgba(255,255,255,.08);border:1.5px solid rgba(45,139,72,.5);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:900;color:var(--green);}
+.tb-name{font-size:13px;font-weight:800;color:rgba(255,255,255,.85);letter-spacing:.06em;text-transform:uppercase;}
+.topbar-cta{background:var(--green);color:#fff;font-size:12.5px;font-weight:700;padding:7px 18px;border-radius:7px;transition:background .2s;}
+.topbar-cta:hover{background:var(--green-light);}
+
+/* ── HERO ── */
+.cal-hero{background:linear-gradient(135deg,var(--navy-deep) 0%,var(--navy) 55%,#003C5E 100%);padding:72px 0 60px;position:relative;overflow:hidden;}
+.cal-hero::before{content:'';position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.035) 1px,transparent 1px);background-size:30px 30px;pointer-events:none;}
+.hero-content{max-width:1200px;margin:0 auto;padding:0 40px;position:relative;z-index:1;}
+.hero-label{display:inline-flex;align-items:center;gap:7px;background:rgba(45,139,72,.15);border:1px solid rgba(45,139,72,.35);border-radius:100px;padding:5px 14px;font-size:11px;font-weight:700;color:#7ED49A;letter-spacing:.1em;text-transform:uppercase;margin-bottom:18px;}
+.hero-label::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--green);}
+.hero-title{font-family:var(--font-serif);font-size:clamp(30px,4.5vw,56px);font-weight:600;color:#fff;line-height:1.12;letter-spacing:-.025em;margin-bottom:16px;}
+.hero-title em{color:#7ED49A;font-style:normal;}
+.hero-sub{font-size:16px;color:rgba(255,255,255,.6);max-width:560px;margin-bottom:32px;}
+
+/* Stat row */
+.hero-stats{display:flex;gap:32px;flex-wrap:wrap;}
+.h-stat{display:flex;align-items:center;gap:10px;}
+.h-stat-num{font-family:var(--font-serif);font-size:28px;font-weight:600;color:#7ED49A;}
+.h-stat-label{font-size:13px;color:rgba(255,255,255,.5);line-height:1.3;}
+
+/* ── FILTER BAR ── */
+.filter-bar{background:var(--white);border-bottom:1px solid var(--gray-100);padding:16px 0;position:sticky;top:52px;z-index:90;}
+.filter-inner{max-width:1200px;margin:0 auto;padding:0 40px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;}
+.filter-label{font-size:12.5px;font-weight:700;color:var(--gray-400);text-transform:uppercase;letter-spacing:.08em;margin-right:4px;}
+.filter-btn{font-size:12.5px;font-weight:600;padding:7px 16px;border-radius:100px;border:1.5px solid var(--gray-100);background:var(--white);color:var(--gray-600);cursor:pointer;transition:all .2s;font-family:var(--font-main);}
+.filter-btn:hover{border-color:var(--green);color:var(--green);}
+.filter-btn.active{background:var(--navy);border-color:var(--navy);color:#fff;}
+.filter-search{margin-left:auto;position:relative;}
+.filter-search input{padding:8px 14px 8px 36px;border:1.5px solid var(--gray-100);border-radius:8px;font-size:13px;font-family:var(--font-main);outline:none;width:200px;transition:border-color .2s;}
+.filter-search input:focus{border-color:var(--green);}
+.filter-search::before{content:'🔍';position:absolute;left:10px;top:50%;transform:translateY(-50%);font-size:14px;}
+
+/* ── MAIN LAYOUT ── */
+.cal-wrap{max-width:1200px;margin:0 auto;padding:48px 40px 80px;}
+.cal-layout{display:grid;grid-template-columns:1fr 320px;gap:40px;align-items:start;}
+
+/* ── EVENTS LIST ── */
+.events-column{}
+.month-section{margin-bottom:48px;}
+.month-header{display:flex;align-items:center;gap:14px;margin-bottom:20px;}
+.month-tag{font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--green);background:var(--green-pale);padding:4px 14px;border-radius:100px;}
+.month-label{font-family:var(--font-serif);font-size:22px;font-weight:600;color:var(--navy);}
+.month-divider{flex:1;height:1px;background:var(--gray-100);}
+
+/* Event card */
+.ev-card{background:var(--white);border:1.5px solid var(--gray-100);border-radius:16px;padding:0;overflow:hidden;margin-bottom:16px;transition:all .25s;display:flex;}
+.ev-card:hover{box-shadow:0 10px 40px rgba(0,70,110,.1);transform:translateY(-2px);border-color:transparent;}
+.ev-card.featured{border-color:var(--green);background:linear-gradient(135deg,#fafffe 0%,#f0fbf4 100%);}
+.ev-card.past{opacity:.65;filter:grayscale(20%);}
+
+/* Date column */
+.ev-date-col{width:88px;flex-shrink:0;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:20px 8px;border-right:1.5px solid var(--gray-100);}
+.ev-card.featured .ev-date-col{border-right-color:rgba(45,139,72,.2);background:rgba(45,139,72,.04);}
+.ev-day{font-family:var(--font-serif);font-size:40px;font-weight:600;color:var(--navy);line-height:1;}
+.ev-mon{font-size:12px;font-weight:700;color:var(--gray-400);text-transform:uppercase;letter-spacing:.08em;}
+.ev-dow{font-size:11px;color:var(--gray-200);margin-top:2px;}
+
+/* Body */
+.ev-body{flex:1;padding:20px 22px;}
+.ev-tags{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:9px;}
+.ev-tag{font-size:10.5px;font-weight:700;padding:3px 10px;border-radius:100px;letter-spacing:.06em;text-transform:uppercase;}
+.tag-bm{background:var(--green-pale);color:var(--green);}
+.tag-esg{background:var(--blue-pale);color:var(--blue);}
+.tag-policy{background:var(--violet-pale);color:var(--violet);}
+.tag-fdi{background:var(--amber-pale);color:var(--amber);}
+.tag-contractor{background:#FEE2E2;color:#DC2626;}
+.tag-past{background:var(--gray-50);color:var(--gray-400);}
+.tag-featured{background:var(--navy);color:#fff;}
+
+.ev-card-title{font-size:16px;font-weight:700;color:var(--navy);line-height:1.35;margin-bottom:8px;}
+.ev-card-desc{font-size:13.5px;color:var(--gray-600);line-height:1.6;margin-bottom:12px;}
+.ev-card-meta{display:flex;flex-wrap:wrap;gap:14px;}
+.ev-meta-item{display:flex;align-items:center;gap:6px;font-size:12.5px;color:var(--gray-400);}
+
+/* Action column */
+.ev-action-col{width:150px;flex-shrink:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;padding:20px 16px;border-left:1.5px solid var(--gray-100);}
+.ev-card.featured .ev-action-col{border-left-color:rgba(45,139,72,.2);}
+.btn-ev-reg{display:block;text-align:center;background:var(--green);color:#fff;font-size:12.5px;font-weight:700;padding:9px 16px;border-radius:8px;width:100%;transition:all .2s;}
+.btn-ev-reg:hover{background:var(--green-light);}
+.btn-ev-detail{display:block;text-align:center;background:transparent;color:var(--navy);font-size:12.5px;font-weight:600;padding:8px 14px;border-radius:8px;border:1.5px solid var(--gray-100);width:100%;transition:all .2s;}
+.btn-ev-detail:hover{border-color:var(--navy);}
+.btn-ev-past{display:block;text-align:center;background:var(--gray-50);color:var(--gray-400);font-size:12.5px;font-weight:600;padding:9px 14px;border-radius:8px;width:100%;}
+.ev-spots{font-size:11px;color:var(--amber);font-weight:700;text-align:center;}
+
+/* ── SIDEBAR ── */
+.cal-sidebar{}
+.sidebar-widget{background:var(--white);border:1px solid var(--gray-100);border-radius:14px;padding:24px 22px;margin-bottom:20px;}
+.sw-title{font-size:12.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--navy);margin-bottom:16px;padding-bottom:10px;border-bottom:1px solid var(--gray-100);}
+
+/* Mini calendar */
+.mini-cal{}
+.mc-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;}
+.mc-month{font-family:var(--font-serif);font-size:16px;font-weight:600;color:var(--navy);}
+.mc-nav{background:none;border:none;color:var(--gray-400);font-size:16px;cursor:pointer;padding:4px 8px;border-radius:6px;transition:all .15s;}
+.mc-nav:hover{background:var(--gray-50);color:var(--navy);}
+.mc-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:2px;text-align:center;}
+.mc-dow{font-size:10px;font-weight:700;color:var(--gray-400);padding:4px 0;text-transform:uppercase;}
+.mc-day{font-size:12.5px;padding:5px 0;border-radius:6px;cursor:default;color:var(--gray-600);}
+.mc-day.has-event{background:var(--green-pale);color:var(--green);font-weight:700;cursor:pointer;}
+.mc-day.has-event:hover{background:var(--green);color:#fff;}
+.mc-day.today{font-weight:700;color:var(--navy);}
+.mc-day.empty{opacity:0;}
+
+/* Category legend */
+.cat-legend{display:flex;flex-direction:column;gap:8px;}
+.cl-item{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--gray-600);}
+.cl-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0;}
+
+/* Subscribe */
+.sub-box{background:var(--navy-deep);border-radius:14px;padding:24px 22px;margin-bottom:20px;text-align:center;}
+.sub-box h4{font-family:var(--font-serif);font-size:18px;font-weight:600;color:#fff;margin-bottom:8px;}
+.sub-box p{font-size:13px;color:rgba(255,255,255,.55);margin-bottom:16px;line-height:1.55;}
+.sub-box input{width:100%;padding:10px 14px;border:none;border-radius:8px;font-size:13.5px;font-family:var(--font-main);outline:none;margin-bottom:10px;}
+.sub-box button{width:100%;background:var(--green);color:#fff;font-size:13.5px;font-weight:700;padding:11px;border-radius:8px;border:none;cursor:pointer;font-family:var(--font-main);}
+.cal-sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}
+
+/* Past events section */
+.past-section{margin-top:48px;padding-top:36px;border-top:2px dashed var(--gray-100);}
+.past-label{display:flex;align-items:center;gap:12px;margin-bottom:24px;}
+.past-tag{font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--gray-400);background:var(--gray-50);padding:4px 14px;border-radius:100px;}
+
+/* CTA bottom */
+.cta-bottom{background:var(--navy-deep);padding:64px 0;text-align:center;margin-top:0;}
+.cta-bottom h2{font-family:var(--font-serif);font-size:clamp(24px,3vw,36px);font-weight:600;color:#fff;margin-bottom:10px;}
+.cta-bottom p{font-size:15px;color:rgba(255,255,255,.6);margin-bottom:28px;max-width:500px;margin-left:auto;margin-right:auto;}
+.cta-btns{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;}
+.btn-g{background:var(--green);color:#fff;font-size:14px;font-weight:700;padding:13px 28px;border-radius:8px;}
+.btn-outline-w{border:2px solid rgba(255,255,255,.4);color:#fff;font-size:14px;font-weight:600;padding:13px 24px;border-radius:8px;}
+
+/* Footer */
+.footer-mini{background:#001f30;padding:24px 0;text-align:center;font-size:13px;color:rgba(255,255,255,.3);}
+
+@media(max-width:1024px){
+  .cal-layout{grid-template-columns:1fr;}
+  .cal-sidebar{display:none;}
+}
+@media(max-width:640px){
+  .si,.topbar-inner,.hero-content,.cal-wrap,.filter-inner{padding-left:20px;padding-right:20px;}
+  .ev-card{flex-direction:column;}
+  .ev-date-col{flex-direction:row;width:100%;border-right:none;border-bottom:1px solid var(--gray-100);padding:14px 20px;justify-content:flex-start;gap:8px;}
+  .ev-action-col{width:100%;flex-direction:row;border-left:none;border-top:1px solid var(--gray-100);padding:14px 20px;}
+  .filter-search{width:100%;margin-left:0;}
+  .filter-search input{width:100%;}
+  .hero-stats{gap:20px;}
+}
+
+/* Offset for fixed landing header (replaces prototype topbar) */
+body.hl-with-fixed-header.hl-event-news-page .ev-hero {
+  padding-top: calc(var(--header-h, 72px) + 20px) !important;
+}
+body.hl-with-fixed-header.hl-event-news-page .cal-hero {
+  padding-top: calc(var(--header-h, 72px) + 20px) !important;
+}
+body.hl-with-fixed-header.hl-event-news-page .filter-bar {
+  top: var(--header-h, 72px) !important;
+}
+body.hl-with-fixed-header.hl-event-news-page .reg-card {
+  top: calc(var(--header-h, 72px) + 12px) !important;
+}
+</style>
+  <link rel="stylesheet" href="../../landing-chrome.css">
+</head>
+<body class="hl-with-fixed-header hl-event-news-page" data-hl-page="events-calendar">
+<div id="hl-chrome-header"></div>
+
+<!-- HERO -->
+<section class="cal-hero">
+  <div class="hero-content">
+    <div class="hero-label">Lịch sự kiện chính thức</div>
+    <h1 class="hero-title">Business Matching &<br><em>Diễn đàn Đầu tư 2026</em></h1>
+    <p class="hero-sub">Toàn bộ lịch sự kiện kết nối kinh doanh, hội nghị ngành và diễn đàn đầu tư do HOUSELINK tổ chức và đồng tổ chức trong năm 2026.</p>
+    <div class="hero-stats">
+      <div class="h-stat"><div class="h-stat-num">8</div><div class="h-stat-label">Sự kiện<br>trong năm 2026</div></div>
+      <div class="h-stat"><div class="h-stat-num">1,500+</div><div class="h-stat-label">Đại biểu<br>dự kiến</div></div>
+      <div class="h-stat"><div class="h-stat-num">6</div><div class="h-stat-label">Tỉnh thành<br>tổ chức</div></div>
+      <div class="h-stat"><div class="h-stat-num">20+</div><div class="h-stat-label">Quốc gia<br>tham dự</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FILTER BAR -->
+<div class="filter-bar">
+  <div class="filter-inner">
+    <span class="filter-label">Lọc:</span>
+    <button class="filter-btn active" onclick="filterEvents('all',this)">Tất cả</button>
+    <button class="filter-btn" onclick="filterEvents('bm',this)">Business Matching</button>
+    <button class="filter-btn" onclick="filterEvents('esg',this)">ESG & Năng lượng</button>
+    <button class="filter-btn" onclick="filterEvents('fdi',this)">FDI / Đầu tư</button>
+    <button class="filter-btn" onclick="filterEvents('contractor',this)">Nhà thầu & Cung cấp</button>
+    <button class="filter-btn" onclick="filterEvents('policy',this)">Chính sách</button>
+    <div class="filter-search">
+      <input type="text" placeholder="Tìm sự kiện..." oninput="searchEvents(this.value)">
+    </div>
+  </div>
+</div>
+
+<!-- MAIN CONTENT -->
+<div class="cal-wrap">
+<div class="cal-layout">
+
+  <!-- EVENTS LIST -->
+  <div class="events-column" id="events-list">
+
+    <!-- THÁNG 3 (past) -->
+    <div class="month-section past-section">
+      <div class="past-label">
+        <span class="past-tag">Đã diễn ra</span>
+        <div style="flex:1;height:1px;background:var(--gray-100);"></div>
+      </div>
+
+      <div class="ev-card past" data-tags="esg">
+        <div class="ev-date-col">
+          <div class="ev-day">31</div>
+          <div class="ev-mon">Th.3</div>
+          <div class="ev-dow">Thứ Ba</div>
+        </div>
+        <div class="ev-body">
+          <div class="ev-tags">
+            <span class="ev-tag tag-esg">ESG & Năng lượng</span>
+            <span class="ev-tag tag-past">Đã kết thúc</span>
+          </div>
+          <div class="ev-card-title">Hội thảo "Từ Chiến lược ESG đến Vị thế Tiên phong trong Sản xuất Bền vững"</div>
+          <div class="ev-card-desc">150+ đại biểu từ doanh nghiệp FDI, KCN và tổ chức chứng nhận quốc tế. Ba MOU được ký kết, khởi động ESG Infrastructure Platform cho KCN Việt Nam.</div>
+          <div class="ev-card-meta">
+            <div class="ev-meta-item">📍 <span>WTC Bình Dương (BECAMEX Convention & Exhibition Center)</span></div>
+            <div class="ev-meta-item">👥 <span>150+ đại biểu</span></div>
+            <div class="ev-meta-item">🤝 <span>HOUSELINK · BECAMEX VSIP · GLASSDOME</span></div>
+          </div>
+        </div>
+        <div class="ev-action-col">
+          <a href="/vi/news/" class="btn-ev-past">Xem báo cáo</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- THÁNG 5 -->
+    <div class="month-section" data-month="5">
+      <div class="month-header">
+        <span class="month-tag">Tháng 5</span>
+        <span class="month-label">2026</span>
+        <div class="month-divider"></div>
+      </div>
+
+      <div class="ev-card featured" data-tags="bm fdi">
+        <div class="ev-date-col">
+          <div class="ev-day">15</div>
+          <div class="ev-mon">Th.5</div>
+          <div class="ev-dow">Thứ Sáu</div>
+        </div>
+        <div class="ev-body">
+          <div class="ev-tags">
+            <span class="ev-tag tag-bm">Business Matching</span>
+            <span class="ev-tag tag-fdi">FDI Investors</span>
+            <span class="ev-tag tag-featured">⭐ Sự kiện nổi bật</span>
+          </div>
+          <div class="ev-card-title">Kết nối Đầu tư KCN Miền Bắc 2026</div>
+          <div class="ev-card-desc">Diễn đàn B2B kết nối nhà đầu tư FDI/DDI với 30+ Ban Quản lý KCN phía Bắc. 500+ cuộc gặp 1-1 được ghép cặp theo hồ sơ đầu tư. Báo cáo độc quyền thị trường KCN H1/2026.</div>
+          <div class="ev-card-meta">
+            <div class="ev-meta-item">📍 <span>Trung tâm Hội nghị Quốc gia, Hà Nội</span></div>
+            <div class="ev-meta-item">⏰ <span>8:00 – 17:00</span></div>
+            <div class="ev-meta-item">👥 <span>200+ đại biểu · 15+ quốc gia</span></div>
+            <div class="ev-meta-item">🎫 <span style="color:var(--green);font-weight:600;">Miễn phí</span></div>
+          </div>
+        </div>
+        <div class="ev-action-col">
+          <a href="/vi/events-calendar/kcn-mien-bac-2026/" class="btn-ev-reg">Đăng ký →</a>
+          <a href="/vi/events-calendar/kcn-mien-bac-2026/" class="btn-ev-detail">Chi tiết</a>
+          <div class="ev-spots">⚠️ Còn 47 chỗ</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- THÁNG 6 -->
+    <div class="month-section" data-month="6">
+      <div class="month-header">
+        <span class="month-tag">Tháng 6</span>
+        <span class="month-label">2026</span>
+        <div class="month-divider"></div>
+      </div>
+
+      <div class="ev-card" data-tags="esg fdi">
+        <div class="ev-date-col">
+          <div class="ev-day">08</div>
+          <div class="ev-mon">Th.6</div>
+          <div class="ev-dow">Thứ Hai</div>
+        </div>
+        <div class="ev-body">
+          <div class="ev-tags">
+            <span class="ev-tag tag-esg">ESG & Năng lượng</span>
+            <span class="ev-tag tag-fdi">FDI Investors</span>
+          </div>
+          <div class="ev-card-title">ESG Infrastructure Forum for Industrial Parks — TP.HCM</div>
+          <div class="ev-card-desc">Diễn đàn quốc tế về hạ tầng ESG, năng lượng tái tạo và giảm phát thải carbon cho khu công nghiệp Việt Nam. Phiên thực hành triển khai ISO 14064, CBAM và lộ trình Net Zero.</div>
+          <div class="ev-card-meta">
+            <div class="ev-meta-item">📍 <span>GEM Center, Quận 1, TP.HCM</span></div>
+            <div class="ev-meta-item">⏰ <span>8:30 – 17:30</span></div>
+            <div class="ev-meta-item">👥 <span>250+ đại biểu</span></div>
+            <div class="ev-meta-item">🤝 <span>GLASSDOME · LRQA · BECAMEX</span></div>
+          </div>
+        </div>
+        <div class="ev-action-col">
+          <a href="/vi/contact/" class="btn-ev-reg">Đăng ký →</a>
+          <a href="/vi/contact/" class="btn-ev-detail">Chi tiết</a>
+        </div>
+      </div>
+
+      <div class="ev-card" data-tags="bm contractor">
+        <div class="ev-date-col">
+          <div class="ev-day">20</div>
+          <div class="ev-mon">Th.6</div>
+          <div class="ev-dow">Thứ Bảy</div>
+        </div>
+        <div class="ev-body">
+          <div class="ev-tags">
+            <span class="ev-tag tag-bm">Business Matching</span>
+            <span class="ev-tag tag-contractor">Nhà thầu & Cung cấp</span>
+          </div>
+          <div class="ev-card-title">VietnamConstruction Business Summit — Bình Dương</div>
+          <div class="ev-card-desc">Hội nghị thượng đỉnh ngành xây dựng công nghiệp: kết nối nhà thầu tổng, nhà thầu chuyên ngành và nhà cung cấp vật liệu với chủ đầu tư FDI đang triển khai dự án tại miền Nam.</div>
+          <div class="ev-card-meta">
+            <div class="ev-meta-item">📍 <span>WTC Expo, Bình Dương</span></div>
+            <div class="ev-meta-item">⏰ <span>8:00 – 18:00</span></div>
+            <div class="ev-meta-item">👥 <span>300+ nhà thầu & nhà cung cấp</span></div>
+            <div class="ev-meta-item">🤝 <span>HOUSELINK · VietnamConstruction</span></div>
+          </div>
+        </div>
+        <div class="ev-action-col">
+          <a href="/vi/contact/" class="btn-ev-reg">Đăng ký →</a>
+          <a href="/vi/contact/" class="btn-ev-detail">Chi tiết</a>
+          <div class="ev-spots">🔥 Đăng ký sớm</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- THÁNG 9 -->
+    <div class="month-section" data-month="9">
+      <div class="month-header">
+        <span class="month-tag">Tháng 9</span>
+        <span class="month-label">2026</span>
+        <div class="month-divider"></div>
+      </div>
+
+      <div class="ev-card" data-tags="policy esg">
+        <div class="ev-date-col">
+          <div class="ev-day">15</div>
+          <div class="ev-mon">Th.9</div>
+          <div class="ev-dow">Thứ Ba</div>
+        </div>
+        <div class="ev-body">
+          <div class="ev-tags">
+            <span class="ev-tag tag-policy">Đối thoại Chính sách</span>
+            <span class="ev-tag tag-esg">ESG</span>
+          </div>
+          <div class="ev-card-title">Diễn đàn KCN Xanh & Eco-Industrial Park Vietnam 2026</div>
+          <div class="ev-card-desc">Đối thoại chính sách cấp cao về phát triển khu công nghiệp sinh thái, kinh tế tuần hoàn và mô hình KCN xanh phù hợp với tiêu chuẩn UNIDO và cam kết NetZero của Việt Nam.</div>
+          <div class="ev-card-meta">
+            <div class="ev-meta-item">📍 <span>Hà Nội (địa điểm cụ thể TBC)</span></div>
+            <div class="ev-meta-item">⏰ <span>Cả ngày</span></div>
+            <div class="ev-meta-item">🤝 <span>HOUSELINK · Bộ KH&ĐT · UNIDO Vietnam</span></div>
+          </div>
+        </div>
+        <div class="ev-action-col">
+          <a href="/vi/contact/" class="btn-ev-reg">Đặt chỗ →</a>
+          <a href="/vi/contact/" class="btn-ev-detail">Chi tiết</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- THÁNG 10 -->
+    <div class="month-section" data-month="10">
+      <div class="month-header">
+        <span class="month-tag">Tháng 10</span>
+        <span class="month-label">2026</span>
+        <div class="month-divider"></div>
+      </div>
+
+      <div class="ev-card" data-tags="bm fdi">
+        <div class="ev-date-col">
+          <div class="ev-day">22</div>
+          <div class="ev-mon">Th.10</div>
+          <div class="ev-dow">Thứ Năm</div>
+        </div>
+        <div class="ev-body">
+          <div class="ev-tags">
+            <span class="ev-tag tag-bm">Business Matching</span>
+            <span class="ev-tag tag-fdi">FDI Investors</span>
+          </div>
+          <div class="ev-card-title">Kết nối Đầu tư KCN Miền Trung & Tây Nguyên 2026</div>
+          <div class="ev-card-desc">Diễn đàn kết nối đầu tiên tập trung vào cơ hội đầu tư tại miền Trung — Đà Nẵng, Quảng Nam, Quảng Ngãi, Bình Định, Phú Yên và Tây Nguyên sau sáp nhập tỉnh 2025.</div>
+          <div class="ev-card-meta">
+            <div class="ev-meta-item">📍 <span>Trung tâm Hội nghị TP. Đà Nẵng</span></div>
+            <div class="ev-meta-item">👥 <span>150+ đại biểu</span></div>
+            <div class="ev-meta-item">🤝 <span>HOUSELINK · BECAMEX VSIP Bình Định</span></div>
+          </div>
+        </div>
+        <div class="ev-action-col">
+          <a href="/vi/contact/" class="btn-ev-reg">Đặt chỗ →</a>
+          <a href="/vi/contact/" class="btn-ev-detail">Chi tiết</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- THÁNG 11 -->
+    <div class="month-section" data-month="11">
+      <div class="month-header">
+        <span class="month-tag">Tháng 11</span>
+        <span class="month-label">2026</span>
+        <div class="month-divider"></div>
+      </div>
+
+      <div class="ev-card" data-tags="bm contractor fdi">
+        <div class="ev-date-col">
+          <div class="ev-day">19</div>
+          <div class="ev-mon">Th.11</div>
+          <div class="ev-dow">Thứ Năm</div>
+        </div>
+        <div class="ev-body">
+          <div class="ev-tags">
+            <span class="ev-tag tag-bm">Business Matching</span>
+            <span class="ev-tag tag-contractor">Nhà thầu</span>
+            <span class="ev-tag tag-fdi">FDI</span>
+          </div>
+          <div class="ev-card-title">HOUSELINK Annual Summit 2026 — Toàn quốc</div>
+          <div class="ev-card-desc">Sự kiện thường niên lớn nhất của HOUSELINK: tổng kết năm, trao giải thưởng nhà thầu – nhà cung cấp xuất sắc và kết nối chiến lược cho năm 2027. Quy tụ toàn bộ hệ sinh thái.</div>
+          <div class="ev-card-meta">
+            <div class="ev-meta-item">📍 <span>TP.HCM (địa điểm TBC)</span></div>
+            <div class="ev-meta-item">👥 <span>400+ đại biểu</span></div>
+            <div class="ev-meta-item">🏆 <span>HOUSELINK Awards 2026</span></div>
+          </div>
+        </div>
+        <div class="ev-action-col">
+          <a href="/vi/contact/" class="btn-ev-reg">Quan tâm →</a>
+          <a href="/vi/contact/" class="btn-ev-detail">Chi tiết</a>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /events-column -->
+
+  <!-- SIDEBAR -->
+  <div class="cal-sidebar">
+
+    <!-- Mini Calendar -->
+    <div class="sidebar-widget">
+      <div class="sw-title">Lịch sự kiện</div>
+      <div class="mini-cal">
+        <div class="mc-header">
+          <button class="mc-nav" onclick="prevMonth()">‹</button>
+          <div class="mc-month" id="mc-month-label">Tháng 5, 2026</div>
+          <button class="mc-nav" onclick="nextMonth()">›</button>
+        </div>
+        <div class="mc-grid" id="mc-grid">
+          <div class="mc-dow">CN</div><div class="mc-dow">T2</div><div class="mc-dow">T3</div>
+          <div class="mc-dow">T4</div><div class="mc-dow">T5</div><div class="mc-dow">T6</div>
+          <div class="mc-dow">T7</div>
+        </div>
+        <div id="mc-days" class="mc-grid" style="margin-top:4px;"></div>
+        <div style="margin-top:12px;font-size:12px;color:var(--gray-400);display:flex;align-items:center;gap:6px;">
+          <div style="width:18px;height:18px;background:var(--green-pale);border-radius:4px;"></div>
+          <span>Ngày có sự kiện</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Category legend -->
+    <div class="sidebar-widget">
+      <div class="sw-title">Loại sự kiện</div>
+      <div class="cat-legend">
+        <div class="cl-item"><div class="cl-dot" style="background:var(--green);"></div>Business Matching</div>
+        <div class="cl-item"><div class="cl-dot" style="background:var(--blue);"></div>ESG & Năng lượng</div>
+        <div class="cl-item"><div class="cl-dot" style="background:var(--amber);"></div>FDI / Đầu tư</div>
+        <div class="cl-item"><div class="cl-dot" style="background:#DC2626;"></div>Nhà thầu & Cung cấp</div>
+        <div class="cl-item"><div class="cl-dot" style="background:var(--violet);"></div>Đối thoại Chính sách</div>
+      </div>
+    </div>
+
+    <!-- Stats -->
+    <div class="sidebar-widget">
+      <div class="sw-title">Tổng quan 2026</div>
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <div style="display:flex;justify-content:space-between;font-size:13.5px;padding:8px 0;border-bottom:1px solid var(--gray-50);">
+          <span style="color:var(--gray-600);">Sự kiện sắp diễn ra</span>
+          <span style="font-weight:700;color:var(--navy);">5 sự kiện</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;font-size:13.5px;padding:8px 0;border-bottom:1px solid var(--gray-50);">
+          <span style="color:var(--gray-600);">Đã diễn ra</span>
+          <span style="font-weight:700;color:var(--navy);">1 sự kiện</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;font-size:13.5px;padding:8px 0;border-bottom:1px solid var(--gray-50);">
+          <span style="color:var(--gray-600);">Tổng đại biểu (ước tính)</span>
+          <span style="font-weight:700;color:var(--navy);">1,500+</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;font-size:13.5px;padding:8px 0;">
+          <span style="color:var(--gray-600);">Tỉnh thành tổ chức</span>
+          <span style="font-weight:700;color:var(--navy);">6 địa phương</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Subscribe -->
+    <form class="sub-box hl-newsletter-form" method="post" action="#" novalidate>
+      <div class="hl-auth-client-msg" role="alert" aria-live="polite"></div>
+      <h4 id="cal-subscribe-title-vi">Nhận thông báo sự kiện</h4>
+      <p id="cal-subscribe-desc-vi">Đăng ký để nhận lịch sự kiện và thông tin đăng ký sớm từ HOUSELINK.</p>
+      <label for="cal-subscribe-email-vi" class="cal-sr-only">Địa chỉ email</label>
+      <input id="cal-subscribe-email-vi" type="email" name="email" autocomplete="email" inputmode="email" placeholder="Email của bạn..." aria-labelledby="cal-subscribe-title-vi" aria-describedby="cal-subscribe-desc-vi">
+      <button type="submit">Đăng ký nhận lịch →</button>
+    </form>
+
+    <!-- Contact -->
+    <div class="sidebar-widget">
+      <div class="sw-title">Tổ chức cùng HOUSELINK</div>
+      <p style="font-size:13.5px;color:var(--gray-600);margin-bottom:14px;line-height:1.6;">Doanh nghiệp hoặc KCN muốn đồng tổ chức sự kiện, tài trợ hoặc trở thành đối tác truyền thông?</p>
+      <a href="/vi/contact/" style="display:block;text-align:center;background:var(--navy);color:#fff;font-size:13.5px;font-weight:700;padding:11px;border-radius:8px;transition:all .2s;" onmouseover="this.style.background='var(--navy-mid)'" onmouseout="this.style.background='var(--navy)'">Liên hệ Ban tổ chức →</a>
+    </div>
+
+  </div><!-- /sidebar -->
+
+</div><!-- /cal-layout -->
+</div><!-- /cal-wrap -->
+
+<!-- CTA BOTTOM -->
+<section class="cta-bottom">
+  <div class="si">
+    <h2>Tham gia hệ sinh thái HOUSELINK</h2>
+    <p>Đăng ký dịch vụ Pro-Contractor để nhận ưu tiên đặt chỗ tại tất cả sự kiện trong năm.</p>
+    <div class="cta-btns">
+      <a href="/vi/services/find-project/" class="btn-g">Đăng ký Pro-Contractor</a>
+      <a href="/vi/contact/" class="btn-outline-w">Hỗ trợ sự kiện →</a>
+    </div>
+  </div>
+</section>
+
+<script>
+// ── Filter & search (shared state; filter + search apply together)
+var calFilterTag = 'all';
+var calSearchQuery = '';
+
+function calCardTagList(tagsStr) {
+  return (tagsStr || '').trim().split(/\s+/).filter(Boolean);
+}
+
+function calCardMatchesFilter(tagsStr, tag) {
+  if (tag === 'all') return true;
+  return calCardTagList(tagsStr).indexOf(tag) !== -1;
+}
+
+function applyEventListFilters() {
+  var q = (calSearchQuery || '').trim().toLowerCase();
+  var list = document.getElementById('events-list');
+  if (!list) return;
+  list.querySelectorAll('.month-section').forEach(function (section) {
+    var anyVisible = false;
+    section.querySelectorAll('.ev-card').forEach(function (card) {
+      var tags = card.getAttribute('data-tags') || '';
+      var tagOk = calCardMatchesFilter(tags, calFilterTag);
+      var text = (card.textContent || '').toLowerCase();
+      var searchOk = !q || text.indexOf(q) !== -1;
+      var show = tagOk && searchOk;
+      card.style.display = show ? 'flex' : 'none';
+      if (show) anyVisible = true;
+    });
+    section.style.display = anyVisible ? '' : 'none';
+  });
+}
+
+function filterEvents(tag, btn) {
+  document.querySelectorAll('.filter-btn').forEach(function (b) {
+    b.classList.remove('active');
+  });
+  if (btn) btn.classList.add('active');
+  calFilterTag = tag || 'all';
+  applyEventListFilters();
+}
+
+function searchEvents(value) {
+  calSearchQuery = value || '';
+  applyEventListFilters();
+}
+
+// ── Mini Calendar ───────────────────────────────────────────────────────────
+var curYear=2026, curMonth=5-1; // 0-indexed
+var EVENT_DAYS = {
+  '2026-4': [31],  // March 31 (month index 2)
+  '2026-4-idx': 2,
+  '2026-5': [15],
+  '2026-6': [8,20],
+  '2026-9': [15],
+  '2026-10':[22],
+  '2026-11':[19],
+};
+function getDaysInMonth(y,m){return new Date(y,m+1,0).getDate();}
+function getFirstDay(y,m){return new Date(y,m,1).getDay();}
+function renderMiniCal(){
+  var months=['Tháng 1','Tháng 2','Tháng 3','Tháng 4','Tháng 5','Tháng 6',
+              'Tháng 7','Tháng 8','Tháng 9','Tháng 10','Tháng 11','Tháng 12'];
+  document.getElementById('mc-month-label').textContent=months[curMonth]+', '+curYear;
+  var days=getDaysInMonth(curYear,curMonth), firstDay=getFirstDay(curYear,curMonth);
+  var key=curYear+'-'+(curMonth+1);
+  var evDays=EVENT_DAYS[key]||[];
+  var html='';
+  for(var i=0;i<firstDay;i++) html+='<div class="mc-day empty"></div>';
+  var today=new Date();
+  for(var d=1;d<=days;d++){
+    var cls='mc-day';
+    if(evDays.includes(d)) cls+=' has-event';
+    if(curYear===today.getFullYear()&&curMonth===today.getMonth()&&d===today.getDate()) cls+=' today';
+    html+='<div class="'+cls+'">'+d+'</div>';
+  }
+  document.getElementById('mc-days').innerHTML=html;
+}
+function prevMonth(){if(curMonth>0)curMonth--;else{curMonth=11;curYear--;}renderMiniCal();}
+function nextMonth(){if(curMonth<11)curMonth++;else{curMonth=0;curYear++;}renderMiniCal();}
+renderMiniCal();
+applyEventListFilters();
+</script>
+
+<div id="hl-chrome-footer"></div>
+  <script src="../../landing-chrome.js" defer></script>
+  <script src="../../js/auth-locale-validation.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+# HOUSELINK_2026.xlsx: spreadsheet uses /en/... for English; site serves EN at root.
+# Static files under /en/ (e.g. en/jobs/* stubs) shadow these rules when present.
+
+/en / 301
+/en/ / 301
+
+/en/about /about 301
+/en/about/ /about/ 301
+/en/careers /careers 301
+/en/careers/ /careers/ 301
+/en/cases /cases 301
+/en/cases/ /cases/ 301
+/en/clients /clients 301
+/en/clients/ /clients/ 301
+/en/contact /contact 301
+/en/contact/ /contact/ 301
+/en/esg /esg 301
+/en/esg/ /esg/ 301
+/en/insights /insights 301
+/en/insights/ /insights/ 301
+/en/insights/* /insights/:splat 301
+/en/news /news 301
+/en/news/ /news/ 301
+/en/news/* /news/:splat 301
+/en/privacy /privacy 301
+/en/privacy/ /privacy/ 301
+/en/team /team 301
+/en/team/ /team/ 301
+/en/team/* /team/:splat 301
+/en/team/ceo /team/ceo 301
+/en/team/ceo/ /team/ceo/ 301
+/en/terms /terms 301
+/en/terms/ /terms/ 301
+/en/faq /faq 301
+/en/faq/ /faq/ 301
+/en/404 /404 301
+/en/404/ /404/ 301
+/en/login /login 301
+/en/login/ /login/ 301
+/en/register /register 301
+/en/register/ /register/ 301
+/en/forgot-password /forgot 301
+/en/forgot-password/ /forgot/ 301
+/en/services /services 301
+/en/services/ /services/ 301
+/en/services/* /services/:splat 301
+/en/platform /platform 301
+/en/platform/ /platform/ 301
+
+# Locale paths: normalize missing trailing slashes for static servers
+/ko/team /ko/team/ 301
+/ko/team/ceo /ko/team/ceo/ 301
+
+# Localized 404 (Netlify): for paths under each locale with no matching static file,
+# return that locale's 404 body and HTTP 404. Shadowing: existing files (e.g. /ja/cases/exxon/index.html)
+# are always served — these rules do NOT replace real pages. Commit vi/ja/ko/zh/404.html in publish root;
+# if the target file is missing, Netlify falls back to the site root 404 (English).
+# Regenerate */404.html from */404/index.html after edits (asset paths ../../ → /).
+/vi/* /vi/404.html 404
+/ja/* /ja/404.html 404
+/ko/* /ko/404.html 404
+/zh/* /zh/404.html 404

@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>プロジェクト機会を探す – HouseLINK</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --navy:#00466E;--navy-deep:#003457;--navy-mid:#005585;--navy-light:#006BA0;
+  --green:#2D8B48;--green-light:#3AAD5C;--green-pale:#EBF7EF;
+  --white:#FFFFFF;--off-white:#F4F6F8;
+  --gray-50:#EEF1F4;--gray-100:#DDE3E8;--gray-200:#BEC8D0;
+  --gray-400:#7E8F9A;--gray-600:#4A5A65;--text:#0D1F2D;
+  --font-main: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-serif: var(--font-main);
+}
+body{font-family:var(--font-main);color:var(--text);background:var(--white);line-height:1.7;}
+a{text-decoration:none;color:inherit;}
+img{max-width:100%;display:block;}
+.si{max-width:1200px;margin:0 auto;padding:0 40px;}
+
+/* TOPBAR */
+.topbar{background:var(--navy-deep);padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.08);}
+.topbar-inner{max-width:1200px;margin:0 auto;padding:0 40px;display:flex;align-items:center;justify-content:space-between;}
+.back-link{display:flex;align-items:center;gap:8px;color:rgba(255,255,255,0.6);font-size:13px;font-weight:500;transition:color .2s;}
+.back-link:hover{color:#fff;}
+.topbar-brand{display:flex;align-items:center;gap:8px;}
+.tb-icon{width:28px;height:28px;border-radius:7px;background:rgba(255,255,255,0.08);border:1.5px solid rgba(45,139,72,0.5);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:900;color:var(--green);}
+.tb-name{font-size:13px;font-weight:800;color:rgba(255,255,255,0.85);letter-spacing:.06em;text-transform:uppercase;}
+.topbar-cta{background:var(--green);color:#fff;font-size:12.5px;font-weight:700;padding:7px 18px;border-radius:7px;transition:background .2s;}
+.topbar-cta:hover{background:var(--green-light);}
+
+/* HERO */
+.svc-hero{background:linear-gradient(135deg,var(--navy-deep) 0%,var(--navy) 60%,#004060 100%);padding:72px 0 64px;position:relative;overflow:hidden;}
+.svc-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 55% 80% at 80% 50%,rgba(45,139,72,0.12) 0%,transparent 60%);pointer-events:none;}
+.svc-hero::after{content:'';position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,0.03) 1px,transparent 1px);background-size:28px 28px;pointer-events:none;}
+.hero-inner{max-width:1200px;margin:0 auto;padding:0 40px;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;position:relative;z-index:1;}
+.hero-badge{display:inline-flex;align-items:center;gap:7px;background:rgba(45,139,72,0.15);border:1px solid rgba(45,139,72,0.35);border-radius:100px;padding:5px 14px;font-size:11px;font-weight:700;color:#7ED49A;letter-spacing:.1em;text-transform:uppercase;margin-bottom:20px;}
+.hero-badge::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--green);}
+.hero-h1{font-family:var(--font-serif);font-size:clamp(28px,3.8vw,50px);font-weight:600;color:#fff;line-height:1.18;letter-spacing:-.02em;margin-bottom:18px;}
+.hero-h1 em{color:#7ED49A;font-style:normal;}
+.hero-sub{font-size:15.5px;color:rgba(255,255,255,.62);line-height:1.7;margin-bottom:28px;}
+.hero-tags{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:32px;}
+.h-tag{font-size:11.5px;font-weight:600;color:rgba(255,255,255,.7);background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:100px;padding:5px 13px;}
+.hero-ctas{display:flex;gap:12px;flex-wrap:wrap;}
+.btn-g{background:var(--green);color:#fff;font-size:13.5px;font-weight:700;padding:12px 26px;border-radius:8px;border:2px solid var(--green);transition:all .2s;}
+.btn-g:hover{background:var(--green-light);border-color:var(--green-light);}
+.btn-outline-w{color:rgba(255,255,255,.8);border:1.5px solid rgba(255,255,255,.25);border-radius:8px;padding:12px 22px;font-size:13.5px;font-weight:600;transition:all .2s;}
+.btn-outline-w:hover{border-color:rgba(255,255,255,.6);color:#fff;}
+.hero-right{display:flex;flex-direction:column;gap:13px;}
+.hsc{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:13px;padding:18px 20px;display:flex;align-items:center;gap:15px;transition:all .2s;}
+.hsc:hover{background:rgba(45,139,72,.12);border-color:rgba(45,139,72,.3);}
+.hsc-ico{font-size:24px;flex-shrink:0;}
+.hsc-n{font-family:var(--font-serif);font-size:22px;font-weight:600;color:#7ED49A;line-height:1;}
+.hsc-l{font-size:12px;color:rgba(255,255,255,.5);margin-top:2px;}
+
+/* SECTIONS */
+.section{padding:72px 0;}
+.sec-label{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--green);margin-bottom:10px;}
+.sec-title{font-family:var(--font-serif);font-size:clamp(24px,3vw,38px);font-weight:600;color:var(--navy);line-height:1.22;letter-spacing:-.02em;}
+.sec-title em{color:var(--green);font-style:normal;}
+.sec-sub{font-size:15.5px;color:var(--gray-600);line-height:1.72;max-width:580px;margin-top:14px;}
+
+/* SERVICE CARDS */
+.svc-grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:44px;}
+.svc-card-sm{background:var(--white);border:1px solid var(--gray-100);border-radius:14px;padding:28px 24px;transition:all 0.25s;position:relative;overflow:hidden;}
+.svc-card-sm::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--green),var(--navy-mid));transform:scaleX(0);transform-origin:left;transition:transform 0.3s;}
+.svc-card-sm:hover{box-shadow:0 8px 32px rgba(0,70,110,0.09);transform:translateY(-2px);}
+.svc-card-sm:hover::before{transform:scaleX(1);}
+.svc-card-sm.featured{background:var(--navy);border-color:var(--navy);}
+.svc-card-sm.featured::before{transform:scaleX(1);background:var(--green);}
+.svc-card-sm.featured .sc-title{color:#fff;}
+.svc-card-sm.featured .sc-desc{color:rgba(255,255,255,0.75);}
+.sc-icon{font-size:26px;margin-bottom:14px;}
+.sc-title{font-size:15.5px;font-weight:700;color:var(--navy);margin-bottom:8px;line-height:1.3;}
+.sc-desc{font-size:13.5px;color:var(--gray-600);line-height:1.65;}
+.sc-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px;}
+.sc-tag{font-size:11px;font-weight:600;color:var(--green);background:var(--green-pale);border-radius:100px;padding:3px 10px;}
+.svc-card-sm.featured .sc-tag{color:#7ED49A;background:rgba(45,139,72,0.15);}
+
+/* CHAL-PILL ACCORDION */
+.chal-compact{display:flex;flex-direction:column;gap:8px;}
+.chal-pill{border:1px solid var(--gray-100);border-radius:10px;overflow:hidden;cursor:pointer;transition:all 0.2s;background:var(--white);}
+.chal-pill:hover{border-color:var(--green);}
+.chal-pill.open{border-color:var(--green);}
+.cp-head{display:flex;align-items:center;gap:10px;padding:13px 16px;font-size:13.5px;font-weight:600;color:var(--navy);}
+.cp-icon{font-size:16px;flex-shrink:0;}
+.cp-title{flex:1;}
+.cp-arrow{font-size:16px;color:var(--gray-400);transition:transform 0.2s;}
+.chal-pill.open .cp-arrow{transform:rotate(90deg);color:var(--green);}
+.cp-body{display:none;padding:0 16px 14px 42px;font-size:13.5px;color:var(--gray-600);line-height:1.65;}
+.chal-pill.open .cp-body{display:block;}
+.cp-body strong{color:var(--navy);}
+
+/* PROCESS LAYOUT */
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start;}
+.img-block{border-radius:16px;overflow:hidden;position:relative;}
+.img-block img{width:100%;height:400px;object-fit:cover;display:block;filter:brightness(0.85);}
+.img-overlay-badge{position:absolute;bottom:24px;left:24px;background:var(--navy);border-radius:10px;padding:16px 20px;color:#fff;}
+.iob-n{font-family:var(--font-serif);font-size:24px;font-weight:600;color:#7ED49A;line-height:1;}
+.iob-l{font-size:11px;color:rgba(255,255,255,0.5);margin-top:4px;text-transform:uppercase;letter-spacing:.06em;}
+
+/* CAPABILITY GRID */
+.cap-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:40px;}
+.cap-card{background:var(--gray-50);border:1px solid var(--gray-100);border-radius:12px;padding:20px 16px;text-align:center;transition:all .2s;}
+.cap-card:hover{background:var(--green-pale);border-color:rgba(45,139,72,.2);}
+.cap-icon{font-size:24px;margin-bottom:10px;}
+.cap-name{font-size:13px;font-weight:700;color:var(--navy);margin-bottom:4px;}
+.cap-desc{font-size:11.5px;color:var(--gray-400);line-height:1.5;}
+
+/* CTA */
+.cta-bar{background:var(--green);padding:60px 0;text-align:center;}
+.cta-bar h2{font-family:var(--font-serif);font-size:clamp(24px,3vw,38px);font-weight:600;color:#fff;margin-bottom:12px;}
+.cta-bar p{font-size:15.5px;color:rgba(255,255,255,.75);margin-bottom:32px;max-width:620px;margin-left:auto;margin-right:auto;}
+.cta-btns{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;}
+.btn-white{background:#fff;color:var(--green);font-size:14px;font-weight:700;padding:13px 28px;border-radius:8px;transition:all .2s;}
+.btn-white:hover{background:var(--green-pale);}
+.btn-outline-green{border:2px solid rgba(255,255,255,.6);color:#fff;font-size:14px;font-weight:600;padding:13px 24px;border-radius:8px;transition:all .2s;}
+.btn-outline-green:hover{border-color:#fff;}
+
+/* FOOTER */
+.footer-mini{background:var(--navy-deep);padding:24px 0;text-align:center;font-size:13px;color:rgba(255,255,255,.3);}
+
+@media(max-width:960px){
+  .hero-inner,.two-col,.svc-grid3,.cap-grid{grid-template-columns:1fr;}
+  .hero-right{display:none;}
+  .cap-grid{grid-template-columns:1fr 1fr;}
+  .si{padding:0 20px;}
+}
+.cta-bar-btns{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;}
+.hero-ctas{display:flex;gap:12px;flex-wrap:wrap;margin-top:32px;}
+
+</style>
+  <link rel="stylesheet" href="../../../landing-chrome.css">
+</head>
+<body class="hl-with-fixed-header" data-hl-page="services-find-project">
+
+<div id="hl-chrome-header"></div>
+
+<section class="svc-hero">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-badge">プロジェクト機会探索</div>
+      <h1 class="hero-h1"><em>有望な建設プロジェクトから</em><br>機会を見つける</h1>
+      <!-- ② Updated hero sub -->
+      <p class="hero-sub">HouseLINKはFDI・DDI・産業・商業・複合・サービス・工業団地インフラプロジェクト…進行中および予定中の情報を更新します — 施工会社とサプライヤーが適切なタイミングで正しいプロジェクトにアクセスできるよう支援します。</p>
+      <div class="hero-tags">
+        <span class="h-tag">新規プロジェクト更新</span>
+        <span class="h-tag">投資家との接続</span>
+        <span class="h-tag">Professional Profile</span>
+        <span class="h-tag">HouseLINK Ranking</span>
+        <span class="h-tag">Business Matching</span>
+        <span class="h-tag">VietnamConstruction</span>
+      </div>
+      <div class="hero-ctas">
+        <a href="/ja/contact/" class="btn-g">無料相談 →</a>
+        <a href="/ja/services/" class="btn-outline-w">サービスを見る</a>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hsc"><div class="hsc-ico">🔍</div><div><div class="hsc-n">Real-time</div><div class="hsc-l">プロジェクトを継続更新</div></div></div>
+      <!-- ③ Updated FDI stat -->
+      <div class="hsc"><div class="hsc-ico">🏭</div><div><div class="hsc-n">品質＆検証済みプロジェクト</div><div class="hsc-l">FDI・DDIプロジェクト+10万件</div></div></div>
+      <div class="hsc"><div class="hsc-ico">📋</div><div><div class="hsc-n">Verified</div><div class="hsc-l">検証済みケイパビリティプロファイル</div></div></div>
+      <div class="hsc"><div class="hsc-ico">🤝</div><div><div class="hsc-n">Network</div><div class="hsc-l">2,000+コミュニティメンバー</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- DỊCH VỤ -->
+<section id="services" class="section" style="background:var(--off-white);">
+  <div class="si">
+    <div class="sec-label">施工会社・サプライヤー向けサービス</div>
+    <h2 class="sec-title">正しいプロジェクトへの接続 —<br><em>適切なタイミングで</em></h2>
+    <p class="sec-sub">HouseLINKは建設サプライチェーンの施工会社とサプライヤーが最も早く機会を捉えられる唯一の市場情報チャネルです。</p>
+    <div class="svc-grid3">
+      <div class="svc-card-sm featured">
+        <div class="sc-icon">🔍</div>
+        <div class="sc-title">プロジェクト検索＆追跡</div>
+        <!-- ④ Updated card desc -->
+        <div class="sc-desc">進行中および予定されているFDI・DDI・産業・商業・複合・工業団地インフラプロジェクトをリアルタイム検索。専門に合うプロジェクトが出たら通知を受け取ります。</div>
+        <div class="sc-tags"><span class="sc-tag">FDI · DDI</span><span class="sc-tag">Real-time Alert</span></div>
+      </div>
+      <div class="svc-card-sm">
+        <div class="sc-icon">📋</div>
+        <div class="sc-title">プロフェッショナルケイパビリティプロファイル</div>
+        <div class="sc-desc">参照プロジェクト・認証書・クライアントレビューを含むProfessional Profileを構築します — HouseLINK Rankingで検証・ランク付け。</div>
+        <div class="sc-tags"><span class="sc-tag">Pro Profile</span><span class="sc-tag">CSI Ranking</span></div>
+      </div>
+      <div class="svc-card-sm">
+        <div class="sc-icon">📢</div>
+        <div class="sc-title">マーケティング＆ブランド構築</div>
+        <div class="sc-desc">VietnamConstructionに成功事例と代表的プロジェクトを掲載します。正しいターゲット投資家セグメントへのメールマーケティング。</div>
+        <div class="sc-tags"><span class="sc-tag">VietnamConstruction</span><span class="sc-tag">Email Marketing</span></div>
+      </div>
+      <div class="svc-card-sm">
+        <div class="sc-icon">💬</div>
+        <div class="sc-title">投資家との直接接続</div>
+        <div class="sc-desc">HouseLINKプラットフォームを通じてプロジェクト投資家と直接メッセージ・交流 — アプローチ時間を節約し関係を構築します。</div>
+        <div class="sc-tags"><span class="sc-tag">Direct Message</span><span class="sc-tag">Relationship</span></div>
+      </div>
+      <div class="svc-card-sm">
+        <div class="sc-icon">🛒</div>
+        <div class="sc-title">資材・設備マーケットプレイス</div>
+        <div class="sc-desc">HouseLINK Marketplaceに製品・材料・サービスを掲載します。メーカーから最良価格を得るためのグループ購買。</div>
+        <div class="sc-tags"><span class="sc-tag">Marketplace</span><span class="sc-tag">Group Buying</span></div>
+      </div>
+      <div class="svc-card-sm">
+        <div class="sc-icon">🤝</div>
+        <div class="sc-title">ビジネスマッチング＆イベント</div>
+        <div class="sc-desc">ビジネスネットワーキングイベント・業界カンファレンス・建設サプライチェーン2,000社以上のネットワークに参加します。</div>
+        <div class="sc-tags"><span class="sc-tag">Events</span><span class="sc-tag">2,000+ Members</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUY TRÌNH THỰC HIỆN -->
+<section class="section" style="background:var(--white);">
+  <div class="si">
+    <div class="two-col">
+      <div>
+        <div class="sec-label">実施プロセス</div>
+        <h2 class="sec-title">明確なロードマップ —<br><em>具体的な成果</em></h2>
+        <p class="sec-sub" style="margin-bottom:28px;">プロファイル登録から契約締結まで — HouseLINKはプロジェクトアプローチの各ステップで施工会社とサプライヤーに伴走します。</p>
+
+        <div class="chal-compact">
+
+          <div class="chal-pill" onclick="this.classList.toggle('open')">
+            <div class="cp-head">
+              <span class="cp-icon">📝</span>
+              <span class="cp-title">01 · 登録＆プロファイル作成</span>
+              <span class="cp-arrow">›</span>
+            </div>
+            <div class="cp-body">
+              アカウントを作成します。 <strong>Pro-ContractorまたはPro-Supplier</strong>、参照プロジェクトポートフォリオ・ケイパビリティ認証書・連絡先情報を含む詳細なProfessional Profileを構築します。
+            </div>
+          </div>
+
+          <div class="chal-pill" onclick="this.classList.toggle('open')">
+            <div class="cp-head">
+              <span class="cp-icon">✅</span>
+              <span class="cp-title">02 · 検証＆ランキング</span>
+              <span class="cp-arrow">›</span>
+            </div>
+            <div class="cp-body">
+              HouseLINK <strong>情報を検証します</strong> 国際CSI基準に基づいてランク付けします — 投資家との信頼性を高め、プロジェクト検索結果で優先表示されます。
+            </div>
+          </div>
+
+          <div class="chal-pill" onclick="this.classList.toggle('open')">
+            <div class="cp-head">
+              <span class="cp-icon">🔍</span>
+              <span class="cp-title">03 · マッチするプロジェクトを探す</span>
+              <span class="cp-arrow">›</span>
+            </div>
+            <div class="cp-body">
+              検索します: <strong>FDI・DDI・産業・商業・工業団地インフラプロジェクトデータベース</strong> リアルタイムで、タイプ・場所・専門性に合った工事項目でフィルタリングします。新しいプロジェクトが出たら自動通知を受け取ります。
+            </div>
+          </div>
+
+          <div class="chal-pill" onclick="this.classList.toggle('open')">
+            <div class="cp-head">
+              <span class="cp-icon">💬</span>
+              <span class="cp-title">04 · 接続＆交渉</span>
+              <span class="cp-arrow">›</span>
+            </div>
+            <div class="cp-body">
+              連絡します: <strong>投資家と直接</strong> プラットフォームを通じてケイパビリティを発表し、協力条件を議論します。HouseLINK内で直接ミーティングを予約し入札書類を交換します。
+            </div>
+          </div>
+
+          <div class="chal-pill" onclick="this.classList.toggle('open')">
+            <div class="cp-head">
+              <span class="cp-icon">🌱</span>
+              <span class="cp-title">05 · 長期的な関係構築</span>
+              <span class="cp-arrow">›</span>
+            </div>
+            <div class="cp-body">
+              構築します: <strong>プロジェクトポートフォリオを</strong>、各プロジェクト後にクライアントレビューを収集し、2,000社以上の産業建設企業コミュニティでパートナーネットワークを拡大します。
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div>
+        <div class="img-block">
+          <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80&auto=format&fit=crop" alt="プロジェクト機会探索">
+          <div class="img-overlay-badge">
+            <div class="iob-n">HouseLINK</div>
+            <div class="iob-l">初日からのパートナー</div>
+          </div>
+        </div>
+        <div style="margin-top:20px;background:var(--green-pale);border:1px solid rgba(45,139,72,0.2);border-radius:14px;padding:22px 24px;">
+          <div style="font-size:12px;font-weight:700;color:var(--green);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:14px;">参加のメリット</div>
+          <div style="display:flex;flex-direction:column;gap:10px;">
+            <div style="display:flex;align-items:center;gap:10px;font-size:13.5px;color:var(--navy);"><span>✅</span><span>FDI・DDIプロジェクトのリアルタイム継続更新</span></div>
+            <div style="display:flex;align-items:center;gap:10px;font-size:13.5px;color:var(--navy);"><span>✅</span><span>CSIで検証・ランク付けされたプロファイル</span></div>
+            <div style="display:flex;align-items:center;gap:10px;font-size:13.5px;color:var(--navy);"><span>✅</span><span>2,000社以上の投資家・施工会社との直接接続</span></div>
+            <div style="display:flex;align-items:center;gap:10px;font-size:13.5px;color:var(--navy);"><span>✅</span><span>VietnamConstructionでのブランドプロモーション</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NĂNG LỰC -->
+<section class="section" style="background:var(--off-white);">
+  <div class="si">
+    <div style="text-align:center;max-width:560px;margin:0 auto;">
+      <div class="sec-label">サービス範囲</div>
+      <h2 class="sec-title">ケイパビリティ <em>深い専門性</em></h2>
+    </div>
+    <div class="cap-grid">
+      <div class="cap-card"><div class="cap-icon">🔍</div><div class="cap-name">Find Project</div><div class="cap-desc">FDI・DDIプロジェクト検索</div></div>
+      <div class="cap-card"><div class="cap-icon">📋</div><div class="cap-name">Pro Profile</div><div class="cap-desc">プロフェッショナルケイパビリティプロファイル</div></div>
+      <div class="cap-card"><div class="cap-icon">🏆</div><div class="cap-name">Ranking</div><div class="cap-desc">CSIケイパビリティランキング</div></div>
+      <div class="cap-card"><div class="cap-icon">📢</div><div class="cap-name">Marketing</div><div class="cap-desc">ブランドプロモーション</div></div>
+      <div class="cap-card"><div class="cap-icon">💬</div><div class="cap-name">Direct Connect</div><div class="cap-desc">直接接続</div></div>
+      <div class="cap-card"><div class="cap-icon">🛒</div><div class="cap-name">Marketplace</div><div class="cap-desc">資材・設備プラットフォーム</div></div>
+      <div class="cap-card"><div class="cap-icon">🤝</div><div class="cap-name">Networking</div><div class="cap-desc">コミュニティネットワーキング</div></div>
+      <div class="cap-card"><div class="cap-icon">📊</div><div class="cap-name">Market Intel</div><div class="cap-desc">市場情報</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="contact" class="cta-bar">
+  <div class="si">
+    <h2>今すぐ有望な建設プロジェクトの機会にアクセスする</h2>
+    <!-- ⑤ Updated CTA desc -->
+    <p>Pro-ContractorまたはPro-Supplierとして登録して、進行中の数百のFDI・DDIプロジェクトにアクセスしましょう。</p>
+    <div class="cta-bar-btns">
+      <a href="/ja/contact/" class="btn-white">無料相談を予約</a>
+      <a href="/ja/" class="btn-outline-green">← HouseLINKホームに戻る</a>
+    </div>
+  </div>
+</section>
+
+<div id="hl-chrome-footer"></div>
+  <script src="../../../landing-chrome.js" defer></script>
+</body>
+</html>

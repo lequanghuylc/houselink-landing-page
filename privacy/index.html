@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy – HOUSELINK</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  /* ── HOUSELINK BRAND COLORS (extracted from official logo) ── */
+  --navy: #00466E;        /* Brand primary — petroleum navy from logo */
+  --navy-deep: #003457;   /* Darker variant */
+  --navy-mid: #005585;    /* Lighter variant for gradients */
+  --navy-light: #006BA0;  /* Hover/accent */
+
+  --green: #2D8B48;       /* Logo icon green — primary accent */
+  --green-light: #3AAD5C; /* Hover green */
+  --green-pale: #EBF7EF;  /* Green tint background */
+  --green-mid: #1E7038;   /* Deeper green */
+
+  --teal: #1E6464;        /* Secondary teal from slides */
+  --teal-light: #2A8080;  /* Lighter teal */
+
+  /* Neutrals */
+  --white: #FFFFFF;
+  --off-white: #F4F6F8;
+  --gray-50: #EEF1F4;
+  --gray-100: #DDE3E8;
+  --gray-200: #BEC8D0;
+  --gray-400: #7E8F9A;
+  --gray-600: #4A5A65;
+  --text: #0D1F2D;
+
+  --font-main: 'Inter', sans-serif;
+  --font-serif: var(--font-main);
+  --header-h: 72px;
+  --max-w: 1240px;
+}
+html { scroll-behavior: smooth; }
+body { font-family: var(--font-main); color: var(--text); background: var(--white); overflow-x: hidden; line-height: 1.7; }
+
+/* ── SUB-PAGE SPECIFIC ── */
+.page-hero {
+  background: linear-gradient(135deg, var(--navy-deep) 0%, var(--navy) 100%);
+  padding: 72px 0 60px;
+  position: relative;
+  overflow: hidden;
+}
+.page-hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 28px 28px;
+  pointer-events: none;
+}
+.page-hero-inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 40px;
+  position: relative;
+  z-index: 1;
+}
+.page-eyebrow {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #7ED49A;
+  margin-bottom: 14px;
+}
+.page-h1 {
+  font-family: var(--font-serif);
+  font-size: clamp(28px, 3.5vw, 46px);
+  font-weight: 600;
+  color: #fff;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  margin-bottom: 16px;
+}
+.page-h1 em { color: #7ED49A; font-style: normal; }
+.page-sub {
+  font-size: 16px;
+  color: rgba(255,255,255,0.62);
+  line-height: 1.7;
+  max-width: 600px;
+}
+.sub-content { padding: 64px 0; }
+.sub-content .si { max-width: var(--max-w); margin: 0 auto; padding: 0 40px; }
+
+.legal-layout { display:grid; grid-template-columns:240px 1fr; gap:48px; align-items:start; }
+.legal-toc { position:sticky; top:100px; background:var(--white); border:1px solid var(--gray-100); border-radius:12px; padding:20px 18px; }
+.toc-title { font-size:11px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--green); margin-bottom:14px; }
+.toc-item { display:block; font-size:13px; color:var(--gray-600); text-decoration:none; padding:6px 0; border-bottom:1px solid var(--gray-50); transition:color .2s; }
+.toc-item:last-child { border-bottom:none; }
+.toc-item:hover { color:var(--navy); }
+.legal-body { max-width:780px; }
+.legal-section { margin-bottom:48px; scroll-margin-top:100px; }
+.legal-section h2 { font-family:var(--font-serif); font-size:22px; font-weight:600; color:var(--navy); margin-bottom:16px; padding-bottom:10px; border-bottom:2px solid var(--green-pale); }
+.legal-section h3 { font-size:15px; font-weight:700; color:var(--navy); margin:20px 0 10px; }
+.legal-section p { font-size:14.5px; color:var(--gray-600); line-height:1.8; margin-bottom:12px; }
+.legal-section ul { margin:10px 0 14px 20px; display:flex; flex-direction:column; gap:6px; }
+.legal-section li { font-size:14px; color:var(--gray-600); line-height:1.7; }
+.legal-section li strong { color:var(--navy); }
+.legal-meta { background:var(--green-pale); border:1px solid rgba(45,139,72,.2); border-radius:10px; padding:16px 20px; margin-bottom:32px; font-size:13px; color:var(--gray-600); display:flex; gap:24px; flex-wrap:wrap; }
+.legal-meta strong { color:var(--navy); }
+.highlight-box { background:var(--off-white); border-left:4px solid var(--green); border-radius:0 8px 8px 0; padding:14px 18px; margin:16px 0; font-size:14px; color:var(--gray-600); line-height:1.7; }
+@media(max-width:960px){ .legal-layout{grid-template-columns:1fr;} .legal-toc{position:static;} }
+</style>
+  <link rel="stylesheet" href="../landing-chrome.css">
+</head>
+<body class="hl-with-fixed-header" data-hl-page="privacy">
+
+<div id="hl-chrome-header"></div>
+
+<section class="page-hero" style="padding-top:96px;">
+  <div class="page-hero-inner">
+    <div class="page-eyebrow">Privacy Policy</div>
+    <h1 class="page-h1">Privacy Policy<br><em>Personal Information &amp; Data</em></h1>
+    <p class="page-sub">HOUSELINK is committed to protecting your privacy and personal data in accordance with Vietnamese law and international standards.</p>
+  </div>
+</section>
+
+<section class="sub-content">
+  <div class="si">
+    <div class="legal-layout">
+
+      <div class="legal-toc">
+        <div class="toc-title">Table of Contents</div>
+        <a class="toc-item" href="#s1">1. Purpose &amp; Scope</a>
+        <a class="toc-item" href="#s2">2. Information Collected</a>
+        <a class="toc-item" href="#s3">3. Purpose of Use</a>
+        <a class="toc-item" href="#s4">4. Storage &amp; Protection</a>
+        <a class="toc-item" href="#s5">5. Data Sharing</a>
+        <a class="toc-item" href="#s6">6. Your Rights</a>
+        <a class="toc-item" href="#s7">7. Cookie &amp; Tracking</a>
+        <a class="toc-item" href="#s8">8. Policy Changes</a>
+        <a class="toc-item" href="#s9">9. Contact</a>
+      </div>
+
+      <div class="legal-body">
+        <div class="legal-meta">
+          <span><strong>Version:</strong> QDNB-001/2025</span>
+          <span><strong>Issued:</strong> 01/07/2025</span>
+          <span><strong>Effective:</strong> 01/01/2026</span>
+          <span><strong>Applies to:</strong> All HOUSELINK operations</span>
+        </div>
+
+        <div class="legal-section" id="s1">
+          <h2>1. Purpose &amp; Scope</h2>
+          <p>This Policy is issued by <strong>HOUSELINK Joint Stock Company</strong> to ensure compliance with Vietnamese regulations on information security, data safety and personal data protection, including:</p>
+          <ul>
+            <li>Cybersecurity Law 2018</li>
+            <li>Decree 13/2023/ND-CP on personal data protection</li>
+            <li>Personal Data Protection Law 2025 (Law No. 91/2025/QH15, effective 01/01/2026)</li>
+          </ul>
+          <p>This policy applies to all users who access and use HOUSELINK services, including the website houselink.com.vn, vietnamconstruction.vn, mobile applications and other digital platforms.</p>
+          <div class="highlight-box">By using HOUSELINK services, you agree to the terms of this Privacy Policy. You have the right to withdraw consent at any time as provided under Law 91/2025/QH15.</div>
+        </div>
+
+        <div class="legal-section" id="s2">
+          <h2>2. Information We Collect</h2>
+          <h3>2.1. Information You Provide Directly</h3>
+          <ul>
+            <li><strong>Identification:</strong> Full name, title, company name</li>
+            <li><strong>Contact Details:</strong> Email, phone number, address</li>
+            <li><strong>Professional Info:</strong> Industry, business size, operating country</li>
+            <li><strong>Communication Content:</strong> Consultation requests, questions, feedback via forms</li>
+          </ul>
+          <h3>2.2. Automatically Collected Information</h3>
+          <ul>
+            <li>IP address, browser type, operating system</li>
+            <li>Pages visited, time spent, navigation behaviour</li>
+            <li>Cookie data and similar tracking technologies (see Section 7)</li>
+          </ul>
+          <p>HOUSELINK <strong>only collect necessary data</strong> for the specific notified purposes — the data minimisation principle under Decree 13/2023/ND-CP.</p>
+        </div>
+
+        <div class="legal-section" id="s3">
+          <h2>3. How We Use Your Data</h2>
+          <p>HOUSELINK uses collected information to:</p>
+          <ul>
+            <li>Provide investment advisory, market research and other services you request</li>
+            <li>Send information on products, services, market reports and events (unsubscribe at any time)</li>
+            <li>Improve service quality and user experience</li>
+            <li>Comply with legal obligations and protect legitimate interests of all parties</li>
+            <li>Internal analysis and reporting to develop services</li>
+          </ul>
+          <div class="highlight-box">Your data <strong>may not be used for personal or commercial purposes</strong> or sold to third parties. HOUSELINK does not run third-party advertising on its platform.</div>
+        </div>
+
+        <div class="legal-section" id="s4">
+          <h2>4. Data Storage &amp; Protection</h2>
+          <h3>4.1. Security Systems</h3>
+          <ul>
+            <li>Data is stored on systems with end-to-end encryption, firewalls and intrusion prevention software</li>
+            <li>Data access controlled on a "need-to-know" basis</li>
+            <li>Important data backed up regularly at secure locations</li>
+            <li>Data transmitted via HTTPS/TLS encrypted channels</li>
+          </ul>
+          <h3>4.2. Retention Period</h3>
+          <p>Personal data is only stored for the time necessary to fulfil the stated purpose, or as required by law. Data will then be permanently deleted via a secure process.</p>
+        </div>
+
+        <div class="legal-section" id="s5">
+          <h2>5. Sharing Data with Third Parties</h2>
+          <p>HOUSELINK <strong>does not sell, rent or trade</strong> your personal data. We only share data in the following cases:</p>
+          <ul>
+            <li><strong>Service Partners:</strong> Technology, data storage and analytics providers bound by strict confidentiality contracts</li>
+            <li><strong>Legal Requirements:</strong> Per decisions of competent state authorities</li>
+            <li><strong>Your Consent:</strong> When you specifically permit sharing, e.g. connecting with partners in the HOUSELINK ecosystem</li>
+          </ul>
+        </div>
+
+        <div class="legal-section" id="s6">
+          <h2>6. Your Legal Rights</h2>
+          <p>Under Decree 13/2023/ND-CP and Law 91/2025/QH15, you have the following rights:</p>
+          <ul>
+            <li><strong>Right to Know:</strong> Know the purpose and scope of your data processing</li>
+            <li><strong>Right of Access:</strong> Request to view personal data HOUSELINK holds</li>
+            <li><strong>Right of Rectification:</strong> Request correction of inaccurate data</li>
+            <li><strong>Right of Erasure:</strong> Request deletion of data when no longer necessary</li>
+            <li><strong>Right to Restrict Processing:</strong> Request suspension of processing in specific cases</li>
+            <li><strong>Right to Withdraw Consent:</strong> Withdraw consent at any time without affecting the lawfulness of prior processing</li>
+            <li><strong>Right to Lodge a Complaint:</strong> Complain to the Authority for Information Security (Ministry of Information &amp; Communications) if you believe your rights are violated</li>
+          </ul>
+          <p>To exercise these rights, please contact: <strong>info@houselink.com.vn</strong> — response within 30 working days as required by law.</p>
+        </div>
+
+        <div class="legal-section" id="s7">
+          <h2>7. Cookies &amp; Tracking Technologies</h2>
+          <p>The HOUSELINK website uses cookies and similar technologies to improve user experience:</p>
+          <ul>
+            <li><strong>Essential Cookies:</strong> Necessary for website operation, cannot be disabled</li>
+            <li><strong>Analytics Cookies:</strong> Help us understand how users interact with the website (Google Analytics)</li>
+            <li><strong>Cookie marketing:</strong> Only used with your consent, to personalise content</li>
+          </ul>
+          <p>You can manage cookie preferences via browser settings or the cookie banner on first visit.</p>
+        </div>
+
+        <div class="legal-section" id="s8">
+          <h2>8. Policy Changes</h2>
+          <p>HOUSELINK may update this Privacy Policy from time to time, especially when there are changes in law or services. When significant changes occur, we will:</p>
+          <ul>
+            <li>Notify registered users via email</li>
+            <li>Display a prominent notice on the website</li>
+            <li>Update the "Issued" date at the top of the document</li>
+          </ul>
+        </div>
+
+        <div class="legal-section" id="s9">
+          <h2>9. Contact</h2>
+          <p>For any questions, requests regarding data privacy or exercising your rights, please contact:</p>
+          <ul>
+            <li><strong>Data Management Department — HOUSELINK</strong></li>
+            <li>📍 Level 9, Sannam Building, 78 Duy Tan, Cau Giay, Hanoi</li>
+            <li>✉ info@houselink.com.vn</li>
+            <li>📞 +84 966 222 490</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="hl-chrome-footer"></div>
+  <script src="../landing-chrome.js" defer></script>
+</body>
+</html>

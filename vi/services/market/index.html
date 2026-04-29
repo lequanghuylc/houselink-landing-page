@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nghiên cứu Thị trường &amp; Tư vấn Đầu tư – HOUSELINK</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --navy:#00466E;--navy-deep:#003457;--navy-mid:#005585;--navy-light:#006BA0;
+  --green:#2D8B48;--green-light:#3AAD5C;--green-pale:#EBF7EF;
+  --white:#FFFFFF;--off-white:#F4F6F8;
+  --gray-50:#EEF1F4;--gray-100:#DDE3E8;--gray-200:#BEC8D0;
+  --gray-400:#7E8F9A;--gray-600:#4A5A65;--text:#0D1F2D;
+  --font-main: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-serif: var(--font-main);
+}
+body{font-family:var(--font-main);color:var(--text);background:var(--white);line-height:1.7;}
+a{text-decoration:none;color:inherit;}
+img{max-width:100%;display:block;}
+.si{max-width:1200px;margin:0 auto;padding:0 40px;}
+
+/* TOPBAR */
+.topbar{background:var(--navy-deep);padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.08);}
+.topbar-inner{max-width:1200px;margin:0 auto;padding:0 40px;display:flex;align-items:center;justify-content:space-between;}
+.back-link{display:flex;align-items:center;gap:8px;color:rgba(255,255,255,0.6);font-size:13px;font-weight:500;transition:color .2s;}
+.back-link:hover{color:#fff;}
+.topbar-brand{display:flex;align-items:center;gap:8px;}
+.tb-icon{width:28px;height:28px;border-radius:7px;background:rgba(255,255,255,0.08);border:1.5px solid rgba(45,139,72,0.5);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:900;color:var(--green);}
+.tb-name{font-size:13px;font-weight:800;color:rgba(255,255,255,0.85);letter-spacing:.06em;text-transform:uppercase;}
+.topbar-cta{background:var(--green);color:#fff;font-size:12.5px;font-weight:700;padding:7px 18px;border-radius:7px;transition:background .2s;}
+.topbar-cta:hover{background:var(--green-light);}
+
+/* HERO */
+.svc-hero{background:linear-gradient(135deg,var(--navy-deep) 0%,var(--navy) 60%,#004060 100%);padding:72px 0 64px;position:relative;overflow:hidden;}
+.svc-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 55% 80% at 80% 50%,rgba(45,139,72,0.12) 0%,transparent 60%);pointer-events:none;}
+.svc-hero::after{content:'';position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,0.03) 1px,transparent 1px);background-size:28px 28px;pointer-events:none;}
+.hero-inner{max-width:1200px;margin:0 auto;padding:0 40px;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;position:relative;z-index:1;}
+.hero-badge{display:inline-flex;align-items:center;gap:7px;background:rgba(45,139,72,0.15);border:1px solid rgba(45,139,72,0.35);border-radius:100px;padding:5px 14px;font-size:11px;font-weight:700;color:#7ED49A;letter-spacing:.1em;text-transform:uppercase;margin-bottom:20px;}
+.hero-badge::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--green);}
+.hero-h1{font-family:var(--font-serif);font-size:clamp(28px,3.8vw,50px);font-weight:600;color:#fff;line-height:1.18;letter-spacing:-.02em;margin-bottom:18px;}
+.hero-h1 em{color:#7ED49A;font-style:normal;}
+.hero-sub{font-size:15.5px;color:rgba(255,255,255,.62);line-height:1.7;margin-bottom:28px;}
+.hero-tags{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:32px;}
+.h-tag{font-size:11.5px;font-weight:600;color:rgba(255,255,255,.7);background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:100px;padding:5px 13px;}
+.hero-ctas{display:flex;gap:12px;flex-wrap:wrap;}
+.btn-g{background:var(--green);color:#fff;font-size:13.5px;font-weight:700;padding:12px 26px;border-radius:8px;border:2px solid var(--green);transition:all .2s;}
+.btn-g:hover{background:var(--green-light);border-color:var(--green-light);}
+.btn-outline-w{color:rgba(255,255,255,.8);border:1.5px solid rgba(255,255,255,.25);border-radius:8px;padding:12px 22px;font-size:13.5px;font-weight:600;transition:all .2s;}
+.btn-outline-w:hover{border-color:rgba(255,255,255,.6);color:#fff;}
+.hero-right{display:flex;flex-direction:column;gap:13px;}
+.hsc{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:13px;padding:18px 20px;display:flex;align-items:center;gap:15px;transition:all .2s;}
+.hsc:hover{background:rgba(45,139,72,.12);border-color:rgba(45,139,72,.3);}
+.hsc-ico{font-size:24px;flex-shrink:0;}
+.hsc-n{font-family:var(--font-serif);font-size:22px;font-weight:600;color:#7ED49A;line-height:1;}
+.hsc-l{font-size:12px;color:rgba(255,255,255,.5);margin-top:2px;}
+
+/* SECTIONS */
+.section{padding:72px 0;}
+.sec-label{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--green);margin-bottom:10px;}
+.sec-title{font-family:var(--font-serif);font-size:clamp(24px,3vw,38px);font-weight:600;color:var(--navy);line-height:1.22;letter-spacing:-.02em;}
+.sec-title em{color:var(--green);font-style:normal;}
+.sec-sub{font-size:15.5px;color:var(--gray-600);line-height:1.72;max-width:580px;margin-top:14px;}
+
+/* SERVICE CARDS */
+.svc-grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:44px;}
+.svc-card-sm{background:var(--white);border:1px solid var(--gray-100);border-radius:14px;padding:28px 24px;transition:all 0.25s;position:relative;overflow:hidden;}
+.svc-card-sm::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--green),var(--navy-mid));transform:scaleX(0);transform-origin:left;transition:transform 0.3s;}
+.svc-card-sm:hover{box-shadow:0 8px 32px rgba(0,70,110,0.09);transform:translateY(-2px);}
+.svc-card-sm:hover::before{transform:scaleX(1);}
+.svc-card-sm.featured{background:var(--navy);border-color:var(--navy);}
+.svc-card-sm.featured::before{transform:scaleX(1);background:var(--green);}
+.svc-card-sm.featured .sc-title{color:#fff;}
+.svc-card-sm.featured .sc-desc{color:rgba(255,255,255,0.75);}
+.sc-icon{font-size:26px;margin-bottom:14px;}
+.sc-title{font-size:15.5px;font-weight:700;color:var(--navy);margin-bottom:8px;line-height:1.3;}
+.sc-desc{font-size:13.5px;color:var(--gray-600);line-height:1.65;}
+
+/* CHAL-PILL ACCORDION */
+.chal-compact{display:flex;flex-direction:column;gap:8px;}
+.chal-pill{border:1px solid var(--gray-100);border-radius:10px;overflow:hidden;cursor:pointer;transition:all 0.2s;background:var(--white);}
+.chal-pill:hover{border-color:var(--green);}
+.chal-pill.open{border-color:var(--green);}
+.cp-head{display:flex;align-items:center;gap:10px;padding:13px 16px;font-size:13.5px;font-weight:600;color:var(--navy);}
+.cp-icon{font-size:16px;flex-shrink:0;}
+.cp-title{flex:1;}
+.cp-arrow{font-size:16px;color:var(--gray-400);transition:transform 0.2s;}
+.chal-pill.open .cp-arrow{transform:rotate(90deg);color:var(--green);}
+.cp-body{display:none;padding:0 16px 14px 42px;font-size:13.5px;color:var(--gray-600);line-height:1.65;}
+.chal-pill.open .cp-body{display:block;}
+.cp-body strong{color:var(--navy);}
+
+/* TWO-COL PROCESS */
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start;}
+.img-block{border-radius:16px;overflow:hidden;position:relative;}
+.img-block img{width:100%;height:400px;object-fit:cover;display:block;filter:brightness(0.85);}
+.img-overlay-badge{position:absolute;bottom:24px;left:24px;background:var(--navy);border-radius:10px;padding:16px 20px;color:#fff;}
+.iob-n{font-family:var(--font-serif);font-size:24px;font-weight:600;color:#7ED49A;line-height:1;}
+.iob-l{font-size:11px;color:rgba(255,255,255,0.5);margin-top:4px;text-transform:uppercase;letter-spacing:.06em;}
+
+/* CAPABILITY GRID */
+.cap-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:40px;}
+.cap-card{background:var(--gray-50);border:1px solid var(--gray-100);border-radius:12px;padding:20px 16px;text-align:center;transition:all .2s;}
+.cap-card:hover{background:var(--green-pale);border-color:rgba(45,139,72,.2);}
+.cap-icon{font-size:24px;margin-bottom:10px;}
+.cap-name{font-size:13px;font-weight:700;color:var(--navy);margin-bottom:4px;}
+.cap-desc{font-size:11.5px;color:var(--gray-400);line-height:1.5;}
+
+/* CTA BAR */
+.cta-bar{background:var(--green);padding:60px 0;text-align:center;}
+.cta-bar h2{font-family:var(--font-serif);font-size:clamp(24px,3vw,38px);font-weight:600;color:#fff;margin-bottom:12px;}
+.cta-bar p{font-size:15.5px;color:rgba(255,255,255,.75);margin-bottom:32px;max-width:620px;margin-left:auto;margin-right:auto;}
+.cta-btns{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;}
+.btn-white{background:#fff;color:var(--green);font-size:14px;font-weight:700;padding:13px 28px;border-radius:8px;transition:all .2s;}
+.btn-white:hover{background:var(--green-pale);}
+.btn-outline-green{border:2px solid rgba(255,255,255,.6);color:#fff;font-size:14px;font-weight:600;padding:13px 24px;border-radius:8px;transition:all .2s;}
+.btn-outline-green:hover{border-color:#fff;}
+
+/* FOOTER */
+.footer-mini{background:var(--navy-deep);padding:24px 0;text-align:center;font-size:13px;color:rgba(255,255,255,.3);}
+
+@media(max-width:960px){
+  .hero-inner,.two-col,.svc-grid3,.cap-grid{grid-template-columns:1fr;}
+  .hero-right{display:none;}
+  .cap-grid{grid-template-columns:1fr 1fr;}
+  .si{padding:0 20px;}
+}
+.cta-bar-btns{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;}
+.hero-ctas{display:flex;gap:12px;flex-wrap:wrap;margin-top:32px;}
+
+</style>
+  <link rel="stylesheet" href="../../../landing-chrome.css">
+</head>
+<body class="hl-with-fixed-header" data-hl-page="services-market">
+
+<div id="hl-chrome-header"></div>
+
+<section class="svc-hero">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-badge">Market Intelligence &#183; Research</div>
+      <h1 class="hero-h1">Nghi&#234;n c&#7913;u th&#7883; tr&#432;&#7901;ng<br>&amp; <em>T&#432; v&#7845;n &#273;&#7847;u t&#432;</em><br>chuy&#234;n s&#226;u</h1>
+      <p class="hero-sub">B&#225;o c&#225;o th&#7883; tr&#432;&#7901;ng t&#249;y ch&#7881;nh, ph&#226;n t&#237;ch chu&#7895;i cung &#7913;ng v&#224; t&#432; v&#7845;n h&#432;&#7899;ng &#273;&#7847;u t&#432; &#8212; n&#7873;n t&#7843;ng d&#7919; li&#7879;u th&#7921;c t&#7871; &#273;&#7875; ra quy&#7871;t &#273;&#7883;nh &#273;&#7847;u t&#432; t&#7841;i Vi&#7879;t Nam.</p>
+      <div class="hero-tags">
+        <span class="h-tag">Market Research Report</span>
+        <span class="h-tag">Supply Chain Analysis</span>
+        <span class="h-tag">Competitor Analysis</span>
+        <span class="h-tag">Business Matching</span>
+        <span class="h-tag">Vendor Sourcing</span>
+        <span class="h-tag">Market Forecast</span>
+      </div>
+      <div class="hero-ctas">
+        <a href="/vi/contact/" class="btn-g">T&#432; v&#7845;n mi&#7877;n ph&#237; &#8594;</a>
+        <a href="/vi/services/" class="btn-outline-w">Xem d&#7883;ch v&#7909;</a>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hsc"><div class="hsc-ico">&#128202;</div><div><div class="hsc-n">120,000+</div><div class="hsc-l">Nh&#224; m&#225;y trong database</div></div></div>
+      <div class="hsc"><div class="hsc-ico">&#127970;</div><div><div class="hsc-n">400+</div><div class="hsc-l">KCN &#273;&#432;&#7907;c c&#7853;p nh&#7853;t li&#234;n t&#7909;c</div></div></div>
+      <div class="hsc"><div class="hsc-ico">&#128188;</div><div><div class="hsc-n">10,000+</div><div class="hsc-l">Project investors</div></div></div>
+      <div class="hsc"><div class="hsc-ico">&#129309;</div><div><div class="hsc-n">2,000+</div><div class="hsc-l">Th&#224;nh vi&#234;n c&#7897;ng &#273;&#7891;ng</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- DICH VU -->
+<section id="services" class="section" style="background:var(--off-white);">
+  <div class="si">
+    <div class="sec-label">Ph&#7841;m vi nghi&#234;n c&#7913;u</div>
+    <h2 class="sec-title">D&#7919; li&#7879;u th&#7921;c t&#7871; &#8212;<br><em>quy&#7871;t &#273;&#7883;nh ch&#237;nh x&#225;c</em></h2>
+    <p class="sec-sub">M&#7895;i b&#225;o c&#225;o &#273;&#432;&#7907;c x&#226;y d&#7921;ng t&#7915; d&#7919; li&#7879;u s&#417; c&#7845;p (ph&#7887;ng v&#7845;n tr&#7921;c ti&#7871;p) v&#224; th&#7913; c&#7845;p (HOUSELINK Database), &#273;&#7843;m b&#7843;o t&#237;nh ch&#237;nh x&#225;c v&#224; c&#7853;p nh&#7853;t.</p>
+    <div class="svc-grid3">
+      <div class="svc-card-sm featured">
+        <div class="sc-icon">&#128200;</div>
+        <div class="sc-title">B&#225;o c&#225;o nghi&#234;n c&#7913;u th&#7883; tr&#432;&#7901;ng</div>
+        <div class="sc-desc">Ph&#226;n t&#237;ch t&#7893;ng quan kinh t&#7871;, quy m&#244; th&#7883; tr&#432;&#7901;ng, d&#7921; b&#225;o t&#259;ng tr&#432;&#7903;ng 3&#8211;5 n&#259;m v&#224; c&#225;c &#273;&#7897;ng l&#7921;c ph&#225;t tri&#7875;n ng&#224;nh t&#7841;i Vi&#7879;t Nam.</div>
+      </div>
+      <div class="svc-card-sm">
+        <div class="sc-icon">&#128279;</div>
+        <div class="sc-title">Ph&#226;n t&#237;ch chu&#7895;i cung &#7913;ng</div>
+        <div class="sc-desc">Nghi&#234;n c&#7913;u chi ti&#7871;t t&#7915;ng giai &#273;o&#7841;n trong chu&#7895;i cung &#7913;ng c&#244;ng nghi&#7879;p m&#7909;c ti&#234;u &#8212; ti&#234;u chu&#7849;n h&#7841; t&#7847;ng, nh&#224; cung c&#7845;p v&#224; ph&#226;n kh&#250;c &#7913;ng d&#7909;ng.</div>
+      </div>
+      <div class="svc-card-sm">
+        <div class="sc-icon">&#127919;</div>
+        <div class="sc-title">T&#432; v&#7845;n h&#432;&#7899;ng &#273;&#7847;u t&#432;</div>
+        <div class="sc-desc">Ph&#226;n t&#237;ch th&#7883; tr&#432;&#7901;ng Vi&#7879;t Nam, r&#224; so&#225;t ph&#225;p l&#253; v&#224; &#273;&#225;nh gi&#225; c&#226;n b&#7857;ng cung-c&#7847;u &#273;&#7875; x&#225;c &#273;&#7883;nh h&#432;&#7899;ng &#273;&#7847;u t&#432; hi&#7879;u qu&#7843; nh&#7845;t.</div>
+      </div>
+      <div class="svc-card-sm">
+        <div class="sc-icon">&#128269;</div>
+        <div class="sc-title">T&#236;m ki&#7871;m &#273;&#7889;i t&#225;c &amp; kh&#225;ch h&#224;ng</div>
+        <div class="sc-desc">Nghi&#234;n c&#7913;u v&#224; ph&#226;n t&#237;ch c&#225;c c&#244;ng ty trong ph&#226;n kh&#250;c m&#7909;c ti&#234;u, x&#226;y d&#7921;ng danh s&#225;ch kh&#225;ch h&#224;ng/&#273;&#7889;i t&#225;c ti&#7873;m n&#259;ng v&#7899;i &#273;&#7847;y &#273;&#7911; th&#244;ng tin li&#234;n h&#7879;.</div>
+      </div>
+      <div class="svc-card-sm">
+        <div class="sc-icon">&#127942;</div>
+        <div class="sc-title">Ph&#226;n t&#237;ch &#273;&#7889;i th&#7911; c&#7841;nh tranh</div>
+        <div class="sc-desc">&#272;&#225;nh gi&#225; n&#259;ng l&#7921;c c&#7841;nh tranh, th&#7883; ph&#7847;n v&#224; chi&#7871;n l&#432;&#7907;c c&#7911;a c&#225;c &#273;&#7889;i th&#7911; trong ng&#224;nh &#8212; c&#417; s&#7903; &#273;&#7875; &#273;&#7883;nh v&#7883; v&#224; kh&#225;c bi&#7879;t h&#243;a.</div>
+      </div>
+      <div class="svc-card-sm">
+        <div class="sc-icon">&#129309;</div>
+        <div class="sc-title">Business Matching</div>
+        <div class="sc-desc">K&#7871;t n&#7889;i tr&#7921;c ti&#7871;p v&#7899;i &#273;&#7889;i t&#225;c, nh&#224; cung c&#7845;p v&#224; kh&#225;ch h&#224;ng ti&#7873;m n&#259;ng th&#244;ng qua ph&#7887;ng v&#7845;n chuy&#234;n s&#226;u v&#224; s&#7921; ki&#7879;n networking.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUY TRINH -->
+<section class="section" style="background:var(--white);">
+  <div class="si">
+    <div class="two-col">
+      <div>
+        <div class="sec-label">Quy tr&#236;nh th&#7921;c hi&#7879;n</div>
+        <h2 class="sec-title">L&#7897; tr&#236;nh r&#245; r&#224;ng &#8212;<br><em>k&#7871;t qu&#7843; c&#7909; th&#7875;</em></h2>
+        <p class="sec-sub" style="margin-bottom:28px;">M&#7895;i d&#7921; &#225;n &#273;&#432;&#7907;c thi&#7871;t k&#7871; ri&#234;ng theo m&#7909;c ti&#234;u, ng&#224;nh v&#224; timeline c&#7911;a kh&#225;ch h&#224;ng &#8212; t&#7915; kh&#7843;o s&#225;t &#273;&#7871;n b&#225;o c&#225;o ho&#224;n ch&#7881;nh.</p>
+
+        <div class="chal-compact">
+
+          <div class="chal-pill" onclick="this.classList.toggle('open')">
+            <div class="cp-head">
+              <span class="cp-icon">&#128172;</span>
+              <span class="cp-title">01 &#183; X&#225;c &#273;&#7883;nh y&#234;u c&#7847;u &amp; ph&#7841;m vi</span>
+              <span class="cp-arrow">&#8250;</span>
+            </div>
+            <div class="cp-body">
+              Th&#7843;o lu&#7853;n chi ti&#7871;t m&#7909;c ti&#234;u nghi&#234;n c&#7913;u, ng&#224;nh m&#7909;c ti&#234;u, ph&#226;n kh&#250;c &#273;&#7883;a l&#253; v&#224; timeline c&#7909; th&#7875;. X&#225;c &#273;&#7883;nh c&#225;c c&#226;u h&#7887;i nghi&#234;n c&#7913;u c&#7889;t l&#245;i v&#224; <strong>&#273;&#7873; xu&#7845;t ph&#7841;m vi c&#244;ng vi&#7879;c ph&#249; h&#7907;p ng&#226;n s&#225;ch</strong>.
+            </div>
+          </div>
+
+          <div class="chal-pill" onclick="this.classList.toggle('open')">
+            <div class="cp-head">
+              <span class="cp-icon">&#128452;&#65039;</span>
+              <span class="cp-title">02 &#183; Thu th&#7853;p d&#7919; li&#7879;u th&#7913; c&#7845;p</span>
+              <span class="cp-arrow">&#8250;</span>
+            </div>
+            <div class="cp-body">
+              Khai th&#225;c <strong>HOUSELINK Database</strong> (120,000+ nh&#224; m&#225;y, 400+ KCN), ngu&#7891;n d&#7919; li&#7879;u ch&#237;nh ph&#7911;, b&#225;o c&#225;o ng&#224;nh v&#224; d&#7919; li&#7879;u &#273;&#432;&#7907;c c&#7845;p ph&#233;p &#8212; &#273;&#7843;m b&#7843;o d&#7919; li&#7879;u th&#7921;c t&#7871; v&#224; c&#7853;p nh&#7853;t.
+            </div>
+          </div>
+
+          <div class="chal-pill" onclick="this.classList.toggle('open')">
+            <div class="cp-head">
+              <span class="cp-icon">&#127897;&#65039;</span>
+              <span class="cp-title">03 &#183; Nghi&#234;n c&#7913;u s&#417; c&#7845;p</span>
+              <span class="cp-arrow">&#8250;</span>
+            </div>
+            <div class="cp-body">
+              Th&#7921;c hi&#7879;n ph&#7887;ng v&#7845;n tr&#7921;c ti&#7871;p v&#7899;i doanh nghi&#7879;p trong ng&#224;nh, chuy&#234;n gia v&#224; c&#417; quan qu&#7843;n l&#253; &#8212; thu th&#7853;p <strong>insights th&#7921;c t&#7871; kh&#244;ng c&#243; trong b&#225;o c&#225;o th&#7913; c&#7845;p</strong>, x&#226;y d&#7921;ng danh s&#225;ch kh&#225;ch h&#224;ng/&#273;&#7889;i t&#225;c ti&#7873;m n&#259;ng.
+            </div>
+          </div>
+
+          <div class="chal-pill" onclick="this.classList.toggle('open')">
+            <div class="cp-head">
+              <span class="cp-icon">&#128202;</span>
+              <span class="cp-title">04 &#183; Ph&#226;n t&#237;ch &amp; t&#7893;ng h&#7907;p</span>
+              <span class="cp-arrow">&#8250;</span>
+            </div>
+            <div class="cp-body">
+              X&#7917; l&#253; d&#7919; li&#7879;u, ph&#226;n t&#237;ch xu h&#432;&#7899;ng, &#273;&#225;nh gi&#225; c&#417; h&#7897;i v&#224; r&#7911;i ro theo framework chuy&#234;n nghi&#7879;p. <strong>Triangulation</strong> t&#7915; nhi&#7873;u ngu&#7891;n &#273;&#7875; &#273;&#7843;m b&#7843;o t&#237;nh ch&#237;nh x&#225;c v&#224; kh&#225;ch quan.
+            </div>
+          </div>
+
+          <div class="chal-pill" onclick="this.classList.toggle('open')">
+            <div class="cp-head">
+              <span class="cp-icon">&#128203;</span>
+              <span class="cp-title">05 &#183; B&#225;o c&#225;o &amp; khuy&#7871;n ngh&#7883;</span>
+              <span class="cp-arrow">&#8250;</span>
+            </div>
+            <div class="cp-body">
+              Tr&#236;nh b&#224;y b&#225;o c&#225;o chi ti&#7871;t v&#7899;i bi&#7875;u &#273;&#7891;, s&#7889; li&#7879;u v&#224; <strong>khuy&#7871;n ngh&#7883; h&#224;nh &#273;&#7897;ng c&#7909; th&#7875;</strong> k&#232;m timeline. H&#7895; tr&#7907; gi&#7843;i th&#237;ch v&#224; c&#7853;p nh&#7853;t b&#7893; sung trong 30 ng&#224;y sau khi giao b&#225;o c&#225;o.
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div>
+        <div class="img-block">
+          <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&q=80&auto=format&fit=crop" alt="Market Intelligence Research">
+          <div class="img-overlay-badge">
+            <div class="iob-n">HOUSELINK</div>
+            <div class="iob-l">&#272;&#7891;ng h&#224;nh t&#7915; ng&#224;y &#273;&#7847;u ti&#234;n</div>
+          </div>
+        </div>
+        <div style="margin-top:20px;background:var(--green-pale);border:1px solid rgba(45,139,72,0.2);border-radius:14px;padding:22px 24px;">
+          <div style="font-size:12px;font-weight:700;color:var(--green);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:14px;">Cam k&#7871;t ch&#7845;t l&#432;&#7907;ng</div>
+          <div style="display:flex;flex-direction:column;gap:10px;">
+            <div style="display:flex;align-items:center;gap:10px;font-size:13.5px;color:var(--navy);"><span>&#9989;</span><span>D&#7919; li&#7879;u th&#7921;c t&#7871; t&#7915; HOUSELINK Database</span></div>
+            <div style="display:flex;align-items:center;gap:10px;font-size:13.5px;color:var(--navy);"><span>&#9989;</span><span>Ph&#7887;ng v&#7845;n tr&#7921;c ti&#7871;p, kh&#244;ng &#432;&#7899;c t&#237;nh</span></div>
+            <div style="display:flex;align-items:center;gap:10px;font-size:13.5px;color:var(--navy);"><span>&#9989;</span><span>B&#225;o c&#225;o trong 15&#8211;45 ng&#224;y l&#224;m vi&#7879;c</span></div>
+            <div style="display:flex;align-items:center;gap:10px;font-size:13.5px;color:var(--navy);"><span>&#9989;</span><span>H&#7895; tr&#7907; b&#7893; sung 30 ng&#224;y sau giao b&#225;o c&#225;o</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NANG LUC -->
+<section class="section" style="background:var(--off-white);">
+  <div class="si">
+    <div style="text-align:center;max-width:560px;margin:0 auto;">
+      <div class="sec-label">Ph&#432;&#417;ng ph&#225;p &amp; N&#259;ng l&#7921;c</div>
+      <h2 class="sec-title">N&#259;ng l&#7921;c <em>chuy&#234;n s&#226;u</em></h2>
+    </div>
+    <div class="cap-grid">
+      <div class="cap-card"><div class="cap-icon">&#128202;</div><div class="cap-name">Market Sizing</div><div class="cap-desc">&#272;o l&#432;&#7901;ng quy m&#244; th&#7883; tr&#432;&#7901;ng</div></div>
+      <div class="cap-card"><div class="cap-icon">&#128302;</div><div class="cap-name">Market Forecast</div><div class="cap-desc">D&#7921; b&#225;o t&#259;ng tr&#432;&#7903;ng 3&#8211;5 n&#259;m</div></div>
+      <div class="cap-card"><div class="cap-icon">&#127981;</div><div class="cap-name">Supply Chain Map</div><div class="cap-desc">B&#7843;n &#273;&#7891; chu&#7895;i cung &#7913;ng ng&#224;nh</div></div>
+      <div class="cap-card"><div class="cap-icon">&#128101;</div><div class="cap-name">Customer Profiling</div><div class="cap-desc">Ph&#225;c th&#7843;o h&#224;nh vi kh&#225;ch h&#224;ng</div></div>
+      <div class="cap-card"><div class="cap-icon">&#9878;&#65039;</div><div class="cap-name">Regulatory Review</div><div class="cap-desc">R&#224; so&#225;t ph&#225;p l&#253; &#273;&#7847;u t&#432;</div></div>
+      <div class="cap-card"><div class="cap-icon">&#128203;</div><div class="cap-name">SWOT Analysis</div><div class="cap-desc">Ph&#226;n t&#237;ch th&#7871; m&#7841;nh &amp; c&#417; h&#7897;i</div></div>
+      <div class="cap-card"><div class="cap-icon">&#127919;</div><div class="cap-name">Go-to-market</div><div class="cap-desc">Chi&#7871;n l&#432;&#7907;c th&#226;m nh&#7853;p th&#7883; tr&#432;&#7901;ng</div></div>
+      <div class="cap-card"><div class="cap-icon">&#129309;</div><div class="cap-name">B2B Matching</div><div class="cap-desc">K&#7871;t n&#7889;i kinh doanh tr&#7921;c ti&#7871;p</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="contact" class="cta-bar">
+  <div class="si">
+    <h2>B&#7855;t &#273;&#7847;u nghi&#234;n c&#7913;u th&#7883; tr&#432;&#7901;ng c&#7911;a b&#7841;n</h2>
+    <p>Li&#234;n h&#7879; chuy&#234;n gia HOUSELINK &#273;&#7875; nh&#7853;n b&#225;o gi&#225; v&#224; ph&#7841;m vi c&#244;ng vi&#7879;c ph&#249; h&#7907;p v&#7899;i nhu c&#7847;u c&#7911;a b&#7841;n.</p>
+    <div class="cta-bar-btns">
+      <a href="/vi/contact/" class="btn-white">&#272;&#7863;t l&#7883;ch t&#432; v&#7845;n mi&#7877;n ph&#237;</a>
+      <a href="/vi/" class="btn-outline-green">&#8592; V&#7873; trang ch&#7911; HOUSELINK</a>
+    </div>
+  </div>
+</section>
+
+<div id="hl-chrome-footer"></div>
+  <script src="../../../landing-chrome.js" defer></script>
+</body>
+</html>

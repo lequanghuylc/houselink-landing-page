@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FindProject Service Pricing – HOUSELINK</title>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --navy:#00466E;--navy-deep:#003457;--navy-mid:#005585;
+  --green:#2D8B48;--green-light:#3AAD5C;--green-pale:#EBF7EF;
+  --white:#FFFFFF;--off-white:#F4F6F8;
+  --gray-50:#EEF1F4;--gray-100:#DDE3E8;--gray-200:#BEC8D0;
+  --gray-400:#7E8F9A;--gray-600:#4A5A65;--text:#0D1F2D;
+  --amber:#D4860B;--amber-pale:#FEF3E0;
+  --font-main:'Be Vietnam Pro',sans-serif;
+  --font-serif:'DM Serif Display',serif;
+}
+body{font-family:var(--font-main);color:var(--text);background:var(--white);line-height:1.7;}
+a{text-decoration:none;color:inherit;}
+img{max-width:100%;display:block;}
+.si{max-width:1200px;margin:0 auto;padding:0 40px;}
+
+/* TOPBAR */
+.topbar{background:var(--navy-deep);padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.08);}
+.topbar-inner{max-width:1200px;margin:0 auto;padding:0 40px;display:flex;align-items:center;justify-content:space-between;}
+.back-link{display:flex;align-items:center;gap:8px;color:rgba(255,255,255,0.6);font-size:13px;font-weight:500;transition:color .2s;}
+.back-link:hover{color:#fff;}
+.topbar-brand{display:flex;align-items:center;gap:8px;}
+.tb-icon{width:28px;height:28px;border-radius:7px;background:rgba(255,255,255,0.08);border:1.5px solid rgba(45,139,72,0.5);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:900;color:var(--green);}
+.tb-name{font-size:13px;font-weight:800;color:rgba(255,255,255,0.85);letter-spacing:.06em;text-transform:uppercase;}
+.topbar-cta{background:var(--green);color:#fff;font-size:12.5px;font-weight:700;padding:7px 18px;border-radius:7px;transition:background .2s;}
+.topbar-cta:hover{background:var(--green-light);}
+
+/* HERO */
+.pricing-hero{background:linear-gradient(135deg,var(--navy-deep) 0%,var(--navy) 60%,#004060 100%);padding:64px 0 52px;text-align:center;position:relative;overflow:hidden;}
+.pricing-hero::before{content:'';position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,0.03) 1px,transparent 1px);background-size:28px 28px;pointer-events:none;}
+.ph-badge{display:inline-flex;align-items:center;gap:7px;background:rgba(45,139,72,0.15);border:1px solid rgba(45,139,72,0.35);border-radius:100px;padding:5px 14px;font-size:11px;font-weight:700;color:#7ED49A;letter-spacing:.1em;text-transform:uppercase;margin-bottom:18px;}
+.ph-badge::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--green);}
+.ph-h1{font-family:var(--font-serif);font-size:clamp(28px,4vw,48px);font-weight:600;color:#fff;line-height:1.16;letter-spacing:-.02em;margin-bottom:14px;}
+.ph-h1 em{color:#7ED49A;font-style:normal;}
+.ph-sub{font-size:16px;color:rgba(255,255,255,.58);max-width:560px;margin:0 auto 28px;}
+.toggle-wrap{display:flex;align-items:center;gap:16px;justify-content:center;margin-bottom:8px;}
+.toggle-label{font-size:14px;font-weight:600;color:rgba(255,255,255,.7);}
+.toggle-label.active{color:#7ED49A;}
+.toggle{position:relative;width:52px;height:28px;cursor:pointer;}
+.toggle input{opacity:0;width:0;height:0;}
+.toggle-slider{position:absolute;inset:0;background:rgba(255,255,255,.2);border-radius:100px;transition:.3s;}
+.toggle-slider::before{content:'';position:absolute;height:22px;width:22px;left:3px;bottom:3px;background:#fff;border-radius:50%;transition:.3s;}
+.toggle input:checked+.toggle-slider{background:var(--green);}
+.toggle input:checked+.toggle-slider::before{transform:translateX(24px);}
+.save-badge{background:var(--amber);color:#fff;font-size:11px;font-weight:700;padding:3px 10px;border-radius:100px;margin-left:4px;}
+
+/* PRICING GRID */
+.pricing-section{padding:72px 0;background:var(--off-white);}
+.pricing-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:48px;}
+.plan-card{background:var(--white);border:1.5px solid var(--gray-100);border-radius:18px;padding:32px 28px;position:relative;transition:all .25s;display:flex;flex-direction:column;}
+.plan-card:hover{box-shadow:0 12px 40px rgba(0,70,110,0.1);transform:translateY(-3px);}
+.plan-card.featured{background:var(--navy);border-color:var(--navy);color:#fff;}
+.plan-card.featured .plan-name{color:#7ED49A;}
+.plan-card.featured .plan-desc{color:rgba(255,255,255,.6);}
+.plan-card.featured .plan-price-num{color:#fff;}
+.plan-card.featured .plan-price-period{color:rgba(255,255,255,.5);}
+.plan-card.featured .feat-item{color:rgba(255,255,255,.85);border-color:rgba(255,255,255,.1);}
+.plan-card.featured .feat-item::before{color:#7ED49A;}
+.popular-badge{position:absolute;top:-1px;left:50%;transform:translateX(-50%);background:var(--green);color:#fff;font-size:11px;font-weight:700;padding:4px 18px;border-radius:0 0 10px 10px;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap;}
+.plan-icon{font-size:32px;margin-bottom:16px;}
+.plan-name{font-family:var(--font-serif);font-size:20px;font-weight:600;color:var(--navy);margin-bottom:6px;}
+.plan-tag{display:inline-block;font-size:11px;font-weight:700;color:var(--green);background:var(--green-pale);border-radius:100px;padding:3px 10px;margin-bottom:12px;}
+.plan-card.featured .plan-tag{color:#7ED49A;background:rgba(45,139,72,.2);}
+.plan-desc{font-size:13.5px;color:var(--gray-600);line-height:1.6;margin-bottom:20px;min-height:52px;}
+.plan-price{margin-bottom:24px;padding-bottom:20px;border-bottom:1px solid var(--gray-100);}
+.plan-card.featured .plan-price{border-color:rgba(255,255,255,.15);}
+.plan-price-num{font-family:var(--font-serif);font-size:36px;font-weight:600;color:var(--navy);line-height:1;}
+.plan-price-usd{font-size:14px;font-weight:700;vertical-align:top;margin-top:6px;display:inline-block;margin-right:2px;}
+.plan-price-period{font-size:13px;color:var(--gray-400);margin-top:4px;}
+.plan-price-vnd{font-size:12px;color:var(--gray-400);margin-top:2px;}
+.annual-price{display:none;}
+.annual .annual-price{display:block;}
+.annual .monthly-price{display:none;}
+.feat-list{list-style:none;flex:1;margin-bottom:24px;}
+.feat-item{font-size:13.5px;color:var(--gray-600);padding:8px 0;border-bottom:1px solid var(--gray-50);display:flex;align-items:flex-start;gap:8px;line-height:1.5;}
+.feat-item:last-child{border-bottom:none;}
+.feat-item::before{content:'✓';color:var(--green);font-weight:700;flex-shrink:0;margin-top:1px;}
+.feat-item.no::before{content:'✕';color:var(--gray-200);}
+.feat-item.no{color:var(--gray-200);}
+.plan-btn{display:block;text-align:center;padding:13px;border-radius:9px;font-size:14px;font-weight:700;cursor:pointer;transition:all .2s;border:none;font-family:var(--font-main);}
+.plan-btn.outline{background:transparent;border:2px solid var(--gray-100);color:var(--navy);}
+.plan-btn.outline:hover{border-color:var(--green);color:var(--green);}
+.plan-btn.primary{background:var(--green);color:#fff;}
+.plan-btn.primary:hover{background:var(--green-light);}
+.plan-btn.white{background:#fff;color:var(--navy);}
+.plan-btn.white:hover{background:var(--green-pale);}
+
+/* ENTERPRISE ROW */
+.enterprise-row{background:var(--navy-deep);border-radius:16px;padding:36px 40px;display:flex;align-items:center;justify-content:space-between;gap:32px;margin-top:24px;flex-wrap:wrap;}
+.ent-left h3{font-family:var(--font-serif);font-size:22px;font-weight:600;color:#fff;margin-bottom:6px;}
+.ent-left p{font-size:14px;color:rgba(255,255,255,.55);max-width:480px;}
+.ent-btns{display:flex;gap:12px;flex-shrink:0;flex-wrap:wrap;}
+.btn-ent-white{background:#fff;color:var(--navy);font-size:13.5px;font-weight:700;padding:11px 24px;border-radius:8px;transition:all .2s;}
+.btn-ent-white:hover{background:var(--green-pale);}
+.btn-ent-outline{border:1.5px solid rgba(255,255,255,.35);color:#fff;font-size:13.5px;font-weight:600;padding:11px 22px;border-radius:8px;transition:all .2s;}
+.btn-ent-outline:hover{border-color:#fff;}
+
+/* COMPARISON TABLE */
+.compare-section{padding:72px 0;background:var(--white);}
+.compare-table{width:100%;border-collapse:collapse;margin-top:44px;}
+.compare-table th{padding:14px 18px;font-size:13px;font-weight:700;text-align:left;border-bottom:2px solid var(--gray-100);}
+.compare-table th.plan-col{text-align:center;color:var(--navy);}
+.compare-table th.plan-col.highlight{color:var(--green);}
+.compare-table td{padding:13px 18px;font-size:13.5px;border-bottom:1px solid var(--gray-50);vertical-align:middle;}
+.compare-table td.plan-col{text-align:center;}
+.compare-table tr:hover td{background:var(--gray-50);}
+.compare-table .group-row td{background:var(--off-white);font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--green);padding:10px 18px;}
+.check-yes{color:var(--green);font-size:17px;font-weight:700;}
+.check-no{color:var(--gray-200);font-size:17px;}
+.check-part{color:var(--amber);font-size:13px;font-weight:600;}
+
+/* FAQ */
+.faq-section{padding:72px 0;background:var(--off-white);}
+.faq-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:44px;}
+.faq-item{background:var(--white);border:1px solid var(--gray-100);border-radius:12px;padding:22px 24px;}
+.faq-q{font-size:14.5px;font-weight:700;color:var(--navy);margin-bottom:8px;}
+.faq-a{font-size:13.5px;color:var(--gray-600);line-height:1.65;}
+
+/* CTA */
+.cta-bar{background:var(--green);padding:56px 0;text-align:center;}
+.cta-bar h2{font-family:var(--font-serif);font-size:clamp(24px,3vw,36px);font-weight:600;color:#fff;margin-bottom:10px;}
+.cta-bar p{font-size:15px;color:rgba(255,255,255,.75);margin-bottom:28px;max-width:560px;margin-left:auto;margin-right:auto;}
+.cta-btns{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;}
+.btn-white{background:#fff;color:var(--green);font-size:14px;font-weight:700;padding:13px 28px;border-radius:8px;transition:all .2s;}
+.btn-white:hover{background:var(--green-pale);}
+.btn-outline-green{border:2px solid rgba(255,255,255,.6);color:#fff;font-size:14px;font-weight:600;padding:13px 24px;border-radius:8px;transition:all .2s;}
+.btn-outline-green:hover{border-color:#fff;}
+
+/* FOOTER */
+.footer-mini{background:var(--navy-deep);padding:24px 0;text-align:center;font-size:13px;color:rgba(255,255,255,.3);}
+
+/* Sec header */
+.sec-label{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--green);margin-bottom:10px;}
+.sec-title{font-family:var(--font-serif);font-size:clamp(24px,3vw,36px);font-weight:600;color:var(--navy);line-height:1.22;letter-spacing:-.02em;}
+.sec-title em{color:var(--green);font-style:normal;}
+.sec-sub{font-size:15px;color:var(--gray-600);line-height:1.72;max-width:560px;margin-top:12px;}
+
+@media(max-width:1024px){.pricing-grid{grid-template-columns:1fr 1fr;}}
+@media(max-width:640px){
+  .pricing-grid{grid-template-columns:1fr;}
+  .faq-grid{grid-template-columns:1fr;}
+  .compare-table{display:none;}
+  .si{padding:0 20px;}
+  .enterprise-row{flex-direction:column;padding:28px 24px;}
+}
+</style>
+  <link rel="stylesheet" href="../../../landing-chrome.css">
+  <link rel="stylesheet" href="../../../css/hl-find-project-flow.css">
+</head>
+<body class="hl-with-fixed-header" data-hl-page="services-find-project-pricing">
+
+<div id="hl-chrome-header"></div>
+
+
+<!-- HERO -->
+<section class="pricing-hero">
+  <div style="position:relative;z-index:1;">
+    <div class="ph-badge">Pro-Contractor · Pro-Supplier</div>
+    <h1 class="ph-h1">Service Pricing<br><em>HOUSELINK FindProject</em></h1>
+    <p class="ph-sub">Choose the package that fits your business scale and goals. 100% payment upon signing — activated within 1 business day.</p>
+    <div class="toggle-wrap">
+      <span class="toggle-label active" id="lbl-monthly">Monthly Billing</span>
+      <label class="toggle"><input type="checkbox" id="billing-toggle" onchange="toggleBilling()"><span class="toggle-slider"></span></label>
+      <span class="toggle-label" id="lbl-annual">Annual Billing <span class="save-badge">Save 20%</span></span>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING CARDS -->
+<section class="pricing-section">
+  <div class="si">
+    <div style="text-align:center;">
+      <div class="sec-label">Service Plans</div>
+      <h2 class="sec-title">4 Plans — for Every Scale</h2>
+      <p class="sec-sub" style="margin:12px auto 0;">All plans include 8% VAT. Prices calculated at USD/VND exchange rate at time of signing.</p>
+    </div>
+
+    <div class="pricing-grid" id="pricing-grid">
+
+      <!-- STARTER -->
+      <div class="plan-card">
+        <div class="plan-icon">🔍</div>
+        <div class="plan-name">Starter</div>
+        <div class="plan-tag">Pro-Contractor Basic</div>
+        <p class="plan-desc">Access the FDI/DDI project database. Perfect for contractors starting to build their project network.</p>
+        <div class="plan-price">
+          <div class="monthly-price">
+            <div><span class="plan-price-usd">$</span><span class="plan-price-num">79</span></div>
+            <div class="plan-price-period">/ month &nbsp;·&nbsp; ~VND 2,000,000</div>
+            <div class="plan-price-vnd">Total $948 USD/year (≈VND 24.7M + VAT)</div>
+          </div>
+          <div class="annual-price">
+            <div><span class="plan-price-usd">$</span><span class="plan-price-num">899</span></div>
+            <div class="plan-price-period">/ year &nbsp;·&nbsp; ≈VND 23.5M</div>
+            <div class="plan-price-vnd">8% VAT included · Valid 12 months</div>
+          </div>
+        </div>
+        <ul class="feat-list">
+          <li class="feat-item">01 HOUSELINK.vn account</li>
+          <li class="feat-item">Real-time FDI/DDI project search</li>
+          <li class="feat-item">Filter by province, industry, type, progress</li>
+          <li class="feat-item">Receive matching new project alerts</li>
+          <li class="feat-item">Basic contractor profile</li>
+          <li class="feat-item no">Direct advisory from HOUSELINK</li>
+          <li class="feat-item no">Decision-maker contact info</li>
+          <li class="feat-item no">Marketing & PR</li>
+        </ul>
+        <a href="/services/find-project/contract/?plan=starter" class="plan-btn outline">Register Starter</a>
+      </div>
+
+      <!-- STANDARD - FEATURED -->
+      <div class="plan-card featured">
+        <div class="popular-badge">⭐ Most Popular</div>
+        <div class="plan-icon">🚀</div>
+        <div class="plan-name">Standard</div>
+        <div class="plan-tag">Pro-Contractor Plus</div>
+        <p class="plan-desc">Project search + advisory on reaching decision-makers. The most chosen plan.</p>
+        <div class="plan-price">
+          <div class="monthly-price">
+            <div><span class="plan-price-usd">$</span><span class="plan-price-num">155</span></div>
+            <div class="plan-price-period">/ month &nbsp;·&nbsp; ~VND 4,040,000</div>
+            <div class="plan-price-vnd">Total $1,860 USD/year (≈VND 48.5M + VAT)</div>
+          </div>
+          <div class="annual-price">
+            <div><span class="plan-price-usd">$</span><span class="plan-price-num">1.699</span></div>
+            <div class="plan-price-period">/ year &nbsp;·&nbsp; ≈VND 44.3M</div>
+            <div class="plan-price-vnd">8% VAT included · Valid 12 months</div>
+          </div>
+        </div>
+        <ul class="feat-list">
+          <li class="feat-item">All Starter features</li>
+          <li class="feat-item">02 accounts (01 admin + 01 free)</li>
+          <li class="feat-item">Live chat advisory support</li>
+          <li class="feat-item">Project management contact info</li>
+          <li class="feat-item">Strategic outreach advisory</li>
+          <li class="feat-item">Profile labelled <strong>Verified</strong></li>
+          <li class="feat-item">Logo displayed on HOUSELINK homepage</li>
+          <li class="feat-item no">Marketing on VietnamConstruction</li>
+        </ul>
+        <a href="/services/find-project/contract/?plan=standard" class="plan-btn white">Register Standard</a>
+      </div>
+
+      <!-- PROFESSIONAL -->
+      <div class="plan-card">
+        <div class="plan-icon">📢</div>
+        <div class="plan-name">Professional</div>
+        <div class="plan-tag">Pro-Contractor Pro</div>
+        <p class="plan-desc">Project search + advisory + brand PR on VietnamConstruction. Build industry recognition.</p>
+        <div class="plan-price">
+          <div class="monthly-price">
+            <div><span class="plan-price-usd">$</span><span class="plan-price-num">239</span></div>
+            <div class="plan-price-period">/ month &nbsp;·&nbsp; ~VND 6,230,000</div>
+            <div class="plan-price-vnd">Total $2,868 USD/year (≈VND 74.8M + VAT)</div>
+          </div>
+          <div class="annual-price">
+            <div><span class="plan-price-usd">$</span><span class="plan-price-num">2.499</span></div>
+            <div class="plan-price-period">/ year &nbsp;·&nbsp; ≈VND 65.1M</div>
+            <div class="plan-price-vnd">8% VAT included · Valid 12 months</div>
+          </div>
+        </div>
+        <ul class="feat-list">
+          <li class="feat-item">All Standard features</li>
+          <li class="feat-item">Banner ad on VietnamConstruction.vn</li>
+          <li class="feat-item">04 PR articles on VietnamConstruction</li>
+          <li class="feat-item">12 social media posts (FB + LinkedIn)</li>
+          <li class="feat-item">Priority ranking in contractor search</li>
+          <li class="feat-item">Marketing performance stats & reports</li>
+          <li class="feat-item no">Email Marketing to 80,000 investors</li>
+          <li class="feat-item no">Periodic industry reports</li>
+        </ul>
+        <a href="/services/find-project/contract/?plan=professional" class="plan-btn outline">Register Professional</a>
+      </div>
+
+      <!-- PREMIUM -->
+      <div class="plan-card">
+        <div class="plan-icon">🏆</div>
+        <div class="plan-name">Premium</div>
+        <div class="plan-tag">Pro-Contractor Premium</div>
+        <p class="plan-desc">The most complete plan — project search, advisory, multi-channel PR and Email Marketing to 80,000 global investors.</p>
+        <div class="plan-price">
+          <div class="monthly-price">
+            <div><span class="plan-price-usd">$</span><span class="plan-price-num">415</span></div>
+            <div class="plan-price-period">/ month &nbsp;·&nbsp; ~VND 10,820,000</div>
+            <div class="plan-price-vnd">Total $4,980 USD/year (≈VND 129.7M + VAT)</div>
+          </div>
+          <div class="annual-price">
+            <div><span class="plan-price-usd">$</span><span class="plan-price-num">3.999</span></div>
+            <div class="plan-price-period">/ year &nbsp;·&nbsp; ≈VND 104.1M</div>
+            <div class="plan-price-vnd">8% VAT included · Valid 12 months</div>
+          </div>
+        </div>
+        <ul class="feat-list">
+          <li class="feat-item">All Professional features</li>
+          <li class="feat-item">Email Marketing to 80,000 investors (EN/VI/ZH)</li>
+          <li class="feat-item">02 market report campaigns / year</li>
+          <li class="feat-item">Quarterly industry reports (4x/year)</li>
+          <li class="feat-item">Logo on all report cover pages</li>
+          <li class="feat-item">Dedicated HOUSELINK Account Manager</li>
+          <li class="feat-item">Priority connection to strategic IP investors</li>
+          <li class="feat-item">Comprehensive monthly performance report</li>
+        </ul>
+        <a href="/services/find-project/contract/?plan=premium" class="plan-btn primary">Register Premium</a>
+      </div>
+
+    </div><!-- /pricing-grid -->
+
+    <!-- ENTERPRISE ROW -->
+    <div class="enterprise-row">
+      <div class="ent-left">
+        <h3>Enterprise Plan — Custom</h3>
+        <p>For large corporations, general contractors or industry associations. Includes strategic IP cooperation, FDI/DDI investment advisory and comprehensive marketing. Custom pricing based on actual needs.</p>
+      </div>
+      <div class="ent-btns">
+        <a href="/contact/" class="btn-ent-white">Contact for Advisory</a>
+        <a href="/services/find-project/contract/?plan=enterprise" class="btn-ent-outline">Request a Quote</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- COMPARISON TABLE -->
+<section class="compare-section">
+  <div class="si">
+    <div class="sec-label">Detailed Comparison</div>
+    <h2 class="sec-title">Features by Plan</h2>
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th style="width:34%">Feature</th>
+          <th class="plan-col" style="width:16.5%">Starter</th>
+          <th class="plan-col highlight" style="width:16.5%">Standard ⭐</th>
+          <th class="plan-col" style="width:16.5%">Professional</th>
+          <th class="plan-col" style="width:16.5%">Premium</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="group-row"><td colspan="5">Project Search & Tracking</td></tr>
+        <tr>
+          <td>Real-time FDI/DDI project search</td>
+          <td class="plan-col"><span class="check-yes">✓</span></td>
+          <td class="plan-col"><span class="check-yes">✓</span></td>
+          <td class="plan-col"><span class="check-yes">✓</span></td>
+          <td class="plan-col"><span class="check-yes">✓</span></td>
+        </tr>
+        <tr>
+          <td>Filter by province, industry, building type</td>
+          <td class="plan-col"><span class="check-yes">✓</span></td>
+          <td class="plan-col"><span class="check-yes">✓</span></td>
+          <td class="plan-col"><span class="check-yes">✓</span></td>
+          <td class="plan-col"><span class="check-yes">✓</span></td>
+        </tr>
+        <tr>
+          <td>Receive matching new project alerts</td>
+          <td class="plan-col"><span class="check-yes">✓</span></td>
+          <td class="plan-col"><span class="check-yes">✓</span></td>
+          <td class="plan-col"><span class="check-yes">✓</span></td>
+          <td class="plan-col"><span class="check-yes">✓</span></td>
+        </tr>
+        <tr>
+          <td>No. of accounts</td>
+          <td class="plan-col" style="font-size:13px;font-weight:600;color:var(--navy);">01</td>
+          <td class="plan-col" style="font-size:13px;font-weight:600;color:var(--green);">02</td>
+          <td class="plan-col" style="font-size:13px;font-weight:600;color:var(--navy);">02</td>
+          <td class="plan-col" style="font-size:13px;font-weight:600;color:var(--navy);">03</td>
+        </tr>
+        <tr class="group-row"><td colspan="5">Profile & Verification</td></tr>
+        <tr>
+          <td>Contractor Professional Profile</td>
+          <td class="plan-col"><span class="check-part">Basic</span></td>
+          <td class="plan-col"><span class="check-yes">✓</span></td>
+          <td class="plan-col"><span class="check-yes">✓</span></td>
+          <td class="plan-col"><span class="check-yes">✓</span></td>
+        </tr>
+        <tr>
+          <td>Verified label + CSI ranking</td>
+          <td class="plan-col"><span class="check-no">✕</span></td>
+          <td class="plan-col"><span class="check-yes">✓</span></td>
+          <td class="plan-col"><span class="check-yes">✓</span></td>
+          <td class="plan-col"><span class="check-yes">✓</span></td>
+        </tr>
+        <tr>
+          <td>Logo displayed on HOUSELINK homepage</td>
+          <td class="plan-col"><span class="check-no">✕</span></td>
+          <td class="plan-col"><span class="check-yes">✓</span></td>
+          <td class="plan-col"><span class="check-yes">✓</span></td>
+          <td class="plan-col"><span class="check-yes">✓</span></td>
+        </tr>
+        <tr class="group-row"><td colspan="5">Advisory & Connection</td></tr>
+        <tr>
+          <td>Access advisory via Live chat / Email / Zalo</td>
+          <td class="plan-col"><span class="check-no">✕</span></td>
+          <td class="plan-col"><span class="check-yes">✓</span></td>
+          <td class="plan-col"><span class="check-yes">✓</span></td>
+          <td class="plan-col"><span class="check-yes">✓</span></td>
+        </tr>
+        <tr>
+          <td>Decision-maker contact information</td>
+          <td class="plan-col"><span class="check-no">✕</span></td>
+          <td class="plan-col"><span class="check-yes">✓</span></td>
+          <td class="plan-col"><span class="check-yes">✓</span></td>
+          <td class="plan-col"><span class="check-yes">✓</span></td>
+        </tr>
+        <tr>
+          <td>Dedicated Account Manager</td>
+          <td class="plan-col"><span class="check-no">✕</span></td>
+          <td class="plan-col"><span class="check-no">✕</span></td>
+          <td class="plan-col"><span class="check-no">✕</span></td>
+          <td class="plan-col"><span class="check-yes">✓</span></td>
+        </tr>
+        <tr class="group-row"><td colspan="5">Marketing & PR</td></tr>
+        <tr>
+          <td>Banner on VietnamConstruction.vn</td>
+          <td class="plan-col"><span class="check-no">✕</span></td>
+          <td class="plan-col"><span class="check-no">✕</span></td>
+          <td class="plan-col"><span class="check-yes">✓</span></td>
+          <td class="plan-col"><span class="check-yes">✓</span></td>
+        </tr>
+        <tr>
+          <td>PR articles on VietnamConstruction</td>
+          <td class="plan-col"><span class="check-no">✕</span></td>
+          <td class="plan-col"><span class="check-no">✕</span></td>
+          <td class="plan-col"><span class="check-part">04 articles/year</span></td>
+          <td class="plan-col"><span class="check-part">08 articles/year</span></td>
+        </tr>
+        <tr>
+          <td>Social media posts (FB + LinkedIn)</td>
+          <td class="plan-col"><span class="check-no">✕</span></td>
+          <td class="plan-col"><span class="check-no">✕</span></td>
+          <td class="plan-col"><span class="check-part">12 posts/year</span></td>
+          <td class="plan-col"><span class="check-part">24 posts/year</span></td>
+        </tr>
+        <tr>
+          <td>Email Marketing to 80,000 investors</td>
+          <td class="plan-col"><span class="check-no">✕</span></td>
+          <td class="plan-col"><span class="check-no">✕</span></td>
+          <td class="plan-col"><span class="check-no">✕</span></td>
+          <td class="plan-col"><span class="check-yes">✓</span></td>
+        </tr>
+        <tr>
+          <td>6-month market reports (EN/VI/ZH)</td>
+          <td class="plan-col"><span class="check-no">✕</span></td>
+          <td class="plan-col"><span class="check-no">✕</span></td>
+          <td class="plan-col"><span class="check-no">✕</span></td>
+          <td class="plan-col"><span class="check-yes">✓</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section">
+  <div class="si">
+    <div style="text-align:center;max-width:520px;margin:0 auto;">
+      <div class="sec-label">Frequently Asked Questions</div>
+      <h2 class="sec-title">Everything You Want to Know</h2>
+    </div>
+    <div class="faq-grid">
+      <div class="faq-item">
+        <div class="faq-q">How do I pay?</div>
+        <div class="faq-a">100% upon signing. Accepted: bank transfer (MB Bank) or corporate credit card. 8% VAT invoice issued.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">When does service start?</div>
+        <div class="faq-a">Within 1 business day of receiving full payment. HOUSELINK activates the account and assigns an account manager.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Can I upgrade mid-term?</div>
+        <div class="faq-a">Yes. You can upgrade to a higher plan at any time. The difference is calculated based on remaining months of the current contract.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">How is project data updated?</div>
+        <div class="faq-a">The project database is updated daily by the HOUSELINK team from official sources: Department of Construction, Department of Finance, Industrial Park Management Boards of each province, direct information from investors and other licensed sources.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Can contracts be signed electronically?</div>
+        <div class="faq-a">Yes. HOUSELINK supports contract signing via digital signature (per Decree 130/2018/ND-CP) or download the PDF, sign by hand and scan to send back.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Which day is the USD/VND rate applied?</div>
+        <div class="faq-a">At the buying rate of Vietcombank at the time of signing. The rate is clearly stated in the contract.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">How is the 50 leads/month guarantee ensured?</div>
+        <div class="faq-a">Standard and above plans are guaranteed a minimum of 50 quality project leads per month, verified for accuracy. If not met, HOUSELINK extends service by the equivalent period.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Can I try it first?</div>
+        <div class="faq-a">You can schedule a free 30-minute demo with a HOUSELINK expert to see the database and features live before registering.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-bar">
+  <div class="si">
+    <h2>Start Reaching Projects Today</h2>
+    <p>Choose your plan, sign online and receive your account within 24 hours.</p>
+    <div class="cta-btns">
+      <a href="/services/find-project/contract/?plan=standard" class="btn-white">Register Standard ⭐</a>
+      <a href="/contact/" class="btn-outline-green">Free Consultation</a>
+    </div>
+  </div>
+</section>
+
+<script>
+// Billing toggle
+const USD_RATE = 26060;
+function toggleBilling(){
+  const checked = document.getElementById('billing-toggle').checked;
+  document.getElementById('lbl-monthly').classList.toggle('active', !checked);
+  document.getElementById('lbl-annual').classList.toggle('active', checked);
+  if(checked){
+    document.getElementById('pricing-grid').classList.add('annual');
+  } else {
+    document.getElementById('pricing-grid').classList.remove('annual');
+  }
+}
+
+// Read URL param and pre-select plan
+const params = new URLSearchParams(location.search);
+const plan = params.get('plan');
+
+// Compare table: inject data-label from header for mobile stacked layout
+(function () {
+  try {
+    const table = document.querySelector('.compare-table');
+    if (!table) return;
+    const headers = Array.from(table.querySelectorAll('thead th')).map(th => th.textContent.trim());
+    table.querySelectorAll('tbody tr').forEach(tr => {
+      if (tr.classList.contains('group-row')) return;
+      Array.from(tr.children).forEach((td, i) => {
+        if (!td || !headers[i]) return;
+        td.setAttribute('data-label', headers[i]);
+      });
+    });
+  } catch (e) {}
+})();
+
+if(plan) {
+  document.querySelectorAll('.plan-card').forEach(c => {
+    const btn = c.querySelector('.plan-btn');
+    if(btn && btn.href.includes('plan='+plan)){
+      c.style.boxShadow = '0 0 0 3px #2D8B48';
+      c.scrollIntoView({behavior:'smooth',block:'center'});
+    }
+  });
+}
+</script>
+
+<div id="hl-chrome-footer"></div>
+<script src="../../../landing-chrome.js" defer></script>
+</body>
+</html>

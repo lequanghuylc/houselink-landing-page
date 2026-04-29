@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>服务注册与合同 – HOUSELINK</title>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --navy:#00466E;--navy-deep:#003457;--navy-mid:#005585;
+  --green:#2D8B48;--green-light:#3AAD5C;--green-pale:#EBF7EF;
+  --white:#FFFFFF;--off-white:#F4F6F8;
+  --gray-50:#EEF1F4;--gray-100:#DDE3E8;--gray-200:#BEC8D0;
+  --gray-400:#7E8F9A;--gray-600:#4A5A65;--text:#0D1F2D;
+  --amber:#D4860B;--amber-pale:#FEF3E0;
+  --red:#DC2626;--red-pale:#FEF2F2;
+  --font-main:'Be Vietnam Pro',sans-serif;
+  --font-serif:'DM Serif Display',serif;
+}
+body{font-family:var(--font-main);color:var(--text);background:var(--off-white);line-height:1.7;}
+a{text-decoration:none;color:inherit;}
+button{cursor:pointer;font-family:var(--font-main);}
+
+/* TOPBAR */
+.topbar{background:var(--navy-deep);padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.08);position:relative;}
+.topbar-inner{max-width:1100px;margin:0 auto;padding:0 32px;display:flex;align-items:center;justify-content:space-between;}
+.back-link{display:flex;align-items:center;gap:8px;color:rgba(255,255,255,0.6);font-size:13px;font-weight:500;transition:color .2s;}
+.back-link:hover{color:#fff;}
+.topbar-brand{display:flex;align-items:center;gap:8px;}
+.tb-icon{width:28px;height:28px;border-radius:7px;background:rgba(255,255,255,0.08);border:1.5px solid rgba(45,139,72,0.5);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:900;color:var(--green);}
+.tb-name{font-size:13px;font-weight:800;color:rgba(255,255,255,0.85);letter-spacing:.06em;text-transform:uppercase;}
+
+/* STEPS HEADER */
+.steps-bar{background:var(--white);border-bottom:1px solid var(--gray-100);padding:16px 0;}
+.steps-inner{max-width:1100px;margin:0 auto;padding:0 32px;display:flex;align-items:center;gap:0;}
+.step-item{display:flex;align-items:center;gap:10px;flex:1;}
+.step-item:not(:last-child)::after{content:'';flex:1;height:2px;background:var(--gray-100);margin:0 16px;}
+.step-item.active:not(:last-child)::after{background:var(--green);}
+.step-num{width:32px;height:32px;border-radius:50%;border:2px solid var(--gray-200);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:var(--gray-400);flex-shrink:0;transition:all .3s;}
+.step-item.active .step-num{background:var(--green);border-color:var(--green);color:#fff;}
+.step-item.done .step-num{background:var(--green);border-color:var(--green);color:#fff;}
+.step-label{font-size:13px;font-weight:600;color:var(--gray-400);white-space:nowrap;}
+.step-item.active .step-label{color:var(--navy);}
+.step-item.done .step-label{color:var(--green);}
+
+/* MAIN LAYOUT */
+.main-wrap{max-width:1100px;margin:0 auto;padding:32px 32px;display:grid;grid-template-columns:1fr 360px;gap:28px;align-items:start;}
+
+/* FORM CARD */
+.form-card{background:var(--white);border:1px solid var(--gray-100);border-radius:16px;padding:36px 36px;}
+.form-section-title{font-family:var(--font-serif);font-size:20px;font-weight:600;color:var(--navy);margin-bottom:6px;}
+.form-section-sub{font-size:13.5px;color:var(--gray-400);margin-bottom:24px;}
+.form-grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.form-group{margin-bottom:18px;}
+.form-group.full{grid-column:1/-1;}
+.form-label{display:block;font-size:13px;font-weight:600;color:var(--navy);margin-bottom:6px;}
+.form-label span{color:var(--red);margin-left:2px;}
+.form-input{width:100%;padding:11px 14px;border:1.5px solid var(--gray-100);border-radius:9px;font-size:14px;font-family:var(--font-main);color:var(--text);background:var(--white);transition:border-color .2s,box-shadow .2s;outline:none;}
+.form-input:focus{border-color:var(--green);box-shadow:0 0 0 3px rgba(45,139,72,.1);}
+.form-input.error{border-color:var(--red);}
+.form-select{width:100%;padding:11px 14px;border:1.5px solid var(--gray-100);border-radius:9px;font-size:14px;font-family:var(--font-main);color:var(--text);background:var(--white);outline:none;cursor:pointer;}
+.form-select:focus{border-color:var(--green);box-shadow:0 0 0 3px rgba(45,139,72,.1);}
+.field-hint{font-size:11.5px;color:var(--gray-400);margin-top:4px;}
+.field-error{font-size:11.5px;color:var(--red);margin-top:4px;display:none;}
+
+/* PLAN SELECTOR */
+.plan-selector{display:flex;flex-direction:column;gap:10px;margin-bottom:24px;}
+.plan-option{border:1.5px solid var(--gray-100);border-radius:11px;padding:16px 18px;cursor:pointer;transition:all .2s;display:flex;align-items:center;gap:14px;}
+.plan-option:hover{border-color:var(--green);background:var(--green-pale);}
+.plan-option.selected{border-color:var(--green);background:var(--green-pale);}
+.plan-option input[type=radio]{accent-color:var(--green);width:17px;height:17px;flex-shrink:0;}
+.po-info{flex:1;}
+.po-name{font-size:14.5px;font-weight:700;color:var(--navy);}
+.po-desc{font-size:12.5px;color:var(--gray-600);}
+.po-price{font-size:14px;font-weight:700;color:var(--green);text-align:right;flex-shrink:0;}
+.po-price small{display:block;font-size:11px;font-weight:500;color:var(--gray-400);}
+
+/* PAYMENT OPTIONS */
+.payment-methods{display:flex;gap:12px;margin-bottom:20px;flex-wrap:wrap;}
+.pay-method{flex:1;min-width:140px;border:1.5px solid var(--gray-100);border-radius:10px;padding:14px 16px;cursor:pointer;transition:all .2s;display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center;}
+.pay-method:hover{border-color:var(--green);}
+.pay-method.selected{border-color:var(--green);background:var(--green-pale);}
+.pay-method input{accent-color:var(--green);}
+.pay-icon{font-size:26px;}
+.pay-name{font-size:13px;font-weight:700;color:var(--navy);}
+.pay-note{font-size:11.5px;color:var(--gray-400);}
+
+/* BANK INFO */
+.bank-info{background:var(--off-white);border:1px solid var(--gray-100);border-radius:10px;padding:18px 20px;margin-bottom:20px;}
+.bank-row{display:flex;justify-content:space-between;align-items:center;padding:7px 0;border-bottom:1px solid var(--gray-100);font-size:13.5px;}
+.bank-row:last-child{border-bottom:none;}
+.bank-key{color:var(--gray-400);font-weight:500;}
+.bank-val{font-weight:700;color:var(--navy);text-align:right;}
+.copy-btn{background:none;border:1px solid var(--gray-200);border-radius:5px;padding:2px 8px;font-size:11px;color:var(--gray-600);cursor:pointer;margin-left:8px;transition:all .15s;}
+.copy-btn:hover{border-color:var(--green);color:var(--green);}
+
+/* DIGITAL SIGN */
+.sign-area{border:1.5px dashed var(--gray-200);border-radius:10px;padding:24px;text-align:center;margin-bottom:16px;cursor:pointer;transition:all .2s;}
+.sign-area:hover{border-color:var(--green);}
+.sign-area.signed{border-color:var(--green);border-style:solid;background:var(--green-pale);}
+.sig-canvas-wrap{display:none;}
+.sig-canvas-wrap.active{display:block;}
+#sig-canvas{border:1px solid var(--gray-200);border-radius:8px;background:#fff;touch-action:none;width:100%;height:140px;}
+
+/* BUTTONS */
+.btn-primary{background:var(--green);color:#fff;font-size:15px;font-weight:700;padding:14px 28px;border-radius:9px;border:none;width:100%;transition:background .2s;}
+.btn-primary:hover{background:var(--green-light);}
+.btn-primary:disabled{background:var(--gray-200);cursor:not-allowed;}
+.btn-secondary{background:var(--white);color:var(--navy);font-size:14px;font-weight:600;padding:12px 24px;border-radius:9px;border:1.5px solid var(--gray-100);transition:all .2s;}
+.btn-secondary:hover{border-color:var(--green);color:var(--green);}
+.btn-row{display:flex;gap:12px;margin-top:24px;}
+.btn-row .btn-primary{flex:2;}
+.btn-row .btn-secondary{flex:1;}
+
+/* SIDEBAR */
+.sidebar{position:sticky;top:80px;}
+.order-card{background:var(--white);border:1px solid var(--gray-100);border-radius:16px;padding:28px 26px;}
+.order-title{font-size:15px;font-weight:700;color:var(--navy);margin-bottom:18px;padding-bottom:14px;border-bottom:1px solid var(--gray-100);}
+.order-plan-name{font-family:var(--font-serif);font-size:18px;font-weight:600;color:var(--navy);margin-bottom:4px;}
+.order-plan-tag{display:inline-block;font-size:11px;font-weight:700;color:var(--green);background:var(--green-pale);border-radius:100px;padding:3px 10px;margin-bottom:14px;}
+.order-features{list-style:none;margin-bottom:20px;}
+.order-feat{font-size:13px;color:var(--gray-600);padding:5px 0;display:flex;gap:8px;align-items:flex-start;}
+.order-feat::before{content:'✓';color:var(--green);font-weight:700;flex-shrink:0;}
+.order-divider{height:1px;background:var(--gray-100);margin:16px 0;}
+.price-row{display:flex;justify-content:space-between;font-size:13.5px;margin-bottom:8px;}
+.price-row.total{font-size:15px;font-weight:700;color:var(--navy);border-top:1px solid var(--gray-100);padding-top:12px;margin-top:4px;}
+.price-row .label{color:var(--gray-600);}
+.price-row .val{font-weight:600;color:var(--navy);}
+.price-row.total .val{color:var(--green);}
+.validity-note{background:var(--amber-pale);border:1px solid rgba(212,134,11,.25);border-radius:8px;padding:12px 14px;font-size:12.5px;color:var(--amber);margin-top:14px;line-height:1.55;}
+.trust-badges{display:flex;flex-direction:column;gap:8px;margin-top:18px;}
+.trust-item{display:flex;align-items:center;gap:8px;font-size:12.5px;color:var(--gray-600);}
+.trust-item span{font-size:16px;}
+
+/* TABS */
+.tab-bar{display:flex;border-bottom:1px solid var(--gray-100);margin-bottom:24px;}
+.tab-btn{padding:10px 18px;font-size:13.5px;font-weight:600;color:var(--gray-400);background:none;border:none;border-bottom:2px solid transparent;cursor:pointer;margin-bottom:-1px;transition:all .2s;}
+.tab-btn.active{color:var(--navy);border-bottom-color:var(--green);}
+
+/* CONTRACT PREVIEW */
+.contract-preview{font-size:13px;line-height:1.8;color:var(--gray-600);}
+.contract-preview h4{font-size:13.5px;font-weight:700;color:var(--navy);margin:18px 0 6px;}
+.contract-preview p{margin-bottom:10px;}
+.contract-preview .party{background:var(--off-white);border-left:3px solid var(--green);padding:12px 16px;border-radius:0 8px 8px 0;margin-bottom:12px;}
+.contract-preview .clause{padding:8px 0;border-bottom:1px solid var(--gray-50);}
+.contract-preview .highlight{background:#FFFBEB;padding:2px 6px;border-radius:4px;font-weight:600;color:var(--amber);}
+
+/* SUCCESS SCREEN */
+.success-screen{display:none;text-align:center;padding:48px 32px;}
+.success-screen.show{display:block;}
+.success-icon{font-size:64px;margin-bottom:20px;}
+.success-title{font-family:var(--font-serif);font-size:28px;font-weight:600;color:var(--navy);margin-bottom:10px;}
+.success-sub{font-size:15px;color:var(--gray-600);max-width:420px;margin:0 auto 28px;}
+.success-actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
+.btn-download{background:var(--navy);color:#fff;font-size:14px;font-weight:700;padding:13px 24px;border-radius:9px;border:none;display:flex;align-items:center;gap:8px;transition:all .2s;}
+.btn-download:hover{background:var(--navy-mid);}
+.contract-number{background:var(--green-pale);border:1px solid rgba(45,139,72,.25);border-radius:10px;padding:14px 20px;display:inline-block;margin-bottom:24px;}
+.cn-label{font-size:12px;color:var(--gray-400);font-weight:500;margin-bottom:4px;}
+.cn-val{font-size:18px;font-weight:700;color:var(--green);font-family:var(--font-serif);}
+
+@media print{
+  .topbar,.steps-bar,.sidebar,.btn-row,.tab-bar,button,.step-item:not(:last-child)::after{display:none!important;}
+  .main-wrap{grid-template-columns:1fr;padding:0;}
+  .form-card{border:none;padding:0;}
+  body{background:white;}
+}
+@media(max-width:900px){
+  .main-wrap{grid-template-columns:1fr;}
+  .sidebar{position:static;}
+  .steps-inner{gap:8px;}
+  .step-label{display:none;}
+  .form-grid2{grid-template-columns:1fr;}
+}
+@media(max-width:600px){
+  .main-wrap{padding:16px 16px;}
+  .form-card{padding:24px 20px;}
+}
+</style>
+  <link rel="stylesheet" href="../../../../landing-chrome.css">
+  <link rel="stylesheet" href="../../../../css/hl-find-project-flow.css">
+</head>
+<body class="hl-with-fixed-header" data-hl-page="services-find-project-contract">
+
+<div id="hl-chrome-header"></div>
+
+
+<!-- STEPS -->
+<div class="steps-bar">
+  <div class="steps-inner">
+    <div class="step-item active" id="step-1-indicator">
+      <div class="step-num">1</div>
+      <span class="step-label">选择套餐与信息</span>
+    </div>
+    <div class="step-item" id="step-2-indicator">
+      <div class="step-num">2</div>
+      <span class="step-label">查看合同</span>
+    </div>
+    <div class="step-item" id="step-3-indicator">
+      <div class="step-num">3</div>
+      <span class="step-label">签署与付款</span>
+    </div>
+    <div class="step-item" id="step-4-indicator">
+      <div class="step-num">4</div>
+      <span class="step-label">完成</span>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN -->
+<div class="main-wrap" id="main-wrap">
+
+  <!-- LEFT FORM AREA -->
+  <div>
+
+    <!-- STEP 1: INFO + PLAN -->
+    <div id="step-1" class="form-card">
+      <div class="form-section-title">企业信息</div>
+      <div class="form-section-sub">信息将自动填入合同。请按营业执照准确输入。</div>
+
+      <div class="form-grid2">
+        <div class="form-group full">
+          <label class="form-label">公司名称（完整） <span>*</span></label>
+          <input class="form-input" id="f-company" type="text" placeholder="股份有限公司 / 有限责任公司...">
+          <div class="field-error" id="e-company">请输入公司名称</div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">税号 <span>*</span></label>
+          <input class="form-input" id="f-tax" type="text" placeholder="0123456789">
+          <div class="field-error" id="e-tax">请输入税号</div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">电话号码 <span>*</span></label>
+          <input class="form-input" id="f-phone" type="tel" placeholder="024 xxxx xxxx">
+          <div class="field-error" id="e-phone">请输入电话号码</div>
+        </div>
+        <div class="form-group full">
+          <label class="form-label">注册地址 <span>*</span></label>
+          <input class="form-input" id="f-address" type="text" placeholder="门牌号、街道、区、省/市">
+          <div class="field-error" id="e-address">请输入地址</div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">法人代表姓名 <span>*</span></label>
+          <input class="form-input" id="f-rep-name" type="text" placeholder="姓名">
+          <div class="field-error" id="e-rep-name">请输入代表人姓名</div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">职位 <span>*</span></label>
+          <input class="form-input" id="f-rep-title" type="text" placeholder="总经理 / 董事长">
+          <div class="field-error" id="e-rep-title">请输入职位</div>
+        </div>
+        <div class="form-group full">
+          <label class="form-label">合同接收邮箱 <span>*</span></label>
+          <input class="form-input" id="f-email" type="email" placeholder="name@company.com">
+          <div class="field-error" id="e-email">请输入有效的电子邮箱</div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">业务领域 <span>*</span></label>
+          <input class="form-input" id="f-industry" type="text" placeholder="工业建筑/机电...">
+        </div>
+        <div class="form-group">
+          <label class="form-label">主要运营省/市</label>
+          <input class="form-input" id="f-province" type="text" placeholder="河内 / 胡志明市 / ...">
+        </div>
+      </div>
+
+      <div style="height:1px;background:var(--gray-100);margin:24px 0;"></div>
+      <div class="form-section-title">选择服务套餐</div>
+      <div class="form-section-sub" style="margin-bottom:20px;">所有套餐均有效12个月 · 含8% VAT</div>
+
+      <div class="plan-selector" id="plan-selector">
+        <label class="plan-option" onclick="selectPlan(this,'starter','$899/年','≈23,5 triệu VND')">
+          <input type="radio" name="plan" value="starter">
+          <div class="po-info">
+            <div class="po-name">🔍 Starter — Pro-Contractor Basic</div>
+            <div class="po-desc">1个账户 · FDI/DDI项目查询 · 新项目通知</div>
+          </div>
+          <div class="po-price">$899/年<small>≈ 23,5 tr VND</small></div>
+        </label>
+        <label class="plan-option selected" onclick="selectPlan(this,'standard','$1,699/年','≈44,3 triệu VND')">
+          <input type="radio" name="plan" value="standard" checked>
+          <div class="po-info">
+            <div class="po-name">🚀 Standard — Pro-Contractor Plus <span style="background:var(--green);color:#fff;font-size:10px;padding:2px 7px;border-radius:100px;margin-left:4px;">⭐ 最受欢迎</span></div>
+            <div class="po-desc">2个账户 · 在线聊天支持 · 决策者联系方式 · Verified徽章</div>
+          </div>
+          <div class="po-price">$1,699/年<small>≈ 44,3 tr VND</small></div>
+        </label>
+        <label class="plan-option" onclick="selectPlan(this,'professional','$2,499/年','≈65,1 triệu VND')">
+          <input type="radio" name="plan" value="professional">
+          <div class="po-info">
+            <div class="po-name">📢 Professional — Pro-Contractor Pro</div>
+            <div class="po-desc">所有Standard功能 + VietnamConstruction横幅 · 4篇PR · 12条社交媒体</div>
+          </div>
+          <div class="po-price">$2,499/年<small>≈ 65,1 tr VND</small></div>
+        </label>
+        <label class="plan-option" onclick="selectPlan(this,'premium','$3,999/年','≈104,1 triệu VND')">
+          <input type="radio" name="plan" value="premium">
+          <div class="po-info">
+            <div class="po-name">🏆 Premium — Pro-Contractor Premium</div>
+            <div class="po-desc">所有Professional功能 + Email Marketing 80,000 · 市场报告 · 专属客户经理</div>
+          </div>
+          <div class="po-price">$3,999/年<small>≈ 104,1 tr VND</small></div>
+        </label>
+      </div>
+
+      <button class="btn-primary" onclick="goStep2()">继续 → 查看合同</button>
+    </div><!-- /step-1 -->
+
+    <!-- STEP 2: CONTRACT PREVIEW -->
+    <div id="step-2" class="form-card" style="display:none;">
+      <div class="form-section-title">合同预览</div>
+      <div class="form-section-sub">签署前请仔细阅读条款。完成后将PDF发送至您的邮箱。</div>
+
+      <div class="tab-bar">
+        <button class="tab-btn active" onclick="switchTab(this,'contract-vi')">🇻🇳 越南语</button>
+        <button class="tab-btn" onclick="switchTab(this,'contract-en')">🇬🇧 English</button>
+      </div>
+
+      <!-- VN CONTRACT -->
+      <div id="contract-vi" class="contract-preview">
+        <div style="text-align:center;margin-bottom:24px;padding-bottom:20px;border-bottom:2px solid var(--gray-100);">
+          <div style="font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gray-400);margin-bottom:4px;">越南社会主义共和国</div>
+          <div style="font-size:11px;font-weight:600;color:var(--gray-600);margin-bottom:16px;">独立–自由–幸福</div>
+          <div style="font-family:var(--font-serif);font-size:18px;font-weight:600;color:var(--navy);">商业咨询服务合同</div>
+          <div style="font-size:13px;color:var(--gray-600);margin-top:4px;">编号： <span id="c-contract-no" class="highlight">HL-2026-XXXX</span></div>
+        </div>
+        <p>本合同于 <span id="c-date" class="highlight"></span>, 在河内，双方之间：</p>
+        <h4>乙方（服务提供商）：</h4>
+        <div class="party">
+          <b>HOUSELINK股份有限公司</b><br>
+          地址：越南河内市桥纸坊坊维新路Sannam大厦9楼<br>
+          电话：024 3795 5620 · 税号：0104585924<br>
+          代表： <b>阮成龙先生</b> – 职位： <b>总经理</b><br>
+          账号： <b>13410 8888</b> – 军事商业股份银行，还剑支行
+        </div>
+        <h4>甲方（客户）：</h4>
+        <div class="party">
+          <b id="c-company">— 公司名称 —</b><br>
+          地址： <span id="c-address">—</span><br>
+          MST: <span id="c-tax">—</span> · 电话： <span id="c-phone">—</span><br>
+          代表： <span id="c-rep-name">—</span> – 职位： <span id="c-rep-title">—</span>
+        </div>
+        <h4>第1条 – 合同标的</h4>
+        <div class="clause"><p>甲方注册，乙方提供 <b id="c-plan-name">HOUSELINK Standard套餐 – Pro-Contractor Plus</b> 自激活日起12个月，包括：访问HOUSELINK.vn平台、每月至少50条经核实的高质量线索、咨询支持及所选套餐的功能。</p></div>
+        <h4>第2条 – 合同金额与付款</h4>
+        <div class="clause">
+          <p>合同金额： <b id="c-price" class="highlight">$1.699 USD (≈ 44.300.000 VND)</b>，含8% VAT，按签约日Vietcombank汇率计算。</p>
+          <p>签合同后100%付款。方式：银行转账或信用卡。收款后1个工作日内激活服务。</p>
+        </div>
+        <h4>第3条 – 双方责任</h4>
+        <div class="clause"><p><b>甲方：</b> 按时付款；不与第三方共享账户；按合同保密信息；7天内提供用户名单。</p></div>
+        <div class="clause"><p><b>乙方：</b> 按承诺提供服务；1个工作日内激活账户；12个月全程支持；确保项目信息的质量和准确性。</p></div>
+        <h4>第4条 – 保密与个人数据</h4>
+        <div class="clause"><p>双方承诺按13/2023/ND-CP号法令关于个人数据保护保密信息。信息仅用于合同目的。数据泄露在72小时内通知。</p></div>
+        <h4>第5条 – 反腐败与适用法律</h4>
+        <div class="clause"><p>双方承诺遵守反腐败、反贿赂法律。争议在60天内通过协商解决；如无法解决，提交河内有管辖权的人民法院。</p></div>
+        <h4>第6条 – 生效与终止</h4>
+        <div class="clause"><p>合同自签署之日起生效，12个月后自动终止。以越南语和英语各制作02份，具有同等法律效力；如有差异，越南语版本优先。</p></div>
+      </div><!-- /contract-vi -->
+
+      <!-- EN CONTRACT (hidden by default) -->
+      <div id="contract-en" class="contract-preview" style="display:none;">
+        <div style="text-align:center;margin-bottom:24px;padding-bottom:20px;border-bottom:2px solid var(--gray-100);">
+          <div style="font-family:var(--font-serif);font-size:18px;font-weight:600;color:var(--navy);">BUSINESS CONSULTING SERVICES CONTRACT</div>
+          <div style="font-size:13px;color:var(--gray-600);margin-top:4px;">No: <span class="highlight">HL-2026-XXXX</span></div>
+        </div>
+        <p>This Contract is entered into on <span class="highlight" id="c-date-en"></span>, in Hanoi, between:</p>
+        <h4>PARTY B (Service Provider):</h4>
+        <div class="party">
+          <b>HOUSELINK JOINT STOCK COMPANY</b><br>
+          Address: Level 9, Sannam Building, Duy Tan Road, Cau Giay, Ha Noi<br>
+          Tel: 024 3795 5620 · Tax ID: 0104585924<br>
+          Representative: <b>Mr. Nguyen Thanh Long</b> – Position: <b>General Director</b><br>
+          Bank: 13410 8888 – Military Commercial Joint Stock Bank, Hai Ba Trung Branch
+        </div>
+        <h4>PARTY A (Client):</h4>
+        <div class="party">
+          <b id="c-company-en">— Company Name —</b><br>
+          Address: <span id="c-address-en">—</span><br>
+          Tax ID: <span id="c-tax-en">—</span> · Tel: <span id="c-phone-en">—</span><br>
+          Representative: <span id="c-rep-en">—</span> – Title: <span id="c-title-en">—</span>
+        </div>
+        <h4>Article 1 – Subject of Contract</h4>
+        <div class="clause"><p>Party A registers and Party B provides the <b id="c-plan-en">HOUSELINK Standard – Pro-Contractor Plus</b> for 12 months from activation date, including: access to HOUSELINK.vn platform, minimum 50 verified quality leads/month, consultation support and features per selected package.</p></div>
+        <h4>Article 2 – Price & Payment</h4>
+        <div class="clause"><p>Contract value: <b id="c-price-en" class="highlight">$1,699 USD (≈ VND 44,300,000)</b>, inclusive of 8% VAT at Vietcombank rate on signing date. Payment: 100% upon signing. Service activated within 1 business day of receipt of payment.</p></div>
+        <h4>Article 3 – Obligations</h4>
+        <div class="clause"><p><b>Party A:</b> Timely payment; no account sharing; information confidentiality; provide user list within 07 days.</p></div>
+        <div class="clause"><p><b>Party B:</b> Deliver services as committed; activate within 1 business day; support throughout 12 months; guarantee data quality and accuracy.</p></div>
+        <h4>Article 4 – Confidentiality & Data Protection</h4>
+        <div class="clause"><p>Both parties comply with Decree 13/2023/ND-CP on Personal Data Protection. Information used only for contract purposes. Data breaches notified within 72 hours.</p></div>
+        <h4>Article 5 – Anti-Corruption & Governing Law</h4>
+        <div class="clause"><p>Both parties comply with anti-corruption and anti-bribery laws. Disputes resolved by negotiation within 60 days; unresolved disputes submitted to competent People's Court in Hanoi.</p></div>
+        <h4>Article 6 – Effectiveness & Termination</h4>
+        <div class="clause"><p>Contract effective upon signing, automatically terminates after 12 months. Made in 02 copies in Vietnamese and English of equal validity; Vietnamese version prevails in case of discrepancy.</p></div>
+      </div><!-- /contract-en -->
+
+      <div class="btn-row">
+        <button class="btn-secondary" onclick="goStep1()">← 修改信息</button>
+        <button class="btn-primary" onclick="goStep3()">同意并进行签署 →</button>
+      </div>
+    </div><!-- /step-2 -->
+
+    <!-- STEP 3: SIGN & PAY -->
+    <div id="step-3" class="form-card" style="display:none;">
+      <div class="form-section-title">签署合同与付款</div>
+      <div class="form-section-sub">选择适合的签署方式和付款方式。</div>
+
+      <!-- SIGNATURE -->
+      <div style="margin-bottom:28px;">
+        <div class="form-label" style="font-size:14px;margin-bottom:12px;">甲方签名 <span style="color:var(--red);">*</span></div>
+        <div style="display:flex;gap:10px;margin-bottom:16px;flex-wrap:wrap;">
+          <button onclick="setSigMode('digital')" id="sig-btn-digital" style="flex:1;padding:10px;border-radius:8px;border:1.5px solid var(--green);background:var(--green-pale);color:var(--green);font-weight:700;font-size:13px;">✍️ 电子数字签名（屏幕上）</button>
+          <button onclick="setSigMode('upload')" id="sig-btn-upload" style="flex:1;padding:10px;border-radius:8px;border:1.5px solid var(--gray-200);background:var(--white);color:var(--navy);font-weight:600;font-size:13px;">📎 上传签名（.png图片）</button>
+          <button onclick="setSigMode('print')" id="sig-btn-print" style="flex:1;padding:10px;border-radius:8px;border:1.5px solid var(--gray-200);background:var(--white);color:var(--navy);font-weight:600;font-size:13px;">🖨️ 打印PDF手签后返回</button>
+        </div>
+
+        <!-- Digital signature canvas -->
+        <div id="sig-digital" style="display:block;">
+          <div style="font-size:13px;color:var(--gray-600);margin-bottom:8px;">在下方框中绘制您的签名：</div>
+          <canvas id="sig-canvas" width="600" height="140"></canvas>
+          <div style="display:flex;gap:8px;margin-top:8px;">
+            <button onclick="clearSig()" style="padding:6px 14px;border-radius:6px;border:1px solid var(--gray-200);background:var(--white);font-size:13px;color:var(--gray-600);">清除</button>
+            <div style="font-size:12.5px;color:var(--gray-400);align-self:center;flex:1;">签名将嵌入合同PDF</div>
+          </div>
+        </div>
+
+        <!-- Upload -->
+        <div id="sig-upload" style="display:none;">
+          <input type="file" id="sig-file" accept="image/png,image/jpeg" style="display:none;" onchange="handleSigUpload(this)">
+          <div onclick="document.getElementById('sig-file').click()" style="border:1.5px dashed var(--gray-200);border-radius:10px;padding:28px;text-align:center;cursor:pointer;transition:all .2s;" onmouseover="this.style.borderColor='var(--green)'" onmouseout="this.style.borderColor='var(--gray-200)'">
+            <div style="font-size:32px;margin-bottom:8px;">📤</div>
+            <div style="font-size:14px;font-weight:600;color:var(--navy);">点击上传签名图片</div>
+            <div style="font-size:12px;color:var(--gray-400);">PNG或JPG格式，白色背景，最小300×100px</div>
+          </div>
+          <div id="sig-upload-preview" style="margin-top:12px;display:none;"><img id="sig-upload-img" style="max-height:80px;border:1px solid var(--gray-100);border-radius:6px;"></div>
+        </div>
+
+        <!-- Print option -->
+        <div id="sig-print" style="display:none;">
+          <div style="background:var(--amber-pale);border:1px solid rgba(212,134,11,.3);border-radius:10px;padding:18px 20px;">
+            <div style="font-size:14px;font-weight:700;color:var(--amber);margin-bottom:8px;">📋 手动签署流程：</div>
+            <ol style="font-size:13.5px;color:var(--gray-600);padding-left:18px;line-height:1.9;">
+              <li>下载合同PDF</li>
+              <li>打印、签名并盖公司章</li>
+              <li>扫描或拍清晰照片</li>
+              <li>发送至 <strong>contract@houselink.com.vn</strong> 或Zalo： <strong>024 3795 5620</strong></li>
+              <li>HOUSELINK确认并在1个工作日内激活服务</li>
+            </ol>
+            <button onclick="printContract()" style="margin-top:14px;padding:10px 20px;background:var(--amber);color:#fff;border:none;border-radius:8px;font-weight:700;font-size:13.5px;">📥 立即下载PDF</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- PAYMENT -->
+      <div style="height:1px;background:var(--gray-100);margin-bottom:24px;"></div>
+      <div class="form-label" style="font-size:14px;margin-bottom:12px;">付款方式 <span style="color:var(--red);">*</span></div>
+
+      <div class="payment-methods">
+        <div class="pay-method selected" onclick="selectPayment(this,'bank')">
+          <input type="radio" name="payment" value="bank" checked>
+          <div class="pay-icon">🏦</div>
+          <div class="pay-name">银行转账<br>银行</div>
+          <div class="pay-note">免费</div>
+        </div>
+        <div class="pay-method" onclick="selectPayment(this,'card')">
+          <input type="radio" name="payment" value="card">
+          <div class="pay-icon">💳</div>
+          <div class="pay-name">信用卡<br>企业</div>
+          <div class="pay-note">Visa / MC / JCB</div>
+        </div>
+        <div class="pay-method" onclick="selectPayment(this,'qr')">
+          <input type="radio" name="payment" value="qr">
+          <div class="pay-icon">📱</div>
+          <div class="pay-name">QR Code<br>VietQR</div>
+          <div class="pay-note">所有银行</div>
+        </div>
+      </div>
+
+      <!-- Bank details -->
+      <div id="pay-bank">
+        <div class="bank-info">
+          <div style="font-size:12px;font-weight:700;color:var(--green);letter-spacing:.08em;text-transform:uppercase;margin-bottom:12px;">转账信息</div>
+          <div class="bank-row"><span class="bank-key">银行</span><span class="bank-val">军事商业股份银行（MB Bank）</span></div>
+          <div class="bank-row"><span class="bank-key">支行</span><span class="bank-val">还剑支行，河内</span></div>
+          <div class="bank-row">
+            <span class="bank-key">账号</span>
+            <span class="bank-val">13410 8888 <button class="copy-btn" onclick="copyText('13410 8888',this)">复制</button></span>
+          </div>
+          <div class="bank-row"><span class="bank-key">账户名称</span><span class="bank-val">HOUSELINK股份有限公司</span></div>
+          <div class="bank-row"><span class="bank-key">MST</span><span class="bank-val">0104585924</span></div>
+          <div class="bank-row">
+            <span class="bank-key">转账内容</span>
+            <span class="bank-val" id="pay-content" style="max-width:200px;text-align:right;"></span>
+          </div>
+          <div class="bank-row"><span class="bank-key">金额</span><span class="bank-val" id="pay-amount" style="color:var(--green);">—</span></div>
+        </div>
+        <div style="font-size:12.5px;color:var(--gray-400);background:var(--off-white);border-radius:8px;padding:12px 14px;">💡 转账后，请截图交易确认并在下一步附上。HOUSELINK将在 <strong>1个工作日</strong> 确认付款后激活账户。</div>
+      </div>
+
+      <!-- Card payment -->
+      <div id="pay-card" style="display:none;">
+        <div class="form-grid2">
+          <div class="form-group full">
+            <label class="form-label">卡号 <span>*</span></label>
+            <input class="form-input" placeholder="1234 5678 9012 3456" maxlength="19" oninput="formatCard(this)">
+          </div>
+          <div class="form-group">
+            <label class="form-label">持卡人姓名 <span>*</span></label>
+            <input class="form-input" placeholder="NGUYEN VAN A" style="text-transform:uppercase;">
+          </div>
+          <div class="form-group">
+            <label class="form-label">到期日期 <span>*</span></label>
+            <input class="form-input" placeholder="MM / YY" maxlength="7">
+          </div>
+          <div class="form-group">
+            <label class="form-label">CVV <span>*</span></label>
+            <input class="form-input" type="password" placeholder="•••" maxlength="4">
+          </div>
+        </div>
+        <div style="display:flex;gap:8px;align-items:center;font-size:12.5px;color:var(--gray-400);margin-top:-4px;margin-bottom:16px;">
+          <span>🔒</span><span>SSL安全连接。不存储卡片信息。</span>
+        </div>
+      </div>
+
+      <!-- QR -->
+      <div id="pay-qr" style="display:none;text-align:center;padding:24px;background:var(--off-white);border-radius:10px;margin-bottom:16px;">
+        <div style="font-size:14px;font-weight:600;color:var(--navy);margin-bottom:12px;">扫码支付</div>
+        <div style="width:160px;height:160px;background:var(--gray-100);border-radius:8px;margin:0 auto;display:flex;align-items:center;justify-content:center;font-size:40px;">📱</div>
+        <div style="font-size:12.5px;color:var(--gray-400);margin-top:12px;">与所有越南银行应用兼容<br>MB Bank · VCB · TCB · ACB · BIDV · VietinBank…</div>
+      </div>
+
+      <!-- Upload payment proof -->
+      <div style="margin-bottom:24px;">
+        <label class="form-label">附上付款确认 <span style="color:var(--gray-400);font-weight:400;">（可选，但可加快处理）</span></label>
+        <input type="file" id="payment-proof" accept="image/*,application/pdf" style="display:none;">
+        <div onclick="document.getElementById('payment-proof').click()" style="border:1.5px dashed var(--gray-200);border-radius:9px;padding:16px;text-align:center;cursor:pointer;font-size:13.5px;color:var(--gray-600);" onmouseover="this.style.borderColor='var(--green)'" onmouseout="this.style.borderColor='var(--gray-200)'">
+          📎 上传转账截图
+        </div>
+      </div>
+
+      <!-- Terms checkbox -->
+      <label style="display:flex;align-items:flex-start;gap:10px;cursor:pointer;margin-bottom:22px;">
+        <input type="checkbox" id="terms-check" style="width:16px;height:16px;accent-color:var(--green);flex-shrink:0;margin-top:3px;">
+        <span style="font-size:13.5px;color:var(--gray-600);line-height:1.55;">
+          我已阅读、理解并同意 <a href="#" style="color:var(--green);font-weight:600;">合同条款</a> 和 <a href="/zh/privacy/" style="color:var(--green);font-weight:600;">隐私政策</a> 的HOUSELINK条款。我确认所提供的企业信息准确无误。
+        </span>
+      </label>
+
+      <div class="btn-row">
+        <button class="btn-secondary" onclick="goStep2()">← 重新查看合同</button>
+        <button class="btn-primary" id="submit-btn" onclick="submitContract()">🔒 确认并完成注册</button>
+      </div>
+    </div><!-- /step-3 -->
+
+    <!-- STEP 4: SUCCESS -->
+    <div id="step-4" class="form-card" style="display:none;">
+      <div class="success-screen show">
+        <div class="success-icon">🎉</div>
+        <div class="contract-number">
+          <div class="cn-label">您的合同编号</div>
+          <div class="cn-val" id="success-contract-no">HL-2026-XXXX</div>
+        </div>
+        <div class="success-title">注册成功！</div>
+        <div class="success-sub">感谢您注册HOUSELINK服务。合同已记录。HOUSELINK团队将在 <strong>1个工作日</strong>.</div>
+        <div class="success-actions">
+          <button class="btn-download" onclick="printContract()">
+            📥 下载合同PDF
+          </button>
+          <a href="/zh/services/find-project/" style="background:var(--white);color:var(--navy);font-size:14px;font-weight:600;padding:13px 22px;border-radius:9px;border:1.5px solid var(--gray-100);">← 返回服务页</a>
+        </div>
+        <div style="margin-top:28px;padding:18px 20px;background:var(--off-white);border-radius:12px;text-align:left;font-size:13.5px;color:var(--gray-600);">
+          <div style="font-weight:700;color:var(--navy);margin-bottom:8px;">📋 后续步骤：</div>
+          <div style="display:flex;flex-direction:column;gap:6px;">
+            <div>✅ 确认邮件+合同PDF已发送至 <strong id="success-email"></strong></div>
+            <div>⏳ HOUSELINK确认付款并在1个工作日内激活账户</div>
+            <div>📱 客户经理将联系您指导平台使用</div>
+            <div>🔍 开始搜索项目，访问 <a href="https://houselink.com.vn" style="color:var(--green);">houselink.com.vn</a></div>
+          </div>
+        </div>
+      </div>
+    </div><!-- /step-4 -->
+
+  </div><!-- /left -->
+
+  <!-- SIDEBAR -->
+  <div class="sidebar">
+    <div class="order-card">
+      <div class="order-title">📋 订单摘要</div>
+      <div class="order-plan-name" id="s-plan-name">Standard</div>
+      <div class="order-plan-tag" id="s-plan-tag">Pro-Contractor Plus</div>
+      <ul class="order-features" id="s-features">
+        <li class="order-feat">02个HOUSELINK账户</li>
+        <li class="order-feat">实时FDI/DDI项目查询</li>
+        <li class="order-feat">在线聊天支持与咨询</li>
+        <li class="order-feat">决策者联系方式</li>
+        <li class="order-feat">Verified标签+CSI排名</li>
+        <li class="order-feat">HOUSELINK主页logo</li>
+      </ul>
+      <div class="order-divider"></div>
+      <div class="price-row"><span class="label">套餐价格</span><span class="val" id="s-base-price">$1.699 USD</span></div>
+      <div class="price-row"><span class="label">VAT 8%</span><span class="val" id="s-vat">已包含</span></div>
+      <div class="price-row"><span class="label">有效期</span><span class="val">12个月</span></div>
+      <div class="price-row total"><span>总付款额</span><span id="s-total">≈ 44.300.000 VND</span></div>
+      <div class="validity-note">⏰ 报价有效期30天。美元/越南盾汇率按签约日Vietcombank汇率。</div>
+      <div class="trust-badges">
+        <div class="trust-item"><span>🔒</span> 256位SSL连接</div>
+        <div class="trust-item"><span>📋</span> 按越南企业法签订合同</div>
+        <div class="trust-item"><span>🏦</span> 通过MB Bank付款</div>
+        <div class="trust-item"><span>📞</span> 支持： 024 3795 5620</div>
+      </div>
+    </div>
+  </div><!-- /sidebar -->
+
+</div><!-- /main-wrap -->
+
+<script>
+// ── State ──────────────────────────────────────────────────────────────────
+var state = {
+  step: 1,
+  plan: 'standard',
+  planName: 'Standard – Pro-Contractor Plus',
+  planTag: 'Pro-Contractor Plus',
+  priceUSD: '$1.699',
+  priceVND: '≈ 44.300.000 VND',
+  sigMode: 'digital',
+  signed: false,
+  payMethod: 'bank',
+};
+
+const PLANS = {
+  starter: {
+    name:'Starter – Pro-Contractor Basic',
+    tag:'Pro-Contractor Basic',
+    priceUSD:'$899',
+    priceVND:'≈ 23.500.000 VND',
+    features:['01 tài khoản HOUSELINK','实时FDI/DDI项目查询','Lọc theo tỉnh, ngành, loại công trình','Nhận thông báo dự án mới phù hợp','Profile nhà thầu cơ bản'],
+  },
+  standard: {
+    name:'Standard – Pro-Contractor Plus',
+    tag:'Pro-Contractor Plus',
+    priceUSD:'$1.699',
+    priceVND:'≈ 44.300.000 VND',
+    features:['02个HOUSELINK账户','实时FDI/DDI项目查询','在线聊天支持与咨询','决策者联系方式','Verified标签+CSI排名','HOUSELINK主页logo'],
+  },
+  professional: {
+    name:'Professional – Pro-Contractor Pro',
+    tag:'Pro-Contractor Pro',
+    priceUSD:'$2.499',
+    priceVND:'≈ 65.100.000 VND',
+    features:['02个HOUSELINK账户','Tất cả tính năng Standard','Banner VietnamConstruction.vn','04 bài viết PR/năm','12 social media posts/năm','Báo cáo hiệu quả marketing'],
+  },
+  premium: {
+    name:'Premium – Pro-Contractor Premium',
+    tag:'Pro-Contractor Premium',
+    priceUSD:'$3.999',
+    priceVND:'≈ 104.100.000 VND',
+    features:['03 tài khoản HOUSELINK','Tất cả tính năng Professional','Email Marketing 80.000 chủ đầu tư','02 báo cáo thị trường/năm (EN/VI/ZH)','Account Manager riêng','Ưu tiên kết nối KCN chiến lược'],
+  },
+};
+
+// Read URL param
+var urlPlan = new URLSearchParams(location.search).get('plan');
+if(urlPlan && PLANS[urlPlan]) {
+  state.plan = urlPlan;
+  document.querySelectorAll('input[name=plan]').forEach(r => r.checked = (r.value === urlPlan));
+  document.querySelectorAll('.plan-option').forEach(o => {
+    o.classList.toggle('selected', o.querySelector('input').value === urlPlan);
+  });
+  updateSidebar(urlPlan);
+}
+
+// ── Plan selection ─────────────────────────────────────────────────────────
+function selectPlan(el, planKey, price, vnd) {
+  document.querySelectorAll('.plan-option').forEach(o => o.classList.remove('selected'));
+  el.classList.add('selected');
+  el.querySelector('input').checked = true;
+  state.plan = planKey;
+  updateSidebar(planKey);
+}
+
+function updateSidebar(planKey) {
+  var p = PLANS[planKey];
+  document.getElementById('s-plan-name').textContent = p.name.split('–')[0].trim();
+  document.getElementById('s-plan-tag').textContent = p.tag;
+  document.getElementById('s-base-price').textContent = p.priceUSD + '/năm';
+  document.getElementById('s-total').textContent = p.priceVND;
+  var fl = document.getElementById('s-features');
+  fl.innerHTML = p.features.map(f => '<li class="order-feat">'+f+'</li>').join('');
+  // update pay content
+  updatePayContent();
+}
+
+// ── Navigation ─────────────────────────────────────────────────────────────
+function goStep(n) {
+  [1,2,3,4].forEach(i => {
+    document.getElementById('step-'+i).style.display = (i===n)?'block':'none';
+    var ind = document.getElementById('step-'+i+'-indicator');
+    ind.classList.toggle('active', i===n);
+    ind.classList.toggle('done', i<n);
+  });
+  state.step = n;
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function goStep1() { goStep(1); }
+
+function goStep2() {
+  if(!validateStep1()) return;
+  fillContract();
+  goStep(2);
+}
+
+function goStep3() { goStep(3); updatePayContent(); }
+
+function submitContract() {
+  if(!document.getElementById('terms-check').checked) {
+    alert('Vui lòng đồng ý với điều khoản hợp đồng trước khi tiếp tục.');
+    return;
+  }
+  // Generate contract number
+  var d = new Date();
+  var seq = String(Math.floor(Math.random()*9000)+1000);
+  var cno = 'HL-'+d.getFullYear()+'-'+seq;
+  document.getElementById('success-contract-no').textContent = cno;
+  document.getElementById('success-email').textContent = document.getElementById('f-email').value || 'email của bạn';
+  goStep(4);
+}
+
+// ── Validation ─────────────────────────────────────────────────────────────
+function validateStep1() {
+  var fields = [
+    {id:'f-company', eid:'e-company', test: v => v.length > 2},
+    {id:'f-tax', eid:'e-tax', test: v => v.length >= 10},
+    {id:'f-phone', eid:'e-phone', test: v => v.length >= 9},
+    {id:'f-address', eid:'e-address', test: v => v.length > 5},
+    {id:'f-rep-name', eid:'e-rep-name', test: v => v.length > 2},
+    {id:'f-rep-title', eid:'e-rep-title', test: v => v.length > 2},
+    {id:'f-email', eid:'e-email', test: v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)},
+  ];
+  var ok = true;
+  fields.forEach(f => {
+    var inp = document.getElementById(f.id);
+    var err = document.getElementById(f.eid);
+    if(!f.test(inp.value.trim())){
+      inp.classList.add('error');
+      err.style.display = 'block';
+      ok = false;
+    } else {
+      inp.classList.remove('error');
+      err.style.display = 'none';
+    }
+  });
+  if(!ok) document.getElementById('f-company').scrollIntoView({behavior:'smooth',block:'center'});
+  return ok;
+}
+
+// ── Fill contract ──────────────────────────────────────────────────────────
+function fillContract() {
+  var p = PLANS[state.plan];
+  var d = new Date();
+  var dateStr = 'ngày '+d.getDate()+' tháng '+(d.getMonth()+1)+' năm '+d.getFullYear();
+  var dateEnStr = ['January','February','March','April','May','June','July','August','September','October','November','December'][d.getMonth()]+' '+d.getDate()+', '+d.getFullYear();
+  
+  function set(id,val){ var el=document.getElementById(id); if(el) el.textContent=val; }
+  function setAll(ids, vals){ ids.forEach((id,i) => set(id, vals[i]||vals[0])); }
+
+  set('c-date', dateStr);  set('c-date-en', dateEnStr);
+  var co = document.getElementById('f-company').value;
+  setAll(['c-company','c-company-en'], [co]);
+  setAll(['c-address','c-address-en'], [document.getElementById('f-address').value]);
+  setAll(['c-tax','c-tax-en'], [document.getElementById('f-tax').value]);
+  setAll(['c-phone','c-phone-en'], [document.getElementById('f-phone').value]);
+  setAll(['c-rep-name'], [document.getElementById('f-rep-name').value]);
+  set('c-rep-en', document.getElementById('f-rep-name').value);
+  setAll(['c-rep-title'], [document.getElementById('f-rep-title').value]);
+  set('c-title-en', document.getElementById('f-rep-title').value);
+  set('c-plan-name','Gói HOUSELINK '+p.name);
+  set('c-plan-en','HOUSELINK '+p.name);
+  set('c-price', p.priceUSD+' USD ('+p.priceVND+')');
+  set('c-price-en', p.priceUSD+' USD ('+p.priceVND+')');
+
+  // Contract number
+  var d2 = new Date();
+  var cno = 'HL-'+d2.getFullYear()+'-'+String(Math.floor(Math.random()*9000)+1000);
+  document.querySelectorAll('[id^=c-contract-no], .highlight').forEach(el => {
+    if(el.textContent && el.textContent.includes('HL-2026-XXXX')) el.textContent = cno;
+  });
+}
+
+// ── Payment ────────────────────────────────────────────────────────────────
+function updatePayContent() {
+  var co = document.getElementById('f-company').value || '[Tên công ty]';
+  var p = PLANS[state.plan];
+  var content = 'HL '+p.priceUSD+' '+co.slice(0,20).toUpperCase();
+  var pc = document.getElementById('pay-content');
+  if(pc) pc.textContent = content;
+  var pa = document.getElementById('pay-amount');
+  if(pa) pa.textContent = p.priceUSD + ' USD / ' + p.priceVND;
+}
+
+function selectPayment(el, method) {
+  document.querySelectorAll('.pay-method').forEach(m => m.classList.remove('selected'));
+  el.classList.add('selected');
+  el.querySelector('input').checked = true;
+  state.payMethod = method;
+  document.getElementById('pay-bank').style.display = method==='bank'?'block':'none';
+  document.getElementById('pay-card').style.display = method==='card'?'block':'none';
+  document.getElementById('pay-qr').style.display = method==='qr'?'block':'none';
+}
+
+function copyText(text, btn) {
+  navigator.clipboard.writeText(text).then(() => {
+    var orig = btn.textContent;
+    btn.textContent = 'Đã chép!';
+    btn.style.color = 'var(--green)';
+    setTimeout(() => { btn.textContent = orig; btn.style.color = ''; }, 1500);
+  }).catch(() => {
+    var ta = document.createElement('textarea');
+    ta.value = text;
+    document.body.appendChild(ta);
+    ta.select();
+    document.execCommand('copy');
+    document.body.removeChild(ta);
+    btn.textContent = 'Đã chép!';
+    setTimeout(() => btn.textContent = '复制', 1500);
+  });
+}
+
+function formatCard(inp) {
+  var v = inp.value.replace(/\D/g,'').substring(0,16);
+  inp.value = v.match(/.{1,4}/g)?.join(' ') || v;
+}
+
+// ── Signature ─────────────────────────────────────────────────────────────
+function setSigMode(mode) {
+  state.sigMode = mode;
+  ['digital','upload','print'].forEach(m => {
+    document.getElementById('sig-'+m).style.display = (m===mode)?'block':'none';
+    var btn = document.getElementById('sig-btn-'+m);
+    if(btn) {
+      btn.style.borderColor = m===mode ? 'var(--green)' : 'var(--gray-200)';
+      btn.style.background = m===mode ? 'var(--green-pale)' : 'var(--white)';
+      btn.style.color = m===mode ? 'var(--green)' : 'var(--navy)';
+    }
+  });
+  if(mode==='digital') initCanvas();
+}
+
+var drawing = false, lastX = 0, lastY = 0, ctx;
+function initCanvas() {
+  var canvas = document.getElementById('sig-canvas');
+  if(!canvas || ctx) return;
+  ctx = canvas.getContext('2d');
+  ctx.strokeStyle = '#003457';
+  ctx.lineWidth = 2.5;
+  ctx.lineCap = 'round';
+  canvas.addEventListener('mousedown', e => { drawing=true; [lastX,lastY]=getPos(e,canvas); });
+  canvas.addEventListener('mousemove', e => { if(!drawing) return; var [x,y]=getPos(e,canvas); ctx.beginPath(); ctx.moveTo(lastX,lastY); ctx.lineTo(x,y); ctx.stroke(); [lastX,lastY]=[x,y]; });
+  canvas.addEventListener('mouseup', () => { drawing=false; state.signed=true; });
+  canvas.addEventListener('mouseleave', () => drawing=false);
+  canvas.addEventListener('touchstart', e => { e.preventDefault(); drawing=true; [lastX,lastY]=getPos(e.touches[0],canvas); });
+  canvas.addEventListener('touchmove', e => { e.preventDefault(); if(!drawing) return; var [x,y]=getPos(e.touches[0],canvas); ctx.beginPath(); ctx.moveTo(lastX,lastY); ctx.lineTo(x,y); ctx.stroke(); [lastX,lastY]=[x,y]; });
+  canvas.addEventListener('touchend', () => { drawing=false; state.signed=true; });
+}
+function getPos(e, canvas) {
+  var r = canvas.getBoundingClientRect();
+  return [e.clientX - r.left, e.clientY - r.top];
+}
+function clearSig() { if(ctx) { var c=document.getElementById('sig-canvas'); ctx.clearRect(0,0,c.width,c.height); } state.signed=false; }
+
+function handleSigUpload(inp) {
+  var file = inp.files[0];
+  if(!file) return;
+  var reader = new FileReader();
+  reader.onload = function(e) {
+    document.getElementById('sig-upload-img').src = e.target.result;
+    document.getElementById('sig-upload-preview').style.display = 'block';
+    state.signed = true;
+  };
+  reader.readAsDataURL(file);
+}
+
+// ── Tab switching ──────────────────────────────────────────────────────────
+function switchTab(btn, tabId) {
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('contract-vi').style.display = tabId==='contract-vi'?'block':'none';
+  document.getElementById('contract-en').style.display = tabId==='contract-en'?'block':'none';
+}
+
+// ── Print / PDF ────────────────────────────────────────────────────────────
+function printContract() {
+  window.print();
+}
+
+// ── Init ───────────────────────────────────────────────────────────────────
+initCanvas();
+updatePayContent();
+</script>
+
+<div id="hl-chrome-footer"></div>
+<script src="../../../../landing-chrome.js" defer></script>
+</body>
+</html>

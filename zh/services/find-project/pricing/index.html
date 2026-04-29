@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FindProject服务定价 – HOUSELINK</title>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --navy:#00466E;--navy-deep:#003457;--navy-mid:#005585;
+  --green:#2D8B48;--green-light:#3AAD5C;--green-pale:#EBF7EF;
+  --white:#FFFFFF;--off-white:#F4F6F8;
+  --gray-50:#EEF1F4;--gray-100:#DDE3E8;--gray-200:#BEC8D0;
+  --gray-400:#7E8F9A;--gray-600:#4A5A65;--text:#0D1F2D;
+  --amber:#D4860B;--amber-pale:#FEF3E0;
+  --font-main:'Be Vietnam Pro',sans-serif;
+  --font-serif:'DM Serif Display',serif;
+}
+body{font-family:var(--font-main);color:var(--text);background:var(--white);line-height:1.7;}
+a{text-decoration:none;color:inherit;}
+img{max-width:100%;display:block;}
+.si{max-width:1200px;margin:0 auto;padding:0 40px;}
+
+/* TOPBAR */
+.topbar{background:var(--navy-deep);padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.08);}
+.topbar-inner{max-width:1200px;margin:0 auto;padding:0 40px;display:flex;align-items:center;justify-content:space-between;}
+.back-link{display:flex;align-items:center;gap:8px;color:rgba(255,255,255,0.6);font-size:13px;font-weight:500;transition:color .2s;}
+.back-link:hover{color:#fff;}
+.topbar-brand{display:flex;align-items:center;gap:8px;}
+.tb-icon{width:28px;height:28px;border-radius:7px;background:rgba(255,255,255,0.08);border:1.5px solid rgba(45,139,72,0.5);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:900;color:var(--green);}
+.tb-name{font-size:13px;font-weight:800;color:rgba(255,255,255,0.85);letter-spacing:.06em;text-transform:uppercase;}
+.topbar-cta{background:var(--green);color:#fff;font-size:12.5px;font-weight:700;padding:7px 18px;border-radius:7px;transition:background .2s;}
+.topbar-cta:hover{background:var(--green-light);}
+
+/* HERO */
+.pricing-hero{background:linear-gradient(135deg,var(--navy-deep) 0%,var(--navy) 60%,#004060 100%);padding:64px 0 52px;text-align:center;position:relative;overflow:hidden;}
+.pricing-hero::before{content:'';position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,0.03) 1px,transparent 1px);background-size:28px 28px;pointer-events:none;}
+.ph-badge{display:inline-flex;align-items:center;gap:7px;background:rgba(45,139,72,0.15);border:1px solid rgba(45,139,72,0.35);border-radius:100px;padding:5px 14px;font-size:11px;font-weight:700;color:#7ED49A;letter-spacing:.1em;text-transform:uppercase;margin-bottom:18px;}
+.ph-badge::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--green);}
+.ph-h1{font-family:var(--font-serif);font-size:clamp(28px,4vw,48px);font-weight:600;color:#fff;line-height:1.16;letter-spacing:-.02em;margin-bottom:14px;}
+.ph-h1 em{color:#7ED49A;font-style:normal;}
+.ph-sub{font-size:16px;color:rgba(255,255,255,.58);max-width:560px;margin:0 auto 28px;}
+.toggle-wrap{display:flex;align-items:center;gap:16px;justify-content:center;margin-bottom:8px;}
+.toggle-label{font-size:14px;font-weight:600;color:rgba(255,255,255,.7);}
+.toggle-label.active{color:#7ED49A;}
+.toggle{position:relative;width:52px;height:28px;cursor:pointer;}
+.toggle input{opacity:0;width:0;height:0;}
+.toggle-slider{position:absolute;inset:0;background:rgba(255,255,255,.2);border-radius:100px;transition:.3s;}
+.toggle-slider::before{content:'';position:absolute;height:22px;width:22px;left:3px;bottom:3px;background:#fff;border-radius:50%;transition:.3s;}
+.toggle input:checked+.toggle-slider{background:var(--green);}
+.toggle input:checked+.toggle-slider::before{transform:translateX(24px);}
+.save-badge{background:var(--amber);color:#fff;font-size:11px;font-weight:700;padding:3px 10px;border-radius:100px;margin-left:4px;}
+
+/* PRICING GRID */
+.pricing-section{padding:72px 0;background:var(--off-white);}
+.pricing-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:48px;}
+.plan-card{background:var(--white);border:1.5px solid var(--gray-100);border-radius:18px;padding:32px 28px;position:relative;transition:all .25s;display:flex;flex-direction:column;}
+.plan-card:hover{box-shadow:0 12px 40px rgba(0,70,110,0.1);transform:translateY(-3px);}
+.plan-card.featured{background:var(--navy);border-color:var(--navy);color:#fff;}
+.plan-card.featured .plan-name{color:#7ED49A;}
+.plan-card.featured .plan-desc{color:rgba(255,255,255,.6);}
+.plan-card.featured .plan-price-num{color:#fff;}
+.plan-card.featured .plan-price-period{color:rgba(255,255,255,.5);}
+.plan-card.featured .feat-item{color:rgba(255,255,255,.85);border-color:rgba(255,255,255,.1);}
+.plan-card.featured .feat-item::before{color:#7ED49A;}
+.popular-badge{position:absolute;top:-1px;left:50%;transform:translateX(-50%);background:var(--green);color:#fff;font-size:11px;font-weight:700;padding:4px 18px;border-radius:0 0 10px 10px;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap;}
+.plan-icon{font-size:32px;margin-bottom:16px;}
+.plan-name{font-family:var(--font-serif);font-size:20px;font-weight:600;color:var(--navy);margin-bottom:6px;}
+.plan-tag{display:inline-block;font-size:11px;font-weight:700;color:var(--green);background:var(--green-pale);border-radius:100px;padding:3px 10px;margin-bottom:12px;}
+.plan-card.featured .plan-tag{color:#7ED49A;background:rgba(45,139,72,.2);}
+.plan-desc{font-size:13.5px;color:var(--gray-600);line-height:1.6;margin-bottom:20px;min-height:52px;}
+.plan-price{margin-bottom:24px;padding-bottom:20px;border-bottom:1px solid var(--gray-100);}
+.plan-card.featured .plan-price{border-color:rgba(255,255,255,.15);}
+.plan-price-num{font-family:var(--font-serif);font-size:36px;font-weight:600;color:var(--navy);line-height:1;}
+.plan-price-usd{font-size:14px;font-weight:700;vertical-align:top;margin-top:6px;display:inline-block;margin-right:2px;}
+.plan-price-period{font-size:13px;color:var(--gray-400);margin-top:4px;}
+.plan-price-vnd{font-size:12px;color:var(--gray-400);margin-top:2px;}
+.annual-price{display:none;}
+.annual .annual-price{display:block;}
+.annual .monthly-price{display:none;}
+.feat-list{list-style:none;flex:1;margin-bottom:24px;}
+.feat-item{font-size:13.5px;color:var(--gray-600);padding:8px 0;border-bottom:1px solid var(--gray-50);display:flex;align-items:flex-start;gap:8px;line-height:1.5;}
+.feat-item:last-child{border-bottom:none;}
+.feat-item::before{content:'✓';color:var(--green);font-weight:700;flex-shrink:0;margin-top:1px;}
+.feat-item.no::before{content:'✕';color:var(--gray-200);}
+.feat-item.no{color:var(--gray-200);}
+.plan-btn{display:block;text-align:center;padding:13px;border-radius:9px;font-size:14px;font-weight:700;cursor:pointer;transition:all .2s;border:none;font-family:var(--font-main);}
+.plan-btn.outline{background:transparent;border:2px solid var(--gray-100);color:var(--navy);}
+.plan-btn.outline:hover{border-color:var(--green);color:var(--green);}
+.plan-btn.primary{background:var(--green);color:#fff;}
+.plan-btn.primary:hover{background:var(--green-light);}
+.plan-btn.white{background:#fff;color:var(--navy);}
+.plan-btn.white:hover{background:var(--green-pale);}
+
+/* ENTERPRISE ROW */
+.enterprise-row{background:var(--navy-deep);border-radius:16px;padding:36px 40px;display:flex;align-items:center;justify-content:space-between;gap:32px;margin-top:24px;flex-wrap:wrap;}
+.ent-left h3{font-family:var(--font-serif);font-size:22px;font-weight:600;color:#fff;margin-bottom:6px;}
+.ent-left p{font-size:14px;color:rgba(255,255,255,.55);max-width:480px;}
+.ent-btns{display:flex;gap:12px;flex-shrink:0;flex-wrap:wrap;}
+.btn-ent-white{background:#fff;color:var(--navy);font-size:13.5px;font-weight:700;padding:11px 24px;border-radius:8px;transition:all .2s;}
+.btn-ent-white:hover{background:var(--green-pale);}
+.btn-ent-outline{border:1.5px solid rgba(255,255,255,.35);color:#fff;font-size:13.5px;font-weight:600;padding:11px 22px;border-radius:8px;transition:all .2s;}
+.btn-ent-outline:hover{border-color:#fff;}
+
+/* COMPARISON TABLE */
+.compare-section{padding:72px 0;background:var(--white);}
+.compare-table{width:100%;border-collapse:collapse;margin-top:44px;}
+.compare-table th{padding:14px 18px;font-size:13px;font-weight:700;text-align:left;border-bottom:2px solid var(--gray-100);}
+.compare-table th.plan-col{text-align:center;color:var(--navy);}
+.compare-table th.plan-col.highlight{color:var(--green);}
+.compare-table td{padding:13px 18px;font-size:13.5px;border-bottom:1px solid var(--gray-50);vertical-align:middle;}
+.compare-table td.plan-col{text-align:center;}
+.compare-table tr:hover td{background:var(--gray-50);}
+.compare-table .group-row td{background:var(--off-white);font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--green);padding:10px 18px;}
+.check-yes{color:var(--green);font-size:17px;font-weight:700;}
+.check-no{color:var(--gray-200);font-size:17px;}
+.check-part{color:var(--amber);font-size:13px;font-weight:600;}
+
+/* FAQ */
+.faq-section{padding:72px 0;background:var(--off-white);}
+.faq-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:44px;}
+.faq-item{background:var(--white);border:1px solid var(--gray-100);border-radius:12px;padding:22px 24px;}
+.faq-q{font-size:14.5px;font-weight:700;color:var(--navy);margin-bottom:8px;}
+.faq-a{font-size:13.5px;color:var(--gray-600);line-height:1.65;}
+
+/* CTA */
+.cta-bar{background:var(--green);padding:56px 0;text-align:center;}
+.cta-bar h2{font-family:var(--font-serif);font-size:clamp(24px,3vw,36px);font-weight:600;color:#fff;margin-bottom:10px;}
+.cta-bar p{font-size:15px;color:rgba(255,255,255,.75);margin-bottom:28px;max-width:560px;margin-left:auto;margin-right:auto;}
+.cta-btns{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;}
+.btn-white{background:#fff;color:var(--green);font-size:14px;font-weight:700;padding:13px 28px;border-radius:8px;transition:all .2s;}
+.btn-white:hover{background:var(--green-pale);}
+.btn-outline-green{border:2px solid rgba(255,255,255,.6);color:#fff;font-size:14px;font-weight:600;padding:13px 24px;border-radius:8px;transition:all .2s;}
+.btn-outline-green:hover{border-color:#fff;}
+
+/* FOOTER */
+.footer-mini{background:var(--navy-deep);padding:24px 0;text-align:center;font-size:13px;color:rgba(255,255,255,.3);}
+
+/* Sec header */
+.sec-label{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--green);margin-bottom:10px;}
+.sec-title{font-family:var(--font-serif);font-size:clamp(24px,3vw,36px);font-weight:600;color:var(--navy);line-height:1.22;letter-spacing:-.02em;}
+.sec-title em{color:var(--green);font-style:normal;}
+.sec-sub{font-size:15px;color:var(--gray-600);line-height:1.72;max-width:560px;margin-top:12px;}
+
+@media(max-width:1024px){.pricing-grid{grid-template-columns:1fr 1fr;}}
+@media(max-width:640px){
+  .pricing-grid{grid-template-columns:1fr;}
+  .faq-grid{grid-template-columns:1fr;}
+  .compare-table{display:none;}
+  .si{padding:0 20px;}
+  .enterprise-row{flex-direction:column;padding:28px 24px;}
+}
+</style>
+  <link rel="stylesheet" href="../../../../landing-chrome.css">
+  <link rel="stylesheet" href="../../../../css/hl-find-project-flow.css">
+</head>
+<body class="hl-with-fixed-header" data-hl-page="services-find-project-pricing">
+
+<div id="hl-chrome-header"></div>
+
+
+<!-- HERO -->
+<section class="pricing-hero">
+  <div style="position:relative;z-index:1;">
+    <div class="ph-badge">Pro-Contractor · Pro-Supplier</div>
+    <h1 class="ph-h1">服务定价<br><em>HOUSELINK FindProject</em></h1>
+    <p class="ph-sub">选择适合您企业规模和目标的套餐。签合同后100%付款——1个工作日内生效。</p>
+    <div class="toggle-wrap">
+      <span class="toggle-label active" id="lbl-monthly">按月付款</span>
+      <label class="toggle"><input type="checkbox" id="billing-toggle" onchange="toggleBilling()"><span class="toggle-slider"></span></label>
+      <span class="toggle-label" id="lbl-annual">按年付款 <span class="save-badge">节省20%</span></span>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING CARDS -->
+<section class="pricing-section">
+  <div class="si">
+    <div style="text-align:center;">
+      <div class="sec-label">服务套餐</div>
+      <h2 class="sec-title">4个套餐——适合各种规模</h2>
+      <p class="sec-sub" style="margin:12px auto 0;">所有套餐均含8% VAT。价格按签约时的美元/越南盾汇率计算。</p>
+    </div>
+
+    <div class="pricing-grid" id="pricing-grid">
+
+      <!-- STARTER -->
+      <div class="plan-card">
+        <div class="plan-icon">🔍</div>
+        <div class="plan-name">Starter</div>
+        <div class="plan-tag">Pro-Contractor Basic</div>
+        <p class="plan-desc">访问FDI/DDI项目数据库。适合刚开始建立项目网络的承包商。</p>
+        <div class="plan-price">
+          <div class="monthly-price">
+            <div><span class="plan-price-usd">$</span><span class="plan-price-num">79</span></div>
+            <div class="plan-price-period">/ 月 &nbsp;·&nbsp; ~200万越南盾</div>
+            <div class="plan-price-vnd">合计$948美元/年（约2470万越南盾+VAT）</div>
+          </div>
+          <div class="annual-price">
+            <div><span class="plan-price-usd">$</span><span class="plan-price-num">899</span></div>
+            <div class="plan-price-period">/ 年 &nbsp;·&nbsp; ≈2350万越南盾</div>
+            <div class="plan-price-vnd">含8% VAT · 有效期12个月</div>
+          </div>
+        </div>
+        <ul class="feat-list">
+          <li class="feat-item">01个HOUSELINK.vn账户</li>
+          <li class="feat-item">实时查询FDI/DDI项目</li>
+          <li class="feat-item">按省份、行业、类型、进度筛选</li>
+          <li class="feat-item">接收匹配的新项目通知</li>
+          <li class="feat-item">基础承包商档案</li>
+          <li class="feat-item no">来自HOUSELINK的直接咨询</li>
+          <li class="feat-item no">决策者联系方式</li>
+          <li class="feat-item no">营销与公关</li>
+        </ul>
+        <a href="/zh/services/find-project/contract/?plan=starter" class="plan-btn outline">注册Starter</a>
+      </div>
+
+      <!-- STANDARD - FEATURED -->
+      <div class="plan-card featured">
+        <div class="popular-badge">⭐ 最受欢迎</div>
+        <div class="plan-icon">🚀</div>
+        <div class="plan-name">Standard</div>
+        <div class="plan-tag">Pro-Contractor Plus</div>
+        <p class="plan-desc">项目搜索+接触决策者的咨询。最受欢迎的套餐。</p>
+        <div class="plan-price">
+          <div class="monthly-price">
+            <div><span class="plan-price-usd">$</span><span class="plan-price-num">155</span></div>
+            <div class="plan-price-period">/ 月 &nbsp;·&nbsp; ~404万越南盾</div>
+            <div class="plan-price-vnd">合计$1,860美元/年（约4850万越南盾+VAT）</div>
+          </div>
+          <div class="annual-price">
+            <div><span class="plan-price-usd">$</span><span class="plan-price-num">1.699</span></div>
+            <div class="plan-price-period">/ 年 &nbsp;·&nbsp; ≈4430万越南盾</div>
+            <div class="plan-price-vnd">含8% VAT · 有效期12个月</div>
+          </div>
+        </div>
+        <ul class="feat-list">
+          <li class="feat-item">所有Starter功能</li>
+          <li class="feat-item">02个账户（01管理+01免费）</li>
+          <li class="feat-item">在线聊天支持咨询</li>
+          <li class="feat-item">项目管理联系方式</li>
+          <li class="feat-item">获得战略接触咨询</li>
+          <li class="feat-item">档案标注 <strong>Verified</strong></li>
+          <li class="feat-item">在HOUSELINK主页显示logo</li>
+          <li class="feat-item no">VietnamConstruction营销</li>
+        </ul>
+        <a href="/zh/services/find-project/contract/?plan=standard" class="plan-btn white">注册Standard</a>
+      </div>
+
+      <!-- PROFESSIONAL -->
+      <div class="plan-card">
+        <div class="plan-icon">📢</div>
+        <div class="plan-name">Professional</div>
+        <div class="plan-tag">Pro-Contractor Pro</div>
+        <p class="plan-desc">项目搜索+咨询+VietnamConstruction品牌公关。建立行业认知度。</p>
+        <div class="plan-price">
+          <div class="monthly-price">
+            <div><span class="plan-price-usd">$</span><span class="plan-price-num">239</span></div>
+            <div class="plan-price-period">/ 月 &nbsp;·&nbsp; ~623万越南盾</div>
+            <div class="plan-price-vnd">合计$2,868美元/年（约7480万越南盾+VAT）</div>
+          </div>
+          <div class="annual-price">
+            <div><span class="plan-price-usd">$</span><span class="plan-price-num">2.499</span></div>
+            <div class="plan-price-period">/ 年 &nbsp;·&nbsp; ≈6510万越南盾</div>
+            <div class="plan-price-vnd">含8% VAT · 有效期12个月</div>
+          </div>
+        </div>
+        <ul class="feat-list">
+          <li class="feat-item">所有Standard功能</li>
+          <li class="feat-item">VietnamConstruction.vn横幅广告</li>
+          <li class="feat-item">VietnamConstruction上4篇PR文章</li>
+          <li class="feat-item">12篇社交媒体帖子（FB+LinkedIn）</li>
+          <li class="feat-item">承包商搜索优先排名</li>
+          <li class="feat-item">营销效果统计与报告</li>
+          <li class="feat-item no">向80,000名投资商发送Email营销</li>
+          <li class="feat-item no">定期行业报告</li>
+        </ul>
+        <a href="/zh/services/find-project/contract/?plan=professional" class="plan-btn outline">注册Professional</a>
+      </div>
+
+      <!-- PREMIUM -->
+      <div class="plan-card">
+        <div class="plan-icon">🏆</div>
+        <div class="plan-name">Premium</div>
+        <div class="plan-tag">Pro-Contractor Premium</div>
+        <p class="plan-desc">最完整的套餐——项目搜索、咨询、多渠道公关和向80,000名全球投资者发送电子邮件营销。</p>
+        <div class="plan-price">
+          <div class="monthly-price">
+            <div><span class="plan-price-usd">$</span><span class="plan-price-num">415</span></div>
+            <div class="plan-price-period">/ 月 &nbsp;·&nbsp; ~1082万越南盾</div>
+            <div class="plan-price-vnd">合计$4,980美元/年（约1.297亿越南盾+VAT）</div>
+          </div>
+          <div class="annual-price">
+            <div><span class="plan-price-usd">$</span><span class="plan-price-num">3.999</span></div>
+            <div class="plan-price-period">/ 年 &nbsp;·&nbsp; ≈1.041亿越南盾</div>
+            <div class="plan-price-vnd">含8% VAT · 有效期12个月</div>
+          </div>
+        </div>
+        <ul class="feat-list">
+          <li class="feat-item">所有Professional功能</li>
+          <li class="feat-item">向80,000名投资者发送电子邮件（EN/VI/ZH）</li>
+          <li class="feat-item">每年02次市场报告活动</li>
+          <li class="feat-item">季度行业报告（每年4次）</li>
+          <li class="feat-item">所有报告封面显示logo</li>
+          <li class="feat-item">专属HOUSELINK客户经理</li>
+          <li class="feat-item">优先对接战略工业园区投资商</li>
+          <li class="feat-item">每月全面效果报告</li>
+        </ul>
+        <a href="/zh/services/find-project/contract/?plan=premium" class="plan-btn primary">注册Premium</a>
+      </div>
+
+    </div><!-- /pricing-grid -->
+
+    <!-- ENTERPRISE ROW -->
+    <div class="enterprise-row">
+      <div class="ent-left">
+        <h3>企业套餐——按需定制</h3>
+        <p>适用于大型集团、总承包商或行业协会。包括工业园区战略合作、FDI/DDI投资咨询和全面营销。根据实际需求定制报价。</p>
+      </div>
+      <div class="ent-btns">
+        <a href="/zh/contact/" class="btn-ent-white">联系咨询</a>
+        <a href="/zh/services/find-project/contract/?plan=enterprise" class="btn-ent-outline">申请报价</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- COMPARISON TABLE -->
+<section class="compare-section">
+  <div class="si">
+    <div class="sec-label">详细对比</div>
+    <h2 class="sec-title">各套餐功能</h2>
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th style="width:34%">功能</th>
+          <th class="plan-col" style="width:16.5%">Starter</th>
+          <th class="plan-col highlight" style="width:16.5%">Standard ⭐</th>
+          <th class="plan-col" style="width:16.5%">Professional</th>
+          <th class="plan-col" style="width:16.5%">Premium</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="group-row"><td colspan="5">项目搜索与跟踪</td></tr>
+        <tr>
+          <td>实时查询FDI/DDI项目</td>
+          <td class="plan-col"><span class="check-yes">✓</span></td>
+          <td class="plan-col"><span class="check-yes">✓</span></td>
+          <td class="plan-col"><span class="check-yes">✓</span></td>
+          <td class="plan-col"><span class="check-yes">✓</span></td>
+        </tr>
+        <tr>
+          <td>按省份、行业、工程类型筛选</td>
+          <td class="plan-col"><span class="check-yes">✓</span></td>
+          <td class="plan-col"><span class="check-yes">✓</span></td>
+          <td class="plan-col"><span class="check-yes">✓</span></td>
+          <td class="plan-col"><span class="check-yes">✓</span></td>
+        </tr>
+        <tr>
+          <td>接收匹配的新项目通知</td>
+          <td class="plan-col"><span class="check-yes">✓</span></td>
+          <td class="plan-col"><span class="check-yes">✓</span></td>
+          <td class="plan-col"><span class="check-yes">✓</span></td>
+          <td class="plan-col"><span class="check-yes">✓</span></td>
+        </tr>
+        <tr>
+          <td>账户数量</td>
+          <td class="plan-col" style="font-size:13px;font-weight:600;color:var(--navy);">01</td>
+          <td class="plan-col" style="font-size:13px;font-weight:600;color:var(--green);">02</td>
+          <td class="plan-col" style="font-size:13px;font-weight:600;color:var(--navy);">02</td>
+          <td class="plan-col" style="font-size:13px;font-weight:600;color:var(--navy);">03</td>
+        </tr>
+        <tr class="group-row"><td colspan="5">档案与验证</td></tr>
+        <tr>
+          <td>承包商专业档案</td>
+          <td class="plan-col"><span class="check-part">基础</span></td>
+          <td class="plan-col"><span class="check-yes">✓</span></td>
+          <td class="plan-col"><span class="check-yes">✓</span></td>
+          <td class="plan-col"><span class="check-yes">✓</span></td>
+        </tr>
+        <tr>
+          <td>"Verified"标签+CSI排名</td>
+          <td class="plan-col"><span class="check-no">✕</span></td>
+          <td class="plan-col"><span class="check-yes">✓</span></td>
+          <td class="plan-col"><span class="check-yes">✓</span></td>
+          <td class="plan-col"><span class="check-yes">✓</span></td>
+        </tr>
+        <tr>
+          <td>在HOUSELINK主页显示logo</td>
+          <td class="plan-col"><span class="check-no">✕</span></td>
+          <td class="plan-col"><span class="check-yes">✓</span></td>
+          <td class="plan-col"><span class="check-yes">✓</span></td>
+          <td class="plan-col"><span class="check-yes">✓</span></td>
+        </tr>
+        <tr class="group-row"><td colspan="5">咨询与连接</td></tr>
+        <tr>
+          <td>通过在线聊天/邮件/Zalo获得咨询</td>
+          <td class="plan-col"><span class="check-no">✕</span></td>
+          <td class="plan-col"><span class="check-yes">✓</span></td>
+          <td class="plan-col"><span class="check-yes">✓</span></td>
+          <td class="plan-col"><span class="check-yes">✓</span></td>
+        </tr>
+        <tr>
+          <td>项目决策者联系方式</td>
+          <td class="plan-col"><span class="check-no">✕</span></td>
+          <td class="plan-col"><span class="check-yes">✓</span></td>
+          <td class="plan-col"><span class="check-yes">✓</span></td>
+          <td class="plan-col"><span class="check-yes">✓</span></td>
+        </tr>
+        <tr>
+          <td>专属客户经理</td>
+          <td class="plan-col"><span class="check-no">✕</span></td>
+          <td class="plan-col"><span class="check-no">✕</span></td>
+          <td class="plan-col"><span class="check-no">✕</span></td>
+          <td class="plan-col"><span class="check-yes">✓</span></td>
+        </tr>
+        <tr class="group-row"><td colspan="5">营销与公关</td></tr>
+        <tr>
+          <td>VietnamConstruction.vn横幅</td>
+          <td class="plan-col"><span class="check-no">✕</span></td>
+          <td class="plan-col"><span class="check-no">✕</span></td>
+          <td class="plan-col"><span class="check-yes">✓</span></td>
+          <td class="plan-col"><span class="check-yes">✓</span></td>
+        </tr>
+        <tr>
+          <td>VietnamConstruction上的PR文章</td>
+          <td class="plan-col"><span class="check-no">✕</span></td>
+          <td class="plan-col"><span class="check-no">✕</span></td>
+          <td class="plan-col"><span class="check-part">04篇/年</span></td>
+          <td class="plan-col"><span class="check-part">08篇/年</span></td>
+        </tr>
+        <tr>
+          <td>社交媒体帖子（FB+LinkedIn）</td>
+          <td class="plan-col"><span class="check-no">✕</span></td>
+          <td class="plan-col"><span class="check-no">✕</span></td>
+          <td class="plan-col"><span class="check-part">12篇/年</span></td>
+          <td class="plan-col"><span class="check-part">24篇/年</span></td>
+        </tr>
+        <tr>
+          <td>向80,000名投资商发送Email营销</td>
+          <td class="plan-col"><span class="check-no">✕</span></td>
+          <td class="plan-col"><span class="check-no">✕</span></td>
+          <td class="plan-col"><span class="check-no">✕</span></td>
+          <td class="plan-col"><span class="check-yes">✓</span></td>
+        </tr>
+        <tr>
+          <td>6个月市场报告（EN/VI/ZH）</td>
+          <td class="plan-col"><span class="check-no">✕</span></td>
+          <td class="plan-col"><span class="check-no">✕</span></td>
+          <td class="plan-col"><span class="check-no">✕</span></td>
+          <td class="plan-col"><span class="check-yes">✓</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section">
+  <div class="si">
+    <div style="text-align:center;max-width:520px;margin:0 auto;">
+      <div class="sec-label">常见问题</div>
+      <h2 class="sec-title">您想知道的一切</h2>
+    </div>
+    <div class="faq-grid">
+      <div class="faq-item">
+        <div class="faq-q">如何付款？</div>
+        <div class="faq-a">签合同后100%付款。接受银行转账（MB Bank）或企业信用卡。按规定开具8% VAT发票。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">服务何时生效？</div>
+        <div class="faq-a">收到全额付款后1个工作日内。HOUSELINK激活账户并分配客户经理。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">中途可以升级套餐吗？</div>
+        <div class="faq-a">可以。您可以随时升级到更高套餐。差额按当前合同剩余月数计算。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">项目数据如何更新？</div>
+        <div class="faq-a">项目数据库由HOUSELINK团队每天从官方来源更新：建设厅、财政厅、各省工业园区管理委员会、直接来自投资商的信息及其他授权来源。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">合同可以电子签名吗？</div>
+        <div class="faq-a">可以。HOUSELINK支持通过数字签名签订合同（根据130/2018/ND-CP号法令）或下载PDF手写签名后扫描发回。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">美元/越南盾汇率按哪天计算？</div>
+        <div class="faq-a">按签约时越南外贸股份商业银行（Vietcombank）的买入汇率计算。汇率在合同中明确说明。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">如何保证每月50条线索？</div>
+        <div class="faq-a">Standard及以上套餐每月保证至少50条经过核实的高质量项目线索。如未达到，HOUSELINK将延长相应期限的服务。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">可以先试用吗？</div>
+        <div class="faq-a">您可以与HOUSELINK专家预约30分钟免费演示，在注册前直接查看数据库和功能。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-bar">
+  <div class="si">
+    <h2>今天就开始接触项目</h2>
+    <p>选择适合的套餐，在线签合同，24小时内获得账户。</p>
+    <div class="cta-btns">
+      <a href="/zh/services/find-project/contract/?plan=standard" class="btn-white">注册Standard ⭐</a>
+      <a href="/zh/contact/" class="btn-outline-green">免费咨询</a>
+    </div>
+  </div>
+</section>
+
+<script>
+// Billing toggle
+const USD_RATE = 26060;
+function toggleBilling(){
+  const checked = document.getElementById('billing-toggle').checked;
+  document.getElementById('lbl-monthly').classList.toggle('active', !checked);
+  document.getElementById('lbl-annual').classList.toggle('active', checked);
+  if(checked){
+    document.getElementById('pricing-grid').classList.add('annual');
+  } else {
+    document.getElementById('pricing-grid').classList.remove('annual');
+  }
+}
+
+// Read URL param and pre-select plan
+const params = new URLSearchParams(location.search);
+const plan = params.get('plan');
+
+// Compare table: inject data-label from header for mobile stacked layout
+(function () {
+  try {
+    const table = document.querySelector('.compare-table');
+    if (!table) return;
+    const headers = Array.from(table.querySelectorAll('thead th')).map(th => th.textContent.trim());
+    table.querySelectorAll('tbody tr').forEach(tr => {
+      if (tr.classList.contains('group-row')) return;
+      Array.from(tr.children).forEach((td, i) => {
+        if (!td || !headers[i]) return;
+        td.setAttribute('data-label', headers[i]);
+      });
+    });
+  } catch (e) {}
+})();
+
+if(plan) {
+  document.querySelectorAll('.plan-card').forEach(c => {
+    const btn = c.querySelector('.plan-btn');
+    if(btn && btn.href.includes('plan='+plan)){
+      c.style.boxShadow = '0 0 0 3px #2D8B48';
+      c.scrollIntoView({behavior:'smooth',block:'center'});
+    }
+  });
+}
+</script>
+
+<div id="hl-chrome-footer"></div>
+<script src="../../../../landing-chrome.js" defer></script>
+</body>
+</html>
