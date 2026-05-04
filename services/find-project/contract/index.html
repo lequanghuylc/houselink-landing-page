@@ -543,7 +543,7 @@ button{cursor:pointer;font-family:var(--font-main);}
       <label style="display:flex;align-items:flex-start;gap:10px;cursor:pointer;margin-bottom:22px;">
         <input type="checkbox" id="terms-check" style="width:16px;height:16px;accent-color:var(--green);flex-shrink:0;margin-top:3px;">
         <span style="font-size:13.5px;color:var(--gray-600);line-height:1.55;">
-          I have read, understood and agree to <a href="#" style="color:var(--green);font-weight:600;">Contract Terms</a> and <a href="/privacy/" style="color:var(--green);font-weight:600;">Privacy Policy</a> of HOUSELINK. I confirm the company information provided is accurate.
+          I have read, understood and agree to <a href="#" onclick="goStep2(); return false;" style="color:var(--green);font-weight:600;">Contract Terms</a> and <a href="/privacy/" style="color:var(--green);font-weight:600;">Privacy Policy</a> of HOUSELINK. I confirm the company information provided is accurate.
         </span>
       </label>
 
@@ -634,7 +634,7 @@ const PLANS = {
     tag:'Pro-Contractor Basic',
     priceUSD:'$899',
     priceVND:'≈ 23.500.000 VND',
-    features:['01 tài khoản HOUSELINK','Real-time FDI/DDI project search','Lọc theo tỉnh, ngành, loại công trình','Nhận thông báo dự án mới phù hợp','Profile nhà thầu cơ bản'],
+    features:['01 HOUSELINK account','Real-time FDI/DDI project search','Filter by province, sector, and project type','Receive alerts for matching new projects','Basic contractor profile'],
   },
   standard: {
     name:'Standard – Pro-Contractor Plus',
@@ -648,14 +648,14 @@ const PLANS = {
     tag:'Pro-Contractor Pro',
     priceUSD:'$2.499',
     priceVND:'≈ 65.100.000 VND',
-    features:['02 HOUSELINK accounts','Tất cả tính năng Standard','Banner VietnamConstruction.vn','04 bài viết PR/năm','12 social media posts/năm','Báo cáo hiệu quả marketing'],
+    features:['02 HOUSELINK accounts','All Standard features','VietnamConstruction.vn banner placement','04 PR articles per year','12 social media posts per year','Marketing performance report'],
   },
   premium: {
     name:'Premium – Pro-Contractor Premium',
     tag:'Pro-Contractor Premium',
     priceUSD:'$3.999',
     priceVND:'≈ 104.100.000 VND',
-    features:['03 tài khoản HOUSELINK','Tất cả tính năng Professional','Email Marketing 80.000 chủ đầu tư','02 báo cáo thị trường/năm (EN/VI/ZH)','Account Manager riêng','Ưu tiên kết nối KCN chiến lược'],
+    features:['03 HOUSELINK accounts','All Professional features','Email marketing to 80,000 investors','02 market reports per year (EN/VI/ZH)','Dedicated account manager','Priority connections to strategic industrial parks'],
   },
 };
 
@@ -683,7 +683,7 @@ function updateSidebar(planKey) {
   var p = PLANS[planKey];
   document.getElementById('s-plan-name').textContent = p.name.split('–')[0].trim();
   document.getElementById('s-plan-tag').textContent = p.tag;
-  document.getElementById('s-base-price').textContent = p.priceUSD + '/năm';
+  document.getElementById('s-base-price').textContent = p.priceUSD + '/year';
   document.getElementById('s-total').textContent = p.priceVND;
   var fl = document.getElementById('s-features');
   fl.innerHTML = p.features.map(f => '<li class="order-feat">'+f+'</li>').join('');
@@ -715,7 +715,7 @@ function goStep3() { goStep(3); updatePayContent(); }
 
 function submitContract() {
   if(!document.getElementById('terms-check').checked) {
-    alert('Vui lòng đồng ý với điều khoản hợp đồng trước khi tiếp tục.');
+    alert('Please agree to the contract terms before continuing.');
     return;
   }
   // Generate contract number
@@ -723,7 +723,7 @@ function submitContract() {
   var seq = String(Math.floor(Math.random()*9000)+1000);
   var cno = 'HL-'+d.getFullYear()+'-'+seq;
   document.getElementById('success-contract-no').textContent = cno;
-  document.getElementById('success-email').textContent = document.getElementById('f-email').value || 'email của bạn';
+  document.getElementById('success-email').textContent = document.getElementById('f-email').value || 'your email';
   goStep(4);
 }
 

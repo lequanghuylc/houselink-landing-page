@@ -1,11 +1,12 @@
 <!DOCTYPE html>
+
 <html lang="ja">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>よくある質問（FAQ）– HOUSELINK</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 :root {
@@ -915,251 +916,867 @@ footer { background: var(--navy); color: rgba(255,255,255,0.55); padding: 72px 0
   .faq-cat-count { display: none; }
 }
 </style>
-  <link rel="stylesheet" href="../../landing-chrome.css">
+<link href="../../landing-chrome.css" rel="stylesheet"/>
 </head>
 <body class="hl-with-fixed-header" data-hl-page="faq">
-
 <div id="hl-chrome-header"></div>
-
 <section class="faq-hero">
-  <div class="fh-inner">
-    <div>
-      <div class="fh-eye">よくある質問</div>
-      <h1 class="fh-h1">ベトナム投資に関する<br><em>答え</em>をお探しですか？</h1>
-      <p class="fh-sub">ベトナムの工業市場でHOUSELINKを活用するFDI投資家、産業建設の請負業者、サプライヤーから寄せられる代表的な質問をまとめました。</p>
-      <div class="faq-search-wrap">
-        <div class="faq-search">
-          <input type="text" id="faqSearchInput" placeholder="質問を検索…（例：DPPA、工業団地、施工会社）">
-          <button onclick="searchFaq()">🔍</button>
-        </div>
-      </div>
-    </div>
-    <div class="fh-stats">
-      <div class="fh-stat">
-        <div class="fhs-ico">❓</div>
-        <div><div class="fhs-n">40+</div><div class="fhs-l">回答済みの質問</div></div>
-      </div>
-      <div class="fh-stat">
-        <div class="fhs-ico">📂</div>
-        <div><div class="fhs-n">8</div><div class="fhs-l">主なカテゴリ</div></div>
-      </div>
-      <div class="fh-stat">
-        <div class="fhs-ico">🔄</div>
-        <div><div class="fhs-n">2026</div><div class="fhs-l">最終更新</div></div>
-      </div>
-    </div>
-  </div>
+<div class="fh-inner">
+<div>
+<div class="fh-eye">よくある質問</div>
+<h1 class="fh-h1">ベトナム投資に関する<br/><em>答え</em>をお探しですか？</h1>
+<p class="fh-sub">ベトナムの工業市場でHOUSELINKを活用するFDI投資家、産業建設の請負業者、サプライヤーから寄せられる代表的な質問をまとめました。</p>
+<div class="faq-search-wrap">
+<div class="faq-search">
+<input id="faqSearchInput" placeholder="質問を検索…（例：DPPA、工業団地、施工会社）" type="text"/>
+<button onclick="searchFaq()">🔍</button>
+</div>
+</div>
+</div>
+<div class="fh-stats">
+<div class="fh-stat">
+<div class="fhs-ico">❓</div>
+<div><div class="fhs-n">40+</div><div class="fhs-l">回答済みの質問</div></div>
+</div>
+<div class="fh-stat">
+<div class="fhs-ico">📂</div>
+<div><div class="fhs-n">8</div><div class="fhs-l">主なカテゴリ</div></div>
+</div>
+<div class="fh-stat">
+<div class="fhs-ico">🔄</div>
+<div><div class="fhs-n">2026</div><div class="fhs-l">最終更新</div></div>
+</div>
+</div>
+</div>
 </section>
-
 <!-- ══ MAIN ══ -->
 <div class="faq-main" id="faqMain">
-
-  <!-- SIDEBAR -->
-  <aside class="faq-sidebar">
-    <div style="font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gray-400);margin-bottom:12px;">カテゴリ</div>
-    <div class="faq-cat-list">
-      <a href="#cat-general"     class="faq-cat active" onclick="setActive(this)"><span class="faq-cat-ico">🏠</span>HOUSELINKについて<span class="faq-cat-count">6</span></a>
-      <a href="#cat-market"      class="faq-cat" onclick="setActive(this)"><span class="faq-cat-ico">📊</span>市場調査<span class="faq-cat-count">6</span></a>
-      <a href="#cat-site"        class="faq-cat" onclick="setActive(this)"><span class="faq-cat-ico">📍</span>工業団地の立地選定<span class="faq-cat-count">5</span></a>
-      <a href="#cat-legal"       class="faq-cat" onclick="setActive(this)"><span class="faq-cat-ico">⚖️</span>法務・会社設立<span class="faq-cat-count">5</span></a>
-      <a href="#cat-project"     class="faq-cat" onclick="setActive(this)"><span class="faq-cat-ico">🏗️</span>請負・工場建設<span class="faq-cat-count">6</span></a>
-      <a href="#cat-esg"         class="faq-cat" onclick="setActive(this)"><span class="faq-cat-ico">🌿</span>ESG・グリーンエネルギー<span class="faq-cat-count">7</span></a>
-      <a href="#cat-contractor"  class="faq-cat" onclick="setActive(this)"><span class="faq-cat-ico">🔍</span>請負・サプライヤーの参加<span class="faq-cat-count">5</span></a>
-      <a href="#cat-pricing"     class="faq-cat" onclick="setActive(this)"><span class="faq-cat-ico">💰</span>料金・進行手順<span class="faq-cat-count">5</span></a>
-    </div>
-    <div class="sidebar-cta-mini">
-      <div class="scm-title">答えが見つかりませんか？</div>
-      <div class="scm-sub">HOUSELINKの専門家が直接サポートします。</div>
-      <a href="/ja/contact/" class="scm-btn">お問い合わせ →</a>
-    </div>
-  </aside>
-
-  <!-- CONTENT -->
-  <main class="faq-content" id="faqContent">
-
-    <!-- ── 1. GENERAL ── -->
-    <section class="faq-section" id="cat-general">
-      <div class="faq-section-header">
-        <div class="fsh-ico">🏠</div>
-        <div class="fsh-title">HOUSELINKについて</div>
-        <div class="fsh-count">6件の質問</div>
-      </div>
-
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggle(this)">HOUSELINKとは何ですか？どのようなサービスを提供していますか？<span class="faq-icon">+</span></div>
-        <div class="faq-a">
-          <p>HOUSELINKは、ベトナムの工業製造・建設市場で投資家、請負業者、サプライヤーをつなぐエコシステム・プラットフォームです。2010年の設立以来、120,000+の工場・生産拠点を含む、国内最大級の産業データプラットフォームを構築しています。</p>
-          <p>主なサービスは6カテゴリです：</p>
-          <ul>
-            <li><strong>01 Market Research</strong> — 市場調査・投資アドバイザリー</li>
-            <li><strong>02 Site Selection</strong> — 立地選定・工業団地（KCN）選定</li>
-            <li><strong>03 Business Setup</strong> — 会社設立・投資法務</li>
-            <li><strong>04 Project Implementation</strong> — プロジェクト実行・請負業者の選定</li>
-            <li><strong>05 ESG Platform</strong> — 工業団地向け統合ESG基盤</li>
-            <li><strong>06 Find Project</strong> — 請負・サプライヤー向け案件機会の接続</li>
-          </ul>
-          <a href="/ja/services/" class="faq-link">サービス一覧を見る →</a>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggle(this)">HOUSELINKはどのようなお客様を対象としていますか？<span class="faq-icon">+</span></div>
-        <div class="faq-a">
-          <p>HOUSELINKは主に3つの顧客層に提供しています：</p>
-          <ul>
-            <li><strong>投資家・FDI投資家：</strong> 多国籍企業および現地企業（工場・倉庫の建設／生産拡張など）</li>
-            <li><strong>産業建設の請負業者：</strong> 工場建設、鉄骨、MEPなどの元請・下請で、FDI案件にアクセスしたい企業</li>
-            <li><strong>資材・設備サプライヤー：</strong> 鋼材、セメント、MEP機器、建材、O&amp;Mサービスを提供する企業</li>
-          </ul>
-          <p>現在、30+の国・地域から2,000+社がHOUSELINKエコシステムのメンバーです。</p>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggle(this)">HOUSELINK Databaseとは？データの出所と更新頻度は？<span class="faq-icon">+</span></div>
-        <div class="faq-a">
-          <p>HOUSELINK Databaseは、ベトナムの工業・建設市場に関する大規模データベースで、工場、工業団地、投資家、検証済み請負業者、サプライヤーなどを含みます。</p>
-          <p>データは、政府機関、工業団地管理委員会、許諾を受けたデータソース、HOUSELINKチームの現地調査など複数の経路から収集しています。データ種別に応じて週次・月次で継続的に更新します。</p>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggle(this)">海外企業との取引経験はありますか？<span class="faq-icon">+</span></div>
-        <div class="faq-a">
-          <p>はい。HOUSELINKは2010年以来、30+の国・地域の顧客を支援してきました。ご要望に応じて、ベトナム語–英語のバイリンガル資料（レポート／契約書）も提供可能です。</p>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggle(this)">一般的な投資コンサルと何が違いますか？<span class="faq-icon">+</span></div>
-        <div class="faq-a">
-          <p>主な強みは次のとおりです：</p>
-          <ul>
-            <li><strong>自社データ：</strong> 15年かけて構築・更新した120,000+の工場データ</li>
-            <li><strong>エコシステム接続：</strong> 企業、請負業者、工業団地への直接アクセス</li>
-            <li><strong>統合ESG：</strong> 測定・報告・グリーン電力戦略まで一気通貫で支援</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggle(this)">連絡方法は？<span class="faq-icon">+</span></div>
-        <div class="faq-a">
-          <ul>
-            <li>📧 <strong>Email:</strong> info@houselink.com.vn</li>
-            <li>📞 <strong>Phone:</strong> +84 966 222 490</li>
-            <li>📍 <strong>Office:</strong> 9F, Sannam Building, 78 Duy Tan, Cau Giay, Hanoi</li>
-            <li>💬 <strong>Zalo:</strong> +84 966 222 490</li>
-          </ul>
-          <p>営業時間：月〜金 8:30–18:00（GMT+7）</p>
-          <a href="/ja/contact/" class="faq-link">お問い合わせページへ →</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ── 2. MARKET ── -->
-    <section class="faq-section" id="cat-market">
-      <div class="faq-section-header"><div class="fsh-ico">📊</div><div class="fsh-title">市場調査</div><div class="fsh-count">6件の質問</div></div>
-      <div class="faq-item"><div class="faq-q" onclick="toggle(this)">どのような市場調査を提供していますか？<span class="faq-icon">+</span></div><div class="faq-a"><p>業界規模、競合マッピング、サプライチェーン分析、立地比較、投資判断に必要な入力情報など、目的に合わせたレポートを作成します。</p></div></div>
-      <div class="faq-item"><div class="faq-q" onclick="toggle(this)">レポート作成の期間は？<span class="faq-icon">+</span></div><div class="faq-a"><p>スコープにより2〜6週間が目安です（デスクリサーチのみ／一次インタビュー・現地検証の有無で変動）。</p></div></div>
-      <div class="faq-item"><div class="faq-q" onclick="toggle(this)">一次インタビュー（IDI）は可能ですか？<span class="faq-icon">+</span></div><div class="faq-a"><p>はい。必要に応じて、バイヤー/サプライヤー、工業団地、関係機関などへのヒアリングと要約を実施します。</p></div></div>
-      <div class="faq-item"><div class="faq-q" onclick="toggle(this)">英語での成果物はありますか？<span class="faq-icon">+</span></div><div class="faq-a"><p>はい。ベトナム語–英語は標準対応です。要点の多言語対応もご相談ください。</p></div></div>
-      <div class="faq-item"><div class="faq-q" onclick="toggle(this)">データの正確性はどう担保しますか？<span class="faq-icon">+</span></div><div class="faq-a"><p>政府・許諾データと現地検証を突合し、前提条件と確度を明示します。</p></div></div>
-      <div class="faq-item"><div class="faq-q" onclick="toggle(this)">意思決定スケジュールに合わせられますか？<span class="faq-icon">+</span></div><div class="faq-a"><p>はい。クイックスキャン→ディープダイブなど段階的な設計が可能です。</p></div></div>
-    </section>
-
-    <!-- ── 3. SITE ── -->
-    <section class="faq-section" id="cat-site">
-      <div class="faq-section-header"><div class="fsh-ico">📍</div><div class="fsh-title">工業団地の立地選定</div><div class="fsh-count">5件の質問</div></div>
-      <div class="faq-item"><div class="faq-q" onclick="toggle(this)">条件に合う工業団地（KCN）を絞り込めますか？<span class="faq-icon">+</span></div><div class="faq-a"><p>はい。省・都市、ユーティリティ、インフラ、労働力、優遇、制約条件でフィルタし、現地訪問の調整も行います。</p></div></div>
-      <div class="faq-item"><div class="faq-q" onclick="toggle(this)">賃貸契約の交渉支援はありますか？<span class="faq-icon">+</span></div><div class="faq-a"><p>交渉ポイント、一般的な契約条項、リスク項目の助言と、必要に応じた同席が可能です。</p></div></div>
-      <div class="faq-item"><div class="faq-q" onclick="toggle(this)">電力の容量・コスト比較は可能ですか？<span class="faq-icon">+</span></div><div class="faq-a"><p>はい。容量、安定性、拡張性などを主要チェック項目として評価します。</p></div></div>
-      <div class="faq-item"><div class="faq-q" onclick="toggle(this)">物流アクセス分析は？<span class="faq-icon">+</span></div><div class="faq-a"><p>港・空港・高速道路などへの距離/時間を、サプライチェーン要件に基づいて比較します。</p></div></div>
-      <div class="faq-item"><div class="faq-q" onclick="toggle(this)">成果物は何ですか？<span class="faq-icon">+</span></div><div class="faq-a"><p>優先順位付きショートリスト、比較表、訪問メモ、許認可やキックオフに向けた次ステップ提案です。</p></div></div>
-    </section>
-
-    <!-- ── 4. LEGAL ── -->
-    <section class="faq-section" id="cat-legal">
-      <div class="faq-section-header"><div class="fsh-ico">⚖️</div><div class="fsh-title">法務・会社設立</div><div class="fsh-count">5件の質問</div></div>
-      <div class="faq-item"><div class="faq-q" onclick="toggle(this)">法人設立と投資ライセンス支援は可能ですか？<span class="faq-icon">+</span></div><div class="faq-a"><p>はい。信頼できる法務パートナーと連携し、IRC/ERCなどの手続きを支援します。</p></div></div>
-      <div class="faq-item"><div class="faq-q" onclick="toggle(this)">許認可・コンプライアンスは？<span class="faq-icon">+</span></div><div class="faq-a"><p>環境、消防、建設許可などのチェックリストとスケジュールを整理し、専門家へ繋ぎます。</p></div></div>
-      <div class="faq-item"><div class="faq-q" onclick="toggle(this)">タイムライン管理は？<span class="faq-icon">+</span></div><div class="faq-a"><p>重要な依存関係を含めたステップ表を提示し、並行作業（立地・法務・建設）を整理します。</p></div></div>
-      <div class="faq-item"><div class="faq-q" onclick="toggle(this)">バイリンガル契約は可能ですか？<span class="faq-icon">+</span></div><div class="faq-a"><p>はい。ベトナム語–英語のドラフトやレビューも手配可能です。</p></div></div>
-      <div class="faq-item"><div class="faq-q" onclick="toggle(this)">本社要件（海外HQ）に合わせられますか？<span class="faq-icon">+</span></div><div class="faq-a"><p>はい。社内稟議やコンプライアンスに合わせた形式で提供できます。</p></div></div>
-    </section>
-
-    <!-- ── 5. PROJECT ── -->
-    <section class="faq-section" id="cat-project">
-      <div class="faq-section-header"><div class="fsh-ico">🏗️</div><div class="fsh-title">請負・工場建設</div><div class="fsh-count">6件の質問</div></div>
-      <div class="faq-item"><div class="faq-q" onclick="toggle(this)">請負業者の推薦・選定は可能ですか？<span class="faq-icon">+</span></div><div class="faq-a"><p>はい。実績、財務、参照、HSSE、安全、納期などで評価します。</p></div></div>
-      <div class="faq-item"><div class="faq-q" onclick="toggle(this)">RFP/RFQ作成支援は？<span class="faq-icon">+</span></div><div class="faq-a"><p>評価基準、比較項目、ショートリスト作成など透明性の高い入札設計を支援します。</p></div></div>
-      <div class="faq-item"><div class="faq-q" onclick="toggle(this)">入札運営やQ&amp;A対応は？<span class="faq-icon">+</span></div><div class="faq-a"><p>提案回収、質疑応答、技術・商務比較、推奨案のサマリーまで支援します。</p></div></div>
-      <div class="faq-item"><div class="faq-q" onclick="toggle(this)">進捗モニタリングは？<span class="faq-icon">+</span></div><div class="faq-a"><p>お客様チームと連携し、定期レポートやリスクトラッキングを提供できます。</p></div></div>
-      <div class="faq-item"><div class="faq-q" onclick="toggle(this)">クリーンルーム等の専門業者紹介は？<span class="faq-icon">+</span></div><div class="faq-a"><p>はい。要求仕様に応じてニッチベンダーの接続も可能です。</p></div></div>
-      <div class="faq-item"><div class="faq-q" onclick="toggle(this)">契約条項の助言は？<span class="faq-icon">+</span></div><div class="faq-a"><p>主要リスク条項や交渉ポイントを整理します（正式な法務レビューはパートナーで対応）。</p></div></div>
-    </section>
-
-    <!-- ── 6. ESG ── -->
-    <section class="faq-section" id="cat-esg">
-      <div class="faq-section-header"><div class="fsh-ico">🌿</div><div class="fsh-title">ESG・グリーンエネルギー</div><div class="fsh-count">7件の質問</div></div>
-      <div class="faq-item"><div class="faq-q" onclick="toggle(this)">どのようなESGサービスがありますか？<span class="faq-icon">+</span></div><div class="faq-a"><p>ESG現状診断、GHGインベントリ、製品カーボンフットプリント、GRI/SASB整合、監査準備などを支援します。</p></div></div>
-      <div class="faq-item"><div class="faq-q" onclick="toggle(this)">DPPAやグリーン電力の相談は可能ですか？<span class="faq-icon">+</span></div><div class="faq-a"><p>はい。調達手段、REC戦略、バイヤー要件に沿った設計を支援します。</p></div></div>
-      <div class="faq-item"><div class="faq-q" onclick="toggle(this)">CBAM/CSRD対応は？<span class="faq-icon">+</span></div><div class="faq-a"><p>データ収集計画、レポート構成、文書整備を支援できます。</p></div></div>
-      <div class="faq-item"><div class="faq-q" onclick="toggle(this)">対応可能な規格は？<span class="faq-icon">+</span></div><div class="faq-a"><p>ISO 14064-1、ISO 14067、ISAE 3000、GRIなど、要件に応じて対応します。</p></div></div>
-      <div class="faq-item"><div class="faq-q" onclick="toggle(this)">監査の工数削減はどうしますか？<span class="faq-icon">+</span></div><div class="faq-a"><p>証跡設計、エビデンスパック、監査トレイルを事前に整備します。</p></div></div>
-      <div class="faq-item"><div class="faq-q" onclick="toggle(this)">工業団地向けのテナントESGプログラムは？<span class="faq-icon">+</span></div><div class="faq-a"><p>はい。テナント参加、モニタリング、レポーティングの設計が可能です。</p></div></div>
-      <div class="faq-item"><div class="faq-q" onclick="toggle(this)">検証機関の紹介は可能ですか？<span class="faq-icon">+</span></div><div class="faq-a"><p>LRQA、BV、SGS、TÜVなど、スコープに応じて接続します。</p></div></div>
-    </section>
-
-    <!-- ── 7. JOIN ── -->
-    <section class="faq-section" id="cat-contractor">
-      <div class="faq-section-header"><div class="fsh-ico">🔍</div><div class="fsh-title">請負・サプライヤーの参加</div><div class="fsh-count">5件の質問</div></div>
-      <div class="faq-item"><div class="faq-q" onclick="toggle(this)">参加方法は？<span class="faq-icon">+</span></div><div class="faq-a"><p>プロフィール作成、必要書類提出（検証）、目的に合わせたプラン選択で開始できます。</p></div></div>
-      <div class="faq-item"><div class="faq-q" onclick="toggle(this)">検証とランキングとは？<span class="faq-icon">+</span></div><div class="faq-a"><p>実績・能力証憑を確認し、ランキングで可視化します。上位ほどマッチング露出が高くなります。</p></div></div>
-      <div class="faq-item"><div class="faq-q" onclick="toggle(this)">どのような案件にアクセスできますか？<span class="faq-icon">+</span></div><div class="faq-a"><p>FDI/DDIに紐づく工場建設・増設などの産業建設案件です。</p></div></div>
-      <div class="faq-item"><div class="faq-q" onclick="toggle(this)">マーケ/PR支援はありますか？<span class="faq-icon">+</span></div><div class="faq-a"><p>一部プランにはVietnamConstruction.vnでの露出やアドバイザー支援が含まれます。</p></div></div>
-      <div class="faq-item"><div class="faq-q" onclick="toggle(this)">利用開始までの目安は？<span class="faq-icon">+</span></div><div class="faq-a"><p>契約と検証の確認後、通常は1営業日以内に有効化されます。</p></div></div>
-    </section>
-
-    <!-- ── 8. PRICING / PROCESS ── -->
-    <section class="faq-section" id="cat-pricing">
-      <div class="faq-section-header"><div class="fsh-ico">💰</div><div class="fsh-title">料金・進行手順</div><div class="fsh-count">5件の質問</div></div>
-      <div class="faq-item"><div class="faq-q" onclick="toggle(this)">進め方（プロセス）は？<span class="faq-icon">+</span></div><div class="faq-a"><p>初回ヒアリング→スコープ/納期確定→段階実行（分析→納品→次ステップ支援）で進めます。</p></div></div>
-      <div class="faq-item"><div class="faq-q" onclick="toggle(this)">初回相談は無料ですか？<span class="faq-icon">+</span></div><div class="faq-a"><p>はい。初回相談は無料で、相性や進め方を確認できます。</p></div></div>
-      <div class="faq-item"><div class="faq-q" onclick="toggle(this)">料金はどのように決まりますか？<span class="faq-icon">+</span></div><div class="faq-a"><p>スコープ、緊急度、一次調査の有無により変動します。提案書で成果物と費用を明確化します。</p></div></div>
-      <div class="faq-item"><div class="faq-q" onclick="toggle(this)">支払い条件は？<span class="faq-icon">+</span></div><div class="faq-a"><p>サービスにより異なります。サブスク型は月/年契約が選べる場合があります。</p></div></div>
-      <div class="faq-item"><div class="faq-q" onclick="toggle(this)">納品後の支援はありますか？<span class="faq-icon">+</span></div><div class="faq-a"><p>はい。フォローアップQ&amp;A、紹介、次ステップ計画などを含められます。</p></div></div>
-    </section>
-
-    <!-- NO RESULTS -->
-    <div class="faq-no-found" id="faqNoFound" style="display:none;">
-      <div class="fnf-ico">🔎</div>
-      <div class="fnf-title">該当する結果が見つかりません</div>
-      <div class="fnf-sub">別のキーワードで検索するか、HOUSELINKへ直接お問い合わせください。</div>
-      <div class="fnf-btns">
-        <a href="/ja/contact/" class="fnf-btn-primary">💬 専門家に相談する</a>
-        <button onclick="clearSearch()" class="fnf-btn-ghost">↩ すべての質問を見る</button>
-      </div>
-    </div>
-
-  </main>
+<!-- SIDEBAR -->
+<aside class="faq-sidebar">
+<div style="font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gray-400);margin-bottom:12px;">カテゴリ</div>
+<div class="faq-cat-list">
+<a class="faq-cat active" href="#cat-general" onclick="setActive(this)"><span class="faq-cat-ico">🏠</span>HOUSELINKについて<span class="faq-cat-count">6</span></a>
+<a class="faq-cat" href="#cat-market" onclick="setActive(this)"><span class="faq-cat-ico">📊</span>市場調査<span class="faq-cat-count">6</span></a>
+<a class="faq-cat" href="#cat-site" onclick="setActive(this)"><span class="faq-cat-ico">📍</span>工業団地の立地選定<span class="faq-cat-count">5</span></a>
+<a class="faq-cat" href="#cat-legal" onclick="setActive(this)"><span class="faq-cat-ico">⚖️</span>法務・会社設立<span class="faq-cat-count">5</span></a>
+<a class="faq-cat" href="#cat-project" onclick="setActive(this)"><span class="faq-cat-ico">🏗️</span>請負・工場建設<span class="faq-cat-count">6</span></a>
+<a class="faq-cat" href="#cat-esg" onclick="setActive(this)"><span class="faq-cat-ico">🌿</span>ESG・グリーンエネルギー<span class="faq-cat-count">7</span></a>
+<a class="faq-cat" href="#cat-contractor" onclick="setActive(this)"><span class="faq-cat-ico">🔍</span>請負・サプライヤーの参加<span class="faq-cat-count">5</span></a>
+<a class="faq-cat" href="#cat-pricing" onclick="setActive(this)"><span class="faq-cat-ico">💰</span>料金・進行手順<span class="faq-cat-count">5</span></a>
+</div>
+<div class="sidebar-cta-mini">
+<div class="scm-title">答えが見つかりませんか？</div>
+<div class="scm-sub">HOUSELINKの専門家が直接サポートします。</div>
+<a class="scm-btn" href="/ja/contact/">お問い合わせ →</a>
+</div>
+</aside>
+<!-- CONTENT -->
+<main class="faq-content" id="faqContent">
+<section class="faq-section" id="cat-general">
+<div class="faq-section-header">
+<div class="fsh-ico">🏠</div>
+<div class="fsh-title">ハウスリンク概要</div>
+<div class="fsh-count">6つの質問</div>
+</div>
+<div class="faq-item">
+<div class="faq-q" onclick="toggle(this)">
+          ハウスリンクとは何ですか？どのようなサービスを提供していますか？
+          <span class="faq-icon">+</span>
+</div>
+<div class="faq-a">
+<p>HOUSELINK は、ベトナムの工業生産および建設市場における投資家、請負業者、サプライヤーを結び付ける主要なエコシステム プラットフォームです。 2010 年に設立された HOUSELINK は、現在、システム内に 120,000 以上の工場を擁するベトナム最大の産業データ プラットフォームです。</p>
+<p>当社は 6 つの主要なサービス グループを提供しています。</p>
+<ul>
+<li><strong>01 市場調査</strong> — 市場調査および投資コンサルティング</li>
+<li><strong>02 サイトの選択</strong> — 場所を検索して工業団地を選択</li>
+<li><strong>03 事業設立</strong> — 事業設立と投資法務</li>
+<li><strong>04 プロジェクトの実施</strong> — プロジェクトの実施と請負業者の審査</li>
+<li><strong>05 ESGプラットフォーム</strong> — 工業団地向けの統合ESGインフラストラクチャー</li>
+<li><strong>06 プロジェクトを探す</strong> — 請負業者とサプライヤーのプロジェクト機会を結びつける</li>
+</ul>
+<a class="faq-link" href="/ja/services/">すべてのサービスを見る→</a>
+</div>
+</div>
+<div class="faq-item">
+<div class="faq-q" onclick="toggle(this)">
+          ハウスリンクはどのような顧客にサービスを提供していますか?
+          <span class="faq-icon">+</span>
+</div>
+<div class="faq-a">
+<p>ハウスリンクは、ベトナムの産業エコシステムの 3 つの主要な顧客グループにサービスを提供しています。</p>
+<ul>
+<li><strong>投資家と海外直接投資投資家:</strong> 多国籍企業（日本、韓国、EU、米国、台湾）および国内企業がベトナムに工場、倉庫を建設、または生産施設を拡張したいと考えています</li>
+<li><strong>産業建設請負業者:</strong> 工場建設、鉄骨構造物、工業団地の電気機械分野のゼネコンと下請け業者は、FDI プロジェクトにアプローチしたいと考えています。</li>
+<li><strong>材料と装置のサプライヤー:</strong> この事業は、鉄鋼、セメント、電気機械設備、建設資材、産業プロジェクト向けのO&amp;Mサービスを提供しています。</li>
+</ul>
+<p>現在、30 か国以上の 2,000 以上の企業が HOUSELINK エコシステムのメンバーです。</p>
+</div>
+</div>
+<div class="faq-item">
+<div class="faq-q" onclick="toggle(this)">
+          ハウスリンクデータベースとは何ですか？データはどこから来て、どのように更新されるのでしょうか?
+          <span class="faq-icon">+</span>
+</div>
+<div class="faq-a">
+<p>HOUSELINK データベースは、ベトナムの産業および建設市場における最大のデータベース システムです。以下が含まれます。</p>
+<ul>
+<li>120,000以上の工場と製造施設</li>
+<li>34 の省と都市にある 500 以上の工業地帯とクラスター</li>
+<li>10,000 人以上のプロジェクト投資家と投資家</li>
+<li>300 を超える検証済みの評価を受けた請負業者</li>
+<li>5,000 以上の材料および装置のサプライヤー</li>
+</ul>
+<p>データは、州政府機関 (計画投資省、建設省、各州の計画投資局)、工業団地管理委員会、HOUSELINK チームによる現地調査、認可された情報源など、多くの情報源から収集されています。研究チームは毎週および毎月継続的に更新します。</p>
+</div>
+</div>
+<div class="faq-item">
+<div class="faq-q" onclick="toggle(this)">
+          ハウスリンクは海外企業との取引経験はありますか？
+          <span class="faq-icon">+</span>
+</div>
+<div class="faq-a">
+<p>持っている。 2010 年以来、ハウスリンクは、日本、韓国、ドイツ、米国、台湾、シンガポール、多くの EU 諸国を含む 30 か国以上の顧客にサービスを提供してきました。代表的な企業には、エクソン モービル、日立、LG エレクトロニクス、サムスン、BASF、シュナイダー エレクトリック、その他多くの企業が含まれます。</p>
+<p>HOUSELINK チームは英語で専門的にコミュニケーションをとります。技術的な問題については日本語と韓国語でサポートできるメンバーもいます。</p>
+<div class="highlight-box"><em>注記：</em> ご要望に応じて、すべてのレポートとサービス契約をベトナム語と英語の二か国語で提供することができます。</div>
+</div>
+</div>
+<div class="faq-item">
+<div class="faq-q" onclick="toggle(this)">
+          ハウスリンクは通常の投資コンサルティング会社とどう違うのですか？
+          <span class="faq-icon">+</span>
+</div>
+<div class="faq-a">
+<p>ハウスリンクは次の 3 つの主要な点で異なります。</p>
+<ul>
+<li><strong>プライベートデータプラットフォーム:</strong> ほとんどのコンサルティング会社は二次データに依存しています。ハウスリンクには、15 年以上にわたって構築および更新された 120,000 以上の工場を収録した独自のデータベース システムがあります。ベトナムでこれほどの規模を持つユニットは他にありません。</li>
+<li><strong>接続されたエコシステム:</strong> コンサルティングに加えて、ハウスリンクは 2,000 を超える企業、300 を超える請負業者、500 を超える工業団地のネットワークと直接接続し、調査から行動までの時間を短縮します。</li>
+<li><strong>統合されたESG:</strong> HOUSELINK は、工業団地と製造企業の両方にエンドツーエンドの ESG ソリューション (測定、レポート、グリーン電力 DPPA) を提供するベトナムの数少ない企業の 1 つです。</li>
+</ul>
+</div>
+</div>
+<div class="faq-item">
+<div class="faq-q" onclick="toggle(this)">
+          ハウスリンクに連絡するにはどうすればよいですか?
+          <span class="faq-icon">+</span>
+</div>
+<div class="faq-a">
+<p>HOUSELINK にはさまざまなチャネルを通じて連絡できます。</p>
+<ul>
+<li>📧 <strong>電子メール:</strong> info@houselink.com.vn</li>
+<li>📞 <strong>電話：</strong> +84 966 222 490 (ベトナム語 – 英語)</li>
+<li>📍 <strong>オフィス：</strong> 9階、Sannam Building、78 Duy Tan、Cau Giay、ハノイ</li>
+<li>💬 <strong>ザロ:</strong> +84 966 222 490</li>
+<li>🔗 <strong>リンクトイン:</strong> ハウスリンクベトナム</li>
+</ul>
+<p>営業時間: 月曜～金曜、8:30～18:00。メールへの返信は 1 営業日以内に行ってください。</p>
+<a class="faq-link" href="/ja/contact/">お問い合わせページへ→</a>
+</div>
+</div>
+</section>
+<section class="faq-section" id="cat-market">
+<div class="faq-section-header">
+<div class="fsh-ico">📊</div>
+<div class="fsh-title">市場調査</div>
+<div class="fsh-count">6つの質問</div>
+</div>
+<div class="faq-item">
+<div class="faq-q" onclick="toggle(this)">
+          ハウスリンクはベトナムでどのような業界を調査できますか?
+          <span class="faq-icon">+</span>
+</div>
+<div class="faq-a">
+<p>ハウスリンクは、以下を含むベトナムのほとんどの工業生産産業を深く調査する能力を持っています。</p>
+<ul>
+<li>エレクトロニクス、半導体、ハイテク部品</li>
+<li>建設・産業用機械装置</li>
+<li>テキスタイル、糸、アパレル</li>
+<li>化学品、プラスチック、産業資材</li>
+<li>鉄鋼、金属、建築構造物</li>
+<li>電気自動車 (EV)、バッテリー、自動車部品</li>
+<li>医薬品・医療機器</li>
+<li>飲食（工業用飲食）</li>
+<li>再生可能エネルギーと工業団地のインフラ</li>
+</ul>
+<span class="faq-tag">半導体</span><span class="faq-tag">EV</span><span class="faq-tag">繊維</span><span class="faq-tag">化学薬品</span><span class="faq-tag">鋼鉄</span>
+</div>
+</div>
+<div class="faq-item">
+<div class="faq-q" onclick="toggle(this)">
+          HOUSELINKの市場調査レポートには通常どれくらい時間がかかりますか?
+          <span class="faq-icon">+</span>
+</div>
+<div class="faq-a">
+<p>実装時間はプロジェクトの範囲によって異なりますが、通常は次のとおりです。</p>
+<ul>
+<li><strong>基本的な机上調査報告書</strong> (市場規模、サプライチェーンの概要): 2 ～ 3 週間</li>
+<li><strong>IDIによる包括的なレポート</strong> (20 ～ 50 社の企業との詳細なインタビュー): 30 ～ 45 営業日</li>
+<li><strong>実現可能性調査</strong> 複雑さ: 45 ～ 60 日</li>
+</ul>
+<p>プロジェクトに緊急の要件がある場合、ハウスリンクはスケジュールを短縮することができます - 注文時にご相談ください。</p>
+<div class="highlight-box">典型的なケーススタディ: Exxon Mobil Vietnam — 300 社の地図作成会社 + 45 件の IDI 通話、 <em>45営業日で完了</em>、お客様からは「期待以上」との評価をいただきました。</div>
+</div>
+</div>
+<div class="faq-item">
+<div class="faq-q" onclick="toggle(this)">
+          ハウスリンクの市場レポートは、国際的なコンサルティング会社のレポートとどう違うのですか?
+          <span class="faq-icon">+</span>
+</div>
+<div class="faq-a">
+<p>主な違いは深さと実用性にあります。</p>
+<ul>
+<li><strong>直接のフィールドワークから得られた一次データ:</strong> ハウスリンクは二次データの合成だけではなく、ベトナム企業への直接インタビューを実施</li>
+<li><strong>現地市場の理解:</strong> ベトナムのチームは長年現場で働いており、公的報告書では見つけられない隠れた要因を理解しています。</li>
+<li><strong>研究後のつながり:</strong> レポート発行後も、ハウスリンクはレポートにとどまらず、パートナーとのつながりやビジネスマッチング組織をサポートし続けます。</li>
+<li><strong>より合理的なコスト:</strong> 大手 4 社ほどの予算がない中小企業に最適</li>
+</ul>
+</div>
+</div>
+<div class="faq-item">
+<div class="faq-q" onclick="toggle(this)">
+          ハウスリンクは私たちの特定の要件に従って市場調査を行うことができますか?
+          <span class="faq-icon">+</span>
+</div>
+<div class="faq-a">
+<p>持っている。 HOUSELINK レポートはすべて、顧客の要件に従って 100% カスタマイズされています。ワークフローは、以下を明確にするためのキックオフ ミーティングから始まります。</p>
+<ul>
+<li>ビジネス目標と具体的な研究課題</li>
+<li>業界、セグメント、地理的エリアを分析する必要がある</li>
+<li>インタビュー対象者（IDIがある場合）</li>
+<li>レポート形式と言語（ベトナム語/英語/バイリンガル）</li>
+<li>スケジュールと予算</li>
+</ul>
+<a class="faq-link" href="/ja/services/market/">市場調査サービスの詳細はこちら→</a>
+</div>
+</div>
+<div class="faq-item">
+<div class="faq-q" onclick="toggle(this)">
+          報告書の情報は機密ですか?
+          <span class="faq-icon">+</span>
+</div>
+<div class="faq-a">
+<p>持っている。ハウスリンクは、プロジェクトを開始する前にすべての顧客と秘密保持契約 (NDA) に署名します。レポートは注文顧客にのみ提供され、他の目的で共有したり使用したりすることはできません。</p>
+<p>HOUSELINK は、個人データ保護に関する法律 91/2025/QH15 および政令 13/2023/ND-CP に基づくプライバシー ポリシーを厳格に遵守します。</p>
+<a class="faq-link" href="/ja/privacy/">プライバシーポリシーを読む→</a>
+</div>
+</div>
+<div class="faq-item">
+<div class="faq-q" onclick="toggle(this)">
+          ハウスリンクには、ベトナムが 34 の省に合併された後の新しい省や都市に関するデータがありますか?
+          <span class="faq-icon">+</span>
+</div>
+<div class="faq-a">
+<p>持っている。 2025年7月からベトナムは正式に63カ国から1カ国へ合併する <strong>34の省と市</strong>。ハウスリンクは、データベースシステム全体、工業団地地図、地域分類を新しい行政単位に合わせて更新しました。</p>
+<p>これは、投資場所の選択に影響を与える重要な変更です。以前は別々の州に属していた多くの工業団地や地域が統合され、管理当局、計画、投資インセンティブの変更につながっているからです。</p>
+<div class="highlight-box"><em>優れた例:</em> ビンディン市とザライ市が合併して新しいザライ省が形成されました。これはベカメックス VSIP ビンディン工業団地 (現在はザライ市の一部) に直接影響します。</div>
+</div>
+</div>
+</section>
+<section class="faq-section" id="cat-site">
+<div class="faq-section-header">
+<div class="fsh-ico">📍</div>
+<div class="fsh-title">工業団地の所在地を探す</div>
+<div class="fsh-count">5つの質問</div>
+</div>
+<div class="faq-item">
+<div class="faq-q" onclick="toggle(this)">
+          私のプロジェクトに適した工業団地を選択するにはどうすればよいですか?
+          <span class="faq-icon">+</span>
+</div>
+<div class="faq-a">
+<p>ハウスリンクは、多基準の審査システムを使用して、最適な工業団地を見つけます。このプロセスには 5 つのステップが含まれます。</p>
+<ul>
+<li><strong>ステップ 1 — 基準を決定します。</strong> 地域、生産産業、投資資金、インフラ要件、人材</li>
+<li><strong>ステップ 2 — 500 以上の工業団地のデータベースからのスクリーニング:</strong> 州、占有率、電力容量、港の距離によるクイックフィルター</li>
+<li><strong>ステップ 3 — 5 ～ 10 の潜在的な工業団地の予備分析:</strong> レンタル料金、インセンティブ、アメニティを比較する</li>
+<li><strong>ステップ 4 — 現地調査:</strong> 工業団地管理委員会と面会し、実際のインフラを確認する</li>
+<li><strong>ステップ 5 — デューデリジェンスとレポート:</strong> 法務・計画・環境監査</li>
+</ul>
+<a class="faq-link" href="/ja/services/land/">サイトセレクションサービスの詳細はこちら →</a>
+</div>
+</div>
+<div class="faq-item">
+<div class="faq-q" onclick="toggle(this)">
+          主要工業地帯の現在の土地賃貸料はいくらですか?
+          <span class="faq-icon">+</span>
+</div>
+<div class="faq-a">
+<p>工業団地の土地賃貸料は、場所やインフラによって大きく異なります。統計 2026 年第 1 四半期:</p>
+<ul>
+<li><strong>北部 (ハノイ、バクニン、フンイエン):</strong> 150–220 USD/㎡/リース期間 (50 年)</li>
+<li><strong>南部 (ホーチミン市、ドンナイ、ビンズオン):</strong> 130 ～ 200 米ドル/平方メートル/サイクル</li>
+<li><strong>中部地域および第二省（ゲアン、ザライ）：</strong> 60 ～ 100 米ドル/㎡/サイクル</li>
+</ul>
+<p>既製工場の月額レンタル: 北部では 4.5 ～ 7.5 米ドル/㎡/月、第二の州ではそれより低くなります。</p>
+<p>価格は市場に応じて変更される場合があります。最新の見積もりを入手するには、HOUSELINK にお問い合わせください。</p>
+</div>
+</div>
+<div class="faq-item">
+<div class="faq-q" onclick="toggle(this)">
+          現在の工業団地の稼働率はどのくらいですか？土地資金はまだ残っていますか？
+          <span class="faq-icon">+</span>
+</div>
+<div class="faq-a">
+<p>2026 年第 1 四半期に更新された HOUSELINK データによると、次のようになります。</p>
+<ul>
+<li><strong>北：</strong> 平均稼働率 ~92% — ハノイ近郊の大規模工業団地の土地資金は非常に限られています</li>
+<li><strong>南部:</strong> ドンナイ、ビンズオンの占有率は約 85% — ビンフックとロンアンのいくつかの新しい工業団地には依然として多額の土地資金がある</li>
+<li><strong>第二の州:</strong> ゲアン、ザライ、カインホアには、30～40％高い魅力的な価格の土地ファンドがまだたくさんあります。</li>
+</ul>
+<p>伝統的な工業地帯における土地資金の不足による圧力により、FDI の波は第二の州にシフトしており、この傾向は 2027 年まで急激に増加すると予想されています。</p>
+</div>
+</div>
+<div class="faq-item">
+<div class="faq-q" onclick="toggle(this)">
+          ハウスリンクは工業団地管理委員会との交渉をサポートできますか?
+          <span class="faq-icon">+</span>
+</div>
+<div class="faq-a">
+<p>持っている。ハウスリンクは、ベトナムのほとんどの大規模工業団地の管理委員会と協力関係を築いています。私たちがお手伝いできること:</p>
+<ul>
+<li>工業団地管理委員会との連絡や会議の手配</li>
+<li>各工業団地の要件に合わせてプロジェクト紹介書類を作成</li>
+<li>借地契約の交渉ポイントに関するコンサルティング</li>
+<li>ワーキングセッション中の通訳サポート（英語 - ベトナム語）</li>
+</ul>
+<p>ただし、ハウスリンクはコンサルティングとサポートの役割を果たしており、最終決定は依然として投資家と工業団地の所有者の間で行われます。</p>
+</div>
+</div>
+<div class="faq-item">
+<div class="faq-q" onclick="toggle(this)">
+          工業団地（工業団地）と輸出加工区（輸出加工区）の違いは何ですか？
+          <span class="faq-icon">+</span>
+</div>
+<div class="faq-a">
+<p>これは外国人投資家からよくある質問です。主な違い:</p>
+<ul>
+<li><strong>工業団地:</strong> 工業団地の企業は国内外に製品を販売できます。原材料は通常の税金に従って輸入できます。より人気があり、より柔軟に</li>
+<li><strong>輸出加工ゾーン:</strong> 「私的関税領域」とみなされます - 特別関税優遇措置が受けられますが、製品の少なくとも 80% は輸出される必要があります。 100%輸出ビジネスに最適</li>
+</ul>
+<p>輸出と国内販売の両方を目的として生産を行うほとんどの FDI 企業にとって、 <strong>工業団地はより柔軟な選択肢です</strong>。ハウスリンクは貴社のビジネスモデルを明確に理解した上で、適切な選択をアドバイスいたします。</p>
+</div>
+</div>
+</section>
+<section class="faq-section" id="cat-legal">
+<div class="faq-section-header">
+<div class="fsh-ico">⚖️</div>
+<div class="fsh-title">法務および事業所</div>
+<div class="fsh-count">5つの質問</div>
+</div>
+<div class="faq-item">
+<div class="faq-q" onclick="toggle(this)">
+          外国人投資家がベトナムの工場に投資するにはどのようなライセンスを申請する必要がありますか?
+          <span class="faq-icon">+</span>
+</div>
+<div class="faq-a">
+<p>外国投資家は多くの場合、次のライセンスと手順を必要とします (2020 年投資法による)。</p>
+<ul>
+<li><strong>IRC (投資登録証明書):</strong> 投資登録証明書 — 工業団地管理委員会または計画投資局が発行</li>
+<li><strong>ERC (企業登録証明書):</strong> 事業登録証明書 — ベトナムでの法人設立</li>
+<li><strong>建設業許可:</strong> 基本設計承認後</li>
+<li><strong>防火:</strong> 防火 — 稼働前に必須</li>
+<li><strong>EIA/SEA レポート:</strong> 環境影響評価（事業規模による）</li>
+</ul>
+<p>IRC 申請を提出してから完全なライセンスを取得するまでの合計時間は、申請が完了している場合、通常 3 ～ 6 か月かかります。 HOUSELINK は、文書の準備と進捗状況の追跡をサポートします。</p>
+<a class="faq-link" href="/ja/services/legal/">ビジネスセットアップと法的サービスを参照→</a>
+</div>
+</div>
+<div class="faq-item">
+<div class="faq-q" onclick="toggle(this)">
+          FDI企業はベトナムで資本を100％所有できるでしょうか？
+          <span class="faq-icon">+</span>
+</div>
+<div class="faq-a">
+<p>はい、ほとんどの工業生産部門で可能です。 2020 年投資法によれば、外国人投資家は以下の産業においてベトナムに 100% 外資系企業を設立することが許可されています。</p>
+<ul>
+<li>電子機器、機械および装置の製造</li>
+<li>工場や倉庫の建設</li>
+<li>農産物や食品の加工</li>
+<li>テキスタイル、履物</li>
+<li>化学物質は制限されていません</li>
+</ul>
+<p>一部の業界（電気通信、銀行、小売業など）には外国人所有に対する制限がありますが、これはほとんどの工業製造部門には適用されません。</p>
+</div>
+</div>
+<div class="faq-item">
+<div class="faq-q" onclick="toggle(this)">
+          投資登録手続き (IRC) が完了するまでにどのくらい時間がかかりますか?
+          <span class="faq-icon">+</span>
+</div>
+<div class="faq-a">
+<p>法的規制によれば、IRC を発行するまでの期間は、完全かつ有効な文書の受領日から 15 営業日です (工業団地内のプロジェクトの場合)。しかし実際には:</p>
+<ul>
+<li>書類が完了しており、プロジェクトに特別な評価が必要ない場合: 2 ～ 4 週間</li>
+<li>プロジェクトが大規模な場合、または条件付き業界に属する場合: おそらく 1 ～ 3 か月</li>
+<li>プロジェクトには省人民委員会または国会からの投資政策の承認が必要です: 3 ～ 6 か月</li>
+</ul>
+<p>ハウスリンクは、最初からドキュメントを正しく作成した経験があり、ドキュメントを何度も追加する必要がなく、時間を大幅に節約できます。</p>
+</div>
+</div>
+<div class="faq-item">
+<div class="faq-q" onclick="toggle(this)">
+          ベトナムの工業団地に投資するFDI企業に対する税制上の優遇措置は何ですか?
+          <span class="faq-icon">+</span>
+</div>
+<div class="faq-a">
+<p>ベトナムには、工業団地への FDI に対して魅力的な税制優遇措置が数多くあります。</p>
+<ul>
+<li><strong>標準 CIT:</strong> 20%</li>
+<li><strong>工業団地向けの人気のインセンティブ:</strong> 最初の10年間は​​17％、2年間は免除、次の4年間は50％減額</li>
+<li><strong>特別オファー (ハイテク、研究開発):</strong> 15年間10％、4年間免除、9年間50％軽減</li>
+<li><strong>場所別のプロモーション:</strong> 困難な省（ザライ、ゲアンなど）は、プロジェクトの全期間を通じて 10% の税金を受け取ることができます</li>
+</ul>
+<div class="highlight-box"><em>注記：</em> 具体的なインセンティブのレベルは、業界、場所、投資規模によって異なります。ハウスリンクでは、インセンティブが特定のプロジェクトに適用されるかどうかを確認するために、独立した税務専門家に相談することをお勧めします。</div>
+</div>
+</div>
+<div class="faq-item">
+<div class="faq-q" onclick="toggle(this)">
+          ハウスリンクでは直接の法的サービス（弁護士）を提供していますか？
+          <span class="faq-icon">+</span>
+</div>
+<div class="faq-a">
+<p>ハウスリンクは法律事務所ではなく、法律サービスを直接提供しません。ただし、私たちは次のことを行います。</p>
+<ul>
+<li>プロセス、必要書類、スケジュールに関するコンサルティング</li>
+<li>技術資料作成支援（プロジェクト説明書、会社概要）</li>
+<li>FDI顧客との経験を持つ信頼できる法的パートナー（弁護士、投資コンサルティング会社）のネットワークとつながる</li>
+<li>進捗状況を監視し、関係者と調整する</li>
+</ul>
+<p>このモデルは、顧客が専門的な法的サービスを受けるのに役立ちますが、ハウスリンクは投資プロセス全体の調整に重点を置いています。</p>
+</div>
+</div>
+</section>
+<section class="faq-section" id="cat-project">
+<div class="faq-section-header">
+<div class="fsh-ico">🏗️</div>
+<div class="fsh-title">請負業者および工場建設</div>
+<div class="fsh-count">6つの質問</div>
+</div>
+<div class="faq-item">
+<div class="faq-q" onclick="toggle(this)">
+          ベトナムでの工業工場建設の現在のコストはいくらですか?
+          <span class="faq-icon">+</span>
+</div>
+<div class="faq-a">
+<p>工業工場の建設コストは技術水準や地域によって異なります。参考統計 2025 ～ 2026 年:</p>
+<ul>
+<li><strong>基本的な標準工場</strong> （鉄骨プレハブ屋根、トタン屋根）：200～350ドル/㎡</li>
+<li><strong>平均的な標準工場</strong> (鉄筋コンクリート+鉄骨、フルシステム): 350–550 USD/m²</li>
+<li><strong>高級工場・クリーンルーム</strong> (電子機器、医薬品): 600–1,200 USD/m²</li>
+<li><strong>工場事務所:</strong> 400～600 米ドル/㎡</li>
+</ul>
+<p>借地、フェンス以外のインフラ、生産設備を除いた建設費です。</p>
+</div>
+</div>
+<div class="faq-item">
+<div class="faq-q" onclick="toggle(this)">
+          ハウスリンクはどのような基準で業者を審査しているのですか？
+          <span class="faq-icon">+</span>
+</div>
+<div class="faq-a">
+<p>ハウスリンクは、CSI (建設仕様協会) 規格に準拠した多次元評価システムを使用して、請負業者をランク付けします。</p>
+<ul>
+<li><strong>技術力:</strong> 同様のプロジェクト経験、エンジニア資格、建設機械</li>
+<li><strong>財務能力:</strong> 資本規模、財務状況、資本増強能力</li>
+<li><strong>参照プロジェクト プロファイル:</strong> 完了プロジェクト一覧、投資家からの評価</li>
+<li><strong>労働安全 (HSE):</strong> 安全管理体制、労働災害率</li>
+<li><strong>認証とコンプライアンス:</strong> ISO認証取得、専門施工能力</li>
+</ul>
+<a class="faq-link" href="/ja/services/project/">プロジェクト導入サービスを参照→</a>
+</div>
+</div>
+<div class="faq-item">
+<div class="faq-q" onclick="toggle(this)">
+          工場を建設するには外国の請負業者を使用するべきですか、それともベトナムの請負業者を使用するべきですか?
+          <span class="faq-icon">+</span>
+</div>
+<div class="faq-a">
+<p>これは多くの FDI 投資家が抱く質問です。ハウスリンクには次のような実践的な見解があります。</p>
+<ul>
+<li><strong>工業団地の経験を持つベトナムの請負業者:</strong> コストは 20 ～ 40% 削減され、現地の規制を理解し、手順を迅速に処理します。 ATAD、Pebsteel、Zamil Steel などの大手請負業者は国際基準を満たすことができます</li>
+<li><strong>外国請負業者:</strong> 特に高度な技術要件（ISO 5 クリーンルーム、特殊実験室）を持つプロジェクト、または投資家が他の市場での作業に精通した請負業者を必要とする場合に適しています。</li>
+<li><strong>組み合わせモデル:</strong> 成功したプロジェクトの多くは、土木建設に国際的なゼネコンとベトナムの下請け業者を利用しています。</li>
+</ul>
+<p>ハウスリンクは、プロジェクトの技術要件と予算を理解した上で、具体的なアドバイスを提供します。</p>
+</div>
+</div>
+<div class="faq-item">
+<div class="faq-q" onclick="toggle(this)">
+          工業団地に標準的な工場を建設するには通常どのくらいの時間がかかりますか?
+          <span class="faq-icon">+</span>
+</div>
+<div class="faq-a">
+<p>建設時間は規模と複雑さによって異なります。実用的な参考資料:</p>
+<ul>
+<li><strong>簡易プレハブ鉄骨工場 2,000～5,000㎡：</strong> 3～5ヶ月</li>
+<li><strong>工場全体 5,000 ～ 20,000 平方メートル (ワークショップ + オフィス + インフラストラクチャを含む):</strong> 6～12か月</li>
+<li><strong>20,000m²を超える大規模複合工場 (クリーンルーム、複合M&amp;E):</strong> 12 ～ 24 か月</li>
+</ul>
+<p>注: 上記の時間は、完全な建設許可の日付から計算されます。さらに、設計と許可の段階で 3 ～ 6 か月かかります。</p>
+</div>
+</div>
+<div class="faq-item">
+<div class="faq-q" onclick="toggle(this)">
+          ハウスリンクでは業者選定後の工事監理もサポートしてもらえますか？
+          <span class="faq-icon">+</span>
+</div>
+<div class="faq-a">
+<p>持っている。ハウスリンクは以下のような工事監理サービス（施工管理）を提供しています。</p>
+<ul>
+<li>コミットされたマイルストーンに従って毎週/毎月の建設の進捗状況を確認します</li>
+<li>仕様に従って材料と構造の品質を評価します</li>
+<li>新たな問題を早期に検出して対処する</li>
+<li>投資家への定期的な進捗報告（英語 - ベトナム語）</li>
+<li>サポート段階の受付と完了した受付</li>
+</ul>
+<p>このサービスは、ベトナムに技術チームを持たない外国人投資家にとって特に便利です。</p>
+</div>
+</div>
+<div class="faq-item">
+<div class="faq-q" onclick="toggle(this)">
+          HOUSELINK の電子入札はどのように機能しますか?
+          <span class="faq-icon">+</span>
+</div>
+<div class="faq-a">
+<p>HOUSELINK は、透明性のある効果的な電子入札プロセス (電子入札) を組織します。</p>
+<ul>
+<li><strong>入札書類を準備します。</strong> ハウスリンクは投資家の技術要件から詳細なRFP/RFQを草案します。</li>
+<li><strong>資格のある請負業者への配布:</strong> 300 社以上の検証済み請負業者のリストから</li>
+<li><strong>書類の受け取りと評価:</strong> 合意された基準表に従って客観的にスコアを付ける</li>
+<li><strong>現在：</strong> 最終ラウンドに進出した契約者が投資家に直接プレゼントを贈呈</li>
+<li><strong>契約交渉サポート：</strong> ハウスリンクは建設契約の重要な条件についてアドバイスします</li>
+</ul>
+<p>このプロセスは通常、入札書類の日付から 3 ～ 6 週間以内に完了します。</p>
+</div>
+</div>
+</section>
+<section class="faq-section" id="cat-esg">
+<div class="faq-section-header">
+<div class="fsh-ico">🌿</div>
+<div class="fsh-title">ESGとグリーンエネルギー</div>
+<div class="fsh-count">7つの質問</div>
+</div>
+<div class="faq-item">
+<div class="faq-q" onclick="toggle(this)">
+          CBAM とは何ですか?なぜベトナムの製造企業が気にする必要があるのでしょうか?
+          <span class="faq-icon">+</span>
+</div>
+<div class="faq-a">
+<p>CBAM (炭素国境調整メカニズム) は EU の炭素国境調整メカニズムであり、2026 年から正式に発効します。このメカニズムによれば、EU​​ より炭素価格が低い国 (ベトナムを含む) から EU に輸入される商品には同等の炭素料金が課されます。</p>
+<p>最初に影響を受けた産業: 鉄鋼、アルミニウム、セメント、肥料、電気、水素。 2026年以降は他の多くの産業への拡大が期待されています。</p>
+<div class="highlight-box"><em>ベトナムへの影響:</em> EU に輸出する企業は、製品の二酸化炭素排出量 (PCF) を測定して報告する必要があります。炭素データがなければ、最も高いデフォルト率が課されることになり、一部の業界では 15 ～ 30% のコスト増加に相当します。</div>
+<a class="faq-link" href="/ja/services/esg/">ハウスリンクのESGソリューションを見る→</a>
+</div>
+</div>
+<div class="faq-item">
+<div class="faq-q" onclick="toggle(this)">
+          DPPAとは何ですか?ベトナムでは再生可能電力の直接購入メカニズムはどのように機能しますか?
+          <span class="faq-icon">+</span>
+</div>
+<div class="faq-a">
+<p>DPPA (直接電力購入契約) は、ベトナム電力グループ (EVN) を介さずに、企業が再生可能電力を発電事業者から直接購入できるようにするメカニズムです。</p>
+<p>ベトナムでは、DPPA は政令 57/2025/ND-CP で次の 2 つの形式で規制されています。</p>
+<ul>
+<li><strong>仮想 DPPA (仮想):</strong> 企業は発電事業者と契約を結び、電気は引き続き EVN 送電網を通って流れますが、企業はグリーン電力を使用していることを証明する再生可能エネルギー証明書 (REC) を受け取ります。</li>
+<li><strong>直接 DPPA (直接):</strong> 発電機と事業所間の専用線接続 - 技術的条件のある工業団地に最適</li>
+</ul>
+<p>HOUSELINK は、エネルギー トレーダーおよびアグリゲーターとして機能し、RE100 を達成し、世界的な OEM からの ESG 要件を満たすために、企業と再生可能発電ネットワークを結び付けます。</p>
+</div>
+</div>
+<div class="faq-item">
+<div class="faq-q" onclick="toggle(this)">
+          ISO 14064 認証を取得するには企業は何をする必要がありますか?
+          <span class="faq-icon">+</span>
+</div>
+<div class="faq-a">
+<p>ISO 14064 は、組織レベルの温室効果ガス (GHG) 排出量インベントリ規格です。基本的なプロセス:</p>
+<ul>
+<li><strong>ステップ 1:</strong> 組織の境界と業務の境界を決定する</li>
+<li><strong>ステップ 2:</strong> 排出源の特定（スコープ1、2、3）</li>
+<li><strong>ステップ 3:</strong> 運用データの収集 (電力、燃料、輸送など)</li>
+<li><strong>ステップ 4:</strong> 承認された排出係数を使用して排出量を計算する</li>
+<li><strong>ステップ5:</strong> GHG インベントリレポートの作成</li>
+<li><strong>ステップ6:</strong> 認知された組織 (LRQA、ビューロー ベリタス、SGS など) による独立した検証</li>
+</ul>
+<p>HOUSELINK は、Glassdome (ISO 14067 認証済みプラットフォーム) および LRQA ネットワークと連携して、プロセス全体をサポートします。</p>
+</div>
+</div>
+<div class="faq-item">
+<div class="faq-q" onclick="toggle(this)">
+          Glassdome はハウスリンクの ESG エコシステムにおいてどのようなパートナーですか?
+          <span class="faq-icon">+</span>
+</div>
+<div class="faq-a">
+<p>Glassdome は国際的な ESG テクノロジー企業であり、LRQA によって ISO 14067 の検証および監査を受けた世界初の炭素測定プラットフォームを提供しています。</p>
+<p>HOUSELINK エコシステムでは、Glassdome がレイヤーを提供します <strong>データ層</strong>:</p>
+<ul>
+<li>Carbon Dashboard リアルタイム — 各工場、ライン、製品ごとの排出量を追跡</li>
+<li>ISO 14067 に準拠した自動 PCF (製品二酸化炭素排出量) — Catena-X 標準に従ってレポートをエクスポートできます</li>
+<li>CBAM レポート — EU への輸出用に自動 CBAM レポートを生成します</li>
+</ul>
+<p>HOUSELINK は、顧客向けの Glassdome オンボーディングを調整し、グリーン電力の DPPA サービスおよび ESG コンサルティングと組み合わせて、完全な 3 層ソリューションを作成します。</p>
+</div>
+</div>
+<div class="faq-item">
+<div class="faq-q" onclick="toggle(this)">
+          無料ESG診断とは何ですか？このプログラムから何が得られますか?
+          <span class="faq-icon">+</span>
+</div>
+<div class="faq-a">
+<p>無料の ESG 診断は、ベトナムの FDI 製造企業を対象とした無料の ESG 評価プログラムで、期間は約 5 ～ 7 営業日です。完了すると、次のものを受け取ります。</p>
+<ul>
+<li>このレポートでは、現在の ESG ギャップを典型的な CBAM、RE100、OEM 要件と比較して評価します。</li>
+<li>企業から提供された情報に基づく二酸化炭素排出量の暫定推定値 (スコープ 1 および 2)</li>
+<li>ESG ロードマップは、短期 (0 ～ 6 か月)、中期 (6 ～ 18 か月)、長期 (&gt; 2 年) の 3 段階で提案されます。</li>
+<li>DPPA を通じてエネルギーコストを節約する機会</li>
+</ul>
+<div class="highlight-box">完全なプログラム <em>無料</em>。お問い合わせフォームからご登録いただくか、info@houselink.com.vn に件名を「ESG 診断」として電子メールでご登録ください。</div>
+</div>
+</div>
+<div class="faq-item">
+<div class="faq-q" onclick="toggle(this)">
+          製造業向けの ESG プラットフォームの導入にかかる一般的なコストはいくらですか?
+          <span class="faq-icon">+</span>
+</div>
+<div class="faq-a">
+<p>導入コストは、ビジネスの規模と必要なサービスのレベルによって異なります。全体：</p>
+<ul>
+<li><strong>ESG診断（無料）：</strong> 初期評価、予備ロードマップ</li>
+<li><strong>炭素の会計と報告:</strong> 施設の数、排出源、報告頻度によって異なります。</li>
+<li><strong>独立した検証 (LRQA、BV):</strong> 規格（ISO 14064、ISAE 3000）および規模に応じて</li>
+<li><strong>グリーン電力DPPA:</strong> セットアップ費用なし — ハウスリンクは電力マージンからサービス料金を獲得します</li>
+</ul>
+<p>特定の規模と業界に適した見積もりを得るには、ハウスリンクにお問い合わせください。</p>
+</div>
+</div>
+<div class="faq-item">
+<div class="faq-q" onclick="toggle(this)">
+          中小企業も ESG に配慮する必要があるのでしょうか、それとも大企業だけでしょうか?
+          <span class="faq-icon">+</span>
+</div>
+<div class="faq-a">
+<p>これはよくある誤解です。 ESGは大企業だけのものではありません。実際、大規模 OEM のサプライ チェーンにある中小企業 (SME) が最も直接的な影響を受けています。</p>
+<ul>
+<li>サムスン、LG、アップルは、2024年からのサプライヤーとの契約締結に関してスコープ3の炭素データ要件を盛り込んだ。</li>
+<li>CBAM 2026 はビジネス規模に関係なく、製品価値に応じて適用されます</li>
+<li>国際銀行（HSBC、JICA、ADB）は融資条件における ESG 報告義務を強化しています</li>
+</ul>
+<p>顧客からのプレッシャーを受けて追いつくよりも、早めに始めたほうがはるかにコストが低くなります。ハウスリンクは、事業規模に応じて段階的に拡張できるESGソリューションを設計します。</p>
+</div>
+</div>
+</section>
+<section class="faq-section" id="cat-contractor">
+<div class="faq-section-header">
+<div class="fsh-ico">🔍</div>
+<div class="fsh-title">ハウスリンクに参加している請負業者およびサプライヤー</div>
+<div class="fsh-count">5つの質問</div>
+</div>
+<div class="faq-item">
+<div class="faq-q" onclick="toggle(this)">
+          請負業者/サプライヤーがHOUSELINKネットワークに参加するにはどのような条件を満たす必要がありますか?
+          <span class="faq-icon">+</span>
+</div>
+<div class="faq-a">
+<p>ハウスリンクは、以下の基本条件を備えた産業建設業界の企業を歓迎します。</p>
+<ul>
+<li>企業はベトナムで有効な法人を登録しています</li>
+<li>産業建設または建設資材の提供の分野で少なくとも2年働いた経験をお持ちの方</li>
+<li>少なくとも 1 ～ 2 つの検証可能な参照プロジェクトがある</li>
+<li>真実の情報を提供し、記録を定期的に更新することに努めます</li>
+</ul>
+<p>登録後、ハウスリンクは情報を検証し、ハウスリンクランキングシステムで企業をランク付けします。評価の高い企業は優先的に投資家に紹介されます。</p>
+<a class="faq-link" href="/ja/register/">会員登録する→</a>
+</div>
+</div>
+<div class="faq-item">
+<div class="faq-q" onclick="toggle(this)">
+          HOUSELINK ネットワークに参加するにはいくらかかりますか?
+          <span class="faq-icon">+</span>
+</div>
+<div class="faq-a">
+<p>HOUSELINK では、さまざまなメンバーシップ レベルを提供しています。</p>
+<ul>
+<li><strong>基本会員（無料）：</strong> ビジネスプロフィールの購読、基本的な評価、業界ニュースへのアクセス</li>
+<li><strong>プロ請負業者 / プロサプライヤー:</strong> プロジェクトデータベースへのフルアクセス、高度な検索、投資家メッセージング、ベトナム建設に関するマーケティングサポート - 月次/年次パッケージ</li>
+</ul>
+<p>ビジネスの規模とニーズに適したパッケージの詳細情報と見積もりを入手するには、HOUSELINK にお問い合わせください。</p>
+<a class="faq-link" href="/ja/services/find-project/">Find Projectサービスの詳細はこちら→</a>
+<span style="display:inline-block;margin-left:12px;font-size:14px;">
+<a class="faq-link" href="/ja/services/find-project/pricing/">価格表</a>
+<span style="opacity:.4;"> · </span>
+<a class="faq-link" href="/ja/services/find-project/contract/">登録と契約</a>
+</span>
+</div>
+</div>
+<div class="faq-item">
+<div class="faq-q" onclick="toggle(this)">
+          参加すると、どのような種類のプロジェクトにアクセスできるようになりますか?
+          <span class="faq-icon">+</span>
+</div>
+<div class="faq-a">
+<p>HOUSELINK システムは、全国で進行中および今後の FDI プロジェクトおよび国内企業に関する以下の情報を更新します。</p>
+<ul>
+<li>新しい工場および生産工場の建設</li>
+<li>既存工場の拡張・アップグレード</li>
+<li>倉庫、産業用物流センター</li>
+<li>工業団地の内部インフラ（道路、電気、水道、廃水処理）</li>
+<li>生産設備とM&amp;Eシステムの設置</li>
+</ul>
+<p>Pro メンバーは、業界、州、規模、実装段階ごとにプロジェクトをフィルタリングして、最も関連性の高い機会に焦点を当てることができます。</p>
+</div>
+</div>
+<div class="faq-item">
+<div class="faq-q" onclick="toggle(this)">
+          VietnamConstruction とは何ですか? 私のビジネスにどのように役立ちますか?
+          <span class="faq-icon">+</span>
+</div>
+<div class="faq-a">
+<p>VietnamConstruction (vietnamconstruction.vn) は、HOUSELINK が運営する、ベトナムの産業建設業界専用のコンテンツおよびコミュニティ プラットフォームです。現在の数字:</p>
+<ul>
+<li>毎月 50,000 人以上のプロの読者</li>
+<li>産業建設に100%集中します（一般土木建設ではありません）</li>
+<li>読者は主に、FDI 企業や大手請負業者のエンジニア、テクニカル ディレクター、調達マネージャーです。</li>
+</ul>
+<p>資材サプライヤーと請負業者にとって、VietnamConstruction は次のチャネルとなります。</p>
+<ul>
+<li>専門的な記事、事例紹介、新製品を投稿する</li>
+<li>ブランドと専門的な評判を構築する</li>
+<li>業界の購買意思決定ファイルにアクセスする</li>
+</ul>
+</div>
+</div>
+<div class="faq-item">
+<div class="faq-q" onclick="toggle(this)">
+          HOUSELINK ランキングとは何ですか? それは私のビジネスチャンスにどのような影響を与えますか?
+          <span class="faq-icon">+</span>
+</div>
+<div class="faq-a">
+<p>HOUSELINK ランキングは、CSI (建設仕様協会) の国際規格に基づいた請負業者およびサプライヤーのランキング システムです。企業は、技術的能力、財務的能力、参照記録、労働安全、コンプライアンスの 5 つの主な基準に従って評価されます。</p>
+<p>ビジネスチャンスへの影響:</p>
+<ul>
+<li>FDI投資家がハウスリンクに請負業者の検索をリクエストすると、提案されたリストはランクによって優先されます。</li>
+<li>ランキングの高いプロフィールは、プラットフォームの検索システムでより目立つように表示されます</li>
+<li>一部の日本や韓国の投資家は請負業者に入札条件で一定の最低格付けを要求している</li>
+</ul>
+<p>企業は、プロフィールを更新し、参考プロジェクトを追加し、協力した投資家からレビューを受け取ることで、ランキングを向上させることができます。</p>
+</div>
+</div>
+</section>
+<section class="faq-section" id="cat-pricing">
+<div class="faq-section-header">
+<div class="fsh-ico">💰</div>
+<div class="fsh-title">サービス料金と作業プロセス</div>
+<div class="fsh-count">5つの質問</div>
+</div>
+<div class="faq-item">
+<div class="faq-q" onclick="toggle(this)">
+          ハウスリンクのサービス料金はどのように請求されますか?
+          <span class="faq-icon">+</span>
+</div>
+<div class="faq-a">
+<p>HOUSELINK は、プロジェクトの範囲に基づいた価格モデルを適用しています。各プロジェクトは独自であるため、全員に一律の料金スケジュールはありません。人気のモデル:</p>
+<ul>
+<li><strong>プロジェクト料金:</strong> 特定プロジェクトごとのパッケージ料金（市場調査、立地探し、施工実施）</li>
+<li><strong>リテイナー料金：</strong> 継続的なサポートが必要な長期プロジェクトに対する定期的な月額コンサルティング料金</li>
+<li><strong>成功報酬：</strong> 報酬の一部は成果に連動します（ビジネスマッチングに適用）</li>
+<li><strong>定期購入:</strong> Find Project プラットフォームの定期的なメンバーシップ料金</li>
+</ul>
+<p>初回相談 <strong>完全に無料</strong>。初回のご相談後、ハウスリンクよりサービスのご提案書と詳細なお見積りをお送りいたします。</p>
+</div>
+</div>
+<div class="faq-item">
+<div class="faq-q" onclick="toggle(this)">
+          ハウスリンクの初回相談時は何を準備する必要がありますか?
+          <span class="faq-icon">+</span>
+</div>
+<div class="faq-a">
+<p>多くの準備は必要ありません。最初の相談は、双方がお互いを理解するためのものです。ただし、次の情報があれば、会議をより効果的にすることができます。</p>
+<ul>
+<li>ベトナムへの投資が期待される製造業・製品</li>
+<li>想定される投資規模（資本金、工場面積）</li>
+<li>予定スケジュール（いつ建設・運用を開始したいか）</li>
+<li>最も具体的な質問や懸念事項</li>
+<li>対象輸出市場（顧客からESG要求がある場合）</li>
+</ul>
+<a class="faq-link" href="/ja/contact/">無料相談予約→</a>
+</div>
+</div>
+<div class="faq-item">
+<div class="faq-q" onclick="toggle(this)">
+          HOUSELINK の新しい FDI プロジェクトにおける典型的な作業プロセスは何ですか?
+          <span class="faq-icon">+</span>
+</div>
+<div class="faq-a">
+<p>一般的なプロセスには、次の 4 つの主要な段階が含まれます。</p>
+<ul>
+<li><strong>フェーズ 1 — 理解と分析 (1 ～ 2 週間):</strong> 無料相談、範囲決定、契約締結、キックオフミーティング</li>
+<li><strong>フェーズ 2 — 調査と推奨事項 (3 ～ 8 週間):</strong> 市場調査、工業団地の審査、デューデリジェンス、結果発表</li>
+<li><strong>フェーズ 3 — 法的導入と構築 (3 ～ 18 か月):</strong> 許認可申請、施工業者探し、工事監理のサポート</li>
+<li><strong>フェーズ 4 — 運営と ESG (進行中):</strong> サプライチェーンの接続、ESGの導入、サポートの拡大</li>
+</ul>
+<p>要件に応じて、お客様はすべてのステージでハウスリンクを使用することも、一部のステージのみでハウスリンクを使用することもできます。</p>
+</div>
+</div>
+<div class="faq-item">
+<div class="faq-q" onclick="toggle(this)">
+          HOUSELINK は海外の顧客とリモート (オンライン) で連携しますか?
+          <span class="faq-icon">+</span>
+</div>
+<div class="faq-a">
+<p>持っている。コンサルティングの初期段階、レポートのプレゼンテーション、定例会議のほとんどは、Zoom、Teams、または Google Meet を介してオンラインで行うことができます。ハウスリンクは、そもそもベトナムに飛ぶ必要もなく、東京、ソウル、フランクフルト、ニューヨークの顧客と効果的に連携してきました。</p>
+<p>ただし、次のようないくつかの重要な手順はベトナムに物理的に存在する必要があります。</p>
+<ul>
+<li>工業団地の現地調査（通常2～4日かかります）</li>
+<li>工業団地管理委員会と契約を結ぶ</li>
+<li>一部の法的手続きには本人による署名が必要です</li>
+</ul>
+<p>ハウスリンクでは、旅費を最適化するためにベトナムへの渡航時期をアドバイスします。</p>
+</div>
+</div>
+<div class="faq-item">
+<div class="faq-q" onclick="toggle(this)">
+          契約前にハウスリンクのサービス品質を評価するにはどうすればよいですか?
+          <span class="faq-icon">+</span>
+</div>
+<div class="faq-a">
+<p>ハウスリンクは、お客様が決定する前に慎重に調査することをお勧めします。評価方法:</p>
+<ul>
+<li><strong>ケーススタディを読む:</strong> 事例ページで実際のプロジェクトをご覧ください</li>
+<li><strong>古い顧客を参照してください:</strong> ハウスリンクでは、サービスをご利用いただいたお客様と（お客様の同意を得て）おつなぎいたします。</li>
+<li><strong>無料お試し相談：</strong> 初回相談は無料です。相談の質を直接評価していただけます。</li>
+<li><strong>サンプルレポート:</strong> ハウスリンクに報告フォームの提出を依頼します（機密情報は隠されています）</li>
+<li><strong>LinkedIn をチェックしてください:</strong> チームのプロフィールと公開レビューを表示する</li>
+</ul>
+<a class="faq-link" href="/ja/cases/">ケーススタディを参照→</a>
+</div>
+</div>
+</section>
+<div class="faq-no-found" id="faqNotFound" style="display:none;">
+<div class="fnf-ico">🔍</div>
+<div class="fnf-title">一致する結果は見つかりませんでした</div>
+<div class="fnf-sub">他のキーワードで検索してみるか、HOUSELINK チームに直接サポートを受けてください。</div>
+<div class="fnf-btns">
+<a class="fnf-btn-primary" href="/ja/contact/">💬 ハウスリンクの専門家に質問する</a>
+<button class="fnf-btn-ghost" onclick="clearSearch()">↩ すべての質問を表示</button>
+</div>
+</div>
+</main>
 </div>
 <!-- ══ CTA SECTION ══ -->
 <section style="background:linear-gradient(135deg,var(--navy-deep) 0%,var(--navy) 100%);padding:72px 0;text-align:center;position:relative;overflow:hidden;">
-  <div style="position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.02) 1px,transparent 1px);background-size:28px 28px;pointer-events:none;"></div>
-  <div class="si" style="position:relative;z-index:1;">
-    <div class="sec-label" style="text-align:center;color:#7ED49A;margin-bottom:14px;">他にも質問がありますか？</div>
-    <h2 style="font-family:var(--font-serif);font-size:clamp(24px,3vw,40px);font-weight:600;color:#fff;margin-bottom:12px;">HOUSELINKの専門家が<br><em style="color:#7ED49A;font-style:normal;">サポートします</em></h2>
-    <p style="font-size:15px;color:rgba(255,255,255,.55);max-width:520px;margin:0 auto 32px;line-height:1.72;">市場調査、工業団地選定、法務、ESGまで—15年以上の経験を持つチームがスピードと確度を高めます。</p>
-    <div style="display:flex;justify-content:center;gap:14px;flex-wrap:wrap;">
-      <a href="/ja/contact/" style="display:inline-flex;align-items:center;gap:8px;background:var(--green);color:#fff;font-size:14.5px;font-weight:700;padding:13px 28px;border-radius:9px;text-decoration:none;">📅 無料相談を予約</a>
-      <a href="/ja/services/" style="display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.08);color:rgba(255,255,255,.8);font-size:14px;font-weight:600;padding:13px 24px;border-radius:9px;text-decoration:none;border:1.5px solid rgba(255,255,255,.15);">📋 サービス一覧</a>
-    </div>
-    <div style="margin-top:24px;font-size:13px;color:rgba(255,255,255,.28);">📞 +84 966 222 490 &nbsp;·&nbsp; ✉ info@houselink.com.vn</div>
-  </div>
+<div style="position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.02) 1px,transparent 1px);background-size:28px 28px;pointer-events:none;"></div>
+<div class="si" style="position:relative;z-index:1;">
+<div class="sec-label" style="text-align:center;color:#7ED49A;margin-bottom:14px;">他にも質問がありますか？</div>
+<h2 style="font-family:var(--font-serif);font-size:clamp(24px,3vw,40px);font-weight:600;color:#fff;margin-bottom:12px;">HOUSELINKの専門家が<br/><em style="color:#7ED49A;font-style:normal;">サポートします</em></h2>
+<p style="font-size:15px;color:rgba(255,255,255,.55);max-width:520px;margin:0 auto 32px;line-height:1.72;">市場調査、工業団地選定、法務、ESGまで—15年以上の経験を持つチームがスピードと確度を高めます。</p>
+<div style="display:flex;justify-content:center;gap:14px;flex-wrap:wrap;">
+<a href="/ja/contact/" style="display:inline-flex;align-items:center;gap:8px;background:var(--green);color:#fff;font-size:14.5px;font-weight:700;padding:13px 28px;border-radius:9px;text-decoration:none;">📅 無料相談を予約</a>
+<a href="/ja/services/" style="display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.08);color:rgba(255,255,255,.8);font-size:14px;font-weight:600;padding:13px 24px;border-radius:9px;text-decoration:none;border:1.5px solid rgba(255,255,255,.15);">📋 サービス一覧</a>
+</div>
+<div style="margin-top:24px;font-size:13px;color:rgba(255,255,255,.28);">📞 +84 966 222 490  ·  ✉ info@houselink.com.vn</div>
+</div>
 </section>
 <div id="hl-chrome-footer"></div>
-  <script src="../../landing-chrome.js" defer></script>
+<script defer="" src="../../landing-chrome.js"></script>
 <script>
 function setLang(l){
   document.querySelectorAll('.lang-btn').forEach(b=>b.classList.remove('active'));

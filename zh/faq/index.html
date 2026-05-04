@@ -1,11 +1,12 @@
 <!DOCTYPE html>
+
 <html lang="zh-Hans">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>常见问题（FAQ）– HOUSELINK</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 :root {
@@ -915,251 +916,876 @@ footer { background: var(--navy); color: rgba(255,255,255,0.55); padding: 72px 0
   .faq-cat-count { display: none; }
 }
 </style>
-  <link rel="stylesheet" href="../../landing-chrome.css">
+<link href="../../landing-chrome.css" rel="stylesheet"/>
 </head>
 <body class="hl-with-fixed-header" data-hl-page="faq">
-
 <div id="hl-chrome-header"></div>
-
 <section class="faq-hero">
-  <div class="fh-inner">
-    <div>
-      <div class="fh-eye">常见问题</div>
-      <h1 class="fh-h1">正在寻找有关<br><em>在越南投资</em>的答案吗？</h1>
-      <p class="fh-sub">汇总在越南工业市场与 HOUSELINK 合作推进项目时，FDI 投资方、工业承包商与供应商最常提出的问题。</p>
-      <div class="faq-search-wrap">
-        <div class="faq-search">
-          <input type="text" id="faqSearchInput" placeholder="搜索问题… 例如：DPPA、工业园区、承包商">
-          <button onclick="searchFaq()">🔍</button>
-        </div>
-      </div>
-    </div>
-    <div class="fh-stats">
-      <div class="fh-stat">
-        <div class="fhs-ico">❓</div>
-        <div><div class="fhs-n">40+</div><div class="fhs-l">已回答问题</div></div>
-      </div>
-      <div class="fh-stat">
-        <div class="fhs-ico">📂</div>
-        <div><div class="fhs-n">8</div><div class="fhs-l">主要主题</div></div>
-      </div>
-      <div class="fh-stat">
-        <div class="fhs-ico">🔄</div>
-        <div><div class="fhs-n">2026</div><div class="fhs-l">最后更新</div></div>
-      </div>
-    </div>
-  </div>
+<div class="fh-inner">
+<div>
+<div class="fh-eye">常见问题</div>
+<h1 class="fh-h1">正在寻找有关<br/><em>在越南投资</em>的答案吗？</h1>
+<p class="fh-sub">汇总在越南工业市场与 HOUSELINK 合作推进项目时，FDI 投资方、工业承包商与供应商最常提出的问题。</p>
+<div class="faq-search-wrap">
+<div class="faq-search">
+<input id="faqSearchInput" placeholder="搜索问题… 例如：DPPA、工业园区、承包商" type="text"/>
+<button onclick="searchFaq()">🔍</button>
+</div>
+</div>
+</div>
+<div class="fh-stats">
+<div class="fh-stat">
+<div class="fhs-ico">❓</div>
+<div><div class="fhs-n">40+</div><div class="fhs-l">已回答问题</div></div>
+</div>
+<div class="fh-stat">
+<div class="fhs-ico">📂</div>
+<div><div class="fhs-n">8</div><div class="fhs-l">主要主题</div></div>
+</div>
+<div class="fh-stat">
+<div class="fhs-ico">🔄</div>
+<div><div class="fhs-n">2026</div><div class="fhs-l">最后更新</div></div>
+</div>
+</div>
+</div>
 </section>
-
 <!-- ══ MAIN ══ -->
 <div class="faq-main" id="faqMain">
-
-  <!-- SIDEBAR -->
-  <aside class="faq-sidebar">
-    <div style="font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gray-400);margin-bottom:12px;">主题</div>
-    <div class="faq-cat-list">
-      <a href="#cat-general"     class="faq-cat active" onclick="setActive(this)"><span class="faq-cat-ico">🏠</span>HOUSELINK 概览<span class="faq-cat-count">6</span></a>
-      <a href="#cat-market"      class="faq-cat" onclick="setActive(this)"><span class="faq-cat-ico">📊</span>市场研究<span class="faq-cat-count">6</span></a>
-      <a href="#cat-site"        class="faq-cat" onclick="setActive(this)"><span class="faq-cat-ico">📍</span>园区选址<span class="faq-cat-count">5</span></a>
-      <a href="#cat-legal"       class="faq-cat" onclick="setActive(this)"><span class="faq-cat-ico">⚖️</span>法务与公司设立<span class="faq-cat-count">5</span></a>
-      <a href="#cat-project"     class="faq-cat" onclick="setActive(this)"><span class="faq-cat-ico">🏗️</span>承包与工厂建设<span class="faq-cat-count">6</span></a>
-      <a href="#cat-esg"         class="faq-cat" onclick="setActive(this)"><span class="faq-cat-ico">🌿</span>ESG 与绿色能源<span class="faq-cat-count">7</span></a>
-      <a href="#cat-contractor"  class="faq-cat" onclick="setActive(this)"><span class="faq-cat-ico">🔍</span>承包商与供应商入驻<span class="faq-cat-count">5</span></a>
-      <a href="#cat-pricing"     class="faq-cat" onclick="setActive(this)"><span class="faq-cat-ico">💰</span>服务费用与流程<span class="faq-cat-count">5</span></a>
-    </div>
-    <div class="sidebar-cta-mini">
-      <div class="scm-title">找不到答案？</div>
-      <div class="scm-sub">HOUSELINK 专家可为您提供直接支持。</div>
-      <a href="/zh/contact/" class="scm-btn">立即联系 →</a>
-    </div>
-  </aside>
-
-  <!-- CONTENT -->
-  <main class="faq-content" id="faqContent">
-
-    <!-- ── 1. GENERAL ── -->
-    <section class="faq-section" id="cat-general">
-      <div class="faq-section-header">
-        <div class="fsh-ico">🏠</div>
-        <div class="fsh-title">HOUSELINK 概览</div>
-        <div class="fsh-count">6 个问题</div>
-      </div>
-
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggle(this)">HOUSELINK 是什么？提供哪些服务？<span class="faq-icon">+</span></div>
-        <div class="faq-a">
-          <p>HOUSELINK 是面向越南工业制造与建设领域的生态平台，连接投资方、承包商与供应商。自 2010 年成立以来，HOUSELINK 已建立越南最大的工业数据平台之一，系统内包含 120,000+ 家工厂与生产基地。</p>
-          <p>我们提供 6 大类核心服务：</p>
-          <ul>
-            <li><strong>01 Market Research</strong> — 市场研究与投资咨询</li>
-            <li><strong>02 Site Selection</strong> — 选址与工业园区（KCN）筛选</li>
-            <li><strong>03 Business Setup</strong> — 公司设立与投资法务</li>
-            <li><strong>04 Project Implementation</strong> — 项目落地与承包商筛选</li>
-            <li><strong>05 ESG Platform</strong> — 面向工业园区的 ESG 一体化基础设施</li>
-            <li><strong>06 Find Project</strong> — 为承包商与供应商对接项目机会</li>
-          </ul>
-          <a href="/zh/services/" class="faq-link">查看全部服务 →</a>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggle(this)">HOUSELINK 服务哪些客户群体？<span class="faq-icon">+</span></div>
-        <div class="faq-a">
-          <p>HOUSELINK 主要服务越南工业生态中的三类客户：</p>
-          <ul>
-            <li><strong>投资方与 FDI 投资者：</strong> 来自日本、韩国、欧盟、美国、台湾等地区的跨国集团，以及希望在越南建设工厂/仓储或扩建产能的本土企业</li>
-            <li><strong>工业建设承包商：</strong> 总包与分包（厂房建设、钢结构、机电等），希望获取 FDI 项目机会</li>
-            <li><strong>材料与设备供应商：</strong> 提供钢材、水泥、机电设备、建材及工业项目运维（O&amp;M）服务的企业</li>
-          </ul>
-          <p>目前，来自 30+ 个国家的 2,000+ 家企业已加入 HOUSELINK 生态系统。</p>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggle(this)">什么是 HOUSELINK Database？数据来自哪里、如何更新？<span class="faq-icon">+</span></div>
-        <div class="faq-a">
-          <p>HOUSELINK Database 是越南工业与建设市场的重要数据库之一，包含工厂、工业园区、投资方、已验证承包商与供应商等信息。</p>
-          <p>数据来源包括：政府机构（计划与投资部、建设部、各省计划与投资厅）、工业园区管理委员会、HOUSELINK 团队的实地调研及合法授权数据源。研究团队按周与按月持续更新。</p>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggle(this)">HOUSELINK 有与外资企业合作的经验吗？<span class="faq-icon">+</span></div>
-        <div class="faq-a">
-          <p>是的。自 2010 年以来，HOUSELINK 已服务来自 30+ 个国家的客户。可按需提供越英双语报告与服务合同。</p>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggle(this)">HOUSELINK 与一般投资咨询公司有什么不同？<span class="faq-icon">+</span></div>
-        <div class="faq-a">
-          <p>我们的差异化主要体现在：</p>
-          <ul>
-            <li><strong>自有数据平台：</strong> 15 年持续建设与更新，覆盖 120,000+ 工厂</li>
-            <li><strong>生态连接：</strong> 可直接连接企业、承包商与工业园区网络</li>
-            <li><strong>ESG 一体化：</strong> 从测量到报告与绿色电力路径的一站式支持</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggle(this)">我可以通过哪些方式联系 HOUSELINK？<span class="faq-icon">+</span></div>
-        <div class="faq-a">
-          <ul>
-            <li>📧 <strong>Email:</strong> info@houselink.com.vn</li>
-            <li>📞 <strong>电话:</strong> +84 966 222 490</li>
-            <li>📍 <strong>办公室:</strong> 河内市 Cau Giay 郡 Duy Tan 街 78 号 Sannam 大厦 9 层</li>
-            <li>💬 <strong>Zalo:</strong> +84 966 222 490</li>
-          </ul>
-          <p>工作时间：周一至周五 8:30–18:00（GMT+7）</p>
-          <a href="/zh/contact/" class="faq-link">前往联系我们 →</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ── 2. MARKET ── -->
-    <section class="faq-section" id="cat-market">
-      <div class="faq-section-header"><div class="fsh-ico">📊</div><div class="fsh-title">市场研究</div><div class="fsh-count">6 个问题</div></div>
-      <div class="faq-item"><div class="faq-q" onclick="toggle(this)">你们提供哪些市场研究？<span class="faq-icon">+</span></div><div class="faq-a"><p>提供定制报告：行业规模、竞品/供应链分析、选址对比、投资可行性输入等。</p></div></div>
-      <div class="faq-item"><div class="faq-q" onclick="toggle(this)">报告需要多久？<span class="faq-icon">+</span></div><div class="faq-a"><p>通常 2–6 周，取决于范围（案头研究 vs. 一手访谈与实地核验）。</p></div></div>
-      <div class="faq-item"><div class="faq-q" onclick="toggle(this)">能做一手访谈（IDI）吗？<span class="faq-icon">+</span></div><div class="faq-a"><p>可以。按需要访谈买方/供应商、园区与相关方并输出要点。</p></div></div>
-      <div class="faq-item"><div class="faq-q" onclick="toggle(this)">能提供双语成果吗？<span class="faq-icon">+</span></div><div class="faq-a"><p>可以。越南语–英语为常规配置，关键部分可协商其他语言。</p></div></div>
-      <div class="faq-item"><div class="faq-q" onclick="toggle(this)">如何保证数据准确性？<span class="faq-icon">+</span></div><div class="faq-a"><p>通过政府/授权数据与实地核验交叉验证，并在报告中明确假设与置信度。</p></div></div>
-      <div class="faq-item"><div class="faq-q" onclick="toggle(this)">可以按我们的决策节点分阶段吗？<span class="faq-icon">+</span></div><div class="faq-a"><p>可以。可采用“快速扫描→深度研究”的分阶段设计。</p></div></div>
-    </section>
-
-    <!-- ── 3. SITE ── -->
-    <section class="faq-section" id="cat-site">
-      <div class="faq-section-header"><div class="fsh-ico">📍</div><div class="fsh-title">园区选址</div><div class="fsh-count">5 个问题</div></div>
-      <div class="faq-item"><div class="faq-q" onclick="toggle(this)">能帮我们筛选合适的工业园区（KCN）吗？<span class="faq-icon">+</span></div><div class="faq-a"><p>可以。按省市、能源与公用工程、交通、劳动力、优惠政策与约束条件筛选，并协助安排考察。</p></div></div>
-      <div class="faq-item"><div class="faq-q" onclick="toggle(this)">能协助租赁/土地条款谈判吗？<span class="faq-icon">+</span></div><div class="faq-a"><p>可提供谈判要点、常见条款与风险提示，并可参加与园区方会议。</p></div></div>
-      <div class="faq-item"><div class="faq-q" onclick="toggle(this)">可以比较电力容量与成本吗？<span class="faq-icon">+</span></div><div class="faq-a"><p>可以。电力容量、稳定性与扩容方案是尽调核心项。</p></div></div>
-      <div class="faq-item"><div class="faq-q" onclick="toggle(this)">物流与可达性分析也包含吗？<span class="faq-icon">+</span></div><div class="faq-a"><p>会按您的供应链需求，比较到港口/机场/高速等的距离与时间。</p></div></div>
-      <div class="faq-item"><div class="faq-q" onclick="toggle(this)">你们会提供哪些交付物？<span class="faq-icon">+</span></div><div class="faq-a"><p>包括排序后的候选清单、对比矩阵、考察记录与下一步建议（许可/项目启动）。</p></div></div>
-    </section>
-
-    <!-- ── 4. LEGAL ── -->
-    <section class="faq-section" id="cat-legal">
-      <div class="faq-section-header"><div class="fsh-ico">⚖️</div><div class="fsh-title">法务与公司设立</div><div class="fsh-count">5 个问题</div></div>
-      <div class="faq-item"><div class="faq-q" onclick="toggle(this)">能协助公司设立与投资许可吗？<span class="faq-icon">+</span></div><div class="faq-a"><p>可以。通过可信赖的法务伙伴协助 IRC/ERC 等流程，并与主管部门沟通。</p></div></div>
-      <div class="faq-item"><div class="faq-q" onclick="toggle(this)">许可与合规（环评/消防/施工许可）如何处理？<span class="faq-icon">+</span></div><div class="faq-a"><p>我们整理材料清单与时间表，提示关键风险，并协助对接专项机构。</p></div></div>
-      <div class="faq-item"><div class="faq-q" onclick="toggle(this)">如何管理整体时间线？<span class="faq-icon">+</span></div><div class="faq-a"><p>提供包含关键路径与依赖关系的分步计划，便于并行推进选址、法务与建设。</p></div></div>
-      <div class="faq-item"><div class="faq-q" onclick="toggle(this)">能支持双语合同吗？<span class="faq-icon">+</span></div><div class="faq-a"><p>可以。可安排越南语–英语双语起草与审阅。</p></div></div>
-      <div class="faq-item"><div class="faq-q" onclick="toggle(this)">能适配海外总部（HQ）的要求吗？<span class="faq-icon">+</span></div><div class="faq-a"><p>可以。交付物可按总部审阅与内部合规流程的格式提供。</p></div></div>
-    </section>
-
-    <!-- ── 5. PROJECT ── -->
-    <section class="faq-section" id="cat-project">
-      <div class="faq-section-header"><div class="fsh-ico">🏗️</div><div class="fsh-title">承包与工厂建设</div><div class="fsh-count">6 个问题</div></div>
-      <div class="faq-item"><div class="faq-q" onclick="toggle(this)">能筛选并推荐承包商吗？<span class="faq-icon">+</span></div><div class="faq-a"><p>可以。基于项目经验、财务能力、客户评价、安全与交付表现等维度筛选。</p></div></div>
-      <div class="faq-item"><div class="faq-q" onclick="toggle(this)">能协助编制 RFP/RFQ 吗？<span class="faq-icon">+</span></div><div class="faq-a"><p>可协助结构化需求、评审标准与候选清单，实现透明对比。</p></div></div>
-      <div class="faq-item"><div class="faq-q" onclick="toggle(this)">能协助招标与澄清吗？<span class="faq-icon">+</span></div><div class="faq-a"><p>可以。收集方案、组织答疑、对比技术/商务条款并输出建议。</p></div></div>
-      <div class="faq-item"><div class="faq-q" onclick="toggle(this)">能做项目监理/进度跟踪吗？<span class="faq-icon">+</span></div><div class="faq-a"><p>可与您的团队协作提供周期性进度报告与风险跟踪。</p></div></div>
-      <div class="faq-item"><div class="faq-q" onclick="toggle(this)">能对接洁净室/实验室等专业供应商吗？<span class="faq-icon">+</span></div><div class="faq-a"><p>可以。通过承包商/供应商网络对接满足特定标准的专业团队。</p></div></div>
-      <div class="faq-item"><div class="faq-q" onclick="toggle(this)">合同条款方面能提供建议吗？<span class="faq-icon">+</span></div><div class="faq-a"><p>我们会提示常见风险条款与谈判点；正式法务审阅可由伙伴完成。</p></div></div>
-    </section>
-
-    <!-- ── 6. ESG ── -->
-    <section class="faq-section" id="cat-esg">
-      <div class="faq-section-header"><div class="fsh-ico">🌿</div><div class="fsh-title">ESG 与绿色能源</div><div class="fsh-count">7 个问题</div></div>
-      <div class="faq-item"><div class="faq-q" onclick="toggle(this)">你们提供哪些 ESG 服务？<span class="faq-icon">+</span></div><div class="faq-a"><p>ESG 基线评估、GHG 清单、产品碳足迹、报告框架对齐（GRI/SASB）与审计准备等。</p></div></div>
-      <div class="faq-item"><div class="faq-q" onclick="toggle(this)">能支持 DPPA/绿电路径吗？<span class="faq-icon">+</span></div><div class="faq-a"><p>可提供绿电采购、DPPA 准备度、REC 策略等咨询，匹配买方要求。</p></div></div>
-      <div class="faq-item"><div class="faq-q" onclick="toggle(this)">能支持 CBAM/CSRD 准备吗？<span class="faq-icon">+</span></div><div class="faq-a"><p>可以。协助数据收集、报告结构与文档准备。</p></div></div>
-      <div class="faq-item"><div class="faq-q" onclick="toggle(this)">支持哪些标准？<span class="faq-icon">+</span></div><div class="faq-a"><p>常见包括 ISO 14064-1、ISO 14067、ISAE 3000、GRI，以及买方专项要求。</p></div></div>
-      <div class="faq-item"><div class="faq-q" onclick="toggle(this)">如何降低审计时间与成本？<span class="faq-icon">+</span></div><div class="faq-a"><p>通过结构化数据收集、证据包与清晰审计轨迹，减少验证阶段返工。</p></div></div>
-      <div class="faq-item"><div class="faq-q" onclick="toggle(this)">园区能为入驻企业开展 ESG 项目吗？<span class="faq-icon">+</span></div><div class="faq-a"><p>可以。可设计入驻企业参与计划、监测与汇报机制，形成园区 ESG package。</p></div></div>
-      <div class="faq-item"><div class="faq-q" onclick="toggle(this)">能对接第三方验证机构吗？<span class="faq-icon">+</span></div><div class="faq-a"><p>可以。可对接 LRQA、Bureau Veritas、SGS、TÜV 等。</p></div></div>
-    </section>
-
-    <!-- ── 7. JOIN ── -->
-    <section class="faq-section" id="cat-contractor">
-      <div class="faq-section-header"><div class="fsh-ico">🔍</div><div class="fsh-title">承包商与供应商入驻</div><div class="fsh-count">5 个问题</div></div>
-      <div class="faq-item"><div class="faq-q" onclick="toggle(this)">承包商/供应商如何加入 HOUSELINK？<span class="faq-icon">+</span></div><div class="faq-a"><p>创建资料，提交关键文件用于验证，并根据目标选择相应方案即可开始。</p></div></div>
-      <div class="faq-item"><div class="faq-q" onclick="toggle(this)">什么是验证与排名？<span class="faq-icon">+</span></div><div class="faq-a"><p>我们核验能力证明与参考案例，并以排名形式展示。排名更高将获得更好的匹配曝光。</p></div></div>
-      <div class="faq-item"><div class="faq-q" onclick="toggle(this)">可以获得哪些项目机会？<span class="faq-icon">+</span></div><div class="faq-a"><p>与 FDI/DDI 相关的工业建设机会，包括工厂新建与扩建等。</p></div></div>
-      <div class="faq-item"><div class="faq-q" onclick="toggle(this)">是否提供营销/PR 支持？<span class="faq-icon">+</span></div><div class="faq-a"><p>部分方案包含 VietnamConstruction.vn 曝光以及顾问支持。</p></div></div>
-      <div class="faq-item"><div class="faq-q" onclick="toggle(this)">多久可以激活账号？<span class="faq-icon">+</span></div><div class="faq-a"><p>完成合同与验证核对后，通常 1 个工作日内激活。</p></div></div>
-    </section>
-
-    <!-- ── 8. PRICING / PROCESS ── -->
-    <section class="faq-section" id="cat-pricing">
-      <div class="faq-section-header"><div class="fsh-ico">💰</div><div class="fsh-title">服务费用与流程</div><div class="fsh-count">5 个问题</div></div>
-      <div class="faq-item"><div class="faq-q" onclick="toggle(this)">合作流程是怎样的？<span class="faq-icon">+</span></div><div class="faq-a"><p>从初次沟通开始，确认范围与时间线后分阶段执行（分析→交付→后续支持）。</p></div></div>
-      <div class="faq-item"><div class="faq-q" onclick="toggle(this)">首次咨询免费吗？<span class="faq-icon">+</span></div><div class="faq-a"><p>是的。首次咨询免费，便于您评估我们的方式与匹配度。</p></div></div>
-      <div class="faq-item"><div class="faq-q" onclick="toggle(this)">你们如何报价？<span class="faq-icon">+</span></div><div class="faq-a"><p>价格取决于范围、紧急度以及是否需要一手调研。我们会提供清晰的提案与交付清单。</p></div></div>
-      <div class="faq-item"><div class="faq-q" onclick="toggle(this)">付款条款有哪些？<span class="faq-icon">+</span></div><div class="faq-a"><p>视服务而定。订阅类服务通常提供月付/年付选项。</p></div></div>
-      <div class="faq-item"><div class="faq-q" onclick="toggle(this)">交付后还有支持吗？<span class="faq-icon">+</span></div><div class="faq-a"><p>有。可包含后续答疑、资源对接与下一步规划。</p></div></div>
-    </section>
-
-    <!-- NO RESULTS -->
-    <div class="faq-no-found" id="faqNoFound" style="display:none;">
-      <div class="fnf-ico">🔎</div>
-      <div class="fnf-title">未找到匹配结果</div>
-      <div class="fnf-sub">请尝试其他关键词，或直接联系 HOUSELINK 获得支持。</div>
-      <div class="fnf-btns">
-        <a href="/zh/contact/" class="fnf-btn-primary">💬 咨询 HOUSELINK 专家</a>
-        <button onclick="clearSearch()" class="fnf-btn-ghost">↩ 查看全部问题</button>
-      </div>
-    </div>
-
-  </main>
+<!-- SIDEBAR -->
+<aside class="faq-sidebar">
+<div style="font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gray-400);margin-bottom:12px;">主题</div>
+<div class="faq-cat-list">
+<a class="faq-cat active" href="#cat-general" onclick="setActive(this)"><span class="faq-cat-ico">🏠</span>HOUSELINK 概览<span class="faq-cat-count">6</span></a>
+<a class="faq-cat" href="#cat-market" onclick="setActive(this)"><span class="faq-cat-ico">📊</span>市场研究<span class="faq-cat-count">6</span></a>
+<a class="faq-cat" href="#cat-site" onclick="setActive(this)"><span class="faq-cat-ico">📍</span>园区选址<span class="faq-cat-count">5</span></a>
+<a class="faq-cat" href="#cat-legal" onclick="setActive(this)"><span class="faq-cat-ico">⚖️</span>法务与公司设立<span class="faq-cat-count">5</span></a>
+<a class="faq-cat" href="#cat-project" onclick="setActive(this)"><span class="faq-cat-ico">🏗️</span>承包与工厂建设<span class="faq-cat-count">6</span></a>
+<a class="faq-cat" href="#cat-esg" onclick="setActive(this)"><span class="faq-cat-ico">🌿</span>ESG 与绿色能源<span class="faq-cat-count">7</span></a>
+<a class="faq-cat" href="#cat-contractor" onclick="setActive(this)"><span class="faq-cat-ico">🔍</span>承包商与供应商入驻<span class="faq-cat-count">5</span></a>
+<a class="faq-cat" href="#cat-pricing" onclick="setActive(this)"><span class="faq-cat-ico">💰</span>服务费用与流程<span class="faq-cat-count">5</span></a>
+</div>
+<div class="sidebar-cta-mini">
+<div class="scm-title">找不到答案？</div>
+<div class="scm-sub">HOUSELINK 专家可为您提供直接支持。</div>
+<a class="scm-btn" href="/zh/contact/">立即联系 →</a>
+</div>
+</aside>
+<!-- CONTENT -->
+<main class="faq-content" id="faqContent">
+<!-- ── 1. TỔNG QUAN ── -->
+<section class="faq-section" id="cat-general">
+<div class="faq-section-header">
+<div class="fsh-ico">🏠</div>
+<div class="fsh-title">HOUSELINK概述</div>
+<div class="fsh-count">6 个问题</div>
+</div>
+<div class="faq-item">
+<div class="faq-q" onclick="toggle(this)">
+          HOUSELINK是什么以及它提供哪些服务？
+          <span class="faq-icon">+</span>
+</div>
+<div class="faq-a">
+<p>HOUSELINK 是连接越南工业生产和建筑市场的投资者、承包商和供应商的领先生态系统平台。 HOUSELINK成立于2010年，目前是越南最大的工业数据平台，系统内有超过12万家工厂。</p>
+<p>我们提供6个主要服务组：</p>
+<ul>
+<li><strong>01 市场研究</strong> — 市场研究与投资咨询</li>
+<li><strong>02 选址</strong> — 搜索位置并选择工业园区</li>
+<li><strong>03 业务设置</strong> — 商业设立和投资法律</li>
+<li><strong>04 项目实施</strong> — 项目实施和承包商筛选</li>
+<li><strong>05 ESG平台</strong> — 工业园区综合ESG基础设施</li>
+<li><strong>06 寻找项目</strong> — 为承包商和供应商提供项目机会</li>
+</ul>
+<a class="faq-link" href="/zh/services/">查看所有服务 →</a>
+</div>
+</div>
+<div class="faq-item">
+<div class="faq-q" onclick="toggle(this)">
+          HOUSELINK服务哪些客户？
+          <span class="faq-icon">+</span>
+</div>
+<div class="faq-a">
+<p>HOUSELINK为越南工业生态系统中的3个主要客户群提供服务：</p>
+<ul>
+<li><strong>投资者和外国直接投资投资者：</strong> 跨国公司（日本、韩国、欧盟、美国、台湾）和国内企业希望在越南建立工厂、仓库或扩大生产设施</li>
+<li><strong>工业建筑承包商：</strong> 工厂建设、钢结构、工业园区机电等领域的总承包商和分包商希望接洽FDI项目</li>
+<li><strong>材料及设备供应商：</strong> 业务为工业项目提供钢铁、水泥、机电设备、建筑材料及运维服务</li>
+</ul>
+<p>目前，来自30多个国家的2000多家企业是HOUSELINK生态系统的成员。</p>
+</div>
+</div>
+<div class="faq-item">
+<div class="faq-q" onclick="toggle(this)">
+          什么是HOUSELINK数据库？数据从哪里来以及如何更新？
+          <span class="faq-icon">+</span>
+</div>
+<div class="faq-a">
+<p>HOUSELINK数据库是越南工业和建筑市场最大的数据库系统，包括：</p>
+<ul>
+<li>120,000 多个工厂和制造设施</li>
+<li>34个省市500+产业园区和集群</li>
+<li>10,000+项目投资人和投资者</li>
+<li>300 多个经过验证和评级的承包商</li>
+<li>5,000+材料和设备供应商</li>
+</ul>
+<p>数据来源于多种来源：国家机构（计划投资部、建设部、各省计划投资厅）、工业园区管理委员会、HOUSELINK团队的实地调查和许可来源。研究团队每周和每月不断更新。</p>
+</div>
+</div>
+<div class="faq-item">
+<div class="faq-q" onclick="toggle(this)">
+          HOUSELINK 有与外国企业合作的经验吗？
+          <span class="faq-icon">+</span>
+</div>
+<div class="faq-a">
+<p>有。自2010年以来，HOUSELINK已为来自30多个国家的客户提供服务，包括日本、韩国、德国、美国、台湾、新加坡和许多欧盟国家。典型企业包括埃克森美孚、日立、LG电子、三星、巴斯夫、施耐德电气等许多企业。</p>
+<p>HOUSELINK团队用英语专业沟通。一些成员能够提供日语和韩语的技术问题支持。</p>
+<div class="highlight-box"><em>笔记：</em> 所有报告和服务合同均可根据要求提供越南语和英语双语版本。</div>
+</div>
+</div>
+<div class="faq-item">
+<div class="faq-q" onclick="toggle(this)">
+          HOUSELINK与普通投资咨询公司有何不同？
+          <span class="faq-icon">+</span>
+</div>
+<div class="faq-a">
+<p>HOUSELINK的不同之处有3个核心点：</p>
+<ul>
+<li><strong>私有数据平台：</strong> 大多数咨询机构都依赖二手数据。 HOUSELINK 拥有自己的数据库系统，包含 15 年来建立和更新的 120,000 多家工厂 - 越南没有其他单位具有类似的规模。</li>
+<li><strong>互联生态系统：</strong> 除了咨询之外，HOUSELINK 还直接与 2,000 多家企业、300 多家承包商和 500 多个工业园区组成的网络连接，从而缩短了从研究到采取行动的时间。</li>
+<li><strong>综合环境、社会及管治：</strong> HOUSELINK是越南为数不多的为工业园区和制造企业提供端到端ESG解决方案（测量、报告、绿色电力DPPA）的单位之一。</li>
+</ul>
+</div>
+</div>
+<div class="faq-item">
+<div class="faq-q" onclick="toggle(this)">
+          我如何联系HOUSELINK？
+          <span class="faq-icon">+</span>
+</div>
+<div class="faq-a">
+<p>您可以通过多种渠道联系HOUSELINK：</p>
+<ul>
+<li>📧 <strong>电子邮件：</strong> info@houselink.com.vn</li>
+<li>📞 <strong>电话：</strong> +84 966 222 490（越南语 - 英语）</li>
+<li>📍 <strong>办公室：</strong> 河内 Cau Giay Duy Tan 78 号 Sannam 大厦 9 楼</li>
+<li>💬 <strong>扎洛：</strong> +84 966 222 490</li>
+<li>🔗 <strong>领英：</strong> 越南HOUSELINK</li>
+</ul>
+<p>工作时间：周一至周五，8:30–18:00。在 1 个工作日内回复电子邮件。</p>
+<a class="faq-link" href="/zh/contact/">前往联系页面 →</a>
+</div>
+</div>
+</section>
+<!-- ── 2. NGHIÊN CỨU THỊ TRƯỜNG ── -->
+<section class="faq-section" id="cat-market">
+<div class="faq-section-header">
+<div class="fsh-ico">📊</div>
+<div class="fsh-title">市场调查</div>
+<div class="fsh-count">6 个问题</div>
+</div>
+<div class="faq-item">
+<div class="faq-q" onclick="toggle(this)">
+          HOUSELINK可以研究越南哪些行业？
+          <span class="faq-icon">+</span>
+</div>
+<div class="faq-a">
+<p>HOUSELINK有能力深入研究越南大部分工业生产行业，包括：</p>
+<ul>
+<li>电子、半导体和高科技组件</li>
+<li>建筑和工业机械和设备</li>
+<li>纺织品、纱线和服装</li>
+<li>化学品、塑料和工业材料</li>
+<li>钢铁、金属和建筑结构</li>
+<li>电动汽车 (EV)、电池和汽车零部件</li>
+<li>药品及医疗设备</li>
+<li>食品和饮料（工业餐饮）</li>
+<li>可再生能源和工业园区基础设施</li>
+</ul>
+<span class="faq-tag">半导体</span><span class="faq-tag">电动汽车</span><span class="faq-tag">纺织品</span><span class="faq-tag">化学品</span><span class="faq-tag">钢</span>
+</div>
+</div>
+<div class="faq-item">
+<div class="faq-q" onclick="toggle(this)">
+          HOUSELINK市场研究报告通常需要多长时间？
+          <span class="faq-icon">+</span>
+</div>
+<div class="faq-a">
+<p>实施时间取决于项目范围，通常：</p>
+<ul>
+<li><strong>基础案头研究报告</strong> （市场规模、供应链概要）：2-3 周</li>
+<li><strong>IDI 综合报告</strong> （深度访谈20-50家企业）：30-45个工作日</li>
+<li><strong>可行性研究</strong> 复杂：45–60 天</li>
+</ul>
+<p>如果项目有紧急要求，HOUSELINK可以缩短工期——请在订购时讨论。</p>
+<div class="highlight-box">典型案例研究：埃克森美孚越南 — 300 家地图公司 + 45 个 IDI 呼叫， <em>45个工作日内完成</em>，被客户评价为“超出预期”。</div>
+</div>
+</div>
+<div class="faq-item">
+<div class="faq-q" onclick="toggle(this)">
+          HOUSELINK市场报告与国际咨询公司的报告有何不同？
+          <span class="faq-icon">+</span>
+</div>
+<div class="faq-a">
+<p>主要区别在于深度和实用性：</p>
+<ul>
+<li><strong>来自直接实地调查的主要数据：</strong> HOUSELINK 对越南企业进行直接采访——不仅仅是综合二手数据</li>
+<li><strong>了解当地市场：</strong> 越南团队在该领域工作多年，了解公开报告中找不到的隐藏因素</li>
+<li><strong>研究后的联系：</strong> 报告发布后，HOUSELINK 继续支持合作伙伴联系和商贸配对组织 — 不仅仅停留在报告上</li>
+<li><strong>费用更合理：</strong> 适合没有四大公司预算的中小型企业</li>
+</ul>
+</div>
+</div>
+<div class="faq-item">
+<div class="faq-q" onclick="toggle(this)">
+          HOUSELINK可以根据我们的具体要求进行市场调查吗？
+          <span class="faq-icon">+</span>
+</div>
+<div class="faq-a">
+<p>有。所有 HOUSELINK 报告都是 100% 根据客户要求定制的。工作流程从启动会议开始，以澄清：</p>
+<ul>
+<li>业务目标和具体研究问题</li>
+<li>需要分析行业、细分市场和地理区域</li>
+<li>访谈对象（如果有 IDI）</li>
+<li>报告格式及语言（越南语/英语/双语）</li>
+<li>时间表和预算</li>
+</ul>
+<a class="faq-link" href="/zh/services/market/">查看市场研究服务详情 →</a>
+</div>
+</div>
+<div class="faq-item">
+<div class="faq-q" onclick="toggle(this)">
+          报告中的信息是否保密？
+          <span class="faq-icon">+</span>
+</div>
+<div class="faq-a">
+<p>有。 HOUSELINK 在开始项目之前与所有客户签署保密协议 (NDA)。该报告仅提供给订购客户，不得共享或用于任何其他目的。</p>
+<p>HOUSELINK 严格遵守关于个人数据保护的第 91/2025/QH15 号法律和第 13/2023/ND-CP 号法令的隐私政策。</p>
+<a class="faq-link" href="/zh/privacy/">阅读隐私政策 →</a>
+</div>
+</div>
+<div class="faq-item">
+<div class="faq-q" onclick="toggle(this)">
+          HOUSELINK有越南合并34个省后新省市的数据吗？
+          <span class="faq-icon">+</span>
+</div>
+<div class="faq-a">
+<p>有。 2025年7月起，越南将正式从63个合并为1个 <strong>34个省市</strong>。 HOUSELINK根据新的行政单位更新了整个数据库系统、工业园区地图和地方分类。</p>
+<p>这是影响投资地点选择的一个重要变化，因为一些原来属于不同省份的工业园区和地区现在已经合并，导致管理权限、规划和投资激励措施发生变化。</p>
+<div class="highlight-box"><em>杰出的例子：</em> 平定省和嘉莱省合并形成新的嘉莱省——这直接影响到 Becamex VSIP 平定工业园（现为嘉莱省的一部分）。</div>
+</div>
+</div>
+</section>
+<!-- ── 3. TÌM KIẾM ĐỊA ĐIỂM ── -->
+<section class="faq-section" id="cat-site">
+<div class="faq-section-header">
+<div class="fsh-ico">📍</div>
+<div class="fsh-title">寻找工业园区地点</div>
+<div class="fsh-count">5 个问题</div>
+</div>
+<div class="faq-item">
+<div class="faq-q" onclick="toggle(this)">
+          如何为我的项目选择合适的工业园区？
+          <span class="faq-icon">+</span>
+</div>
+<div class="faq-a">
+<p>HOUSELINK采用多标准筛选系统来寻找最合适的工业园区。该过程包括 5 个步骤：</p>
+<ul>
+<li><strong>第 1 步 — 确定标准：</strong> 面积、生产行业、投资资金、基础设施要求、人力资源</li>
+<li><strong>第二步——从500+产业园区数据库中筛选：</strong> 按省份、占用率、电量、港口距离快速过滤</li>
+<li><strong>步骤3——初步分析5-10个潜在工业园区：</strong> 比较租金价格、奖励措施、便利设施</li>
+<li><strong>第 4 步 — 实地调查：</strong> 与工业园区管理委员会会面并检查实际基础设施</li>
+<li><strong>第 5 步 — 尽职调查和报告：</strong> 法律、规划和环境检查</li>
+</ul>
+<a class="faq-link" href="/zh/services/land/">查看选址服务详情 →</a>
+</div>
+</div>
+<div class="faq-item">
+<div class="faq-q" onclick="toggle(this)">
+          目前重点工业区土地租金价格是多少？
+          <span class="faq-icon">+</span>
+</div>
+<div class="faq-a">
+<p>工业园区土地租金价格因位置和基础设施的不同而有很大差异。 2026 年第一季度统计数据：</p>
+<ul>
+<li><strong>北部（河内、北宁、兴安）：</strong> 150–220 美元/平方米/租赁期（50 年）</li>
+<li><strong>南部（胡志明市、同奈省、平阳省）：</strong> 130–200 美元/平方米/周期</li>
+<li><strong>中部地区和二级省份（义安省、嘉莱省）：</strong> 60–100 美元/平方米/周期</li>
+</ul>
+<p>现成工厂每月租金：北方地区为 4.5–7.5 美元/平方米/月，二级省份较低。</p>
+<p>价格可能会根据市场变化。联系 HOUSELINK 以获取最新报价。</p>
+</div>
+</div>
+<div class="faq-item">
+<div class="faq-q" onclick="toggle(this)">
+          目前工业园入住率是多少？土地基金还有吗？
+          <span class="faq-icon">+</span>
+</div>
+<div class="faq-a">
+<p>根据 2026 年第一季度更新的 HOUSELINK 数据：</p>
+<ul>
+<li><strong>北：</strong> 平均入住率~92%——河内附近大型工业园区的土地资金非常有限</li>
+<li><strong>南方：</strong> 平阳省同奈省的入住率约为85%——平福省和隆安省的一些新工业园区仍然拥有大量土地资金</li>
+<li><strong>次要省份：</strong> 义安省、嘉莱省、庆和省仍然拥有许多土地基金，其价格较有吸引力，高出 30-40%。</li>
+</ul>
+<p>传统工业区土地资金匮乏的压力正在推动FDI浪潮向二级省份转移——预计这一趋势将在2027年大幅增长。</p>
+</div>
+</div>
+<div class="faq-item">
+<div class="faq-q" onclick="toggle(this)">
+          HOUSELINK可以支持与工业园区管理委员会的谈判吗？
+          <span class="faq-icon">+</span>
+</div>
+<div class="faq-a">
+<p>有。 HOUSELINK 与越南大多数大型工业园区的管理委员会都有工作关系。我们可以协助：</p>
+<ul>
+<li>与工业园区管理委员会联系并安排会议</li>
+<li>根据各产业园区要求准备项目引进文件</li>
+<li>土地租赁合同谈判要点咨询</li>
+<li>工作会议期间的口译支持（英语 - 越南语）</li>
+</ul>
+<p>不过，HOUSELINK扮演的是咨询和支持的角色，最终决定权仍在投资者和园区业主之间。</p>
+</div>
+</div>
+<div class="faq-item">
+<div class="faq-q" onclick="toggle(this)">
+          工业园区（工业园区）和出口加工区（出口加工区）有什么区别？
+          <span class="faq-icon">+</span>
+</div>
+<div class="faq-a">
+<p>这是外国投资者普遍关心的问题。主要区别：</p>
+<ul>
+<li><strong>工业园：</strong> 工业园区企业产品可销往国内外。原材料可按正常税收进口。更流行、更灵活</li>
+<li><strong>出口加工区：</strong> 被视为“私人关税区”——享受特殊关税优惠，但产品必须至少 80% 出口。适合100%出口企业</li>
+</ul>
+<p>对于大多数生产出口和内销的 FDI 企业来说， <strong>工业园区是更灵活的选择</strong>。 HOUSELINK将在清楚了解您的商业模式后就合适的选择提出建议。</p>
+</div>
+</div>
+</section>
+<!-- ── 4. PHÁP LÝ ── -->
+<section class="faq-section" id="cat-legal">
+<div class="faq-section-header">
+<div class="fsh-ico">⚖️</div>
+<div class="fsh-title">法律及商业机构</div>
+<div class="fsh-count">5 个问题</div>
+</div>
+<div class="faq-item">
+<div class="faq-q" onclick="toggle(this)">
+          外国投资者在越南投资建厂需要申请哪些许可证？
+          <span class="faq-icon">+</span>
+</div>
+<div class="faq-a">
+<p>外国投资者通常需要以下许可和程序（根据2020年投资法）：</p>
+<ul>
+<li><strong>IRC（投资登记证书）：</strong> 投资登记证书——由工业园区管理委员会或计划投资部颁发</li>
+<li><strong>ERC（企业登记证）：</strong> 商业登记证——在越南设立法人实体</li>
+<li><strong>施工许可证：</strong> 基本设计获得批准后</li>
+<li><strong>防火：</strong> 投入运行前需做好防火工作</li>
+<li><strong>环境影响评估/战略环境评估报告：</strong> 环境影响评价（视项目规模而定）</li>
+</ul>
+<p>如果申请完成，从提交 IRC 申请到获得正式许可证的总时间通常需要 3-6 个月。 HOUSELINK 支持文档准备和进度跟踪。</p>
+<a class="faq-link" href="/zh/services/legal/">请参阅业务设立和法律服务 →</a>
+</div>
+</div>
+<div class="faq-item">
+<div class="faq-q" onclick="toggle(this)">
+          FDI企业可以在越南拥有100%的资本吗？
+          <span class="faq-icon">+</span>
+</div>
+<div class="faq-a">
+<p>是的，在大多数工业生产部门。根据2020年投资法，允许外国投资者在以下行业在越南设立100%外资企业：</p>
+<ul>
+<li>电子、机械和设备制造</li>
+<li>建造工厂和仓库</li>
+<li>农产品和食品加工</li>
+<li>纺织品、鞋类</li>
+<li>化学品不受限制</li>
+</ul>
+<p>一些行业对外资所有权有限制（电信、银行、零售……），但这并不适用于大多数工业制造部门。</p>
+</div>
+</div>
+<div class="faq-item">
+<div class="faq-q" onclick="toggle(this)">
+          完成投资登记程序（IRC）需要多长时间？
+          <span class="faq-icon">+</span>
+</div>
+<div class="faq-a">
+<p>根据法律规定，签发IRC的时间为自收到完整有效的文件之日起15个工作日（对于工业园区内的项目）。然而现实中：</p>
+<ul>
+<li>如果文件齐全且项目不需要特殊评估：2-4周</li>
+<li>如果项目较大或者属于有条件的行业：可能1-3个月</li>
+<li>项目需要省人民委员会或国民议会批准投资政策：3-6个月</li>
+</ul>
+<p>HOUSELINK 拥有从一开始就正确准备文档的经验，有助于避免多次添加文档，从而节省大量时间。</p>
+</div>
+</div>
+<div class="faq-item">
+<div class="faq-q" onclick="toggle(this)">
+          对投资越南工业园区的外商直接投资企业有何税收优惠？
+          <span class="faq-icon">+</span>
+</div>
+<div class="faq-a">
+<p>越南对工业园区的外国直接投资有许多有吸引力的税收优惠：</p>
+<ul>
+<li><strong>标准企业所得税：</strong> 20%</li>
+<li><strong>工业园区受欢迎的激励措施：</strong> 前10年17%，2年豁免，接下来4年减少50%</li>
+<li><strong>特别优惠（高科技、研发）：</strong> 15年10%，4年豁免，9年减免50%</li>
+<li><strong>按地点促销：</strong> 困难省份（嘉莱省、义安省...）可在项目整个生命周期内获得 10% 的税收</li>
+</ul>
+<div class="highlight-box"><em>笔记：</em> 具体激励水平取决于行业、地点和投资规模。 HOUSELINK 建议您咨询独立税务专业人士，以确认激励措施适用于您的特定项目。</div>
+</div>
+</div>
+<div class="faq-item">
+<div class="faq-q" onclick="toggle(this)">
+          HOUSELINK是否提供直接法律服务（律师）？
+          <span class="faq-icon">+</span>
+</div>
+<div class="faq-a">
+<p>HOUSELINK不是律师事务所，不直接提供法律服务。然而我们：</p>
+<ul>
+<li>流程、必要文件和时间表的咨询</li>
+<li>支持准备技术文件（项目说明、公司简介）</li>
+<li>与具有与外国直接投资客户合作经验的信誉良好的法律合作伙伴（律师、投资咨询公司）网络建立联系</li>
+<li>监控进展并与利益相关者协调</li>
+</ul>
+<p>这种模式帮助客户获得专业的法律服务，而HOUSELINK则专注于协调整个投资流程。</p>
+</div>
+</div>
+</section>
+<!-- ── 5. NHÀ THẦU & XÂY DỰNG ── -->
+<section class="faq-section" id="cat-project">
+<div class="faq-section-header">
+<div class="fsh-ico">🏗️</div>
+<div class="fsh-title">承包商和工厂建设</div>
+<div class="fsh-count">6 个问题</div>
+</div>
+<div class="faq-item">
+<div class="faq-q" onclick="toggle(this)">
+          目前在越南建造工业工厂的成本是多少？
+          <span class="faq-icon">+</span>
+</div>
+<div class="faq-a">
+<p>建造工业工厂的成本取决于技术标准和地区。 2025-2026 年参考统计数据：</p>
+<ul>
+<li><strong>基础标准厂房</strong> （预制钢、波纹铁皮屋顶）：200–350 美元/平方米</li>
+<li><strong>平均标准工厂</strong> （钢筋混凝土+钢材，完整系统）：350–550 美元/平方米</li>
+<li><strong>高级工厂/洁净室</strong> （电子、制药）：600–1,200 美元/平方米</li>
+<li><strong>工厂办公室：</strong> 400–600 美元/平方米</li>
+</ul>
+<p>这是不包括租赁土地、围栏以外的基础设施和生产设备的建筑成本。</p>
+</div>
+</div>
+<div class="faq-item">
+<div class="faq-q" onclick="toggle(this)">
+          HOUSELINK根据什么标准筛选承包商？
+          <span class="faq-icon">+</span>
+</div>
+<div class="faq-a">
+<p>HOUSELINK根据CSI（建筑规范协会）标准采用多维度评价体系对承包商进行排名：</p>
+<ul>
+<li><strong>技术能力：</strong> 类似项目经验、工程师资质、施工设备</li>
+<li><strong>财务能力：</strong> 资本规模、财务状​​况、垫资能力</li>
+<li><strong>参考项目简介：</strong> 已完成项目清单、投资者评价</li>
+<li><strong>职业安全（HSE）：</strong> 安全管理体系、劳动事故率</li>
+<li><strong>认证与合规性：</strong> ISO证书、专业施工能力</li>
+</ul>
+<a class="faq-link" href="/zh/services/project/">查看项目实施服务 →</a>
+</div>
+</div>
+<div class="faq-item">
+<div class="faq-q" onclick="toggle(this)">
+          我应该使用外国承包商还是越南承包商来建造工厂？
+          <span class="faq-icon">+</span>
+</div>
+<div class="faq-a">
+<p>这是许多外国直接投资投资者提出的问题。 HOUSELINK 有以下实际观察：</p>
+<ul>
+<li><strong>具有工业园区经验的越南承包商：</strong> 成本降低 20-40%，了解当地法规，快速处理程序。 ATAD、Pebsteel、Zamil Steel 等大型承包商可以满足国际标准</li>
+<li><strong>外国承包商：</strong> 适用于技术要求特别高的项目（ISO 5 洁净室、特殊实验室），或者当投资者想要熟悉其他市场工作的承包商时。</li>
+<li><strong>组合型号：</strong> 许多成功项目采用国际总承包商+越南分包商进行土建施工</li>
+</ul>
+<p>HOUSELINK将在了解您项目的技术要求和预算后提供具体建议。</p>
+</div>
+</div>
+<div class="faq-item">
+<div class="faq-q" onclick="toggle(this)">
+          工业园区建设一座标准厂房通常需要多长时间？
+          <span class="faq-icon">+</span>
+</div>
+<div class="faq-a">
+<p>施工时间取决于规模和复杂性。实用参考：</p>
+<ul>
+<li><strong>简易预制钢结构厂房2,000–5,000m²：</strong> 3-5个月</li>
+<li><strong>工厂总面积5,000–20,000平方米（包括车间+办公室+基础设施）：</strong> 6-12 个月</li>
+<li><strong>大型综合工厂&gt;20,000m²（洁净室、综合机电）：</strong> 12-24 个月</li>
+</ul>
+<p>注：以上时间自取得施工许可证之日起计算。再加上 3-6 个月的设计和许可阶段。</p>
+</div>
+</div>
+<div class="faq-item">
+<div class="faq-q" onclick="toggle(this)">
+          HOUSELINK选择承包商后可以支持施工监理吗？
+          <span class="faq-icon">+</span>
+</div>
+<div class="faq-a">
+<p>有。 HOUSELINK提供施工监理服务（施工管理），包括：</p>
+<ul>
+<li>根据承诺的里程碑检查每周/每月的施工进度</li>
+<li>根据规格评估材料和结构的质量</li>
+<li>尽早发现并处理新出现的问题</li>
+<li>向投资者定期提交进度报告（英语 - 越南语）</li>
+<li>支持阶段验收和竣工验收</li>
+</ul>
+<p>这项服务对于在越南没有技术团队的外国投资者特别有用。</p>
+</div>
+</div>
+<div class="faq-item">
+<div class="faq-q" onclick="toggle(this)">
+          HOUSELINK的电子投标如何运作？
+          <span class="faq-icon">+</span>
+</div>
+<div class="faq-a">
+<p>HOUSELINK组织透明有效的电子投标流程（E-Bidding）：</p>
+<ul>
+<li><strong>准备招标文件：</strong> HOUSELINK根据投资者的技术要求起草详细的RFP/RFQ</li>
+<li><strong>分配给合格的承包商：</strong> 来自 300 多家经过验证的承包商名单</li>
+<li><strong>接收和评估文件：</strong> 根据商定的标准表进行客观评分</li>
+<li><strong>展示：</strong> 进入最后一轮的承包商直接向投资者展示</li>
+<li><strong>合同谈判支持：</strong> HOUSELINK 就建筑合同中的关键条款提供建议</li>
+</ul>
+<p>该过程通常在招标文件之日起 3 至 6 周内完成。</p>
+</div>
+</div>
+</section>
+<!-- ── 6. ESG ── -->
+<section class="faq-section" id="cat-esg">
+<div class="faq-section-header">
+<div class="fsh-ico">🌿</div>
+<div class="fsh-title">ESG与绿色能源</div>
+<div class="fsh-count">7 个问题</div>
+</div>
+<div class="faq-item">
+<div class="faq-q" onclick="toggle(this)">
+          什么是CBAM？为什么越南的制造企业应该关心？
+          <span class="faq-icon">+</span>
+</div>
+<div class="faq-a">
+<p>CBAM（Carbon Border adjustment Mechanism）是欧盟的碳边境调整机制，于2026年正式生效。根据该机制，从碳价格低于欧盟的国家（包括越南）进口到欧盟的商品将被征收同等的碳费。</p>
+<p>首先受影响的行业：钢铁、铝、水泥、化肥、电力、氢气。预计2026年后将扩展到许多其他行业。</p>
+<div class="highlight-box"><em>对越南的影响：</em> 出口到欧盟的企业必须测量并报告产品碳足迹 (PCF)。如果没有碳数据，将会施加最高的违约率——这意味着某些行业的成本增加 15-30%。</div>
+<a class="faq-link" href="/zh/services/esg/">查看 HOUSELINK 的 ESG 解决方案 →</a>
+</div>
+</div>
+<div class="faq-item">
+<div class="faq-q" onclick="toggle(this)">
+          什么是DPPA？越南可再生电力直接采购机制如何运作？
+          <span class="faq-icon">+</span>
+</div>
+<div class="faq-a">
+<p>DPPA（直接购电协议）是一种允许企业直接从发电机购买可再生电力的机制，而不是通过越南电力集团（EVN）。</p>
+<p>在越南，DPPA 受第 57/2025/ND-CP 号法令的监管，有 2 种形式：</p>
+<ul>
+<li><strong>虚拟 DPPA（虚拟）：</strong> 企业与发电商签订合同，电力仍然流经EVN电网，但企业获得可再生能源证书（REC）以证明其使用绿色电力。</li>
+<li><strong>直接DPPA（直接）：</strong> 发电机与业务专线连接——适合有技术条件的工业园区</li>
+</ul>
+<p>HOUSELINK 充当能源贸易商和聚合商 — 将企业与可再生发电机网络连接起来，以实现 RE100 并满足全球 OEM 的 ESG 要求。</p>
+</div>
+</div>
+<div class="faq-item">
+<div class="faq-q" onclick="toggle(this)">
+          企业需要做什么才能获得 ISO 14064 认证？
+          <span class="faq-icon">+</span>
+</div>
+<div class="faq-a">
+<p>ISO 14064 是组织级温室气体 (GHG) 排放清单标准。基本流程：</p>
+<ul>
+<li><strong>步骤一：</strong> 确定组织边界和运营边界</li>
+<li><strong>步骤2：</strong> 识别排放源（范围 1、2、3）</li>
+<li><strong>步骤3：</strong> 收集运营数据（电力、燃料、交通......）</li>
+<li><strong>第4步：</strong> 使用批准的排放因子计算排放量</li>
+<li><strong>第5步：</strong> 准备温室气体清单报告</li>
+<li><strong>第6步：</strong> 由认可组织（LRQA、Bureau Veritas、SGS...）进行独立验证</li>
+</ul>
+<p>HOUSELINK 与 Glassdome（ISO 14067 验证平台）和 LRQA 网络合作支持整个流程。</p>
+</div>
+</div>
+<div class="faq-item">
+<div class="faq-q" onclick="toggle(this)">
+          Glassdome是HOUSELINK ESG生态系统中什么样的合作伙伴？
+          <span class="faq-icon">+</span>
+</div>
+<div class="faq-a">
+<p>Glassdome 是一家国际 ESG 技术公司，提供世界上第一个经过 LRQA 验证和审核的 ISO 14067 碳测量平台。</p>
+<p>在 HOUSELINK 生态系统中，Glassdome 提供了该层 <strong>数据层</strong>:</p>
+<ul>
+<li>实时碳仪表板 — 跟踪每个工厂、生产线和产品的排放量</li>
+<li>符合 ISO 14067 的自动 PCF（产品碳足迹） — 可以根据 Catena-X 标准导出报告</li>
+<li>CBAM 报告 — 生成出口到欧盟的自动 CBAM 报告</li>
+</ul>
+<p>HOUSELINK 协调 Glassdome 为客户提供入职培训，结合绿色电力 DPPA 服务和 ESG 咨询，创建完整的 3 层解决方案。</p>
+</div>
+</div>
+<div class="faq-item">
+<div class="faq-q" onclick="toggle(this)">
+          什么是免费 ESG 诊断？我能从这个计划中得到什么？
+          <span class="faq-icon">+</span>
+</div>
+<div class="faq-a">
+<p>免费ESG诊断是针对越南FDI制造企业的免费ESG评估计划，持续约5-7个工作日。完成后，您将收到：</p>
+<ul>
+<li>该报告评估了当前 ESG 与典型 CBAM、RE100 和 OEM 要求相比的差距</li>
+<li>根据企业提供的信息进行初步碳足迹估算（范围 1 和 2）</li>
+<li>ESG路线图分3个阶段提出：短期（0-6个月）、中期（6-18个月）、长期（&gt;2年）</li>
+<li>通过 DPPA 节省能源成本的机会</li>
+</ul>
+<div class="highlight-box">完整的程序 <em>免费</em>。通过联系表或发送电子邮件至 info@houselink.com.vn 进行注册，主题为“ESG 诊断”。</div>
+</div>
+</div>
+<div class="faq-item">
+<div class="faq-q" onclick="toggle(this)">
+          为制造企业实施 ESG 平台的典型成本是多少？
+          <span class="faq-icon">+</span>
+</div>
+<div class="faq-a">
+<p>实施成本取决于业务规模和所需的服务水平。全面的：</p>
+<ul>
+<li><strong>ESG 诊断（免费）：</strong> 初步评估、初步路线图</li>
+<li><strong>碳核算和报告：</strong> 取决于设施数量、排放源和报告频率</li>
+<li><strong>独立验证（LRQA、BV）：</strong> 取决于标准（ISO 14064、ISAE 3000）和规模</li>
+<li><strong>绿色能源DPPA：</strong> 无安装成本 — HOUSELINK 从电费利润中赚取服务费</li>
+</ul>
+<p>联系 HOUSELINK 以获取适合您的特定规模和行业的报价。</p>
+</div>
+</div>
+<div class="faq-item">
+<div class="faq-q" onclick="toggle(this)">
+          小企业是否需要关心ESG，还是大企业才需要关心？
+          <span class="faq-icon">+</span>
+</div>
+<div class="faq-a">
+<p>这是一个常见的误解。 ESG 不仅仅适用于大公司。事实上，大型整车厂供应链中的中小企业（SME）受到的影响最为直接：</p>
+<ul>
+<li>从 2024 年起，三星、LG、苹果已将范围 3 碳数据要求纳入与供应商签订的合同中。</li>
+<li>CBAM 2026 根据产品价值适用——无论企业规模如何</li>
+<li>国际银行（汇丰银行、日本国际协力机构、亚洲开发银行）正在加强贷款条件中的 ESG 报告要求</li>
+</ul>
+<p>尽早开始比在客户的压力下必须跟上要便宜得多。 HOUSELINK设计可根据业务规模逐步扩展的ESG解决方案。</p>
+</div>
+</div>
+</section>
+<!-- ── 7. NHÀ THẦU & NCC THAM GIA ── -->
+<section class="faq-section" id="cat-contractor">
+<div class="faq-section-header">
+<div class="fsh-ico">🔍</div>
+<div class="fsh-title">参与 HOUSELINK 的承包商和供应商</div>
+<div class="fsh-count">5 个问题</div>
+</div>
+<div class="faq-item">
+<div class="faq-q" onclick="toggle(this)">
+          承包商/供应商需要满足什么条件才能加入HOUSELINK网络？
+          <span class="faq-icon">+</span>
+</div>
+<div class="faq-a">
+<p>HOUSELINK欢迎具有以下基本条件的工业建筑行业企业：</p>
+<ul>
+<li>该企业已在越南注册有效法人实体</li>
+<li>拥有至少 2 年工业建筑或提供建筑材料领域的工作经验</li>
+<li>拥有至少 1-2 个可验证的参考项目</li>
+<li>承诺提供真实信息并定期更新记录</li>
+</ul>
+<p>注册后，HOUSELINK将验证信息并在HOUSELINK排名系统中对商家进行排名。评级高的企业将优先介绍给投资者。</p>
+<a class="faq-link" href="/zh/register/">注册成为会员 →</a>
+</div>
+</div>
+<div class="faq-item">
+<div class="faq-q" onclick="toggle(this)">
+          加入 HOUSELINK 网络需要多少钱？
+          <span class="faq-icon">+</span>
+</div>
+<div class="faq-a">
+<p>HOUSELINK提供不同的会员级别：</p>
+<ul>
+<li><strong>基本会员（免费）：</strong> 订阅企业简介、基本评级、访问行业新闻</li>
+<li><strong>专业承包商/专业供应商：</strong> 完全访问项目数据库、高级搜索、投资者消息、越南建筑营销支持 - 月度/年度套餐</li>
+</ul>
+<p>联系 HOUSELINK 以根据适合您业务规模和需求的套餐获取详细信息和报价。</p>
+<a class="faq-link" href="/zh/services/find-project/">查看查找项目服务详情 →</a>
+<span style="display:inline-block;margin-left:12px;font-size:14px;">
+<a class="faq-link" href="/zh/services/find-project/pricing/">价格表</a>
+<span style="opacity:.4;"> · </span>
+<a class="faq-link" href="/zh/services/find-project/contract/">注册及合同</a>
+</span>
+</div>
+</div>
+<div class="faq-item">
+<div class="faq-q" onclick="toggle(this)">
+          加入后，我可以访问哪些类型的项目？
+          <span class="faq-icon">+</span>
+</div>
+<div class="faq-a">
+<p>HOUSELINK系统更新全国正在进行和即将进行的FDI项目和国内企业的信息，包括：</p>
+<ul>
+<li>建设新工厂和生产工厂</li>
+<li>扩建和升级现有工厂</li>
+<li>仓库、工业物流中心</li>
+<li>工业园区内部基础设施（路、电、水、污水处理）</li>
+<li>安装生产设备和机电系统</li>
+</ul>
+<p>专业会员可以按行业、省份、规模和实施阶段筛选项目，以关注最相关的机会。</p>
+</div>
+</div>
+<div class="faq-item">
+<div class="faq-q" onclick="toggle(this)">
+          什么是 VietnamConstruction？它对我的业务有何帮助？
+          <span class="faq-icon">+</span>
+</div>
+<div class="faq-a">
+<p>VietnamConstruction (vietnamconstruction.vn) 是一个致力于越南工业建筑行业的内容和社区平台，由 HOUSELINK 运营。当前数字：</p>
+<ul>
+<li>每月超过 50,000 名专业读者</li>
+<li>100%专注于工业建筑（非一般民用建筑）</li>
+<li>读者对象主要为外商直接投资企业和大型承包商的工程师、技术总监、采购经理</li>
+</ul>
+<p>对于材料供应商和承包商来说，VietnamConstruction 是实现以下目标的渠道：</p>
+<ul>
+<li>发表专业文章、案例研究、新产品</li>
+<li>打造品牌和专业声誉</li>
+<li>访问行业的采购决策文件</li>
+</ul>
+</div>
+</div>
+<div class="faq-item">
+<div class="faq-q" onclick="toggle(this)">
+          什么是 HOUSELINK 排名？它如何影响我的商机？
+          <span class="faq-icon">+</span>
+</div>
+<div class="faq-a">
+<p>HOUSELINK排名是一个基于国际CSI（建筑规范协会）标准的承包商和供应商排名系统。企业根据5个主要标准进行评估：技术能力、财务能力、参考记录、劳动安全和合规性。</p>
+<p>对商业机会的影响：</p>
+<ul>
+<li>当 FDI 投资者请求 HOUSELINK 寻找承包商时，提议的列表将按等级优先排序</li>
+<li>排名高的个人资料在平台的搜索系统中显得更加突出</li>
+<li>一些日本/韩国投资者要求承包商在投标条件中具有一定的最低评级</li>
+</ul>
+<p>企业可以通过更新个人资料、添加参考项目以及接收合作投资者的评论来提高排名。</p>
+</div>
+</div>
+</section>
+<!-- ── 8. PHÍ DỊCH VỤ & QUY TRÌNH ── -->
+<section class="faq-section" id="cat-pricing">
+<div class="faq-section-header">
+<div class="fsh-ico">💰</div>
+<div class="fsh-title">服务费用及工作流程</div>
+<div class="fsh-count">5 个问题</div>
+</div>
+<div class="faq-item">
+<div class="faq-q" onclick="toggle(this)">
+          HOUSELINK如何收取服务费？
+          <span class="faq-icon">+</span>
+</div>
+<div class="faq-a">
+<p>HOUSELINK 采用基于项目范围的定价模式——每个人都没有固定的费用表，因为每个项目都是独一无二的。热门型号：</p>
+<ul>
+<li><strong>项目费用：</strong> 每个具体项目的套餐费（市场调研、选址、施工实施）</li>
+<li><strong>保留费：</strong> 需要持续支持的长期项目每月定期收取咨询费</li>
+<li><strong>成功费：</strong> 部分费用与所取得的成果挂钩（适用于商业配对）</li>
+<li><strong>订阅：</strong> Find Project 平台的定期会员费</li>
+</ul>
+<p>初步咨询 <strong>完全免费</strong>。第一次咨询后，HOUSELINK将发送服务建议和详细报价。</p>
+</div>
+</div>
+<div class="faq-item">
+<div class="faq-q" onclick="toggle(this)">
+          第一次向 HOUSELINK 咨询时我需要准备什么？
+          <span class="faq-icon">+</span>
+</div>
+<div class="faq-a">
+<p>不需要太多准备，第一次协商就是让双方互相了解。但是，如果您掌握以下信息，将有助于使会议更加有效：</p>
+<ul>
+<li>预计在越南投资的制造业和产品</li>
+<li>预计投资规模（资金及厂区面积）</li>
+<li>预计时间表（您想什么时候开始建设/运营）</li>
+<li>目前最具体的问题或疑虑</li>
+<li>目标出口市场（如果客户有 ESG 要求）</li>
+</ul>
+<a class="faq-link" href="/zh/contact/">安排免费咨询 →</a>
+</div>
+</div>
+<div class="faq-item">
+<div class="faq-q" onclick="toggle(this)">
+          HOUSELINK 处理新 FDI 项目的典型工作流程是怎样的？
+          <span class="faq-icon">+</span>
+</div>
+<div class="faq-a">
+<p>典型过程包括 4 个主要阶段：</p>
+<ul>
+<li><strong>第 1 阶段 — 理解和分析（1-2 周）：</strong> 免费咨询、范围确定、合同签订、启动会议</li>
+<li><strong>第 2 阶段 — 研究与建议（3-8 周）：</strong> 市场调研、园区筛选、尽职调查、成果展示</li>
+<li><strong>第 3 阶段 — 法律实施和构建（3-18 个月）：</strong> 支持申请许可证、寻找承包商和监督施工</li>
+<li><strong>第 4 阶段 — 运营和 ESG（正在进行）：</strong> 连接供应链、引入 ESG、扩大支持</li>
+</ul>
+<p>根据需求，客户可以在所有阶段或仅部分阶段使用HOUSELINK。</p>
+</div>
+</div>
+<div class="faq-item">
+<div class="faq-q" onclick="toggle(this)">
+          HOUSELINK 是否与国际客户远程（在线）合作？
+          <span class="faq-icon">+</span>
+</div>
+<div class="faq-a">
+<p>有。大多数初始咨询阶段、报告演示和定期会议都可以通过 Zoom、Teams 或 Google Meet 在线完成。 HOUSELINK 与东京、首尔、法兰克福和纽约的客户进行了有效合作，而他们不需要首先飞往越南。</p>
+<p>然而，一些重要的步骤需要实际存在于越南，例如：</p>
+<ul>
+<li>工业园区实地考察（一般需要2-4天）</li>
+<li>与工业园区管委会签订合同</li>
+<li>部分法律程序需要本人签字</li>
+</ul>
+<p>HOUSELINK 将建议何时飞往越南以优化旅行成本。</p>
+</div>
+</div>
+<div class="faq-item">
+<div class="faq-q" onclick="toggle(this)">
+          签约前如何评估HOUSELINK的服务质量？
+          <span class="faq-icon">+</span>
+</div>
+<div class="faq-a">
+<p>HOUSELINK 鼓励客户在做出决定之前仔细研究。评估方式：</p>
+<ul>
+<li><strong>阅读案例研究：</strong> 请参阅“案例研究”页面上执行的实际项目</li>
+<li><strong>参考老客户：</strong> HOUSELINK 已准备好将您与使用过该服务的客户联系起来（在他们同意的情况下）</li>
+<li><strong>免费试用咨询：</strong> 首次咨询免费——您可以直接评价咨询的质量</li>
+<li><strong>报告样本：</strong> 要求HOUSELINK提供报告表（保密信息隐藏）</li>
+<li><strong>查看领英：</strong> 查看团队简介和公众评论</li>
+</ul>
+<a class="faq-link" href="/zh/cases/">查看案例研究 →</a>
+</div>
+</div>
+</section>
+<!-- NOT FOUND -->
+<div class="faq-no-found" id="faqNotFound" style="display:none;">
+<div class="fnf-ico">🔍</div>
+<div class="fnf-title">没有找到匹配的结果</div>
+<div class="fnf-sub">尝试使用其他关键字搜索，或直接联系 HOUSELINK 团队寻求支持。</div>
+<div class="fnf-btns">
+<a class="fnf-btn-primary" href="/zh/contact/">💬 询问 HOUSELINK 专家</a>
+<button class="fnf-btn-ghost" onclick="clearSearch()">↩ 查看所有问题</button>
+</div>
+</div>
+</main>
 </div>
 <!-- ══ CTA SECTION ══ -->
 <section style="background:linear-gradient(135deg,var(--navy-deep) 0%,var(--navy) 100%);padding:72px 0;text-align:center;position:relative;overflow:hidden;">
-  <div style="position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.02) 1px,transparent 1px);background-size:28px 28px;pointer-events:none;"></div>
-  <div class="si" style="position:relative;z-index:1;">
-    <div class="sec-label" style="text-align:center;color:#7ED49A;margin-bottom:14px;">还有其他问题？</div>
-    <h2 style="font-family:var(--font-serif);font-size:clamp(24px,3vw,40px);font-weight:600;color:#fff;margin-bottom:12px;">HOUSELINK 专家<br><em style="color:#7ED49A;font-style:normal;">随时为您提供支持</em></h2>
-    <p style="font-size:15px;color:rgba(255,255,255,.55);max-width:520px;margin:0 auto 32px;line-height:1.72;">从市场研究、园区选址到法务与 ESG——HOUSELINK 拥有 15+ 年经验的团队可帮助您更快决策、降低风险。</p>
-    <div style="display:flex;justify-content:center;gap:14px;flex-wrap:wrap;">
-      <a href="/zh/contact/" style="display:inline-flex;align-items:center;gap:8px;background:var(--green);color:#fff;font-size:14.5px;font-weight:700;padding:13px 28px;border-radius:9px;text-decoration:none;">📅 预约免费咨询</a>
-      <a href="/zh/services/" style="display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.08);color:rgba(255,255,255,.8);font-size:14px;font-weight:600;padding:13px 24px;border-radius:9px;text-decoration:none;border:1.5px solid rgba(255,255,255,.15);">📋 查看全部服务</a>
-    </div>
-    <div style="margin-top:24px;font-size:13px;color:rgba(255,255,255,.28);">📞 +84 966 222 490 &nbsp;·&nbsp; ✉ info@houselink.com.vn</div>
-  </div>
+<div style="position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.02) 1px,transparent 1px);background-size:28px 28px;pointer-events:none;"></div>
+<div class="si" style="position:relative;z-index:1;">
+<div class="sec-label" style="text-align:center;color:#7ED49A;margin-bottom:14px;">还有其他问题？</div>
+<h2 style="font-family:var(--font-serif);font-size:clamp(24px,3vw,40px);font-weight:600;color:#fff;margin-bottom:12px;">HOUSELINK 专家<br/><em style="color:#7ED49A;font-style:normal;">随时为您提供支持</em></h2>
+<p style="font-size:15px;color:rgba(255,255,255,.55);max-width:520px;margin:0 auto 32px;line-height:1.72;">从市场研究、园区选址到法务与 ESG——HOUSELINK 拥有 15+ 年经验的团队可帮助您更快决策、降低风险。</p>
+<div style="display:flex;justify-content:center;gap:14px;flex-wrap:wrap;">
+<a href="/zh/contact/" style="display:inline-flex;align-items:center;gap:8px;background:var(--green);color:#fff;font-size:14.5px;font-weight:700;padding:13px 28px;border-radius:9px;text-decoration:none;">📅 预约免费咨询</a>
+<a href="/zh/services/" style="display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.08);color:rgba(255,255,255,.8);font-size:14px;font-weight:600;padding:13px 24px;border-radius:9px;text-decoration:none;border:1.5px solid rgba(255,255,255,.15);">📋 查看全部服务</a>
+</div>
+<div style="margin-top:24px;font-size:13px;color:rgba(255,255,255,.28);">📞 +84 966 222 490  ·  ✉ info@houselink.com.vn</div>
+</div>
 </section>
 <div id="hl-chrome-footer"></div>
-  <script src="../../landing-chrome.js" defer></script>
+<script defer="" src="../../landing-chrome.js"></script>
 <script>
 function setLang(l){
   document.querySelectorAll('.lang-btn').forEach(b=>b.classList.remove('active'));
