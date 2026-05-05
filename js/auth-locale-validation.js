@@ -228,6 +228,10 @@
           pwLogin.focus();
           return;
         }
+        if (typeof window.hlSubmitLoginAfterValidate === "function") {
+          window.hlSubmitLoginAfterValidate(form, emailIn.value.trim(), pwLogin.value);
+          return;
+        }
         return;
       }
 
