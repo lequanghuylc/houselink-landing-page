@@ -4,8 +4,8 @@
   var API_BASE = "http://localhost:3001";
   var APP_BASE = "http://localhost:3333";
 
-  /** Same handoff authCode string; kept in memory between password step and TOTP step. */
-  var handoffAuthCode = null;
+  /** Email for POST /auth-code/verify-totp — from login form or Google credential payload. */
+  var handoffEmail = null;
 
   function detectLang() {
     var p = location.pathname;
@@ -29,7 +29,11 @@
       totpEmpty: "Enter the 6-digit code.",
       totpBad: "Invalid code. Try again.",
       totpMany: "Too many invalid codes. Please sign in again.",
-      totpNet: "Network error. Please try again."
+      totpNet: "Network error. Please try again.",
+      loginLockout: "Too many failed sign-in attempts. Try again in 5 minutes.",
+      loginInvalidCredentials: "Invalid credentials",
+      loginBadResponse: "Invalid response from server.",
+      loginGenericError: "Something went wrong. Please try again."
     },
     vi: {
       googleBtn: "Tiếp tục với Google",
@@ -43,7 +47,11 @@
       totpEmpty: "Vui lòng nhập mã 6 số.",
       totpBad: "Mã không đúng. Thử lại.",
       totpMany: "Nhập sai quá nhiều lần. Vui lòng đăng nhập lại.",
-      totpNet: "Lỗi mạng. Thử lại."
+      totpNet: "Lỗi mạng. Thử lại.",
+      loginLockout: "Đăng nhập sai quá nhiều lần. Vui lòng thử lại sau 5 phút.",
+      loginInvalidCredentials: "Email hoặc mật khẩu không đúng.",
+      loginBadResponse: "Phản hồi từ máy chủ không hợp lệ.",
+      loginGenericError: "Đã có lỗi. Vui lòng thử lại."
     },
     zh: {
       totpTitle: "双因素认证",
@@ -54,7 +62,11 @@
       totpEmpty: "请输入 6 位数字。",
       totpBad: "验证码错误，请重试。",
       totpMany: "错误次数过多，请重新登录。",
-      totpNet: "网络错误，请重试。"
+      totpNet: "网络错误，请重试。",
+      loginLockout: "登录失败次数过多。请 5 分钟后再试。",
+      loginInvalidCredentials: "邮箱或密码不正确。",
+      loginBadResponse: "服务器响应无效。",
+      loginGenericError: "发生错误，请重试。"
     },
     ko: {
       googleBtn: "Google로 계속하기",
@@ -67,7 +79,11 @@
       totpEmpty: "6자리 코드를 입력하세요.",
       totpBad: "코드가 올바르지 않습니다.",
       totpMany: "시도 횟수 초과. 다시 로그인하세요.",
-      totpNet: "네트워크 오류. 다시 시도하세요."
+      totpNet: "네트워크 오류. 다시 시도하세요.",
+      loginLockout: "로그인 실패가 너무 많습니다. 5분 후 다시 시도하세요.",
+      loginInvalidCredentials: "이메일 또는 비밀번호가 올바르지 않습니다.",
+      loginBadResponse: "서버 응답이 올바르지 않습니다.",
+      loginGenericError: "문제가 발생했습니다. 다시 시도하세요."
     },
     ja: {
       googleBtn: "Googleで続ける",
@@ -81,9 +97,42 @@
       totpEmpty: "6桁のコードを入力してください。",
       totpBad: "コードが正しくありません。",
       totpMany: "試行回数が上限に達しました。再度サインインしてください。",
-      totpNet: "ネットワークエラー。再試行してください。"
+      totpNet: "ネットワークエラー。再試行してください。",
+      loginLockout:
+        "サインインの失敗が多すぎます。5分経ってから再度お試しください。",
+      loginInvalidCredentials:
+        "メールアドレスまたはパスワードが正しくありません。",
+      loginBadResponse: "サーバーの応答が無効です。",
+      loginGenericError: "問題が発生しました。もう一度お試しください。"
     }
   };
+
+  function parseGoogleIdTokenEmail(credential) {
+    try {
+      if (!credential || typeof credential !== "string") return null;
+      var parts = credential.split(".");
+      if (parts.length < 2) return null;
+      var b64 = parts[1].replace(/-/g, "+").replace(/_/g, "/");
+      while (b64.length % 4) b64 += "=";
+      var payload = JSON.parse(atob(b64));
+      return payload.email ? String(payload.email).trim().toLowerCase() : null;
+    } catch (e) {
+      return null;
+    }
+  }
+
+  function localizeLoginApiMessage(status, apiErrorRaw) {
+    var msg =
+      typeof apiErrorRaw === "string" ? apiErrorRaw.trim() : String(apiErrorRaw || "");
+    if (status === 429 && msg === "Too many failed sign-in attempts. Try again in 5 minutes.") {
+      return t("loginLockout");
+    }
+    if (status === 401 && msg === "Invalid credentials") {
+      return t("loginInvalidCredentials");
+    }
+    if (msg) return msg;
+    return t("loginGenericError");
+  }
 
   function t(key) {
     var L = STR[detectLang()] || STR.en;
@@ -136,24 +185,48 @@
   /** Shared: response from POST /auth-code or POST /auth-google (same `data` shape). */
   function applyHandoffResponse(form, d) {
     if (d.requiresTotp === true) {
-      handoffAuthCode = d.authCode;
       var panel = ensureTotpPanel(form);
       wireTotpPanel(form, panel);
       showTotpStep(form, panel);
       return;
     }
+    handoffEmail = null;
     redirectWithAuthCode(d.authCode);
   }
 
-  function handleAuthCodeApiJson(res, form) {
-    if (!res.ok || !res.data || !res.data.success || !res.data.data || !res.data.data.authCode) {
-      var err =
-        (res.data && res.data.error) ||
-        "Request failed (" + (res.status || "?") + ")";
-      showApiError(form, err);
+  /** @param opts.googleCredential optional — TOTP after Google (email không nằm trong JSON API). */
+  function handleAuthCodeApiJson(res, form, opts) {
+    if (!res.ok || !res.data) {
+      var apiErr = res.data && res.data.error;
+      var err0 =
+        apiErr != null
+          ? localizeLoginApiMessage(res.status, apiErr)
+          : t("loginGenericError");
+      showApiError(form, err0);
       return;
     }
-    applyHandoffResponse(form, res.data.data);
+    if (!res.data.success || !res.data.data) {
+      showApiError(
+        form,
+        localizeLoginApiMessage(res.status, res.data && res.data.error)
+      );
+      return;
+    }
+    var d = res.data.data;
+    if (d.requiresTotp === true) {
+      var ein = form.querySelector('input[type="email"]');
+      handoffEmail = ein ? String(ein.value).trim().toLowerCase() : null;
+      if (!handoffEmail && opts && opts.googleCredential) {
+        handoffEmail = parseGoogleIdTokenEmail(opts.googleCredential);
+      }
+      applyHandoffResponse(form, d);
+      return;
+    }
+    if (!d.authCode) {
+      showApiError(form, t("loginBadResponse"));
+      return;
+    }
+    applyHandoffResponse(form, d);
   }
 
   var GOOGLE_BTN_SVG =
@@ -230,10 +303,10 @@
               });
             })
             .then(function (res) {
-              handleAuthCodeApiJson(res, form);
+              handleAuthCodeApiJson(res, form, { googleCredential: resp.credential });
             })
             .catch(function () {
-              showApiError(form, "Network error. Please try again.");
+              showApiError(form, t("totpNet"));
             });
         }
       });
@@ -360,7 +433,7 @@
   }
 
   function showLoginStep(form, panel) {
-    handoffAuthCode = null;
+    handoffEmail = null;
     if (panel) panel.style.display = "none";
     var top = document.querySelector(".auth-box > .auth-top");
     if (top) top.style.display = "";
@@ -501,10 +574,49 @@
       }, 0);
     }
 
+    /** Paste full code (e.g. "123456" or "123 456") into six cells. */
+    function applyPastedOtpDigits(text) {
+      var raw = String(text || "").replace(/\D/g, "").slice(0, 6);
+      for (var j = 0; j < 6; j++) {
+        var cell = totpCellEl(j);
+        if (cell) cell.value = raw[j] ? raw[j] : "";
+      }
+      hideTotpError(panel);
+      var focusIdx = raw.length >= 6 ? 5 : Math.max(0, raw.length);
+      window.setTimeout(function () {
+        focusTotpCell(focusIdx);
+      }, 0);
+    }
+
+    var cellsWrap = panel.querySelector(".hl-totp-cells-wrap");
+    if (cellsWrap) {
+      cellsWrap.addEventListener(
+        "paste",
+        function (e) {
+          var cd = e.clipboardData || (typeof window !== "undefined" && window.clipboardData);
+          var data = cd && cd.getData ? cd.getData("text/plain") : "";
+          if (!data || !String(data).trim()) return;
+          e.preventDefault();
+          e.stopPropagation();
+          applyPastedOtpDigits(data);
+        },
+        true
+      );
+    }
+
     for (var i = 0; i < 6; i++) {
       (function (idx) {
         var el = totpCellEl(idx);
         if (!el) return;
+        el.addEventListener("paste", function (e) {
+          var cd = e.clipboardData || (typeof window !== "undefined" && window.clipboardData);
+          var data = cd && cd.getData ? cd.getData("text/plain") : "";
+          var digits = String(data || "").replace(/\D/g, "");
+          if (digits.length >= 2) {
+            e.preventDefault();
+            applyPastedOtpDigits(data);
+          }
+        });
         el.addEventListener("input", function () {
           onCellChange(idx, el);
         });
@@ -529,7 +641,12 @@
     });
 
     function doVerify() {
-      if (!handoffAuthCode) {
+      var emailNorm = handoffEmail;
+      if (!emailNorm) {
+        var ein = document.querySelector('.hl-auth-form input[type="email"]');
+        emailNorm = ein ? String(ein.value).trim().toLowerCase() : "";
+      }
+      if (!emailNorm) {
         showTotpError(panel, t("totpBad"));
         return;
       }
@@ -547,7 +664,7 @@
       fetch(API_BASE + "/api/users/auth-code/verify-totp", {
         method: "POST",
         headers: { "Content-Type": "application/json", Accept: "application/json" },
-        body: JSON.stringify({ authCode: handoffAuthCode, code: digits })
+        body: JSON.stringify({ email: emailNorm, code: digits })
       })
         .then(function (r) {
           return r.json().then(function (data) {
@@ -560,7 +677,7 @@
           setTotpCellsDisabled(false);
 
           if (res.ok && res.data && res.data.success && res.data.data && res.data.data.authCode) {
-            redirectWithAuthCode(handoffAuthCode);
+            redirectWithAuthCode(res.data.data.authCode);
             return;
           }
 
@@ -630,7 +747,7 @@
           btn.disabled = false;
           btn.textContent = prev;
         }
-        showApiError(form, "Network error. Please try again.");
+        showApiError(form, t("totpNet"));
       });
   };
 })();
