@@ -114,18 +114,42 @@ nav > a:hover, .has-mega > a:hover { color: var(--navy); background: var(--gray-
 #hero {
   padding-top: var(--header-h);
   min-height: 100vh;
-  display: grid; grid-template-columns: 1fr 1fr;
+  display: grid;
+  grid-template-columns: 1fr;
   background: var(--navy);
-  position: relative; overflow: hidden;
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+/* Nudge photo so Vietnam map / top-right UI clears sticky header crop */
+#hero::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: clamp(-72px, -6vh, -40px);
+  bottom: clamp(-36px, -3vh, -16px);
+  width: auto;
+  height: auto;
+  z-index: 0;
+  background-image: url(../images/homepage.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 98% 70%;
+  filter: brightness(0.55) saturate(0.75);
+  pointer-events: none;
 }
 .hero-bg {
   position: absolute; inset: 0; pointer-events: none;
+  z-index: 1;
   background:
     radial-gradient(ellipse 60% 70% at 75% 50%, rgba(45,139,72,0.15) 0%, transparent 60%),
-    radial-gradient(ellipse 40% 40% at 20% 80%, rgba(45,139,72,0.06) 0%, transparent 50%);
+    radial-gradient(ellipse 40% 40% at 20% 80%, rgba(45,139,72,0.06) 0%, transparent 50%),
+    linear-gradient(to right, var(--navy) 0%, rgba(0,70,110,0.35) 50%, transparent 100%);
 }
 .hero-dots {
   position: absolute; inset: 0; pointer-events: none;
+  z-index: 1;
   background-image: radial-gradient(rgba(255,255,255,0.04) 1px, transparent 1px);
   background-size: 32px 32px;
 }
@@ -133,7 +157,8 @@ nav > a:hover, .has-mega > a:hover { color: var(--navy); background: var(--gray-
   position: relative; z-index: 2;
   padding: 72px 56px 72px 72px;
   display: flex; flex-direction: column; justify-content: center;
-  max-width: 660px;
+  /* Wider than EN so long first line (e.g. "Nền tảng cho hệ sinh thái") stays one line */
+  max-width: 800px;
   min-width: 0;
   width: 100%;
 }
@@ -197,9 +222,6 @@ h1.hero-h1 {
 .stat-n { font-family: var(--font-serif); font-size: 30px; font-weight: 600; color: #7ED49A; line-height: 1; }
 .stat-l { font-size: 11.5px; color: rgba(255,255,255,0.45); margin-top: 4px; letter-spacing: 0.06em; text-transform: uppercase; line-height: 1.4; }
 
-.hero-visual { position: relative; overflow: hidden; }
-.hero-img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.55) saturate(0.75); }
-.hero-gradient { position: absolute; inset: 0; background: linear-gradient(to right, var(--navy) 0%, rgba(0,70,110,0.3) 50%, transparent 100%); }
 .hero-card-tl {
   position: absolute; top: 52px; right: 36px;
   background: rgba(255,255,255,0.07); backdrop-filter: blur(16px);
@@ -697,7 +719,6 @@ footer { background: var(--navy); color: rgba(255,255,255,0.55); padding: 72px 0
 }
 @media (max-width: 960px) {
   #hero { grid-template-columns: 1fr; min-height: auto; }
-  .hero-visual { display: none; }
   .hero-content {
     padding: 48px max(20px, env(safe-area-inset-left)) 52px max(20px, env(safe-area-inset-right));
     max-width: none;
@@ -748,13 +769,6 @@ footer { background: var(--navy); color: rgba(255,255,255,0.55); padding: 72px 0
       <a href="/vi/services/" class="btn-gold">Xem các dịch vụ</a>
       <a href="/vi/cases/" class="btn-video"><div class="play-btn"></div>Xem case studies</a>
     </div>
-
-
-  </div>
-
-  <div class="hero-visual">
-    <img class="hero-img" src="../images/homepage.jpg" alt="Eco Industrial Park ESG Vietnam">
-    <div class="hero-gradient"></div>
 
 
   </div>
