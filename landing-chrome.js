@@ -419,6 +419,7 @@
   /** Rewrite `a[data-hl-dashboard-login]` → static login HTML or optional dashboard URL. */
   function wireDashboardLoginLinks() {
     var dashBase = null;
+    var defaultDashBase = "https://dashboard.houselink.com.vn";
     if (typeof window !== "undefined" && window.HL_DASHBOARD_BASE) {
       dashBase = String(window.HL_DASHBOARD_BASE).replace(/\/+$/, "");
     }
@@ -429,16 +430,18 @@
         if (raw) dashBase = raw.replace(/\/+$/, "");
       }
     }
+    if (!dashBase && defaultDashBase) {
+      dashBase = String(defaultDashBase).replace(/\/+$/, "");
+    }
 
     document.querySelectorAll("a[data-hl-dashboard-login]").forEach(function (a) {
       var loc = (a.getAttribute("data-hl-login-locale") || "vi").toLowerCase().trim();
       if (!DASHBOARD_LOGIN_LOCALES[loc]) loc = "vi";
       if (dashBase) {
-        var path = loc === "en" ? "/login/" : "/" + loc + "/login/";
         try {
-          a.href = sameSiteLocationRef(new URL(path, dashBase + "/").href);
+          a.href = new URL("/", dashBase + "/").href;
         } catch (ignore) {
-          a.href = sameSiteLocationRef(dashBase + path);
+          a.href = dashBase + "/";
         }
       } else {
         var loginPaths = {

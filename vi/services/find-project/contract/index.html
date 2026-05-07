@@ -4,7 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Đăng ký & Hợp đồng Dịch vụ – HOUSELINK</title>
-<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 :root{
@@ -15,8 +17,8 @@
   --gray-400:#7E8F9A;--gray-600:#4A5A65;--text:#0D1F2D;
   --amber:#D4860B;--amber-pale:#FEF3E0;
   --red:#DC2626;--red-pale:#FEF2F2;
-  --font-main:'Be Vietnam Pro',sans-serif;
-  --font-serif:'DM Serif Display',serif;
+  --font-main: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-serif: var(--font-main);
 }
 body{font-family:var(--font-main);color:var(--text);background:var(--off-white);line-height:1.7;}
 a{text-decoration:none;color:inherit;}
@@ -281,7 +283,7 @@ button{cursor:pointer;font-family:var(--font-main);}
           <input type="radio" name="plan" value="standard" checked>
           <div class="po-info">
             <div class="po-name">🚀 Standard — Pro-Contractor Plus <span style="background:var(--green);color:#fff;font-size:10px;padding:2px 7px;border-radius:100px;margin-left:4px;">⭐ Phổ biến</span></div>
-            <div class="po-desc">2 tài khoản · Live chat hỗ trợ · Thông tin liên hệ người quyết định · Verified badge</div>
+            <div class="po-desc">2 tài khoản · Live chat hỗ trợ · Verified badge</div>
           </div>
           <div class="po-price">$1.699/năm<small>≈ 44,3 tr VND</small></div>
         </label>
@@ -593,7 +595,6 @@ button{cursor:pointer;font-family:var(--font-main);}
         <li class="order-feat">02 tài khoản HOUSELINK</li>
         <li class="order-feat">Tra cứu dự án FDI/DDI real-time</li>
         <li class="order-feat">Live chat hỗ trợ & tư vấn tiếp cận</li>
-        <li class="order-feat">Thông tin liên hệ người quyết định</li>
         <li class="order-feat">Nhãn Verified + xếp hạng CSI</li>
         <li class="order-feat">Logo trên homepage HOUSELINK</li>
       </ul>
@@ -641,7 +642,7 @@ const PLANS = {
     tag:'Pro-Contractor Plus',
     priceUSD:'$1.699',
     priceVND:'≈ 44.300.000 VND',
-    features:['02 tài khoản HOUSELINK','Tra cứu dự án FDI/DDI real-time','Live chat hỗ trợ & tư vấn tiếp cận','Thông tin liên hệ người quyết định','Nhãn Verified + xếp hạng CSI','Logo trên homepage HOUSELINK'],
+    features:['02 tài khoản HOUSELINK','Tra cứu dự án FDI/DDI real-time','Live chat hỗ trợ & tư vấn tiếp cận','Nhãn Verified + xếp hạng CSI','Logo trên homepage HOUSELINK'],
   },
   professional: {
     name:'Professional – Pro-Contractor Pro',
