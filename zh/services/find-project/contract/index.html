@@ -406,10 +406,10 @@ button{cursor:pointer;font-family:var(--font-main);}
     <!-- STEP 3: SIGN & PAY -->
     <div id="step-3" class="form-card" style="display:none;">
       <div class="form-section-title">签署合同与付款</div>
-      <div class="form-section-sub">选择适合的签署方式和付款方式。</div>
+      <div class="form-section-sub" style="display:none;">选择适合的签署方式和付款方式。</div>
 
       <!-- SIGNATURE -->
-      <div style="margin-bottom:28px;">
+      <div style="margin-bottom:28px;display:none;">
         <div class="form-label" style="font-size:14px;margin-bottom:12px;">甲方签名 <span style="color:var(--red);">*</span></div>
         <div style="display:flex;gap:10px;margin-bottom:16px;flex-wrap:wrap;">
           <button onclick="setSigMode('digital')" id="sig-btn-digital" style="flex:1;padding:10px;border-radius:8px;border:1.5px solid var(--green);background:var(--green-pale);color:var(--green);font-weight:700;font-size:13px;">✍️ 电子数字签名（屏幕上）</button>
@@ -496,7 +496,7 @@ button{cursor:pointer;font-family:var(--font-main);}
           </div>
           <div class="bank-row"><span class="bank-key">金额</span><span class="bank-val" id="pay-amount" style="color:var(--green);">—</span></div>
         </div>
-        <div style="font-size:12.5px;color:var(--gray-400);background:var(--off-white);border-radius:8px;padding:12px 14px;">💡 转账后，请截图交易确认并在下一步附上。HOUSELINK将在 <strong>1个工作日</strong> 确认付款后激活账户。</div>
+        <div style="display:none;font-size:12.5px;color:var(--gray-400);background:var(--off-white);border-radius:8px;padding:12px 14px;"><!-- hidden -->💡 转账后，请截图交易确认并在下一步附上。HOUSELINK将在 <strong>1个工作日</strong> 确认付款后激活账户。</div>
       </div>
 
       <!-- Card payment -->
@@ -532,7 +532,7 @@ button{cursor:pointer;font-family:var(--font-main);}
       </div>
 
       <!-- Upload payment proof -->
-      <div style="margin-bottom:24px;">
+      <div style="margin-bottom:24px;display:none;">
         <label class="form-label">附上付款确认 <span style="color:var(--gray-400);font-weight:400;">（可选，但可加快处理）</span></label>
         <input type="file" id="payment-proof" accept="image/*,application/pdf" style="display:none;">
         <div onclick="document.getElementById('payment-proof').click()" style="border:1.5px dashed var(--gray-200);border-radius:9px;padding:16px;text-align:center;cursor:pointer;font-size:13.5px;color:var(--gray-600);" onmouseover="this.style.borderColor='var(--green)'" onmouseout="this.style.borderColor='var(--gray-200)'">
