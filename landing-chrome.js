@@ -15,6 +15,9 @@
 (function () {
   "use strict";
   var script = document.currentScript;
+  if (!script || !script.src) {
+    script = document.querySelector('script[src*="landing-chrome.js"]');
+  }
   if (!script || !script.src) return;
   var base = script.src.replace(/\/[^/]+$/, "/");
 
@@ -695,6 +698,46 @@
     }
   }
 
+  /**
+   * Header / in-page CTAs: same behavior as contact “Chọn khung giờ” — open #consultFormModal
+   * when the page defines window.openConsultForm (e.g. contact, vi/faq); else go to locale contact.
+   */
+  function wireOpenConsultHeaderCta() {
+    if (window.__hlOpenConsultCtaWired) return;
+    window.__hlOpenConsultCtaWired = true;
+    document.addEventListener(
+      "click",
+      function (e) {
+        var a = e.target && e.target.closest && e.target.closest("a[data-hl-open-consult]");
+        if (!a) return;
+        e.preventDefault();
+
+        var headerEl = document.getElementById("header");
+        if (headerEl && headerEl.classList.contains("hl-nav-open")) {
+          headerEl.classList.remove("hl-nav-open");
+          document.body.classList.remove("hl-nav-no-scroll");
+          var nt = document.getElementById("hl-nav-toggle");
+          if (nt) nt.setAttribute("aria-expanded", "false");
+        }
+
+        var modal = document.getElementById("consultFormModal");
+        if (modal && typeof window.openConsultForm === "function") {
+          window.openConsultForm(e);
+          return;
+        }
+        if (modal) {
+          modal.classList.add("open");
+          modal.setAttribute("aria-hidden", "false");
+          document.body.style.overflow = "hidden";
+          return;
+        }
+        var fb = (a.getAttribute("data-hl-contact-fallback") || "").trim();
+        if (fb) window.location.assign(fb);
+      },
+      true
+    );
+  }
+
   function wireLangSelect() {
     var sel = document.getElementById("hl-lang-select");
     if (!sel) return;
@@ -718,6 +761,8 @@
       goTop();
     });
   }
+
+  wireOpenConsultHeaderCta();
 
   var pack = langPack();
   Promise.all([fetchPartial("header", pack), fetchPartial("footer", pack)])

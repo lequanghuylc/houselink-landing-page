@@ -223,7 +223,7 @@ h1.hero-h1 {
 #logos { background: var(--off-white); padding: 28px 0; overflow: hidden; border-top: 1px solid var(--gray-100); border-bottom: 1px solid var(--gray-100); }
 .logos-lbl { text-align: center; font-size: 11px; color: var(--gray-400); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 20px; }
 .marquee-wrap { overflow: hidden; }
-.marquee-track { display: flex; gap: 12px; width: max-content; animation: marquee 36s linear infinite; align-items: center; }
+.marquee-track { display: flex; gap: 12px; width: max-content; animation: marquee 54s linear infinite; align-items: center; }
 @keyframes marquee { from{transform:translateX(0)} to{transform:translateX(-50%)} }
 .logo-pill {
   display: flex; align-items: center; gap: 8px;
@@ -549,8 +549,7 @@ footer { background: var(--navy); color: rgba(255,255,255,0.55); padding: 72px 0
 .ftr-desc { font-size: 13.5px; color: rgba(255,255,255,0.45); line-height: 1.7; max-width: 280px; }
 .ftr-address { margin-top: 16px; font-size: 13px; color: rgba(255,255,255,0.4); line-height: 1.7; }
 .social-row { display: flex; gap: 8px; margin-top: 20px; }
-.soc-btn { width: 32px; height: 32px; border-radius: 8px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.5); font-size: 12px; font-weight: 700; text-decoration: none; transition: all 0.18s; }
-.soc-btn:hover { background: var(--green); color: var(--white); border-color: var(--green); }
+.soc-btn { width: 32px; height: 32px; border-radius: 8px; background: transparent; border: none; display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.5); font-size: 12px; font-weight: 700; text-decoration: none; }
 .ftr-col h4 { font-size: 11px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.35); margin-bottom: 18px; }
 .ftr-col a { display: block; font-size: 13.5px; color: rgba(255,255,255,0.6); text-decoration: none; margin-bottom: 9px; transition: color 0.18s; }
 .ftr-col a:hover { color: var(--green-light); }
@@ -1070,6 +1069,7 @@ footer { background: var(--navy); color: rgba(255,255,255,0.55); padding: 72px 0
           <label style="display:block;font-size:12px;font-weight:700;color:var(--gray-600);margin-bottom:6px;">咨询预约 *</label>
           <input name="consult-appointment" type="datetime-local" style="width:100%;padding:12px 12px;border:1px solid var(--gray-100);border-radius:10px;font-size:14px;">
           <div style="margin-top:6px;font-size:12px;color:var(--gray-400);">请选择您希望的日期与时间（越南时间）。</div>
+          <div style="margin-top:4px;font-size:12px;color:var(--gray-400);">选好后，点击日历外侧区域即可关闭。</div>
         </div>
 
         <button type="submit" class="submit-btn" style="width:100%;">提交预约请求 →</button>
@@ -1100,6 +1100,9 @@ footer { background: var(--navy); color: rgba(255,255,255,0.55); padding: 72px 0
       document.body.style.overflow = '';
     }
 
+    window.openConsultForm = openConsultForm;
+    window.closeConsultForm = closeConsultForm;
+
     if (openConsultFormBtn) openConsultFormBtn.addEventListener('click', openConsultForm);
     if (closeConsultFormBtn) closeConsultFormBtn.addEventListener('click', closeConsultForm);
     if (consultModal) consultModal.addEventListener('click', function (e) {
@@ -1108,6 +1111,25 @@ footer { background: var(--navy); color: rgba(255,255,255,0.55); padding: 72px 0
     document.addEventListener('keydown', function (e) {
       if (e.key === 'Escape' && consultModal && consultModal.classList.contains('open')) closeConsultForm();
     });
+
+    function tryOpenConsultFromHash() {
+      if (!consultModal) return;
+      var raw = (location.hash || '').replace(/^#/, '');
+      if (!raw) return;
+      var h = raw.toLowerCase();
+      if (h === 'book' || h === 'consult' || h === 'appointment' || h === 'dat-lich') {
+        openConsultForm(null);
+        if (history && history.replaceState) {
+          history.replaceState(null, '', location.pathname + location.search);
+        }
+      }
+    }
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', tryOpenConsultFromHash);
+    } else {
+      tryOpenConsultFromHash();
+    }
+    window.addEventListener('hashchange', tryOpenConsultFromHash);
   </script>
   <script>
     (function () {

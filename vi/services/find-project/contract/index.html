@@ -141,7 +141,7 @@ button{cursor:pointer;font-family:var(--font-main);}
 .tab-btn.active{color:var(--navy);border-bottom-color:var(--green);}
 
 /* CONTRACT PREVIEW */
-.contract-preview{font-size:13px;line-height:1.8;color:var(--gray-600);}
+.contract-preview{font-size:13px;line-height:1.8;color:var(--gray-600);font-family:var(--font-main);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;}
 .contract-preview h4{font-size:13.5px;font-weight:700;color:var(--navy);margin:18px 0 6px;}
 .contract-preview p{margin-bottom:10px;}
 .contract-preview .party{background:var(--off-white);border-left:3px solid var(--green);padding:12px 16px;border-radius:0 8px 8px 0;margin-bottom:12px;}
@@ -449,8 +449,7 @@ button{cursor:pointer;font-family:var(--font-main);}
               <li>Gửi về <strong>contract@houselink.com.vn</strong> hoặc Zalo: <strong>024 3795 5620</strong></li>
               <li>HOUSELINK xác nhận và kích hoạt dịch vụ trong 01 ngày làm việc</li>
             </ol>
-            <button onclick="printContract()" style="margin-top:14px;padding:10px 20px;background:var(--amber);color:#fff;border:none;border-radius:8px;font-weight:700;font-size:13.5px;">📥 Tải PDF ngay</button>
-          </div>
+</div>
         </div>
       </div>
 
@@ -566,15 +565,12 @@ button{cursor:pointer;font-family:var(--font-main);}
         <div class="success-title">Đăng ký thành công!</div>
         <div class="success-sub">Cảm ơn bạn đã đăng ký dịch vụ HOUSELINK. Hợp đồng đã được ghi nhận. Đội ngũ HOUSELINK sẽ kích hoạt tài khoản và liên hệ trong vòng <strong>01 ngày làm việc</strong>.</div>
         <div class="success-actions">
-          <button class="btn-download" onclick="printContract()">
-            📥 Tải PDF Hợp đồng
-          </button>
-          <a href="/vi/services/find-project/" style="background:var(--white);color:var(--navy);font-size:14px;font-weight:600;padding:13px 22px;border-radius:9px;border:1.5px solid var(--gray-100);">← Về trang dịch vụ</a>
+<a href="/vi/services/find-project/" style="background:var(--white);color:var(--navy);font-size:14px;font-weight:600;padding:13px 22px;border-radius:9px;border:1.5px solid var(--gray-100);">← Về trang dịch vụ</a>
         </div>
         <div style="margin-top:28px;padding:18px 20px;background:var(--off-white);border-radius:12px;text-align:left;font-size:13.5px;color:var(--gray-600);">
           <div style="font-weight:700;color:var(--navy);margin-bottom:8px;">📋 Các bước tiếp theo:</div>
           <div style="display:flex;flex-direction:column;gap:6px;">
-            <div>✅ Email xác nhận + bản PDF hợp đồng đã gửi về <strong id="success-email"></strong></div>
+            <div>✅ Email xác nhận + bản PDF hợp đồng sẽ gửi về <strong id="success-email"></strong></div>
             <div>⏳ HOUSELINK xác nhận thanh toán và kích hoạt tài khoản trong 01 ngày làm việc</div>
             <div>📱 Account Manager sẽ liên hệ để hướng dẫn sử dụng nền tảng</div>
             <div>🔍 Bắt đầu tra cứu dự án tại <a href="https://houselink.com.vn" style="color:var(--green);">houselink.com.vn</a></div>
@@ -715,6 +711,10 @@ function goStep2() {
 function goStep3() { goStep(3); updatePayContent(); }
 
 function submitContract() {
+  if(!validateStep1()) {
+    goStep(1);
+    return;
+  }
   if(!document.getElementById('terms-check').checked) {
     alert('Vui lòng đồng ý với điều khoản hợp đồng trước khi tiếp tục.');
     return;
@@ -725,6 +725,85 @@ function submitContract() {
   var cno = 'HL-'+d.getFullYear()+'-'+seq;
   document.getElementById('success-contract-no').textContent = cno;
   document.getElementById('success-email').textContent = document.getElementById('f-email').value || 'email của bạn';
+
+  // Submit registration details to Google Form (Contract)
+  // Note: Google Forms can only receive file uploads if the form includes a File upload question.
+  // This page submits text fields only.
+  (function () {
+    var GOOGLE_FORM_ACTION = 'https://docs.google.com/forms/d/e/1FAIpQLSfE56R78eAi2gaR4-gZ6HF_3w7qj1yZiOFS28bODRa6ju8vOQ/formResponse';
+    var ENTRY = {
+      company: 'entry.1987280937',
+      taxId: 'entry.1318454223',
+      phone: 'entry.1015386418',
+      address: 'entry.425299825',
+      repName: 'entry.777128380',
+      position: 'entry.1877552056',
+      email: 'entry.219842784',
+      sector: 'entry.543893068',
+      province: 'entry.959608719',
+      plan: 'entry.325662224',
+      language: 'entry.943610935',
+    };
+    var PLAN_LABEL = {
+      starter: 'Starter — Pro-Contractor Basic',
+      standard: 'Standard — Pro-Contractor Plus',
+      professional: 'Professional — Pro-Contractor Pro',
+      premium: 'Premium — Pro-Contractor Premium',
+    };
+
+    function ensureSink() {
+      var id = 'hlContractFormSink';
+      var frame = document.getElementById(id);
+      if (frame) return frame;
+      frame = document.createElement('iframe');
+      frame.id = id;
+      frame.name = id;
+      frame.style.display = 'none';
+      document.body.appendChild(frame);
+      return frame;
+    }
+
+    function v(id) {
+      var el = document.getElementById(id);
+      return (el && el.value ? String(el.value) : '').trim();
+    }
+
+    try {
+      ensureSink();
+      var tmp = document.createElement('form');
+      tmp.action = GOOGLE_FORM_ACTION;
+      tmp.method = 'POST';
+      tmp.target = 'hlContractFormSink';
+
+      var planVal = PLAN_LABEL[state.plan] || PLAN_LABEL.standard;
+      var fields = [
+        [ENTRY.company, v('f-company')],
+        [ENTRY.taxId, v('f-tax')],
+        [ENTRY.phone, v('f-phone')],
+        [ENTRY.address, v('f-address')],
+        [ENTRY.repName, v('f-rep-name')],
+        [ENTRY.position, v('f-rep-title')],
+        [ENTRY.email, v('f-email')],
+        [ENTRY.sector, v('f-industry')],
+        [ENTRY.province, v('f-province')],
+        [ENTRY.plan, planVal],
+        [ENTRY.language, 'Vietnamese'],
+      ];
+
+      for (var i = 0; i < fields.length; i++) {
+        var inp = document.createElement('input');
+        inp.type = 'hidden';
+        inp.name = fields[i][0];
+        inp.value = fields[i][1];
+        tmp.appendChild(inp);
+      }
+
+      document.body.appendChild(tmp);
+      tmp.submit();
+      tmp.remove();
+    } catch (e) {}
+  })();
+
   goStep(4);
 }
 

@@ -587,12 +587,11 @@ footer {
   box-sizing: border-box;
   border-radius: 8px;
   overflow: hidden;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: transparent;
+  border: none;
   display: block;
   color: rgba(255, 255, 255, 0.5);
   text-decoration: none;
-  transition: background 0.18s, border-color 0.18s;
 }
 .soc-btn__icon {
   position: absolute;
@@ -607,11 +606,6 @@ footer {
 }
 .soc-btn:hover .soc-btn__icon {
   opacity: 1;
-}
-.soc-btn:hover {
-  background: var(--green);
-  color: var(--white);
-  border-color: var(--green);
 }
 .ftr-col h4 {
   font-size: 11px;

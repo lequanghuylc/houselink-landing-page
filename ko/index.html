@@ -250,7 +250,8 @@ h1.hero-h1 {
 #logos { background: var(--off-white); padding: 28px 0; overflow: hidden; border-top: 1px solid var(--gray-100); border-bottom: 1px solid var(--gray-100); }
 .logos-lbl { text-align: center; font-size: 11px; color: var(--gray-400); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 20px; }
 .marquee-wrap { overflow: hidden; }
-.marquee-track { display: flex; gap: 12px; width: max-content; animation: marquee 36s linear infinite; align-items: center; }
+.marquee { display: flex; width: max-content; animation: marquee 54s linear infinite; }
+.marquee-track { display: flex; gap: 12px; align-items: center; flex-shrink: 0; }
 @keyframes marquee { from{transform:translateX(0)} to{transform:translateX(-50%)} }
 .logo-pill {
   display: flex; align-items: center; gap: 8px;
@@ -534,12 +535,18 @@ h1.hero-h1 {
   margin-top: 44px; justify-content: center;
 }
 .cust-logo {
-  font-size: 12px; font-weight: 700; color: var(--gray-400);
-  background: var(--gray-50); border: 1px solid var(--gray-100);
-  border-radius: 8px; padding: 10px 18px;
-  letter-spacing: 0.04em; transition: all 0.18s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--gray-50);
+  border: 1px solid var(--gray-100);
+  border-radius: 8px;
+  padding: 10px 16px;
+  height: 44px;
+  transition: all 0.18s;
 }
-.cust-logo:hover { color: var(--navy); background: var(--white); border-color: var(--gray-200); }
+.cust-logo__img { display: block; height: 20px; width: auto; max-width: 140px; object-fit: contain; }
+.cust-logo:hover { background: var(--white); border-color: var(--gray-200); }
 
 /* ── INSIGHTS ── */
 #insights { background: var(--off-white); }
@@ -580,8 +587,7 @@ footer { background: var(--navy); color: rgba(255,255,255,0.55); padding: 72px 0
 .ftr-desc { font-size: 13.5px; color: rgba(255,255,255,0.45); line-height: 1.7; max-width: 280px; }
 .ftr-address { margin-top: 16px; font-size: 13px; color: rgba(255,255,255,0.4); line-height: 1.7; }
 .social-row { display: flex; gap: 8px; margin-top: 20px; }
-.soc-btn { width: 32px; height: 32px; border-radius: 8px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.5); font-size: 12px; font-weight: 700; text-decoration: none; transition: all 0.18s; }
-.soc-btn:hover { background: var(--green); color: var(--white); border-color: var(--green); }
+.soc-btn { width: 32px; height: 32px; border-radius: 8px; background: transparent; border: none; display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.5); font-size: 12px; font-weight: 700; text-decoration: none; }
 .ftr-col h4 { font-size: 11px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.35); margin-bottom: 18px; }
 .ftr-col a { display: block; font-size: 13.5px; color: rgba(255,255,255,0.6); text-decoration: none; margin-bottom: 9px; transition: color 0.18s; }
 .ftr-col a:hover { color: var(--green-light); }
@@ -768,36 +774,145 @@ footer { background: var(--navy); color: rgba(255,255,255,0.55); padding: 72px 0
 <section id="logos">
 <div class="logos-lbl">2010년부터 대표 고객 및 파트너</div>
 <div class="marquee-wrap">
+<div class="marquee" aria-label="Client logos">
 <div class="marquee-track">
-<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="../images/logo-clients/fb45c8a4-1769139737974-logo-mcc-Photoroom.png" alt="MCC" loading="lazy" decoding="async"></div>
-<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="../images/logo-clients/716093e5-1677653720427-hsbc-Photoroom.png" alt="HSBC" loading="lazy" decoding="async"></div>
-<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="../images/logo-clients/a70d3be6-contractor_logo_13793-Photoroom.png" alt="Siemens" loading="lazy" decoding="async"></div>
-<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="../images/logo-clients/6d6ec9a0-1769139159577-logo-hoa-nam-Photoroom.png" alt="Hoa Nam" loading="lazy" decoding="async"></div>
-<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="../images/logo-clients/b500f875-1572851733175-viteccons1-Photoroom.png" alt="Viteccons" loading="lazy" decoding="async"></div>
-<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="../images/logo-clients/34bcfaa6-1676349121630-logotaihan-Photoroom.png" alt="Taihan" loading="lazy" decoding="async"></div>
-<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="../images/logo-clients/2a1eae8a-1587952592204-hormann-Photoroom (1).png" alt="Hörmann" loading="lazy" decoding="async"></div>
-<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="../images/logo-clients/0954c8e0-1769139306684-logo-seas-Photoroom.png" alt="SEAS" loading="lazy" decoding="async"></div>
-<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="../images/logo-clients/668ff682-1546577950665-cjsc-Photoroom.png" alt="CJSC" loading="lazy" decoding="async"></div>
-<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="../images/logo-clients/3bcdb931-contractor_logo_21861-Photoroom.png" alt="Central" loading="lazy" decoding="async"></div>
-<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="../images/logo-clients/850ab022-contractor_logo_6750-Photoroom.png" alt="Sigma" loading="lazy" decoding="async"></div>
-<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="../images/logo-clients/c928d885-contractor_logo_21574-Photoroom.png" alt="KBC" loading="lazy" decoding="async"></div>
-<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="../images/logo-clients/80e15af3-contractor_logo_11376-Photoroom.png" alt="Hop Luc" loading="lazy" decoding="async"></div>
-<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="../images/logo-clients/b0687cac-1597807164290-logo.png" alt="Client logo" loading="lazy" decoding="async"></div>
-<!-- Dupe -->
-<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="../images/logo-clients/fb45c8a4-1769139737974-logo-mcc-Photoroom.png" alt="MCC" loading="lazy" decoding="async"></div>
-<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="../images/logo-clients/716093e5-1677653720427-hsbc-Photoroom.png" alt="HSBC" loading="lazy" decoding="async"></div>
-<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="../images/logo-clients/a70d3be6-contractor_logo_13793-Photoroom.png" alt="Siemens" loading="lazy" decoding="async"></div>
-<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="../images/logo-clients/6d6ec9a0-1769139159577-logo-hoa-nam-Photoroom.png" alt="Hoa Nam" loading="lazy" decoding="async"></div>
-<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="../images/logo-clients/b500f875-1572851733175-viteccons1-Photoroom.png" alt="Viteccons" loading="lazy" decoding="async"></div>
-<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="../images/logo-clients/34bcfaa6-1676349121630-logotaihan-Photoroom.png" alt="Taihan" loading="lazy" decoding="async"></div>
-<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="../images/logo-clients/2a1eae8a-1587952592204-hormann-Photoroom (1).png" alt="Hörmann" loading="lazy" decoding="async"></div>
-<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="../images/logo-clients/0954c8e0-1769139306684-logo-seas-Photoroom.png" alt="SEAS" loading="lazy" decoding="async"></div>
-<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="../images/logo-clients/668ff682-1546577950665-cjsc-Photoroom.png" alt="CJSC" loading="lazy" decoding="async"></div>
-<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="../images/logo-clients/3bcdb931-contractor_logo_21861-Photoroom.png" alt="Central" loading="lazy" decoding="async"></div>
-<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="../images/logo-clients/850ab022-contractor_logo_6750-Photoroom.png" alt="Sigma" loading="lazy" decoding="async"></div>
-<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="../images/logo-clients/c928d885-contractor_logo_21574-Photoroom.png" alt="KBC" loading="lazy" decoding="async"></div>
-<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="../images/logo-clients/80e15af3-contractor_logo_11376-Photoroom.png" alt="Hop Luc" loading="lazy" decoding="async"></div>
-<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="../images/logo-clients/b0687cac-1597807164290-logo.png" alt="Client logo" loading="lazy" decoding="async"></div>
+<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/0954c8e0-1769139306684-logo-seas-Photoroom.png" alt="logo-seas" loading="lazy" decoding="async"></div>
+<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/2a1eae8a-1587952592204-hormann-Photoroom%20%281%29.png" alt="hormann" loading="lazy" decoding="async"></div>
+<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/34bcfaa6-1676349121630-logotaihan-Photoroom.png" alt="logotaihan" loading="lazy" decoding="async"></div>
+<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/3bcdb931-contractor_logo_21861-Photoroom.png" alt="21861" loading="lazy" decoding="async"></div>
+<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/668ff682-1546577950665-cjsc-Photoroom.png" alt="cjsc" loading="lazy" decoding="async"></div>
+<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/6d6ec9a0-1769139159577-logo-hoa-nam-Photoroom.png" alt="logo-hoa-nam" loading="lazy" decoding="async"></div>
+<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/716093e5-1677653720427-hsbc-Photoroom.png" alt="hsbc" loading="lazy" decoding="async"></div>
+<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/80e15af3-contractor_logo_11376-Photoroom.png" alt="11376" loading="lazy" decoding="async"></div>
+<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/850ab022-contractor_logo_6750-Photoroom.png" alt="6750" loading="lazy" decoding="async"></div>
+<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/ABB-Photoroom.png" alt="ABB" loading="lazy" decoding="async"></div>
+<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/ATAD-Photoroom.png" alt="ATAD" loading="lazy" decoding="async"></div>
+<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/AZB-Photoroom.png" alt="AZB" loading="lazy" decoding="async"></div>
+<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Ariston-Photoroom.png" alt="Ariston" loading="lazy" decoding="async"></div>
+<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Basf-Photoroom.png" alt="Basf" loading="lazy" decoding="async"></div>
+<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Blue%20scope-Photoroom.png" alt="Blue scope" loading="lazy" decoding="async"></div>
+<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Buhler-Photoroom.png" alt="Buhler" loading="lazy" decoding="async"></div>
+<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/CPT%20Steel-Photoroom.png" alt="CPT Steel" loading="lazy" decoding="async"></div>
+<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/CT-Photoroom.png" alt="CT" loading="lazy" decoding="async"></div>
+<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Cabot-Photoroom.png" alt="Cabot" loading="lazy" decoding="async"></div>
+<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Daidung-Photoroom.png" alt="Daidung" loading="lazy" decoding="async"></div>
+<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Dainam-Photoroom.png" alt="Dainam" loading="lazy" decoding="async"></div>
+<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Dinco-Photoroom.png" alt="Dinco" loading="lazy" decoding="async"></div>
+<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/HD%20Hyundai%20electric.png" alt="HD Hyundai electric" loading="lazy" decoding="async"></div>
+<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/HSBC.png" alt="HSBC" loading="lazy" decoding="async"></div>
+<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Helukabel.png" alt="Helukabel" loading="lazy" decoding="async"></div>
+<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Hoa%20binh.png" alt="Hoa binh" loading="lazy" decoding="async"></div>
+<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Honney%20well.png" alt="Honney well" loading="lazy" decoding="async"></div>
+<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Hormann.png" alt="Hormann" loading="lazy" decoding="async"></div>
+<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/ICIC.png" alt="ICIC" loading="lazy" decoding="async"></div>
+<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Itochu.png" alt="Itochu" loading="lazy" decoding="async"></div>
+<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/JFE.png" alt="JFE" loading="lazy" decoding="async"></div>
+<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Jotun.png" alt="Jotun" loading="lazy" decoding="async"></div>
+<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/KDDI.png" alt="KDDI" loading="lazy" decoding="async"></div>
+<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Kansai%20paint.png" alt="Kansai paint" loading="lazy" decoding="async"></div>
+<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Kanto.png" alt="Kanto" loading="lazy" decoding="async"></div>
+<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Kirby.png" alt="Kirby" loading="lazy" decoding="async"></div>
+<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Knauf.png" alt="Knauf" loading="lazy" decoding="async"></div>
+<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/LG%20Business.png" alt="LG Business" loading="lazy" decoding="async"></div>
+<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Maeda.png" alt="Maeda" loading="lazy" decoding="async"></div>
+<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Mapei.png" alt="Mapei" loading="lazy" decoding="async"></div>
+<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/N.png" alt="N" loading="lazy" decoding="async"></div>
+<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Nakano.png" alt="Nakano" loading="lazy" decoding="async"></div>
+<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Nishimatsu.png" alt="Nishimatsu" loading="lazy" decoding="async"></div>
+<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Pebsteel.png" alt="Pebsteel" loading="lazy" decoding="async"></div>
+<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Quali%20pro.png" alt="Quali pro" loading="lazy" decoding="async"></div>
+<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/REE.png" alt="REE" loading="lazy" decoding="async"></div>
+<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Royal%20h%C3%A1koning.png" alt="Royal hákoning" loading="lazy" decoding="async"></div>
+<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/SCE.png" alt="SCE" loading="lazy" decoding="async"></div>
+<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Sagen.png" alt="Sagen" loading="lazy" decoding="async"></div>
+<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Schneider.png" alt="Schneider" loading="lazy" decoding="async"></div>
+<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Siements.png" alt="Siements" loading="lazy" decoding="async"></div>
+<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Sika.png" alt="Sika" loading="lazy" decoding="async"></div>
+<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Softbank.png" alt="Softbank" loading="lazy" decoding="async"></div>
+<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Taihan%20Vina.png" alt="Taihan Vina" loading="lazy" decoding="async"></div>
+<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Thang%20tien.png" alt="Thang tien" loading="lazy" decoding="async"></div>
+<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Toda.png" alt="Toda" loading="lazy" decoding="async"></div>
+<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Ton%20dong%20a.png" alt="Ton dong a" loading="lazy" decoding="async"></div>
+<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Untitled.png" alt="Client logo" loading="lazy" decoding="async"></div>
+<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/VE.png" alt="VE" loading="lazy" decoding="async"></div>
+<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Vinaconex.png" alt="Vinaconex" loading="lazy" decoding="async"></div>
+<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Vinata.png" alt="Vinata" loading="lazy" decoding="async"></div>
+<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Zamil%20steel.png" alt="Zamil steel" loading="lazy" decoding="async"></div>
+<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/a70d3be6-contractor_logo_13793-Photoroom.png" alt="13793" loading="lazy" decoding="async"></div>
+<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/b0687cac-1597807164290-logo.png" alt="Client logo" loading="lazy" decoding="async"></div>
+<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/b500f875-1572851733175-viteccons1-Photoroom.png" alt="viteccons1" loading="lazy" decoding="async"></div>
+<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/c928d885-contractor_logo_21574-Photoroom.png" alt="21574" loading="lazy" decoding="async"></div>
+<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/fb45c8a4-1769139737974-logo-mcc-Photoroom.png" alt="logo-mcc" loading="lazy" decoding="async"></div>
+</div>
+<div class="marquee-track" aria-hidden="true">
+<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/0954c8e0-1769139306684-logo-seas-Photoroom.png" alt="logo-seas" loading="lazy" decoding="async"></div>
+<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/2a1eae8a-1587952592204-hormann-Photoroom%20%281%29.png" alt="hormann" loading="lazy" decoding="async"></div>
+<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/34bcfaa6-1676349121630-logotaihan-Photoroom.png" alt="logotaihan" loading="lazy" decoding="async"></div>
+<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/3bcdb931-contractor_logo_21861-Photoroom.png" alt="21861" loading="lazy" decoding="async"></div>
+<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/668ff682-1546577950665-cjsc-Photoroom.png" alt="cjsc" loading="lazy" decoding="async"></div>
+<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/6d6ec9a0-1769139159577-logo-hoa-nam-Photoroom.png" alt="logo-hoa-nam" loading="lazy" decoding="async"></div>
+<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/716093e5-1677653720427-hsbc-Photoroom.png" alt="hsbc" loading="lazy" decoding="async"></div>
+<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/80e15af3-contractor_logo_11376-Photoroom.png" alt="11376" loading="lazy" decoding="async"></div>
+<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/850ab022-contractor_logo_6750-Photoroom.png" alt="6750" loading="lazy" decoding="async"></div>
+<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/ABB-Photoroom.png" alt="ABB" loading="lazy" decoding="async"></div>
+<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/ATAD-Photoroom.png" alt="ATAD" loading="lazy" decoding="async"></div>
+<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/AZB-Photoroom.png" alt="AZB" loading="lazy" decoding="async"></div>
+<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Ariston-Photoroom.png" alt="Ariston" loading="lazy" decoding="async"></div>
+<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Basf-Photoroom.png" alt="Basf" loading="lazy" decoding="async"></div>
+<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Blue%20scope-Photoroom.png" alt="Blue scope" loading="lazy" decoding="async"></div>
+<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Buhler-Photoroom.png" alt="Buhler" loading="lazy" decoding="async"></div>
+<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/CPT%20Steel-Photoroom.png" alt="CPT Steel" loading="lazy" decoding="async"></div>
+<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/CT-Photoroom.png" alt="CT" loading="lazy" decoding="async"></div>
+<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Cabot-Photoroom.png" alt="Cabot" loading="lazy" decoding="async"></div>
+<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Daidung-Photoroom.png" alt="Daidung" loading="lazy" decoding="async"></div>
+<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Dainam-Photoroom.png" alt="Dainam" loading="lazy" decoding="async"></div>
+<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Dinco-Photoroom.png" alt="Dinco" loading="lazy" decoding="async"></div>
+<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/HD%20Hyundai%20electric.png" alt="HD Hyundai electric" loading="lazy" decoding="async"></div>
+<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/HSBC.png" alt="HSBC" loading="lazy" decoding="async"></div>
+<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Helukabel.png" alt="Helukabel" loading="lazy" decoding="async"></div>
+<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Hoa%20binh.png" alt="Hoa binh" loading="lazy" decoding="async"></div>
+<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Honney%20well.png" alt="Honney well" loading="lazy" decoding="async"></div>
+<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Hormann.png" alt="Hormann" loading="lazy" decoding="async"></div>
+<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/ICIC.png" alt="ICIC" loading="lazy" decoding="async"></div>
+<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Itochu.png" alt="Itochu" loading="lazy" decoding="async"></div>
+<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/JFE.png" alt="JFE" loading="lazy" decoding="async"></div>
+<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Jotun.png" alt="Jotun" loading="lazy" decoding="async"></div>
+<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/KDDI.png" alt="KDDI" loading="lazy" decoding="async"></div>
+<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Kansai%20paint.png" alt="Kansai paint" loading="lazy" decoding="async"></div>
+<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Kanto.png" alt="Kanto" loading="lazy" decoding="async"></div>
+<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Kirby.png" alt="Kirby" loading="lazy" decoding="async"></div>
+<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Knauf.png" alt="Knauf" loading="lazy" decoding="async"></div>
+<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/LG%20Business.png" alt="LG Business" loading="lazy" decoding="async"></div>
+<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Maeda.png" alt="Maeda" loading="lazy" decoding="async"></div>
+<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Mapei.png" alt="Mapei" loading="lazy" decoding="async"></div>
+<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/N.png" alt="N" loading="lazy" decoding="async"></div>
+<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Nakano.png" alt="Nakano" loading="lazy" decoding="async"></div>
+<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Nishimatsu.png" alt="Nishimatsu" loading="lazy" decoding="async"></div>
+<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Pebsteel.png" alt="Pebsteel" loading="lazy" decoding="async"></div>
+<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Quali%20pro.png" alt="Quali pro" loading="lazy" decoding="async"></div>
+<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/REE.png" alt="REE" loading="lazy" decoding="async"></div>
+<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Royal%20h%C3%A1koning.png" alt="Royal hákoning" loading="lazy" decoding="async"></div>
+<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/SCE.png" alt="SCE" loading="lazy" decoding="async"></div>
+<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Sagen.png" alt="Sagen" loading="lazy" decoding="async"></div>
+<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Schneider.png" alt="Schneider" loading="lazy" decoding="async"></div>
+<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Siements.png" alt="Siements" loading="lazy" decoding="async"></div>
+<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Sika.png" alt="Sika" loading="lazy" decoding="async"></div>
+<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Softbank.png" alt="Softbank" loading="lazy" decoding="async"></div>
+<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Taihan%20Vina.png" alt="Taihan Vina" loading="lazy" decoding="async"></div>
+<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Thang%20tien.png" alt="Thang tien" loading="lazy" decoding="async"></div>
+<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Toda.png" alt="Toda" loading="lazy" decoding="async"></div>
+<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Ton%20dong%20a.png" alt="Ton dong a" loading="lazy" decoding="async"></div>
+<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Untitled.png" alt="Client logo" loading="lazy" decoding="async"></div>
+<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/VE.png" alt="VE" loading="lazy" decoding="async"></div>
+<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Vinaconex.png" alt="Vinaconex" loading="lazy" decoding="async"></div>
+<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Vinata.png" alt="Vinata" loading="lazy" decoding="async"></div>
+<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Zamil%20steel.png" alt="Zamil steel" loading="lazy" decoding="async"></div>
+<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/a70d3be6-contractor_logo_13793-Photoroom.png" alt="13793" loading="lazy" decoding="async"></div>
+<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/b0687cac-1597807164290-logo.png" alt="Client logo" loading="lazy" decoding="async"></div>
+<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/b500f875-1572851733175-viteccons1-Photoroom.png" alt="viteccons1" loading="lazy" decoding="async"></div>
+<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/c928d885-contractor_logo_21574-Photoroom.png" alt="21574" loading="lazy" decoding="async"></div>
+<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/fb45c8a4-1769139737974-logo-mcc-Photoroom.png" alt="logo-mcc" loading="lazy" decoding="async"></div>
+</div>
 </div>
 </div>
 </section>
@@ -1248,83 +1363,73 @@ footer { background: var(--navy); color: rgba(255,255,255,0.55); padding: 72px 0
 <h2 class="sec-title">커뮤니티에 가입하세요<em>2,000+</em>기업<br/>2010년부터 선도적인 기업들이 우리와 함께 성장해 왔습니다.</h2>
 </div>
 <div class="customers-logo-grid">
-<div class="cust-logo">ABB</div>
-<div class="cust-logo">Honeywell</div>
-<div class="cust-logo">Ariston</div>
-<div class="cust-logo">Cabot</div>
-<div class="cust-logo">BlueScope</div>
-<div class="cust-logo">MAPEI</div>
-<div class="cust-logo">BASF</div>
-<div class="cust-logo">Schneider Electric</div>
-<div class="cust-logo">HELUKABEL</div>
-<div class="cust-logo">SAGEN</div>
-<div class="cust-logo">Dainam</div>
-<div class="cust-logo">Jotun</div>
-<div class="cust-logo">Siemens</div>
-<div class="cust-logo">Bohler</div>
-<div class="cust-logo">Itochu</div>
-<div class="cust-logo">Knauf</div>
-<div class="cust-logo">Hormann</div>
-<div class="cust-logo">Taihan Vina</div>
-<div class="cust-logo">Zamil Steel</div>
-<div class="cust-logo">BMS</div>
-<div class="cust-logo">HSBC</div>
-<div class="cust-logo">Jika</div>
-<div class="cust-logo">KDDI Vietnam</div>
-<div class="cust-logo">HD Saison</div>
-<div class="cust-logo">LG Electronics</div>
-<div class="cust-logo">Kirby</div>
-<div class="cust-logo">ATAD Steel</div>
-<div class="cust-logo">REE</div>
-<div class="cust-logo">Pebsteel</div>
-<div class="cust-logo">Nakano</div>
-<div class="cust-logo">JFE</div>
-<div class="cust-logo">Kansai Paint</div>
-<div class="cust-logo">SoftBank</div>
-<div class="cust-logo">Royal</div>
-<div class="cust-logo">Ton Dong A</div>
-<div class="cust-logo">Kanto</div>
-<div class="cust-logo">Toda Corporation</div>
-<div class="cust-logo">QualisPro</div>
-<div class="cust-logo">AZB</div>
-<div class="cust-logo">Meera</div>
-<div class="cust-logo">Fujitr</div>
-<div class="cust-logo">Kobelco</div>
-<div class="cust-logo">NSN</div>
-<div class="cust-logo">CJSC</div>
-<div class="cust-logo">Tomat Group</div>
-<div class="cust-logo">Rittal</div>
-<div class="cust-logo">AQH</div>
-<div class="cust-logo">Posco</div>
-<div class="cust-logo">Delta E&amp;C</div>
-<div class="cust-logo">Alphanam E&amp;C</div>
-<div class="cust-logo">ZME</div>
-<div class="cust-logo">AAC</div>
-<div class="cust-logo">Decora Dint</div>
-<div class="cust-logo">Xella</div>
-<div class="cust-logo">archetype</div>
-<div class="cust-logo">SHiMZ</div>
-<div class="cust-logo">VJG</div>
-<div class="cust-logo">Le Gia Phuc</div>
-<div class="cust-logo">Fin Phat</div>
-<div class="cust-logo">CM Partnership</div>
-<div class="cust-logo">Thien An</div>
-<div class="cust-logo">AVC Cranes</div>
-<div class="cust-logo">KCC</div>
-<div class="cust-logo">Central</div>
-<div class="cust-logo">Ricons</div>
-<div class="cust-logo">Horng Yu</div>
-<div class="cust-logo">Dayvet</div>
-<div class="cust-logo">Daprace</div>
-<div class="cust-logo">Southern</div>
-<div class="cust-logo">exyte</div>
-<div class="cust-logo">King</div>
-<div class="cust-logo">Flowcrete</div>
-<div class="cust-logo">World Steel</div>
-<div class="cust-logo">ARICO</div>
-<div class="cust-logo">Mitraco</div>
-<div class="cust-logo">Renet</div>
-<div class="cust-logo">Phan Vu</div>
+  <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/0954c8e0-1769139306684-logo-seas-Photoroom.png" alt="logo-seas" loading="lazy" decoding="async"></div>
+  <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/2a1eae8a-1587952592204-hormann-Photoroom%20%281%29.png" alt="hormann" loading="lazy" decoding="async"></div>
+  <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/34bcfaa6-1676349121630-logotaihan-Photoroom.png" alt="logotaihan" loading="lazy" decoding="async"></div>
+  <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/3bcdb931-contractor_logo_21861-Photoroom.png" alt="21861" loading="lazy" decoding="async"></div>
+  <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/668ff682-1546577950665-cjsc-Photoroom.png" alt="cjsc" loading="lazy" decoding="async"></div>
+  <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/6d6ec9a0-1769139159577-logo-hoa-nam-Photoroom.png" alt="logo-hoa-nam" loading="lazy" decoding="async"></div>
+  <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/716093e5-1677653720427-hsbc-Photoroom.png" alt="hsbc" loading="lazy" decoding="async"></div>
+  <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/80e15af3-contractor_logo_11376-Photoroom.png" alt="11376" loading="lazy" decoding="async"></div>
+  <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/850ab022-contractor_logo_6750-Photoroom.png" alt="6750" loading="lazy" decoding="async"></div>
+  <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/ABB-Photoroom.png" alt="ABB" loading="lazy" decoding="async"></div>
+  <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/ATAD-Photoroom.png" alt="ATAD" loading="lazy" decoding="async"></div>
+  <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/AZB-Photoroom.png" alt="AZB" loading="lazy" decoding="async"></div>
+  <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/Ariston-Photoroom.png" alt="Ariston" loading="lazy" decoding="async"></div>
+  <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/Basf-Photoroom.png" alt="Basf" loading="lazy" decoding="async"></div>
+  <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/Blue%20scope-Photoroom.png" alt="Blue scope" loading="lazy" decoding="async"></div>
+  <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/Buhler-Photoroom.png" alt="Buhler" loading="lazy" decoding="async"></div>
+  <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/CPT%20Steel-Photoroom.png" alt="CPT Steel" loading="lazy" decoding="async"></div>
+  <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/CT-Photoroom.png" alt="CT" loading="lazy" decoding="async"></div>
+  <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/Cabot-Photoroom.png" alt="Cabot" loading="lazy" decoding="async"></div>
+  <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/Daidung-Photoroom.png" alt="Daidung" loading="lazy" decoding="async"></div>
+  <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/Dainam-Photoroom.png" alt="Dainam" loading="lazy" decoding="async"></div>
+  <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/Dinco-Photoroom.png" alt="Dinco" loading="lazy" decoding="async"></div>
+  <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/HD%20Hyundai%20electric.png" alt="HD Hyundai electric" loading="lazy" decoding="async"></div>
+  <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/HSBC.png" alt="HSBC" loading="lazy" decoding="async"></div>
+  <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/Helukabel.png" alt="Helukabel" loading="lazy" decoding="async"></div>
+  <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/Hoa%20binh.png" alt="Hoa binh" loading="lazy" decoding="async"></div>
+  <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/Honney%20well.png" alt="Honney well" loading="lazy" decoding="async"></div>
+  <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/Hormann.png" alt="Hormann" loading="lazy" decoding="async"></div>
+  <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/ICIC.png" alt="ICIC" loading="lazy" decoding="async"></div>
+  <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/Itochu.png" alt="Itochu" loading="lazy" decoding="async"></div>
+  <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/JFE.png" alt="JFE" loading="lazy" decoding="async"></div>
+  <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/Jotun.png" alt="Jotun" loading="lazy" decoding="async"></div>
+  <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/KDDI.png" alt="KDDI" loading="lazy" decoding="async"></div>
+  <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/Kansai%20paint.png" alt="Kansai paint" loading="lazy" decoding="async"></div>
+  <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/Kanto.png" alt="Kanto" loading="lazy" decoding="async"></div>
+  <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/Kirby.png" alt="Kirby" loading="lazy" decoding="async"></div>
+  <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/Knauf.png" alt="Knauf" loading="lazy" decoding="async"></div>
+  <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/LG%20Business.png" alt="LG Business" loading="lazy" decoding="async"></div>
+  <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/Maeda.png" alt="Maeda" loading="lazy" decoding="async"></div>
+  <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/Mapei.png" alt="Mapei" loading="lazy" decoding="async"></div>
+  <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/N.png" alt="N" loading="lazy" decoding="async"></div>
+  <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/Nakano.png" alt="Nakano" loading="lazy" decoding="async"></div>
+  <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/Nishimatsu.png" alt="Nishimatsu" loading="lazy" decoding="async"></div>
+  <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/Pebsteel.png" alt="Pebsteel" loading="lazy" decoding="async"></div>
+  <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/Quali%20pro.png" alt="Quali pro" loading="lazy" decoding="async"></div>
+  <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/REE.png" alt="REE" loading="lazy" decoding="async"></div>
+  <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/Royal%20h%C3%A1koning.png" alt="Royal hákoning" loading="lazy" decoding="async"></div>
+  <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/SCE.png" alt="SCE" loading="lazy" decoding="async"></div>
+  <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/Sagen.png" alt="Sagen" loading="lazy" decoding="async"></div>
+  <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/Schneider.png" alt="Schneider" loading="lazy" decoding="async"></div>
+  <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/Siements.png" alt="Siements" loading="lazy" decoding="async"></div>
+  <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/Sika.png" alt="Sika" loading="lazy" decoding="async"></div>
+  <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/Softbank.png" alt="Softbank" loading="lazy" decoding="async"></div>
+  <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/Taihan%20Vina.png" alt="Taihan Vina" loading="lazy" decoding="async"></div>
+  <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/Thang%20tien.png" alt="Thang tien" loading="lazy" decoding="async"></div>
+  <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/Toda.png" alt="Toda" loading="lazy" decoding="async"></div>
+  <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/Ton%20dong%20a.png" alt="Ton dong a" loading="lazy" decoding="async"></div>
+  <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/Untitled.png" alt="Client logo" loading="lazy" decoding="async"></div>
+  <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/VE.png" alt="VE" loading="lazy" decoding="async"></div>
+  <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/Vinaconex.png" alt="Vinaconex" loading="lazy" decoding="async"></div>
+  <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/Vinata.png" alt="Vinata" loading="lazy" decoding="async"></div>
+  <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/Zamil%20steel.png" alt="Zamil steel" loading="lazy" decoding="async"></div>
+  <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/a70d3be6-contractor_logo_13793-Photoroom.png" alt="13793" loading="lazy" decoding="async"></div>
+  <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/b0687cac-1597807164290-logo.png" alt="Client logo" loading="lazy" decoding="async"></div>
+  <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/b500f875-1572851733175-viteccons1-Photoroom.png" alt="viteccons1" loading="lazy" decoding="async"></div>
+  <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/c928d885-contractor_logo_21574-Photoroom.png" alt="21574" loading="lazy" decoding="async"></div>
+  <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/fb45c8a4-1769139737974-logo-mcc-Photoroom.png" alt="logo-mcc" loading="lazy" decoding="async"></div>
 </div>
 <div style="text-align:center; margin-top:32px; font-size:13.5px; color:var(--gray-400);">그리고 일본, 한국, 대만, 유럽연합, 미국의 수백 개 기업</div>
 </div>
