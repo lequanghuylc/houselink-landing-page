@@ -54,6 +54,7 @@
       "width:28px;height:28px;line-height:28px;text-align:center;border-radius:8px;background:#F97316;" +
       "color:#fff;font-weight:800;font-size:15px;font-family:system-ui,-apple-system,sans-serif;" +
       "box-shadow:0 2px 6px rgba(234,88,12,.35);}" +
+      ".hl-newsletter-form .hl-auth-client-msg.hl-msg-ok::before{content:'';display:none;}" +
       ".hl-newsletter-form input.hl-field-error{outline:none!important;border:2px solid #F97316!important;" +
       "box-shadow:0 0 0 3px rgba(249,115,22,.14)!important;}" +
       ".hl-event-reg-form .hl-auth-client-msg{display:none;position:relative;margin:0 0 20px;padding:14px 16px 14px 52px;" +
@@ -375,6 +376,9 @@
         showMsg(form, msg("emailInvalid"), emailIn);
         emailIn.focus();
         return;
+      }
+      if (typeof window.hlNewsletterOnValid === "function") {
+        window.hlNewsletterOnValid(form);
       }
     });
     form.querySelectorAll("input").forEach(function (el) {

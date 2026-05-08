@@ -737,8 +737,8 @@ footer { background: var(--navy); color: rgba(255,255,255,0.55); padding: 72px 0
 .art-tag{font-size:12px;font-weight:600;color:var(--navy);background:var(--gray-50);padding:5px 14px;border-radius:100px;border:1px solid var(--gray-100);}
 .art-share{display:flex;align-items:center;gap:12px;margin-top:8px;}
 .art-share span{font-size:13px;font-weight:600;color:var(--gray-600);}
-.share-btn{background:var(--navy);color:#fff;font-size:12px;font-weight:600;padding:7px 14px;border-radius:7px;text-decoration:none;transition:background .2s;}
-.share-btn:hover{background:var(--green);}
+.art-share .soc-btn{width:30px;height:30px;border-radius:8px;display:inline-block;position:relative;overflow:hidden;background:transparent;border:none;}
+.art-share .soc-btn__icon{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.95;}
 /* Sidebar */
 .art-sidebar{}
 .sidebar-card{background:var(--white);border:1px solid var(--gray-100);border-radius:14px;padding:24px 20px;margin-bottom:24px;}
@@ -849,11 +849,11 @@ footer { background: var(--navy); color: rgba(255,255,255,0.55); padding: 72px 0
           <span class="art-tag">ISO 14067</span><span class="art-tag">RE100</span>
         </div>
         <div class="art-share">
-          <span>공유:</span>
-          <a href="https://www.linkedin.com/company/houselink-jsc" class="share-btn" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-          <a href="https://www.facebook.com/houselink.com.vn" class="share-btn" target="_blank" rel="noopener noreferrer">Facebook</a>
-          <a href="https://www.youtube.com/@houselink5096" class="share-btn" target="_blank" rel="noopener noreferrer">YouTube</a>
-        </div>
+  <span>공유:</span>
+  <a href="https://www.linkedin.com/company/houselink-jsc" class="soc-btn" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><img class="soc-btn__icon" src="/images/icon%20linkedin.png" alt="" decoding="async"></a>
+  <a href="https://www.facebook.com/houselink.com.vn" class="soc-btn" aria-label="Facebook" target="_blank" rel="noopener noreferrer"><img class="soc-btn__icon" src="/images/icon%20facebook.png" alt="" decoding="async"></a>
+  <a href="https://www.youtube.com/@houselink5096" class="soc-btn" aria-label="YouTube" target="_blank" rel="noopener noreferrer"><img class="soc-btn__icon" src="/images/icon%20youtube.png" alt="" decoding="async"></a>
+</div>
       </div>
 
       

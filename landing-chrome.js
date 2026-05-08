@@ -200,6 +200,107 @@
   }
   scheduleHlScrollReveal();
 
+  function detectNewsletterLanguageValue() {
+    var p = (window.location && window.location.pathname) || "/";
+    if (p.indexOf("/vi/") === 0) return "Vietnamese";
+    if (p.indexOf("/ja/") === 0) return "Japanese";
+    if (p.indexOf("/ko/") === 0) return "Korean";
+    if (p.indexOf("/zh/") === 0) return "Chinese";
+    return "English";
+  }
+
+  function ensureHiddenIframe(id) {
+    var existing = document.getElementById(id);
+    if (existing) return existing;
+    var iframe = document.createElement("iframe");
+    iframe.id = id;
+    iframe.name = id;
+    iframe.tabIndex = -1;
+    iframe.setAttribute("aria-hidden", "true");
+    iframe.style.width = "0";
+    iframe.style.height = "0";
+    iframe.style.border = "0";
+    iframe.style.position = "absolute";
+    iframe.style.left = "-9999px";
+    iframe.style.top = "0";
+    document.body.appendChild(iframe);
+    return iframe;
+  }
+
+  function initNewsletterGoogleFormBridge() {
+    var GF_ACTION =
+      "https://docs.google.com/forms/d/e/1FAIpQLSfdP3saeVT46ueAbfF7zJ0OnZEe4y82Et5hshCd_fnms8r1Ig/formResponse";
+    var EMAIL_ENTRY = "entry.975117866";
+    var LANG_ENTRY = "entry.339917712";
+    var SINK_ID = "hlNewsletterFormSink";
+
+    function setMsg(form, text, kind) {
+      var box = form.querySelector(".hl-auth-client-msg");
+      if (!box) return;
+      box.textContent = text || "";
+      box.classList.add("is-visible");
+      box.classList.remove("hl-msg-ok");
+      if (kind === "ok") box.classList.add("hl-msg-ok");
+      box.style.color = kind === "ok" ? "#7ED49A" : kind === "err" ? "#FCA5A5" : "";
+    }
+
+    function submitToGoogleForm(email, lang) {
+      ensureHiddenIframe(SINK_ID);
+      var f = document.createElement("form");
+      f.method = "POST";
+      f.action = GF_ACTION;
+      f.target = SINK_ID;
+      f.style.position = "absolute";
+      f.style.left = "-9999px";
+      f.style.top = "0";
+
+      var iEmail = document.createElement("input");
+      iEmail.type = "hidden";
+      iEmail.name = EMAIL_ENTRY;
+      iEmail.value = email;
+      f.appendChild(iEmail);
+
+      var iLang = document.createElement("input");
+      iLang.type = "hidden";
+      iLang.name = LANG_ENTRY;
+      iLang.value = lang;
+      f.appendChild(iLang);
+
+      document.body.appendChild(f);
+      try {
+        f.submit();
+      } finally {
+        setTimeout(function () {
+          try {
+            document.body.removeChild(f);
+          } catch (ignore) {}
+        }, 0);
+      }
+    }
+
+    if (typeof window.hlNewsletterOnValid !== "function") {
+      window.hlNewsletterOnValid = function (form) {
+        var emailEl = form && form.querySelector ? form.querySelector('input[type="email"]') : null;
+        var email = (emailEl && String(emailEl.value || "").trim()) || "";
+        if (!email || email.indexOf("@") === -1) return;
+
+        setMsg(form, "Submitting…", "");
+        var lang = detectNewsletterLanguageValue();
+        submitToGoogleForm(email, lang);
+        setMsg(form, "Thanks — you’re registered for weekly updates.", "ok");
+        try {
+          form.reset();
+        } catch (ignore) {}
+      };
+    }
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initNewsletterGoogleFormBridge);
+  } else {
+    initNewsletterGoogleFormBridge();
+  }
+
   var HL_HOME = {
     vi: "/vi/",
     en: "/",
