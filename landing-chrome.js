@@ -234,6 +234,42 @@
     var LANG_ENTRY = "entry.339917712";
     var SINK_ID = "hlNewsletterFormSink";
 
+    function newsletterUiLocaleKey() {
+      var raw = (document.documentElement.getAttribute("lang") || "").toLowerCase();
+      if (raw.indexOf("vi") === 0) return "vi";
+      if (raw.indexOf("ja") === 0) return "ja";
+      if (raw.indexOf("ko") === 0) return "ko";
+      if (raw.indexOf("zh") === 0) return "zh";
+      return "en";
+    }
+
+    function newsletterMsg(which) {
+      var k = newsletterUiLocaleKey();
+      var T = {
+        en: {
+          submitting: "Submitting…",
+          success: "Thanks — you’re registered for weekly updates.",
+        },
+        vi: {
+          submitting: "Đang gửi…",
+          success: "Cảm ơn bạn — bạn đã đăng ký nhận cập nhật thị trường hàng tuần.",
+        },
+        ja: {
+          submitting: "送信中…",
+          success: "ありがとうございます。週次マーケットアップデートの登録が完了しました。",
+        },
+        ko: {
+          submitting: "전송 중…",
+          success: "감사합니다. 주간 시장 업데이트 구독이 완료되었습니다.",
+        },
+        zh: {
+          submitting: "提交中…",
+          success: "感谢您！您已成功订阅每周市场更新。",
+        },
+      };
+      return (T[k] && T[k][which]) || T.en[which] || "";
+    }
+
     function setMsg(form, text, kind) {
       var box = form.querySelector(".hl-auth-client-msg");
       if (!box) return;
@@ -284,10 +320,10 @@
         var email = (emailEl && String(emailEl.value || "").trim()) || "";
         if (!email || email.indexOf("@") === -1) return;
 
-        setMsg(form, "Submitting…", "");
+        setMsg(form, newsletterMsg("submitting"), "");
         var lang = detectNewsletterLanguageValue();
         submitToGoogleForm(email, lang);
-        setMsg(form, "Thanks — you’re registered for weekly updates.", "ok");
+        setMsg(form, newsletterMsg("success"), "ok");
         try {
           form.reset();
         } catch (ignore) {}

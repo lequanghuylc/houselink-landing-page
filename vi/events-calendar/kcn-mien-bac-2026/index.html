@@ -627,12 +627,82 @@ function copyLink(){
   });
 }
 
+function hlEventRegLangValue(){
+  var raw = (document.documentElement.getAttribute('lang') || 'en').toLowerCase();
+  if (raw.indexOf('vi') === 0) return 'Vietnamese';
+  if (raw.indexOf('ja') === 0) return 'Japanese';
+  if (raw.indexOf('ko') === 0) return 'Korean';
+  if (raw.indexOf('zh') === 0) return 'Chinese';
+  return 'English';
+}
+
+function hlEnsureIframe(id){
+  var el = document.getElementById(id);
+  if (el) return el;
+  var iframe = document.createElement('iframe');
+  iframe.id = id;
+  iframe.name = id;
+  iframe.tabIndex = -1;
+  iframe.setAttribute('aria-hidden', 'true');
+  iframe.style.width = '0';
+  iframe.style.height = '0';
+  iframe.style.border = '0';
+  iframe.style.position = 'absolute';
+  iframe.style.left = '-9999px';
+  iframe.style.top = '0';
+  document.body.appendChild(iframe);
+  return iframe;
+}
+
+function hlPostGoogleForm(action, targetId, fields){
+  hlEnsureIframe(targetId);
+  var f = document.createElement('form');
+  f.method = 'POST';
+  f.action = action;
+  f.target = targetId;
+  f.style.position = 'absolute';
+  f.style.left = '-9999px';
+  f.style.top = '0';
+  Object.keys(fields || {}).forEach(function(name){
+    var v = fields[name];
+    if (v === null || typeof v === 'undefined') return;
+    var i = document.createElement('input');
+    i.type = 'hidden';
+    i.name = name;
+    i.value = String(v);
+    f.appendChild(i);
+  });
+  document.body.appendChild(f);
+  try { f.submit(); } finally {
+    setTimeout(function(){ try{ document.body.removeChild(f); } catch(ignore){} }, 0);
+  }
+}
+
+function hlSubmitEventRegToGoogleForm(form){
+  var val = function(sel){
+    var el = form.querySelector(sel);
+    return el ? String(el.value || '').trim() : '';
+  };
+  var action = 'https://docs.google.com/forms/d/e/1FAIpQLSf6bFiy7exaKebutkHevRSM6PrcwfUugbUT1bOX1Z78FLWBGQ/formResponse';
+  hlPostGoogleForm(action, 'hlEventRegFormSink', {
+    'entry.980800937': val('[name=\"reg-name\"]'),
+    'entry.1320841095': val('[name=\"reg-title\"]'),
+    'entry.593596374': val('[name=\"reg-company\"]'),
+    'entry.929220293': val('[name=\"reg-sector\"]'),
+    'entry.1762616504': val('[name=\"reg-email\"]'),
+    'entry.1005171368': val('[name=\"reg-phone\"]'),
+    'entry.1134878973': val('[name=\"reg-goals\"]'),
+    'entry.1521494735': hlEventRegLangValue(),
+  });
+}
+
 window.hlEventRegOnValid = function(form){
   var btn = form.querySelector('button[type="submit"]');
   var card = form.querySelector('[data-reg-card]');
   if (!btn || !card) return;
   btn.disabled = true;
   btn.textContent = '⏳ Đang xử lý...';
+  hlSubmitEventRegToGoogleForm(form);
   setTimeout(function(){
     card.innerHTML = '<div style="text-align:center;padding:40px 20px;"><div style="font-size:48px;margin-bottom:16px;">🎉</div><div style="font-family:var(--font-serif);font-size:22px;color:var(--navy);font-weight:600;margin-bottom:10px;">Đăng ký thành công!</div><p style="font-size:14px;color:var(--gray-600);">Xác nhận tham dự sẽ được gửi về email của bạn trong vòng 24 giờ làm việc. HOUSELINK sẽ liên hệ để ghép cặp kết nối phù hợp trước sự kiện.</p></div>';
   }, 1500);
