@@ -233,6 +233,10 @@ h1.hero-h1 {
   letter-spacing: 0.03em; white-space: nowrap;
 }
 .lp-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--green); flex-shrink:0; }
+/* image-based pills (client logos) — same as homepage */
+.logo-pill--img { padding: 0 10px; gap: 0; height: 60px; justify-content: center; background: transparent; border: none; }
+.logo-pill--img .lp-dot { display: none; }
+.logo-pill__img { display: block; height: 100%; width: auto; max-width: 240px; object-fit: contain; }
 
 /* ── VALUE PROP (challenges) ── */
 #value { background: var(--white); }
@@ -471,7 +475,7 @@ h1.hero-h1 {
   transition: all 0.25s;
 }
 .case-card:hover { box-shadow: 0 10px 40px rgba(0,70,110,0.09); transform: translateY(-3px); }
-.case-img { width: 100%; height: 200px; object-fit: cover; display: block; }
+.case-img { width: 100%; height: 200px; object-fit: contain; object-position: center; display: block; background: var(--gray-50); }
 .case-body { padding: 28px 28px 24px; }
 .case-tag { font-size: 11px; font-weight: 700; color: var(--teal); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 10px; }
 .case-title { font-size: 17px; font-weight: 700; color: var(--navy); line-height: 1.3; margin-bottom: 12px; }
@@ -711,10 +715,8 @@ footer { background: var(--navy); color: rgba(255,255,255,0.55); padding: 72px 0
 .ind-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:36px;}
 .it{font-size:12.5px;font-weight:600;padding:7px 18px;border-radius:100px;border:1.5px solid var(--gray-100);background:var(--white);color:var(--gray-600);cursor:pointer;transition:all .2s;}
 .it.on,.it:hover{background:var(--navy);color:#fff;border-color:var(--navy);}
-.logo-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:14px;margin-top:10px;}
-.lg-box{background:var(--white);border:1px solid var(--gray-100);border-radius:10px;padding:16px 12px;display:flex;align-items:center;justify-content:center;font-size:12.5px;font-weight:700;color:var(--navy);text-align:center;min-height:58px;transition:all .2s;line-height:1.2;}
-.lg-box:hover{border-color:var(--green);color:var(--green);}
-.lg-box.hl{background:var(--navy);color:#7ED49A;}
+.clients-logos-band{background:transparent;border:0;padding:0;margin-top:14px;}
+.clients-logo-strip{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:center;}
 .partner-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:40px;}
 .pc{background:var(--white);border:1px solid var(--gray-100);border-radius:14px;padding:28px 24px;}
 .pc-type{font-size:10.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--green);margin-bottom:8px;}
@@ -726,7 +728,7 @@ footer { background: var(--navy); color: rgba(255,255,255,0.55); padding: 72px 0
 .ti-q::before{content:'"';font-size:24px;color:var(--green);font-family:var(--font-serif);line-height:0;vertical-align:-.4em;margin-right:4px;}
 .ti-author{font-size:13px;font-weight:700;color:var(--navy);}
 .ti-role{font-size:12px;color:var(--gray-400);margin-top:2px;}
-@media(max-width:960px){.logo-grid{grid-template-columns:repeat(3,1fr);}.partner-grid,.testi-grid{grid-template-columns:1fr;}}
+@media(max-width:960px){.partner-grid,.testi-grid{grid-template-columns:1fr;}}
 </style>
   <link rel="stylesheet" href="../../landing-chrome.css">
 </head>
@@ -755,12 +757,69 @@ footer { background: var(--navy); color: rgba(255,255,255,0.55); padding: 72px 0
    <button class="it">Thép & Kết cấu</button>
    <button class="it">Sơn & Lớp phủ</button>
   </div>
-  <div class="logo-grid">
-   <div class="lg-box">ABB</div><div class="lg-box">Honeywell</div><div class="lg-box">Siemens</div><div class="lg-box">HSBC</div><div class="lg-box">SoftBank</div><div class="lg-box">LG Electronics</div><div class="lg-box  hl">ATAD Steel</div><div class="lg-box">Exxon Mobil</div><div class="lg-box">Hitachi</div><div class="lg-box">BASF</div><div class="lg-box">Schneider Electric</div><div class="lg-box">Posco</div><div class="lg-box">KDDI Vietnam</div><div class="lg-box">Jotun</div><div class="lg-box">Kansai Paint</div><div class="lg-box">Ariston</div><div class="lg-box">Cabot</div><div class="lg-box">BlueScope</div><div class="lg-box">MAPEI</div><div class="lg-box">HELUKABEL</div><div class="lg-box">SAGEN</div><div class="lg-box">Dainam</div><div class="lg-box">Bohler</div><div class="lg-box">Itochu</div><div class="lg-box">Knauf</div><div class="lg-box">Hormann</div><div class="lg-box">REE</div><div class="lg-box">Pebsteel</div><div class="lg-box">Nakano</div><div class="lg-box">JFE Steel</div>
-   <div class="lg-box">Zamil Steel</div><div class="lg-box">Kobelco</div>
-   <div class="lg-box">Rittal</div><div class="lg-box">Ricons</div>
-   <div class="lg-box">Delta E&C</div><div class="lg-box">Toda Corp.</div>
-  </div>
+  <div class="clients-logos-band"><div class="clients-logo-strip">
+      <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/ABB-Photoroom.png" alt="ABB" loading="lazy" decoding="async"></div>
+      <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/ATAD-Photoroom.png" alt="ATAD" loading="lazy" decoding="async"></div>
+      <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/AZB-Photoroom.png" alt="AZB" loading="lazy" decoding="async"></div>
+      <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Ariston-Photoroom.png" alt="Ariston" loading="lazy" decoding="async"></div>
+      <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Basf-Photoroom.png" alt="Basf" loading="lazy" decoding="async"></div>
+      <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Blue%20scope-Photoroom.png" alt="Blue scope" loading="lazy" decoding="async"></div>
+      <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Buhler-Photoroom.png" alt="Buhler" loading="lazy" decoding="async"></div>
+      <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/CJSC.png" alt="CJSC" loading="lazy" decoding="async"></div>
+      <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/CPT%20Steel-Photoroom.png" alt="CPT Steel" loading="lazy" decoding="async"></div>
+      <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/CT-Photoroom.png" alt="CT" loading="lazy" decoding="async"></div>
+      <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Cabot-Photoroom.png" alt="Cabot" loading="lazy" decoding="async"></div>
+      <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Central.png" alt="Central" loading="lazy" decoding="async"></div>
+      <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Daidung-Photoroom.png" alt="Daidung" loading="lazy" decoding="async"></div>
+      <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Dainam-Photoroom.png" alt="Dainam" loading="lazy" decoding="async"></div>
+      <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Dinco-Photoroom.png" alt="Dinco" loading="lazy" decoding="async"></div>
+      <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/HD%20Hyundai%20electric.png" alt="HD Hyundai electric" loading="lazy" decoding="async"></div>
+      <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/HSBC.png" alt="HSBC" loading="lazy" decoding="async"></div>
+      <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Helukabel.png" alt="Helukabel" loading="lazy" decoding="async"></div>
+      <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Hoa%20binh.png" alt="Hoa binh" loading="lazy" decoding="async"></div>
+      <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Honney%20well.png" alt="Honney well" loading="lazy" decoding="async"></div>
+      <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Hopluc.png" alt="Hopluc" loading="lazy" decoding="async"></div>
+      <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Hormann.png" alt="Hormann" loading="lazy" decoding="async"></div>
+      <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/HuaNan%20International.png" alt="HuaNan International" loading="lazy" decoding="async"></div>
+      <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/ICIC.png" alt="ICIC" loading="lazy" decoding="async"></div>
+      <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Itochu.png" alt="Itochu" loading="lazy" decoding="async"></div>
+      <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/JFE.png" alt="JFE" loading="lazy" decoding="async"></div>
+      <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Jotun.png" alt="Jotun" loading="lazy" decoding="async"></div>
+      <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/KDDI.png" alt="KDDI" loading="lazy" decoding="async"></div>
+      <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Kansai%20paint.png" alt="Kansai paint" loading="lazy" decoding="async"></div>
+      <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Kanto.png" alt="Kanto" loading="lazy" decoding="async"></div>
+      <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Kinhbac.png" alt="Kinhbac" loading="lazy" decoding="async"></div>
+      <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Kirby.png" alt="Kirby" loading="lazy" decoding="async"></div>
+      <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Knauf.png" alt="Knauf" loading="lazy" decoding="async"></div>
+      <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/LG%20Business.png" alt="LG Business" loading="lazy" decoding="async"></div>
+      <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/MCC.png" alt="MCC" loading="lazy" decoding="async"></div>
+      <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Maeda.png" alt="Maeda" loading="lazy" decoding="async"></div>
+      <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Mapei.png" alt="Mapei" loading="lazy" decoding="async"></div>
+      <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/N.png" alt="N" loading="lazy" decoding="async"></div>
+      <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Nakano.png" alt="Nakano" loading="lazy" decoding="async"></div>
+      <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Pebsteel.png" alt="Pebsteel" loading="lazy" decoding="async"></div>
+      <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Quali%20pro.png" alt="Quali pro" loading="lazy" decoding="async"></div>
+      <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/REE.png" alt="REE" loading="lazy" decoding="async"></div>
+      <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Royal%20h%C3%A1koning.png" alt="Royal hákoning" loading="lazy" decoding="async"></div>
+      <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/SCE.png" alt="SCE" loading="lazy" decoding="async"></div>
+      <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Sagen.png" alt="Sagen" loading="lazy" decoding="async"></div>
+      <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Schneider.png" alt="Schneider" loading="lazy" decoding="async"></div>
+      <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Seas.png" alt="Seas" loading="lazy" decoding="async"></div>
+      <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Siements.png" alt="Siements" loading="lazy" decoding="async"></div>
+      <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Sigma.png" alt="Sigma" loading="lazy" decoding="async"></div>
+      <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Sika.png" alt="Sika" loading="lazy" decoding="async"></div>
+      <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Softbank.png" alt="Softbank" loading="lazy" decoding="async"></div>
+      <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Taihan%20Vina.png" alt="Taihan Vina" loading="lazy" decoding="async"></div>
+      <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Thang%20tien.png" alt="Thang tien" loading="lazy" decoding="async"></div>
+      <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Toda.png" alt="Toda" loading="lazy" decoding="async"></div>
+      <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Ton%20dong%20a.png" alt="Ton dong a" loading="lazy" decoding="async"></div>
+      <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/VE.png" alt="VE" loading="lazy" decoding="async"></div>
+      <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Vinaconex.png" alt="Vinaconex" loading="lazy" decoding="async"></div>
+      <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Vinata.png" alt="Vinata" loading="lazy" decoding="async"></div>
+      <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Viteccons.png" alt="Viteccons" loading="lazy" decoding="async"></div>
+      <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Zamil%20steel.png" alt="Zamil steel" loading="lazy" decoding="async"></div>
+      <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/brunau.png" alt="brunau" loading="lazy" decoding="async"></div>
+    </div></div>
   <p style="margin-top:16px;font-size:13.5px;color:var(--gray-400);text-align:center;">& hàng trăm doanh nghiệp khác từ Nhật Bản, Hàn Quốc, Đài Loan, EU, Mỹ và Việt Nam</p>
  </div>
 </section>
@@ -772,10 +831,7 @@ footer { background: var(--navy); color: rgba(255,255,255,0.55); padding: 72px 0
   <div class="partner-grid">
    <div class="pc"><div class="pc-type">ESG & Data Technology</div><div class="pc-name">Glassdome</div><div class="pc-desc">Đối tác công nghệ ESG toàn cầu — nền tảng ISO 14067 verified đầu tiên thế giới. Hợp tác HOUSELINK cung cấp ESG Infrastructure Platform cho KCN Việt Nam.</div></div>
    <div class="pc"><div class="pc-type">Industrial Park Developer</div><div class="pc-name">Becamex VSIP Bình Định</div><div class="pc-desc">Đối tác phát triển KCN sinh thái tại Gia Lai — tiên phong Eco-Industrial Park với hạ tầng ESG và năng lượng tái tạo tích hợp từ giai đoạn quy hoạch.</div></div>
-   <div class="pc"><div class="pc-type">ESG Certification & Audit</div><div class="pc-name">LRQA (Lloyd's Register)</div><div class="pc-desc">Tổ chức xác minh độc lập được EU ETS công nhận. Hỗ trợ doanh nghiệp trong mạng lưới HOUSELINK đạt chứng nhận ISAE 3000 và ISO 14064.</div></div>
-   <div class="pc"><div class="pc-type">Steel Structure & Construction</div><div class="pc-name">ATAD Steel Structure</div><div class="pc-desc">Đối tác xây dựng công trình thép hàng đầu Đông Nam Á. Kết nối với chủ đầu tư FDI và cung cấp giải pháp nhà xưởng tiêu chuẩn quốc tế.</div></div>
    <div class="pc"><div class="pc-type">Media & Community</div><div class="pc-name">VietnamConstruction</div><div class="pc-desc">Nền tảng truyền thông & cộng đồng ngành xây dựng công nghiệp với 50,000+ người đọc chuyên nghiệp — kênh Marketing & Brand Building cho thành viên HOUSELINK.</div></div>
-   <div class="pc"><div class="pc-type">ESG Audit & Verification</div><div class="pc-name">Bureau Veritas · SGS · TÜV</div><div class="pc-desc">Mạng lưới tổ chức kiểm định và chứng nhận quốc tế hỗ trợ doanh nghiệp đạt các tiêu chuẩn ESG, môi trường và an toàn quốc tế.</div></div>
   </div>
  </div>
 </section>
@@ -785,7 +841,7 @@ footer { background: var(--navy); color: rgba(255,255,255,0.55); padding: 72px 0
   <div class="sec-label">Phản hồi khách hàng</div>
   <h2 class="sec-title">Họ nói gì về<br><em>HOUSELINK</em></h2>
   <div class="testi-grid">
-   <div class="ti"><div class="ti-q">HOUSELINK đã cung cấp cho chúng tôi bức tranh toàn cảnh và chính xác về thị trường dầu nhờn công nghiệp tại Việt Nam — điều mà chúng tôi không thể tự làm được trong thời gian ngắn như vậy.</div><div class="ti-author">Country Manager</div><div class="ti-role">Exxon Mobil Vietnam</div></div>
+   <div class="ti"><div class="ti-q">HOUSELINK đã cung cấp cho chúng tôi bức tranh toàn cảnh và chính xác về thị trường dầu nhờn công nghiệp tại Việt Nam — điều mà chúng tôi không thể tự làm được trong thời gian ngắn như vậy.</div><div class="ti-author">Country Manager</div><div class="ti-role">US Mobil Vietnam</div></div>
    <div class="ti"><div class="ti-q">Đội ngũ HOUSELINK không chỉ cung cấp số liệu — họ hiểu ngành và đưa ra những khuyến nghị có giá trị thực tiễn. Đây là điểm khác biệt lớn nhất so với các đơn vị tư vấn khác chúng tôi từng làm việc.</div><div class="ti-author">Business Development Director</div><div class="ti-role">Tập đoàn Nhật Bản (Bảo mật)</div></div>
    <div class="ti"><div class="ti-q">Quy trình sàng lọc KCN của HOUSELINK rất chuyên nghiệp và tiết kiệm cho chúng tôi rất nhiều thời gian và chi phí khảo sát. Chúng tôi đã tìm được địa điểm phù hợp chỉ trong 3 tuần.</div><div class="ti-author">COO — Vietnam Operations</div><div class="ti-role">Tập đoàn Hàn Quốc (Bảo mật)</div></div>
    <div class="ti"><div class="ti-q">VietnamConstruction là kênh truyền thông hiệu quả nhất chúng tôi đã sử dụng tại Việt Nam. Sau 3 tháng, chúng tôi nhận được 20+ yêu cầu báo giá từ các chủ đầu tư FDI chất lượng.</div><div class="ti-author">Marketing Director</div><div class="ti-role">Nhà cung cấp Vật liệu Xây dựng EU</div></div>

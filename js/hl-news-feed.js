@@ -62,12 +62,41 @@
     return "";
   }
 
+  /** First category name from ?_embed=1 (wp:term[0] = categories). */
+  function pickCategoryName(post) {
+    try {
+      var terms = post && post._embedded && post._embedded["wp:term"];
+      if (!terms || !terms.length) return "";
+      var cats = terms[0];
+      if (!Array.isArray(cats) || !cats.length) return "";
+      return stripHtml((cats[0] && cats[0].name) || "");
+    } catch (ignore) {}
+    return "";
+  }
+
+  function postsUrlForLocale() {
+    if (langKey() === "en") {
+      return (
+        WP_POSTS +
+        "?categories=6&per_page=10&page=1&_embed=1&orderby=date&order=desc"
+      );
+    }
+    var tag = tagForLocale();
+    return (
+      WP_POSTS +
+      "?_embed=1&per_page=7&categories=20&tags=" +
+      encodeURIComponent(tag) +
+      "&orderby=modified&order=desc"
+    );
+  }
+
   function renderCard(post, isFeatured) {
     var title = stripHtml(post && post.title && post.title.rendered);
     var excerpt = stripHtml(post && post.excerpt && post.excerpt.rendered);
     var date = fmtDate(post && (post.modified || post.date));
     var href = (post && post.link) || "#";
     var img = pickImage(post);
+    var cat = pickCategoryName(post);
 
     var cls = "nc" + (isFeatured ? " feat" : "");
     var imgHtml = img
@@ -76,13 +105,20 @@
 
     var metaHtml = date ? '<div class="nc-meta"><span>' + esc(date) + "</span></div>" : "";
 
+    var catHtml = "";
+    if (isFeatured) {
+      catHtml = '<div class="nc-cat">⭐ ' + esc(cat || "News") + "</div>";
+    } else if (cat) {
+      catHtml = '<div class="nc-cat">' + esc(cat) + "</div>";
+    }
+
     return (
       '<div class="' +
       cls +
       '">' +
       imgHtml +
       '<div class="nc-b">' +
-      (isFeatured ? '<div class="nc-cat">⭐ Featured</div>' : "") +
+      catHtml +
       '<div class="nc-ttl">' +
       esc(title) +
       "</div>" +
@@ -96,12 +132,7 @@
   }
 
   async function loadInto(container) {
-    var tag = tagForLocale();
-    var url =
-      WP_POSTS +
-      "?_embed=1&per_page=7&categories=20&tags=" +
-      encodeURIComponent(tag) +
-      "&orderby=modified&order=desc";
+    var url = postsUrlForLocale();
 
     var res = await fetch(url, { credentials: "omit" });
     if (!res.ok) throw new Error("wp_fetch_failed");
