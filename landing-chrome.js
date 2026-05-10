@@ -545,7 +545,25 @@
     else if (mql.addListener) mql.addListener(onChange);
   }
 
+  /**
+   * Which localized partial pack to fetch (header-*.html / footer-*.html).
+   * Order: `?lang=` / `?locale=` (e.g. /news/article/?id=…&lang=ja before hl-vc-article runs),
+   * then first path segment (/vi/…, /ja/…), then <html lang>.
+   */
   function langPack() {
+    var path = window.location.pathname || "";
+    var q = window.location.search || "";
+    var qm = /[?&](?:lang|locale)=([a-z]{2})(?:&|$)/i.exec(q);
+    if (qm) {
+      var qc = qm[1].toLowerCase();
+      if (qc === "vi" || qc === "ja" || qc === "ko" || qc === "en") return qc;
+      if (qc.indexOf("zh") === 0) return "zh";
+    }
+    var parts = path.split("/").filter(Boolean);
+    var seg = (parts[0] || "").toLowerCase();
+    if (seg === "vi" || seg === "ja" || seg === "ko" || seg === "en") return seg;
+    if (seg === "zh") return "zh";
+
     var raw = (document.documentElement.getAttribute("lang") || "en").toLowerCase().trim();
     if (raw === "vi") return "vi";
     if (raw === "en") return "en";

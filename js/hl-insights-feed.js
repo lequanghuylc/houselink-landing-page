@@ -94,18 +94,6 @@
     }
   }
 
-  function estReadMin(post) {
-    var ex = stripHtml(post && post.excerpt && post.excerpt.rendered);
-    var w = ex.split(/\s+/).filter(Boolean).length;
-    if (!w && post && post.content && post.content.rendered) {
-      w = stripHtml(post.content.rendered).split(/\s+/).filter(Boolean).length;
-    }
-    var m = Math.round(w / 220) || 5;
-    if (m < 3) m = 3;
-    if (m > 20) m = 20;
-    return m;
-  }
-
   function readMoreLabel() {
     var k = langKey();
     if (k === "ja") return "続きを読む →";
@@ -113,15 +101,6 @@
     if (k === "zh") return "继续阅读 →";
     if (k === "vi") return "Đọc tiếp →";
     return "Continue reading →";
-  }
-
-  function minReadLabel(mins) {
-    var k = langKey();
-    if (k === "ja") return mins + "分で読む";
-    if (k === "ko") return mins + "분 읽기";
-    if (k === "zh") return "约 " + mins + " 分钟阅读";
-    if (k === "vi") return mins + " phút đọc";
-    return mins + " min read";
   }
 
   /**
@@ -215,8 +194,6 @@
     var href = detailHrefForPost(post);
     var img = pickImage(post);
     var cat = pickCategoryName(post);
-    var mins = estReadMin(post);
-    var readLbl = minReadLabel(mins);
     var linkLbl = readMoreLabel();
 
     var cls = "ic" + (isFeatured ? " hero" : "");
@@ -227,12 +204,7 @@
     var tagLine = isFeatured ? "⭐ " + (cat || "Report") : cat || "Report";
     var tagHtml = '<div class="ic-tag">' + esc(tagLine) + "</div>";
 
-    var metaParts =
-      (date ? '<span>' + esc(date) + "</span>" : "") +
-      '<span class="dot"></span><span>VietnamConstruction × HOUSELINK</span><span class="dot"></span><span>' +
-      esc(readLbl) +
-      "</span>";
-    var metaHtml = '<div class="ic-meta">' + metaParts + "</div>";
+    var metaHtml = date ? '<div class="ic-meta"><span>' + esc(date) + "</span></div>" : "";
 
     return (
       '<div class="' +
