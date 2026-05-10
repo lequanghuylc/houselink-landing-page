@@ -1,6 +1,7 @@
 /**
  * Lightweight browser-side news feed loader (WordPress REST).
- * Progressive enhancement: if fetch fails, keep existing static markup.
+ * Progressive enhancement: optional `.hl-news-fallback` static cards stay in HTML;
+ * hidden with `.hl-feed-waiting` while JS loads; shown again if every source fails.
  * EN + JA/KO/ZH: Vietnam Construction Event (EN, cat 6). VI: Event (VI, cat 66) from data-event-vi.json.
  * Filters, cached pagination, detail links to /news/article/?id=.
  */
@@ -355,6 +356,7 @@
     container.setAttribute("data-hl-news-shown", String(first.length));
     container.setAttribute("data-hl-news-total", String(filtered.length));
     syncLoadMoreButton(container);
+    container.classList.remove("hl-feed-waiting");
   }
 
   function bindFilterBarOnce() {
@@ -512,8 +514,11 @@
         html += renderCard(p, idx === 0);
       });
       container.innerHTML = html;
+      container.classList.remove("hl-feed-waiting");
     } catch (ignore) {
-      // Keep static markup if API fetch fails.
+      /* Show static .hl-news-fallback again if all sources fail. */
+      var c = document.getElementById("hl-news-feed");
+      if (c) c.classList.remove("hl-feed-waiting");
     } finally {
       syncLoadMoreButton(container);
     }
@@ -524,6 +529,7 @@
     if (!container) return;
     if (container.getAttribute("data-hl-news-bound") === "1") return;
     container.setAttribute("data-hl-news-bound", "1");
+    container.classList.add("hl-feed-waiting");
 
     loadInto(container).catch(function () {});
   }

@@ -740,6 +740,8 @@ footer { background: var(--navy); color: rgba(255,255,255,0.55); padding: 72px 0
 .sub-form input{padding:13px 18px;border-radius:8px;border:none;font-size:14px;width:290px;outline:none;font-family:var(--font-main);}
 .sub-form button{background:var(--navy);color:#fff;font-size:14px;font-weight:700;padding:13px 26px;border-radius:8px;border:none;cursor:pointer;}
 @media(max-width:960px){.ng,.nc.feat{grid-template-columns:1fr;}.ev{grid-template-columns:60px 1fr;}.ev-btn{display:none;}}
+/* Hide static news cards while JS loads feed; fallback visible again if load fails. */
+#hl-news-feed.hl-feed-waiting .hl-news-fallback{display:none !important;}
 </style>
   <link rel="stylesheet" href="../../landing-chrome.css">
 </head>
@@ -766,6 +768,7 @@ footer { background: var(--navy); color: rgba(255,255,255,0.55); padding: 72px 0
    <button type="button" class="fb" data-hl-filter="supply">Supply Chain</button>
   </div>
   <div class="ng" id="hl-news-feed">
+   <div class="hl-news-fallback">
    <!-- Featured -->
    <div class="nc feat">
     <img src="../../images/unsplash-1560439514-4e9645039924.jpg" alt="Hội thảo ESG">
@@ -842,6 +845,7 @@ footer { background: var(--navy); color: rgba(255,255,255,0.55); padding: 72px 0
      <div class="nc-meta"><span>2026年2月</span><span class="dot"></span><span>4分で読む</span></div>
      <a href="/ja/news/unpublished/" class="nc-lnk">続きを読む →</a>
     </div>
+   </div>
    </div>
   </div>
   <div style="text-align:center;margin-top:52px;">
