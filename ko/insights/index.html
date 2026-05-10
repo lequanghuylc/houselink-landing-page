@@ -731,6 +731,7 @@ footer { background: var(--navy); color: rgba(255,255,255,0.55); padding: 72px 0
   <link rel="stylesheet" href="../../landing-chrome.css">
 </head>
 <body class="hl-with-fixed-header" data-hl-page="insights">
+<!-- Optional data-hl-vn-news-source="api" | "hardcode" (default: try API, then data-market-en.json). -->
 
 <div id="hl-chrome-header"></div>
 
@@ -744,79 +745,18 @@ footer { background: var(--navy); color: rgba(255,255,255,0.55); padding: 72px 0
 
 <section class="sec">
  <div class="si">
-  <div class="tag-row">
-   <button class="tag on">전체</button>
-   <button class="tag">산업 부동산</button>
-   <button class="tag">FDI & 투자</button>
-   <button class="tag">ESG & 에너지</button>
-   <button class="tag">공급망</button>
-   <button class="tag">섬유</button>
-   <button class="tag">반도체 및 전자</button>
+  <div class="tag-row" id="hl-insights-tag-row">
+   <button type="button" class="tag on" data-hl-filter="all">전체</button>
+   <button type="button" class="tag" data-hl-filter="industrial">산업 부동산</button>
+   <button type="button" class="tag" data-hl-filter="fdi">FDI & 투자</button>
+   <button type="button" class="tag" data-hl-filter="esg">ESG & 에너지</button>
+   <button type="button" class="tag" data-hl-filter="supply">공급망</button>
+   <button type="button" class="tag" data-hl-filter="textile">섬유</button>
+   <button type="button" class="tag" data-hl-filter="semi">반도체 및 전자</button>
   </div>
-  <div class="ig">
-   <div class="ic hero">
-    <img src="../../images/unsplash-1504328345606-18bbc8c9d7d1.jpg" alt="FDI 2025">
-    <div class="ic-b">
-     <div class="ic-tag">FDI & 투자</div>
-     <div class="ic-ttl">RECAP: 2025년 베트남 FDI 산업 제조 — 요약 및 2026년 전망</div>
-     <div class="ic-tx">2025년 FDI 물결 종합 개요: 선도 산업, 최다 자본 유치 성·시, China+1 트렌드 및 2026년 예측. 베트남 GDP 2025년 7.09% 성장 — 다음 투자 물결을 위한 견고한 기반.</div>
-     <div class="ic-meta"><span>2026년 1월</span><span class="dot"></span><span>VietnamConstruction × HOUSELINK</span><span class="dot"></span><span>12분 읽기</span></div>
-     <a href="/ko/insights/fdi-recap/" class="ic-lnk">전체 보고서 읽기 →</a>
-    </div>
-   </div>
-   <div class="ic">
-    <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=600&q=80&auto=format&fit=crop" alt="KCN Q3">
-    <div class="ic-b">
-     <div class="ic-tag">산업 부동산</div>
-     <div class="ic-ttl">베트남 산업 프로젝트 추진 보고서 — 2025년 9개월</div>
-     <div class="ic-tx">2025년 9개월 GDP 7.85% 성장. 경제 지역별 주요 산업 프로젝트 추진 상황 및 4분기 투자 트렌드 분석.</div>
-     <div class="ic-meta"><span>2025년 10월</span><span class="dot"></span><span>8분 읽기</span></div>
-     <a href="/ko/insights/unpublished/" class="ic-lnk">계속 읽기 →</a>
-    </div>
-   </div>
-   <div class="ic">
-    <img src="../../images/unsplash-1473341304170-971dccb5ac1e.jpg" alt="ESG Solar">
-    <div class="ic-b">
-     <div class="ic-tag">ESG & 에너지</div>
-     <div class="ic-ttl">미국-이란 긴장이 베트남 산업단지 태양광 투자에 미치는 영향</div>
-     <div class="ic-tx">유가 변동, 물류 비용부터 산업단지 태양광 프로젝트의 자본 비용 및 LCOE 로드맵까지의 분석 시리즈 — 투자자를 위한 전략적 권고사항.</div>
-     <div class="ic-meta"><span>2026년 4월</span><span class="dot"></span><span>8분 읽기</span></div>
-     <a href="/ko/insights/unpublished/" class="ic-lnk">계속 읽기 →</a>
-    </div>
-   </div>
-   <div class="ic">
-    <img src="../../images/unsplash-1581091226825-a6a2a5aee158.jpg" alt="섬유">
-    <div class="ic-b">
-     <div class="ic-tag">섬유</div>
-     <div class="ic-ttl">베트남 섬유·의류 공급망 — FDI 물결 이후의 기회</div>
-     <div class="ic-tx">China+1 트렌드에 따른 섬유·의류 산업 및 투자 기회 종합 평가. 세그먼트별 분석: 원사, 직물, 의류, 보조 화학품.</div>
-     <div class="ic-meta"><span>2026년 2월</span><span class="dot"></span><span>5분 읽기</span></div>
-     <a href="/ko/insights/unpublished/" class="ic-lnk">계속 읽기 →</a>
-    </div>
-   </div>
-   <div class="ic">
-    <img src="../../images/unsplash-1558618666-fcd25c85cd64.jpg" alt="Bán dẫn">
-    <div class="ic-b">
-     <div class="ic-tag">반도체 및 전자</div>
-     <div class="ic-ttl">베트남 반도체 공급망 지도 2025~2026</div>
-     <div class="ic-tx">현재 반도체 제조 역량, 신규 FDI 프로젝트 및 반도체 가치 사슬 격차 분석 — 설계에서 패키징까지.</div>
-     <div class="ic-meta"><span>2026년 1월</span><span class="dot"></span><span>10분 읽기</span></div>
-     <a href="/ko/insights/unpublished/" class="ic-lnk">계속 읽기 →</a>
-    </div>
-   </div>
-   <div class="ic">
-    <img src="../../images/unsplash-1504328345606-18bbc8c9d7d1.jpg" alt="Kim loại">
-    <div class="ic-b">
-     <div class="ic-tag">공급망</div>
-     <div class="ic-ttl">베트남 가공 금속 제품 투자 및 공급망</div>
-     <div class="ic-tx">베트남 가공 금속 시장 전체 그림: 구조용 강재, 알루미늄, 스테인리스 스틸 및 산업 제조 분야의 투자 기회.</div>
-     <div class="ic-meta"><span>2024년 10월</span><span class="dot"></span><span>7분 읽기</span></div>
-     <a href="/ko/insights/unpublished/" class="ic-lnk">계속 읽기 →</a>
-    </div>
-   </div>
-  </div>
+  <div class="ig" id="hl-insights-feed"></div>
   <div style="text-align:center;margin-top:52px;">
-   <button style="background:var(--white);border:1.5px solid var(--gray-100);color:var(--navy);font-size:14px;font-weight:600;padding:13px 40px;border-radius:8px;cursor:pointer;" onmouseover="this.style.borderColor='var(--green)'" onmouseout="this.style.borderColor='var(--gray-100)'">보고서 더 불러오기</button>
+   <button type="button" id="hl-insights-load-more" style="display:none;background:var(--white);border:1.5px solid var(--gray-100);color:var(--navy);font-size:14px;font-weight:600;padding:13px 40px;border-radius:8px;cursor:pointer;" onmouseover="this.style.borderColor='var(--green)'" onmouseout="this.style.borderColor='var(--gray-100)'">보고서 더 불러오기</button>
   </div>
  </div>
 </section>
@@ -840,6 +780,8 @@ footer { background: var(--navy); color: rgba(255,255,255,0.55); padding: 72px 0
 <div id="hl-chrome-footer"></div>
   <script src="../../landing-chrome.js" defer></script>
   <script src="../../js/auth-locale-validation.js" defer></script>
+  <script src="../../js/vietnam-construction-feed.js" defer></script>
+  <script src="../../js/hl-insights-feed.js" defer></script>
 <script>function setLang(l){document.querySelectorAll('.lang-btn').forEach(b=>b.classList.remove('active'));document.querySelector('.lang-btn[onclick="setLang(\''+l+'\')" ]')?.classList.add('active');}</script>
 
 </body>

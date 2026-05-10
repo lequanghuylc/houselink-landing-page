@@ -731,6 +731,7 @@ footer { background: var(--navy); color: rgba(255,255,255,0.55); padding: 72px 0
   <link rel="stylesheet" href="../../landing-chrome.css">
 </head>
 <body class="hl-with-fixed-header" data-hl-page="insights">
+<!-- Optional data-hl-vn-news-source="api" | "hardcode" (default: try API, then data-market-en.json). -->
 
 <div id="hl-chrome-header"></div>
 
@@ -744,79 +745,18 @@ footer { background: var(--navy); color: rgba(255,255,255,0.55); padding: 72px 0
 
 <section class="sec">
  <div class="si">
-  <div class="tag-row">
-   <button class="tag on">すべて</button>
-   <button class="tag">産業用不動産</button>
-   <button class="tag">FDI・投資</button>
-   <button class="tag">ESG＆エネルギー</button>
-   <button class="tag">サプライチェーン</button>
-   <button class="tag">繊維</button>
-   <button class="tag">半導体・電子</button>
+  <div class="tag-row" id="hl-insights-tag-row">
+   <button type="button" class="tag on" data-hl-filter="all">すべて</button>
+   <button type="button" class="tag" data-hl-filter="industrial">産業用不動産</button>
+   <button type="button" class="tag" data-hl-filter="fdi">FDI・投資</button>
+   <button type="button" class="tag" data-hl-filter="esg">ESG＆エネルギー</button>
+   <button type="button" class="tag" data-hl-filter="supply">サプライチェーン</button>
+   <button type="button" class="tag" data-hl-filter="textile">繊維</button>
+   <button type="button" class="tag" data-hl-filter="semi">半導体・電子</button>
   </div>
-  <div class="ig">
-   <div class="ic hero">
-    <img src="../../images/unsplash-1504328345606-18bbc8c9d7d1.jpg" alt="FDI 2025">
-    <div class="ic-b">
-     <div class="ic-tag">FDI・投資</div>
-     <div class="ic-ttl">RECAP：ベトナムFDI産業製造2025 — 総括と2026年の展望</div>
-     <div class="ic-tx">2025年FDI波の包括的概要：主要業種・最多資本誘致省・China+1トレンド・2026年予測。ベトナムのGDPは2025年に7.09%成長 — 次の投資波のための確固たる基盤。</div>
-     <div class="ic-meta"><span>2026年1月</span><span class="dot"></span><span>VietnamConstruction × HOUSELINK</span><span class="dot"></span><span>12分で読む</span></div>
-     <a href="/ja/insights/fdi-recap/" class="ic-lnk">全レポートを読む →</a>
-    </div>
-   </div>
-   <div class="ic">
-    <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=600&q=80&auto=format&fit=crop" alt="KCN Q3">
-    <div class="ic-b">
-     <div class="ic-tag">産業用不動産</div>
-     <div class="ic-ttl">ベトナム産業プロジェクト展開レポート — 2025年9か月</div>
-     <div class="ic-tx">2025年前9か月のGDPは7.85%成長。経済地域別の主要産業プロジェクト展開状況とQ4投資トレンドの分析。</div>
-     <div class="ic-meta"><span>2025年10月</span><span class="dot"></span><span>8分で読む</span></div>
-     <a href="/ja/insights/unpublished/" class="ic-lnk">続きを読む →</a>
-    </div>
-   </div>
-   <div class="ic">
-    <img src="../../images/unsplash-1473341304170-971dccb5ac1e.jpg" alt="ESG Solar">
-    <div class="ic-b">
-     <div class="ic-tag">ESG＆エネルギー</div>
-     <div class="ic-ttl">米国・イラン緊張がベトナム工業団地の太陽光投資に与える影響</div>
-     <div class="ic-tx">油価変動・物流コストから工業団地の太陽光プロジェクトの資本コストとLCOEロードマップまでの分析シリーズ — 投資家への戦略的な提言。</div>
-     <div class="ic-meta"><span>2026年4月</span><span class="dot"></span><span>8分で読む</span></div>
-     <a href="/ja/insights/unpublished/" class="ic-lnk">続きを読む →</a>
-    </div>
-   </div>
-   <div class="ic">
-    <img src="../../images/unsplash-1581091226825-a6a2a5aee158.jpg" alt="繊維">
-    <div class="ic-b">
-     <div class="ic-tag">繊維</div>
-     <div class="ic-ttl">ベトナム繊維・縫製サプライチェーン — FDI波後の機会</div>
-     <div class="ic-tx">China+1トレンドによる繊維・縫製産業と投資機会の包括的評価。セグメント別：糸・生地・縫製品・補助化学品。</div>
-     <div class="ic-meta"><span>2026年2月</span><span class="dot"></span><span>5分で読む</span></div>
-     <a href="/ja/insights/unpublished/" class="ic-lnk">続きを読む →</a>
-    </div>
-   </div>
-   <div class="ic">
-    <img src="../../images/unsplash-1558618666-fcd25c85cd64.jpg" alt="Bán dẫn">
-    <div class="ic-b">
-     <div class="ic-tag">半導体・電子</div>
-     <div class="ic-ttl">ベトナム半導体サプライチェーンマップ2025–2026</div>
-     <div class="ic-tx">現在の半導体製造能力・新規FDIプロジェクト・半導体バリューチェーンのギャップ分析 — 設計からパッケージングまで。</div>
-     <div class="ic-meta"><span>2026年1月</span><span class="dot"></span><span>10分で読む</span></div>
-     <a href="/ja/insights/unpublished/" class="ic-lnk">続きを読む →</a>
-    </div>
-   </div>
-   <div class="ic">
-    <img src="../../images/unsplash-1504328345606-18bbc8c9d7d1.jpg" alt="Kim loại">
-    <div class="ic-b">
-     <div class="ic-tag">サプライチェーン</div>
-     <div class="ic-ttl">ベトナムにおける加工金属製品への投資とサプライチェーン</div>
-     <div class="ic-tx">ベトナムの加工金属市場の全体像：構造用鋼・アルミニウム・ステンレス鋼と産業製造分野の投資機会。</div>
-     <div class="ic-meta"><span>2024年10月</span><span class="dot"></span><span>7分で読む</span></div>
-     <a href="/ja/insights/unpublished/" class="ic-lnk">続きを読む →</a>
-    </div>
-   </div>
-  </div>
+  <div class="ig" id="hl-insights-feed"></div>
   <div style="text-align:center;margin-top:52px;">
-   <button style="background:var(--white);border:1.5px solid var(--gray-100);color:var(--navy);font-size:14px;font-weight:600;padding:13px 40px;border-radius:8px;cursor:pointer;" onmouseover="this.style.borderColor='var(--green)'" onmouseout="this.style.borderColor='var(--gray-100)'">レポートをもっと読む</button>
+   <button type="button" id="hl-insights-load-more" style="display:none;background:var(--white);border:1.5px solid var(--gray-100);color:var(--navy);font-size:14px;font-weight:600;padding:13px 40px;border-radius:8px;cursor:pointer;" onmouseover="this.style.borderColor='var(--green)'" onmouseout="this.style.borderColor='var(--gray-100)'">レポートをもっと読む</button>
   </div>
  </div>
 </section>
@@ -840,6 +780,8 @@ footer { background: var(--navy); color: rgba(255,255,255,0.55); padding: 72px 0
 <div id="hl-chrome-footer"></div>
   <script src="../../landing-chrome.js" defer></script>
   <script src="../../js/auth-locale-validation.js" defer></script>
+  <script src="../../js/vietnam-construction-feed.js" defer></script>
+  <script src="../../js/hl-insights-feed.js" defer></script>
 <script>function setLang(l){document.querySelectorAll('.lang-btn').forEach(b=>b.classList.remove('active'));document.querySelector('.lang-btn[onclick="setLang(\''+l+'\')" ]')?.classList.add('active');}</script>
 
 </body>

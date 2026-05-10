@@ -21,6 +21,24 @@
   if (!script || !script.src) return;
   var base = script.src.replace(/\/[^/]+$/, "/");
 
+  /** Be Vietnam Pro + --font-main override; only for Vietnamese locale (path or ?lang=vi). */
+  function ensureHlViFonts() {
+    var lang = (document.documentElement.getAttribute("lang") || "").toLowerCase();
+    var path = window.location.pathname || "";
+    var q = window.location.search || "";
+    var qsVi = /[?&]lang=vi(?:&|$)/i.test(q) || /[?&]locale=vi(?:&|$)/i.test(q);
+    var pathVi = /(^|\/)vi(\/|$)/.test(path);
+    var isVi = lang.indexOf("vi") === 0 || pathVi || qsVi;
+    if (!isVi) return;
+    if (document.querySelector('link[href*="hl-vi-fonts.css"]')) return;
+    var link = document.createElement("link");
+    link.rel = "stylesheet";
+    link.href = new URL("hl-vi-fonts.css", base).href;
+    link.setAttribute("data-hl-vi-fonts", "1");
+    document.head.appendChild(link);
+  }
+  ensureHlViFonts();
+
   /**
    * Auto-assign scroll reveal to every direct `body > section` (except #hero, #logos, and sections
    * with `data-hl-reveal` / `data-hl-reveal-off`). Targets: CARD_SEL (home + all vi/* inner pages), else `.si > *`.

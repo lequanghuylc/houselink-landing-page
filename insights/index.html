@@ -731,6 +731,7 @@ footer { background: var(--navy); color: rgba(255,255,255,0.55); padding: 72px 0
   <link rel="stylesheet" href="../landing-chrome.css">
 </head>
 <body class="hl-with-fixed-header" data-hl-page="insights">
+<!-- Optional data-hl-vn-news-source="api" | "hardcode" (default: try API, then data-market-en.json). -->
 
 <div id="hl-chrome-header"></div>
 
@@ -744,79 +745,18 @@ footer { background: var(--navy); color: rgba(255,255,255,0.55); padding: 72px 0
 
 <section class="sec">
  <div class="si">
-  <div class="tag-row">
-   <button class="tag on">All</button>
-   <button class="tag">Industrial Real Estate</button>
-   <button class="tag">FDI & Investment</button>
-   <button class="tag">ESG & Energy</button>
-   <button class="tag">Supply Chain</button>
-   <button class="tag">Textile</button>
-   <button class="tag">Semiconductors & Electronics</button>
+  <div class="tag-row" id="hl-insights-tag-row">
+   <button type="button" class="tag on" data-hl-filter="all">All</button>
+   <button type="button" class="tag" data-hl-filter="industrial">Industrial Real Estate</button>
+   <button type="button" class="tag" data-hl-filter="fdi">FDI & Investment</button>
+   <button type="button" class="tag" data-hl-filter="esg">ESG & Energy</button>
+   <button type="button" class="tag" data-hl-filter="supply">Supply Chain</button>
+   <button type="button" class="tag" data-hl-filter="textile">Textile</button>
+   <button type="button" class="tag" data-hl-filter="semi">Semiconductors & Electronics</button>
   </div>
-  <div class="ig">
-   <div class="ic hero">
-    <img src="../images/unsplash-1504328345606-18bbc8c9d7d1.jpg" alt="FDI 2025">
-    <div class="ic-b">
-     <div class="ic-tag">FDI & Investment</div>
-     <div class="ic-ttl">RECAP: FDI Industrial Manufacturing in Vietnam 2025 — Summary & 2026 Outlook</div>
-     <div class="ic-tx">Comprehensive overview of the 2025 FDI wave: leading sectors, provinces attracting most capital, the China+1 trend and 2026 forecast. Vietnam GDP grew 7.09% in 2025 — a solid foundation for the next investment wave.</div>
-     <div class="ic-meta"><span>Jan 2026</span><span class="dot"></span><span>VietnamConstruction × HOUSELINK</span><span class="dot"></span><span>12 min read</span></div>
-     <a href="/insights/fdi-recap/" class="ic-lnk">Read full report →</a>
-    </div>
-   </div>
-   <div class="ic">
-    <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=600&q=80&auto=format&fit=crop" alt="KCN Q3">
-    <div class="ic-b">
-     <div class="ic-tag">Industrial Real Estate</div>
-     <div class="ic-ttl">Vietnam Industrial Project Deployment Report — 9 Months 2025</div>
-     <div class="ic-tx">GDP for the first 9 months of 2025 grew 7.85%. Analysis of key industrial project deployment by economic region and Q4 investment trends.</div>
-     <div class="ic-meta"><span>Oct 2025</span><span class="dot"></span><span>8 min read</span></div>
-     <a href="/insights/unpublished/" class="ic-lnk">Continue reading →</a>
-    </div>
-   </div>
-   <div class="ic">
-    <img src="../images/unsplash-1473341304170-971dccb5ac1e.jpg" alt="ESG Solar">
-    <div class="ic-b">
-     <div class="ic-tag">ESG & Energy</div>
-     <div class="ic-ttl">Impact of US–Iran Tensions on Solar Investment in Vietnam Industrial Parks</div>
-     <div class="ic-tx">Analysis series from oil price fluctuations and logistics costs to capital costs and LCOE roadmap for solar projects in industrial parks — strategic recommendations for investors.</div>
-     <div class="ic-meta"><span>Apr 2026</span><span class="dot"></span><span>8 min read</span></div>
-     <a href="/insights/unpublished/" class="ic-lnk">Continue reading →</a>
-    </div>
-   </div>
-   <div class="ic">
-    <img src="../images/unsplash-1581091226825-a6a2a5aee158.jpg" alt="Textile">
-    <div class="ic-b">
-     <div class="ic-tag">Textile</div>
-     <div class="ic-ttl">Vietnam Textile & Garment Supply Chain — Opportunities After the FDI Wave</div>
-     <div class="ic-tx">Comprehensive assessment of the textile and garment industry and China+1 investment opportunities. Analysis by segment: yarn, fabric, garments and auxiliary chemicals.</div>
-     <div class="ic-meta"><span>Feb 2026</span><span class="dot"></span><span>5 min read</span></div>
-     <a href="/insights/unpublished/" class="ic-lnk">Continue reading →</a>
-    </div>
-   </div>
-   <div class="ic">
-    <img src="../images/unsplash-1558618666-fcd25c85cd64.jpg" alt="Bán dẫn">
-    <div class="ic-b">
-     <div class="ic-tag">Semiconductors & Electronics</div>
-     <div class="ic-ttl">Vietnam Semiconductor Supply Chain Map 2025–2026</div>
-     <div class="ic-tx">Analysis of current semiconductor manufacturing capacity, new FDI projects and gaps in the semiconductor value chain — from design to packaging.</div>
-     <div class="ic-meta"><span>Jan 2026</span><span class="dot"></span><span>10 min read</span></div>
-     <a href="/insights/unpublished/" class="ic-lnk">Continue reading →</a>
-    </div>
-   </div>
-   <div class="ic">
-    <img src="../images/unsplash-1504328345606-18bbc8c9d7d1.jpg" alt="Kim loại">
-    <div class="ic-b">
-     <div class="ic-tag">Supply Chain</div>
-     <div class="ic-ttl">Investment & Supply Chain in Fabricated Metal Products in Vietnam</div>
-     <div class="ic-tx">Full picture of the fabricated metal market: structural steel, aluminium, stainless steel and investment opportunities in Vietnam's industrial manufacturing.</div>
-     <div class="ic-meta"><span>Oct 2024</span><span class="dot"></span><span>7 min read</span></div>
-     <a href="/insights/unpublished/" class="ic-lnk">Continue reading →</a>
-    </div>
-   </div>
-  </div>
+  <div class="ig" id="hl-insights-feed"></div>
   <div style="text-align:center;margin-top:52px;">
-   <button style="background:var(--white);border:1.5px solid var(--gray-100);color:var(--navy);font-size:14px;font-weight:600;padding:13px 40px;border-radius:8px;cursor:pointer;" onmouseover="this.style.borderColor='var(--green)'" onmouseout="this.style.borderColor='var(--gray-100)'">Load more reports</button>
+   <button type="button" id="hl-insights-load-more" style="display:none;background:var(--white);border:1.5px solid var(--gray-100);color:var(--navy);font-size:14px;font-weight:600;padding:13px 40px;border-radius:8px;cursor:pointer;" onmouseover="this.style.borderColor='var(--green)'" onmouseout="this.style.borderColor='var(--gray-100)'">Load more reports</button>
   </div>
  </div>
 </section>
@@ -840,6 +780,8 @@ footer { background: var(--navy); color: rgba(255,255,255,0.55); padding: 72px 0
 <div id="hl-chrome-footer"></div>
   <script src="../landing-chrome.js" defer></script>
   <script src="../js/auth-locale-validation.js" defer></script>
+  <script src="../js/vietnam-construction-feed.js" defer></script>
+  <script src="../js/hl-insights-feed.js" defer></script>
 <script>function setLang(l){document.querySelectorAll('.lang-btn').forEach(b=>b.classList.remove('active'));document.querySelector('.lang-btn[onclick="setLang(\''+l+'\')" ]')?.classList.add('active');}</script>
 
 </body>

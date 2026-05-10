@@ -731,6 +731,7 @@ footer { background: var(--navy); color: rgba(255,255,255,0.55); padding: 72px 0
   <link rel="stylesheet" href="../../landing-chrome.css">
 </head>
 <body class="hl-with-fixed-header" data-hl-page="insights">
+<!-- Optional data-hl-vn-news-source="api" | "hardcode" (default: try API, then data-market-en.json). -->
 
 <div id="hl-chrome-header"></div>
 
@@ -744,79 +745,18 @@ footer { background: var(--navy); color: rgba(255,255,255,0.55); padding: 72px 0
 
 <section class="sec">
  <div class="si">
-  <div class="tag-row">
-   <button class="tag on">Tất cả</button>
-   <button class="tag">BĐS Công nghiệp</button>
-   <button class="tag">FDI & Đầu tư</button>
-   <button class="tag">ESG & Năng lượng</button>
-   <button class="tag">Chuỗi cung ứng</button>
-   <button class="tag">Dệt may</button>
-   <button class="tag">Bán dẫn & Điện tử</button>
+  <div class="tag-row" id="hl-insights-tag-row">
+   <button type="button" class="tag on" data-hl-filter="all">Tất cả</button>
+   <button type="button" class="tag" data-hl-filter="industrial">BĐS Công nghiệp</button>
+   <button type="button" class="tag" data-hl-filter="fdi">FDI & Đầu tư</button>
+   <button type="button" class="tag" data-hl-filter="esg">ESG & Năng lượng</button>
+   <button type="button" class="tag" data-hl-filter="supply">Chuỗi cung ứng</button>
+   <button type="button" class="tag" data-hl-filter="textile">Dệt may</button>
+   <button type="button" class="tag" data-hl-filter="semi">Bán dẫn & Điện tử</button>
   </div>
-  <div class="ig">
-   <div class="ic hero">
-    <img src="../../images/unsplash-1504328345606-18bbc8c9d7d1.jpg" alt="FDI 2025">
-    <div class="ic-b">
-     <div class="ic-tag">FDI & Đầu tư</div>
-     <div class="ic-ttl">RECAP: Sản xuất công nghiệp FDI tại Việt Nam 2025 — Tổng kết & Triển vọng 2026</div>
-     <div class="ic-tx">Tổng quan toàn diện làn sóng FDI năm 2025: các ngành dẫn đầu, tỉnh thành thu hút vốn lớn nhất, xu hướng China+1 và dự báo năm 2026. GDP Việt Nam năm 2025 tăng 7.09% — nền tảng vững chắc cho làn sóng đầu tư tiếp theo.</div>
-     <div class="ic-meta"><span>Tháng 1, 2026</span><span class="dot"></span><span>VietnamConstruction × HOUSELINK</span><span class="dot"></span><span>12 phút đọc</span></div>
-     <a href="/vi/insights/fdi-recap/" class="ic-lnk">Đọc báo cáo đầy đủ →</a>
-    </div>
-   </div>
-   <div class="ic">
-    <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=600&q=80&auto=format&fit=crop" alt="KCN Q3">
-    <div class="ic-b">
-     <div class="ic-tag">BĐS Công nghiệp</div>
-     <div class="ic-ttl">Báo cáo triển khai dự án công nghiệp Việt Nam — 9 tháng 2025</div>
-     <div class="ic-tx">GDP 9 tháng 2025 tăng 7.85%. Phân tích tình hình triển khai các dự án công nghiệp trọng điểm theo vùng kinh tế và xu hướng đầu tư quý 4.</div>
-     <div class="ic-meta"><span>Tháng 10, 2025</span><span class="dot"></span><span>8 phút đọc</span></div>
-     <a href="/vi/insights/unpublished/" class="ic-lnk">Đọc tiếp →</a>
-    </div>
-   </div>
-   <div class="ic">
-    <img src="../../images/unsplash-1473341304170-971dccb5ac1e.jpg" alt="ESG Solar">
-    <div class="ic-b">
-     <div class="ic-tag">ESG & Năng lượng</div>
-     <div class="ic-ttl">Tác động của căng thẳng Mỹ–Iran đến đầu tư điện mặt trời tại KCN Việt Nam</div>
-     <div class="ic-tx">Chuỗi phân tích từ biến động giá dầu, chi phí logistics đến chi phí vốn và lộ trình LCOE cho các dự án solar trong KCN — khuyến nghị chiến lược cho nhà đầu tư.</div>
-     <div class="ic-meta"><span>Tháng 4, 2026</span><span class="dot"></span><span>8 phút đọc</span></div>
-     <a href="/vi/insights/unpublished/" class="ic-lnk">Đọc tiếp →</a>
-    </div>
-   </div>
-   <div class="ic">
-    <img src="../../images/unsplash-1581091226825-a6a2a5aee158.jpg" alt="Dệt may">
-    <div class="ic-b">
-     <div class="ic-tag">Dệt may</div>
-     <div class="ic-ttl">Chuỗi cung ứng Dệt may & May mặc Việt Nam — Cơ hội sau làn sóng FDI</div>
-     <div class="ic-tx">Đánh giá toàn cảnh ngành dệt may và cơ hội đầu tư từ xu hướng China+1. Phân tích từng phân khúc: sợi, vải, may mặc và hóa chất phụ trợ.</div>
-     <div class="ic-meta"><span>Tháng 2, 2026</span><span class="dot"></span><span>5 phút đọc</span></div>
-     <a href="/vi/insights/unpublished/" class="ic-lnk">Đọc tiếp →</a>
-    </div>
-   </div>
-   <div class="ic">
-    <img src="../../images/unsplash-1558618666-fcd25c85cd64.jpg" alt="Bán dẫn">
-    <div class="ic-b">
-     <div class="ic-tag">Bán dẫn & Điện tử</div>
-     <div class="ic-ttl">Bản đồ Chuỗi cung ứng Bán dẫn Việt Nam 2025–2026</div>
-     <div class="ic-tx">Phân tích năng lực sản xuất bán dẫn hiện tại, các dự án FDI mới và khoảng cách cần lấp đầy trong chuỗi giá trị ngành bán dẫn — từ thiết kế đến đóng gói.</div>
-     <div class="ic-meta"><span>Tháng 1, 2026</span><span class="dot"></span><span>10 phút đọc</span></div>
-     <a href="/vi/insights/unpublished/" class="ic-lnk">Đọc tiếp →</a>
-    </div>
-   </div>
-   <div class="ic">
-    <img src="../../images/unsplash-1504328345606-18bbc8c9d7d1.jpg" alt="Kim loại">
-    <div class="ic-b">
-     <div class="ic-tag">Chuỗi cung ứng</div>
-     <div class="ic-ttl">Đầu tư & Chuỗi cung ứng Sản phẩm Kim loại Chế tạo tại Việt Nam</div>
-     <div class="ic-tx">Toàn cảnh thị trường kim loại chế tạo: thép kết cấu, nhôm, inox và cơ hội đầu tư trong phân khúc sản xuất công nghiệp tại Việt Nam.</div>
-     <div class="ic-meta"><span>Tháng 10, 2024</span><span class="dot"></span><span>7 phút đọc</span></div>
-     <a href="/vi/insights/unpublished/" class="ic-lnk">Đọc tiếp →</a>
-    </div>
-   </div>
-  </div>
+  <div class="ig" id="hl-insights-feed"></div>
   <div style="text-align:center;margin-top:52px;">
-   <button style="background:var(--white);border:1.5px solid var(--gray-100);color:var(--navy);font-size:14px;font-weight:600;padding:13px 40px;border-radius:8px;cursor:pointer;" onmouseover="this.style.borderColor='var(--green)'" onmouseout="this.style.borderColor='var(--gray-100)'">Tải thêm báo cáo</button>
+   <button type="button" id="hl-insights-load-more" style="display:none;background:var(--white);border:1.5px solid var(--gray-100);color:var(--navy);font-size:14px;font-weight:600;padding:13px 40px;border-radius:8px;cursor:pointer;" onmouseover="this.style.borderColor='var(--green)'" onmouseout="this.style.borderColor='var(--gray-100)'">Tải thêm báo cáo</button>
   </div>
  </div>
 </section>
@@ -840,6 +780,8 @@ footer { background: var(--navy); color: rgba(255,255,255,0.55); padding: 72px 0
 <div id="hl-chrome-footer"></div>
   <script src="../../landing-chrome.js" defer></script>
   <script src="../../js/auth-locale-validation.js" defer></script>
+  <script src="../../js/vietnam-construction-feed.js" defer></script>
+  <script src="../../js/hl-insights-feed.js" defer></script>
 <script>function setLang(l){document.querySelectorAll('.lang-btn').forEach(b=>b.classList.remove('active'));document.querySelector('.lang-btn[onclick="setLang(\''+l+'\')" ]')?.classList.add('active');}</script>
 
 </body>

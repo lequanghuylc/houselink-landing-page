@@ -757,15 +757,15 @@ footer { background: var(--navy); color: rgba(255,255,255,0.55); padding: 72px 0
 
 <section class="sec">
  <div class="si">
-  <div class="filter-bar">
-   <button class="fb on">全部</button>
-   <button class="fb">Tin HOUSELINK</button>
-   <button class="fb">FDI投资</button>
-   <button class="fb">工业地产</button>
-   <button class="fb">ESG与能源</button>
-   <button class="fb">供应链</button>
+  <div class="filter-bar" id="hl-news-filter-bar">
+   <button type="button" class="fb on" data-hl-filter="all">All</button>
+   <button type="button" class="fb" data-hl-filter="houselink">Tin HOUSELINK</button>
+   <button type="button" class="fb" data-hl-filter="fdi">FDI Investment</button>
+   <button type="button" class="fb" data-hl-filter="industrial">Industrial Real Estate</button>
+   <button type="button" class="fb" data-hl-filter="esg">ESG &amp; Energy</button>
+   <button type="button" class="fb" data-hl-filter="supply">Supply Chain</button>
   </div>
-  <div class="ng">
+  <div class="ng" id="hl-news-feed">
    <!-- Featured -->
    <div class="nc feat">
     <img src="../../images/unsplash-1560439514-4e9645039924.jpg" alt="Hội thảo ESG">
@@ -845,7 +845,7 @@ footer { background: var(--navy); color: rgba(255,255,255,0.55); padding: 72px 0
    </div>
   </div>
   <div style="text-align:center;margin-top:52px;">
-   <button style="background:var(--white);border:1.5px solid var(--gray-100);color:var(--navy);font-size:14px;font-weight:600;padding:13px 40px;border-radius:8px;cursor:pointer;" onmouseover="this.style.borderColor='var(--green)'" onmouseout="this.style.borderColor='var(--gray-100)'">查看更多新闻</button>
+   <button type="button" id="hl-news-load-more" style="display:none;background:var(--white);border:1.5px solid var(--gray-100);color:var(--navy);font-size:14px;font-weight:600;padding:13px 40px;border-radius:8px;cursor:pointer;" onmouseover="this.style.borderColor='var(--green)'" onmouseout="this.style.borderColor='var(--gray-100)'">View more news</button>
   </div>
  </div>
 </section>
@@ -901,6 +901,8 @@ footer { background: var(--navy); color: rgba(255,255,255,0.55); padding: 72px 0
 <div id="hl-chrome-footer"></div>
   <script src="../../landing-chrome.js" defer></script>
   <script src="../../js/auth-locale-validation.js" defer></script>
+  <script src="../../js/vietnam-construction-feed.js" defer></script>
+  <script src="../../js/hl-news-feed.js" defer></script>
 <script>function setLang(l){document.querySelectorAll('.lang-btn').forEach(b=>b.classList.remove('active'));document.querySelector('.lang-btn[onclick="setLang(\''+l+'\')" ]')?.classList.add('active');}</script>
 
 </body>

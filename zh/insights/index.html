@@ -731,6 +731,7 @@ footer { background: var(--navy); color: rgba(255,255,255,0.55); padding: 72px 0
   <link rel="stylesheet" href="../../landing-chrome.css">
 </head>
 <body class="hl-with-fixed-header" data-hl-page="insights">
+<!-- Optional data-hl-vn-news-source="api" | "hardcode" (default: try API, then data-market-en.json). -->
 
 <div id="hl-chrome-header"></div>
 
@@ -744,79 +745,18 @@ footer { background: var(--navy); color: rgba(255,255,255,0.55); padding: 72px 0
 
 <section class="sec">
  <div class="si">
-  <div class="tag-row">
-   <button class="tag on">全部</button>
-   <button class="tag">工业地产</button>
-   <button class="tag">FDI与投资</button>
-   <button class="tag">ESG与能源</button>
-   <button class="tag">供应链</button>
-   <button class="tag">纺织</button>
-   <button class="tag">半导体与电子</button>
+  <div class="tag-row" id="hl-insights-tag-row">
+   <button type="button" class="tag on" data-hl-filter="all">全部</button>
+   <button type="button" class="tag" data-hl-filter="industrial">工业地产</button>
+   <button type="button" class="tag" data-hl-filter="fdi">FDI与投资</button>
+   <button type="button" class="tag" data-hl-filter="esg">ESG与能源</button>
+   <button type="button" class="tag" data-hl-filter="supply">供应链</button>
+   <button type="button" class="tag" data-hl-filter="textile">纺织</button>
+   <button type="button" class="tag" data-hl-filter="semi">半导体与电子</button>
   </div>
-  <div class="ig">
-   <div class="ic hero">
-    <img src="../../images/unsplash-1504328345606-18bbc8c9d7d1.jpg" alt="FDI 2025">
-    <div class="ic-b">
-     <div class="ic-tag">FDI与投资</div>
-     <div class="ic-ttl">RECAP：2025年越南FDI工业制造——总结与2026年展望</div>
-     <div class="ic-tx">2025年FDI浪潮全面概览：领先行业、吸引最多资本的省份、China+1趋势及2026年预测。越南2025年GDP增长7.09%——为下一波投资浪潮奠定坚实基础。</div>
-     <div class="ic-meta"><span>2026年1月</span><span class="dot"></span><span>VietnamConstruction × HOUSELINK</span><span class="dot"></span><span>阅读12分钟</span></div>
-     <a href="/zh/insights/fdi-recap/" class="ic-lnk">阅读完整报告 →</a>
-    </div>
-   </div>
-   <div class="ic">
-    <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=600&q=80&auto=format&fit=crop" alt="KCN Q3">
-    <div class="ic-b">
-     <div class="ic-tag">工业地产</div>
-     <div class="ic-ttl">越南工业项目部署报告——2025年前9个月</div>
-     <div class="ic-tx">2025年前9个月GDP增长7.85%。按经济区域分析重点工业项目部署情况及第四季度投资趋势。</div>
-     <div class="ic-meta"><span>2025年10月</span><span class="dot"></span><span>阅读8分钟</span></div>
-     <a href="/zh/insights/unpublished/" class="ic-lnk">继续阅读 →</a>
-    </div>
-   </div>
-   <div class="ic">
-    <img src="../../images/unsplash-1473341304170-971dccb5ac1e.jpg" alt="ESG Solar">
-    <div class="ic-b">
-     <div class="ic-tag">ESG与能源</div>
-     <div class="ic-ttl">美伊紧张局势对越南工业园区太阳能投资的影响</div>
-     <div class="ic-tx">从油价波动、物流成本到工业园区太阳能项目资本成本和LCOE路线图的系列分析——对投资者的战略建议。</div>
-     <div class="ic-meta"><span>2026年4月</span><span class="dot"></span><span>阅读8分钟</span></div>
-     <a href="/zh/insights/unpublished/" class="ic-lnk">继续阅读 →</a>
-    </div>
-   </div>
-   <div class="ic">
-    <img src="../../images/unsplash-1581091226825-a6a2a5aee158.jpg" alt="纺织">
-    <div class="ic-b">
-     <div class="ic-tag">纺织</div>
-     <div class="ic-ttl">越南纺织服装供应链——FDI浪潮后的机遇</div>
-     <div class="ic-tx">对中国+1趋势下纺织服装行业和投资机会的全面评估。按细分领域分析：纱线、织物、成衣和辅助化学品。</div>
-     <div class="ic-meta"><span>2026年2月</span><span class="dot"></span><span>阅读5分钟</span></div>
-     <a href="/zh/insights/unpublished/" class="ic-lnk">继续阅读 →</a>
-    </div>
-   </div>
-   <div class="ic">
-    <img src="../../images/unsplash-1558618666-fcd25c85cd64.jpg" alt="Bán dẫn">
-    <div class="ic-b">
-     <div class="ic-tag">半导体与电子</div>
-     <div class="ic-ttl">越南半导体供应链地图2025–2026</div>
-     <div class="ic-tx">分析越南当前半导体制造能力、新FDI项目及半导体价值链缺口——从设计到封装。</div>
-     <div class="ic-meta"><span>2026年1月</span><span class="dot"></span><span>阅读10分钟</span></div>
-     <a href="/zh/insights/unpublished/" class="ic-lnk">继续阅读 →</a>
-    </div>
-   </div>
-   <div class="ic">
-    <img src="../../images/unsplash-1504328345606-18bbc8c9d7d1.jpg" alt="Kim loại">
-    <div class="ic-b">
-     <div class="ic-tag">供应链</div>
-     <div class="ic-ttl">越南制造金属产品的投资与供应链</div>
-     <div class="ic-tx">越南制造金属市场全景：结构钢、铝、不锈钢及工业制造领域的投资机会。</div>
-     <div class="ic-meta"><span>2024年10月</span><span class="dot"></span><span>阅读7分钟</span></div>
-     <a href="/zh/insights/unpublished/" class="ic-lnk">继续阅读 →</a>
-    </div>
-   </div>
-  </div>
+  <div class="ig" id="hl-insights-feed"></div>
   <div style="text-align:center;margin-top:52px;">
-   <button style="background:var(--white);border:1.5px solid var(--gray-100);color:var(--navy);font-size:14px;font-weight:600;padding:13px 40px;border-radius:8px;cursor:pointer;" onmouseover="this.style.borderColor='var(--green)'" onmouseout="this.style.borderColor='var(--gray-100)'">加载更多报告</button>
+   <button type="button" id="hl-insights-load-more" style="display:none;background:var(--white);border:1.5px solid var(--gray-100);color:var(--navy);font-size:14px;font-weight:600;padding:13px 40px;border-radius:8px;cursor:pointer;" onmouseover="this.style.borderColor='var(--green)'" onmouseout="this.style.borderColor='var(--gray-100)'">加载更多报告</button>
   </div>
  </div>
 </section>
@@ -840,6 +780,8 @@ footer { background: var(--navy); color: rgba(255,255,255,0.55); padding: 72px 0
 <div id="hl-chrome-footer"></div>
   <script src="../../landing-chrome.js" defer></script>
   <script src="../../js/auth-locale-validation.js" defer></script>
+  <script src="../../js/vietnam-construction-feed.js" defer></script>
+  <script src="../../js/hl-insights-feed.js" defer></script>
 <script>function setLang(l){document.querySelectorAll('.lang-btn').forEach(b=>b.classList.remove('active'));document.querySelector('.lang-btn[onclick="setLang(\''+l+'\')" ]')?.classList.add('active');}</script>
 
 </body>
