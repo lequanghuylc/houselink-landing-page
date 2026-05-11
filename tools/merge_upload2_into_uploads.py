@@ -29,6 +29,7 @@ JSON_FILES = [
     "data-market-en.json",
     "data-market-vi.json",
     "data-learn-en.json",
+    "data-learn-vi.json",
 ]
 
 WP_UPLOADS_RE = re.compile(
