@@ -6,7 +6,8 @@ Thay URL ảnh trong js/data-*.json bằng đường dẫn local tới file tron
 - URL https://vietnamconstruction.vn/wp-content/uploads/Y/MM/f → khớp file
   images/uploads/wp-content_uploads_Y_MM_f (chính xác tên), hoặc khớp mờ theo tên WP.
 - URL /images/upload2/... hoặc /images/upload%202/... → nếu tìm được file tương ứng trong uploads thì đổi sang /images/uploads/...
-- URL /images/uploads/wp-content_... giữ nguyên.
+- URL /images/uploads/... trong HTML được chuẩn hóa Unicode NFC trong percent-encoding
+  (tránh lệch macOS vs Linux: NFD `...BI%CC%80A...` vs NFC `...B%C3%8CA...`).
 
 Chạy: python3 tools/merge_json_from_uploads_dir.py
 """
@@ -14,6 +15,7 @@ from __future__ import annotations
 
 import json
 import re
+import unicodedata
 from pathlib import Path
 from urllib.parse import quote, unquote, urlparse
 
@@ -39,6 +41,13 @@ UP2_URL_RE = re.compile(
     r"/images/(?:upload2|upload%202)/([^\"'>\s#?]+)",
     re.I,
 )
+
+# Chuẩn hóa URL /images/uploads/... trong HTML (NFD → NFC) để khớp Linux/deploy
+LOCAL_UPLOADS_URL_RE = re.compile(r'(/images/uploads/)([^"\'>\s#]+)')
+
+
+def nfc(s: str) -> str:
+    return unicodedata.normalize("NFC", s)
 
 SIZE_RE = re.compile(r"-(\d+)x(\d+)(?=\.[^.]+$)", re.I)
 SIZE_STEM_SUFFIX_RE = re.compile(r"-(\d+)x(\d+)$", re.I)
@@ -101,7 +110,7 @@ def logical_wp_fname_from_flat_filename(flat_name: str) -> str | None:
 def wp_equivalent_for_uploads_file(p: Path) -> str:
     """Tên file WP tương đương để khớp: flat VC hoặc basename thường trong uploads."""
     log = logical_wp_fname_from_flat_filename(p.name)
-    return log if log else p.name
+    return nfc(log if log else p.name)
 
 
 def expected_flat_basename_from_vc_url(url: str) -> str | None:
@@ -112,11 +121,11 @@ def expected_flat_basename_from_vc_url(url: str) -> str | None:
     tail = tail.split("?")[0].split("#")[0]
     if not tail or "/" in tail:
         return None
-    return f"wp-content_uploads_{y}_{mo}_{tail}"
+    return nfc(f"wp-content_uploads_{y}_{mo}_{tail}")
 
 
 def uploads_public_url_for_basename(basename: str) -> str:
-    return "/images/uploads/" + quote(basename, safe="")
+    return "/images/uploads/" + quote(nfc(basename), safe="")
 
 
 def list_uploads_image_files() -> list[Path]:
@@ -131,7 +140,7 @@ def list_uploads_image_files() -> list[Path]:
 
 
 def resolve_flat_file(basename: str, by_lower: dict[str, Path]) -> Path | None:
-    p = by_lower.get(basename.lower())
+    p = by_lower.get(nfc(basename).lower())
     if p and p.is_file():
         return p
     return None
@@ -139,6 +148,7 @@ def resolve_flat_file(basename: str, by_lower: dict[str, Path]) -> Path | None:
 
 def find_best_uploads_match(wp_fname: str, files: list[Path]) -> Path | None:
     """Khớp tên file WP với file phẳng trong uploads (so khúc sau wp-content_uploads_Y_MM_)."""
+    wp_fname = nfc(wp_fname)
     wext = Path(wp_fname).suffix.lower()
     wp_lower = wp_fname.lower()
 
@@ -152,7 +162,7 @@ def find_best_uploads_match(wp_fname: str, files: list[Path]) -> Path | None:
         if log.lower() == wp_lower and ext_compatible(wext, Path(log).suffix.lower())
     ]
     if exact:
-        return max(exact, key=lambda p: rank_candidate(logical_wp_fname_from_flat_filename(p.name) or ""))
+        return max(exact, key=lambda p: rank_candidate(wp_equivalent_for_uploads_file(p)))
 
     core = core_stem_from_wp_fname(wp_fname)
     min_prefix = 6
@@ -168,13 +178,13 @@ def find_best_uploads_match(wp_fname: str, files: list[Path]) -> Path | None:
             cands.append(p)
     if not cands:
         return None
-    return max(cands, key=lambda p: rank_candidate(logical_wp_fname_from_flat_filename(p.name) or ""))
+    return max(cands, key=lambda p: rank_candidate(wp_equivalent_for_uploads_file(p)))
 
 
 def build_by_lower(files: list[Path]) -> dict[str, Path]:
     d: dict[str, Path] = {}
     for p in files:
-        d[p.name.lower()] = p
+        d[nfc(p.name).lower()] = p
     return d
 
 
@@ -237,7 +247,7 @@ def basename_from_upload2_url(full: str) -> str | None:
         return None
     tail = unquote(m.group(1))
     parts = tail.rstrip("/").split("/")
-    return parts[-1] if parts else None
+    return nfc(parts[-1]) if parts else None
 
 
 def build_vc_map(vc_urls: set[str], files: list[Path], by_lower: dict[str, Path]) -> dict[str, str]:
@@ -306,7 +316,59 @@ def rewrite_html(html: str, url_map: dict[str, str]) -> tuple[str, int]:
     return out, changed
 
 
-def process_post(post: dict, url_map: dict[str, str]) -> tuple[int, int]:
+def nfc_rewrite_local_upload_urls(text: str) -> tuple[str, int]:
+    """NFD trong percent-encoding → NFC (ổn định trên Linux / static host)."""
+    if not isinstance(text, str) or "/images/uploads/" not in text:
+        return text, 0
+
+    def repl(m: re.Match[str]) -> str:
+        prefix, tail = m.group(1), m.group(2)
+        raw = unquote(tail)
+        new_tail = quote(nfc(raw), safe="")
+        if new_tail == tail:
+            return m.group(0)
+        return prefix + new_tail
+
+    out, n = LOCAL_UPLOADS_URL_RE.subn(repl, text)
+    return out, n
+
+
+def nfc_normalize_post_upload_urls(post: dict) -> int:
+    n = 0
+    emb = post.get("_embedded")
+    if isinstance(emb, dict):
+        fms = emb.get("wp:featuredmedia")
+        if isinstance(fms, list) and fms and isinstance(fms[0], dict):
+            fm = fms[0]
+            su = fm.get("source_url")
+            if isinstance(su, str):
+                ns, c = nfc_rewrite_local_upload_urls(su)
+                if c:
+                    fm["source_url"] = ns
+                    n += c
+            md = fm.get("media_details")
+            if isinstance(md, dict):
+                for sz in (md.get("sizes") or {}).values():
+                    if isinstance(sz, dict):
+                        u = sz.get("source_url")
+                        if isinstance(u, str):
+                            nu, c = nfc_rewrite_local_upload_urls(u)
+                            if c:
+                                sz["source_url"] = nu
+                                n += c
+    for key in ("content", "excerpt"):
+        block = post.get(key)
+        if isinstance(block, dict):
+            r = block.get("rendered")
+            if isinstance(r, str):
+                nr, c = nfc_rewrite_local_upload_urls(r)
+                if c:
+                    block["rendered"] = nr
+                    n += c
+    return n
+
+
+def process_post(post: dict, url_map: dict[str, str]) -> tuple[int, int, int]:
     fc = 0
     emb = post.get("_embedded")
     if isinstance(emb, dict):
@@ -323,7 +385,8 @@ def process_post(post: dict, url_map: dict[str, str]) -> tuple[int, int]:
                 if c:
                     block["rendered"] = new_r
                     hc += c
-    return fc, hc
+    nfc_n = nfc_normalize_post_upload_urls(post)
+    return fc, hc, nfc_n
 
 
 def rewrite_all_json(url_map: dict[str, str]) -> None:
@@ -338,18 +401,19 @@ def rewrite_all_json(url_map: dict[str, str]) -> None:
         data = json.loads(raw)
         if not isinstance(data, list):
             continue
-        t_fc = t_hc = 0
+        t_fc = t_hc = t_nfc = 0
         for post in data:
             if not isinstance(post, dict):
                 continue
-            fc, hc = process_post(post, url_map)
+            fc, hc, nfc_n = process_post(post, url_map)
             t_fc += fc
             t_hc += hc
+            t_nfc += nfc_n
         path.write_text(
             json.dumps(data, ensure_ascii=False, separators=(",", ":")) + "\n",
             encoding="utf-8",
         )
-        print(f"  json {name}: featured {t_fc}, html urls {t_hc}")
+        print(f"  json {name}: featured {t_fc}, html urls {t_hc}, nfc uploads urls {t_nfc}")
 
 
 def main() -> None:
@@ -372,8 +436,7 @@ def main() -> None:
     url_map = {**vc_map, **u2_map}
     print(f"Ánh xạ thay thế (VC + upload2 → uploads): {len(url_map)}")
     if not url_map:
-        print("Không có khớp nào — kiểm tra tên file trong images/uploads/ (basename trùng URL hoặc wp-content_uploads_YYYY_MM_...).")
-        return
+        print("(Không có khớp URL mới; vẫn chạy chuẩn hóa NFC cho /images/uploads/ trong JSON.)")
 
     rewrite_all_json(url_map)
     print("Xong: URL ảnh trỏ tới /images/uploads/... khi tìm thấy file tương ứng trong images/uploads/.")
