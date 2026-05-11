@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>北部ベトナム工業団地投資コネクト2026 – HOUSELINK</title>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --navy:#00466E;--navy-deep:#003457;--navy-mid:#005585;
+  --green:#2D8B48;--green-light:#3AAD5C;--green-pale:#EBF7EF;
+  --amber:#D4860B;--amber-pale:#FEF3E0;
+  --white:#FFFFFF;--off-white:#F4F6F8;
+  --gray-50:#EEF1F4;--gray-100:#DDE3E8;--gray-400:#7E8F9A;--gray-600:#4A5A65;
+  --text:#0D1F2D;
+  --font-main:'Be Vietnam Pro',sans-serif;
+  --font-serif:'DM Serif Display',serif;
+}
+body{font-family:var(--font-main);color:var(--text);background:var(--white);line-height:1.7;}
+a{text-decoration:none;color:inherit;}
+img{max-width:100%;display:block;}
+.si{max-width:1200px;margin:0 auto;padding:0 40px;}
+
+/* ── TOPBAR ── */
+.topbar{background:var(--navy-deep);padding:12px 0;position:sticky;top:0;z-index:100;border-bottom:1px solid rgba(255,255,255,.08);}
+.topbar-inner{max-width:1200px;margin:0 auto;padding:0 40px;display:flex;align-items:center;justify-content:space-between;}
+.back-link{color:rgba(255,255,255,.6);font-size:13px;font-weight:500;display:flex;align-items:center;gap:6px;transition:color .2s;}
+.back-link:hover{color:#fff;}
+.topbar-brand{display:flex;align-items:center;gap:8px;}
+.tb-icon{width:28px;height:28px;border-radius:7px;background:rgba(255,255,255,.08);border:1.5px solid rgba(45,139,72,.5);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:900;color:var(--green);}
+.tb-name{font-size:13px;font-weight:800;color:rgba(255,255,255,.85);letter-spacing:.06em;text-transform:uppercase;}
+.topbar-cta{background:var(--green);color:#fff;font-size:12.5px;font-weight:700;padding:7px 18px;border-radius:7px;transition:background .2s;}
+.topbar-cta:hover{background:var(--green-light);}
+
+/* ── HERO ── */
+.ev-hero{background:linear-gradient(135deg,var(--navy-deep) 0%,#004A7C 55%,#005A40 100%);padding:80px 0 68px;position:relative;overflow:hidden;}
+.ev-hero::before{content:'';position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.04) 1px,transparent 1px);background-size:32px 32px;pointer-events:none;}
+.ev-hero::after{content:'';position:absolute;top:-200px;right:-200px;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(45,139,72,.15) 0%,transparent 65%);pointer-events:none;}
+.hero-inner{max-width:1200px;margin:0 auto;padding:0 40px;display:grid;grid-template-columns:1fr 380px;gap:72px;align-items:start;position:relative;z-index:1;}
+
+.ev-breadcrumb{display:flex;align-items:center;gap:8px;margin-bottom:20px;font-size:12.5px;color:rgba(255,255,255,.45);flex-wrap:wrap;}
+.ev-breadcrumb a{color:rgba(255,255,255,.45);transition:color .2s;}
+.ev-breadcrumb a:hover{color:rgba(255,255,255,.8);}
+.ev-breadcrumb span{color:rgba(255,255,255,.25);}
+
+.ev-badges{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px;}
+.ev-badge{font-size:11px;font-weight:700;padding:4px 12px;border-radius:100px;letter-spacing:.08em;text-transform:uppercase;}
+.badge-bm{background:rgba(45,139,72,.2);border:1px solid rgba(45,139,72,.4);color:#7ED49A;}
+.badge-fdi{background:rgba(212,134,11,.15);border:1px solid rgba(212,134,11,.35);color:#F5B84C;}
+.badge-free{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);color:rgba(255,255,255,.75);}
+
+.ev-title{font-family:var(--font-serif);font-size:clamp(28px,4vw,52px);font-weight:600;color:#fff;line-height:1.14;letter-spacing:-.025em;margin-bottom:20px;}
+.ev-title em{color:#7ED49A;font-style:normal;}
+
+.ev-meta-row{display:flex;flex-wrap:wrap;gap:20px;margin-bottom:32px;}
+.ev-meta-item{display:flex;align-items:center;gap:8px;font-size:14px;color:rgba(255,255,255,.65);}
+.ev-meta-item strong{color:#fff;font-weight:700;}
+.ev-meta-icon{font-size:16px;flex-shrink:0;}
+
+.ev-hero-desc{font-size:16px;color:rgba(255,255,255,.68);line-height:1.75;max-width:560px;}
+
+/* ── REGISTER CARD ── */
+.reg-card{background:var(--white);border-radius:18px;padding:32px 28px;position:sticky;top:80px;box-shadow:0 20px 60px rgba(0,52,87,.25);}
+.reg-event-date{text-align:center;margin-bottom:22px;}
+.reg-big-day{font-family:var(--font-serif);font-size:64px;font-weight:600;color:var(--navy);line-height:1;}
+.reg-month{font-size:16px;font-weight:700;color:var(--green);text-transform:uppercase;letter-spacing:.1em;margin-top:4px;}
+.reg-year{font-size:13px;color:var(--gray-400);margin-top:2px;}
+.reg-divider{height:1px;background:var(--gray-100);margin:20px 0;}
+.reg-info{display:flex;flex-direction:column;gap:12px;margin-bottom:22px;}
+.ri-row{display:flex;align-items:flex-start;gap:10px;font-size:13.5px;}
+.ri-icon{font-size:16px;flex-shrink:0;margin-top:1px;}
+.ri-label{font-size:11px;font-weight:700;color:var(--gray-400);letter-spacing:.06em;text-transform:uppercase;margin-bottom:1px;}
+.ri-val{font-size:13.5px;color:var(--text);font-weight:600;line-height:1.4;}
+.reg-spots{background:var(--amber-pale);border:1px solid rgba(212,134,11,.25);border-radius:8px;padding:10px 14px;font-size:12.5px;color:var(--amber);margin-bottom:18px;display:flex;align-items:center;gap:7px;}
+.btn-reg-primary{display:block;text-align:center;background:var(--green);color:#fff;font-size:15px;font-weight:700;padding:15px;border-radius:10px;transition:all .2s;border:none;width:100%;font-family:var(--font-main);cursor:pointer;margin-bottom:10px;}
+.btn-reg-primary:hover{background:var(--green-light);transform:translateY(-1px);}
+.btn-reg-outline{display:block;text-align:center;background:transparent;color:var(--navy);font-size:13.5px;font-weight:600;padding:11px;border-radius:9px;border:1.5px solid var(--gray-100);transition:all .2s;cursor:pointer;font-family:var(--font-main);}
+.btn-reg-outline:hover{border-color:var(--green);color:var(--green);}
+.reg-share{display:flex;gap:8px;justify-content:center;margin-top:16px;}
+.share-btn{flex:1;background:var(--gray-50);border:none;border-radius:7px;padding:8px;font-size:12px;color:var(--gray-600);cursor:pointer;transition:all .15s;font-family:var(--font-main);}
+.share-btn:hover{background:var(--green-pale);color:var(--green);}
+
+/* ── CONTENT SECTIONS ── */
+.content-wrap{max-width:1200px;margin:0 auto;padding:0 40px;}
+.content-main{display:grid;grid-template-columns:1fr 380px;gap:72px;padding:64px 0 80px;align-items:start;}
+.content-body{}
+.content-sidebar{}
+
+.section-block{margin-bottom:48px;}
+.section-block h3{font-family:var(--font-serif);font-size:24px;font-weight:600;color:var(--navy);margin-bottom:16px;letter-spacing:-.015em;}
+.section-block h3 em{color:var(--green);font-style:normal;}
+.section-block p{font-size:15px;color:var(--gray-600);line-height:1.8;margin-bottom:14px;}
+.section-block ul{list-style:none;display:flex;flex-direction:column;gap:10px;}
+.section-block li{font-size:14.5px;color:var(--gray-600);display:flex;align-items:flex-start;gap:10px;line-height:1.6;}
+.section-block li::before{content:'→';color:var(--green);font-weight:700;flex-shrink:0;margin-top:1px;}
+
+/* Highlight box */
+.highlight-strip{background:var(--navy-deep);border-radius:14px;padding:28px 30px;margin-bottom:36px;display:flex;gap:28px;align-items:flex-start;flex-wrap:wrap;}
+.hs-stat{flex:1;min-width:100px;text-align:center;}
+.hs-num{font-family:var(--font-serif);font-size:36px;font-weight:600;color:#7ED49A;line-height:1;}
+.hs-label{font-size:12px;color:rgba(255,255,255,.5);margin-top:4px;font-weight:600;letter-spacing:.04em;}
+
+/* Speaker cards */
+.speakers-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:4px;}
+.speaker-card{background:var(--off-white);border:1px solid var(--gray-100);border-radius:12px;padding:20px 16px;text-align:center;transition:all .2s;}
+.speaker-card:hover{box-shadow:0 6px 24px rgba(0,70,110,.08);transform:translateY(-2px);}
+.spk-avatar{width:56px;height:56px;border-radius:50%;background:var(--navy);display:flex;align-items:center;justify-content:center;font-size:22px;margin:0 auto 12px;}
+.spk-name{font-size:14px;font-weight:700;color:var(--navy);margin-bottom:3px;}
+.spk-role{font-size:12px;color:var(--gray-400);line-height:1.4;}
+.spk-org{font-size:12px;font-weight:600;color:var(--green);margin-top:4px;}
+
+/* Agenda */
+.agenda-list{display:flex;flex-direction:column;gap:0;}
+.agenda-item{display:flex;gap:20px;padding:16px 0;border-bottom:1px solid var(--gray-50);}
+.agenda-item:last-child{border-bottom:none;}
+.agenda-time{font-size:13px;font-weight:700;color:var(--gray-400);white-space:nowrap;min-width:80px;padding-top:2px;}
+.agenda-content{}
+.agenda-title{font-size:14.5px;font-weight:700;color:var(--navy);margin-bottom:3px;}
+.agenda-detail{font-size:13px;color:var(--gray-400);}
+.agenda-break{background:var(--gray-50);border-radius:8px;padding:10px 16px;display:flex;gap:20px;align-items:center;margin:4px 0;}
+.agenda-break .agenda-time{color:var(--gray-400);}
+.agenda-break .agenda-title{color:var(--gray-400);font-weight:500;font-size:13.5px;}
+
+/* Map / Venue */
+.venue-card{background:var(--off-white);border:1px solid var(--gray-100);border-radius:14px;overflow:hidden;}
+.venue-map-placeholder{height:200px;background:linear-gradient(135deg,var(--navy) 0%,var(--navy-mid) 100%);display:flex;align-items:center;justify-content:center;position:relative;}
+.venue-map-placeholder::before{content:'';position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.05) 1px,transparent 1px);background-size:20px 20px;}
+.venue-pin{font-size:36px;position:relative;z-index:1;filter:drop-shadow(0 2px 8px rgba(0,0,0,.3));}
+.venue-info{padding:20px 22px;}
+.venue-name{font-size:15px;font-weight:700;color:var(--navy);margin-bottom:6px;}
+.venue-addr{font-size:13.5px;color:var(--gray-600);line-height:1.6;margin-bottom:12px;}
+.venue-detail-row{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--gray-400);margin-top:6px;}
+
+/* Partner logos */
+.partners-row{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-top:4px;}
+.partner-logo{height:32px;width:auto;opacity:.7;transition:opacity .2s;filter:grayscale(30%);}
+.partner-logo:hover{opacity:1;}
+.partner-tag{font-size:11.5px;font-weight:700;color:var(--gray-400);background:var(--gray-50);border-radius:6px;padding:5px 12px;border:1px solid var(--gray-100);}
+
+/* Sidebar extras */
+.sidebar-card{background:var(--white);border:1px solid var(--gray-100);border-radius:14px;padding:24px 22px;margin-bottom:20px;}
+.sidebar-card-title{font-size:13px;font-weight:700;color:var(--navy);letter-spacing:.06em;text-transform:uppercase;margin-bottom:14px;}
+.related-ev{display:flex;flex-direction:column;gap:12px;}
+.rel-item{padding:12px;background:var(--off-white);border-radius:9px;transition:all .2s;}
+.rel-item:hover{background:var(--green-pale);}
+.rel-date{font-size:11.5px;font-weight:700;color:var(--green);margin-bottom:3px;}
+.rel-title{font-size:13.5px;font-weight:600;color:var(--navy);line-height:1.4;}
+
+/* CTA bottom */
+.cta-bottom{background:var(--green);padding:64px 0;text-align:center;}
+.cta-bottom h2{font-family:var(--font-serif);font-size:clamp(24px,3vw,36px);font-weight:600;color:#fff;margin-bottom:10px;}
+.cta-bottom p{font-size:15px;color:rgba(255,255,255,.75);margin-bottom:28px;max-width:520px;margin-left:auto;margin-right:auto;}
+.cta-btns{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;}
+.btn-white{background:#fff;color:var(--green);font-size:14px;font-weight:700;padding:13px 28px;border-radius:8px;}
+.btn-outline-w{border:2px solid rgba(255,255,255,.55);color:#fff;font-size:14px;font-weight:600;padding:13px 24px;border-radius:8px;}
+
+/* Footer */
+.footer-mini{background:var(--navy-deep);padding:24px 0;text-align:center;font-size:13px;color:rgba(255,255,255,.3);}
+
+/* Countdown */
+.countdown-wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:20px;}
+.cd-box{background:var(--navy-deep);border-radius:10px;padding:12px 8px;text-align:center;}
+.cd-num{font-family:var(--font-serif);font-size:28px;font-weight:600;color:#7ED49A;line-height:1;}
+.cd-label{font-size:10px;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.08em;margin-top:3px;}
+
+@media(max-width:1024px){
+  .hero-inner,.content-main{grid-template-columns:1fr;}
+  .reg-card{position:static;margin-top:32px;}
+  .speakers-grid{grid-template-columns:1fr 1fr;}
+}
+@media(max-width:640px){
+  .si,.topbar-inner,.hero-inner,.content-wrap,.content-main{padding-left:20px;padding-right:20px;}
+  .highlight-strip{gap:16px;}
+  .speakers-grid{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <div class="topbar-inner">
+    <a href="page-news.html" class="back-link">← イベントカレンダー</a>
+    <div class="topbar-brand">
+      <div class="tb-icon">H</div>
+      <span class="tb-name">HOUSELINK</span>
+    </div>
+    <a href="#register" class="topbar-cta">今すぐ登録</a>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="ev-hero">
+  <div class="hero-inner">
+    <div>
+      <div class="ev-breadcrumb">
+        <a href="houselink-landing-v6-2.html">HOUSELINK</a>
+        <span>›</span>
+        <a href="page-news.html">イベント</a>
+        <span>›</span>
+        <span style="color:rgba(255,255,255,.65);">北部工業団地2026</span>
+      </div>
+
+      <div class="ev-badges">
+        <span class="ev-badge badge-bm">ビジネスマッチング</span>
+        <span class="ev-badge badge-fdi">FDI投資家</span>
+        <span class="ev-badge badge-free">無料参加</span>
+      </div>
+
+      <h1 class="ev-title">投資コネクト<br><em>北部工業団地</em> 2026</h1>
+
+      <div class="ev-meta-row">
+        <div class="ev-meta-item">
+          <span class="ev-meta-icon">📅</span>
+          <span><strong>2026年5月15日（金曜日）</strong></span>
+        </div>
+        <div class="ev-meta-item">
+          <span class="ev-meta-icon">⏰</span>
+          <span>8:00 – 17:00（登録は7:30から）</span>
+        </div>
+        <div class="ev-meta-item">
+          <span class="ev-meta-icon">📍</span>
+          <span><strong>国立コンベンションセンター</strong>, ハノイ</span>
+        </div>
+        <div class="ev-meta-item">
+          <span class="ev-meta-icon">👥</span>
+          <span>200名以上の代表者 · FDI投資家・工業団地・施工会社</span>
+        </div>
+      </div>
+
+      <p class="ev-hero-desc">2026年北部ベトナム最大の投資ネットワーキングフォーラム — FDI投資家・工業団地管理委員会および産業建設施工会社・サプライヤーのエコシステム — 1日で実質的なビジネス接続の機会。</p>
+    </div>
+
+    <!-- REGISTER CARD -->
+    <div id="register">
+      <div class="reg-card">
+        <div class="reg-event-date">
+          <div class="reg-big-day">15</div>
+          <div class="reg-month">5月</div>
+          <div class="reg-year">2026 · ハノイ</div>
+        </div>
+        <div class="countdown-wrap" id="countdown">
+          <div class="cd-box"><div class="cd-num" id="cd-d">--</div><div class="cd-label">日</div></div>
+          <div class="cd-box"><div class="cd-num" id="cd-h">--</div><div class="cd-label">時間</div></div>
+          <div class="cd-box"><div class="cd-num" id="cd-m">--</div><div class="cd-label">分</div></div>
+          <div class="cd-box"><div class="cd-num" id="cd-s">--</div><div class="cd-label">秒</div></div>
+        </div>
+        <div class="reg-divider"></div>
+        <div class="reg-info">
+          <div class="ri-row">
+            <span class="ri-icon">📍</span>
+            <div><div class="ri-label">会場</div><div class="ri-val">国立コンベンションセンター<br>ベトナム、ハノイ市ミーディン、タンロン大通り1番</div></div>
+          </div>
+          <div class="ri-row">
+            <span class="ri-icon">🎫</span>
+            <div><div class="ri-label">料金</div><div class="ri-val" style="color:var(--green);">無料参加 — 招待制</div></div>
+          </div>
+          <div class="ri-row">
+            <span class="ri-icon">👤</span>
+            <div><div class="ri-label">対象者</div><div class="ri-val">FDI/DDI投資家 · 工業団地オーナー · 産業建設施工会社 · サプライヤー</div></div>
+          </div>
+          <div class="ri-row">
+            <span class="ri-icon">🌐</span>
+            <div><div class="ri-label">言語</div><div class="ri-val">ベトナム語 · 英語（通訳あり）</div></div>
+          </div>
+        </div>
+        <div class="reg-spots">⚠️ 残り <strong>47席</strong> 定員200名中。早めに登録して席を確保してください。</div>
+        <button class="btn-reg-primary" onclick="document.getElementById('reg-form').scrollIntoView({behavior:'smooth'})">✅ 無料参加登録</button>
+        <button class="btn-reg-outline" onclick="window.print()">📥 イベント情報をダウンロード</button>
+        <div class="reg-share">
+          <button class="share-btn" onclick="copyLink()">🔗 リンクをコピー</button>
+          <button class="share-btn">📧 Email</button>
+          <button class="share-btn">💼 LinkedIn</button>
+          <button class="share-btn">📘 Facebook</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MAIN CONTENT -->
+<div class="content-wrap">
+<div class="content-main">
+
+  <!-- LEFT: BODY -->
+  <div class="content-body">
+
+    <!-- Stats strip -->
+    <div class="highlight-strip">
+      <div class="hs-stat"><div class="hs-num">200+</div><div class="hs-label">代表者</div></div>
+      <div class="hs-stat"><div class="hs-num">30+</div><div class="hs-label">参加工業団地</div></div>
+      <div class="hs-stat"><div class="hs-num">15+</div><div class="hs-label">国</div></div>
+      <div class="hs-stat"><div class="hs-num">6</div><div class="hs-label">ディスカッションセッション</div></div>
+      <div class="hs-stat"><div class="hs-num">500+</div><div class="hs-label">1対1ミーティング</div></div>
+    </div>
+
+    <!-- Giới thiệu -->
+    <div class="section-block">
+      <h3>イベント概要</h3>
+      <p>FDI資本がQ1/2026に67億4,000万ドルの過去最高（前年比+34%）に達する中、直接接続の需要外国投資家と北部工業団地インフラとの直接接続の需要は過去最高水準にあります。</p>
+      <p><strong>北部ベトナム工業団地投資コネクト2026</strong> はHouseLINKが主催する専門B2Bフォーラムで、産業投資エコシステムのすべての当事者を一堂に集めます：FDI/DDI投資家、ハノイから北部省への工業団地管理委員会、検証済み施工会社・サプライヤーのネットワーク。</p>
+      <p>従来の会議とは異なり、このイベントは以下を中心に設計されています： <em>実質的なビジネス接続</em>：各代表者は投資プロファイルと具体的なニーズに合わせた1対1ミーティングのマッチングについてアドバイスを受けます。</p>
+    </div>
+
+    <!-- 参加すべき理由 参加 -->
+    <div class="section-block">
+      <h3>参加すべき理由 <em>参加するのか？</em></h3>
+      <ul>
+        <li>ハノイ・ハイフォン・バクニン・バクザン・クアンニン・タイグエン・フンイエンおよびその他の30以上の工業団地管理委員会と直接面会北部省</li>
+        <li>6〜12か月以内に工場立地を探している日本・韓国・米国・EUのFDI投資家との目的を持った1対1接続</li>
+        <li>独自レポートを受け取る： <em>"北部ベトナム工業団地市場H1/2026 — 入居率・賃料・移転トレンド"</em></li>
+        <li>セッション参加：北部ベトナムの半導体・AI/データセンター・グリーン産業投資トレンド</li>
+        <li>HouseLINK 12万以上の工場データベースと2,000社以上の検証済み施工会社ネットワークへのアクセス</li>
+        <li>100%無料 — 接続品質を確保するために200名の代表者に制限</li>
+      </ul>
+    </div>
+
+    <!-- プログラム -->
+    <div class="section-block">
+      <h3>プログラム <em>詳細</em></h3>
+      <div class="agenda-list">
+        <div class="agenda-item">
+          <div class="agenda-time">07:30</div>
+          <div class="agenda-content">
+            <div class="agenda-title">代表者受付＆ネットワーキングカフェ</div>
+            <div class="agenda-detail">登録・資料受け取り・イベント前ネットワーキングカフェ</div>
+          </div>
+        </div>
+        <div class="agenda-item">
+          <div class="agenda-time">08:30</div>
+          <div class="agenda-content">
+            <div class="agenda-title">開幕式＆北部ベトナムFDI/工業団地市場概要Q1/2026</div>
+            <div class="agenda-detail">HouseLINK · 開幕演説と特別レポート</div>
+          </div>
+        </div>
+        <div class="agenda-item">
+          <div class="agenda-time">09:15</div>
+          <div class="agenda-content">
+            <div class="agenda-title">セッション1：「半導体＆AI/データセンター投資の波 — 北部工業団地の機会は？」</div>
+            <div class="agenda-detail">パネルディスカッション · 4名スピーカー · ライブQ&A</div>
+          </div>
+        </div>
+        <div class="agenda-break">
+          <div class="agenda-time">10:30</div>
+          <div class="agenda-content"><div class="agenda-title">☕ 休憩＆ネットワーキング（30分）</div></div>
+        </div>
+        <div class="agenda-item">
+          <div class="agenda-time">11:00</div>
+          <div class="agenda-content">
+            <div class="agenda-title">セッション2：工業団地ショーケース — 北部10工業団地が競争優位を発表</div>
+            <div class="agenda-detail">工業団地ごと5分 · ファストピッチ形式 · メインホール</div>
+          </div>
+        </div>
+        <div class="agenda-item">
+          <div class="agenda-time">12:00</div>
+          <div class="agenda-content">
+            <div class="agenda-title">🍽️ ビジネスネットワーキングランチ</div>
+            <div class="agenda-detail">業種別マッチングネットワーキング · HouseLINK主催</div>
+          </div>
+        </div>
+        <div class="agenda-item">
+          <div class="agenda-time">13:30</div>
+          <div class="agenda-content">
+            <div class="agenda-title">セッション3：1対1ビジネスマッチングゾーン</div>
+            <div class="agenda-detail">事前手配済み20分ミーティング500件以上 · 3つの個別討論エリア</div>
+          </div>
+        </div>
+        <div class="agenda-item">
+          <div class="agenda-time">15:30</div>
+          <div class="agenda-content">
+            <div class="agenda-title">セッション4：「グリーン工業団地2026 — ESG・LEED要件と長期投資家の機会」</div>
+            <div class="agenda-detail">スピーカー：GLASSDOME, LRQA, BECAMEX · パネル + ケーススタディ</div>
+          </div>
+        </div>
+        <div class="agenda-break">
+          <div class="agenda-time">16:30</div>
+          <div class="agenda-content"><div class="agenda-title">☕ 休憩（15分）</div></div>
+        </div>
+        <div class="agenda-item">
+          <div class="agenda-time">16:45</div>
+          <div class="agenda-content">
+            <div class="agenda-title">総括＆MOU署名</div>
+            <div class="agenda-detail">閉幕演説 · 協力署名式 · 集合写真</div>
+          </div>
+        </div>
+        <div class="agenda-item">
+          <div class="agenda-time">17:00</div>
+          <div class="agenda-content">
+            <div class="agenda-title">🥂 カクテルレセプション＆フリーネットワーキング</div>
+            <div class="agenda-detail">スタンディングネットワーキングレセプション · 無制限接続</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- スピーカー -->
+    <div class="section-block">
+      <h3>スピーカー <em>注目</em></h3>
+      <div class="speakers-grid">
+        <div class="speaker-card">
+          <div class="spk-avatar">👔</div>
+          <div class="spk-name">Nguyen Thanh Long</div>
+          <div class="spk-role">代表取締役</div>
+          <div class="spk-org">HOUSELINK</div>
+        </div>
+        <div class="speaker-card">
+          <div class="spk-avatar">🏭</div>
+          <div class="spk-name">管理委員会代表</div>
+          <div class="spk-role">VSIPバクニン工業団地</div>
+          <div class="spk-org">VSIP Group</div>
+        </div>
+        <div class="speaker-card">
+          <div class="spk-avatar">🌿</div>
+          <div class="spk-name">ESG Director</div>
+          <div class="spk-role">ESG ディレクター</div>
+          <div class="spk-org">GLASSDOME</div>
+        </div>
+        <div class="speaker-card">
+          <div class="spk-avatar">⚖️</div>
+          <div class="spk-name">法律スペシャリスト</div>
+          <div class="spk-role">投資弁護士</div>
+          <div class="spk-org">FDI法律評議会</div>
+        </div>
+        <div class="speaker-card">
+          <div class="spk-avatar">💰</div>
+          <div class="spk-name">投資家代表</div>
+          <div class="spk-role">Investment Manager</div>
+          <div class="spk-org">JP Industrial Fund</div>
+        </div>
+        <div class="speaker-card">
+          <div class="spk-avatar">🔬</div>
+          <div class="spk-name">Tech Advisor</div>
+          <div class="spk-role">Semiconductor Sector</div>
+          <div class="spk-org">METI Vietnam</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Đối tác tổ chức -->
+    <div class="section-block">
+      <h3>共同主催</h3>
+      <div class="partners-row">
+        <span class="partner-tag">🏢 HOUSELINK</span>
+        <span class="partner-tag">🏗️ VSIP Group</span>
+        <span class="partner-tag">🌿 GLASSDOME</span>
+        <span class="partner-tag">✅ LRQA</span>
+        <span class="partner-tag">📊 Vietnam IPA</span>
+        <span class="partner-tag">🏦 VBF</span>
+      </div>
+    </div>
+
+    <!-- 会場 -->
+    <div class="section-block">
+      <h3>会場</h3>
+      <div class="venue-card">
+        <div class="venue-map-placeholder">
+          <div class="venue-pin">📍</div>
+        </div>
+        <div class="venue-info">
+          <div class="venue-name">国立コンベンションセンター（NCC）</div>
+          <div class="venue-addr">ベトナム、ハノイ市ナムトゥリエム区ミーディン1坊タンロン大通り1番 100000</div>
+          <div class="venue-detail-row">🚇 <span>ミーディン駅近く · ノイバイ空港から15分</span></div>
+          <div class="venue-detail-row">🅿️ <span>代表者向け無料駐車場</span></div>
+          <div class="venue-detail-row">🍽️ <span>昼食とコーヒーブレイクを提供</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Form đăng ký -->
+    <div class="section-block" id="reg-form">
+      <h3>登録 <em>参加</em></h3>
+      <p style="margin-bottom:24px;">以下の情報を入力して席を予約してください。参加確認は24営業時間以内にメールで送信されます。</p>
+      <div style="background:var(--off-white);border-radius:16px;padding:32px;">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;">
+          <div>
+            <label style="display:block;font-size:12.5px;font-weight:700;color:var(--navy);margin-bottom:6px;">氏名 <span style="color:#DC2626;">*</span></label>
+            <input type="text" placeholder="Nguyễn Văn A" style="width:100%;padding:11px 14px;border:1.5px solid var(--gray-100);border-radius:9px;font-size:14px;font-family:var(--font-main);outline:none;" onfocus="this.style.borderColor='var(--green)'" onblur="this.style.borderColor='var(--gray-100)'">
+          </div>
+          <div>
+            <label style="display:block;font-size:12.5px;font-weight:700;color:var(--navy);margin-bottom:6px;">役職 <span style="color:#DC2626;">*</span></label>
+            <input type="text" placeholder="ディレクター / 投資マネージャー" style="width:100%;padding:11px 14px;border:1.5px solid var(--gray-100);border-radius:9px;font-size:14px;font-family:var(--font-main);outline:none;" onfocus="this.style.borderColor='var(--green)'" onblur="this.style.borderColor='var(--gray-100)'">
+          </div>
+          <div>
+            <label style="display:block;font-size:12.5px;font-weight:700;color:var(--navy);margin-bottom:6px;">会社/組織名 <span style="color:#DC2626;">*</span></label>
+            <input type="text" placeholder="Tên công ty" style="width:100%;padding:11px 14px;border:1.5px solid var(--gray-100);border-radius:9px;font-size:14px;font-family:var(--font-main);outline:none;" onfocus="this.style.borderColor='var(--green)'" onblur="this.style.borderColor='var(--gray-100)'">
+          </div>
+          <div>
+            <label style="display:block;font-size:12.5px;font-weight:700;color:var(--navy);margin-bottom:6px;">分野 <span style="color:#DC2626;">*</span></label>
+            <select style="width:100%;padding:11px 14px;border:1.5px solid var(--gray-100);border-radius:9px;font-size:14px;font-family:var(--font-main);outline:none;background:var(--white);" onfocus="this.style.borderColor='var(--green)'" onblur="this.style.borderColor='var(--gray-100)'">
+              <option value="">分野を選択...</option>
+              <option>FDI / 外国投資家</option>
+              <option>DDI / 国内投資家</option>
+              <option>工業団地管理委員会 / 土地所有者</option>
+              <option>産業建設施工会社</option>
+              <option>サプライヤー / 資材</option>
+              <option>法務 / 投資アドバイザー</option>
+              <option>金融 / 銀行</option>
+              <option>報道 / メディア</option>
+              <option>その他</option>
+            </select>
+          </div>
+          <div>
+            <label style="display:block;font-size:12.5px;font-weight:700;color:var(--navy);margin-bottom:6px;">Email <span style="color:#DC2626;">*</span></label>
+            <input type="email" placeholder="email@company.com" style="width:100%;padding:11px 14px;border:1.5px solid var(--gray-100);border-radius:9px;font-size:14px;font-family:var(--font-main);outline:none;" onfocus="this.style.borderColor='var(--green)'" onblur="this.style.borderColor='var(--gray-100)'">
+          </div>
+          <div>
+            <label style="display:block;font-size:12.5px;font-weight:700;color:var(--navy);margin-bottom:6px;">電話番号</label>
+            <input type="tel" placeholder="+84 xxx xxx xxx" style="width:100%;padding:11px 14px;border:1.5px solid var(--gray-100);border-radius:9px;font-size:14px;font-family:var(--font-main);outline:none;" onfocus="this.style.borderColor='var(--green)'" onblur="this.style.borderColor='var(--gray-100)'">
+          </div>
+        </div>
+        <div style="margin-bottom:16px;">
+          <label style="display:block;font-size:12.5px;font-weight:700;color:var(--navy);margin-bottom:6px;">参加目的（HouseLINKが適切なマッチングを手配できるように）</label>
+          <textarea placeholder="例：北部ベトナムで12か月以内に2〜3ヘクタールの電子部品工場の用地を探しています..." style="width:100%;padding:11px 14px;border:1.5px solid var(--gray-100);border-radius:9px;font-size:14px;font-family:var(--font-main);outline:none;resize:vertical;min-height:80px;" onfocus="this.style.borderColor='var(--green)'" onblur="this.style.borderColor='var(--gray-100)'"></textarea>
+        </div>
+        <label style="display:flex;align-items:flex-start;gap:10px;cursor:pointer;margin-bottom:20px;font-size:13.5px;color:var(--gray-600);">
+          <input type="checkbox" style="width:16px;height:16px;accent-color:var(--green);flex-shrink:0;margin-top:2px;">
+          <span>HouseLINKからの確認メールとイベント関連情報の受信に同意します。確認 <a href="page-privacy.html" style="color:var(--green);">プライバシーポリシー</a>.</span>
+        </label>
+        <button onclick="submitReg(this)" style="background:var(--green);color:#fff;font-size:15px;font-weight:700;padding:14px 36px;border-radius:9px;border:none;cursor:pointer;font-family:var(--font-main);transition:all .2s;" onmouseover="this.style.background='var(--green-light)'" onmouseout="this.style.background='var(--green)'">
+          ✅ 登録を完了する — 無料
+        </button>
+        <p style="font-size:12px;color:var(--gray-400);margin-top:12px;">🔒 情報は機密扱いです。参加費なし。24営業時間以内にメールで確認。</p>
+      </div>
+    </div>
+
+  </div><!-- /content-body -->
+
+  <!-- RIGHT: SIDEBAR -->
+  <div class="content-sidebar">
+
+    <div class="sidebar-card">
+      <div class="sidebar-card-title">主催情報</div>
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <div style="display:flex;gap:10px;font-size:13.5px;">
+          <span>📧</span>
+          <div><div style="font-size:11.5px;color:var(--gray-400);font-weight:600;text-transform:uppercase;letter-spacing:.05em;margin-bottom:1px;">Email</div><a href="mailto:events@houselink.com.vn" style="color:var(--green);">events@houselink.com.vn</a></div>
+        </div>
+        <div style="display:flex;gap:10px;font-size:13.5px;">
+          <span>📞</span>
+          <div><div style="font-size:11.5px;color:var(--gray-400);font-weight:600;text-transform:uppercase;letter-spacing:.05em;margin-bottom:1px;">Hotline</div><span>+84 966 222 490</span></div>
+        </div>
+        <div style="display:flex;gap:10px;font-size:13.5px;">
+          <span>💬</span>
+          <div><div style="font-size:11.5px;color:var(--gray-400);font-weight:600;text-transform:uppercase;letter-spacing:.05em;margin-bottom:1px;">Zalo OA</div><span>HOUSELINK Official</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sidebar-card">
+      <div class="sidebar-card-title">次のイベント</div>
+      <div class="related-ev">
+        <a href="event-esg-forum-hcm-2026.html" class="rel-item">
+          <div class="rel-date">08/06/2026 · TP.HCM</div>
+          <div class="rel-title">工業団地ESGインフラフォーラム</div>
+        </a>
+        <a href="event-calendar.html" class="rel-item">
+          <div class="rel-date">2026年6月20日 · ビンズオン</div>
+          <div class="rel-title">VietnamConstruction Business Summit</div>
+        </a>
+        <a href="event-calendar.html" class="rel-item">
+          <div class="rel-date">2026年9月15日 · ハノイ</div>
+          <div class="rel-title">グリーン工業団地＆エコ工業団地ベトナムフォーラム2026</div>
+        </a>
+      </div>
+    </div>
+
+    <div class="sidebar-card">
+      <div class="sidebar-card-title">アップデートを購読</div>
+      <p style="font-size:13.5px;color:var(--gray-600);margin-bottom:14px;">HouseLINKイベント情報と工業団地市場ニュースを受信トレイに直接受け取ります。</p>
+      <input type="email" placeholder="Email của bạn..." style="width:100%;padding:10px 14px;border:1.5px solid var(--gray-100);border-radius:8px;font-size:13.5px;font-family:var(--font-main);outline:none;margin-bottom:10px;" onfocus="this.style.borderColor='var(--green)'" onblur="this.style.borderColor='var(--gray-100)'">
+      <button style="width:100%;background:var(--navy);color:#fff;font-size:13.5px;font-weight:700;padding:11px;border-radius:8px;border:none;cursor:pointer;font-family:var(--font-main);">購読 →</button>
+    </div>
+
+    <a href="event-calendar.html" style="display:block;background:var(--navy);border-radius:14px;padding:22px;text-align:center;transition:all .2s;" onmouseover="this.style.background='var(--navy-mid)'" onmouseout="this.style.background='var(--navy)'">
+      <div style="font-size:24px;margin-bottom:8px;">📅</div>
+      <div style="font-size:14px;font-weight:700;color:#fff;margin-bottom:4px;">完全なイベントカレンダーを見る</div>
+      <div style="font-size:12.5px;color:rgba(255,255,255,.5);">ビジネスマッチング2026</div>
+    </a>
+
+  </div><!-- /sidebar -->
+
+</div><!-- /content-main -->
+</div><!-- /content-wrap -->
+
+<!-- CTA BOTTOM -->
+<section class="cta-bottom">
+  <div class="si">
+    <h2>売り切れ前に予約</h2>
+    <p>200名の代表者のうちわずか47席が残っています。今日無料で登録しましょう。</p>
+    <div class="cta-btns">
+      <a href="#reg-form" class="btn-white">✅ 無料参加登録</a>
+      <a href="event-calendar.html" class="btn-outline-w">他のイベント →</a>
+    </div>
+  </div>
+</section>
+
+<div class="footer-mini">
+  © 2026 HOUSELINK Joint Stock Company · events@houselink.com.vn · +84 966 222 490
+</div>
+
+<script>
+// Countdown to May 15, 2026
+function updateCountdown(){
+  var target = new Date('2026-05-15T08:00:00+07:00');
+  var now = new Date();
+  var diff = target - now;
+  if(diff <= 0){ document.getElementById('countdown').innerHTML='<div style="text-align:center;color:var(--green);font-weight:700;padding:12px;">イベント đang diễn ra!</div>'; return; }
+  var d=Math.floor(diff/864e5), h=Math.floor((diff%864e5)/36e5), m=Math.floor((diff%36e5)/6e4), s=Math.floor((diff%6e4)/1e3);
+  document.getElementById('cd-d').textContent=String(d).padStart(2,'0');
+  document.getElementById('cd-h').textContent=String(h).padStart(2,'0');
+  document.getElementById('cd-m').textContent=String(m).padStart(2,'0');
+  document.getElementById('cd-s').textContent=String(s).padStart(2,'0');
+}
+updateCountdown();
+setInterval(updateCountdown,1000);
+
+function copyLink(){
+  navigator.clipboard.writeText(window.location.href).then(()=>{
+    alert('Đã sao chép link sự kiện!');
+  });
+}
+
+function submitReg(btn){
+  btn.textContent='⏳ Đang xử lý...';
+  btn.disabled=true;
+  setTimeout(()=>{
+    btn.closest('div').innerHTML='<div style="text-align:center;padding:40px 20px;"><div style="font-size:48px;margin-bottom:16px;">🎉</div><div style="font-family:var(--font-serif);font-size:22px;color:var(--navy);font-weight:600;margin-bottom:10px;">登録 thành công!</div><p style="font-size:14px;color:var(--gray-600);">Xác nhận 参加 sẽ được gửi về email của bạn trong vòng 24 giờ làm việc. HOUSELINK sẽ liên hệ để ghép cặp kết nối phù hợp trước sự kiện.</p></div>';
+  },1500);
+}
+</script>
+</body>
+</html>
