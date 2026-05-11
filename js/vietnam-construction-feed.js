@@ -6,7 +6,8 @@
  *   perPage?: number,
  *   offset?: number,
  *   categories?: number[],
- *   embed?: boolean
+ *   embed?: boolean,
+ *   lang?: string
  * }} VietnamConstructionFeedInput
  *
  * @typedef {{
@@ -40,7 +41,12 @@
     var offset = parseInt(String(input.offset), 10);
     if (isNaN(offset) || offset < 0) offset = 0;
     if (offset > 5000) offset = 0;
-    return { page: page, perPage: perPage, offset: offset, categories: categories, embed: embed };
+    var lang = "";
+    if (input.lang != null && String(input.lang).trim()) {
+      var ls = String(input.lang).toLowerCase().trim();
+      if (/^(vi|en|ja|ko|zh)$/.test(ls)) lang = ls;
+    }
+    return { page: page, perPage: perPage, offset: offset, categories: categories, embed: embed, lang: lang };
   }
 
   function scriptBaseDir() {
@@ -98,6 +104,7 @@
     params.set('orderby', 'date');
     params.set('order', 'desc');
     if (n.embed) params.set('_embed', '1');
+    if (n.lang) params.set('lang', n.lang);
     var url = WP_BASE + '?' + params.toString();
     return fetch(url, { credentials: 'omit' }).then(function (res) {
       if (!res.ok) throw new Error('WP ' + res.status);
@@ -261,6 +268,128 @@
   }
 
   /**
+   * Learn (EN) dump — data-learn-en.json. Defaults to VC English "Learn" category (33).
+   * Used with Market for non-VI Insights; not used for VI (data-learn-vi.json stays separate).
+   * @param {VietnamConstructionFeedInput} input
+   * @returns {Promise<VietnamConstructionFeedResult>}
+   */
+  function hardcodeLearnFromVietnamconstruction(input) {
+    input = input || {};
+    if (!Array.isArray(input.categories) || !input.categories.length) {
+      input = Object.assign({}, input, { categories: [33] });
+    }
+    var n = normalizeInput(input);
+    var base = scriptBaseDir();
+    var uLearn = base + 'data-learn-en.json';
+    return fetch(uLearn, { credentials: 'omit' }).then(function (r) {
+      if (!r.ok) throw new Error('learn json ' + r.status);
+      return r.json();
+    }).then(function (arr) {
+      if (!Array.isArray(arr)) throw new Error('Invalid learn JSON');
+      var merged = mergePostsByDateDesc([arr]);
+      var filtered = filterByCategories(merged, n.categories);
+      var total = filtered.length;
+      var slice = filtered.slice(n.offset, n.offset + n.perPage);
+      return {
+        posts: slice,
+        meta: {
+          source: 'hardcode',
+          page: n.page,
+          perPage: n.perPage,
+          offset: n.offset,
+          categories: n.categories,
+          totalAvailable: total
+        }
+      };
+    });
+  }
+
+  /**
+   * Single post by ID from data-learn-en.json (EN Learn dump).
+   * @param {{ id: number }} input
+   * @returns {Promise<{ post: object | null, meta: { source: 'hardcode', id: number } }>}
+   */
+  function hardcodeLearnPostFromVietnamconstruction(input) {
+    var id = parseInt(String(input && input.id), 10);
+    if (!id) return Promise.resolve({ post: null, meta: { source: 'hardcode', id: NaN } });
+    var base = scriptBaseDir();
+    return fetch(base + 'data-learn-en.json', { credentials: 'omit' }).then(function (r) {
+      if (!r.ok) throw new Error('learn json ' + r.status);
+      return r.json();
+    }).then(function (arr) {
+      if (!Array.isArray(arr)) throw new Error('Invalid learn JSON');
+      var found = null;
+      for (var i = 0; i < arr.length; i++) {
+        if (arr[i].id === id) {
+          found = arr[i];
+          break;
+        }
+      }
+      return { post: found, meta: { source: 'hardcode', id: id } };
+    });
+  }
+
+  /**
+   * Learn (VI) dump — data-learn-vi.json. Defaults to category 74 (Học hỏi).
+   * @param {VietnamConstructionFeedInput} input
+   * @returns {Promise<VietnamConstructionFeedResult>}
+   */
+  function hardcodeLearnViFromVietnamconstruction(input) {
+    input = input || {};
+    if (!Array.isArray(input.categories) || !input.categories.length) {
+      input = Object.assign({}, input, { categories: [74] });
+    }
+    var n = normalizeInput(input);
+    var base = scriptBaseDir();
+    return fetch(base + 'data-learn-vi.json', { credentials: 'omit' }).then(function (r) {
+      if (!r.ok) throw new Error('learn-vi json ' + r.status);
+      return r.json();
+    }).then(function (arr) {
+      if (!Array.isArray(arr)) throw new Error('Invalid learn VI JSON');
+      var merged = mergePostsByDateDesc([arr]);
+      var filtered = filterByCategories(merged, n.categories);
+      var total = filtered.length;
+      var slice = filtered.slice(n.offset, n.offset + n.perPage);
+      return {
+        posts: slice,
+        meta: {
+          source: 'hardcode',
+          page: n.page,
+          perPage: n.perPage,
+          offset: n.offset,
+          categories: n.categories,
+          totalAvailable: total
+        }
+      };
+    });
+  }
+
+  /**
+   * Single post by ID from data-learn-vi.json.
+   * @param {{ id: number }} input
+   * @returns {Promise<{ post: object | null, meta: { source: 'hardcode', id: number } }>}
+   */
+  function hardcodeLearnViPostFromVietnamconstruction(input) {
+    var id = parseInt(String(input && input.id), 10);
+    if (!id) return Promise.resolve({ post: null, meta: { source: 'hardcode', id: NaN } });
+    var base = scriptBaseDir();
+    return fetch(base + 'data-learn-vi.json', { credentials: 'omit' }).then(function (r) {
+      if (!r.ok) throw new Error('learn-vi json ' + r.status);
+      return r.json();
+    }).then(function (arr) {
+      if (!Array.isArray(arr)) throw new Error('Invalid learn VI JSON');
+      var found = null;
+      for (var i = 0; i < arr.length; i++) {
+        if (arr[i].id === id) {
+          found = arr[i];
+          break;
+        }
+      }
+      return { post: found, meta: { source: 'hardcode', id: id } };
+    });
+  }
+
+  /**
    * Event (VI) dump — data-event-vi.json. Defaults to VC Vietnamese "Sự kiện" category.
    * @param {VietnamConstructionFeedInput} input
    * @returns {Promise<VietnamConstructionFeedResult>}
@@ -389,12 +518,20 @@
     fetchPostFromVietnamconstruction: fetchPostFromVietnamconstruction,
     hardcodePostFromVietnamconstruction: hardcodePostFromVietnamconstruction,
     hardcodeMarketPostFromVietnamconstruction: hardcodeMarketPostFromVietnamconstruction,
+    hardcodeLearnFromVietnamconstruction: hardcodeLearnFromVietnamconstruction,
+    hardcodeLearnPostFromVietnamconstruction: hardcodeLearnPostFromVietnamconstruction,
+    hardcodeLearnViFromVietnamconstruction: hardcodeLearnViFromVietnamconstruction,
+    hardcodeLearnViPostFromVietnamconstruction: hardcodeLearnViPostFromVietnamconstruction,
     hardcodeEventViPostFromVietnamconstruction: hardcodeEventViPostFromVietnamconstruction,
     hardcodeMarketViPostFromVietnamconstruction: hardcodeMarketViPostFromVietnamconstruction,
     /** Default EN news feed: Event category only */
     defaultEnCategories: [6],
     /** Default EN Market / Insights feed */
     defaultMarketCategories: [3879],
+    /** Default EN Learn (merged into Insights for en/ja/ko/zh) */
+    defaultLearnEnCategories: [33],
+    /** Default VI Learn / Học hỏi (merged into Insights for vi) */
+    defaultLearnViCategories: [74],
     /** Default VI Event (Sự kiện) */
     defaultViEventCategories: [66],
     /** Default VI Market (Thị trường) */

@@ -326,7 +326,9 @@
       { cats: VC.defaultViEventCategories, hard: "hardcodeEventViFromVietnamconstruction" },
       { cats: VC.defaultEnCategories, hard: "hardcodeFromVietnamconstruction" },
       { cats: VC.defaultViMarketCategories, hard: "hardcodeMarketViFromVietnamconstruction" },
-      { cats: VC.defaultMarketCategories, hard: "hardcodeMarketFromVietnamconstruction" }
+      { cats: VC.defaultMarketCategories, hard: "hardcodeMarketFromVietnamconstruction" },
+      { cats: VC.defaultLearnViCategories || [74], hard: "hardcodeLearnViFromVietnamconstruction" },
+      { cats: VC.defaultLearnEnCategories || [33], hard: "hardcodeLearnFromVietnamconstruction" }
     ];
     var inputBase = { offset: 0, perPage: 100, page: 1, embed: true };
     for (var i = 0; i < specs.length; i++) {
@@ -414,7 +416,9 @@
       VC.hardcodeEventViPostFromVietnamconstruction,
       VC.hardcodePostFromVietnamconstruction,
       VC.hardcodeMarketViPostFromVietnamconstruction,
-      VC.hardcodeMarketPostFromVietnamconstruction
+      VC.hardcodeMarketPostFromVietnamconstruction,
+      VC.hardcodeLearnViPostFromVietnamconstruction,
+      VC.hardcodeLearnPostFromVietnamconstruction
     ];
     if (mode === "hardcode") {
       for (var i = 0; i < hardcodeChain.length; i++) {

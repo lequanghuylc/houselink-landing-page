@@ -1,6 +1,6 @@
 /**
- * Market Insights grid — same strategy as hl-news-feed: EN market (3879), VI market (3813),
- * filters, cached pagination, detail links to /news/article/?id=.
+ * Market Insights: Market + Learn. Learn: WP REST first (VI categories=74&lang=vi, EN categories=33),
+ * then data-learn-vi.json / data-learn-en.json. Same data-hl-vn-news-source as Market (api | hardcode | default).
  */
 (function () {
   "use strict";
@@ -92,6 +92,80 @@
     } catch (ignore) {
       return [];
     }
+  }
+
+  /** Dedupe by post id, sort newest first (same idea as vietnam-construction-feed mergePostsByDateDesc). */
+  function mergePostsByDateDescTwo(lists) {
+    var seen = {};
+    var out = [];
+    for (var a = 0; a < lists.length; a++) {
+      var list = lists[a];
+      if (!Array.isArray(list)) continue;
+      for (var i = 0; i < list.length; i++) {
+        var p = list[i];
+        if (!p || typeof p.id === "undefined") continue;
+        if (seen[p.id]) continue;
+        seen[p.id] = true;
+        out.push(p);
+      }
+    }
+    out.sort(function (x, y) {
+      var dx = new Date(x.date || x.modified || 0).getTime();
+      var dy = new Date(y.date || y.modified || 0).getTime();
+      return dy - dx;
+    });
+    return out;
+  }
+
+  /**
+   * Learn posts for Insights: try WP JSON API, then local JSON (Polylang: lang=vi for category 74).
+   * Mirrors Market strategy for data-hl-vn-news-source.
+   */
+  async function fetchInsightsLearnPosts(VC, mode, isVi) {
+    var catIds = isVi ? VC.defaultLearnViCategories || [74] : VC.defaultLearnEnCategories || [33];
+    var learnInput = {
+      offset: 0,
+      perPage: 100,
+      page: 1,
+      categories: catIds,
+      embed: true
+    };
+    if (isVi) learnInput.lang = "vi";
+
+    async function fromHardcode() {
+      try {
+        if (isVi && typeof VC.hardcodeLearnViFromVietnamconstruction === "function") {
+          var rv = await VC.hardcodeLearnViFromVietnamconstruction(learnInput);
+          return (rv && rv.posts) || [];
+        }
+        if (!isVi && typeof VC.hardcodeLearnFromVietnamconstruction === "function") {
+          var re = await VC.hardcodeLearnFromVietnamconstruction(learnInput);
+          return (re && re.posts) || [];
+        }
+      } catch (ignore) {}
+      return [];
+    }
+
+    async function fromApi() {
+      try {
+        var ar = await VC.fetchFromVietnamconstruction(learnInput);
+        var posts = ar && ar.posts;
+        if (Array.isArray(posts) && posts.length) return posts;
+      } catch (ignore) {}
+      return [];
+    }
+
+    if (mode === "hardcode") {
+      return fromHardcode();
+    }
+    if (mode === "api") {
+      var a = await fromApi();
+      if (a.length) return a;
+      return fromHardcode();
+    }
+    var a2 = await fromApi();
+    if (a2.length) return a2;
+    return fromHardcode();
   }
 
   function readMoreLabel() {
@@ -378,6 +452,14 @@
       }
     }
     var posts = result && result.posts;
+    if (!Array.isArray(posts)) posts = [];
+
+    var learnPosts = [];
+    try {
+      learnPosts = await fetchInsightsLearnPosts(VC, mode, isVi);
+    } catch (ignore) {}
+    posts = mergePostsByDateDescTwo([posts, learnPosts]);
+
     if (!Array.isArray(posts) || !posts.length) throw new Error("vn_empty");
 
     clearInsightsPagination(container);
