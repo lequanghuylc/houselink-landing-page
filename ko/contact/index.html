@@ -471,7 +471,7 @@ h1.hero-h1 {
   transition: all 0.25s;
 }
 .case-card:hover { box-shadow: 0 10px 40px rgba(0,70,110,0.09); transform: translateY(-3px); }
-.case-img { width: 100%; height: 200px; object-fit: contain; object-position: center; display: block; background: var(--gray-50); }
+.case-img { width: 100%; height: 200px; object-fit: cover; object-position: center; display: block; background: var(--gray-50); }
 .case-body { padding: 28px 28px 24px; }
 .case-tag { font-size: 11px; font-weight: 700; color: var(--teal); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 10px; }
 .case-title { font-size: 17px; font-weight: 700; color: var(--navy); line-height: 1.3; margin-bottom: 12px; }
@@ -769,6 +769,10 @@ footer { background: var(--navy); color: rgba(255,255,255,0.55); padding: 72px 0
 .ci-label { font-size:11px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--green); margin-bottom:5px; }
 .ci-value { font-size:14.5px; font-weight:600; color:var(--navy); margin-bottom:3px; }
 .ci-sub { font-size:13px; color:var(--gray-400); }
+.art-share{display:flex;align-items:center;gap:12px;margin-top:8px;}
+.art-share span{font-size:13px;font-weight:600;color:var(--gray-600);}
+.art-share .soc-btn{width:30px;height:30px;border-radius:8px;display:inline-block;position:relative;overflow:hidden;background:transparent;border:none;}
+.art-share .soc-btn__icon{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.95;}
 .ct-item-hero {
   padding: 20px 28px;
   cursor: pointer;
@@ -993,13 +997,11 @@ footer { background: var(--navy); color: rgba(255,255,255,0.55); padding: 72px 0
 
         <div class="ci-card">
           <div class="ci-ico">🔗</div>
-          <div>
-            <div class="ci-label">소셜 미디어</div>
-            <div style="display:flex;gap:10px;margin-top:8px;">
-              <a href="https://www.linkedin.com/company/houselink-jsc" target="_blank" rel="noopener noreferrer" style="background:var(--navy);color:#fff;font-size:12px;font-weight:700;padding:7px 14px;border-radius:7px;text-decoration:none;">LinkedIn</a>
-              <a href="https://www.facebook.com/houselink.com.vn" target="_blank" rel="noopener noreferrer" style="background:var(--navy);color:#fff;font-size:12px;font-weight:700;padding:7px 14px;border-radius:7px;text-decoration:none;">Facebook</a>
-              <a href="https://www.youtube.com/@houselink5096" target="_blank" rel="noopener noreferrer" style="background:var(--navy);color:#fff;font-size:12px;font-weight:700;padding:7px 14px;border-radius:7px;text-decoration:none;">YouTube</a>
-            </div>
+          <div class="art-share">
+            <span>공유:</span>
+            <a href="https://www.linkedin.com/company/houselink-jsc" class="soc-btn" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><img class="soc-btn__icon" src="/images/icon%20linkedin.png" alt="" decoding="async"></a>
+            <a href="https://www.facebook.com/houselink.com.vn" class="soc-btn" aria-label="Facebook" target="_blank" rel="noopener noreferrer"><img class="soc-btn__icon" src="/images/icon%20facebook.png" alt="" decoding="async"></a>
+            <a href="https://www.youtube.com/@houselink5096" class="soc-btn" aria-label="YouTube" target="_blank" rel="noopener noreferrer"><img class="soc-btn__icon" src="/images/icon%20youtube.png" alt="" decoding="async"></a>
           </div>
         </div>
 
