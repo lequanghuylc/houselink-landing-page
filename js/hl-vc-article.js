@@ -423,8 +423,10 @@
     if (mode === "hardcode") {
       for (var i = 0; i < hardcodeChain.length; i++) {
         if (typeof hardcodeChain[i] !== "function") continue;
-        var hi = await hardcodeChain[i](input);
-        if (hi && hi.post) return hi;
+        try {
+          var hi = await hardcodeChain[i](input);
+          if (hi && hi.post) return hi;
+        } catch (ignoreHard) {}
       }
       return { post: null, meta: { source: "hardcode", id: id } };
     }
@@ -437,8 +439,10 @@
     } catch (ignore) {}
     for (var j = 0; j < hardcodeChain.length; j++) {
       if (typeof hardcodeChain[j] !== "function") continue;
-      var hj = await hardcodeChain[j](input);
-      if (hj && hj.post) return hj;
+      try {
+        var hj = await hardcodeChain[j](input);
+        if (hj && hj.post) return hj;
+      } catch (ignoreHard) {}
     }
     return { post: null, meta: { source: "hardcode", id: id } };
   }
