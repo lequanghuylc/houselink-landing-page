@@ -224,7 +224,7 @@ h1.hero-h1 {
 #logos { background: var(--off-white); padding: 28px 0; overflow: hidden; border-top: 1px solid var(--gray-100); border-bottom: 1px solid var(--gray-100); }
 .logos-lbl { text-align: center; font-size: 11px; color: var(--gray-400); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 20px; }
 .marquee-wrap { overflow: hidden; }
-.marquee-track { display: flex; gap: 12px; width: max-content; animation: marquee 36s linear infinite; align-items: center; }
+.marquee-track { display: flex; gap: 12px; width: max-content; animation: marquee 54s linear infinite; align-items: center; }
 @keyframes marquee { from{transform:translateX(0)} to{transform:translateX(-50%)} }
 .logo-pill {
   display: flex; align-items: center; gap: 8px;
@@ -472,7 +472,7 @@ h1.hero-h1 {
   transition: all 0.25s;
 }
 .case-card:hover { box-shadow: 0 10px 40px rgba(0,70,110,0.09); transform: translateY(-3px); }
-.case-img { width: 100%; height: 200px; object-fit: cover; display: block; }
+.case-img { width: 100%; height: 200px; object-fit: cover; object-position: center; display: block; background: var(--gray-50); }
 .case-body { padding: 28px 28px 24px; }
 .case-tag { font-size: 11px; font-weight: 700; color: var(--teal); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 10px; }
 .case-title { font-size: 17px; font-weight: 700; color: var(--navy); line-height: 1.3; margin-bottom: 12px; }
@@ -550,8 +550,7 @@ footer { background: var(--navy); color: rgba(255,255,255,0.55); padding: 72px 0
 .ftr-desc { font-size: 13.5px; color: rgba(255,255,255,0.45); line-height: 1.7; max-width: 280px; }
 .ftr-address { margin-top: 16px; font-size: 13px; color: rgba(255,255,255,0.4); line-height: 1.7; }
 .social-row { display: flex; gap: 8px; margin-top: 20px; }
-.soc-btn { width: 32px; height: 32px; border-radius: 8px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.5); font-size: 12px; font-weight: 700; text-decoration: none; transition: all 0.18s; }
-.soc-btn:hover { background: var(--green); color: var(--white); border-color: var(--green); }
+.soc-btn { width: 32px; height: 32px; border-radius: 8px; background: transparent; border: none; display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.5); font-size: 12px; font-weight: 700; text-decoration: none; }
 .ftr-col h4 { font-size: 11px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.35); margin-bottom: 18px; }
 .ftr-col a { display: block; font-size: 13.5px; color: rgba(255,255,255,0.6); text-decoration: none; margin-bottom: 9px; transition: color 0.18s; }
 .ftr-col a:hover { color: var(--green-light); }
@@ -811,6 +810,87 @@ footer { background: var(--navy); color: rgba(255,255,255,0.55); padding: 72px 0
 }
 .scm-btn:hover { background: #2a7d3f; }
 
+/* ── CONSULT FORM MODAL (same as contact) ── */
+.consult-form-modal {
+  position: fixed; inset: 0; z-index: 9999;
+  display: none; align-items: center; justify-content: center;
+  background: rgba(15, 23, 42, .6);
+  padding: 20px;
+}
+.consult-form-modal.open { display: flex; }
+.consult-form-dialog {
+  width: min(760px, 100%);
+  height: auto;
+  max-height: min(82vh, 640px);
+  background: #fff; border-radius: 12px; overflow: hidden;
+  box-shadow: 0 20px 50px rgba(0,0,0,.3);
+}
+.consult-form-header {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 12px 14px; border-bottom: 1px solid var(--gray-100);
+}
+.consult-form-title { font-size: 14px; font-weight: 700; color: var(--navy); }
+.consult-form-close {
+  border: 0; background: transparent; cursor: pointer;
+  width: 30px; height: 30px; border-radius: 6px;
+  color: var(--gray-600); font-size: 20px; line-height: 1;
+}
+.consult-form-close:hover { background: var(--off-white); }
+.consult-form-frame {
+  width: 100%; height: calc(100% - 55px); border: 0;
+}
+.consult-form-frame { overflow: auto; }
+.consult-form-frame > form { padding: 16px 18px 26px !important; }
+.hl-consult-msg{
+  display:none;
+  position:relative;
+  margin:0 0 14px;
+  padding:12px 14px;
+  border-radius:12px;
+  font-size:13.5px;
+  font-weight:600;
+  line-height:1.5;
+  border:1px solid var(--gray-100);
+  background:#fff;
+  color:var(--gray-600);
+}
+.hl-consult-msg.is-visible{display:flex;gap:10px;align-items:flex-start;}
+.hl-consult-msg__icon{
+  flex:0 0 auto;
+  width:28px;height:28px;
+  border-radius:9px;
+  display:flex;align-items:center;justify-content:center;
+  font-weight:900;
+  font-family:var(--font-main);
+  line-height:1;
+}
+.hl-consult-msg.is-success{
+  color:#166534;
+  background:linear-gradient(165deg,#F0FDF4 0%,#ECFDF3 55%,#DCFCE7 100%);
+  border-color:#86EFAC;
+}
+.hl-consult-msg.is-success .hl-consult-msg__icon{background:#22C55E;color:#fff;}
+.hl-consult-msg.is-error{
+  color:#9A3412;
+  background:linear-gradient(165deg,#FFFBF5 0%,#FFF7ED 55%,#FFEDD5 100%);
+  border-color:#FDBA74;
+}
+.hl-consult-msg.is-error .hl-consult-msg__icon{background:#F97316;color:#fff;}
+.consult-form-frame .form-row { display: grid !important; grid-template-columns: 1fr 1fr; gap: 12px !important; }
+.consult-form-frame .form-group { margin-bottom: 12px !important; }
+.submit-btn { width:100%; background:var(--green); color:#fff; font-size:15px; font-weight:700; padding:14px; border-radius:8px; border:none; cursor:pointer; transition:background .2s; }
+.submit-btn:hover { background:var(--green-light); }
+.consult-form-frame .submit-btn { margin-top: 6px; }
+.hl-field-error input,
+.hl-field-error select,
+.hl-field-error textarea{
+  border-color:#F97316 !important;
+  box-shadow:0 0 0 3px rgba(249,115,22,.14);
+}
+@media (max-width: 680px) {
+  .consult-form-frame .form-row { grid-template-columns: 1fr !important; }
+}
+
 /* ── FAQ CONTENT ── */
 .faq-content { min-width: 0; }
 .faq-section { margin-bottom: 56px; }
@@ -905,6 +985,16 @@ footer { background: var(--navy); color: rgba(255,255,255,0.55); padding: 72px 0
 }
 .fnf-btn-ghost:hover { border-color: var(--green); }
 
+@media (min-width: 961px) {
+  .faq-sidebar {
+    min-height: 0;
+    max-height: calc(100dvh - 92px - 24px);
+    overflow-y: auto;
+    overflow-x: hidden;
+    overscroll-behavior: contain;
+  }
+}
+
 @media(max-width:960px) {
   .fh-inner { grid-template-columns: 1fr; }
   .fh-stats { flex-direction: row; flex-wrap: wrap; }
@@ -967,7 +1057,7 @@ footer { background: var(--navy); color: rgba(255,255,255,0.55); padding: 72px 0
 <div class="sidebar-cta-mini">
 <div class="scm-title">答えが見つかりませんか？</div>
 <div class="scm-sub">HOUSELINKの専門家が直接サポートします。</div>
-<a class="scm-btn" href="/ja/contact/">お問い合わせ →</a>
+<a href="#" id="openConsultFormBtn" class="scm-btn">時間帯を選ぶ →</a>
 </div>
 </aside>
 <!-- CONTENT -->
@@ -1035,7 +1125,7 @@ footer { background: var(--navy); color: rgba(255,255,255,0.55); padding: 72px 0
           <span class="faq-icon">+</span>
 </div>
 <div class="faq-a">
-<p>持っている。 2010 年以来、ハウスリンクは、日本、韓国、ドイツ、米国、台湾、シンガポール、多くの EU 諸国を含む 30 か国以上の顧客にサービスを提供してきました。代表的な企業には、エクソン モービル、日立、LG エレクトロニクス、サムスン、BASF、シュナイダー エレクトリック、その他多くの企業が含まれます。</p>
+<p>持っている。 2010 年以来、ハウスリンクは、日本、韓国、ドイツ、米国、台湾、シンガポール、多くの EU 諸国を含む 30 か国以上の顧客にサービスを提供してきました。代表的な企業には、US Mobil、日系機械メーカー、LG エレクトロニクス、サムスン、BASF、シュナイダー エレクトリック、その他多くの企業が含まれます。</p>
 <p>HOUSELINK チームは英語で専門的にコミュニケーションをとります。技術的な問題については日本語と韓国語でサポートできるメンバーもいます。</p>
 <div class="highlight-box"><em>注記：</em> ご要望に応じて、すべてのレポートとサービス契約をベトナム語と英語の二か国語で提供することができます。</div>
 </div>
@@ -1113,7 +1203,7 @@ footer { background: var(--navy); color: rgba(255,255,255,0.55); padding: 72px 0
 <li><strong>実現可能性調査</strong> 複雑さ: 45 ～ 60 日</li>
 </ul>
 <p>プロジェクトに緊急の要件がある場合、ハウスリンクはスケジュールを短縮することができます - 注文時にご相談ください。</p>
-<div class="highlight-box">典型的なケーススタディ: Exxon Mobil Vietnam — 300 社の地図作成会社 + 45 件の IDI 通話、 <em>45営業日で完了</em>、お客様からは「期待以上」との評価をいただきました。</div>
+<div class="highlight-box">典型的なケーススタディ: US Mobil Vietnam — 300 社の地図作成会社 + 45 件の IDI 通話、 <em>45営業日で完了</em>、お客様からは「期待以上」との評価をいただきました。</div>
 </div>
 </div>
 <div class="faq-item">
@@ -1697,7 +1787,7 @@ footer { background: var(--navy); color: rgba(255,255,255,0.55); padding: 72px 0
 <li>最も具体的な質問や懸念事項</li>
 <li>対象輸出市場（顧客からESG要求がある場合）</li>
 </ul>
-<a class="faq-link" href="/ja/contact/">無料相談予約→</a>
+<a href="#" class="faq-link" data-hl-open-consult="1" data-hl-contact-fallback="/ja/contact/#book">無料相談予約→</a>
 </div>
 </div>
 <div class="faq-item">
@@ -1755,12 +1845,53 @@ footer { background: var(--navy); color: rgba(255,255,255,0.55); padding: 72px 0
 <div class="fnf-title">一致する結果は見つかりませんでした</div>
 <div class="fnf-sub">他のキーワードで検索してみるか、HOUSELINK チームに直接サポートを受けてください。</div>
 <div class="fnf-btns">
-<a class="fnf-btn-primary" href="/ja/contact/">💬 ハウスリンクの専門家に質問する</a>
+<a href="#" class="fnf-btn-primary" data-hl-open-consult="1" data-hl-contact-fallback="/ja/contact/#book">💬 ハウスリンクの専門家に質問する</a>
 <button class="fnf-btn-ghost" onclick="clearSearch()">↩ すべての質問を表示</button>
 </div>
 </div>
 </main>
 </div>
+
+<div id="consultFormModal" class="consult-form-modal" aria-hidden="true">
+  <div class="consult-form-dialog">
+    <div class="consult-form-header">
+      <div class="consult-form-title">HOUSELINKへの相談予約</div>
+      <button type="button" id="closeConsultFormBtn" class="consult-form-close" aria-label="フォームを閉じる">×</button>
+    </div>
+    <div class="consult-form-frame">
+      <form id="hlConsultPopupForm" class="hl-contact-form" novalidate style="max-width:560px;margin:0 auto;">
+        <div class="hl-consult-msg" role="alert" aria-live="polite"></div>
+
+        <div class="form-group" style="margin-bottom:14px;">
+          <label style="display:block;font-size:12px;font-weight:700;color:var(--gray-600);margin-bottom:6px;">氏名 *</label>
+          <input name="consult-name" type="text" placeholder="山田 太郎" style="width:100%;padding:12px 12px;border:1px solid var(--gray-100);border-radius:10px;font-size:14px;">
+        </div>
+
+        <div class="form-row" style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+          <div class="form-group" style="margin-bottom:14px;">
+            <label style="display:block;font-size:12px;font-weight:700;color:var(--gray-600);margin-bottom:6px;">メールアドレス *</label>
+            <input name="consult-email" type="email" placeholder="email@company.com" style="width:100%;padding:12px 12px;border:1px solid var(--gray-100);border-radius:10px;font-size:14px;">
+          </div>
+          <div class="form-group" style="margin-bottom:14px;">
+            <label style="display:block;font-size:12px;font-weight:700;color:var(--gray-600);margin-bottom:6px;">電話番号 *</label>
+            <input name="consult-phone" type="tel" required placeholder="例：(+84) 966-222-490" style="width:100%;padding:12px 12px;border:1px solid var(--gray-100);border-radius:10px;font-size:14px;">
+          </div>
+        </div>
+
+        <div class="form-group" style="margin-bottom:16px;">
+          <label style="display:block;font-size:12px;font-weight:700;color:var(--gray-600);margin-bottom:6px;">相談予約 *</label>
+          <input name="consult-appointment" type="datetime-local" required style="width:100%;padding:12px 12px;border:1px solid var(--gray-100);border-radius:10px;font-size:14px;">
+          <div style="margin-top:6px;font-size:12px;color:var(--gray-400);">ご希望の日時を選択してください（ベトナム時間）。</div>
+          <div style="margin-top:4px;font-size:12px;color:var(--gray-400);">選択が終わったら、カレンダーの外側をタップして閉じてください。</div>
+        </div>
+
+        <button type="submit" class="submit-btn" style="width:100%;">予約リクエストを送信 →</button>
+      </form>
+      <iframe name="hlConsultGoogleFormSink" style="display:none" title="Google form submit sink"></iframe>
+    </div>
+  </div>
+</div>
+
 <!-- ══ CTA SECTION ══ -->
 <section style="background:linear-gradient(135deg,var(--navy-deep) 0%,var(--navy) 100%);padding:72px 0;text-align:center;position:relative;overflow:hidden;">
 <div style="position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.02) 1px,transparent 1px);background-size:28px 28px;pointer-events:none;"></div>
@@ -1769,7 +1900,7 @@ footer { background: var(--navy); color: rgba(255,255,255,0.55); padding: 72px 0
 <h2 style="font-family:var(--font-serif);font-size:clamp(24px,3vw,40px);font-weight:600;color:#fff;margin-bottom:12px;">HOUSELINKの専門家が<br/><em style="color:#7ED49A;font-style:normal;">サポートします</em></h2>
 <p style="font-size:15px;color:rgba(255,255,255,.55);max-width:520px;margin:0 auto 32px;line-height:1.72;">市場調査、工業団地選定、法務、ESGまで—15年以上の経験を持つチームがスピードと確度を高めます。</p>
 <div style="display:flex;justify-content:center;gap:14px;flex-wrap:wrap;">
-<a href="/ja/contact/" style="display:inline-flex;align-items:center;gap:8px;background:var(--green);color:#fff;font-size:14.5px;font-weight:700;padding:13px 28px;border-radius:9px;text-decoration:none;">📅 無料相談を予約</a>
+<a href="#" data-hl-open-consult="1" data-hl-contact-fallback="/ja/contact/#book" style="display:inline-flex;align-items:center;gap:8px;background:var(--green);color:#fff;font-size:14.5px;font-weight:700;padding:13px 28px;border-radius:9px;text-decoration:none;">📅 無料相談を予約</a>
 <a href="/ja/services/" style="display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.08);color:rgba(255,255,255,.8);font-size:14px;font-weight:600;padding:13px 24px;border-radius:9px;text-decoration:none;border:1.5px solid rgba(255,255,255,.15);">📋 サービス一覧</a>
 </div>
 <div style="margin-top:24px;font-size:13px;color:rgba(255,255,255,.28);">📞 +84 966 222 490  ·  ✉ info@houselink.com.vn</div>
@@ -1778,86 +1909,335 @@ footer { background: var(--navy); color: rgba(255,255,255,0.55); padding: 72px 0
 <div id="hl-chrome-footer"></div>
 <script defer="" src="../../landing-chrome.js"></script>
 <script>
-function setLang(l){
-  document.querySelectorAll('.lang-btn').forEach(b=>b.classList.remove('active'));
-  document.querySelector('.lang-btn[onclick="setLang(\''+l+'\')" ]')?.classList.add('active');
-}
+(function () {
+  function qa(sel, root) {
+    return (root || document).querySelectorAll(sel);
+  }
+  function q(sel, root) {
+    return (root || document).querySelector(sel);
+  }
 
-// ── ACCORDION ──
-function toggle(btn) {
-  const item = btn.parentElement;
-  const isOpen = item.classList.contains('open');
-  // Close all
-  document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
-  // Toggle clicked
-  if (!isOpen) item.classList.add('open');
-}
+  window.setLang = function setLang(l) {
+    var btns = qa('.lang-btn');
+    var i;
+    for (i = 0; i < btns.length; i++) {
+      btns[i].classList.remove('active');
+      var oc = btns[i].getAttribute('onclick') || '';
+      if (oc.indexOf("setLang('" + l + "')") !== -1 || oc.indexOf('setLang("' + l + '")') !== -1) {
+        btns[i].classList.add('active');
+      }
+    }
+  };
 
-// ── SIDEBAR ACTIVE ──
-function setActive(link) {
-  document.querySelectorAll('.faq-cat').forEach(c => c.classList.remove('active'));
-  link.classList.add('active');
-}
+  window.toggle = function toggle(btn) {
+    var item = btn && btn.parentElement;
+    if (!item) return;
+    var isOpen = item.classList.contains('open');
+    var opens = qa('.faq-item.open');
+    for (var i = 0; i < opens.length; i++) opens[i].classList.remove('open');
+    if (!isOpen) item.classList.add('open');
+  };
 
-// ── SEARCH ──
-function searchFaq() {
-  const q = document.getElementById('faqSearchInput').value.trim().toLowerCase();
-  if (!q) { clearSearch(); return; }
+  window.setActive = function setActive(link) {
+    var cats = qa('.faq-cat');
+    for (var i = 0; i < cats.length; i++) cats[i].classList.remove('active');
+    if (link && link.classList) link.classList.add('active');
+  };
 
-  let found = 0;
-  document.querySelectorAll('.faq-item').forEach(item => {
-    const text = item.textContent.toLowerCase();
-    const match = text.includes(q);
-    item.style.display = match ? '' : 'none';
-    if (match) {
-      found++;
-      // open matching items
-      item.classList.add('open');
+  window.searchFaq = function searchFaq() {
+    var inputEl = document.getElementById('faqSearchInput');
+    var qStr = ((inputEl && inputEl.value) || '').trim().toLowerCase();
+    if (!qStr) {
+      window.clearSearch();
+      return;
+    }
+    var found = 0;
+    var items = qa('.faq-item');
+    var i;
+    for (i = 0; i < items.length; i++) {
+      var item = items[i];
+      var text = (item.textContent || '').toLowerCase();
+      var match = text.indexOf(qStr) !== -1;
+      item.style.display = match ? '' : 'none';
+      if (match) {
+        found++;
+        item.classList.add('open');
+      } else {
+        item.classList.remove('open');
+      }
+    }
+    var secs = qa('.faq-section');
+    for (var si = 0; si < secs.length; si++) {
+      var sec = secs[si];
+      var secItems = qa('.faq-item', sec);
+      var visible = false;
+      var j;
+      for (j = 0; j < secItems.length; j++) {
+        if (secItems[j].style.display !== 'none') {
+          visible = true;
+          break;
+        }
+      }
+      sec.style.display = visible ? '' : 'none';
+    }
+    var nf = document.getElementById('faqNotFound');
+    if (nf) nf.style.display = found === 0 ? 'block' : 'none';
+  };
+
+  window.clearSearch = function clearSearch() {
+    var inputEl = document.getElementById('faqSearchInput');
+    if (inputEl) inputEl.value = '';
+    var items = qa('.faq-item');
+    for (var i = 0; i < items.length; i++) {
+      items[i].style.display = '';
+      items[i].classList.remove('open');
+    }
+    var secs = qa('.faq-section');
+    for (var si = 0; si < secs.length; si++) secs[si].style.display = '';
+    var nf = document.getElementById('faqNotFound');
+    if (nf) nf.style.display = 'none';
+  };
+
+  var searchInput = document.getElementById('faqSearchInput');
+  if (searchInput) {
+    searchInput.addEventListener('keydown', function (e) {
+      e = e || window.event;
+      var key = e.key || e.keyCode;
+      if (key === 'Enter' || key === 13) window.searchFaq();
+    });
+  }
+
+  var sections = qa('.faq-section[id]');
+  var catLinks = qa('.faq-cat');
+  window.addEventListener('scroll', function () {
+    var current = '';
+    var idx;
+    for (idx = 0; idx < sections.length; idx++) {
+      if (window.scrollY >= sections[idx].offsetTop - 120) current = sections[idx].id;
+    }
+    for (idx = 0; idx < catLinks.length; idx++) {
+      var link = catLinks[idx];
+      if (link.getAttribute('href') === '#' + current) link.classList.add('active');
+      else link.classList.remove('active');
     }
   });
 
-  // Show/hide sections
-  document.querySelectorAll('.faq-section').forEach(sec => {
-    const visible = [...sec.querySelectorAll('.faq-item')].some(i => i.style.display !== 'none');
-    sec.style.display = visible ? '' : 'none';
+  var secAll = qa('.faq-section');
+  for (var s = 0; s < secAll.length; s++) {
+    var first = q('.faq-item', secAll[s]);
+    if (first) first.classList.add('open');
+  }
+})();
+</script>
+<script>
+  /* Consult popup (same flow as /contact/; do not load auth-locale-validation.js here.) */
+  var consultModal = document.getElementById('consultFormModal');
+  var openConsultFormBtn = document.getElementById('openConsultFormBtn');
+  var closeConsultFormBtn = document.getElementById('closeConsultFormBtn');
+
+  function openConsultForm(event) {
+    if (event) event.preventDefault();
+    if (!consultModal) return;
+    var popupForm = document.getElementById('hlConsultPopupForm');
+    if (popupForm) {
+      popupForm.reset();
+      var errs = popupForm.querySelectorAll('.hl-field-error');
+      for (var i = 0; i < errs.length; i++) errs[i].classList.remove('hl-field-error');
+      var m = popupForm.querySelector('.hl-consult-msg');
+      if (m) {
+        m.classList.remove('is-visible', 'is-success', 'is-error');
+        m.innerHTML = '';
+      }
+      var b = popupForm.querySelector('button[type="submit"]');
+      if (b) b.disabled = false;
+    }
+    consultModal.classList.add('open');
+    consultModal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeConsultForm() {
+    if (!consultModal) return;
+    consultModal.classList.remove('open');
+    consultModal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  window.openConsultForm = openConsultForm;
+  window.closeConsultForm = closeConsultForm;
+
+  if (openConsultFormBtn) openConsultFormBtn.addEventListener('click', openConsultForm);
+  if (closeConsultFormBtn) closeConsultFormBtn.addEventListener('click', closeConsultForm);
+  if (consultModal) consultModal.addEventListener('click', function (e) {
+    if (e.target === consultModal) closeConsultForm();
   });
-
-  document.getElementById('faqNotFound').style.display = found === 0 ? 'block' : 'none';
-}
-
-function clearSearch() {
-  document.getElementById('faqSearchInput').value = '';
-  document.querySelectorAll('.faq-item').forEach(i => {
-    i.style.display = ''; i.classList.remove('open');
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && consultModal && consultModal.classList.contains('open')) closeConsultForm();
   });
-  document.querySelectorAll('.faq-section').forEach(s => s.style.display = '');
-  document.getElementById('faqNotFound').style.display = 'none';
-}
+</script>
+<script>
+  (function () {
+    var form = document.getElementById('hlConsultPopupForm');
+    if (!form) return;
 
-// Search on Enter
-document.getElementById('faqSearchInput').addEventListener('keydown', e => {
-  if (e.key === 'Enter') searchFaq();
-});
+    var msg = form.querySelector('.hl-consult-msg');
+    var btn = form.querySelector('button[type="submit"]');
 
-// ── SCROLL SPY for sidebar ──
-const sections = document.querySelectorAll('.faq-section[id]');
-const catLinks = document.querySelectorAll('.faq-cat');
+    var GOOGLE_FORM_ACTION = 'https://docs.google.com/forms/d/e/1FAIpQLSeeYghYY1yqwPM-RBjQwLmUSFn4RYdkTH4O1IVU4hGoFwxnKw/formResponse';
+    var GOOGLE_FORM_FVV = '1';
+    var GOOGLE_FORM_FBZX = '-8188496502171239336';
+    var ENTRY = {
+      name: 'entry.829818815',
+      email: 'entry.804289750',
+      phone: 'entry.1563935517',
+      appointment: 'entry.644436691',
+      language: 'entry.1114901947',
+    };
 
-window.addEventListener('scroll', () => {
-  let current = '';
-  sections.forEach(sec => {
-    if (window.scrollY >= sec.offsetTop - 120) current = sec.id;
-  });
-  catLinks.forEach(link => {
-    link.classList.toggle('active', link.getAttribute('href') === '#' + current);
-  });
-}, {passive: true});
+    function setMsg(text, type) {
+      if (!msg) return;
+      msg.textContent = text || '';
+      msg.classList.toggle('is-visible', !!text);
+      msg.style.color = type === 'success' ? 'var(--green)' : type === 'error' ? '#b42318' : '';
+      msg.style.marginBottom = text ? '10px' : '';
+    }
 
-// Open first item in each section by default
-document.querySelectorAll('.faq-section').forEach(sec => {
-  const first = sec.querySelector('.faq-item');
-  if (first) first.classList.add('open');
-});
+    function isValidEmailAddress(email) {
+      var e = (email || '').trim();
+      if (!e) return false;
+      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e);
+    }
+
+    function val(sel) {
+      var el = form.querySelector(sel);
+      return ((el && el.value) || '').trim();
+    }
+
+    function clearFieldErrors() {
+      var nodes = form.querySelectorAll('.hl-field-error');
+      for (var i = 0; i < nodes.length; i++) nodes[i].classList.remove('hl-field-error');
+    }
+
+    function markFieldError(inputSel) {
+      var el = form.querySelector(inputSel);
+      if (!el) return null;
+      var g = el.closest ? el.closest('.form-group') : null;
+      var target = g || el;
+      if (target && target.classList) target.classList.add('hl-field-error');
+      return el;
+    }
+
+    function parseDtLocal(dtLocal) {
+      var m = /^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2})/.exec(dtLocal || '');
+      if (!m) return null;
+      var y = m[1], mo = m[2], d = m[3], hhStr = m[4], mm = m[5];
+      var hh = parseInt(hhStr, 10);
+      var hh24 = (hh < 10 ? '0' : '') + String(hh);
+      return { y: y, mo: mo, d: d, hh24: hh24, mm: mm };
+    }
+
+    function formatAppointment(parts) {
+      if (!parts) return '';
+      return parts.mo + '/' + parts.d + '/' + parts.y + ' ' + parts.hh24 + ':' + parts.mm;
+    }
+
+    function getFormLanguageValue() {
+      var langAttr = (document.documentElement.getAttribute('lang') || '').toLowerCase();
+      var p = (location.pathname || '').toLowerCase();
+
+      if (p.indexOf('/vi/') === 0 || langAttr.indexOf('vi') === 0) return 'Vietnamese';
+      if (p.indexOf('/ja/') === 0 || langAttr.indexOf('ja') === 0) return 'Japanese';
+      if (p.indexOf('/ko/') === 0 || langAttr.indexOf('ko') === 0) return 'Korean';
+      if (p.indexOf('/zh/') === 0 || langAttr.indexOf('zh') === 0) return 'Chinese';
+      return 'English';
+    }
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      e.stopImmediatePropagation();
+
+      var name = val('[name="consult-name"]');
+      var email = val('[name="consult-email"]');
+      var phone = val('[name="consult-phone"]');
+      var dtParts = parseDtLocal(val('[name="consult-appointment"]'));
+      var appointment = formatAppointment(dtParts);
+      var language = getFormLanguageValue();
+
+      if (!name || !email || !phone || !appointment) {
+        setMsg('必須項目（*）をすべて入力してください。', 'error');
+        clearFieldErrors();
+        var first =
+          (!name && markFieldError('[name="consult-name"]')) ||
+          (!email && markFieldError('[name="consult-email"]')) ||
+          (!phone && markFieldError('[name="consult-phone"]')) ||
+          (!appointment && markFieldError('[name="consult-appointment"]'));
+        if (first && first.focus) first.focus();
+        return;
+      }
+
+      if (!isValidEmailAddress(email)) {
+        setMsg('有効なメールアドレスを入力してください。', 'error');
+        var em = markFieldError('[name="consult-email"]');
+        if (em && em.focus) em.focus();
+        return;
+      }
+
+      setMsg('送信中…', '');
+      var originalBtnText = btn ? btn.textContent : '';
+      if (btn) {
+        btn.disabled = true;
+        btn.textContent = '送信中…';
+      }
+
+      var tmp = document.createElement('form');
+      tmp.action = GOOGLE_FORM_ACTION;
+      tmp.method = 'POST';
+      tmp.target = 'hlConsultGoogleFormSink';
+
+      var fields = [
+        ['fvv', GOOGLE_FORM_FVV],
+        ['fbzx', GOOGLE_FORM_FBZX],
+        ['pageHistory', '0'],
+        [ENTRY.name, name],
+        [ENTRY.email, email],
+        [ENTRY.phone, phone],
+        [ENTRY.appointment, appointment],
+        [ENTRY.appointment + '_year', dtParts ? (dtParts.y || '') : ''],
+        [ENTRY.appointment + '_month', dtParts ? (dtParts.mo || '') : ''],
+        [ENTRY.appointment + '_day', dtParts ? (dtParts.d || '') : ''],
+        [ENTRY.appointment + '_hour', dtParts ? (dtParts.hh24 || '') : ''],
+        [ENTRY.appointment + '_minute', dtParts ? (dtParts.mm || '') : ''],
+        [ENTRY.language, language],
+      ];
+
+      for (var fi = 0; fi < fields.length; fi++) {
+        var k = fields[fi][0];
+        var v = fields[fi][1];
+        var inp = document.createElement('input');
+        inp.type = 'hidden';
+        inp.name = k;
+        inp.value = v;
+        tmp.appendChild(inp);
+      }
+
+      document.body.appendChild(tmp);
+      tmp.submit();
+      tmp.remove();
+
+      form.reset();
+      setMsg('送信が完了しました。日程確認のため追ってご連絡します。', 'success');
+      if (btn) {
+        btn.disabled = false;
+        btn.textContent = '送信済み ✓';
+        setTimeout(function () {
+          btn.textContent = originalBtnText || '予約リクエストを送信 →';
+        }, 3000);
+      }
+      setTimeout(function () {
+        closeConsultForm();
+      }, 2000);
+    }, true);
+  })();
 </script>
 </body>
 </html>

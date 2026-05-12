@@ -4,7 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Service Registration & Contract – HOUSELINK</title>
-<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 :root{
@@ -15,8 +17,8 @@
   --gray-400:#7E8F9A;--gray-600:#4A5A65;--text:#0D1F2D;
   --amber:#D4860B;--amber-pale:#FEF3E0;
   --red:#DC2626;--red-pale:#FEF2F2;
-  --font-main:'Be Vietnam Pro',sans-serif;
-  --font-serif:'DM Serif Display',serif;
+  --font-main: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-serif: var(--font-main);
 }
 body{font-family:var(--font-main);color:var(--text);background:var(--off-white);line-height:1.7;}
 a{text-decoration:none;color:inherit;}
@@ -139,7 +141,7 @@ button{cursor:pointer;font-family:var(--font-main);}
 .tab-btn.active{color:var(--navy);border-bottom-color:var(--green);}
 
 /* CONTRACT PREVIEW */
-.contract-preview{font-size:13px;line-height:1.8;color:var(--gray-600);}
+.contract-preview{font-size:13px;line-height:1.8;color:var(--gray-600);font-family:var(--font-main);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;}
 .contract-preview h4{font-size:13.5px;font-weight:700;color:var(--navy);margin:18px 0 6px;}
 .contract-preview p{margin-bottom:10px;}
 .contract-preview .party{background:var(--off-white);border-left:3px solid var(--green);padding:12px 16px;border-radius:0 8px 8px 0;margin-bottom:12px;}
@@ -281,7 +283,7 @@ button{cursor:pointer;font-family:var(--font-main);}
           <input type="radio" name="plan" value="standard" checked>
           <div class="po-info">
             <div class="po-name">🚀 Standard — Pro-Contractor Plus <span style="background:var(--green);color:#fff;font-size:10px;padding:2px 7px;border-radius:100px;margin-left:4px;">⭐ Popular</span></div>
-            <div class="po-desc">2 accounts · Live chat support · Decision-maker contacts · Verified badge</div>
+            <div class="po-desc">2 accounts · Live chat support · Verified badge</div>
           </div>
           <div class="po-price">$1,699/year<small>≈ 44,3 tr VND</small></div>
         </label>
@@ -404,10 +406,10 @@ button{cursor:pointer;font-family:var(--font-main);}
     <!-- STEP 3: SIGN & PAY -->
     <div id="step-3" class="form-card" style="display:none;">
       <div class="form-section-title">Sign Contract & Pay</div>
-      <div class="form-section-sub">Choose your preferred signing method and payment option.</div>
+      <div class="form-section-sub" style="display:none;">Choose your preferred signing method and payment option.</div>
 
       <!-- SIGNATURE -->
-      <div style="margin-bottom:28px;">
+      <div style="margin-bottom:28px;display:none;">
         <div class="form-label" style="font-size:14px;margin-bottom:12px;">Party A Signature <span style="color:var(--red);">*</span></div>
         <div style="display:flex;gap:10px;margin-bottom:16px;flex-wrap:wrap;">
           <button onclick="setSigMode('digital')" id="sig-btn-digital" style="flex:1;padding:10px;border-radius:8px;border:1.5px solid var(--green);background:var(--green-pale);color:var(--green);font-weight:700;font-size:13px;">✍️ Electronic Digital Signature (on screen)</button>
@@ -447,8 +449,7 @@ button{cursor:pointer;font-family:var(--font-main);}
               <li>Send to <strong>contract@houselink.com.vn</strong> or Zalo: <strong>024 3795 5620</strong></li>
               <li>HOUSELINK confirms and activates service within 1 business day</li>
             </ol>
-            <button onclick="printContract()" style="margin-top:14px;padding:10px 20px;background:var(--amber);color:#fff;border:none;border-radius:8px;font-weight:700;font-size:13.5px;">📥 Download PDF Now</button>
-          </div>
+</div>
         </div>
       </div>
 
@@ -495,7 +496,7 @@ button{cursor:pointer;font-family:var(--font-main);}
           </div>
           <div class="bank-row"><span class="bank-key">Amount</span><span class="bank-val" id="pay-amount" style="color:var(--green);">—</span></div>
         </div>
-        <div style="font-size:12.5px;color:var(--gray-400);background:var(--off-white);border-radius:8px;padding:12px 14px;">💡 After transferring, please screenshot the transaction confirmation and attach it in the next step. HOUSELINK will activate your account within <strong>1 business day</strong> of confirming payment.</div>
+        <div style="display:none;font-size:12.5px;color:var(--gray-400);background:var(--off-white);border-radius:8px;padding:12px 14px;"><!-- hidden -->💡 After transferring, please screenshot the transaction confirmation and attach it in the next step. HOUSELINK will activate your account within <strong>1 business day</strong> of confirming payment.</div>
       </div>
 
       <!-- Card payment -->
@@ -531,7 +532,7 @@ button{cursor:pointer;font-family:var(--font-main);}
       </div>
 
       <!-- Upload payment proof -->
-      <div style="margin-bottom:24px;">
+      <div style="margin-bottom:24px;display:none;">
         <label class="form-label">Attach Payment Confirmation <span style="color:var(--gray-400);font-weight:400;">(Optional, but speeds up processing)</span></label>
         <input type="file" id="payment-proof" accept="image/*,application/pdf" style="display:none;">
         <div onclick="document.getElementById('payment-proof').click()" style="border:1.5px dashed var(--gray-200);border-radius:9px;padding:16px;text-align:center;cursor:pointer;font-size:13.5px;color:var(--gray-600);" onmouseover="this.style.borderColor='var(--green)'" onmouseout="this.style.borderColor='var(--gray-200)'">
@@ -564,15 +565,12 @@ button{cursor:pointer;font-family:var(--font-main);}
         <div class="success-title">Registration Successful!</div>
         <div class="success-sub">Thank you for registering for HOUSELINK services. Your contract has been recorded. The HOUSELINK team will activate your account and contact you within <strong>1 business day</strong>.</div>
         <div class="success-actions">
-          <button class="btn-download" onclick="printContract()">
-            📥 Download Contract PDF
-          </button>
-          <a href="/services/find-project/" style="background:var(--white);color:var(--navy);font-size:14px;font-weight:600;padding:13px 22px;border-radius:9px;border:1.5px solid var(--gray-100);">← Back to Service Page</a>
+<a href="/services/find-project/" style="background:var(--white);color:var(--navy);font-size:14px;font-weight:600;padding:13px 22px;border-radius:9px;border:1.5px solid var(--gray-100);">← Back to Service Page</a>
         </div>
         <div style="margin-top:28px;padding:18px 20px;background:var(--off-white);border-radius:12px;text-align:left;font-size:13.5px;color:var(--gray-600);">
           <div style="font-weight:700;color:var(--navy);margin-bottom:8px;">📋 Next Steps:</div>
           <div style="display:flex;flex-direction:column;gap:6px;">
-            <div>✅ Confirmation email + contract PDF has been sent to <strong id="success-email"></strong></div>
+            <div>✅ Confirmation email + contract PDF will be sent to <strong id="success-email"></strong></div>
             <div>⏳ HOUSELINK confirms payment and activates account within 1 business day</div>
             <div>📱 Account Manager will contact you to guide platform usage</div>
             <div>🔍 Start searching projects at <a href="https://houselink.com.vn" style="color:var(--green);">houselink.com.vn</a></div>
@@ -593,7 +591,6 @@ button{cursor:pointer;font-family:var(--font-main);}
         <li class="order-feat">02 HOUSELINK accounts</li>
         <li class="order-feat">Real-time FDI/DDI project search</li>
         <li class="order-feat">Live chat support & access advisory</li>
-        <li class="order-feat">Decision-maker contact info</li>
         <li class="order-feat">Verified label + CSI ranking</li>
         <li class="order-feat">Logo on HOUSELINK homepage</li>
       </ul>
@@ -641,7 +638,7 @@ const PLANS = {
     tag:'Pro-Contractor Plus',
     priceUSD:'$1.699',
     priceVND:'≈ 44.300.000 VND',
-    features:['02 HOUSELINK accounts','Real-time FDI/DDI project search','Live chat support & access advisory','Decision-maker contact info','Verified label + CSI ranking','Logo on HOUSELINK homepage'],
+    features:['02 HOUSELINK accounts','Real-time FDI/DDI project search','Live chat support & access advisory','Verified label + CSI ranking','Logo on HOUSELINK homepage'],
   },
   professional: {
     name:'Professional – Pro-Contractor Pro',
@@ -714,6 +711,10 @@ function goStep2() {
 function goStep3() { goStep(3); updatePayContent(); }
 
 function submitContract() {
+  if(!validateStep1()) {
+    goStep(1);
+    return;
+  }
   if(!document.getElementById('terms-check').checked) {
     alert('Please agree to the contract terms before continuing.');
     return;
@@ -724,6 +725,87 @@ function submitContract() {
   var cno = 'HL-'+d.getFullYear()+'-'+seq;
   document.getElementById('success-contract-no').textContent = cno;
   document.getElementById('success-email').textContent = document.getElementById('f-email').value || 'your email';
+
+  // Submit registration details to Google Form (Contract)
+  // Note: Google Forms can only receive file uploads if the form includes a File upload question
+  // (typically requires the respondent to be signed in). This page therefore submits text fields only.
+  (function () {
+    var GOOGLE_FORM_ACTION = 'https://docs.google.com/forms/d/e/1FAIpQLSfE56R78eAi2gaR4-gZ6HF_3w7qj1yZiOFS28bODRa6ju8vOQ/formResponse';
+    var ENTRY = {
+      company: 'entry.1987280937',
+      taxId: 'entry.1318454223',
+      phone: 'entry.1015386418',
+      address: 'entry.425299825',
+      repName: 'entry.777128380',
+      position: 'entry.1877552056',
+      email: 'entry.219842784',
+      sector: 'entry.543893068',
+      province: 'entry.959608719',
+      plan: 'entry.325662224',
+      language: 'entry.943610935',
+    };
+    var PLAN_LABEL = {
+      starter: 'Starter — Pro-Contractor Basic',
+      standard: 'Standard — Pro-Contractor Plus',
+      professional: 'Professional — Pro-Contractor Pro',
+      premium: 'Premium — Pro-Contractor Premium',
+    };
+
+    function ensureSink() {
+      var id = 'hlContractFormSink';
+      var frame = document.getElementById(id);
+      if (frame) return frame;
+      frame = document.createElement('iframe');
+      frame.id = id;
+      frame.name = id;
+      frame.style.display = 'none';
+      document.body.appendChild(frame);
+      return frame;
+    }
+
+    function v(id) {
+      var el = document.getElementById(id);
+      return (el && el.value ? String(el.value) : '').trim();
+    }
+
+    try {
+      ensureSink();
+      var tmp = document.createElement('form');
+      tmp.action = GOOGLE_FORM_ACTION;
+      tmp.method = 'POST';
+      tmp.target = 'hlContractFormSink';
+
+      var planVal = PLAN_LABEL[state.plan] || PLAN_LABEL.standard;
+      var fields = [
+        [ENTRY.company, v('f-company')],
+        [ENTRY.taxId, v('f-tax')],
+        [ENTRY.phone, v('f-phone')],
+        [ENTRY.address, v('f-address')],
+        [ENTRY.repName, v('f-rep-name')],
+        [ENTRY.position, v('f-rep-title')],
+        [ENTRY.email, v('f-email')],
+        [ENTRY.sector, v('f-industry')],
+        [ENTRY.province, v('f-province')],
+        [ENTRY.plan, planVal],
+        [ENTRY.language, 'English'],
+      ];
+
+      for (var i = 0; i < fields.length; i++) {
+        var inp = document.createElement('input');
+        inp.type = 'hidden';
+        inp.name = fields[i][0];
+        inp.value = fields[i][1];
+        tmp.appendChild(inp);
+      }
+
+      document.body.appendChild(tmp);
+      tmp.submit();
+      tmp.remove();
+    } catch (e) {
+      // If this fails (ad blockers / browser restrictions), still allow user to complete the flow.
+    }
+  })();
+
   goStep(4);
 }
 

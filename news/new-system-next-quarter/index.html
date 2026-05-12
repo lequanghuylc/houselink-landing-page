@@ -76,8 +76,8 @@ body { font-family: var(--font-main); color: var(--text); background: var(--whit
 .art-tag{font-size:12px;font-weight:600;color:var(--navy);background:var(--gray-50);padding:5px 14px;border-radius:100px;border:1px solid var(--gray-100);}
 .art-share{display:flex;align-items:center;gap:12px;margin-top:8px;}
 .art-share span{font-size:13px;font-weight:600;color:var(--gray-600);}
-.share-btn{background:var(--navy);color:#fff;font-size:12px;font-weight:600;padding:7px 14px;border-radius:7px;text-decoration:none;transition:background .2s;}
-.share-btn:hover{background:var(--green);}
+.art-share .soc-btn{width:30px;height:30px;border-radius:8px;display:inline-block;position:relative;overflow:hidden;background:transparent;border:none;}
+.art-share .soc-btn__icon{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.95;}
 .art-sidebar{}
 .sidebar-card{background:var(--white);border:1px solid var(--gray-100);border-radius:14px;padding:24px 20px;margin-bottom:24px;}
 .sc-title{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--green);margin-bottom:16px;}
@@ -110,7 +110,7 @@ body { font-family: var(--font-main); color: var(--text); background: var(--whit
       <a href="/news/">News &amp; Events</a><span>›</span>
       <span style="color:rgba(255,255,255,.7);">New System Launch</span>
     </div>
-    <div class="pg-eye">Tin HOUSELINK · April 2026</div>
+    <div class="pg-eye">Houselink News · April 2026</div>
     <h1 class="pg-h1" style="max-width:780px;">HOUSELINK Releases <em>New System</em><br>in the Next Quarter</h1>
     <p class="pg-sub">A next-generation platform upgrade set for Q3/2026 — faster matching, smarter workflows, and deeper integrations for Vietnam's industrial ecosystem.</p>
   </div>
@@ -122,7 +122,7 @@ body { font-family: var(--font-main); color: var(--text); background: var(--whit
       <div class="art-body">
         <img class="art-cover" src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=1100&q=80&auto=format&fit=crop" alt="HOUSELINK New System">
         <div class="art-meta-bar">
-          <span class="art-cat">Tin HOUSELINK</span>
+          <span class="art-cat">Houselink News</span>
           <span class="art-sep"></span>
           <span class="art-date">April 2026</span>
           <span class="art-sep"></span>
@@ -167,18 +167,18 @@ body { font-family: var(--font-main); color: var(--text); background: var(--whit
         </div>
 
         <div class="art-tags">
-          <span class="art-tag">Tin HOUSELINK</span>
+          <span class="art-tag">Houselink News</span>
           <span class="art-tag">Platform Update</span>
           <span class="art-tag">Q3/2026</span>
           <span class="art-tag">AI Matching</span>
           <span class="art-tag">Product Launch</span>
         </div>
         <div class="art-share">
-          <span>Share:</span>
-          <a href="https://www.linkedin.com/company/houselink-jsc" class="share-btn" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-          <a href="https://www.facebook.com/houselink.com.vn" class="share-btn" target="_blank" rel="noopener noreferrer">Facebook</a>
-          <a href="https://www.youtube.com/@houselink5096" class="share-btn" target="_blank" rel="noopener noreferrer">YouTube</a>
-        </div>
+  <span>Share:</span>
+  <a href="https://www.linkedin.com/company/houselink-jsc" class="soc-btn" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><img class="soc-btn__icon" src="/images/icon%20linkedin.png" alt="" decoding="async"></a>
+  <a href="https://www.facebook.com/houselink.com.vn" class="soc-btn" aria-label="Facebook" target="_blank" rel="noopener noreferrer"><img class="soc-btn__icon" src="/images/icon%20facebook.png" alt="" decoding="async"></a>
+  <a href="https://www.youtube.com/@houselink5096" class="soc-btn" aria-label="YouTube" target="_blank" rel="noopener noreferrer"><img class="soc-btn__icon" src="/images/icon%20youtube.png" alt="" decoding="async"></a>
+</div>
       </div>
 
       <div class="art-sidebar">

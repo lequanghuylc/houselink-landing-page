@@ -224,7 +224,7 @@ h1.hero-h1 {
 #logos { background: var(--off-white); padding: 28px 0; overflow: hidden; border-top: 1px solid var(--gray-100); border-bottom: 1px solid var(--gray-100); }
 .logos-lbl { text-align: center; font-size: 11px; color: var(--gray-400); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 20px; }
 .marquee-wrap { overflow: hidden; }
-.marquee-track { display: flex; gap: 12px; width: max-content; animation: marquee 36s linear infinite; align-items: center; }
+.marquee-track { display: flex; gap: 12px; width: max-content; animation: marquee 54s linear infinite; align-items: center; }
 @keyframes marquee { from{transform:translateX(0)} to{transform:translateX(-50%)} }
 .logo-pill {
   display: flex; align-items: center; gap: 8px;
@@ -472,7 +472,7 @@ h1.hero-h1 {
   transition: all 0.25s;
 }
 .case-card:hover { box-shadow: 0 10px 40px rgba(0,70,110,0.09); transform: translateY(-3px); }
-.case-img { width: 100%; height: 200px; object-fit: cover; display: block; }
+.case-img { width: 100%; height: 200px; object-fit: cover; object-position: center; display: block; background: var(--gray-50); }
 .case-body { padding: 28px 28px 24px; }
 .case-tag { font-size: 11px; font-weight: 700; color: var(--teal); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 10px; }
 .case-title { font-size: 17px; font-weight: 700; color: var(--navy); line-height: 1.3; margin-bottom: 12px; }
@@ -550,8 +550,7 @@ footer { background: var(--navy); color: rgba(255,255,255,0.55); padding: 72px 0
 .ftr-desc { font-size: 13.5px; color: rgba(255,255,255,0.45); line-height: 1.7; max-width: 280px; }
 .ftr-address { margin-top: 16px; font-size: 13px; color: rgba(255,255,255,0.4); line-height: 1.7; }
 .social-row { display: flex; gap: 8px; margin-top: 20px; }
-.soc-btn { width: 32px; height: 32px; border-radius: 8px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.5); font-size: 12px; font-weight: 700; text-decoration: none; transition: all 0.18s; }
-.soc-btn:hover { background: var(--green); color: var(--white); border-color: var(--green); }
+.soc-btn { width: 32px; height: 32px; border-radius: 8px; background: transparent; border: none; display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.5); font-size: 12px; font-weight: 700; text-decoration: none; }
 .ftr-col h4 { font-size: 11px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.35); margin-bottom: 18px; }
 .ftr-col a { display: block; font-size: 13.5px; color: rgba(255,255,255,0.6); text-decoration: none; margin-bottom: 9px; transition: color 0.18s; }
 .ftr-col a:hover { color: var(--green-light); }
@@ -905,6 +904,16 @@ footer { background: var(--navy); color: rgba(255,255,255,0.55); padding: 72px 0
 }
 .fnf-btn-ghost:hover { border-color: var(--green); }
 
+@media (min-width: 961px) {
+  .faq-sidebar {
+    min-height: 0;
+    max-height: calc(100dvh - 92px - 24px);
+    overflow-y: auto;
+    overflow-x: hidden;
+    overscroll-behavior: contain;
+  }
+}
+
 @media(max-width:960px) {
   .fh-inner { grid-template-columns: 1fr; }
   .fh-stats { flex-direction: row; flex-wrap: wrap; }
@@ -1035,7 +1044,7 @@ footer { background: var(--navy); color: rgba(255,255,255,0.55); padding: 72px 0
           <span class="faq-icon">+</span>
 </div>
 <div class="faq-a">
-<p>Have. Since 2010, HOUSELINK has served customers from more than 30 countries, including Japan, Korea, Germany, USA, Taiwan, Singapore and many EU countries. Typical corporations include Exxon Mobil, Hitachi, LG Electronics, Samsung, BASF, Schneider Electric and many other corporations.</p>
+<p>Have. Since 2010, HOUSELINK has served customers from more than 30 countries, including Japan, Korea, Germany, USA, Taiwan, Singapore and many EU countries. Typical corporations include US Mobil, Japanese machinery, LG Electronics, Samsung, BASF, Schneider Electric and many other corporations.</p>
 <p>HOUSELINK team communicates professionally in English. Some members are capable of providing support in Japanese and Korean for technical issues.</p>
 <div class="highlight-box"><em>Note:</em> All reports and service contracts can be provided bilingually in Vietnamese and English upon request.</div>
 </div>
@@ -1113,7 +1122,7 @@ footer { background: var(--navy); color: rgba(255,255,255,0.55); padding: 72px 0
 <li><strong>Feasibility Study</strong> Complex: 45–60 days</li>
 </ul>
 <p>HOUSELINK can shorten the schedule if the project has urgent requirements — please discuss when ordering.</p>
-<div class="highlight-box">Typical case study: Exxon Mobil Vietnam — 300 mapping companies + 45 IDI calls, <em>completed in 45 working days</em>, rated by customers as "exceeds expectation".</div>
+<div class="highlight-box">Typical case study: US Mobil Vietnam — 300 mapping companies + 45 IDI calls, <em>completed in 45 working days</em>, rated by customers as "exceeds expectation".</div>
 </div>
 </div>
 <div class="faq-item">

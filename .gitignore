@@ -16,6 +16,9 @@ pnpm-debug.log*
 # Dependencies
 node_modules/
 
+# Local tooling venv (logo background script)
+.venv-logo-bg/
+
 # Build outputs
 dist/
 build/

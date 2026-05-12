@@ -224,7 +224,7 @@ h1.hero-h1 {
 #logos { background: var(--off-white); padding: 28px 0; overflow: hidden; border-top: 1px solid var(--gray-100); border-bottom: 1px solid var(--gray-100); }
 .logos-lbl { text-align: center; font-size: 11px; color: var(--gray-400); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 20px; }
 .marquee-wrap { overflow: hidden; }
-.marquee-track { display: flex; gap: 12px; width: max-content; animation: marquee 36s linear infinite; align-items: center; }
+.marquee-track { display: flex; gap: 12px; width: max-content; animation: marquee 54s linear infinite; align-items: center; }
 @keyframes marquee { from{transform:translateX(0)} to{transform:translateX(-50%)} }
 .logo-pill {
   display: flex; align-items: center; gap: 8px;
@@ -472,7 +472,7 @@ h1.hero-h1 {
   transition: all 0.25s;
 }
 .case-card:hover { box-shadow: 0 10px 40px rgba(0,70,110,0.09); transform: translateY(-3px); }
-.case-img { width: 100%; height: 200px; object-fit: cover; display: block; }
+.case-img { width: 100%; height: 200px; object-fit: cover; object-position: center; display: block; background: var(--gray-50); }
 .case-body { padding: 28px 28px 24px; }
 .case-tag { font-size: 11px; font-weight: 700; color: var(--teal); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 10px; }
 .case-title { font-size: 17px; font-weight: 700; color: var(--navy); line-height: 1.3; margin-bottom: 12px; }
@@ -550,8 +550,7 @@ footer { background: var(--navy); color: rgba(255,255,255,0.55); padding: 72px 0
 .ftr-desc { font-size: 13.5px; color: rgba(255,255,255,0.45); line-height: 1.7; max-width: 280px; }
 .ftr-address { margin-top: 16px; font-size: 13px; color: rgba(255,255,255,0.4); line-height: 1.7; }
 .social-row { display: flex; gap: 8px; margin-top: 20px; }
-.soc-btn { width: 32px; height: 32px; border-radius: 8px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.5); font-size: 12px; font-weight: 700; text-decoration: none; transition: all 0.18s; }
-.soc-btn:hover { background: var(--green); color: var(--white); border-color: var(--green); }
+.soc-btn { width: 32px; height: 32px; border-radius: 8px; background: transparent; border: none; display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.5); font-size: 12px; font-weight: 700; text-decoration: none; }
 .ftr-col h4 { font-size: 11px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.35); margin-bottom: 18px; }
 .ftr-col a { display: block; font-size: 13.5px; color: rgba(255,255,255,0.6); text-decoration: none; margin-bottom: 9px; transition: color 0.18s; }
 .ftr-col a:hover { color: var(--green-light); }
@@ -738,8 +737,8 @@ footer { background: var(--navy); color: rgba(255,255,255,0.55); padding: 72px 0
 .art-tag{font-size:12px;font-weight:600;color:var(--navy);background:var(--gray-50);padding:5px 14px;border-radius:100px;border:1px solid var(--gray-100);}
 .art-share{display:flex;align-items:center;gap:12px;margin-top:8px;}
 .art-share span{font-size:13px;font-weight:600;color:var(--gray-600);}
-.share-btn{background:var(--navy);color:#fff;font-size:12px;font-weight:600;padding:7px 14px;border-radius:7px;text-decoration:none;transition:background .2s;}
-.share-btn:hover{background:var(--green);}
+.art-share .soc-btn{width:30px;height:30px;border-radius:8px;display:inline-block;position:relative;overflow:hidden;background:transparent;border:none;}
+.art-share .soc-btn__icon{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.95;}
 /* Sidebar */
 .art-sidebar{}
 .sidebar-card{background:var(--white);border:1px solid var(--gray-100);border-radius:14px;padding:24px 20px;margin-bottom:24px;}
@@ -826,11 +825,11 @@ footer { background: var(--navy); color: rgba(255,255,255,0.55); padding: 72px 0
           <span class="art-tag">China+1</span><span class="art-tag">Industrial parks</span>
         </div>
         <div class="art-share">
-          <span>Share:</span>
-          <a href="https://www.linkedin.com/company/houselink-jsc" class="share-btn" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-          <a href="https://www.facebook.com/houselink.com.vn" class="share-btn" target="_blank" rel="noopener noreferrer">Facebook</a>
-          <a href="https://www.youtube.com/@houselink5096" class="share-btn" target="_blank" rel="noopener noreferrer">YouTube</a>
-        </div>
+  <span>Share:</span>
+  <a href="https://www.linkedin.com/company/houselink-jsc" class="soc-btn" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><img class="soc-btn__icon" src="/images/icon%20linkedin.png" alt="" decoding="async"></a>
+  <a href="https://www.facebook.com/houselink.com.vn" class="soc-btn" aria-label="Facebook" target="_blank" rel="noopener noreferrer"><img class="soc-btn__icon" src="/images/icon%20facebook.png" alt="" decoding="async"></a>
+  <a href="https://www.youtube.com/@houselink5096" class="soc-btn" aria-label="YouTube" target="_blank" rel="noopener noreferrer"><img class="soc-btn__icon" src="/images/icon%20youtube.png" alt="" decoding="async"></a>
+</div>
       </div>
       
     <div class="art-sidebar">

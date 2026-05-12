@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Article – HOUSELINK</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --font-main:"Inter",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  --font-serif:var(--font-main);
+  --off-white:#f4f6f8;
+  --navy:#00466E;
+  --green:#2D8B48;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body.hl-with-fixed-header{
+  font-family:var(--font-main);color:var(--text);background:var(--white);
+  overflow-x:hidden;line-height:1.7;
+}
+.pg-hero{background:linear-gradient(150deg,var(--navy-deep) 0%,var(--navy) 100%);padding:96px 0 64px;position:relative;overflow:hidden;}
+.pg-hero::after{content:'';position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.03) 1px,transparent 1px);background-size:28px 28px;pointer-events:none;}
+.pg-inner{max-width:var(--max-w);margin:0 auto;padding:0 40px;position:relative;z-index:1;}
+.pg-eye{font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#7ED49A;margin-bottom:14px;}
+.pg-h1{font-family:var(--font-serif);font-size:clamp(26px,3.2vw,44px);font-weight:600;color:#fff;line-height:1.2;letter-spacing:-.02em;margin-bottom:16px;max-width:780px;}
+.pg-h1 em{color:#7ED49A;font-style:normal;}
+.pg-sub{font-size:15.5px;color:rgba(255,255,255,.62);line-height:1.75;max-width:640px;}
+.pg-hero .bc{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:12.5px;color:rgba(255,255,255,.5);margin-bottom:16px;width:100%;min-width:0;}
+.bc a{color:rgba(255,255,255,.55);text-decoration:none;}
+.bc a:hover{color:#7ED49A;}
+.bc span{color:rgba(255,255,255,.25);}
+.sec{padding:72px 0;}
+.sec .si{max-width:var(--max-w);margin:0 auto;padding:0 40px;}
+.sec-green{background:var(--green);padding:56px 0;text-align:center;}
+.sec-green .si{max-width:var(--max-w);margin:0 auto;padding:0 40px;}
+.art-layout{display:grid;grid-template-columns:1fr 300px;gap:48px;align-items:start;}
+.art-body{min-width:0;}
+.art-cover{width:100%;border-radius:16px;margin-bottom:28px;display:block;max-height:480px;object-fit:cover;}
+.art-meta-bar{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:22px;padding-bottom:18px;border-bottom:1px solid var(--gray-100);}
+.art-cat{font-size:10.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--green);background:var(--green-pale);padding:4px 12px;border-radius:100px;}
+.art-date{font-size:13px;color:var(--gray-400);}
+.art-sep{width:3px;height:3px;border-radius:50%;background:var(--gray-200);}
+.art-lead{font-size:16px;color:var(--gray-600);line-height:1.78;font-weight:500;margin-bottom:26px;padding:18px 20px;background:var(--off-white);border-left:4px solid var(--green);border-radius:0 8px 8px 0;}
+.art-content{font-size:15.5px;color:var(--gray-600);line-height:1.82;}
+.art-content > *:first-child{margin-top:0;}
+.art-content p{margin-bottom:20px;}
+.art-content h2{font-family:var(--font-serif);font-size:22px;font-weight:600;color:var(--navy);margin:36px 0 14px;}
+.art-content h3{font-size:17px;font-weight:700;color:var(--navy);margin:28px 0 10px;}
+.art-content h4{font-size:15px;font-weight:700;color:var(--navy);margin:22px 0 8px;}
+.art-content ul,.art-content ol{margin:0 0 20px 22px;display:flex;flex-direction:column;gap:7px;}
+.art-content li{font-size:15px;line-height:1.72;}
+.art-content blockquote{border-left:4px solid var(--green);padding:14px 18px;margin:22px 0;background:var(--off-white);border-radius:0 10px 10px 0;font-size:15px;color:var(--navy);font-style:italic;}
+.art-content img,.art-content figure,.art-content iframe{max-width:100%;box-sizing:border-box;}
+/* WP often outputs width:2048px on .wp-caption — override inline width */
+.art-content figure.wp-caption,
+.art-content .wp-caption{
+  max-width:100% !important;
+  width:auto !important;
+  box-sizing:border-box;
+}
+.art-content figure{margin:20px 0;}
+.art-content img{
+  height:auto;
+  display:block;
+  margin:14px 0;
+}
+/* Several full-size <img> in one <p> stay inline and overflow — force block stack */
+.art-content p img{display:block;}
+.art-content figure img{margin:0;}
+.art-content a{color:var(--green);font-weight:600;}
+.art-content .wp-caption-text{font-size:13px;color:var(--gray-400);margin-top:6px;}
+.art-tags{display:flex;flex-wrap:wrap;gap:8px;margin:28px 0 0;padding-top:22px;border-top:1px solid var(--gray-100);}
+.art-tag{font-size:12px;font-weight:600;color:var(--navy);background:var(--gray-50);padding:5px 14px;border-radius:100px;border:1px solid var(--gray-100);}
+.art-share{display:flex;align-items:center;gap:12px;margin-top:16px;}
+.art-share span{font-size:13px;font-weight:600;color:var(--gray-600);}
+.art-share .soc-btn{width:30px;height:30px;border-radius:8px;display:inline-block;position:relative;overflow:hidden;background:transparent;border:none;}
+.art-share .soc-btn__icon{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.95;}
+.sidebar-card{background:var(--white);border:1px solid var(--gray-100);border-radius:14px;padding:22px 18px;margin-bottom:20px;}
+.sc-title{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--green);margin-bottom:14px;}
+.sidebar-cta{background:var(--navy);border-radius:14px;padding:22px 18px;margin-bottom:20px;text-align:center;}
+.sidebar-cta h4{font-family:var(--font-serif);font-size:16px;color:#fff;margin-bottom:8px;}
+.sidebar-cta p{font-size:13px;color:rgba(255,255,255,.55);line-height:1.55;margin-bottom:14px;}
+.sidebar-cta a{display:inline-block;background:var(--green);color:#fff;font-size:13px;font-weight:700;padding:10px 18px;border-radius:8px;text-decoration:none;}
+.back-news{display:inline-block;font-size:14px;font-weight:700;color:var(--navy);text-decoration:none;margin-bottom:8px;}
+.back-news:hover{color:var(--green);}
+.author-row{display:flex;gap:14px;align-items:center;margin-bottom:0;}
+.author-av{width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,var(--navy),#005585);display:flex;align-items:center;justify-content:center;font-family:var(--font-serif);font-size:18px;font-weight:600;color:#7ED49A;flex-shrink:0;}
+.author-name{font-size:14px;font-weight:700;color:var(--navy);}
+.author-role{font-size:12px;color:var(--gray-400);margin-top:2px;}
+.rel-item{display:flex;gap:12px;align-items:flex-start;padding:12px 0;border-bottom:1px solid var(--gray-50);}
+.rel-item:last-child{border-bottom:none;padding-bottom:0;}
+.rel-img{width:60px;height:48px;border-radius:7px;object-fit:cover;flex-shrink:0;background:var(--gray-50);}
+.rel-ttl{font-size:13px;font-weight:600;color:var(--navy);line-height:1.35;}
+.rel-ttl a{color:inherit;text-decoration:none;}
+.rel-ttl a:hover{color:var(--green);}
+.rel-date{font-size:11px;color:var(--gray-400);margin-top:3px;}
+@media(max-width:960px){
+  .art-layout{grid-template-columns:1fr;}
+  .pg-inner{padding:0 22px;}
+  .sec .si{padding:0 22px;}
+}
+</style>
+<link rel="stylesheet" href="../../landing-chrome.css">
+</head>
+<body class="hl-with-fixed-header" data-hl-page="news-vc-article">
+
+<div id="hl-chrome-header"></div>
+
+<section class="pg-hero" style="padding-bottom:52px;">
+  <div class="pg-inner">
+    <div class="bc" role="navigation" aria-label="Breadcrumb">
+      <a href="/" id="hl-vc-bc-home">Home</a><span>›</span>
+      <a href="/news/" id="hl-vc-bc-news">News &amp; Events</a><span>›</span>
+      <span id="hl-vc-bc-last" style="color:rgba(255,255,255,.7);">Article</span>
+    </div>
+    <div class="pg-eye" id="hl-vc-hero-eyebrow">…</div>
+    <h1 class="pg-h1" id="hl-vc-hero-title">Loading…</h1>
+    <p class="pg-sub" id="hl-vc-hero-sub"></p>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="si" id="hl-vc-article-root">
+    <div class="art-layout">
+      <article class="art-body">
+        <img id="hl-vc-cover" class="art-cover" src="" alt="" width="1100" height="620" style="display:none">
+        <div class="art-meta-bar">
+          <span class="art-cat" id="hl-vc-meta-cat">News</span>
+          <span class="art-sep" aria-hidden="true"></span>
+          <span class="art-date" id="hl-vc-meta-date">—</span>
+        </div>
+        <p class="art-lead" id="hl-vc-lead" style="display:none"></p>
+        <div class="art-content" id="hl-vc-body">Loading article…</div>
+        <div class="art-share">
+          <span id="hl-vc-share-label">Share:</span>
+          <a href="https://www.linkedin.com/company/houselink-jsc" class="soc-btn" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><img class="soc-btn__icon" src="/images/icon%20linkedin.png" alt="" decoding="async"></a>
+          <a href="https://www.facebook.com/houselink.com.vn" class="soc-btn" aria-label="Facebook" target="_blank" rel="noopener noreferrer"><img class="soc-btn__icon" src="/images/icon%20facebook.png" alt="" decoding="async"></a>
+          <a href="https://www.youtube.com/@houselink5096" class="soc-btn" aria-label="YouTube" target="_blank" rel="noopener noreferrer"><img class="soc-btn__icon" src="/images/icon%20youtube.png" alt="" decoding="async"></a>
+        </div>
+      </article>
+      <aside class="art-sidebar">
+        <div class="sidebar-card">
+          <div class="sc-title" id="hl-vc-sc-author">Author</div>
+          <div class="author-row">
+            <div class="author-av" id="hl-vc-author-av">HL</div>
+            <div>
+              <div class="author-name" id="hl-vc-author-name">HOUSELINK Editorial</div>
+              <div class="author-role" id="hl-vc-author-role">News &amp; Events</div>
+            </div>
+          </div>
+        </div>
+        <div class="sidebar-cta">
+          <h4 id="hl-vc-cta-title">Register for the next event</h4>
+          <p id="hl-vc-cta-body">Business matching, forums and industry updates — get priority access to HOUSELINK events.</p>
+          <a href="/contact/" id="hl-vc-cta-link">Contact us →</a>
+        </div>
+        <div class="sidebar-card" id="hl-vc-related-card">
+          <div class="sc-title" id="hl-vc-related-sc-title">Related articles</div>
+          <div id="hl-vc-related"></div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section class="sec-green">
+  <div class="si">
+    <h2 id="hl-vc-sec-green-title" style="font-family:var(--font-serif);font-size:28px;font-weight:600;color:#fff;margin-bottom:8px;">Weekly market updates</h2>
+    <p id="hl-vc-sec-green-body" style="font-size:15px;color:rgba(255,255,255,.78);margin-bottom:18px;">FDI, industrial parks and ESG — on the main news page.</p>
+    <a href="/news/" id="hl-vc-sec-green-link" style="display:inline-block;background:#fff;color:var(--green);font-size:14px;font-weight:700;padding:12px 26px;border-radius:8px;text-decoration:none;">News &amp; Events →</a>
+  </div>
+</section>
+
+<div id="hl-chrome-footer"></div>
+<script src="../../landing-chrome.js" defer></script>
+<script src="../../js/auth-locale-validation.js" defer></script>
+<script src="../../js/vietnam-construction-feed.js" defer></script>
+<script src="../../js/hl-vc-article.js" defer></script>
+</body>
+</html>

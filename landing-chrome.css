@@ -587,12 +587,11 @@ footer {
   box-sizing: border-box;
   border-radius: 8px;
   overflow: hidden;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: transparent;
+  border: none;
   display: block;
   color: rgba(255, 255, 255, 0.5);
   text-decoration: none;
-  transition: background 0.18s, border-color 0.18s;
 }
 .soc-btn__icon {
   position: absolute;
@@ -607,11 +606,6 @@ footer {
 }
 .soc-btn:hover .soc-btn__icon {
   opacity: 1;
-}
-.soc-btn:hover {
-  background: var(--green);
-  color: var(--white);
-  border-color: var(--green);
 }
 .ftr-col h4 {
   font-size: 11px;
@@ -2080,5 +2074,73 @@ body[data-hl-page="contact"] .map-embed iframe {
     margin-top: 0;
     padding-top: 0;
     border-top: none;
+  }
+}
+
+/* Sidebar CTA (case studies, articles): tighter on wide columns */
+.art-sidebar .sidebar-cta {
+  background: linear-gradient(165deg, var(--navy-deep) 0%, var(--navy) 100%);
+  border-radius: 12px;
+  padding: 16px 14px;
+  margin-bottom: 18px;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 6px 20px rgba(0, 52, 87, 0.14);
+  max-width: 100%;
+}
+
+.art-sidebar .sidebar-cta h4 {
+  font-family: var(--font-serif, var(--font-main));
+  font-size: 15px;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 6px;
+  letter-spacing: 0.02em;
+  line-height: 1.35;
+}
+
+.art-sidebar .sidebar-cta p {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.64);
+  line-height: 1.5;
+  margin: 0 0 12px;
+}
+
+.art-sidebar .sidebar-cta a {
+  display: inline-block;
+  width: fit-content;
+  max-width: 100%;
+  box-sizing: border-box;
+  background: var(--green);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 9px 17px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background 0.18s ease;
+}
+
+.art-sidebar .sidebar-cta a:hover {
+  background: var(--green-light);
+}
+
+@media (min-width: 1100px) {
+  .art-sidebar .sidebar-cta {
+    padding: 14px 12px;
+  }
+
+  .art-sidebar .sidebar-cta h4 {
+    font-size: 14px;
+  }
+
+  .art-sidebar .sidebar-cta p {
+    font-size: 12.5px;
+    margin-bottom: 10px;
+  }
+
+  .art-sidebar .sidebar-cta a {
+    padding: 8px 15px;
+    font-size: 12.5px;
   }
 }

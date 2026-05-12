@@ -15,8 +15,29 @@
 (function () {
   "use strict";
   var script = document.currentScript;
+  if (!script || !script.src) {
+    script = document.querySelector('script[src*="landing-chrome.js"]');
+  }
   if (!script || !script.src) return;
   var base = script.src.replace(/\/[^/]+$/, "/");
+
+  /** Be Vietnam Pro + --font-main override; only for Vietnamese locale (path or ?lang=vi). */
+  function ensureHlViFonts() {
+    var lang = (document.documentElement.getAttribute("lang") || "").toLowerCase();
+    var path = window.location.pathname || "";
+    var q = window.location.search || "";
+    var qsVi = /[?&]lang=vi(?:&|$)/i.test(q) || /[?&]locale=vi(?:&|$)/i.test(q);
+    var pathVi = /(^|\/)vi(\/|$)/.test(path);
+    var isVi = lang.indexOf("vi") === 0 || pathVi || qsVi;
+    if (!isVi) return;
+    if (document.querySelector('link[href*="hl-vi-fonts.css"]')) return;
+    var link = document.createElement("link");
+    link.rel = "stylesheet";
+    link.href = new URL("hl-vi-fonts.css", base).href;
+    link.setAttribute("data-hl-vi-fonts", "1");
+    document.head.appendChild(link);
+  }
+  ensureHlViFonts();
 
   /**
    * Auto-assign scroll reveal to every direct `body > section` (except #hero, #logos, and sections
@@ -196,6 +217,143 @@
     }
   }
   scheduleHlScrollReveal();
+
+  function detectNewsletterLanguageValue() {
+    var p = (window.location && window.location.pathname) || "/";
+    if (p.indexOf("/vi/") === 0) return "Vietnamese";
+    if (p.indexOf("/ja/") === 0) return "Japanese";
+    if (p.indexOf("/ko/") === 0) return "Korean";
+    if (p.indexOf("/zh/") === 0) return "Chinese";
+    return "English";
+  }
+
+  function ensureHiddenIframe(id) {
+    var existing = document.getElementById(id);
+    if (existing) return existing;
+    var iframe = document.createElement("iframe");
+    iframe.id = id;
+    iframe.name = id;
+    iframe.tabIndex = -1;
+    iframe.setAttribute("aria-hidden", "true");
+    iframe.style.width = "0";
+    iframe.style.height = "0";
+    iframe.style.border = "0";
+    iframe.style.position = "absolute";
+    iframe.style.left = "-9999px";
+    iframe.style.top = "0";
+    document.body.appendChild(iframe);
+    return iframe;
+  }
+
+  function initNewsletterGoogleFormBridge() {
+    var GF_ACTION =
+      "https://docs.google.com/forms/d/e/1FAIpQLSfdP3saeVT46ueAbfF7zJ0OnZEe4y82Et5hshCd_fnms8r1Ig/formResponse";
+    var EMAIL_ENTRY = "entry.975117866";
+    var LANG_ENTRY = "entry.339917712";
+    var SINK_ID = "hlNewsletterFormSink";
+
+    function newsletterUiLocaleKey() {
+      var raw = (document.documentElement.getAttribute("lang") || "").toLowerCase();
+      if (raw.indexOf("vi") === 0) return "vi";
+      if (raw.indexOf("ja") === 0) return "ja";
+      if (raw.indexOf("ko") === 0) return "ko";
+      if (raw.indexOf("zh") === 0) return "zh";
+      return "en";
+    }
+
+    function newsletterMsg(which) {
+      var k = newsletterUiLocaleKey();
+      var T = {
+        en: {
+          submitting: "Submitting…",
+          success: "Thanks — you’re registered for weekly updates.",
+        },
+        vi: {
+          submitting: "Đang gửi…",
+          success: "Cảm ơn bạn — bạn đã đăng ký nhận cập nhật thị trường hàng tuần.",
+        },
+        ja: {
+          submitting: "送信中…",
+          success: "ありがとうございます。週次マーケットアップデートの登録が完了しました。",
+        },
+        ko: {
+          submitting: "전송 중…",
+          success: "감사합니다. 주간 시장 업데이트 구독이 완료되었습니다.",
+        },
+        zh: {
+          submitting: "提交中…",
+          success: "感谢您！您已成功订阅每周市场更新。",
+        },
+      };
+      return (T[k] && T[k][which]) || T.en[which] || "";
+    }
+
+    function setMsg(form, text, kind) {
+      var box = form.querySelector(".hl-auth-client-msg");
+      if (!box) return;
+      box.textContent = text || "";
+      box.classList.add("is-visible");
+      box.classList.remove("hl-msg-ok");
+      if (kind === "ok") box.classList.add("hl-msg-ok");
+      box.style.color = kind === "ok" ? "#7ED49A" : kind === "err" ? "#FCA5A5" : "";
+    }
+
+    function submitToGoogleForm(email, lang) {
+      ensureHiddenIframe(SINK_ID);
+      var f = document.createElement("form");
+      f.method = "POST";
+      f.action = GF_ACTION;
+      f.target = SINK_ID;
+      f.style.position = "absolute";
+      f.style.left = "-9999px";
+      f.style.top = "0";
+
+      var iEmail = document.createElement("input");
+      iEmail.type = "hidden";
+      iEmail.name = EMAIL_ENTRY;
+      iEmail.value = email;
+      f.appendChild(iEmail);
+
+      var iLang = document.createElement("input");
+      iLang.type = "hidden";
+      iLang.name = LANG_ENTRY;
+      iLang.value = lang;
+      f.appendChild(iLang);
+
+      document.body.appendChild(f);
+      try {
+        f.submit();
+      } finally {
+        setTimeout(function () {
+          try {
+            document.body.removeChild(f);
+          } catch (ignore) {}
+        }, 0);
+      }
+    }
+
+    if (typeof window.hlNewsletterOnValid !== "function") {
+      window.hlNewsletterOnValid = function (form) {
+        var emailEl = form && form.querySelector ? form.querySelector('input[type="email"]') : null;
+        var email = (emailEl && String(emailEl.value || "").trim()) || "";
+        if (!email || email.indexOf("@") === -1) return;
+
+        setMsg(form, newsletterMsg("submitting"), "");
+        var lang = detectNewsletterLanguageValue();
+        submitToGoogleForm(email, lang);
+        setMsg(form, newsletterMsg("success"), "ok");
+        try {
+          form.reset();
+        } catch (ignore) {}
+      };
+    }
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initNewsletterGoogleFormBridge);
+  } else {
+    initNewsletterGoogleFormBridge();
+  }
 
   var HL_HOME = {
     vi: "/vi/",
@@ -387,7 +545,25 @@
     else if (mql.addListener) mql.addListener(onChange);
   }
 
+  /**
+   * Which localized partial pack to fetch (header-*.html / footer-*.html).
+   * Order: `?lang=` / `?locale=` (e.g. /news/article/?id=…&lang=ja before hl-vc-article runs),
+   * then first path segment (/vi/…, /ja/…), then <html lang>.
+   */
   function langPack() {
+    var path = window.location.pathname || "";
+    var q = window.location.search || "";
+    var qm = /[?&](?:lang|locale)=([a-z]{2})(?:&|$)/i.exec(q);
+    if (qm) {
+      var qc = qm[1].toLowerCase();
+      if (qc === "vi" || qc === "ja" || qc === "ko" || qc === "en") return qc;
+      if (qc.indexOf("zh") === 0) return "zh";
+    }
+    var parts = path.split("/").filter(Boolean);
+    var seg = (parts[0] || "").toLowerCase();
+    if (seg === "vi" || seg === "ja" || seg === "ko" || seg === "en") return seg;
+    if (seg === "zh") return "zh";
+
     var raw = (document.documentElement.getAttribute("lang") || "en").toLowerCase().trim();
     if (raw === "vi") return "vi";
     if (raw === "en") return "en";
@@ -419,6 +595,7 @@
   /** Rewrite `a[data-hl-dashboard-login]` → static login HTML or optional dashboard URL. */
   function wireDashboardLoginLinks() {
     var dashBase = null;
+    var defaultDashBase = "https://dashboard.houselink.com.vn";
     if (typeof window !== "undefined" && window.HL_DASHBOARD_BASE) {
       dashBase = String(window.HL_DASHBOARD_BASE).replace(/\/+$/, "");
     }
@@ -429,16 +606,18 @@
         if (raw) dashBase = raw.replace(/\/+$/, "");
       }
     }
+    if (!dashBase && defaultDashBase) {
+      dashBase = String(defaultDashBase).replace(/\/+$/, "");
+    }
 
     document.querySelectorAll("a[data-hl-dashboard-login]").forEach(function (a) {
       var loc = (a.getAttribute("data-hl-login-locale") || "vi").toLowerCase().trim();
       if (!DASHBOARD_LOGIN_LOCALES[loc]) loc = "vi";
       if (dashBase) {
-        var path = loc === "en" ? "/login/" : "/" + loc + "/login/";
         try {
-          a.href = sameSiteLocationRef(new URL(path, dashBase + "/").href);
+          a.href = new URL("/", dashBase + "/").href;
         } catch (ignore) {
-          a.href = sameSiteLocationRef(dashBase + path);
+          a.href = dashBase + "/";
         }
       } else {
         var loginPaths = {
@@ -692,6 +871,46 @@
     }
   }
 
+  /**
+   * Header / in-page CTAs: same behavior as contact “Chọn khung giờ” — open #consultFormModal
+   * when the page defines window.openConsultForm (e.g. contact, vi/faq); else go to locale contact.
+   */
+  function wireOpenConsultHeaderCta() {
+    if (window.__hlOpenConsultCtaWired) return;
+    window.__hlOpenConsultCtaWired = true;
+    document.addEventListener(
+      "click",
+      function (e) {
+        var a = e.target && e.target.closest && e.target.closest("a[data-hl-open-consult]");
+        if (!a) return;
+        e.preventDefault();
+
+        var headerEl = document.getElementById("header");
+        if (headerEl && headerEl.classList.contains("hl-nav-open")) {
+          headerEl.classList.remove("hl-nav-open");
+          document.body.classList.remove("hl-nav-no-scroll");
+          var nt = document.getElementById("hl-nav-toggle");
+          if (nt) nt.setAttribute("aria-expanded", "false");
+        }
+
+        var modal = document.getElementById("consultFormModal");
+        if (modal && typeof window.openConsultForm === "function") {
+          window.openConsultForm(e);
+          return;
+        }
+        if (modal) {
+          modal.classList.add("open");
+          modal.setAttribute("aria-hidden", "false");
+          document.body.style.overflow = "hidden";
+          return;
+        }
+        var fb = (a.getAttribute("data-hl-contact-fallback") || "").trim();
+        if (fb) window.location.assign(fb);
+      },
+      true
+    );
+  }
+
   function wireLangSelect() {
     var sel = document.getElementById("hl-lang-select");
     if (!sel) return;
@@ -715,6 +934,8 @@
       goTop();
     });
   }
+
+  wireOpenConsultHeaderCta();
 
   var pack = langPack();
   Promise.all([fetchPartial("header", pack), fetchPartial("footer", pack)])
