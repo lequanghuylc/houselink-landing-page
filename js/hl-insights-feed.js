@@ -1,6 +1,7 @@
 /**
  * Market Insights: Market + Learn. Learn: WP REST first (VI categories=74&lang=vi, EN categories=33),
  * then data-learn-vi.json / data-learn-en.json. Same data-hl-vn-news-source as Market (api | hardcode | default).
+ * Trang /vi/insights/: nên đặt data-hl-vn-news-source="hardcode" + chạy merge_json_from_uploads_dir.py để ảnh /images/uploads/.
  */
 (function () {
   "use strict";
@@ -54,17 +55,37 @@
       .replace(/'/g, "&#39;");
   }
 
+  function firstLocalUploadFromPostHtml(post) {
+    var html =
+      ((post && post.content && post.content.rendered) || "") +
+      " " +
+      ((post && post.excerpt && post.excerpt.rendered) || "");
+    if (!html) return "";
+    var m = String(html).match(/src\s*=\s*["'](\/images\/uploads\/[^"']+)["']/i);
+    if (m) return m[1];
+    m = String(html).match(/\/images\/uploads\/[^"'>\s#]+/i);
+    if (!m) return "";
+    var s = m[0];
+    var q = s.indexOf("?");
+    return q === -1 ? s : s.slice(0, q);
+  }
+
   function pickImage(post) {
     try {
       var emb = post && post._embedded;
       var fm = emb && emb["wp:featuredmedia"] && emb["wp:featuredmedia"][0];
-      if (fm && fm.source_url) return fm.source_url;
-      if (fm && fm.media_details && fm.media_details.sizes) {
+      var u = "";
+      if (fm && fm.source_url) u = fm.source_url;
+      if (!u && fm && fm.media_details && fm.media_details.sizes) {
         var sizes = fm.media_details.sizes;
-        if (sizes.medium_large && sizes.medium_large.source_url) return sizes.medium_large.source_url;
-        if (sizes.large && sizes.large.source_url) return sizes.large.source_url;
-        if (sizes.medium && sizes.medium.source_url) return sizes.medium.source_url;
+        if (sizes.medium_large && sizes.medium_large.source_url) u = sizes.medium_large.source_url;
+        else if (sizes.large && sizes.large.source_url) u = sizes.large.source_url;
+        else if (sizes.medium && sizes.medium.source_url) u = sizes.medium.source_url;
       }
+      if (u && u.indexOf("/images/uploads/") !== -1) return u;
+      var local = firstLocalUploadFromPostHtml(post);
+      if (local) return local;
+      return u || "";
     } catch (ignore) {}
     return "";
   }
