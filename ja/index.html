@@ -528,24 +528,37 @@ h1.hero-h1 {
 .comm-title { font-size: 15px; font-weight: 700; color: var(--navy); margin-bottom: 8px; line-height: 1.3; }
 .comm-desc { font-size: 13px; color: var(--gray-600); line-height: 1.6; }
 
-/* ── CUSTOMERS LOGOS ── */
+/* ── CUSTOMERS LOGOS (match /clients .clients-logo-strip) ── */
 #customers { background: var(--white); }
 .customers-logo-grid {
-  display: flex; flex-wrap: wrap; gap: 10px;
-  margin-top: 44px; justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 44px;
+  background: transparent;
+  border: 0;
+  padding: 0;
 }
 .cust-logo {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  height: 60px;
+  padding: 0 10px;
   background: transparent;
   border: none;
   border-radius: 0;
-  padding: 0;
-  height: 60px;
   transition: transform 0.18s;
 }
-.cust-logo__img { display: block; height: 100%; width: auto; max-width: 240px; object-fit: contain; }
+.cust-logo__img {
+  display: block;
+  height: 100%;
+  width: auto;
+  max-width: 240px;
+  object-fit: contain;
+}
 .cust-logo:hover { transform: translateY(-1px); }
 
 /* ── INSIGHTS ── */
@@ -790,44 +803,41 @@ footer { background: var(--navy); color: rgba(255,255,255,0.55); padding: 72px 0
         <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/AZB-Photoroom.png" alt="AZB" loading="lazy" decoding="async"></div>
         <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Ariston-Photoroom.png" alt="Ariston" loading="lazy" decoding="async"></div>
         <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Basf-Photoroom.png" alt="Basf" loading="lazy" decoding="async"></div>
-        <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Blue%20scope-Photoroom.png" alt="Blue scope" loading="lazy" decoding="async"></div>
+        <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Bluescope-Photoroom.png" alt="Blue scope" loading="lazy" decoding="async"></div>
         <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Buhler_logo_RGB-Photoroom.png" alt="Buhler" loading="lazy" decoding="async"></div>
         <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/CJSC.png" alt="CJSC" loading="lazy" decoding="async"></div>
-        <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/CPT%20Steel-Photoroom.png" alt="CPT Steel" loading="lazy" decoding="async"></div>
+        <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/CPT-Steel-Photoroom.png" alt="CPT Steel" loading="lazy" decoding="async"></div>
         <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/CT-Photoroom.png" alt="CT" loading="lazy" decoding="async"></div>
         <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Cabot-Photoroom.png" alt="Cabot" loading="lazy" decoding="async"></div>
         <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Central.png" alt="Central" loading="lazy" decoding="async"></div>
         <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Daidung-Photoroom.png" alt="Daidung" loading="lazy" decoding="async"></div>
-        <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Dainam-Photoroom.png" alt="Dainam" loading="lazy" decoding="async"></div>
         <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Dinco-Photoroom.png" alt="Dinco" loading="lazy" decoding="async"></div>
-        <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/HD%20Hyundai%20electric.png" alt="HD Hyundai electric" loading="lazy" decoding="async"></div>
         <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/hsbc-Photoroom.png" alt="HSBC" loading="lazy" decoding="async"></div>
         <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Helukabel.png" alt="Helukabel" loading="lazy" decoding="async"></div>
-        <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Hoa%20binh.png" alt="Hoa binh" loading="lazy" decoding="async"></div>
-        <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Honney%20well.png" alt="Honney well" loading="lazy" decoding="async"></div>
+        <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Hoa-binh.png" alt="Hoa binh" loading="lazy" decoding="async"></div>
+        <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Honney-well.png" alt="Honney well" loading="lazy" decoding="async"></div>
         <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Hopluc.png" alt="Hopluc" loading="lazy" decoding="async"></div>
         <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Hormann.png" alt="Hormann" loading="lazy" decoding="async"></div>
-        <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/HuaNan%20International.png" alt="HuaNan International" loading="lazy" decoding="async"></div>
+        <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/HuaNan-International.png" alt="HuaNan International" loading="lazy" decoding="async"></div>
         <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/ICIC.png" alt="ICIC" loading="lazy" decoding="async"></div>
         <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Itochu.png" alt="Itochu" loading="lazy" decoding="async"></div>
         <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/JFE.png" alt="JFE" loading="lazy" decoding="async"></div>
         <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Jotun.png" alt="Jotun" loading="lazy" decoding="async"></div>
         <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/KDDI.png" alt="KDDI" loading="lazy" decoding="async"></div>
-        <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Kansai%20paint.png" alt="Kansai paint" loading="lazy" decoding="async"></div>
+        <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Kansai-paint.png" alt="Kansai paint" loading="lazy" decoding="async"></div>
         <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Kanto.png" alt="Kanto" loading="lazy" decoding="async"></div>
         <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Kinhbac.png" alt="Kinhbac" loading="lazy" decoding="async"></div>
         <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Kirby.png" alt="Kirby" loading="lazy" decoding="async"></div>
         <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Knauf.png" alt="Knauf" loading="lazy" decoding="async"></div>
-        <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/LG%20Business.png" alt="LG Business" loading="lazy" decoding="async"></div>
+        <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/LG-Business.png" alt="LG Business" loading="lazy" decoding="async"></div>
         <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/MCC.png" alt="MCC" loading="lazy" decoding="async"></div>
         <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Maeda.png" alt="Maeda" loading="lazy" decoding="async"></div>
         <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Mapei.png" alt="Mapei" loading="lazy" decoding="async"></div>
         <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/N.png" alt="N" loading="lazy" decoding="async"></div>
         <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/nakano-Photoroom.png" alt="Nakano" loading="lazy" decoding="async"></div>
         <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Pebsteel.png" alt="Pebsteel" loading="lazy" decoding="async"></div>
-        <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Quali%20pro.png" alt="Quali pro" loading="lazy" decoding="async"></div>
+        <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Quali-pro.png" alt="Quali pro" loading="lazy" decoding="async"></div>
         <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/REE.png" alt="REE" loading="lazy" decoding="async"></div>
-        <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Royal%20h%C3%A1koning.png" alt="Royal hákoning" loading="lazy" decoding="async"></div>
         <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/SCE.png" alt="SCE" loading="lazy" decoding="async"></div>
         <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Sagen.png" alt="Sagen" loading="lazy" decoding="async"></div>
         <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Schneider.png" alt="Schneider" loading="lazy" decoding="async"></div>
@@ -836,68 +846,45 @@ footer { background: var(--navy); color: rgba(255,255,255,0.55); padding: 72px 0
         <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Sigma.png" alt="Sigma" loading="lazy" decoding="async"></div>
         <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Sika.png" alt="Sika" loading="lazy" decoding="async"></div>
         <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Softbank.png" alt="Softbank" loading="lazy" decoding="async"></div>
-        <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Taihan%20Vina.png" alt="Taihan Vina" loading="lazy" decoding="async"></div>
-        <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Thang%20tien.png" alt="Thang tien" loading="lazy" decoding="async"></div>
+        <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Taihan-Vina.png" alt="Taihan Vina" loading="lazy" decoding="async"></div>
+        <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Thang-tien.png" alt="Thang tien" loading="lazy" decoding="async"></div>
         <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Toda.png" alt="Toda" loading="lazy" decoding="async"></div>
         <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/VE.png" alt="VE" loading="lazy" decoding="async"></div>
         <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Vinaconex.png" alt="Vinaconex" loading="lazy" decoding="async"></div>
         <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Vinata.png" alt="Vinata" loading="lazy" decoding="async"></div>
         <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Viteccons.png" alt="Viteccons" loading="lazy" decoding="async"></div>
-        <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Zamil%20steel.png" alt="Zamil steel" loading="lazy" decoding="async"></div>
+        <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Zamil-steel.png" alt="Zamil steel" loading="lazy" decoding="async"></div>
         <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/brunau.png" alt="brunau" loading="lazy" decoding="async"></div>
-        <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/916-Photoroom.png" alt="916" loading="lazy" decoding="async"></div>
-        <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Build-Photoroom.png" alt="Build" loading="lazy" decoding="async"></div>
-        <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Coteccons-Photoroom.png" alt="Coteccons" loading="lazy" decoding="async"></div>
+        <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Deltaec-Photoroom.png" alt="Deltaec" loading="lazy" decoding="async"></div>
+        <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Royal-ha%CC%81koning.png" alt="Royal hákoning" loading="lazy" decoding="async"></div>
+        <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Thanhnam-Photoroom.png" alt="Thanhnam" loading="lazy" decoding="async"></div>
+        <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Tradeco-Photoroom.png" alt="Tradeco" loading="lazy" decoding="async"></div>
         <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Cscec.png" alt="Cscec" loading="lazy" decoding="async"></div>
-        <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Daidongho-Photoroom.png" alt="Daidongho" loading="lazy" decoding="async"></div>
-        <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Goshu%20Kohsan-Photoroom.png" alt="Goshu Kohsan" loading="lazy" decoding="async"></div>
-        <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Greenviet-Photoroom%20%281%29.png" alt="Greenviet" loading="lazy" decoding="async"></div>
+        <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Goshu-Kohsan-Photoroom.png" alt="Goshu Kohsan" loading="lazy" decoding="async"></div>
         <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Hawee-Photoroom.png" alt="Hawee" loading="lazy" decoding="async"></div>
-        <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Khanghy-Photoroom.png" alt="Khanghy" loading="lazy" decoding="async"></div>
-        <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/LOGO-FISA-Photoroom.png" alt="LOGO FISA" loading="lazy" decoding="async"></div>
         <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Shmz-Photoroom.png" alt="Shmz" loading="lazy" decoding="async"></div>
         <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/aac-Photoroom.png" alt="Aac" loading="lazy" decoding="async"></div>
         <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/alphanam-Photoroom.png" alt="Alphanam" loading="lazy" decoding="async"></div>
-        <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/aqh-Photoroom.png" alt="Aqh" loading="lazy" decoding="async"></div>
-        <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/archetype-Photoroom.png" alt="Archetype" loading="lazy" decoding="async"></div>
-        <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/avc-Photoroom.png" alt="Avc" loading="lazy" decoding="async"></div>
-        <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/bachmy%20group-Photoroom.png" alt="Bachmy group" loading="lazy" decoding="async"></div>
-        <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/daiviet-Photoroom.png" alt="Daiviet" loading="lazy" decoding="async"></div>
-        <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/daphaco-Photoroom.png" alt="Daphaco" loading="lazy" decoding="async"></div>
         <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/ecobaent-Photoroom.png" alt="Ecobaent" loading="lazy" decoding="async"></div>
         <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/exyte-Photoroom.png" alt="Exyte" loading="lazy" decoding="async"></div>
-        <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/feg-Photoroom.png" alt="Feg" loading="lazy" decoding="async"></div>
         <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/flowcrete-Photoroom.png" alt="Flowcrete" loading="lazy" decoding="async"></div>
-        <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/fujita-Photoroom.png" alt="Fujita" loading="lazy" decoding="async"></div>
-        <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/fusheng-Photoroom.png" alt="Fusheng" loading="lazy" decoding="async"></div>
         <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/health.png" alt="Health" loading="lazy" decoding="async"></div>
-        <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/horngyu-Photoroom.png" alt="Horngyu" loading="lazy" decoding="async"></div>
-        <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/htd-Photoroom.png" alt="Htd" loading="lazy" decoding="async"></div>
-        <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/ipc-Photoroom.png" alt="Ipc" loading="lazy" decoding="async"></div>
         <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/jking-Photoroom.png" alt="Jking" loading="lazy" decoding="async"></div>
         <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/kcc-Photoroom.png" alt="Kcc" loading="lazy" decoding="async"></div>
-        <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/kobelco-Photoroom.png" alt="Kobelco" loading="lazy" decoding="async"></div>
         <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/obayashi-Photoroom.png" alt="Obayashi" loading="lazy" decoding="async"></div>
         <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/phanvu-Photoroom.png" alt="Phanvu" loading="lazy" decoding="async"></div>
         <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/posco-Photoroom.png" alt="Posco" loading="lazy" decoding="async"></div>
-        <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/renet-Photoroom.png" alt="Renet" loading="lazy" decoding="async"></div>
         <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/ricons-Photoroom.png" alt="Ricons" loading="lazy" decoding="async"></div>
-        <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/rittal-Photoroom.png" alt="Rittal" loading="lazy" decoding="async"></div>
-        <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/southern-Photoroom.png" alt="Southern" loading="lazy" decoding="async"></div>
-        <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/sungdoeng-Photoroom.png" alt="Sungdoeng" loading="lazy" decoding="async"></div>
-        <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/thienan-Photoroom.png" alt="Thienan" loading="lazy" decoding="async"></div>
         <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/tindat-Photoroom.png" alt="Tindat" loading="lazy" decoding="async"></div>
-        <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/tuanlong%20steel-Photoroom.png" alt="Tuanlong steel" loading="lazy" decoding="async"></div>
         <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/vjg-Photoroom.png" alt="Vjg" loading="lazy" decoding="async"></div>
         <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/wealthcons-Photoroom.png" alt="Wealthcons" loading="lazy" decoding="async"></div>
-        <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/world%20steel-Photoroom.png" alt="World steel" loading="lazy" decoding="async"></div>
+        <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/world-steel-Photoroom.png" alt="World steel" loading="lazy" decoding="async"></div>
         <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/xella-Photoroom.png" alt="Xella" loading="lazy" decoding="async"></div>
         <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/zme-Photoroom.png" alt="Zme" loading="lazy" decoding="async"></div>
         <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/105construction-Photoroom.png" alt="105 Construction" loading="lazy" decoding="async"></div>
         <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Arico-Photoroom.png" alt="Arico" loading="lazy" decoding="async"></div>
         <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/BMB-Photoroom.png" alt="BMB Steel" loading="lazy" decoding="async"></div>
         <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Becmex-Photoroom.png" alt="Becamex" loading="lazy" decoding="async"></div>
-        <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Deltae%26c-Photoroom.png" alt="Delta E&amp;C" loading="lazy" decoding="async"></div>
         <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Fecac-Photoroom.png" alt="Fuji CAC" loading="lazy" decoding="async"></div>
         <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Greenland-Photoroom.png" alt="Greenland" loading="lazy" decoding="async"></div>
         <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Hyundaielectric-Photoroom.png" alt="Hyundai Electric" loading="lazy" decoding="async"></div>
@@ -909,10 +896,8 @@ footer { background: var(--navy); color: rgba(255,255,255,0.55); padding: 72px 0
         <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Phuocthanh-Photoroom.png" alt="Phuoc Thanh" loading="lazy" decoding="async"></div>
         <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Syre.png" alt="Syre" loading="lazy" decoding="async"></div>
         <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Taisei-Photoroom.png" alt="Taisei" loading="lazy" decoding="async"></div>
-        <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/thanhnam-Photoroom.png" alt="Thanh Nam" loading="lazy" decoding="async"></div>
         <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Tondonga-Photoroom.png" alt="Ton Dong A" loading="lazy" decoding="async"></div>
         <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Tonmat-Photoroom.png" alt="Vietrust" loading="lazy" decoding="async"></div>
-        <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/tradeco-Photoroom.png" alt="Tradeco" loading="lazy" decoding="async"></div>
         <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Tuanle-Photoroom.png" alt="Tuan Le" loading="lazy" decoding="async"></div>
         <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/VTgroup-Photoroom.png" alt="VT Cons" loading="lazy" decoding="async"></div>
         <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Vietnhat-Photoroom.png" alt="Viet Nhat" loading="lazy" decoding="async"></div>
@@ -924,44 +909,41 @@ footer { background: var(--navy); color: rgba(255,255,255,0.55); padding: 72px 0
         <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/AZB-Photoroom.png" alt="AZB" loading="lazy" decoding="async"></div>
         <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Ariston-Photoroom.png" alt="Ariston" loading="lazy" decoding="async"></div>
         <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Basf-Photoroom.png" alt="Basf" loading="lazy" decoding="async"></div>
-        <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Blue%20scope-Photoroom.png" alt="Blue scope" loading="lazy" decoding="async"></div>
+        <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Bluescope-Photoroom.png" alt="Blue scope" loading="lazy" decoding="async"></div>
         <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Buhler_logo_RGB-Photoroom.png" alt="Buhler" loading="lazy" decoding="async"></div>
         <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/CJSC.png" alt="CJSC" loading="lazy" decoding="async"></div>
-        <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/CPT%20Steel-Photoroom.png" alt="CPT Steel" loading="lazy" decoding="async"></div>
+        <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/CPT-Steel-Photoroom.png" alt="CPT Steel" loading="lazy" decoding="async"></div>
         <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/CT-Photoroom.png" alt="CT" loading="lazy" decoding="async"></div>
         <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Cabot-Photoroom.png" alt="Cabot" loading="lazy" decoding="async"></div>
         <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Central.png" alt="Central" loading="lazy" decoding="async"></div>
         <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Daidung-Photoroom.png" alt="Daidung" loading="lazy" decoding="async"></div>
-        <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Dainam-Photoroom.png" alt="Dainam" loading="lazy" decoding="async"></div>
         <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Dinco-Photoroom.png" alt="Dinco" loading="lazy" decoding="async"></div>
-        <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/HD%20Hyundai%20electric.png" alt="HD Hyundai electric" loading="lazy" decoding="async"></div>
         <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/hsbc-Photoroom.png" alt="HSBC" loading="lazy" decoding="async"></div>
         <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Helukabel.png" alt="Helukabel" loading="lazy" decoding="async"></div>
-        <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Hoa%20binh.png" alt="Hoa binh" loading="lazy" decoding="async"></div>
-        <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Honney%20well.png" alt="Honney well" loading="lazy" decoding="async"></div>
+        <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Hoa-binh.png" alt="Hoa binh" loading="lazy" decoding="async"></div>
+        <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Honney-well.png" alt="Honney well" loading="lazy" decoding="async"></div>
         <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Hopluc.png" alt="Hopluc" loading="lazy" decoding="async"></div>
         <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Hormann.png" alt="Hormann" loading="lazy" decoding="async"></div>
-        <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/HuaNan%20International.png" alt="HuaNan International" loading="lazy" decoding="async"></div>
+        <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/HuaNan-International.png" alt="HuaNan International" loading="lazy" decoding="async"></div>
         <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/ICIC.png" alt="ICIC" loading="lazy" decoding="async"></div>
         <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Itochu.png" alt="Itochu" loading="lazy" decoding="async"></div>
         <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/JFE.png" alt="JFE" loading="lazy" decoding="async"></div>
         <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Jotun.png" alt="Jotun" loading="lazy" decoding="async"></div>
         <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/KDDI.png" alt="KDDI" loading="lazy" decoding="async"></div>
-        <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Kansai%20paint.png" alt="Kansai paint" loading="lazy" decoding="async"></div>
+        <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Kansai-paint.png" alt="Kansai paint" loading="lazy" decoding="async"></div>
         <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Kanto.png" alt="Kanto" loading="lazy" decoding="async"></div>
         <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Kinhbac.png" alt="Kinhbac" loading="lazy" decoding="async"></div>
         <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Kirby.png" alt="Kirby" loading="lazy" decoding="async"></div>
         <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Knauf.png" alt="Knauf" loading="lazy" decoding="async"></div>
-        <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/LG%20Business.png" alt="LG Business" loading="lazy" decoding="async"></div>
+        <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/LG-Business.png" alt="LG Business" loading="lazy" decoding="async"></div>
         <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/MCC.png" alt="MCC" loading="lazy" decoding="async"></div>
         <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Maeda.png" alt="Maeda" loading="lazy" decoding="async"></div>
         <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Mapei.png" alt="Mapei" loading="lazy" decoding="async"></div>
         <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/N.png" alt="N" loading="lazy" decoding="async"></div>
         <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/nakano-Photoroom.png" alt="Nakano" loading="lazy" decoding="async"></div>
         <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Pebsteel.png" alt="Pebsteel" loading="lazy" decoding="async"></div>
-        <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Quali%20pro.png" alt="Quali pro" loading="lazy" decoding="async"></div>
+        <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Quali-pro.png" alt="Quali pro" loading="lazy" decoding="async"></div>
         <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/REE.png" alt="REE" loading="lazy" decoding="async"></div>
-        <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Royal%20h%C3%A1koning.png" alt="Royal hákoning" loading="lazy" decoding="async"></div>
         <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/SCE.png" alt="SCE" loading="lazy" decoding="async"></div>
         <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Sagen.png" alt="Sagen" loading="lazy" decoding="async"></div>
         <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Schneider.png" alt="Schneider" loading="lazy" decoding="async"></div>
@@ -970,68 +952,45 @@ footer { background: var(--navy); color: rgba(255,255,255,0.55); padding: 72px 0
         <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Sigma.png" alt="Sigma" loading="lazy" decoding="async"></div>
         <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Sika.png" alt="Sika" loading="lazy" decoding="async"></div>
         <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Softbank.png" alt="Softbank" loading="lazy" decoding="async"></div>
-        <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Taihan%20Vina.png" alt="Taihan Vina" loading="lazy" decoding="async"></div>
-        <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Thang%20tien.png" alt="Thang tien" loading="lazy" decoding="async"></div>
+        <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Taihan-Vina.png" alt="Taihan Vina" loading="lazy" decoding="async"></div>
+        <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Thang-tien.png" alt="Thang tien" loading="lazy" decoding="async"></div>
         <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Toda.png" alt="Toda" loading="lazy" decoding="async"></div>
         <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/VE.png" alt="VE" loading="lazy" decoding="async"></div>
         <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Vinaconex.png" alt="Vinaconex" loading="lazy" decoding="async"></div>
         <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Vinata.png" alt="Vinata" loading="lazy" decoding="async"></div>
         <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Viteccons.png" alt="Viteccons" loading="lazy" decoding="async"></div>
-        <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Zamil%20steel.png" alt="Zamil steel" loading="lazy" decoding="async"></div>
+        <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Zamil-steel.png" alt="Zamil steel" loading="lazy" decoding="async"></div>
         <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/brunau.png" alt="brunau" loading="lazy" decoding="async"></div>
-        <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/916-Photoroom.png" alt="916" loading="lazy" decoding="async"></div>
-        <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Build-Photoroom.png" alt="Build" loading="lazy" decoding="async"></div>
-        <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Coteccons-Photoroom.png" alt="Coteccons" loading="lazy" decoding="async"></div>
+        <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Deltaec-Photoroom.png" alt="Deltaec" loading="lazy" decoding="async"></div>
+        <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Royal-ha%CC%81koning.png" alt="Royal hákoning" loading="lazy" decoding="async"></div>
+        <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Thanhnam-Photoroom.png" alt="Thanhnam" loading="lazy" decoding="async"></div>
+        <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Tradeco-Photoroom.png" alt="Tradeco" loading="lazy" decoding="async"></div>
         <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Cscec.png" alt="Cscec" loading="lazy" decoding="async"></div>
-        <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Daidongho-Photoroom.png" alt="Daidongho" loading="lazy" decoding="async"></div>
-        <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Goshu%20Kohsan-Photoroom.png" alt="Goshu Kohsan" loading="lazy" decoding="async"></div>
-        <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Greenviet-Photoroom%20%281%29.png" alt="Greenviet" loading="lazy" decoding="async"></div>
+        <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Goshu-Kohsan-Photoroom.png" alt="Goshu Kohsan" loading="lazy" decoding="async"></div>
         <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Hawee-Photoroom.png" alt="Hawee" loading="lazy" decoding="async"></div>
-        <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Khanghy-Photoroom.png" alt="Khanghy" loading="lazy" decoding="async"></div>
-        <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/LOGO-FISA-Photoroom.png" alt="LOGO FISA" loading="lazy" decoding="async"></div>
         <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Shmz-Photoroom.png" alt="Shmz" loading="lazy" decoding="async"></div>
         <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/aac-Photoroom.png" alt="Aac" loading="lazy" decoding="async"></div>
         <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/alphanam-Photoroom.png" alt="Alphanam" loading="lazy" decoding="async"></div>
-        <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/aqh-Photoroom.png" alt="Aqh" loading="lazy" decoding="async"></div>
-        <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/archetype-Photoroom.png" alt="Archetype" loading="lazy" decoding="async"></div>
-        <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/avc-Photoroom.png" alt="Avc" loading="lazy" decoding="async"></div>
-        <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/bachmy%20group-Photoroom.png" alt="Bachmy group" loading="lazy" decoding="async"></div>
-        <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/daiviet-Photoroom.png" alt="Daiviet" loading="lazy" decoding="async"></div>
-        <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/daphaco-Photoroom.png" alt="Daphaco" loading="lazy" decoding="async"></div>
         <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/ecobaent-Photoroom.png" alt="Ecobaent" loading="lazy" decoding="async"></div>
         <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/exyte-Photoroom.png" alt="Exyte" loading="lazy" decoding="async"></div>
-        <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/feg-Photoroom.png" alt="Feg" loading="lazy" decoding="async"></div>
         <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/flowcrete-Photoroom.png" alt="Flowcrete" loading="lazy" decoding="async"></div>
-        <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/fujita-Photoroom.png" alt="Fujita" loading="lazy" decoding="async"></div>
-        <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/fusheng-Photoroom.png" alt="Fusheng" loading="lazy" decoding="async"></div>
         <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/health.png" alt="Health" loading="lazy" decoding="async"></div>
-        <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/horngyu-Photoroom.png" alt="Horngyu" loading="lazy" decoding="async"></div>
-        <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/htd-Photoroom.png" alt="Htd" loading="lazy" decoding="async"></div>
-        <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/ipc-Photoroom.png" alt="Ipc" loading="lazy" decoding="async"></div>
         <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/jking-Photoroom.png" alt="Jking" loading="lazy" decoding="async"></div>
         <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/kcc-Photoroom.png" alt="Kcc" loading="lazy" decoding="async"></div>
-        <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/kobelco-Photoroom.png" alt="Kobelco" loading="lazy" decoding="async"></div>
         <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/obayashi-Photoroom.png" alt="Obayashi" loading="lazy" decoding="async"></div>
         <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/phanvu-Photoroom.png" alt="Phanvu" loading="lazy" decoding="async"></div>
         <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/posco-Photoroom.png" alt="Posco" loading="lazy" decoding="async"></div>
-        <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/renet-Photoroom.png" alt="Renet" loading="lazy" decoding="async"></div>
         <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/ricons-Photoroom.png" alt="Ricons" loading="lazy" decoding="async"></div>
-        <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/rittal-Photoroom.png" alt="Rittal" loading="lazy" decoding="async"></div>
-        <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/southern-Photoroom.png" alt="Southern" loading="lazy" decoding="async"></div>
-        <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/sungdoeng-Photoroom.png" alt="Sungdoeng" loading="lazy" decoding="async"></div>
-        <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/thienan-Photoroom.png" alt="Thienan" loading="lazy" decoding="async"></div>
         <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/tindat-Photoroom.png" alt="Tindat" loading="lazy" decoding="async"></div>
-        <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/tuanlong%20steel-Photoroom.png" alt="Tuanlong steel" loading="lazy" decoding="async"></div>
         <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/vjg-Photoroom.png" alt="Vjg" loading="lazy" decoding="async"></div>
         <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/wealthcons-Photoroom.png" alt="Wealthcons" loading="lazy" decoding="async"></div>
-        <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/world%20steel-Photoroom.png" alt="World steel" loading="lazy" decoding="async"></div>
+        <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/world-steel-Photoroom.png" alt="World steel" loading="lazy" decoding="async"></div>
         <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/xella-Photoroom.png" alt="Xella" loading="lazy" decoding="async"></div>
         <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/zme-Photoroom.png" alt="Zme" loading="lazy" decoding="async"></div>
         <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/105construction-Photoroom.png" alt="105 Construction" loading="lazy" decoding="async"></div>
         <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Arico-Photoroom.png" alt="Arico" loading="lazy" decoding="async"></div>
         <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/BMB-Photoroom.png" alt="BMB Steel" loading="lazy" decoding="async"></div>
         <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Becmex-Photoroom.png" alt="Becamex" loading="lazy" decoding="async"></div>
-        <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Deltae%26c-Photoroom.png" alt="Delta E&amp;C" loading="lazy" decoding="async"></div>
         <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Fecac-Photoroom.png" alt="Fuji CAC" loading="lazy" decoding="async"></div>
         <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Greenland-Photoroom.png" alt="Greenland" loading="lazy" decoding="async"></div>
         <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Hyundaielectric-Photoroom.png" alt="Hyundai Electric" loading="lazy" decoding="async"></div>
@@ -1043,10 +1002,8 @@ footer { background: var(--navy); color: rgba(255,255,255,0.55); padding: 72px 0
         <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Phuocthanh-Photoroom.png" alt="Phuoc Thanh" loading="lazy" decoding="async"></div>
         <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Syre.png" alt="Syre" loading="lazy" decoding="async"></div>
         <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Taisei-Photoroom.png" alt="Taisei" loading="lazy" decoding="async"></div>
-        <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/thanhnam-Photoroom.png" alt="Thanh Nam" loading="lazy" decoding="async"></div>
         <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Tondonga-Photoroom.png" alt="Ton Dong A" loading="lazy" decoding="async"></div>
         <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Tonmat-Photoroom.png" alt="Vietrust" loading="lazy" decoding="async"></div>
-        <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/tradeco-Photoroom.png" alt="Tradeco" loading="lazy" decoding="async"></div>
         <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Tuanle-Photoroom.png" alt="Tuan Le" loading="lazy" decoding="async"></div>
         <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/VTgroup-Photoroom.png" alt="VT Cons" loading="lazy" decoding="async"></div>
         <div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="/images/logo-clients/Vietnhat-Photoroom.png" alt="Viet Nhat" loading="lazy" decoding="async"></div>
@@ -1547,44 +1504,41 @@ footer { background: var(--navy); color: rgba(255,255,255,0.55); padding: 72px 0
       <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/AZB-Photoroom.png" alt="AZB" loading="lazy" decoding="async"></div>
       <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/Ariston-Photoroom.png" alt="Ariston" loading="lazy" decoding="async"></div>
       <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/Basf-Photoroom.png" alt="Basf" loading="lazy" decoding="async"></div>
-      <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/Blue%20scope-Photoroom.png" alt="Blue scope" loading="lazy" decoding="async"></div>
+      <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/Bluescope-Photoroom.png" alt="Blue scope" loading="lazy" decoding="async"></div>
       <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/Buhler_logo_RGB-Photoroom.png" alt="Buhler" loading="lazy" decoding="async"></div>
       <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/CJSC.png" alt="CJSC" loading="lazy" decoding="async"></div>
-      <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/CPT%20Steel-Photoroom.png" alt="CPT Steel" loading="lazy" decoding="async"></div>
+      <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/CPT-Steel-Photoroom.png" alt="CPT Steel" loading="lazy" decoding="async"></div>
       <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/CT-Photoroom.png" alt="CT" loading="lazy" decoding="async"></div>
       <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/Cabot-Photoroom.png" alt="Cabot" loading="lazy" decoding="async"></div>
       <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/Central.png" alt="Central" loading="lazy" decoding="async"></div>
       <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/Daidung-Photoroom.png" alt="Daidung" loading="lazy" decoding="async"></div>
-      <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/Dainam-Photoroom.png" alt="Dainam" loading="lazy" decoding="async"></div>
       <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/Dinco-Photoroom.png" alt="Dinco" loading="lazy" decoding="async"></div>
-      <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/HD%20Hyundai%20electric.png" alt="HD Hyundai electric" loading="lazy" decoding="async"></div>
       <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/hsbc-Photoroom.png" alt="HSBC" loading="lazy" decoding="async"></div>
       <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/Helukabel.png" alt="Helukabel" loading="lazy" decoding="async"></div>
-      <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/Hoa%20binh.png" alt="Hoa binh" loading="lazy" decoding="async"></div>
-      <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/Honney%20well.png" alt="Honney well" loading="lazy" decoding="async"></div>
+      <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/Hoa-binh.png" alt="Hoa binh" loading="lazy" decoding="async"></div>
+      <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/Honney-well.png" alt="Honney well" loading="lazy" decoding="async"></div>
       <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/Hopluc.png" alt="Hopluc" loading="lazy" decoding="async"></div>
       <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/Hormann.png" alt="Hormann" loading="lazy" decoding="async"></div>
-      <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/HuaNan%20International.png" alt="HuaNan International" loading="lazy" decoding="async"></div>
+      <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/HuaNan-International.png" alt="HuaNan International" loading="lazy" decoding="async"></div>
       <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/ICIC.png" alt="ICIC" loading="lazy" decoding="async"></div>
       <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/Itochu.png" alt="Itochu" loading="lazy" decoding="async"></div>
       <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/JFE.png" alt="JFE" loading="lazy" decoding="async"></div>
       <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/Jotun.png" alt="Jotun" loading="lazy" decoding="async"></div>
       <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/KDDI.png" alt="KDDI" loading="lazy" decoding="async"></div>
-      <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/Kansai%20paint.png" alt="Kansai paint" loading="lazy" decoding="async"></div>
+      <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/Kansai-paint.png" alt="Kansai paint" loading="lazy" decoding="async"></div>
       <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/Kanto.png" alt="Kanto" loading="lazy" decoding="async"></div>
       <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/Kinhbac.png" alt="Kinhbac" loading="lazy" decoding="async"></div>
       <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/Kirby.png" alt="Kirby" loading="lazy" decoding="async"></div>
       <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/Knauf.png" alt="Knauf" loading="lazy" decoding="async"></div>
-      <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/LG%20Business.png" alt="LG Business" loading="lazy" decoding="async"></div>
+      <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/LG-Business.png" alt="LG Business" loading="lazy" decoding="async"></div>
       <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/MCC.png" alt="MCC" loading="lazy" decoding="async"></div>
       <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/Maeda.png" alt="Maeda" loading="lazy" decoding="async"></div>
       <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/Mapei.png" alt="Mapei" loading="lazy" decoding="async"></div>
       <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/N.png" alt="N" loading="lazy" decoding="async"></div>
       <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/nakano-Photoroom.png" alt="Nakano" loading="lazy" decoding="async"></div>
       <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/Pebsteel.png" alt="Pebsteel" loading="lazy" decoding="async"></div>
-      <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/Quali%20pro.png" alt="Quali pro" loading="lazy" decoding="async"></div>
+      <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/Quali-pro.png" alt="Quali pro" loading="lazy" decoding="async"></div>
       <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/REE.png" alt="REE" loading="lazy" decoding="async"></div>
-      <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/Royal%20h%C3%A1koning.png" alt="Royal hákoning" loading="lazy" decoding="async"></div>
       <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/SCE.png" alt="SCE" loading="lazy" decoding="async"></div>
       <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/Sagen.png" alt="Sagen" loading="lazy" decoding="async"></div>
       <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/Schneider.png" alt="Schneider" loading="lazy" decoding="async"></div>
@@ -1593,68 +1547,45 @@ footer { background: var(--navy); color: rgba(255,255,255,0.55); padding: 72px 0
       <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/Sigma.png" alt="Sigma" loading="lazy" decoding="async"></div>
       <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/Sika.png" alt="Sika" loading="lazy" decoding="async"></div>
       <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/Softbank.png" alt="Softbank" loading="lazy" decoding="async"></div>
-      <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/Taihan%20Vina.png" alt="Taihan Vina" loading="lazy" decoding="async"></div>
-      <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/Thang%20tien.png" alt="Thang tien" loading="lazy" decoding="async"></div>
+      <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/Taihan-Vina.png" alt="Taihan Vina" loading="lazy" decoding="async"></div>
+      <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/Thang-tien.png" alt="Thang tien" loading="lazy" decoding="async"></div>
       <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/Toda.png" alt="Toda" loading="lazy" decoding="async"></div>
       <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/VE.png" alt="VE" loading="lazy" decoding="async"></div>
       <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/Vinaconex.png" alt="Vinaconex" loading="lazy" decoding="async"></div>
       <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/Vinata.png" alt="Vinata" loading="lazy" decoding="async"></div>
       <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/Viteccons.png" alt="Viteccons" loading="lazy" decoding="async"></div>
-      <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/Zamil%20steel.png" alt="Zamil steel" loading="lazy" decoding="async"></div>
+      <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/Zamil-steel.png" alt="Zamil steel" loading="lazy" decoding="async"></div>
       <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/brunau.png" alt="brunau" loading="lazy" decoding="async"></div>
-      <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/916-Photoroom.png" alt="916" loading="lazy" decoding="async"></div>
-      <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/Build-Photoroom.png" alt="Build" loading="lazy" decoding="async"></div>
-      <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/Coteccons-Photoroom.png" alt="Coteccons" loading="lazy" decoding="async"></div>
+      <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/Deltaec-Photoroom.png" alt="Deltaec" loading="lazy" decoding="async"></div>
+      <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/Royal-ha%CC%81koning.png" alt="Royal hákoning" loading="lazy" decoding="async"></div>
+      <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/Thanhnam-Photoroom.png" alt="Thanhnam" loading="lazy" decoding="async"></div>
+      <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/Tradeco-Photoroom.png" alt="Tradeco" loading="lazy" decoding="async"></div>
       <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/Cscec.png" alt="Cscec" loading="lazy" decoding="async"></div>
-      <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/Daidongho-Photoroom.png" alt="Daidongho" loading="lazy" decoding="async"></div>
-      <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/Goshu%20Kohsan-Photoroom.png" alt="Goshu Kohsan" loading="lazy" decoding="async"></div>
-      <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/Greenviet-Photoroom%20%281%29.png" alt="Greenviet" loading="lazy" decoding="async"></div>
+      <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/Goshu-Kohsan-Photoroom.png" alt="Goshu Kohsan" loading="lazy" decoding="async"></div>
       <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/Hawee-Photoroom.png" alt="Hawee" loading="lazy" decoding="async"></div>
-      <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/Khanghy-Photoroom.png" alt="Khanghy" loading="lazy" decoding="async"></div>
-      <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/LOGO-FISA-Photoroom.png" alt="LOGO FISA" loading="lazy" decoding="async"></div>
       <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/Shmz-Photoroom.png" alt="Shmz" loading="lazy" decoding="async"></div>
       <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/aac-Photoroom.png" alt="Aac" loading="lazy" decoding="async"></div>
       <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/alphanam-Photoroom.png" alt="Alphanam" loading="lazy" decoding="async"></div>
-      <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/aqh-Photoroom.png" alt="Aqh" loading="lazy" decoding="async"></div>
-      <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/archetype-Photoroom.png" alt="Archetype" loading="lazy" decoding="async"></div>
-      <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/avc-Photoroom.png" alt="Avc" loading="lazy" decoding="async"></div>
-      <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/bachmy%20group-Photoroom.png" alt="Bachmy group" loading="lazy" decoding="async"></div>
-      <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/daiviet-Photoroom.png" alt="Daiviet" loading="lazy" decoding="async"></div>
-      <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/daphaco-Photoroom.png" alt="Daphaco" loading="lazy" decoding="async"></div>
       <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/ecobaent-Photoroom.png" alt="Ecobaent" loading="lazy" decoding="async"></div>
       <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/exyte-Photoroom.png" alt="Exyte" loading="lazy" decoding="async"></div>
-      <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/feg-Photoroom.png" alt="Feg" loading="lazy" decoding="async"></div>
       <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/flowcrete-Photoroom.png" alt="Flowcrete" loading="lazy" decoding="async"></div>
-      <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/fujita-Photoroom.png" alt="Fujita" loading="lazy" decoding="async"></div>
-      <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/fusheng-Photoroom.png" alt="Fusheng" loading="lazy" decoding="async"></div>
       <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/health.png" alt="Health" loading="lazy" decoding="async"></div>
-      <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/horngyu-Photoroom.png" alt="Horngyu" loading="lazy" decoding="async"></div>
-      <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/htd-Photoroom.png" alt="Htd" loading="lazy" decoding="async"></div>
-      <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/ipc-Photoroom.png" alt="Ipc" loading="lazy" decoding="async"></div>
       <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/jking-Photoroom.png" alt="Jking" loading="lazy" decoding="async"></div>
       <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/kcc-Photoroom.png" alt="Kcc" loading="lazy" decoding="async"></div>
-      <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/kobelco-Photoroom.png" alt="Kobelco" loading="lazy" decoding="async"></div>
       <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/obayashi-Photoroom.png" alt="Obayashi" loading="lazy" decoding="async"></div>
       <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/phanvu-Photoroom.png" alt="Phanvu" loading="lazy" decoding="async"></div>
       <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/posco-Photoroom.png" alt="Posco" loading="lazy" decoding="async"></div>
-      <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/renet-Photoroom.png" alt="Renet" loading="lazy" decoding="async"></div>
       <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/ricons-Photoroom.png" alt="Ricons" loading="lazy" decoding="async"></div>
-      <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/rittal-Photoroom.png" alt="Rittal" loading="lazy" decoding="async"></div>
-      <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/southern-Photoroom.png" alt="Southern" loading="lazy" decoding="async"></div>
-      <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/sungdoeng-Photoroom.png" alt="Sungdoeng" loading="lazy" decoding="async"></div>
-      <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/thienan-Photoroom.png" alt="Thienan" loading="lazy" decoding="async"></div>
       <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/tindat-Photoroom.png" alt="Tindat" loading="lazy" decoding="async"></div>
-      <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/tuanlong%20steel-Photoroom.png" alt="Tuanlong steel" loading="lazy" decoding="async"></div>
       <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/vjg-Photoroom.png" alt="Vjg" loading="lazy" decoding="async"></div>
       <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/wealthcons-Photoroom.png" alt="Wealthcons" loading="lazy" decoding="async"></div>
-      <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/world%20steel-Photoroom.png" alt="World steel" loading="lazy" decoding="async"></div>
+      <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/world-steel-Photoroom.png" alt="World steel" loading="lazy" decoding="async"></div>
       <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/xella-Photoroom.png" alt="Xella" loading="lazy" decoding="async"></div>
       <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/zme-Photoroom.png" alt="Zme" loading="lazy" decoding="async"></div>
       <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/105construction-Photoroom.png" alt="105 Construction" loading="lazy" decoding="async"></div>
       <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/Arico-Photoroom.png" alt="Arico" loading="lazy" decoding="async"></div>
       <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/BMB-Photoroom.png" alt="BMB Steel" loading="lazy" decoding="async"></div>
       <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/Becmex-Photoroom.png" alt="Becamex" loading="lazy" decoding="async"></div>
-      <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/Deltae%26c-Photoroom.png" alt="Delta E&amp;C" loading="lazy" decoding="async"></div>
       <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/Fecac-Photoroom.png" alt="Fuji CAC" loading="lazy" decoding="async"></div>
       <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/Greenland-Photoroom.png" alt="Greenland" loading="lazy" decoding="async"></div>
       <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/Hyundaielectric-Photoroom.png" alt="Hyundai Electric" loading="lazy" decoding="async"></div>
@@ -1666,10 +1597,8 @@ footer { background: var(--navy); color: rgba(255,255,255,0.55); padding: 72px 0
       <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/Phuocthanh-Photoroom.png" alt="Phuoc Thanh" loading="lazy" decoding="async"></div>
       <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/Syre.png" alt="Syre" loading="lazy" decoding="async"></div>
       <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/Taisei-Photoroom.png" alt="Taisei" loading="lazy" decoding="async"></div>
-      <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/thanhnam-Photoroom.png" alt="Thanh Nam" loading="lazy" decoding="async"></div>
       <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/Tondonga-Photoroom.png" alt="Ton Dong A" loading="lazy" decoding="async"></div>
       <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/Tonmat-Photoroom.png" alt="Vietrust" loading="lazy" decoding="async"></div>
-      <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/tradeco-Photoroom.png" alt="Tradeco" loading="lazy" decoding="async"></div>
       <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/Tuanle-Photoroom.png" alt="Tuan Le" loading="lazy" decoding="async"></div>
       <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/VTgroup-Photoroom.png" alt="VT Cons" loading="lazy" decoding="async"></div>
       <div class="cust-logo"><img class="cust-logo__img" src="/images/logo-clients/Vietnhat-Photoroom.png" alt="Viet Nhat" loading="lazy" decoding="async"></div>

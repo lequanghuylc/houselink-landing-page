@@ -1,7 +1,16 @@
 #!/usr/bin/env python3
 """
 Fix logo-clients HTML vs disk: rename broken refs, drop obsolete Ton Dong A row,
-remove duplicate HSBC pill after WTW, append any new-on-disk logos after brunau.
+remove duplicate HSBC pill after WTW, drop logo rows whose file is missing on disk,
+append any new-on-disk logos after brunau.
+
+Run after updating files in images/logo-clients/:
+
+  .venv/bin/python scripts/reconcile-client-logos.py
+
+Strip transparent padding from raster logos first (optional):
+
+  .venv/bin/python scripts/strip-logo-clients-padding.py
 """
 from __future__ import annotations
 
@@ -16,6 +25,8 @@ LOGO_DIR = ROOT / "images" / "logo-clients"
 
 # Old basename in HTML -> exact filename on disk (must exist).
 SRC_RENAME: dict[str, str] = {
+    "Blue scope-Photoroom.png": "Bluescope-Photoroom.png",
+    "HD Hyundai electric.png": "HD-Hyundai-electric.png",
     "HSBC.png": "hsbc-Photoroom.png",
     "Buhler-Photoroom.png": "Buhler_logo_RGB-Photoroom.png",
     "Nakano.png": "nakano-Photoroom.png",
@@ -35,6 +46,8 @@ ALT_OVERRIDES: dict[str, str] = {
     "Wtw-Photoroom.png": "WTW",
     "hsbc-Photoroom.png": "HSBC",
     "Hyundaielectric-Photoroom.png": "Hyundai Electric",
+    "HD-Hyundai-electric.png": "HD Hyundai Electric",
+    "Bluescope-Photoroom.png": "Bluescope",
     "Becmex-Photoroom.png": "Becamex",
     "Phuocthanh-Photoroom.png": "Phuoc Thanh",
     "thanhnam-Photoroom.png": "Thanh Nam",
@@ -52,7 +65,7 @@ ALT_OVERRIDES: dict[str, str] = {
     "Arico-Photoroom.png": "Arico",
     "Buhler_logo_RGB-Photoroom.png": "Bühler",
     "nakano-Photoroom.png": "Nakano",
-    "Greenviet-Photoroom (1).png": "Greenviet",
+    "Greenviet-Photoroom-(1).png": "Greenviet",
 }
 
 TARGETS = [
@@ -118,6 +131,28 @@ def drop_ton_dong_a_line(text: str) -> str:
     return "\n".join(L for L in lines if "logo-clients/Ton%20dong%20a.png" not in L)
 
 
+def drop_missing_logo_lines(text: str, disk: set[str]) -> str:
+    """Remove logo-pill / cust-logo lines whose src file is not on disk (after renames)."""
+    lines = text.split("\n")
+    out: list[str] = []
+    for line in lines:
+        if "/images/logo-clients/" not in line:
+            out.append(line)
+            continue
+        if "logo-pill" not in line and "cust-logo" not in line:
+            out.append(line)
+            continue
+        m = re.search(r'src="/images/logo-clients/([^"]+)"', line)
+        if not m:
+            out.append(line)
+            continue
+        fn = urllib.parse.unquote(m.group(1))
+        if fn not in disk:
+            continue
+        out.append(line)
+    return "\n".join(out)
+
+
 def drop_hsbc_after_wtw(text: str) -> str:
     # Marquee / logo-pill: WTW pill then duplicate HSBC pill (img src is inside child <img>).
     pill_pair = (
@@ -175,6 +210,7 @@ def main() -> None:
         text = drop_ton_dong_a_line(text)
         text = drop_hsbc_after_wtw(text)
 
+        text = drop_missing_logo_lines(text, disk)
         refs = existing_refs(text)
         missing_on_disk = sorted(refs - disk)
         new_only = sorted(disk - refs)
