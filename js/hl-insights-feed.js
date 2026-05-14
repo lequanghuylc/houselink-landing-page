@@ -1,6 +1,7 @@
 /**
  * Market Insights: Market + Learn. Learn: WP REST first (VI categories=74&lang=vi, EN categories=33),
  * then data-learn-vi.json / data-learn-en.json. Same data-hl-vn-news-source as Market (api | hardcode | default).
+ * /vi/insights/ + /vi/: đặt data-hl-vn-news-source="hardcode" và chạy tools/merge_json_from_uploads_dir.py để ảnh /images/uploads/.
  */
 (function () {
   "use strict";
@@ -54,17 +55,37 @@
       .replace(/'/g, "&#39;");
   }
 
+  function firstLocalUploadFromPostHtml(post) {
+    var html =
+      ((post && post.content && post.content.rendered) || "") +
+      " " +
+      ((post && post.excerpt && post.excerpt.rendered) || "");
+    if (!html) return "";
+    var m = String(html).match(/src\s*=\s*["'](\/images\/uploads\/[^"']+)["']/i);
+    if (m) return m[1];
+    m = String(html).match(/\/images\/uploads\/[^"'>\s#]+/i);
+    if (!m) return "";
+    var s = m[0];
+    var q = s.indexOf("?");
+    return q === -1 ? s : s.slice(0, q);
+  }
+
   function pickImage(post) {
     try {
       var emb = post && post._embedded;
       var fm = emb && emb["wp:featuredmedia"] && emb["wp:featuredmedia"][0];
-      if (fm && fm.source_url) return fm.source_url;
-      if (fm && fm.media_details && fm.media_details.sizes) {
+      var u = "";
+      if (fm && fm.source_url) u = fm.source_url;
+      if (!u && fm && fm.media_details && fm.media_details.sizes) {
         var sizes = fm.media_details.sizes;
-        if (sizes.medium_large && sizes.medium_large.source_url) return sizes.medium_large.source_url;
-        if (sizes.large && sizes.large.source_url) return sizes.large.source_url;
-        if (sizes.medium && sizes.medium.source_url) return sizes.medium.source_url;
+        if (sizes.medium_large && sizes.medium_large.source_url) u = sizes.medium_large.source_url;
+        else if (sizes.large && sizes.large.source_url) u = sizes.large.source_url;
+        else if (sizes.medium && sizes.medium.source_url) u = sizes.medium.source_url;
       }
+      if (u && u.indexOf("/images/uploads/") !== -1) return u;
+      var local = firstLocalUploadFromPostHtml(post);
+      if (local) return local;
+      return u || "";
     } catch (ignore) {}
     return "";
   }
@@ -92,6 +113,29 @@
     } catch (ignore) {
       return [];
     }
+  }
+
+  /** Learn (Học hỏi) trong Insights — category 33 (EN) / 74 (VI), hoặc slug learn / hoc-hoi. */
+  function isLearnInsightsPost(post) {
+    try {
+      var ids = post && post.categories;
+      if (Array.isArray(ids)) {
+        for (var i = 0; i < ids.length; i++) {
+          var id = ids[i];
+          if (id === 74 || id === 33) return true;
+        }
+      }
+    } catch (ignore) {}
+    try {
+      var terms = post && post._embedded && post._embedded["wp:term"];
+      var cats = terms && terms[0];
+      if (!Array.isArray(cats)) return false;
+      for (var j = 0; j < cats.length; j++) {
+        var sl = String((cats[j] && cats[j].slug) || "").toLowerCase();
+        if (sl === "learn" || sl === "hoc-hoi") return true;
+      }
+    } catch (ignore2) {}
+    return false;
   }
 
   /** Dedupe by post id, sort newest first (same idea as vietnam-construction-feed mergePostsByDateDesc). */
@@ -178,11 +222,12 @@
   }
 
   /**
-   * Filter keys: all | industrial | fdi | esg | supply | textile | semi
+   * Filter keys: all | learn | industrial | fdi | esg | supply | textile | semi
    * Heuristics on title/excerpt/categories/tags (English source copy).
    */
   function postMatchesFilter(post, key) {
     if (!key || key === "all") return true;
+    if (key === "learn") return isLearnInsightsPost(post);
     var blob =
       stripHtml((post.title && post.title.rendered) || "").toLowerCase() +
       " " +
@@ -219,7 +264,6 @@
       if (/(esg|green building|renewable|solar|carbon|cbam|climate|sustainable|energy transition|power purchase|dppa)/.test(all))
         return true;
       if (/(bền vững|ben vung|năng lượng|nang luong|khí hậu|khi hau|carbon)/.test(all)) return true;
-      if (cats.indexOf("learn") !== -1) return true;
       return false;
     }
     if (key === "supply") {
