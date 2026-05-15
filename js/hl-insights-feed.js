@@ -2,6 +2,7 @@
  * Market Insights: Market + Learn. Learn: WP REST first (VI categories=74&lang=vi, EN categories=33),
  * then data-learn-vi.json / data-learn-en.json. Same data-hl-vn-news-source as Market (api | hardcode | default).
  * /vi/insights/ + /vi/: đặt data-hl-vn-news-source="hardcode" và chạy tools/merge_json_from_uploads_dir.py để ảnh /images/uploads/.
+ * Fallback: fetch data-market-*.json + data-learn-*.json from /js/ if HL_VietnamConstruction fails or returns empty.
  */
 (function () {
   "use strict";
@@ -161,6 +162,62 @@
     return out;
   }
 
+  function insightsJsonBaseDir() {
+    var el = document.querySelector('script[src*="hl-insights-feed.js"]');
+    if (!el || !el.src) el = document.querySelector('script[src*="vietnam-construction-feed.js"]');
+    if (!el || !el.src) return "";
+    return el.src.replace(/[^/]+$/, "");
+  }
+
+  function filterInsightsPostsByCategories(posts, categoryIds) {
+    if (!categoryIds || !categoryIds.length) return posts || [];
+    return (posts || []).filter(function (p) {
+      var cats = p.categories;
+      if (!Array.isArray(cats)) return false;
+      for (var i = 0; i < categoryIds.length; i++) {
+        if (cats.indexOf(categoryIds[i]) !== -1) return true;
+      }
+      return false;
+    });
+  }
+
+  /** Same merge as loadMarketInitial when VC script fails or returns empty. */
+  async function loadBundledInsightsMerge(container) {
+    var base = insightsJsonBaseDir();
+    if (!base) throw new Error("insights_json_base_missing");
+    var isVi = useVcViMarketFeed();
+    var marketFile = isVi ? "data-market-vi.json" : "data-market-en.json";
+    var learnFile = isVi ? "data-learn-vi.json" : "data-learn-en.json";
+    var catM = isVi ? [3813] : [3879];
+    var catL = isVi ? [74] : [33];
+    var rm = await fetch(base + marketFile, { credentials: "omit" });
+    var rl = await fetch(base + learnFile, { credentials: "omit" });
+    if (!rm.ok || !rl.ok) throw new Error("insights_json_http");
+    var marketArr = await rm.json();
+    var learnArr = await rl.json();
+    if (!Array.isArray(marketArr) || !Array.isArray(learnArr)) throw new Error("insights_json_shape");
+    var posts = mergePostsByDateDescTwo([
+      filterInsightsPostsByCategories(marketArr, catM),
+      filterInsightsPostsByCategories(learnArr, catL)
+    ]);
+    if (!posts.length) throw new Error("insights_json_empty");
+    clearInsightsPagination(container);
+    insightsState.allPosts = posts;
+    insightsState.filter = "all";
+    renderFeedFromCache(container);
+    bindLoadMoreOnce();
+    bindFilterBarOnce();
+  }
+
+  function insightsLoadFailedHtml() {
+    var k = langKey();
+    if (k === "ja") return "レポートを読み込めませんでした。ページを再読み込みするか、しばらくしてからお試しください。";
+    if (k === "ko") return "보고서를 불러오지 못했습니다. 페이지를 새로 고침하거나 잠시 후 다시 시도하세요.";
+    if (k === "zh") return "无法加载报告。请刷新页面或稍后再试。";
+    if (k === "vi") return "Không tải được báo cáo. Hãy tải lại trang hoặc thử lại sau.";
+    return "Could not load reports. Try refreshing the page or again in a moment.";
+  }
+
   /**
    * Learn posts for Insights: try WP JSON API, then local JSON (Polylang: lang=vi for category 74).
    * Mirrors Market strategy for data-hl-vn-news-source.
@@ -251,12 +308,12 @@
       if (cats.indexOf("industrial") !== -1 || cats.indexOf("project") !== -1 || cats.indexOf("architect") !== -1)
         return true;
       if (
-        /(industrial|factory|warehouse|real estate|industrial park|\bip\b|kcn|occupancy|rental|steel|building material|urban area|manufacturing base)/.test(
+        /(industrial|factory|warehouse|real estate|industrial parks|\bip\b|kcn|occupancy|rental|steel|building material|urban area|manufacturing base)/.test(
           all
         )
       )
         return true;
-      if (/(khu công nghiệp|khu cong nghiep|bất động sản công nghiệp|bat dong san cong nghiep|nhà xưởng|nha xuong|thuê|thue)/.test(all))
+      if (/(Khu công nghiệp|khu công nghiệp|khu cong nghiep|bất động sản công nghiệp|bat dong san cong nghiep|nhà xưởng|nha xuong|thuê|thue)/.test(all))
         return true;
       return false;
     }
@@ -481,7 +538,17 @@
         ? await VC.hardcodeMarketViFromVietnamconstruction(input)
         : await VC.hardcodeMarketFromVietnamconstruction(input);
     } else if (mode === "api") {
-      result = await VC.fetchFromVietnamconstruction(input);
+      try {
+        result = await VC.fetchFromVietnamconstruction(input);
+      } catch (ignore) {
+        result = { posts: [] };
+      }
+      var apiPostsM = result && result.posts;
+      if (!Array.isArray(apiPostsM) || !apiPostsM.length) {
+        result = isVi
+          ? await VC.hardcodeMarketViFromVietnamconstruction(input)
+          : await VC.hardcodeMarketFromVietnamconstruction(input);
+      }
     } else {
       try {
         result = await VC.fetchFromVietnamconstruction(input);
@@ -549,6 +616,18 @@
         }
       }
     } catch (ignore) {}
+    try {
+      if (useVcEnMarketFeed() || useVcViMarketFeed()) {
+        await loadBundledInsightsMerge(container);
+        return;
+      }
+    } catch (ignore2) {}
+    if (useVcEnMarketFeed() || useVcViMarketFeed()) {
+      container.innerHTML =
+        '<p class="hl-insights-load-fail" style="grid-column:1/-1;padding:36px 20px;text-align:center;font-size:15px;color:var(--gray-600);border:1px dashed var(--gray-200);border-radius:12px;">' +
+        esc(insightsLoadFailedHtml()) +
+        "</p>";
+    }
     syncLoadMoreButton(container);
   }
 

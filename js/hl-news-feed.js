@@ -3,6 +3,7 @@
  * Progressive enhancement: optional `.hl-news-fallback` static cards stay in HTML;
  * hidden with `.hl-feed-waiting` while JS loads; shown again if every source fails.
  * EN + JA/KO/ZH: Vietnam Construction Event (EN, cat 6). VI: Event (VI, cat 66) from data-event-vi.json.
+ * Fallback: fetch data-event-en.json / data-event-vi.json from the same /js/ directory if VC or API fails.
  * Filters, cached pagination, detail links to /news/article/?id=.
  */
 (function () {
@@ -150,7 +151,7 @@
       )
         return true;
       if (
-        /(kcn|khu công nghiệp|khu cong nghiep|bất động sản công nghiệp|bat dong san cong nghiep|nhà máy|nha may|nhà xưởng|nha xuong|xây dựng|xay dung|bđs công nghiệp|bds cong nghiep)/.test(
+        /(kcn|Khu công nghiệp|khu công nghiệp|khu cong nghiep|bất động sản công nghiệp|bat dong san cong nghiep|nhà máy|nha may|nhà xưởng|nha xuong|xây dựng|xay dung|bđs công nghiệp|bds cong nghiep)/.test(
           all
         )
       )
@@ -285,6 +286,55 @@
     );
   }
 
+  function newsFeedJsonBaseDir() {
+    var el = document.querySelector('script[src*="hl-news-feed.js"]');
+    if (!el || !el.src) el = document.querySelector('script[src*="vietnam-construction-feed.js"]');
+    if (!el || !el.src) return "";
+    return el.src.replace(/[^/]+$/, "");
+  }
+
+  function filterPostsByCategories(posts, categoryIds) {
+    if (!categoryIds || !categoryIds.length) return posts || [];
+    return (posts || []).filter(function (p) {
+      var cats = p.categories;
+      if (!Array.isArray(cats)) return false;
+      for (var i = 0; i < categoryIds.length; i++) {
+        if (cats.indexOf(categoryIds[i]) !== -1) return true;
+      }
+      return false;
+    });
+  }
+
+  function sortPostsByDateDesc(posts) {
+    return (posts || []).slice().sort(function (a, b) {
+      var da = new Date((a && (a.date || a.modified)) || 0).getTime();
+      var db = new Date((b && (b.date || b.modified)) || 0).getTime();
+      return db - da;
+    });
+  }
+
+  /** When VC is missing or fails: same JSON as hardcodeFromVietnamconstruction / hardcodeEventVi. */
+  async function loadBundledEventNews(container) {
+    var base = newsFeedJsonBaseDir();
+    if (!base) throw new Error("news_json_base_missing");
+    var isVi = useVcViFeed();
+    var url = base + (isVi ? "data-event-vi.json" : "data-event-en.json");
+    var catIds = isVi ? [66] : [6];
+    var res = await fetch(url, { credentials: "omit" });
+    if (!res.ok) throw new Error("event_json_http");
+    var arr = await res.json();
+    if (!Array.isArray(arr)) throw new Error("event_json_shape");
+    var posts = sortPostsByDateDesc(filterPostsByCategories(arr, catIds));
+    if (!posts.length) throw new Error("event_json_empty");
+
+    clearNewsPagination(container);
+    enNewsState.allPosts = posts;
+    enNewsState.filter = "all";
+    renderFeedFromCache(container);
+    bindLoadMoreOnce();
+    bindFilterBarOnce();
+  }
+
   function clearNewsPagination(container) {
     enNewsState.allPosts = [];
     enNewsState.filter = "all";
@@ -396,7 +446,15 @@
     if (mode === "hardcode") {
       result = await VC.hardcodeFromVietnamconstruction(input);
     } else if (mode === "api") {
-      result = await VC.fetchFromVietnamconstruction(input);
+      try {
+        result = await VC.fetchFromVietnamconstruction(input);
+      } catch (ignore) {
+        result = { posts: [] };
+      }
+      var apiPostsApi = result && result.posts;
+      if (!Array.isArray(apiPostsApi) || !apiPostsApi.length) {
+        result = await VC.hardcodeFromVietnamconstruction(input);
+      }
     } else {
       try {
         result = await VC.fetchFromVietnamconstruction(input);
@@ -436,7 +494,15 @@
     if (mode === "hardcode") {
       result = await VC.hardcodeEventViFromVietnamconstruction(input);
     } else if (mode === "api") {
-      result = await VC.fetchFromVietnamconstruction(input);
+      try {
+        result = await VC.fetchFromVietnamconstruction(input);
+      } catch (ignore) {
+        result = { posts: [] };
+      }
+      var apiPostsViApi = result && result.posts;
+      if (!Array.isArray(apiPostsViApi) || !apiPostsViApi.length) {
+        result = await VC.hardcodeEventViFromVietnamconstruction(input);
+      }
     } else {
       try {
         result = await VC.fetchFromVietnamconstruction(input);
@@ -496,6 +562,15 @@
       if (useVcEnFeed() && window.HL_VietnamConstruction) {
         try {
           await loadEnFromVietnamConstructionInitial(container);
+          return;
+        } catch (ignore) {
+          clearNewsPagination(container);
+        }
+      }
+
+      if (useVcEnFeed() || useVcViFeed()) {
+        try {
+          await loadBundledEventNews(container);
           return;
         } catch (ignore) {
           clearNewsPagination(container);

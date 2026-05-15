@@ -388,7 +388,7 @@
     });
   }
 
-  /** Event detail pages: full registration (KCN etc.) */
+  /** Event detail pages: full registration (Industrial Parks etc.) */
   function wireEventRegistrationForm(form) {
     form.addEventListener("submit", function (e) {
       e.preventDefault();
