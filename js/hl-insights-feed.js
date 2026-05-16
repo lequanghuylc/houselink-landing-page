@@ -313,7 +313,7 @@
         )
       )
         return true;
-      if (/(Khu công nghiệp|khu công nghiệp|khu cong nghiep|bất động sản công nghiệp|bat dong san cong nghiep|nhà xưởng|nha xuong|thuê|thue)/.test(all))
+      if (/(Khu công nghiệp|khu công nghiệp|khu cong nghiep|hạ tầng khu công nghiệp|ha tang khu cong nghiep|nhà xưởng|nha xuong|thuê|thue)/.test(all))
         return true;
       return false;
     }
