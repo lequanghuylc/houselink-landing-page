@@ -151,7 +151,7 @@
       )
         return true;
       if (
-        /(kcn|Khu công nghiệp|khu công nghiệp|khu cong nghiep|bất động sản công nghiệp|bat dong san cong nghiep|nhà máy|nha may|nhà xưởng|nha xuong|xây dựng|xay dung|bđs công nghiệp|bds cong nghiep)/.test(
+        /(kcn|Khu công nghiệp|khu công nghiệp|khu cong nghiep|hạ tầng khu công nghiệp|ha tang khu cong nghiep|nhà máy|nha may|nhà xưởng|nha xuong|xây dựng|xay dung|hạ tầng khu công nghiệp|ha tang khu cong nghiep)/.test(
           all
         )
       )
