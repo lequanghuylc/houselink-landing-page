@@ -2144,3 +2144,9 @@ body[data-hl-page="contact"] .map-embed iframe {
     font-size: 12.5px;
   }
 }
+
+/* Cabot client logo — hidden site-wide */
+.logo-pill:has(img[alt="Cabot"]),
+.cust-logo:has(img[alt="Cabot"]) {
+  display: none !important;
+}
