@@ -205,7 +205,9 @@ a{text-decoration:none;color:inherit;}
   </div>
 </div>
 
+  <script src="../../js/hl-auth-env.js"></script>
   <script src="../../js/auth-locale-validation.js" defer></script>
+  <script src="../../js/hl-register-handoff.js" defer></script>
 <script>
 function togglePw(id,el){const i=document.getElementById(id);i.type=i.type==='password'?'text':'password';el.textContent=i.type==='password'?'👁':'🙈';}
 function pwStrength(val){const bars=document.querySelectorAll('.pw-bar');const label=document.querySelector('.pw-label');if(!bars.length)return;let score=0;if(val.length>=8)score++;if(/[A-Z]/.test(val))score++;if(/[0-9]/.test(val))score++;if(/[^A-Za-z0-9]/.test(val))score++;const colors=['','#EF4444','#F59E0B','#F59E0B','#2D8B48'];const labels={'vi':['','Yếu','Trung bình','Khá','Mạnh'],'en':['','Weak','Fair','Good','Strong'],'zh':['','弱','中等','较强','强'],'ko':['','약함','보통','양호','강함'],'ja':['','弱い','普通','良い','強い']};const lang=document.documentElement.lang||'vi';const lmap=labels[lang]||labels['en'];bars.forEach((b,i)=>{b.style.background=i<score?colors[score]:'#DDE3E8';});if(label)label.textContent=lmap[score]||'';}
