@@ -9,7 +9,7 @@
  * Header login (“Login / Đăng nhập”) — `js/hl-auth-env.js` + `wireDashboardLoginLinks()`:
  * - localhost → `/login/`, `/vi/login/`, … (landing login; after login → local frontend)
  * - houselink.com.vn → https://dashboard.houselink.com.vn/
- * - *.netlify.app → https://app.houselink.com.vn/
+ * - *.netlify.app → /login/ (API 2026-api.houselink.com.vn; after login → app.houselink.com.vn)
  */
 (function () {
   "use strict";
