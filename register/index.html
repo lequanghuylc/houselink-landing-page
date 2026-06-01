@@ -69,6 +69,7 @@ a{text-decoration:none;color:inherit;}
 .btn-auth{width:100%;background:var(--green);color:#fff;font-size:15px;font-weight:700;padding:13px;border-radius:9px;border:none;cursor:pointer;transition:background .2s,transform .1s;font-family:var(--font-main);letter-spacing:.02em;}
 .btn-auth:hover{background:#2a7d3f;}
 .btn-auth:active{transform:scale(.99);}
+.btn-auth:disabled{opacity:.65;cursor:not-allowed;}
 .btn-google{width:100%;background:var(--white);color:var(--navy);font-size:14px;font-weight:600;padding:12px;border-radius:9px;border:1.5px solid var(--gray-100);cursor:pointer;transition:all .2s;font-family:var(--font-main);display:flex;align-items:center;justify-content:center;gap:10px;margin-top:10px;}
 .btn-google:hover{border-color:var(--green);color:var(--green);}
 /* Divider */
@@ -205,6 +206,8 @@ a{text-decoration:none;color:inherit;}
   </div>
 </div>
 
+  <script src="../js/hl-auth-env.js"></script>
+  <script src="../js/hl-register-handoff.js"></script>
   <script src="../js/auth-locale-validation.js" defer></script>
 <script>
 function togglePw(id,el){const i=document.getElementById(id);i.type=i.type==='password'?'text':'password';el.textContent=i.type==='password'?'👁':'🙈';}

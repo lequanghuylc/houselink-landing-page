@@ -9,7 +9,7 @@
    * Auth routing by landing hostname:
    * - localhost → landing /login/; API localhost:3001; after login → local frontend (:3333)
    * - houselink.com.vn → header Login → dashboard.houselink.com.vn (no landing login)
-   * - *.netlify.app → landing /login/; API 2026-api.houselink.com.vn; after login → app.houselink.com.vn
+   * - *.netlify.app → landing /login/ & /register/; API 2026-api.houselink.com.vn; after auth → app.houselink.com.vn
    */
   function resolveAuthEnv() {
     var loc = global && global.location ? global.location : null;

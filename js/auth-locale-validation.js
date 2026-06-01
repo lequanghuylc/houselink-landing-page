@@ -90,6 +90,9 @@
       eventRegCompanyEmpty: "Please enter your company or organisation name.",
       eventRegSectorEmpty: "Please select a sector.",
       eventRegConsentRequired: "Please agree to receive confirmation emails and the privacy terms.",
+      phoneEmpty: "Please enter your phone number.",
+      registerNotReady:
+        "Registration is not available on this page. Please refresh and try again.",
     },
     vi: {
       emailEmpty: "Vui lòng nhập địa chỉ email.",
@@ -107,6 +110,9 @@
       eventRegCompanyEmpty: "Vui lòng nhập tên công ty / tổ chức.",
       eventRegSectorEmpty: "Vui lòng chọn lĩnh vực.",
       eventRegConsentRequired: "Vui lòng đồng ý nhận email xác nhận và điều khoản bảo mật.",
+      phoneEmpty: "Vui lòng nhập số điện thoại.",
+      registerNotReady:
+        "Đăng ký chưa sẵn sàng trên trang này. Vui lòng tải lại trang và thử lại.",
     },
     ja: {
       emailEmpty: "メールアドレスを入力してください。",
@@ -124,6 +130,9 @@
       eventRegCompanyEmpty: "会社名・団体名を入力してください。",
       eventRegSectorEmpty: "業種・セクターを選択してください。",
       eventRegConsentRequired: "確認メールの受信とプライバシー条項に同意してください。",
+      phoneEmpty: "電話番号を入力してください。",
+      registerNotReady:
+        "このページでは登録を利用できません。再読み込みしてからお試しください。",
     },
     ko: {
       emailEmpty: "이메일을 입력해 주세요.",
@@ -141,6 +150,9 @@
       eventRegCompanyEmpty: "회사 또는 기관명을 입력해 주세요.",
       eventRegSectorEmpty: "분야를 선택해 주세요.",
       eventRegConsentRequired: "확인 이메일 수신 및 개인정보 관련 동의에 체크해 주세요.",
+      phoneEmpty: "전화번호를 입력하세요.",
+      registerNotReady:
+        "이 페이지에서 등록을 사용할 수 없습니다. 새로고침 후 다시 시도하세요.",
     },
     zh: {
       emailEmpty: "请输入电子邮箱地址。",
@@ -158,6 +170,8 @@
       eventRegCompanyEmpty: "请输入公司或机构名称。",
       eventRegSectorEmpty: "请选择所属领域。",
       eventRegConsentRequired: "请同意接收确认邮件及隐私相关条款。",
+      phoneEmpty: "请输入电话号码。",
+      registerNotReady: "此页面暂无法注册，请刷新页面后重试。",
     },
   };
 
@@ -238,14 +252,20 @@
 
       if (pwReg) {
         var nameIn = form.querySelector('input[type="text"][autocomplete="name"]');
+        var phoneIn = form.querySelector('input[type="tel"]');
         var orgIn = form.querySelector('input[type="text"][autocomplete="organization"]');
-        var roleSel = form.querySelector("select.form-input");
-        var pwConf = form.querySelector("#pw-conf");
+        var roleSel = form.querySelector("select.form-select, select.form-input");
+        var pwConf = form.querySelector("#pw-confirm, #pw-conf");
         var chk = form.querySelector("label.check-label input[type=\"checkbox\"]");
 
         if (nameIn && !nameIn.value.trim()) {
           showMsg(form, msg("nameEmpty"), nameIn);
           nameIn.focus();
+          return;
+        }
+        if (phoneIn && !phoneIn.value.trim()) {
+          showMsg(form, msg("phoneEmpty"), phoneIn);
+          phoneIn.focus();
           return;
         }
         if (orgIn && !orgIn.value.trim()) {
@@ -283,6 +303,24 @@
           chk.focus();
           return;
         }
+        if (typeof window.hlSubmitRegisterAfterValidate === "function") {
+          var names = (function (raw) {
+            var s = String(raw || "").trim();
+            if (!s) return { firstName: "", lastName: "" };
+            var parts = s.split(/\s+/).filter(Boolean);
+            if (parts.length === 1) return { firstName: parts[0], lastName: "" };
+            return { firstName: parts[0], lastName: parts.slice(1).join(" ") };
+          })(nameIn ? nameIn.value : "");
+          window.hlSubmitRegisterAfterValidate(form, {
+            email: emailIn.value.trim().toLowerCase(),
+            password: pwReg.value,
+            firstName: names.firstName,
+            lastName: names.lastName,
+            phoneNumber: phoneIn ? String(phoneIn.value).trim() : "",
+          });
+          return;
+        }
+        showMsg(form, msg("registerNotReady"));
         return;
       }
 
