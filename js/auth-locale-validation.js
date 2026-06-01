@@ -91,6 +91,8 @@
       eventRegSectorEmpty: "Please select a sector.",
       eventRegConsentRequired: "Please agree to receive confirmation emails and the privacy terms.",
       phoneEmpty: "Please enter your phone number.",
+      registerNotReady:
+        "Registration is not available on this page. Please refresh and try again.",
     },
     vi: {
       emailEmpty: "Vui lòng nhập địa chỉ email.",
@@ -109,6 +111,8 @@
       eventRegSectorEmpty: "Vui lòng chọn lĩnh vực.",
       eventRegConsentRequired: "Vui lòng đồng ý nhận email xác nhận và điều khoản bảo mật.",
       phoneEmpty: "Vui lòng nhập số điện thoại.",
+      registerNotReady:
+        "Đăng ký chưa sẵn sàng trên trang này. Vui lòng tải lại trang và thử lại.",
     },
     ja: {
       emailEmpty: "メールアドレスを入力してください。",
@@ -127,6 +131,8 @@
       eventRegSectorEmpty: "業種・セクターを選択してください。",
       eventRegConsentRequired: "確認メールの受信とプライバシー条項に同意してください。",
       phoneEmpty: "電話番号を入力してください。",
+      registerNotReady:
+        "このページでは登録を利用できません。再読み込みしてからお試しください。",
     },
     ko: {
       emailEmpty: "이메일을 입력해 주세요.",
@@ -145,6 +151,8 @@
       eventRegSectorEmpty: "분야를 선택해 주세요.",
       eventRegConsentRequired: "확인 이메일 수신 및 개인정보 관련 동의에 체크해 주세요.",
       phoneEmpty: "전화번호를 입력하세요.",
+      registerNotReady:
+        "이 페이지에서 등록을 사용할 수 없습니다. 새로고침 후 다시 시도하세요.",
     },
     zh: {
       emailEmpty: "请输入电子邮箱地址。",
@@ -163,6 +171,7 @@
       eventRegSectorEmpty: "请选择所属领域。",
       eventRegConsentRequired: "请同意接收确认邮件及隐私相关条款。",
       phoneEmpty: "请输入电话号码。",
+      registerNotReady: "此页面暂无法注册，请刷新页面后重试。",
     },
   };
 
@@ -311,6 +320,7 @@
           });
           return;
         }
+        showMsg(form, msg("registerNotReady"));
         return;
       }
 

@@ -60,6 +60,25 @@
     return L[key] || STR.en[key] || key;
   }
 
+  function getSubmitBtn(form) {
+    return form.querySelector('.btn-auth[type="submit"]');
+  }
+
+  function setSubmitLoading(btn, loading, prevLabel) {
+    if (!btn) return;
+    if (loading) {
+      if (!btn.dataset.hlPrevLabel) {
+        btn.dataset.hlPrevLabel = prevLabel || btn.textContent;
+      }
+      btn.disabled = true;
+      btn.textContent = "…";
+      return;
+    }
+    btn.disabled = false;
+    btn.textContent = btn.dataset.hlPrevLabel || prevLabel || btn.textContent;
+    delete btn.dataset.hlPrevLabel;
+  }
+
   function showApiError(form, text) {
     var box = form.querySelector(".hl-auth-client-msg");
     if (!box) {
@@ -75,14 +94,6 @@
     if (!box) return;
     box.textContent = "";
     box.classList.remove("is-visible");
-  }
-
-  function splitFullName(raw) {
-    var s = String(raw || "").trim();
-    if (!s) return { firstName: "", lastName: "" };
-    var parts = s.split(/\s+/).filter(Boolean);
-    if (parts.length === 1) return { firstName: parts[0], lastName: "" };
-    return { firstName: parts[0], lastName: parts.slice(1).join(" ") };
   }
 
   function localizeRegisterError(status, apiErrorRaw) {
@@ -103,7 +114,7 @@
     window.location.href = url;
   }
 
-  function fetchAuthCodeAfterRegister(form, email, password) {
+  function fetchAuthCodeAfterRegister(form, email, password, btn, prevLabel) {
     return fetch(API_BASE + "/api/users/auth-code", {
       method: "POST",
       headers: { "Content-Type": "application/json", Accept: "application/json" },
@@ -125,24 +136,23 @@
           redirectWithAuthCode(res.data.data.authCode);
           return;
         }
+        setSubmitLoading(btn, false, prevLabel);
         var err =
           (res.data && res.data.error) ||
           localizeRegisterError(res.status, res.data && res.data.error);
         showApiError(form, err || t("registerBadResponse"));
       })
       .catch(function () {
+        setSubmitLoading(btn, false, prevLabel);
         showApiError(form, t("registerNet"));
       });
   }
 
   window.hlSubmitRegisterAfterValidate = function (form, payload) {
     hideApiError(form);
-    var btn = form.querySelector('.btn-auth[type="submit"]');
+    var btn = getSubmitBtn(form);
     var prev = btn ? btn.textContent : "";
-    if (btn) {
-      btn.disabled = true;
-      btn.textContent = "…";
-    }
+    setSubmitLoading(btn, true, prev);
 
     var body = {
       email: payload.email,
@@ -163,12 +173,8 @@
         });
       })
       .then(function (res) {
-        if (btn) {
-          btn.disabled = false;
-          btn.textContent = prev;
-        }
-
         if (!res.ok || !res.data) {
+          setSubmitLoading(btn, false, prev);
           showApiError(
             form,
             localizeRegisterError(res.status, res.data && res.data.error)
@@ -176,6 +182,7 @@
           return;
         }
         if (!res.data.success) {
+          setSubmitLoading(btn, false, prev);
           showApiError(
             form,
             localizeRegisterError(res.status, res.data.error)
@@ -183,13 +190,16 @@
           return;
         }
 
-        fetchAuthCodeAfterRegister(form, payload.email, payload.password);
+        return fetchAuthCodeAfterRegister(
+          form,
+          payload.email,
+          payload.password,
+          btn,
+          prev
+        );
       })
       .catch(function () {
-        if (btn) {
-          btn.disabled = false;
-          btn.textContent = prev;
-        }
+        setSubmitLoading(btn, false, prev);
         showApiError(form, t("registerNet"));
       });
   };
