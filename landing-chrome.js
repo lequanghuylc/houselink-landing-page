@@ -6,11 +6,10 @@
  * serve root `404.html` for every miss run a small redirect in that file (see `tools/sync_root_404.py`).
  * Legacy `/en/` may redirect to `/`. Vietnamese-only deep pages (e.g. some services) stay under `/vi/…`.
  *
- * Header login (“Login / Đăng nhập”):
- * - Anchors use `data-hl-dashboard-login` + `data-hl-login-locale`; href is set after inject.
- * - Default: static mockups `/login/` (EN), `/vi/login/`, `/ja/login/`, … (same origin as this site).
- * - Optional Next app: `<meta name="hl-dashboard-base" content="https://app.example.com">` (no trailing slash)
- *   or `window.HL_DASHBOARD_BASE = "https://app.example.com";` → links become `{base}/{locale}/login`.
+ * Header login (“Login / Đăng nhập”) — `js/hl-auth-env.js` + `wireDashboardLoginLinks()`:
+ * - localhost → `/login/`, `/vi/login/`, … (landing login; after login → local frontend)
+ * - houselink.com.vn → https://dashboard.houselink.com.vn/
+ * - *.netlify.app → https://app.houselink.com.vn/
  */
 (function () {
   "use strict";
@@ -592,43 +591,65 @@
 
   var DASHBOARD_LOGIN_LOCALES = { vi: 1, en: 1, zh: 1, ja: 1, ko: 1 };
 
-  /** Rewrite `a[data-hl-dashboard-login]` → static login HTML or optional dashboard URL. */
-  function wireDashboardLoginLinks() {
-    var dashBase = null;
-    var defaultDashBase = "https://dashboard.houselink.com.vn";
-    if (typeof window !== "undefined" && window.HL_DASHBOARD_BASE) {
-      dashBase = String(window.HL_DASHBOARD_BASE).replace(/\/+$/, "");
+  var LANDING_LOGIN_PATHS = {
+    vi: "/vi/login/",
+    en: "/login/",
+    ja: "/ja/login/",
+    ko: "/ko/login/",
+    zh: "/zh/login/",
+  };
+
+  function appRootHref(appBase) {
+    var base = String(appBase || "").replace(/\/+$/, "");
+    if (!base) return "/";
+    try {
+      return new URL("/", base + "/").href;
+    } catch (ignore) {
+      return base + "/";
     }
-    if (!dashBase) {
-      var meta = document.querySelector('meta[name="hl-dashboard-base"]');
-      if (meta) {
-        var raw = (meta.getAttribute("content") || "").trim();
-        if (raw) dashBase = raw.replace(/\/+$/, "");
+  }
+
+  function ensureAuthEnvScript() {
+    if (typeof window !== "undefined" && typeof window.HL_resolveAuthEnv === "function") {
+      return Promise.resolve();
+    }
+    return new Promise(function (resolve) {
+      var s = document.createElement("script");
+      try {
+        s.src = new URL("js/hl-auth-env.js", base).href;
+      } catch (ignore) {
+        s.src = "js/hl-auth-env.js";
       }
-    }
-    if (!dashBase && defaultDashBase) {
-      dashBase = String(defaultDashBase).replace(/\/+$/, "");
-    }
+      s.onload = function () {
+        resolve();
+      };
+      s.onerror = function () {
+        console.warn("[landing-chrome] Không tải được js/hl-auth-env.js — dùng /login/ mặc định.");
+        resolve();
+      };
+      document.head.appendChild(s);
+    });
+  }
+
+  /** Rewrite `a[data-hl-dashboard-login]` by hostname (see hl-auth-env.js). */
+  function wireDashboardLoginLinks() {
+    var env =
+      typeof window !== "undefined" && typeof window.HL_resolveAuthEnv === "function"
+        ? window.HL_resolveAuthEnv()
+        : null;
 
     document.querySelectorAll("a[data-hl-dashboard-login]").forEach(function (a) {
       var loc = (a.getAttribute("data-hl-login-locale") || "vi").toLowerCase().trim();
       if (!DASHBOARD_LOGIN_LOCALES[loc]) loc = "vi";
-      if (dashBase) {
-        try {
-          a.href = new URL("/", dashBase + "/").href;
-        } catch (ignore) {
-          a.href = dashBase + "/";
-        }
+
+      if (env && env.useLandingLogin) {
+        a.href = LANDING_LOGIN_PATHS[loc] || LANDING_LOGIN_PATHS.vi;
+      } else if (env && env.appBase) {
+        a.href = appRootHref(env.appBase);
       } else {
-        var loginPaths = {
-          vi: "/vi/login/",
-          en: "/login/",
-          ja: "/ja/login/",
-          ko: "/ko/login/",
-          zh: "/zh/login/",
-        };
-        a.href = loginPaths[loc] || loginPaths.vi;
+        a.href = LANDING_LOGIN_PATHS[loc] || LANDING_LOGIN_PATHS.vi;
       }
+
       a.removeAttribute("target");
       a.setAttribute("rel", "noopener noreferrer");
     });
@@ -938,7 +959,7 @@
   wireOpenConsultHeaderCta();
 
   var pack = langPack();
-  Promise.all([fetchPartial("header", pack), fetchPartial("footer", pack)])
+  Promise.all([fetchPartial("header", pack), fetchPartial("footer", pack), ensureAuthEnvScript()])
     .then(function (parts) {
       inject("hl-chrome-header", parts[0]);
       inject("hl-chrome-footer", parts[1]);
