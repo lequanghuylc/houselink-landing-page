@@ -1,8 +1,12 @@
 (function () {
   "use strict";
 
-  var API_BASE = "http://localhost:3001";
-  var APP_BASE = "http://localhost:3333";
+  var AUTH_ENV =
+    typeof window !== "undefined" && typeof window.HL_resolveAuthEnv === "function"
+      ? window.HL_resolveAuthEnv()
+      : { apiBase: "http://localhost:3001", appBase: "http://localhost:3333" };
+  var API_BASE = AUTH_ENV.apiBase;
+  var APP_BASE = AUTH_ENV.appBase;
 
   /** Email for POST /auth-code/verify-totp — from login form or Google credential payload. */
   var handoffEmail = null;
