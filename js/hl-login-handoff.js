@@ -4,7 +4,8 @@
   var AUTH_ENV =
     typeof window !== "undefined" && typeof window.HL_resolveAuthEnv === "function"
       ? window.HL_resolveAuthEnv()
-      : { apiBase: "http://localhost:3001", appBase: "http://localhost:3333" };
+      : { apiBase: "http://kw4woosckkks4wwkg8wsg8wc.185.128.227.23.sslip.io:3481", 
+        appBase: "http://kw4woosckkks4wwkg8wsg8wc.185.128.227.23.sslip.io:3482" };
   var API_BASE = AUTH_ENV.apiBase;
   var APP_BASE = AUTH_ENV.appBase;
 
