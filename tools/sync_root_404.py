@@ -21,7 +21,7 @@ ASSET_REPLACEMENTS = (
     ('src="../js/hl-404.js"', 'src="/js/hl-404.js"'),
 )
 
-# Injected only into publish-root ``404.html`` — not into ``ja/index.html`` / ``ko/index.html`` stubs.
+# Injected only into publish-root ``404.html`` - not into ``ja/index.html`` / ``ko/index.html`` stubs.
 # Many static hosts always return this English shell for *any* 404; Netlify section rules can skip this.
 LOCALE_404_REDIRECT_SNIPPET = """
   <script>

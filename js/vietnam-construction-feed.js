@@ -1,5 +1,5 @@
 /**
- * Vietnam Construction (WordPress) — same input/output for live API vs local JSON.
+ * Vietnam Construction (WordPress) - same input/output for live API vs local JSON.
  *
  * @typedef {{
  *   page?: number,
@@ -129,7 +129,7 @@
   }
 
   /**
-   * Same shape as API: Event (EN) dump only — data-event-en.json, client-side pagination.
+   * Same shape as API: Event (EN) dump only - data-event-en.json, client-side pagination.
    * @param {VietnamConstructionFeedInput} input
    * @returns {Promise<VietnamConstructionFeedResult>}
    */
@@ -206,7 +206,7 @@
   }
 
   /**
-   * Same shape as API: Market (EN) dump only — data-market-en.json, client-side pagination.
+   * Same shape as API: Market (EN) dump only - data-market-en.json, client-side pagination.
    * Defaults to Vietnam Construction "Market" category when `categories` omitted.
    * @param {VietnamConstructionFeedInput} input
    * @returns {Promise<VietnamConstructionFeedResult>}
@@ -268,7 +268,7 @@
   }
 
   /**
-   * Learn (EN) dump — data-learn-en.json. Defaults to VC English "Learn" category (33).
+   * Learn (EN) dump - data-learn-en.json. Defaults to VC English "Learn" category (33).
    * Used with Market for non-VI Insights; not used for VI (data-learn-vi.json stays separate).
    * @param {VietnamConstructionFeedInput} input
    * @returns {Promise<VietnamConstructionFeedResult>}
@@ -330,7 +330,7 @@
   }
 
   /**
-   * Learn (VI) dump — data-learn-vi.json. Defaults to category 74 (Học hỏi).
+   * Learn (VI) dump - data-learn-vi.json. Defaults to category 74 (Học hỏi).
    * @param {VietnamConstructionFeedInput} input
    * @returns {Promise<VietnamConstructionFeedResult>}
    */
@@ -390,7 +390,7 @@
   }
 
   /**
-   * Event (VI) dump — data-event-vi.json. Defaults to VC Vietnamese "Sự kiện" category.
+   * Event (VI) dump - data-event-vi.json. Defaults to VC Vietnamese "Sự kiện" category.
    * @param {VietnamConstructionFeedInput} input
    * @returns {Promise<VietnamConstructionFeedResult>}
    */
@@ -450,7 +450,7 @@
   }
 
   /**
-   * Market (VI) dump — data-market-vi.json. Defaults to VC Vietnamese "Thị trường" category.
+   * Market (VI) dump - data-market-vi.json. Defaults to VC Vietnamese "Thị trường" category.
    * @param {VietnamConstructionFeedInput} input
    * @returns {Promise<VietnamConstructionFeedResult>}
    */

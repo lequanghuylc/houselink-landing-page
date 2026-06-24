@@ -34,7 +34,7 @@
     return langKey() === "en" ? "21" : "22";
   }
 
-  /** EN Event feed (Vietnam Construction) also on JA / KO / ZH news pages — English copy, same data. */
+  /** EN Event feed (Vietnam Construction) also on JA / KO / ZH news pages - English copy, same data. */
   function useVcEnFeed() {
     var k = langKey();
     return k === "en" || k === "ja" || k === "ko" || k === "zh";

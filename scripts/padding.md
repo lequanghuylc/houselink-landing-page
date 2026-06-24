@@ -1,4 +1,4 @@
-Một ảnh — padding trên + dưới bằng nhau (ví dụ 20px)
+Một ảnh - padding trên + dưới bằng nhau (ví dụ 20px)
 
 
 cd /Volumes/SSKSSD/GitHub/2026/houselink-landing-page
@@ -7,7 +7,7 @@ cd /Volumes/SSKSSD/GitHub/2026/houselink-landing-page
 .venv/bin/python scripts/pad-image-vertical.py images/logo-clients/ABB-Photoroom.png --shrink-vertical 20
 
 
-Một ảnh — trên và dưới khác nhau
+Một ảnh - trên và dưới khác nhau
 .venv/bin/python scripts/pad-image-vertical.py images/logo-clients/Wtw-Photoroom.png --top 12 --bottom 18
 Chỉ xem trước (không ghi file)
 .venv/bin/python scripts/pad-image-vertical.py images/logo-clients/Wtw-Photoroom.png --vertical 20 --dry-run
@@ -17,7 +17,7 @@ Padding là trong suốt (RGBA); chiều cao ảnh tăng thêm top + bottom, chi
 
 Có hai cách “giảm padding”, tùy ý bạn:
 
-1. Bạn vừa tự thêm vùng trong suốt trên/dưới (ví dụ --vertical 20) — muốn bớt đúng số pixel đã thêm
+1. Bạn vừa tự thêm vùng trong suốt trên/dưới (ví dụ --vertical 20) - muốn bớt đúng số pixel đã thêm
 Dùng crop mép (cắt từ mép trên / mép dưới):
 
 cd /Volumes/SSKSSD/GitHub/2026/houselink-landing-page

@@ -11,7 +11,7 @@
 }
 
 /**
- * 404 main content — layout/visuals aligned with Houselink/404 (standalone reference).
+ * 404 main content - layout/visuals aligned with Houselink/404 (standalone reference).
  * Load after landing-chrome.css (uses :root colors, --header-h).
  */
 :root {

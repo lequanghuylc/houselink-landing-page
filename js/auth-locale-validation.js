@@ -2,8 +2,8 @@
  * Localized form validation (replaces browser HTML5 bubbles that follow UI locale / English).
  * Auth: <form class="hl-auth-form" novalidate> with optional .hl-auth-client-msg inside.
  * Contact: <form class="hl-contact-form" novalidate> with the same message div class.
- * Newsletter: <form class="hl-newsletter-form" novalidate> — single email field.
- * Event registration: <form class="hl-event-reg-form" novalidate> — reg-name, reg-title, reg-company, reg-sector, reg-email, reg-consent; optional window.hlEventRegOnValid(form) after pass.
+ * Newsletter: <form class="hl-newsletter-form" novalidate> - single email field.
+ * Event registration: <form class="hl-event-reg-form" novalidate> - reg-name, reg-title, reg-company, reg-sector, reg-email, reg-consent; optional window.hlEventRegOnValid(form) after pass.
  */
 (function () {
   "use strict";

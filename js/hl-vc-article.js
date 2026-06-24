@@ -6,7 +6,7 @@
 (function () {
   "use strict";
 
-  /** UI copy for article page sidebar, CTA, breadcrumb, footer strip — keyed by `?lang=`. */
+  /** UI copy for article page sidebar, CTA, breadcrumb, footer strip - keyed by `?lang=`. */
   var ARTICLE_UI = {
     en: {
       newsHref: "/news/",
@@ -21,7 +21,7 @@
       authorRole: "News & Events",
       ctaTitle: "Register for the next event",
       ctaBody:
-        "Business matching, forums and industry updates — get priority access to HOUSELINK events.",
+        "Business matching, forums and industry updates - get priority access to HOUSELINK events.",
       ctaLink: "Contact us →",
       ctaHref: "/contact/",
       relatedTitle: "Related articles",
@@ -32,7 +32,7 @@
       share: "Share:",
       metaCatFallback: "News",
       secGreenTitle: "Weekly market updates",
-      secGreenBody: "FDI, industrial parks and ESG — on the main news page.",
+      secGreenBody: "FDI, industrial parks and ESG - on the main news page.",
       secGreenBtn: "News & Events →",
       secGreenHref: "/news/"
     },
@@ -48,7 +48,7 @@
       authorName: "Mai Hương",
       authorRole: "Community & Events Manager",
       ctaTitle: "Đăng ký tham dự sự kiện tiếp theo",
-      ctaBody: "ESG Forum tháng 6/2026 tại TP.HCM — đăng ký sớm để nhận ưu tiên.",
+      ctaBody: "ESG Forum tháng 6/2026 tại TP.HCM - đăng ký sớm để nhận ưu tiên.",
       ctaLink: "Liên hệ ngay →",
       ctaHref: "/vi/contact/",
       relatedTitle: "Bài viết liên quan",
@@ -59,7 +59,7 @@
       share: "Chia sẻ:",
       metaCatFallback: "Tin tức",
       secGreenTitle: "Cập nhật thị trường hàng tuần",
-      secGreenBody: "FDI, khu công nghiệp và ESG — trên trang tin chính.",
+      secGreenBody: "FDI, khu công nghiệp và ESG - trên trang tin chính.",
       secGreenBtn: "Tin tức & Sự kiện →",
       secGreenHref: "/vi/news/"
     },
@@ -75,7 +75,7 @@
       authorName: "HOUSELINK 編集部",
       authorRole: "ニュース・イベント",
       ctaTitle: "次のイベントに登録",
-      ctaBody: "ビジネスマッチング、フォーラム、業界アップデート — HOUSELINKイベントの優先案内を受け取れます。",
+      ctaBody: "ビジネスマッチング、フォーラム、業界アップデート - HOUSELINKイベントの優先案内を受け取れます。",
       ctaLink: "お問い合わせ →",
       ctaHref: "/ja/contact/",
       relatedTitle: "関連記事",
@@ -86,7 +86,7 @@
       share: "共有:",
       metaCatFallback: "ニュース",
       secGreenTitle: "週次マーケットアップデート",
-      secGreenBody: "FDI、工業団地、ESG — メインのニュースページで。",
+      secGreenBody: "FDI、工業団地、ESG - メインのニュースページで。",
       secGreenBtn: "ニュース・イベント →",
       secGreenHref: "/ja/news/"
     },
@@ -102,7 +102,7 @@
       authorName: "HOUSELINK 편집부",
       authorRole: "뉴스 및 이벤트",
       ctaTitle: "다음 행사 등록하기",
-      ctaBody: "비즈니스 매칭, 포럼, 업계 소식 — HOUSELINK 행사 우선 안내를 받으세요.",
+      ctaBody: "비즈니스 매칭, 포럼, 업계 소식 - HOUSELINK 행사 우선 안내를 받으세요.",
       ctaLink: "문의하기 →",
       ctaHref: "/ko/contact/",
       relatedTitle: "관련 기사",
@@ -113,7 +113,7 @@
       share: "공유:",
       metaCatFallback: "뉴스",
       secGreenTitle: "주간 시장 업데이트",
-      secGreenBody: "FDI, 산업단지, ESG — 메인 뉴스 페이지에서 확인하세요.",
+      secGreenBody: "FDI, 산업단지, ESG - 메인 뉴스 페이지에서 확인하세요.",
       secGreenBtn: "뉴스 및 이벤트 →",
       secGreenHref: "/ko/news/"
     },
@@ -129,7 +129,7 @@
       authorName: "HOUSELINK 编辑部",
       authorRole: "新闻与活动",
       ctaTitle: "注册参加下一场活动",
-      ctaBody: "商务对接、论坛与行业动态 — 优先获取 HOUSELINK 活动资讯。",
+      ctaBody: "商务对接、论坛与行业动态 - 优先获取 HOUSELINK 活动资讯。",
       ctaLink: "联系我们 →",
       ctaHref: "/zh/contact/",
       relatedTitle: "相关文章",
@@ -140,7 +140,7 @@
       share: "分享：",
       metaCatFallback: "新闻",
       secGreenTitle: "每周市场动态",
-      secGreenBody: "FDI、工业园区与 ESG — 前往主新闻页了解更多。",
+      secGreenBody: "FDI、工业园区与 ESG - 前往主新闻页了解更多。",
       secGreenBtn: "新闻与活动 →",
       secGreenHref: "/zh/news/"
     }
@@ -166,7 +166,7 @@
     return d.toLocaleDateString(undefined, { year: "numeric", month: "short", day: "2-digit" });
   }
 
-  /** dd/mm/yyyy — matches esg-forum pg-eye line (e.g. 31/03/2026). */
+  /** dd/mm/yyyy - matches esg-forum pg-eye line (e.g. 31/03/2026). */
   function fmtDateEyebrow(iso) {
     if (!iso) return "";
     var d = new Date(iso);
@@ -224,7 +224,7 @@
     return m ? parseInt(m[1], 10) : NaN;
   }
 
-  /** `?lang=` / `?locale=` — e.g. links from /ja/news/, /vi/insights/ (`lang=ja`, `lang=vi`). */
+  /** `?lang=` / `?locale=` - e.g. links from /ja/news/, /vi/insights/ (`lang=ja`, `lang=vi`). */
   function getArticleLocale() {
     var q = window.location.search || "";
     var m = /[?&](?:lang|locale)=([a-z]{2})(?:&|$)/i.exec(q);
@@ -507,7 +507,7 @@
       setText("hl-vc-hero-title", title);
       setText("hl-vc-hero-sub", excerpt || "");
       setText("hl-vc-meta-cat", cat || getArticleUi().metaCatFallback);
-      setText("hl-vc-meta-date", date || "—");
+      setText("hl-vc-meta-date", date || "-");
 
       var cover = document.getElementById("hl-vc-cover");
       if (cover) {

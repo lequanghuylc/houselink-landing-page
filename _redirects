@@ -53,7 +53,7 @@
 
 # Localized 404 (Netlify): for paths under each locale with no matching static file,
 # return that locale's 404 body and HTTP 404. Shadowing: existing files (e.g. /ja/cases/exxon/index.html)
-# are always served — these rules do NOT replace real pages. Commit vi/ja/ko/zh/404.html in publish root;
+# are always served - these rules do NOT replace real pages. Commit vi/ja/ko/zh/404.html in publish root;
 # if the target file is missing, Netlify falls back to the site root 404 (English).
 # Regenerate */404.html from */404/index.html after edits (asset paths ../../ → /).
 /vi/* /vi/404.html 404

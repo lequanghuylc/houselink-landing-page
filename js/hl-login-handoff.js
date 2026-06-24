@@ -8,7 +8,7 @@
   var API_BASE = AUTH_ENV.apiBase;
   var APP_BASE = AUTH_ENV.appBase;
 
-  /** Email for POST /auth-code/verify-totp — from login form or Google credential payload. */
+  /** Email for POST /auth-code/verify-totp - from login form or Google credential payload. */
   var handoffEmail = null;
 
   function detectLang() {
@@ -161,7 +161,7 @@
   }
 
   /**
-   * Default locale is English — paths use /login/ with no /en/ prefix.
+   * Default locale is English - paths use /login/ with no /en/ prefix.
    * Only append &lang= for non-English handoffs so the app URL stays clean for en.
    */
   function redirectWithAuthCode(code) {
@@ -198,7 +198,7 @@
     redirectWithAuthCode(d.authCode);
   }
 
-  /** @param opts.googleCredential optional — TOTP after Google (email không nằm trong JSON API). */
+  /** @param opts.googleCredential optional - TOTP after Google (email không nằm trong JSON API). */
   function handleAuthCodeApiJson(res, form, opts) {
     if (!res.ok || !res.data) {
       var apiErr = res.data && res.data.error;
