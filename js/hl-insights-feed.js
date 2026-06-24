@@ -22,7 +22,7 @@
     return "en";
   }
 
-  /** Market feed (EN WP JSON) on EN / JA / KO / ZH insights — same reports, localized chrome. */
+  /** Market feed (EN WP JSON) on EN / JA / KO / ZH insights - same reports, localized chrome. */
   function useVcEnMarketFeed() {
     var k = langKey();
     return k === "en" || k === "ja" || k === "ko" || k === "zh";
@@ -116,7 +116,7 @@
     }
   }
 
-  /** Learn (Học hỏi) trong Insights — category 33 (EN) / 74 (VI), hoặc slug learn / hoc-hoi. */
+  /** Learn (Học hỏi) trong Insights - category 33 (EN) / 74 (VI), hoặc slug learn / hoc-hoi. */
   function isLearnInsightsPost(post) {
     try {
       var ids = post && post.categories;

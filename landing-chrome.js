@@ -6,7 +6,7 @@
  * serve root `404.html` for every miss run a small redirect in that file (see `tools/sync_root_404.py`).
  * Legacy `/en/` may redirect to `/`. Vietnamese-only deep pages (e.g. some services) stay under `/vi/…`.
  *
- * Header login (“Login / Đăng nhập”) — `js/hl-auth-env.js` + `wireDashboardLoginLinks()`:
+ * Header login (“Login / Đăng nhập”) - `js/hl-auth-env.js` + `wireDashboardLoginLinks()`:
  * - localhost → `/login/`, `/vi/login/`, … (landing login; after login → local frontend)
  * - houselink.com.vn → https://dashboard.houselink.com.vn/
  * - *.netlify.app → /login/ (API 2026-api.houselink.com.vn; after login → app.houselink.com.vn)
@@ -265,11 +265,11 @@
       var T = {
         en: {
           submitting: "Submitting…",
-          success: "Thanks — you’re registered for weekly updates.",
+          success: "Thanks - you’re registered for weekly updates.",
         },
         vi: {
           submitting: "Đang gửi…",
-          success: "Cảm ơn bạn — bạn đã đăng ký nhận cập nhật thị trường hàng tuần.",
+          success: "Cảm ơn bạn - bạn đã đăng ký nhận cập nhật thị trường hàng tuần.",
         },
         ja: {
           submitting: "送信中…",
@@ -624,7 +624,7 @@
         resolve();
       };
       s.onerror = function () {
-        console.warn("[landing-chrome] Không tải được js/hl-auth-env.js — dùng /login/ mặc định.");
+        console.warn("[landing-chrome] Không tải được js/hl-auth-env.js - dùng /login/ mặc định.");
         resolve();
       };
       document.head.appendChild(s);
@@ -893,7 +893,7 @@
   }
 
   /**
-   * Header / in-page CTAs: same behavior as contact “Chọn khung giờ” — open #consultFormModal
+   * Header / in-page CTAs: same behavior as contact “Chọn khung giờ” - open #consultFormModal
    * when the page defines window.openConsultForm (e.g. contact, vi/faq); else go to locale contact.
    */
   function wireOpenConsultHeaderCta() {

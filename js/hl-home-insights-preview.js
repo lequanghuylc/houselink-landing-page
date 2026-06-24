@@ -1,6 +1,6 @@
 /**
  * Homepage / locale index: fill #hl-home-insights-grid with the 3 newest Insights posts
- * (Market + Learn merge — same rules as hl-insights-feed.js).
+ * (Market + Learn merge - same rules as hl-insights-feed.js).
  */
 (function () {
   "use strict";

@@ -1,6 +1,6 @@
 
 /**
- * FILE TỰ ĐỘNG SINH — Phần 1 / 9 (500 URL).
+ * FILE TỰ ĐỘNG SINH - Phần 1 / 9 (500 URL).
  * Dán TOÀN BỘ vào Console (F12). Chỉ tải phần này; phần sau mở file bundle-2.js, bundle-3.js… trong tools/.
  * Mỗi phần tối đa 500 ảnh. HL_DELAY_MS = 250 (có thể tăng nếu bị chặn).
  */
@@ -108,7 +108,7 @@ var HL_TRY_FETCH = false;
       PART_NUM,
       "/",
       PART_TOTAL,
-      "—",
+      "-",
       n,
       "URL. Ví dụ:",
       URLS.slice(0, 2),
@@ -131,7 +131,7 @@ var HL_TRY_FETCH = false;
         PART_TOTAL +
         ": " +
         n +
-        " — blob=" +
+        " - blob=" +
         nb +
         ", anchor=" +
         na +

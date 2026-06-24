@@ -31,7 +31,7 @@ body[data-hl-page="services-find-project-contract"] .step-item:not(:last-child):
 /*
  * Step strip: inline CSS hides .step-label at ≤900px. Replace cramped “tiny centered”
  * labels with a readable grid: 2×2 tablets, single column on narrow phones.
- * Connector pseudo-elements are hidden — they don’t work with wrapping layout.
+ * Connector pseudo-elements are hidden - they don’t work with wrapping layout.
  */
 @media (max-width: 900px) {
   body[data-hl-page="services-find-project-contract"] .steps-inner {
@@ -186,7 +186,7 @@ body[data-hl-page="services-find-project-contract"] .step-item:not(:last-child):
   }
 }
 
-/* ── Pricing: billing toggle (hero) — stack on narrow screens; avoid squeezed 42% labels ── */
+/* ── Pricing: billing toggle (hero) - stack on narrow screens; avoid squeezed 42% labels ── */
 @media (max-width: 768px) {
   body[data-hl-page="services-find-project-pricing"] .toggle-wrap {
     flex-direction: column;

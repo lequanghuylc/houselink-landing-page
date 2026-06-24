@@ -1,5 +1,5 @@
 /**
- * HOUSELINK — header & footer dùng chung (load cùng partials).
+ * HOUSELINK - header & footer dùng chung (load cùng partials).
  */
 :root {
   --navy: #00466e;
@@ -12,7 +12,7 @@
   --gray-50: #eef1f4;
   --gray-100: #dde3e8;
   --gray-200: #bec8d0;
-  /* Between 200 & 400 — tertiary text, auth placeholders, dividers */
+  /* Between 200 & 400 - tertiary text, auth placeholders, dividers */
   --gray-300: #b0bcc6;
   --gray-400: #7e8f9a;
   --gray-600: #4a5a65;
@@ -30,7 +30,7 @@
   --hl-reveal-seq-step: calc(var(--hl-reveal-dur) + var(--hl-reveal-seq-gap));
 }
 
-/* Placeholder copy — muted vs. real input text (overridden on dark UIs, e.g. .faq-search, .err-search) */
+/* Placeholder copy - muted vs. real input text (overridden on dark UIs, e.g. .faq-search, .err-search) */
 input::placeholder,
 textarea::placeholder {
   color: var(--gray-400);
@@ -67,7 +67,7 @@ footer .si {
   gap: 12px;
   height: var(--header-h);
   box-sizing: border-box;
-  /* Solid bar full width (no backdrop-filter here — avoids clipping fixed .hl-nav-panel) */
+  /* Solid bar full width (no backdrop-filter here - avoids clipping fixed .hl-nav-panel) */
   background: rgba(255, 255, 255, 0.97);
   border-bottom: 1px solid var(--gray-100);
   transition: box-shadow 0.3s;
@@ -659,7 +659,7 @@ body.hl-with-fixed-header .faq-hero {
   padding-top: calc(var(--header-h) + 48px);
 }
 
-/* Find Project pricing & contract: no local .topbar — offset first content below fixed chrome */
+/* Find Project pricing & contract: no local .topbar - offset first content below fixed chrome */
 body.hl-with-fixed-header[data-hl-page="services-find-project-contract"] .steps-bar {
   margin-top: var(--header-h);
 }
@@ -994,7 +994,7 @@ body.hl-nav-no-scroll {
     padding-bottom: 44px !important;
   }
   /* Fixed header + inline hero padding: 56px was overriding 96px and sat UNDER
-     the 72px header — .page-eyebrow (e.g. “Điều khoản sử dụng”) disappeared. */
+     the 72px header - .page-eyebrow (e.g. “Điều khoản sử dụng”) disappeared. */
   body.hl-with-fixed-header section.page-hero {
     padding-top: calc(
       var(--header-h) + env(safe-area-inset-top, 0px) + 20px
@@ -1100,7 +1100,7 @@ body.hl-nav-no-scroll {
     padding-bottom: 48px;
   }
 
-  /* #database — HOUSELINK hub + stat cards (overrides pages that hid .dbv-center) */
+  /* #database - HOUSELINK hub + stat cards (overrides pages that hid .dbv-center) */
   .db-visual-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
     grid-template-rows: auto !important;
@@ -1246,7 +1246,7 @@ body.hl-nav-no-scroll {
   transition-delay: var(--hl-reveal-start-delay);
 }
 
-/* Marquee row: IO adds .hl-reveal-in on the track; opacity ~1s only — transform is owned by marquee keyframes */
+/* Marquee row: IO adds .hl-reveal-in on the track; opacity ~1s only - transform is owned by marquee keyframes */
 #logos .marquee-track.hl-reveal-item:not(.hl-reveal-in) {
   opacity: 0;
   transform: none;
@@ -1269,7 +1269,7 @@ body.hl-nav-no-scroll {
 
 /* armHlRevealDefaults: data-hl-reveal-off on section skips auto .hl-reveal-item; .hl-reveal-skip on node skips. */
 
-/* Logo strip: no infinite loop — one pass when the track scrolls into view */
+/* Logo strip: no infinite loop - one pass when the track scrolls into view */
 @keyframes hlMarqueeOnce {
   from {
     transform: translate3d(0, 0, 0);
@@ -1293,7 +1293,7 @@ body.hl-nav-no-scroll {
 }
 
 /* =============================================================================
-   Home — contractors row: card #4 (Business Matching) wide horizontal layout
+   Home - contractors row: card #4 (Business Matching) wide horizontal layout
    ============================================================================= */
 
 .ctr-card.ctr-card--wide-row {
@@ -1390,7 +1390,7 @@ body.hl-nav-no-scroll {
 }
 
 /* =============================================================================
-   Services hub — comparison table (/services/, /vi/services/, …)
+   Services hub - comparison table (/services/, /vi/services/, …)
    ============================================================================= */
 
 .compare-table-scroll {
@@ -1855,7 +1855,7 @@ iframe {
   min-width: 0;
 }
 
-/* Case listing cards (cases index, all locales) — .cs-foot: client + pill + link */
+/* Case listing cards (cases index, all locales) - .cs-foot: client + pill + link */
 @media (max-width: 640px) {
   .cs-foot {
     flex-direction: column;
@@ -1889,7 +1889,7 @@ iframe {
   }
 }
 
-/* ── Contact page — responsive (body[data-hl-page="contact"]) ── */
+/* ── Contact page - responsive (body[data-hl-page="contact"]) ── */
 body.hl-with-fixed-header[data-hl-page="contact"] .page-hero {
   padding-top: calc(
     var(--header-h) + env(safe-area-inset-top, 0px) + 24px
@@ -2145,7 +2145,7 @@ body[data-hl-page="contact"] .map-embed iframe {
   }
 }
 
-/* Cabot client logo — hidden site-wide */
+/* Cabot client logo - hidden site-wide */
 .logo-pill:has(img[alt="Cabot"]),
 .cust-logo:has(img[alt="Cabot"]) {
   display: none !important;

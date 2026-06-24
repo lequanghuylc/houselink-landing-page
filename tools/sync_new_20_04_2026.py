@@ -2,10 +2,10 @@
 """
 Sync static exports from Houselink/New_20_04_2026 into app/landing-page.
 
-- Auth (login / forgot / register): all locales EN, VI, JA, KO, ZH — new markup
-  + Inter/sansify via build_home_from_houselink — preserves hl-auth-form,
+- Auth (login / forgot / register): all locales EN, VI, JA, KO, ZH - new markup
+  + Inter/sansify via build_home_from_houselink - preserves hl-auth-form,
     auth-locale-validation.js paths, and locale-correct internal links.
-- VI service detail pages: ESG, Legal, Market, Project, Land, Find-project —
+- VI service detail pages: ESG, Legal, Market, Project, Land, Find-project -
   main HTML from new exports, wrapped with hl-chrome header/footer like existing.
 - Prototype ``service-esg-7.html`` rewrites to locale ``services/esg/`` (single ESG service URL).
 - ESG hub pages (en, ja, ko, zh): rebuilt from new service-esg-*.html with chrome;
