@@ -759,12 +759,10 @@ footer { background: var(--navy); color: rgba(255,255,255,0.55); padding: 72px 0
 .sub-form input{padding:13px 18px;border-radius:8px;border:none;font-size:14px;width:290px;outline:none;font-family:var(--font-main);}
 .sub-form button{background:var(--navy);color:#fff;font-size:14px;font-weight:700;padding:13px 26px;border-radius:8px;border:none;cursor:pointer;}
 @media(max-width:960px){.ng,.nc.feat{grid-template-columns:1fr;}.ev{grid-template-columns:60px 1fr;}.ev-btn{display:none;}}
-/* Hide static news cards while JS loads feed; fallback visible again if load fails. */
-#hl-news-feed.hl-feed-waiting .hl-news-fallback{display:none !important;}
 </style>
   <link rel="stylesheet" href="../../landing-chrome.css">
 </head>
-<body class="hl-with-fixed-header" data-hl-page="news" data-hl-vn-news-source="hardcode">
+<body class="hl-with-fixed-header" data-hl-page="news">
 
 <div id="hl-chrome-header"></div>
 
@@ -786,87 +784,7 @@ footer { background: var(--navy); color: rgba(255,255,255,0.55); padding: 72px 0
    <button type="button" class="fb" data-hl-filter="esg">ESG与能源</button>
    <button type="button" class="fb" data-hl-filter="supply">供应链</button>
   </div>
-  <div class="ng" id="hl-news-feed">
-   <div class="hl-news-fallback">
-   <!-- Featured -->
-   <div class="nc feat">
-    <img src="../../images/unsplash-1560439514-4e9645039924.jpg" alt="Hội thảo ESG">
-    <div class="nc-b">
-     <div class="nc-cat">⭐ HOUSELINK活动·精选</div>
-     <div class="nc-ttl">研讨会"从ESG战略到可持续制造领先地位"--平阳省，2026年3月31日</div>
-     <div class="nc-tx">HOUSELINK携手Becamex VSIP平定省和Glassdome举办研讨会，吸引来自FDI企业、工业园区和国际认证机构的150余位代表参与。活动中签署了三份MOU，标志着越南工业园区ESG基础设施平台的正式启动。</div>
-     <div class="nc-meta"><span>31/03/2026</span><span class="dot"></span><span>WTC平阳省</span><span class="dot"></span><span>阅读10分钟</span></div>
-     <a href="/zh/news/esg-forum/" class="nc-lnk">阅读全文 →</a>
-    </div>
-   </div>
-   <!-- New System Release -->
-   <div class="nc">
-    <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=600&q=80&auto=format&fit=crop" alt="HOUSELINK新系统">
-    <div class="nc-b">
-     <div class="nc-cat">HOUSELINK动态</div>
-     <div class="nc-ttl">HOUSELINK将于下季度发布全新系统</div>
-     <div class="nc-tx">计划于2026年第三季度推出的新一代平台升级--AI驱动选址匹配、数字尽职调查以及重建的承包商市场，服务越南工业生态系统。</div>
-     <div class="nc-meta"><span>2026年4月</span><span class="dot"></span><span>阅读4分钟</span></div>
-     <a href="/zh/news/new-system-next-quarter/" class="nc-lnk">继续阅读 →</a>
-    </div>
-   </div>
-   <!-- Card 2 -->
-   <div class="nc">
-    <img src="../../images/unsplash-1504328345606-18bbc8c9d7d1.jpg" alt="FDI">
-    <div class="nc-b">
-     <div class="nc-cat">FDI投资</div>
-     <div class="nc-ttl">2026年一季度越南FDI达67.4亿美元--同比增长34%</div>
-     <div class="nc-tx">制造业占总资本的64%。China+1浪潮继续推动供应链向北宁、同奈和平阳转移。</div>
-     <div class="nc-meta"><span>2026年4月</span><span class="dot"></span><span>阅读5分钟</span></div>
-     <a href="/zh/news/fdi/" class="nc-lnk">继续阅读 →</a>
-    </div>
-   </div>
-   <!-- Card 3 -->
-   <div class="nc">
-    <img src="../../images/unsplash-1473341304170-971dccb5ac1e.jpg" alt="ESG">
-    <div class="nc-b">
-     <div class="nc-cat">ESG与能源</div>
-     <div class="nc-ttl">第57/2025号法令：DPPA为工业园区FDI企业开辟RE100机遇</div>
-     <div class="nc-tx">根据第57/2025号法令的直接购电协议（DPPA）机制建立了法律框架，帮助企业获得RE100认证并满足欧盟CBAM要求。</div>
-     <div class="nc-meta"><span>2026年3月</span><span class="dot"></span><span>阅读7分钟</span></div>
-     <a href="/zh/news/unpublished/" class="nc-lnk">继续阅读 →</a>
-    </div>
-   </div>
-   <!-- Card 4 -->
-   <div class="nc">
-    <img src="../../images/unsplash-1581091226825-a6a2a5aee158.jpg" alt="Bán dẫn">
-    <div class="nc-b">
-     <div class="nc-cat">供应链</div>
-     <div class="nc-ttl">越南--新半导体中心：三星、英特尔、安靠加速2026年投资</div>
-     <div class="nc-tx">随着来自韩国、美国和台湾领先企业大量FDI涌入，越南正在成为东南亚重要的半导体中心。</div>
-     <div class="nc-meta"><span>2026年3月</span><span class="dot"></span><span>阅读6分钟</span></div>
-     <a href="/zh/news/unpublished/" class="nc-lnk">继续阅读 →</a>
-    </div>
-   </div>
-   <!-- Card 5 -->
-   <div class="nc">
-    <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=600&q=80&auto=format&fit=crop" alt="工业园区">
-    <div class="nc-b">
-     <div class="nc-cat">工业基础设施</div>
-     <div class="nc-ttl">北部工业园区入驻率达92%--2026年即建厂房租金上涨12%</div>
-     <div class="nc-tx">随着北部工业园区土地快速收缩，嘉莱、乂安、庆和成为新目的地。河内即建厂房达到6.2美元/平方米/月。</div>
-     <div class="nc-meta"><span>2026年2月</span><span class="dot"></span><span>阅读5分钟</span></div>
-     <a href="/zh/news/unpublished/" class="nc-lnk">继续阅读 →</a>
-    </div>
-   </div>
-   <!-- Card 6 -->
-   <div class="nc">
-    <img src="../../images/unsplash-1558618666-fcd25c85cd64.jpg" alt="EV">
-    <div class="nc-b">
-     <div class="nc-cat">HOUSELINK动态</div>
-     <div class="nc-ttl">完成全国EV充电站可行性研究：30天、4部委、25家制造商</div>
-     <div class="nc-tx">该针对日本投资者的研究项目被评为目前越南最全面的电动汽车基础设施研究之一。</div>
-     <div class="nc-meta"><span>2026年2月</span><span class="dot"></span><span>阅读4分钟</span></div>
-     <a href="/zh/news/unpublished/" class="nc-lnk">继续阅读 →</a>
-    </div>
-   </div>
-   </div>
-  </div>
+  <div class="ng" id="hl-news-feed"></div>
   <div style="text-align:center;margin-top:52px;">
    <button type="button" id="hl-news-load-more" style="display:none;background:var(--white);border:1.5px solid var(--gray-100);color:var(--navy);font-size:14px;font-weight:600;padding:13px 40px;border-radius:8px;cursor:pointer;" onmouseover="this.style.borderColor='var(--green)'" onmouseout="this.style.borderColor='var(--gray-100)'">View more news</button>
   </div>
@@ -928,9 +846,10 @@ footer { background: var(--navy); color: rgba(255,255,255,0.55); padding: 72px 0
 </section>
 
 <div id="hl-chrome-footer"></div>
+  <script src="../../js/hl-auth-env.js"></script>
+  <script src="../../js/hl-news-api-base.js"></script>
   <script src="../../landing-chrome.js" defer></script>
   <script src="../../js/auth-locale-validation.js" defer></script>
-  <script src="../../js/vietnam-construction-feed.js" defer></script>
   <script src="../../js/hl-news-feed.js" defer></script>
 <script>function setLang(l){document.querySelectorAll('.lang-btn').forEach(b=>b.classList.remove('active'));document.querySelector('.lang-btn[onclick="setLang(\''+l+'\')" ]')?.classList.add('active');}</script>
 

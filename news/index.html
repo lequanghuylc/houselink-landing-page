@@ -760,12 +760,10 @@ footer { background: var(--navy); color: rgba(255,255,255,0.55); padding: 72px 0
 .sub-form input{padding:13px 18px;border-radius:8px;border:none;font-size:14px;width:290px;outline:none;font-family:var(--font-main);}
 .sub-form button{background:var(--navy);color:#fff;font-size:14px;font-weight:700;padding:13px 26px;border-radius:8px;border:none;cursor:pointer;}
 @media(max-width:960px){.ng,.nc.feat{grid-template-columns:1fr;}.ev{grid-template-columns:60px 1fr;}.ev-btn{display:none;}}
-/* Hide static news cards while JS loads feed; fallback visible again if load fails. */
-#hl-news-feed.hl-feed-waiting .hl-news-fallback{display:none !important;}
 </style>
   <link rel="stylesheet" href="../landing-chrome.css">
 </head>
-<body class="hl-with-fixed-header" data-hl-page="news" data-hl-vn-news-source="hardcode">
+<body class="hl-with-fixed-header" data-hl-page="news">
 
 <div id="hl-chrome-header"></div>
 
@@ -781,93 +779,13 @@ footer { background: var(--navy); color: rgba(255,255,255,0.55); padding: 72px 0
  <div class="si">
   <div class="filter-bar" id="hl-news-filter-bar">
    <button type="button" class="fb on" data-hl-filter="all">All</button>
-   <button type="button" class="fb" data-hl-filter="houselink">Houselink News</button>
+   <button type="button" class="fb" data-hl-filter="houselink">HOUSELINK News</button>
    <button type="button" class="fb" data-hl-filter="fdi">FDI &amp; Investment</button>
    <button type="button" class="fb" data-hl-filter="industrial">Industrial infrastructure</button>
    <button type="button" class="fb" data-hl-filter="esg">ESG &amp; Energy</button>
    <button type="button" class="fb" data-hl-filter="supply">Supply Chain</button>
   </div>
-  <div class="ng" id="hl-news-feed">
-   <div class="hl-news-fallback">
-   <!-- Featured -->
-   <div class="nc feat">
-    <img src="../images/unsplash-1560439514-4e9645039924.jpg" alt="Hội thảo ESG">
-    <div class="nc-b">
-     <div class="nc-cat">⭐ HOUSELINK Event · Featured</div>
-     <div class="nc-ttl">Workshop "From ESG Strategy to Pioneer Position in Sustainable Manufacturing" - Binh Duong, 31/03/2026</div>
-     <div class="nc-tx">HOUSELINK in collaboration with Becamex VSIP Binh Dinh and Glassdome organised a workshop attracting 150+ delegates from FDI companies, industrial parks and international certification bodies. Three MOUs were signed at the event, marking the official launch of the ESG Infrastructure Platform for Vietnamese industrial parks.</div>
-     <div class="nc-meta"><span>31/03/2026</span><span class="dot"></span><span>WTC Binh Duong</span><span class="dot"></span><span>10 min read</span></div>
-     <a href="/news/esg-forum/" class="nc-lnk">Read full article →</a>
-    </div>
-   </div>
-   <!-- New System Release -->
-   <div class="nc">
-    <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=600&q=80&auto=format&fit=crop" alt="HOUSELINK New System">
-    <div class="nc-b">
-     <div class="nc-cat">Houselink News</div>
-     <div class="nc-ttl">HOUSELINK Releases New System in the Next Quarter</div>
-     <div class="nc-tx">A next-generation platform upgrade set for Q3/2026 - AI-powered site matching, digital due diligence, and a rebuilt contractor marketplace for Vietnam's industrial ecosystem.</div>
-     <div class="nc-meta"><span>Apr 2026</span><span class="dot"></span><span>4 min read</span></div>
-     <a href="/news/new-system-next-quarter/" class="nc-lnk">Continue reading →</a>
-    </div>
-   </div>
-   <!-- Card 2 -->
-   <div class="nc">
-    <img src="../images/unsplash-1504328345606-18bbc8c9d7d1.jpg" alt="FDI">
-    <div class="nc-b">
-     <div class="nc-cat">FDI Investment</div>
-     <div class="nc-ttl">FDI into Vietnam reaches USD 6.74bn in Q1/2026 - up 34% year-on-year</div>
-     <div class="nc-tx">Manufacturing accounts for 64% of total capital. The China+1 wave continues to drive supply chain relocation to Bac Ninh, Dong Nai and Binh Duong.</div>
-     <div class="nc-meta"><span>Apr 2026</span><span class="dot"></span><span>5 min read</span></div>
-     <a href="/news/fdi/" class="nc-lnk">Continue reading →</a>
-    </div>
-   </div>
-   <!-- Card 3 -->
-   <div class="nc">
-    <img src="../images/unsplash-1473341304170-971dccb5ac1e.jpg" alt="ESG">
-    <div class="nc-b">
-     <div class="nc-cat">ESG & Energy</div>
-     <div class="nc-ttl">Decree 57/2025: DPPA Opens RE100 Opportunities for FDI Businesses in Industrial Parks</div>
-     <div class="nc-tx">The Direct Power Purchase Agreement (DPPA) mechanism under Decree 57/2025 creates a legal framework enabling businesses to achieve RE100 certification and comply with the EU's CBAM.</div>
-     <div class="nc-meta"><span>Mar 2026</span><span class="dot"></span><span>7 min read</span></div>
-     <a href="/news/unpublished/" class="nc-lnk">Continue reading →</a>
-    </div>
-   </div>
-   <!-- Card 4 -->
-   <div class="nc">
-    <img src="../images/unsplash-1581091226825-a6a2a5aee158.jpg" alt="Bán dẫn">
-    <div class="nc-b">
-     <div class="nc-cat">Supply Chain</div>
-     <div class="nc-ttl">Vietnam - New Semiconductor Hub: Samsung, Intel, Amkor Accelerate Investment 2026</div>
-     <div class="nc-tx">Vietnam is emerging as a key semiconductor hub in Southeast Asia with massive FDI inflows from leading South Korean, US and Taiwanese corporations.</div>
-     <div class="nc-meta"><span>Mar 2026</span><span class="dot"></span><span>6 min read</span></div>
-     <a href="/news/unpublished/" class="nc-lnk">Continue reading →</a>
-    </div>
-   </div>
-   <!-- Card 5 -->
-   <div class="nc">
-    <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=600&q=80&auto=format&fit=crop" alt="Industrial Parks">
-    <div class="nc-b">
-     <div class="nc-cat">Industrial infrastructure</div>
-     <div class="nc-ttl">Northern IP occupancy reaches 92% - RBF rental up 12% in 2026</div>
-     <div class="nc-tx">Gia Lai, Nghe An and Khanh Hoa emerge as new destinations as Northern industrial parks land shrinks rapidly. Ready-built factories in Hanoi reach USD 6.2/m²/month.</div>
-     <div class="nc-meta"><span>Feb 2026</span><span class="dot"></span><span>5 min read</span></div>
-     <a href="/news/unpublished/" class="nc-lnk">Continue reading →</a>
-    </div>
-   </div>
-   <!-- Card 6 -->
-   <div class="nc">
-    <img src="../images/unsplash-1558618666-fcd25c85cd64.jpg" alt="EV">
-    <div class="nc-b">
-     <div class="nc-cat">Houselink News</div>
-     <div class="nc-ttl">Completed nationwide EV charging feasibility study: 30 days, 4 Ministries, 25 manufacturers</div>
-     <div class="nc-tx">The research project for the Japanese investor was rated one of the most comprehensive studies on EV infrastructure in Vietnam today.</div>
-     <div class="nc-meta"><span>Feb 2026</span><span class="dot"></span><span>4 min read</span></div>
-     <a href="/news/unpublished/" class="nc-lnk">Continue reading →</a>
-    </div>
-   </div>
-   </div>
-  </div>
+  <div class="ng" id="hl-news-feed"></div>
   <div style="text-align:center;margin-top:52px;">
    <button type="button" id="hl-news-load-more" style="display:none;background:var(--white);border:1.5px solid var(--gray-100);color:var(--navy);font-size:14px;font-weight:600;padding:13px 40px;border-radius:8px;cursor:pointer;" onmouseover="this.style.borderColor='var(--green)'" onmouseout="this.style.borderColor='var(--gray-100)'">View more news</button>
   </div>
@@ -929,10 +847,11 @@ footer { background: var(--navy); color: rgba(255,255,255,0.55); padding: 72px 0
 </section>
 
 <div id="hl-chrome-footer"></div>
+  <script src="../js/hl-auth-env.js"></script>
+  <script src="../js/hl-news-api-base.js"></script>
   <script src="../landing-chrome.js" defer></script>
-  <!-- EN news: vietnam-construction-feed.js + hl-news-feed.js. Optional body data-hl-vn-news-source="api" | "hardcode" (default: try API, then local JSON). -->
+  <!-- News list: CMS only via hl-news-feed.js -->
   <script src="../js/auth-locale-validation.js" defer></script>
-  <script src="../js/vietnam-construction-feed.js" defer></script>
   <script src="../js/hl-news-feed.js" defer></script>
 <script>function setLang(l){document.querySelectorAll('.lang-btn').forEach(b=>b.classList.remove('active'));document.querySelector('.lang-btn[onclick="setLang(\''+l+'\')" ]')?.classList.add('active');}</script>
 

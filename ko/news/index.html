@@ -759,12 +759,10 @@ footer { background: var(--navy); color: rgba(255,255,255,0.55); padding: 72px 0
 .sub-form input{padding:13px 18px;border-radius:8px;border:none;font-size:14px;width:290px;outline:none;font-family:var(--font-main);}
 .sub-form button{background:var(--navy);color:#fff;font-size:14px;font-weight:700;padding:13px 26px;border-radius:8px;border:none;cursor:pointer;}
 @media(max-width:960px){.ng,.nc.feat{grid-template-columns:1fr;}.ev{grid-template-columns:60px 1fr;}.ev-btn{display:none;}}
-/* Hide static news cards while JS loads feed; fallback visible again if load fails. */
-#hl-news-feed.hl-feed-waiting .hl-news-fallback{display:none !important;}
 </style>
   <link rel="stylesheet" href="../../landing-chrome.css">
 </head>
-<body class="hl-with-fixed-header" data-hl-page="news" data-hl-vn-news-source="hardcode">
+<body class="hl-with-fixed-header" data-hl-page="news">
 
 <div id="hl-chrome-header"></div>
 
@@ -786,87 +784,7 @@ footer { background: var(--navy); color: rgba(255,255,255,0.55); padding: 72px 0
    <button type="button" class="fb" data-hl-filter="esg">ESG &amp; 에너지</button>
    <button type="button" class="fb" data-hl-filter="supply">공급망</button>
   </div>
-  <div class="ng" id="hl-news-feed">
-   <div class="hl-news-fallback">
-   <!-- Featured -->
-   <div class="nc feat">
-    <img src="../../images/unsplash-1560439514-4e9645039924.jpg" alt="Hội thảo ESG">
-    <div class="nc-b">
-     <div class="nc-cat">⭐ HOUSELINK 이벤트 · 주요</div>
-     <div class="nc-ttl">워크숍 "ESG 전략에서 지속가능한 제조 선도 위치까지" - 빈즈엉, 2026년 3월 31일</div>
-     <div class="nc-tx">HOUSELINK는 Becamex VSIP Binh Dinh 및 Glassdome과 협력하여 FDI 기업, 산업단지, 국제 인증 기관에서 150명 이상의 대표자가 참석한 워크숍을 개최했습니다. 행사에서 3건의 MOU가 체결되어 베트남 산업단지를 위한 ESG 인프라 플랫폼의 공식 출범을 알렸습니다.</div>
-     <div class="nc-meta"><span>31/03/2026</span><span class="dot"></span><span>WTC 빈즈엉</span><span class="dot"></span><span>10분 읽기</span></div>
-     <a href="/ko/news/esg-forum/" class="nc-lnk">전문 읽기 →</a>
-    </div>
-   </div>
-   <!-- New System Release -->
-   <div class="nc">
-    <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=600&q=80&auto=format&fit=crop" alt="HOUSELINK 새로운 시스템">
-    <div class="nc-b">
-     <div class="nc-cat">HOUSELINK 소식</div>
-     <div class="nc-ttl">HOUSELINK, 다음 분기에 새로운 시스템 출시 예정</div>
-     <div class="nc-tx">2026년 3분기 출시 예정인 차세대 플랫폼 업그레이드 - AI 입지 매칭, 디지털 실사, 재구축된 시공사 마켓플레이스.</div>
-     <div class="nc-meta"><span>2026년 4월</span><span class="dot"></span><span>4분 읽기</span></div>
-     <a href="/ko/news/new-system-next-quarter/" class="nc-lnk">계속 읽기 →</a>
-    </div>
-   </div>
-   <!-- Card 2 -->
-   <div class="nc">
-    <img src="../../images/unsplash-1504328345606-18bbc8c9d7d1.jpg" alt="FDI">
-    <div class="nc-b">
-     <div class="nc-cat">FDI 투자</div>
-     <div class="nc-ttl">2026년 1분기 베트남 FDI 67.4억 달러 - 전년 동기 대비 34% 증가</div>
-     <div class="nc-tx">제조업이 총 자본의 64%를 차지합니다. China+1 물결이 박닌, 동나이, 빈즈엉으로의 공급망 이전을 계속 촉진하고 있습니다.</div>
-     <div class="nc-meta"><span>2026년 4월</span><span class="dot"></span><span>5분 읽기</span></div>
-     <a href="/ko/news/fdi/" class="nc-lnk">계속 읽기 →</a>
-    </div>
-   </div>
-   <!-- Card 3 -->
-   <div class="nc">
-    <img src="../../images/unsplash-1473341304170-971dccb5ac1e.jpg" alt="ESG">
-    <div class="nc-b">
-     <div class="nc-cat">ESG & 에너지</div>
-     <div class="nc-ttl">시행령 57/2025: DPPA, 산업단지 FDI 기업에 RE100 기회 열다</div>
-     <div class="nc-tx">시행령 57/2025에 따른 직접 전력 구매 협약(DPPA) 메커니즘은 기업이 RE100 인증을 달성하고 EU CBAM을 준수할 수 있는 법적 프레임워크를 만들었습니다.</div>
-     <div class="nc-meta"><span>2026년 3월</span><span class="dot"></span><span>7분 읽기</span></div>
-     <a href="/ko/news/unpublished/" class="nc-lnk">계속 읽기 →</a>
-    </div>
-   </div>
-   <!-- Card 4 -->
-   <div class="nc">
-    <img src="../../images/unsplash-1581091226825-a6a2a5aee158.jpg" alt="Bán dẫn">
-    <div class="nc-b">
-     <div class="nc-cat">공급망</div>
-     <div class="nc-ttl">베트남 - 새로운 반도체 허브: 삼성·인텔·앰코, 2026년 투자 가속화</div>
-     <div class="nc-tx">한국, 미국, 대만 선도 기업들로부터의 대규모 FDI 유입으로 베트남이 동남아시아의 핵심 반도체 허브로 부상하고 있습니다.</div>
-     <div class="nc-meta"><span>2026년 3월</span><span class="dot"></span><span>6분 읽기</span></div>
-     <a href="/ko/news/unpublished/" class="nc-lnk">계속 읽기 →</a>
-    </div>
-   </div>
-   <!-- Card 5 -->
-   <div class="nc">
-    <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=600&q=80&auto=format&fit=crop" alt="산업단지">
-    <div class="nc-b">
-     <div class="nc-cat">산업 인프라</div>
-     <div class="nc-ttl">북부 산업단지 입주율 92% 달성 - 2026년 RBF 임대료 12% 상승</div>
-     <div class="nc-tx">북부 산업단지 토지가 빠르게 줄어들면서 자라이, 응에안, 칸호아가 새로운 목적지로 부상하고 있습니다. 하노이 레디빌트 팩토리는 6.2 USD/m²/월에 달합니다.</div>
-     <div class="nc-meta"><span>2026년 2월</span><span class="dot"></span><span>5분 읽기</span></div>
-     <a href="/ko/news/unpublished/" class="nc-lnk">계속 읽기 →</a>
-    </div>
-   </div>
-   <!-- Card 6 -->
-   <div class="nc">
-    <img src="../../images/unsplash-1558618666-fcd25c85cd64.jpg" alt="EV">
-    <div class="nc-b">
-     <div class="nc-cat">HOUSELINK 소식</div>
-     <div class="nc-ttl">전국 EV 충전 타당성 연구 완료: 30일, 4개 부처, 25개 제조업체</div>
-     <div class="nc-tx">일본 투자자를 위한 연구 프로젝트는 현재 베트남의 EV 인프라에 관한 가장 포괄적인 연구 중 하나로 평가받았습니다.</div>
-     <div class="nc-meta"><span>2026년 2월</span><span class="dot"></span><span>4분 읽기</span></div>
-     <a href="/ko/news/unpublished/" class="nc-lnk">계속 읽기 →</a>
-    </div>
-   </div>
-   </div>
-  </div>
+  <div class="ng" id="hl-news-feed"></div>
   <div style="text-align:center;margin-top:52px;">
    <button type="button" id="hl-news-load-more" style="display:none;background:var(--white);border:1.5px solid var(--gray-100);color:var(--navy);font-size:14px;font-weight:600;padding:13px 40px;border-radius:8px;cursor:pointer;" onmouseover="this.style.borderColor='var(--green)'" onmouseout="this.style.borderColor='var(--gray-100)'">View more news</button>
   </div>
@@ -928,9 +846,10 @@ footer { background: var(--navy); color: rgba(255,255,255,0.55); padding: 72px 0
 </section>
 
 <div id="hl-chrome-footer"></div>
+  <script src="../../js/hl-auth-env.js"></script>
+  <script src="../../js/hl-news-api-base.js"></script>
   <script src="../../landing-chrome.js" defer></script>
   <script src="../../js/auth-locale-validation.js" defer></script>
-  <script src="../../js/vietnam-construction-feed.js" defer></script>
   <script src="../../js/hl-news-feed.js" defer></script>
 <script>function setLang(l){document.querySelectorAll('.lang-btn').forEach(b=>b.classList.remove('active'));document.querySelector('.lang-btn[onclick="setLang(\''+l+'\')" ]')?.classList.add('active');}</script>
 

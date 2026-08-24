@@ -760,12 +760,10 @@ footer { background: var(--navy); color: rgba(255,255,255,0.55); padding: 72px 0
 .sub-form input{padding:13px 18px;border-radius:8px;border:none;font-size:14px;width:290px;outline:none;font-family:var(--font-main);}
 .sub-form button{background:var(--navy);color:#fff;font-size:14px;font-weight:700;padding:13px 26px;border-radius:8px;border:none;cursor:pointer;}
 @media(max-width:960px){.ng,.nc.feat{grid-template-columns:1fr;}.ev{grid-template-columns:60px 1fr;}.ev-btn{display:none;}}
-/* Ẩn bài mẫu tĩnh khi JS đang tải feed (giống các trang news khác). */
-#hl-news-feed.hl-feed-waiting .hl-news-fallback{display:none !important;}
 </style>
   <link rel="stylesheet" href="../../landing-chrome.css">
 </head>
-<body class="hl-with-fixed-header" data-hl-page="news" data-hl-vn-news-source="hardcode">
+<body class="hl-with-fixed-header" data-hl-page="news">
 
 <div id="hl-chrome-header"></div>
 
@@ -849,10 +847,11 @@ footer { background: var(--navy); color: rgba(255,255,255,0.55); padding: 72px 0
 </section>
 
 <div id="hl-chrome-footer"></div>
+  <script src="../../js/hl-auth-env.js"></script>
+  <script src="../../js/hl-news-api-base.js"></script>
   <script src="../../landing-chrome.js" defer></script>
-  <!-- Tin VI: vietnam-construction-feed.js + hl-news-feed.js. Tùy chọn trên body: data-hl-vn-news-source="api" | "hardcode" (mặc định: thử API, sau đó JSON cục bộ). -->
+  <!-- News list: CMS only via hl-news-feed.js -->
   <script src="../../js/auth-locale-validation.js" defer></script>
-  <script src="../../js/vietnam-construction-feed.js" defer></script>
   <script src="../../js/hl-news-feed.js" defer></script>
 <script>function setLang(l){document.querySelectorAll('.lang-btn').forEach(b=>b.classList.remove('active'));document.querySelector('.lang-btn[onclick="setLang(\''+l+'\')" ]')?.classList.add('active');}</script>
 

@@ -1,21 +1,16 @@
 /**
- * Lightweight browser-side news feed loader (WordPress REST).
- * Progressive enhancement: optional `.hl-news-fallback` static cards stay in HTML;
- * hidden with `.hl-feed-waiting` while JS loads; shown again if every source fails.
- * EN + JA/KO/ZH: Vietnam Construction Event (EN, cat 6). VI: Event (VI, cat 66) from data-event-vi.json.
- * Fallback: fetch data-event-en.json / data-event-vi.json from the same /js/ directory if VC or API fails.
- * Filters, cached pagination, detail links to /news/article/?id=.
+ * Landing news list: CMS-only (`GET /api/news-articles`).
+ * Filters, cached pagination, detail links to `/news/cms/?slug=`.
+ * Hardcoded / Vietnam Construction / bundled JSON feeds are no longer used on news pages.
  */
 (function () {
   "use strict";
 
-  var WP_BASE = "https://vietnamconstruction.vn";
-  var WP_POSTS = WP_BASE + "/wp-json/wp/v2/posts";
   var INITIAL_PAGE_SIZE = 7;
   var LOAD_MORE_SIZE = 9;
   var loadMoreClickBound = false;
   var filterBarBound = false;
-  /** Full EN VC list + active filter (client-side only). */
+  /** Full CMS list + active filter (client-side only). */
   var enNewsState = { allPosts: [], filter: "all" };
 
   function langKey() {
@@ -27,22 +22,45 @@
     return "en";
   }
 
-  function tagForLocale() {
-    var forced = document.body && document.body.getAttribute("data-hl-news-tag");
-    if (forced) return String(forced);
-    // Mirrors `Houselink/News.API.js#getListNews(isEng)` where EN uses tag=21, otherwise tag=22.
-    return langKey() === "en" ? "21" : "22";
-  }
-
-  /** EN Event feed (Vietnam Construction) also on JA / KO / ZH news pages - English copy, same data. */
+  /** EN + JA / KO / ZH news shells reuse EN CMS locale (same as prior VC EN feed). */
   function useVcEnFeed() {
     var k = langKey();
     return k === "en" || k === "ja" || k === "ko" || k === "zh";
   }
 
-  /** VI news page: local/API feed category 66 (Sự kiện). */
-  function useVcViFeed() {
-    return langKey() === "vi";
+  function resolveNewsApiBase() {
+    if (typeof window !== "undefined" && typeof window.HL_resolveNewsApiBase === "function") {
+      return String(window.HL_resolveNewsApiBase()).replace(/\/+$/, "");
+    }
+    if (typeof window !== "undefined" && typeof window.HL_resolveAuthEnv === "function") {
+      return String(window.HL_resolveAuthEnv().apiBase || "").replace(/\/+$/, "");
+    }
+    if (typeof window !== "undefined" && window.HL_AUTH_ENV && window.HL_AUTH_ENV.apiBase) {
+      return String(window.HL_AUTH_ENV.apiBase).replace(/\/+$/, "");
+    }
+    return "http://localhost:3001";
+  }
+
+  /** Wait for hl-auth-env so Netlify uses 2026-api (not localhost:3001). */
+  function ensureAuthEnv() {
+    if (typeof window !== "undefined" && typeof window.HL_resolveAuthEnv === "function") {
+      return Promise.resolve();
+    }
+    return new Promise(function (resolve) {
+      var s = document.createElement("script");
+      try {
+        s.src = new URL("js/hl-auth-env.js", document.baseURI).href;
+      } catch (ignore) {
+        s.src = "/js/hl-auth-env.js";
+      }
+      s.onload = function () {
+        resolve();
+      };
+      s.onerror = function () {
+        resolve();
+      };
+      document.head.appendChild(s);
+    });
   }
 
   function stripHtml(html) {
@@ -50,6 +68,95 @@
     var tmp = document.createElement("div");
     tmp.innerHTML = String(html);
     return (tmp.textContent || tmp.innerText || "").trim();
+  }
+
+  var CMS_TYPE_LABELS = {
+    houselink: { en: "HOUSELINK", vi: "HOUSELINK", ja: "HOUSELINK", ko: "HOUSELINK", zh: "HOUSELINK" },
+    fdi: { en: "FDI", vi: "FDI", ja: "FDI", ko: "FDI", zh: "FDI" },
+    industrial: { en: "Industrial", vi: "Công nghiệp", ja: "工業", ko: "산업", zh: "工业" },
+    esg: { en: "ESG", vi: "ESG", ja: "ESG", ko: "ESG", zh: "ESG" },
+    supply: { en: "Supply chain", vi: "Chuỗi cung ứng", ja: "サプライチェーン", ko: "공급망", zh: "供应链" }
+  };
+
+  function cmsTypeLabel(type) {
+    var map = CMS_TYPE_LABELS[type];
+    if (map) return map[langKey()] || map.en || type || "News";
+    return type || "News";
+  }
+
+  function cmsDetailHref(slug) {
+    var u = "/news/cms/?slug=" + encodeURIComponent(slug);
+    var k = langKey();
+    if (k !== "en") u += "&lang=" + encodeURIComponent(k);
+    return u;
+  }
+
+  /** Map HouseLink CMS article → WP-shaped post for existing card renderer. */
+  function cmsArticleToPost(article) {
+    if (!article || !article.slug) return null;
+    var cover = article.coverImageUrl ? String(article.coverImageUrl) : "";
+    var typeKey = String(article.type || "houselink");
+    var categoryKey = String(article.category || "");
+    var labels = Array.isArray(article.categoryLabels)
+      ? article.categoryLabels.map(String).filter(Boolean)
+      : [];
+    var catLabel =
+      (labels.length ? labels.join(" · ") : "") ||
+      String(article.categoryLabel || "").trim() ||
+      categoryKey.replace(/-/g, " ") ||
+      cmsTypeLabel(typeKey);
+    return {
+      id: "cms-" + String(article.id || article.slug),
+      date: article.publishedAt || article.createdAt || "",
+      modified: article.publishedAt || article.updatedAt || article.createdAt || "",
+      link: cmsDetailHref(article.slug),
+      title: { rendered: String(article.title || "") },
+      excerpt: { rendered: String(article.excerpt || "") },
+      hlCms: true,
+      hlCmsType: typeKey,
+      hlCmsFeatured: !!article.featured,
+      hlCmsSlug: String(article.slug),
+      _embedded: {
+        "wp:featuredmedia": cover ? [{ source_url: cover }] : [],
+        "wp:term": [[{ name: catLabel }]]
+      }
+    };
+  }
+
+  async function fetchCmsArticles() {
+    var apiBase = resolveNewsApiBase();
+    // JA/KO/ZH news shells reuse EN content (same as VC EN event feed).
+    var locale = useVcEnFeed() ? "en" : "vi";
+    var url = apiBase + "/api/news-articles?locale=" + encodeURIComponent(locale);
+    var res = await fetch(url, {
+      method: "GET",
+      headers: { Accept: "application/json" },
+      credentials: "omit"
+    });
+    if (!res.ok) throw new Error("cms_http");
+    var body = await res.json();
+    if (!body || body.success !== true) throw new Error("cms_shape");
+    var articles = (body.data && body.data.articles) || [];
+    if (!Array.isArray(articles)) return [];
+    return articles
+      .map(cmsArticleToPost)
+      .filter(Boolean);
+  }
+
+  /** CMS feed — featured first, then publishedAt desc (matches admin + live news order). */
+  async function loadCmsPrimary(container) {
+    try {
+      var cmsPosts = await fetchCmsArticles();
+      clearNewsPagination(container);
+      enNewsState.allPosts = sortPostsFeaturedThenDate(cmsPosts);
+      enNewsState.filter = "all";
+      renderFeedFromCache(container);
+      bindLoadMoreOnce();
+      bindFilterBarOnce();
+      return true;
+    } catch (ignore) {
+      return false;
+    }
   }
 
   function fmtDate(iso) {
@@ -112,6 +219,9 @@
   /** Filter keys: all | houselink | fdi | industrial | esg | supply */
   function postMatchesFilter(post, key) {
     if (!key || key === "all") return true;
+    if (post && post.hlCms) {
+      return String(post.hlCmsType || post.hlCmsCategory || "") === String(key);
+    }
     var blob =
       stripHtml((post.title && post.title.rendered) || "").toLowerCase() +
       " " +
@@ -186,25 +296,10 @@
 
   function getFilteredPosts() {
     if (!enNewsState.allPosts || !enNewsState.allPosts.length) return [];
-    return enNewsState.allPosts.filter(function (p) {
+    var filtered = enNewsState.allPosts.filter(function (p) {
       return postMatchesFilter(p, enNewsState.filter);
     });
-  }
-
-  function postsUrlForLocale() {
-    if (langKey() === "en") {
-      return (
-        WP_POSTS +
-        "?categories=6&per_page=7&offset=0&_embed=1&orderby=date&order=desc"
-      );
-    }
-    var tag = tagForLocale();
-    return (
-      WP_POSTS +
-      "?_embed=1&per_page=7&categories=20&tags=" +
-      encodeURIComponent(tag) +
-      "&orderby=modified&order=desc"
-    );
+    return sortPostsFeaturedThenDate(filtered);
   }
 
   function newsContinueLabel() {
@@ -232,13 +327,10 @@
     );
   }
 
-  /** VC-backed posts open on-site detail at /news/article/?id= */
+  /** CMS articles open at `/news/cms/?slug=`. */
   function detailHrefForPost(post) {
-    if ((useVcEnFeed() || useVcViFeed()) && post && post.id != null && String(post.id).match(/^\d+$/)) {
-      var u = "/news/article/?id=" + encodeURIComponent(post.id);
-      var k = langKey();
-      if (k !== "en") u += "&lang=" + encodeURIComponent(k);
-      return u;
+    if (post && post.hlCms && post.hlCmsSlug) {
+      return cmsDetailHref(post.hlCmsSlug);
     }
     return (post && post.link) || "#";
   }
@@ -286,53 +378,16 @@
     );
   }
 
-  function newsFeedJsonBaseDir() {
-    var el = document.querySelector('script[src*="hl-news-feed.js"]');
-    if (!el || !el.src) el = document.querySelector('script[src*="vietnam-construction-feed.js"]');
-    if (!el || !el.src) return "";
-    return el.src.replace(/[^/]+$/, "");
-  }
-
-  function filterPostsByCategories(posts, categoryIds) {
-    if (!categoryIds || !categoryIds.length) return posts || [];
-    return (posts || []).filter(function (p) {
-      var cats = p.categories;
-      if (!Array.isArray(cats)) return false;
-      for (var i = 0; i < categoryIds.length; i++) {
-        if (cats.indexOf(categoryIds[i]) !== -1) return true;
-      }
-      return false;
-    });
-  }
-
-  function sortPostsByDateDesc(posts) {
+  /** Featured CMS articles first, then by date. */
+  function sortPostsFeaturedThenDate(posts) {
     return (posts || []).slice().sort(function (a, b) {
+      var fa = a && a.hlCmsFeatured ? 1 : 0;
+      var fb = b && b.hlCmsFeatured ? 1 : 0;
+      if (fb !== fa) return fb - fa;
       var da = new Date((a && (a.date || a.modified)) || 0).getTime();
       var db = new Date((b && (b.date || b.modified)) || 0).getTime();
       return db - da;
     });
-  }
-
-  /** When VC is missing or fails: same JSON as hardcodeFromVietnamconstruction / hardcodeEventVi. */
-  async function loadBundledEventNews(container) {
-    var base = newsFeedJsonBaseDir();
-    if (!base) throw new Error("news_json_base_missing");
-    var isVi = useVcViFeed();
-    var url = base + (isVi ? "data-event-vi.json" : "data-event-en.json");
-    var catIds = isVi ? [66] : [6];
-    var res = await fetch(url, { credentials: "omit" });
-    if (!res.ok) throw new Error("event_json_http");
-    var arr = await res.json();
-    if (!Array.isArray(arr)) throw new Error("event_json_shape");
-    var posts = sortPostsByDateDesc(filterPostsByCategories(arr, catIds));
-    if (!posts.length) throw new Error("event_json_empty");
-
-    clearNewsPagination(container);
-    enNewsState.allPosts = posts;
-    enNewsState.filter = "all";
-    renderFeedFromCache(container);
-    bindLoadMoreOnce();
-    bindFilterBarOnce();
   }
 
   function clearNewsPagination(container) {
@@ -430,102 +485,6 @@
     });
   }
 
-  async function loadEnFromVietnamConstructionInitial(container) {
-    var VC = window.HL_VietnamConstruction;
-    if (!VC) throw new Error("vn_vc_missing");
-    var mode = (document.body && document.body.getAttribute("data-hl-vn-news-source")) || "";
-    mode = String(mode).toLowerCase();
-    var input = {
-      offset: 0,
-      perPage: 100,
-      page: 1,
-      categories: VC.defaultEnCategories,
-      embed: true
-    };
-    var result;
-    if (mode === "hardcode") {
-      result = await VC.hardcodeFromVietnamconstruction(input);
-    } else if (mode === "api") {
-      try {
-        result = await VC.fetchFromVietnamconstruction(input);
-      } catch (ignore) {
-        result = { posts: [] };
-      }
-      var apiPostsApi = result && result.posts;
-      if (!Array.isArray(apiPostsApi) || !apiPostsApi.length) {
-        result = await VC.hardcodeFromVietnamconstruction(input);
-      }
-    } else {
-      try {
-        result = await VC.fetchFromVietnamconstruction(input);
-      } catch (ignore) {
-        result = { posts: [] };
-      }
-      var apiPosts = result && result.posts;
-      if (!Array.isArray(apiPosts) || !apiPosts.length) {
-        result = await VC.hardcodeFromVietnamconstruction(input);
-      }
-    }
-    var posts = result && result.posts;
-    if (!Array.isArray(posts) || !posts.length) throw new Error("vn_empty");
-
-    clearNewsPagination(container);
-    enNewsState.allPosts = posts;
-    enNewsState.filter = "all";
-
-    renderFeedFromCache(container);
-    bindLoadMoreOnce();
-    bindFilterBarOnce();
-  }
-
-  async function loadViFromVietnamConstructionInitial(container) {
-    var VC = window.HL_VietnamConstruction;
-    if (!VC || typeof VC.hardcodeEventViFromVietnamconstruction !== "function") throw new Error("vn_vc_vi_missing");
-    var mode = (document.body && document.body.getAttribute("data-hl-vn-news-source")) || "";
-    mode = String(mode).toLowerCase();
-    var input = {
-      offset: 0,
-      perPage: 100,
-      page: 1,
-      categories: VC.defaultViEventCategories,
-      embed: true
-    };
-    var result;
-    if (mode === "hardcode") {
-      result = await VC.hardcodeEventViFromVietnamconstruction(input);
-    } else if (mode === "api") {
-      try {
-        result = await VC.fetchFromVietnamconstruction(input);
-      } catch (ignore) {
-        result = { posts: [] };
-      }
-      var apiPostsViApi = result && result.posts;
-      if (!Array.isArray(apiPostsViApi) || !apiPostsViApi.length) {
-        result = await VC.hardcodeEventViFromVietnamconstruction(input);
-      }
-    } else {
-      try {
-        result = await VC.fetchFromVietnamconstruction(input);
-      } catch (ignore) {
-        result = { posts: [] };
-      }
-      var apiPostsVi = result && result.posts;
-      if (!Array.isArray(apiPostsVi) || !apiPostsVi.length) {
-        result = await VC.hardcodeEventViFromVietnamconstruction(input);
-      }
-    }
-    var posts = result && result.posts;
-    if (!Array.isArray(posts) || !posts.length) throw new Error("vn_empty");
-
-    clearNewsPagination(container);
-    enNewsState.allPosts = posts;
-    enNewsState.filter = "all";
-
-    renderFeedFromCache(container);
-    bindLoadMoreOnce();
-    bindFilterBarOnce();
-  }
-
   async function loadMoreEnVietnamNews(container) {
     if (container.getAttribute("data-hl-news-cached") !== "1") return;
     var filtered = getFilteredPosts();
@@ -551,49 +510,23 @@
 
   async function loadInto(container) {
     try {
-      if (useVcViFeed() && window.HL_VietnamConstruction) {
-        try {
-          await loadViFromVietnamConstructionInitial(container);
-          return;
-        } catch (ignore) {
-          clearNewsPagination(container);
-        }
-      }
-      if (useVcEnFeed() && window.HL_VietnamConstruction) {
-        try {
-          await loadEnFromVietnamConstructionInitial(container);
-          return;
-        } catch (ignore) {
-          clearNewsPagination(container);
-        }
-      }
-
-      if (useVcEnFeed() || useVcViFeed()) {
-        try {
-          await loadBundledEventNews(container);
-          return;
-        } catch (ignore) {
-          clearNewsPagination(container);
-        }
-      }
-
+      await ensureAuthEnv();
+      if (await loadCmsPrimary(container)) return;
       clearNewsPagination(container);
-      var url = postsUrlForLocale();
-      var res = await fetch(url, { credentials: "omit" });
-      if (!res.ok) throw new Error("wp_fetch_failed");
-      var posts = await res.json();
-      if (!Array.isArray(posts) || !posts.length) throw new Error("wp_empty");
-
-      var html = "";
-      posts.forEach(function (p, idx) {
-        html += renderCard(p, idx === 0);
-      });
-      container.innerHTML = html;
-      container.classList.remove("hl-feed-waiting");
+      enNewsState.allPosts = [];
+      enNewsState.filter = "all";
+      renderFeedFromCache(container);
+      bindLoadMoreOnce();
+      bindFilterBarOnce();
     } catch (ignore) {
-      /* Show static .hl-news-fallback again if all sources fail. */
-      var c = document.getElementById("hl-news-feed");
-      if (c) c.classList.remove("hl-feed-waiting");
+      clearNewsPagination(container);
+      enNewsState.allPosts = [];
+      enNewsState.filter = "all";
+      container.classList.remove("hl-feed-waiting");
+      container.innerHTML =
+        '<p class="hl-news-empty" style="grid-column:1/-1;padding:36px 20px;text-align:center;font-size:15px;color:var(--gray-600);">' +
+        esc(langKey() === "vi" ? "Không tải được tin tức." : "Could not load news.") +
+        "</p>";
     } finally {
       syncLoadMoreButton(container);
     }

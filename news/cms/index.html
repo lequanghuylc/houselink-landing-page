@@ -25,7 +25,6 @@ body.hl-with-fixed-header{
 .pg-inner{max-width:var(--max-w);margin:0 auto;padding:0 40px;position:relative;z-index:1;}
 .pg-eye{font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#7ED49A;margin-bottom:14px;}
 .pg-h1{font-family:var(--font-serif);font-size:clamp(26px,3.2vw,44px);font-weight:600;color:#fff;line-height:1.2;letter-spacing:-.02em;margin-bottom:16px;max-width:780px;}
-.pg-h1 em{color:#7ED49A;font-style:normal;}
 .pg-sub{font-size:15.5px;color:rgba(255,255,255,.62);line-height:1.75;max-width:640px;}
 .pg-hero .bc{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:12.5px;color:rgba(255,255,255,.5);margin-bottom:16px;width:100%;min-width:0;}
 .bc a{color:rgba(255,255,255,.55);text-decoration:none;}
@@ -53,24 +52,17 @@ body.hl-with-fixed-header{
 .art-content li{font-size:15px;line-height:1.72;}
 .art-content blockquote{border-left:4px solid var(--green);padding:14px 18px;margin:22px 0;background:var(--off-white);border-radius:0 10px 10px 0;font-size:15px;color:var(--navy);font-style:italic;}
 .art-content img,.art-content figure,.art-content iframe{max-width:100%;box-sizing:border-box;}
-/* WP often outputs width:2048px on .wp-caption - override inline width */
-.art-content figure.wp-caption,
-.art-content .wp-caption{
-  max-width:100% !important;
-  width:auto !important;
-  box-sizing:border-box;
-}
 .art-content figure{margin:20px 0;}
-.art-content img{
-  height:auto;
-  display:block;
-  margin:14px 0;
-}
-/* Several full-size <img> in one <p> stay inline and overflow - force block stack */
+.art-content img{height:auto;display:block;margin:14px 0;}
 .art-content p img{display:block;}
 .art-content figure img{margin:0;}
 .art-content a{color:var(--green);font-weight:600;}
-.art-content .wp-caption-text{font-size:13px;color:var(--gray-400);margin-top:6px;}
+.art-content .report-inline-image{margin:22px 0;max-width:100%;}
+.art-content .report-inline-image img{width:100%;max-height:var(--report-image-max-height,360px);object-fit:contain;margin:0;}
+.art-content .report-inline-image--fit-cover img{object-fit:cover;}
+.art-content .report-inline-image--align-left{margin-right:auto;}
+.art-content .report-inline-image--align-right{margin-left:auto;}
+.art-content .report-inline-image--align-center{margin-left:auto;margin-right:auto;}
 .art-tags{display:flex;flex-wrap:wrap;gap:8px;margin:28px 0 0;padding-top:22px;border-top:1px solid var(--gray-100);}
 .art-tag{font-size:12px;font-weight:600;color:var(--navy);background:var(--gray-50);padding:5px 14px;border-radius:100px;border:1px solid var(--gray-100);}
 .art-share{display:flex;align-items:center;gap:12px;margin-top:16px;}
@@ -104,30 +96,73 @@ body.hl-with-fixed-header{
 </style>
 <link rel="stylesheet" href="../../landing-chrome.css">
 </head>
-<body class="hl-with-fixed-header" data-hl-page="news-vc-article">
+<body class="hl-with-fixed-header" data-hl-page="news-cms-article">
 
 <div id="hl-chrome-header"></div>
 
 <section class="pg-hero" style="padding-bottom:52px;">
   <div class="pg-inner">
     <div class="bc" role="navigation" aria-label="Breadcrumb">
-      <a href="/" id="hl-vc-bc-home">Home</a><span>›</span>
-      <a href="/news/" id="hl-vc-bc-news">News &amp; Events</a><span>›</span>
-      <span id="hl-vc-bc-last" style="color:rgba(255,255,255,.7);">Article</span>
+      <a href="/" id="hl-cms-bc-home">Home</a><span>›</span>
+      <a href="/news/" id="hl-cms-bc-news">News &amp; Events</a><span>›</span>
+      <span id="hl-cms-bc-last" style="color:rgba(255,255,255,.7);">Article</span>
     </div>
-    <div class="pg-eye" id="hl-vc-hero-eyebrow">…</div>
-    <h1 class="pg-h1" id="hl-vc-hero-title">Loading…</h1>
-    <p class="pg-sub" id="hl-vc-hero-sub"></p>
+    <div class="pg-eye" id="hl-cms-hero-eyebrow">…</div>
+    <h1 class="pg-h1" id="hl-cms-hero-title">Loading…</h1>
+    <p class="pg-sub" id="hl-cms-hero-sub"></p>
   </div>
 </section>
 
 <section class="sec">
-  <div class="si" id="hl-vc-article-root">
+  <div class="si">
     <div class="art-layout">
       <article class="art-body">
-        <div class="art-content" id="hl-vc-body">Redirecting to CMS article…</div>
+        <img id="hl-cms-cover" class="art-cover" src="" alt="" width="1100" height="620" style="display:none">
+        <div class="art-meta-bar">
+          <span class="art-cat" id="hl-cms-meta-cat">News</span>
+          <span class="art-sep" aria-hidden="true"></span>
+          <span class="art-date" id="hl-cms-meta-date">-</span>
+        </div>
+        <p class="art-lead" id="hl-cms-lead" style="display:none"></p>
+        <div class="art-content" id="hl-cms-body">Loading article…</div>
+        <div class="art-tags" id="hl-cms-tags" style="display:none"></div>
+        <div class="art-share">
+          <span id="hl-cms-share-label">Share:</span>
+          <a href="https://www.linkedin.com/company/houselink-jsc" class="soc-btn" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><img class="soc-btn__icon" src="/images/icon%20linkedin.png" alt="" decoding="async"></a>
+          <a href="https://www.facebook.com/houselink.com.vn" class="soc-btn" aria-label="Facebook" target="_blank" rel="noopener noreferrer"><img class="soc-btn__icon" src="/images/icon%20facebook.png" alt="" decoding="async"></a>
+          <a href="https://www.youtube.com/@houselink5096" class="soc-btn" aria-label="YouTube" target="_blank" rel="noopener noreferrer"><img class="soc-btn__icon" src="/images/icon%20youtube.png" alt="" decoding="async"></a>
+        </div>
       </article>
+      <aside class="art-sidebar">
+        <div class="sidebar-card">
+          <div class="sc-title" id="hl-cms-sc-author">Author</div>
+          <div class="author-row">
+            <div class="author-av" id="hl-cms-author-av">HL</div>
+            <div>
+              <div class="author-name" id="hl-cms-author-name">HOUSELINK Editorial</div>
+              <div class="author-role" id="hl-cms-author-role">News &amp; Events</div>
+            </div>
+          </div>
+        </div>
+        <div class="sidebar-cta">
+          <h4 id="hl-cms-cta-title">Register for the next event</h4>
+          <p id="hl-cms-cta-body">Business matching, forums and industry updates - get priority access to HOUSELINK events.</p>
+          <a href="/contact/" id="hl-cms-cta-link">Contact us →</a>
+        </div>
+        <div class="sidebar-card" id="hl-cms-related-card">
+          <div class="sc-title" id="hl-cms-related-sc-title">Related articles</div>
+          <div id="hl-cms-related"></div>
+        </div>
+      </aside>
     </div>
+  </div>
+</section>
+
+<section class="sec-green">
+  <div class="si">
+    <h2 id="hl-cms-sec-green-title" style="font-family:var(--font-serif);font-size:28px;font-weight:600;color:#fff;margin-bottom:8px;">Weekly market updates</h2>
+    <p id="hl-cms-sec-green-body" style="font-size:15px;color:rgba(255,255,255,.78);margin-bottom:18px;">FDI, industrial parks and ESG - on the main news page.</p>
+    <a href="/news/" id="hl-cms-sec-green-link" style="display:inline-block;background:#fff;color:var(--green);font-size:14px;font-weight:700;padding:12px 26px;border-radius:8px;text-decoration:none;">News &amp; Events →</a>
   </div>
 </section>
 
@@ -136,6 +171,6 @@ body.hl-with-fixed-header{
 <script src="../../js/hl-news-api-base.js"></script>
 <script src="../../landing-chrome.js" defer></script>
 <script src="../../js/auth-locale-validation.js" defer></script>
-<script src="../../js/hl-legacy-article-redirect.js" defer></script>
+<script src="../../js/hl-cms-article.js" defer></script>
 </body>
 </html>

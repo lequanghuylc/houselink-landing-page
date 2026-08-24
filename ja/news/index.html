@@ -759,12 +759,10 @@ footer { background: var(--navy); color: rgba(255,255,255,0.55); padding: 72px 0
 .sub-form input{padding:13px 18px;border-radius:8px;border:none;font-size:14px;width:290px;outline:none;font-family:var(--font-main);}
 .sub-form button{background:var(--navy);color:#fff;font-size:14px;font-weight:700;padding:13px 26px;border-radius:8px;border:none;cursor:pointer;}
 @media(max-width:960px){.ng,.nc.feat{grid-template-columns:1fr;}.ev{grid-template-columns:60px 1fr;}.ev-btn{display:none;}}
-/* Hide static news cards while JS loads feed; fallback visible again if load fails. */
-#hl-news-feed.hl-feed-waiting .hl-news-fallback{display:none !important;}
 </style>
   <link rel="stylesheet" href="../../landing-chrome.css">
 </head>
-<body class="hl-with-fixed-header" data-hl-page="news" data-hl-vn-news-source="hardcode">
+<body class="hl-with-fixed-header" data-hl-page="news">
 
 <div id="hl-chrome-header"></div>
 
@@ -786,87 +784,7 @@ footer { background: var(--navy); color: rgba(255,255,255,0.55); padding: 72px 0
    <button type="button" class="fb" data-hl-filter="esg">ESG＆エネルギー</button>
    <button type="button" class="fb" data-hl-filter="supply">サプライチェーン</button>
   </div>
-  <div class="ng" id="hl-news-feed">
-   <div class="hl-news-fallback">
-   <!-- Featured -->
-   <div class="nc feat">
-    <img src="../../images/unsplash-1560439514-4e9645039924.jpg" alt="Hội thảo ESG">
-    <div class="nc-b">
-     <div class="nc-cat">⭐ HouseLINKイベント·注目</div>
-     <div class="nc-ttl">ワークショップ「ESG戦略から持続可能な製造のパイオニアへ」- ビンズオン、2026年3月31日</div>
-     <div class="nc-tx">HouseLINKはBecamex VSIP Binh DinhおよびGlassdomeと協力し、FDI企業・工業団地・国際認証機関から150名以上の代表者が参加するワークショップを開催しました。イベントでは3件のMOUが締結され、ベトナム工業団地向けESGインフラプラットフォームの正式発足を告げました。</div>
-     <div class="nc-meta"><span>31/03/2026</span><span class="dot"></span><span>WTC ビンズオン</span><span class="dot"></span><span>10分で読む</span></div>
-     <a href="/ja/news/esg-forum/" class="nc-lnk">全文を読む →</a>
-    </div>
-   </div>
-   <!-- New System Release -->
-   <div class="nc">
-    <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=600&q=80&auto=format&fit=crop" alt="HOUSELINKの新システム">
-    <div class="nc-b">
-     <div class="nc-cat">HOUSELINKニュース</div>
-     <div class="nc-ttl">HOUSELINKが来四半期に新システムをリリース予定</div>
-     <div class="nc-tx">2026年第3四半期に予定の次世代プラットフォームアップグレード - AI立地マッチング、デジタルデューデリジェンス、再構築された承請業者マーケット。</div>
-     <div class="nc-meta"><span>2026年4月</span><span class="dot"></span><span>4分で読む</span></div>
-     <a href="/ja/news/new-system-next-quarter/" class="nc-lnk">続きを読む →</a>
-    </div>
-   </div>
-   <!-- Card 2 -->
-   <div class="nc">
-    <img src="../../images/unsplash-1504328345606-18bbc8c9d7d1.jpg" alt="FDI">
-    <div class="nc-b">
-     <div class="nc-cat">FDI投資</div>
-     <div class="nc-ttl">2026年Q1ベトナムへのFDIは67.4億米ドル - 前年同期比34%増</div>
-     <div class="nc-tx">製造業が総資本の64%を占めています。China+1の波が北寧・ドンナイ・ビンズオンへのサプライチェーン移転を引き続き推進しています。</div>
-     <div class="nc-meta"><span>2026年4月</span><span class="dot"></span><span>5分で読む</span></div>
-     <a href="/ja/news/fdi/" class="nc-lnk">続きを読む →</a>
-    </div>
-   </div>
-   <!-- Card 3 -->
-   <div class="nc">
-    <img src="../../images/unsplash-1473341304170-971dccb5ac1e.jpg" alt="ESG">
-    <div class="nc-b">
-     <div class="nc-cat">ESG＆エネルギー</div>
-     <div class="nc-ttl">政令57/2025：DPPAが工業団地のFDI企業にRE100機会を開く</div>
-     <div class="nc-tx">政令57/2025に基づくDPPAメカニズムは、企業がRE100認証を取得しEUのCBAMに対応するための法的枠組みを整備しました。</div>
-     <div class="nc-meta"><span>2026年3月</span><span class="dot"></span><span>7分で読む</span></div>
-     <a href="/ja/news/unpublished/" class="nc-lnk">続きを読む →</a>
-    </div>
-   </div>
-   <!-- Card 4 -->
-   <div class="nc">
-    <img src="../../images/unsplash-1581091226825-a6a2a5aee158.jpg" alt="Bán dẫn">
-    <div class="nc-b">
-     <div class="nc-cat">サプライチェーン</div>
-     <div class="nc-ttl">ベトナム - 新半導体ハブ：サムスン・インテル・Amkorが2026年の投資を加速</div>
-     <div class="nc-tx">韓国・米国・台湾の主要企業からの大規模なFDI流入により、ベトナムが東南アジアの主要な半導体ハブとして台頭しています。</div>
-     <div class="nc-meta"><span>2026年3月</span><span class="dot"></span><span>6分で読む</span></div>
-     <a href="/ja/news/unpublished/" class="nc-lnk">続きを読む →</a>
-    </div>
-   </div>
-   <!-- Card 5 -->
-   <div class="nc">
-    <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=600&q=80&auto=format&fit=crop" alt="工業団地">
-    <div class="nc-b">
-     <div class="nc-cat">産業インフラ</div>
-     <div class="nc-ttl">北部工業団地稼働率92%達成 - 2026年のRBF賃料12%上昇</div>
-     <div class="nc-tx">北部工業団地の土地が急速に縮小する中、ザーライ・ゲアン・カインホアが新たな目的地として浮上。ハノイのレディービルトファクトリーは6.2米ドル/㎡/月に達しています。</div>
-     <div class="nc-meta"><span>2026年2月</span><span class="dot"></span><span>5分で読む</span></div>
-     <a href="/ja/news/unpublished/" class="nc-lnk">続きを読む →</a>
-    </div>
-   </div>
-   <!-- Card 6 -->
-   <div class="nc">
-    <img src="../../images/unsplash-1558618666-fcd25c85cd64.jpg" alt="EV">
-    <div class="nc-b">
-     <div class="nc-cat">HOUSELINKニュース</div>
-     <div class="nc-ttl">全国EV充電フィージビリティスタディ完了：30日、4省庁、25メーカー</div>
-     <div class="nc-tx">日本の投資家向け調査プロジェクトは、現在のベトナムのEVインフラに関する最も包括的な調査のひとつと評価されました。</div>
-     <div class="nc-meta"><span>2026年2月</span><span class="dot"></span><span>4分で読む</span></div>
-     <a href="/ja/news/unpublished/" class="nc-lnk">続きを読む →</a>
-    </div>
-   </div>
-   </div>
-  </div>
+  <div class="ng" id="hl-news-feed"></div>
   <div style="text-align:center;margin-top:52px;">
    <button type="button" id="hl-news-load-more" style="display:none;background:var(--white);border:1.5px solid var(--gray-100);color:var(--navy);font-size:14px;font-weight:600;padding:13px 40px;border-radius:8px;cursor:pointer;" onmouseover="this.style.borderColor='var(--green)'" onmouseout="this.style.borderColor='var(--gray-100)'">View more news</button>
   </div>
@@ -928,9 +846,10 @@ footer { background: var(--navy); color: rgba(255,255,255,0.55); padding: 72px 0
 </section>
 
 <div id="hl-chrome-footer"></div>
+  <script src="../../js/hl-auth-env.js"></script>
+  <script src="../../js/hl-news-api-base.js"></script>
   <script src="../../landing-chrome.js" defer></script>
   <script src="../../js/auth-locale-validation.js" defer></script>
-  <script src="../../js/vietnam-construction-feed.js" defer></script>
   <script src="../../js/hl-news-feed.js" defer></script>
 <script>function setLang(l){document.querySelectorAll('.lang-btn').forEach(b=>b.classList.remove('active'));document.querySelector('.lang-btn[onclick="setLang(\''+l+'\')" ]')?.classList.add('active');}</script>
 
