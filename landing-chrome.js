@@ -7,9 +7,8 @@
  * Legacy `/en/` may redirect to `/`. Vietnamese-only deep pages (e.g. some services) stay under `/vi/…`.
  *
  * Header login (“Login / Đăng nhập”) - `js/hl-auth-env.js` + `wireDashboardLoginLinks()`:
- * - localhost → `/login/`, `/vi/login/`, … (landing login; after login → local frontend)
+ * - localhost / *.netlify.app → Next app `/login?lang=…` (locale from header)
  * - houselink.com.vn → https://dashboard.houselink.com.vn/
- * - *.netlify.app → /login/ (API 2026-api.houselink.com.vn; after login → app.houselink.com.vn)
  */
 (function () {
   "use strict";
@@ -591,14 +590,6 @@
 
   var DASHBOARD_LOGIN_LOCALES = { vi: 1, en: 1, zh: 1, ja: 1, ko: 1 };
 
-  var LANDING_LOGIN_PATHS = {
-    vi: "/vi/login/",
-    en: "/login/",
-    ja: "/ja/login/",
-    ko: "/ko/login/",
-    zh: "/zh/login/",
-  };
-
   function appRootHref(appBase) {
     var base = String(appBase || "").replace(/\/+$/, "");
     if (!base) return "/";
@@ -607,6 +598,21 @@
     } catch (ignore) {
       return base + "/";
     }
+  }
+
+  /** Next app sign-in URL with landing locale (`?lang=` always set, including `en`). */
+  function appLoginHref(appBase, loc) {
+    var base = String(appBase || "").replace(/\/+$/, "");
+    if (!base) base = "http://localhost:3333";
+    var code = loc && DASHBOARD_LOGIN_LOCALES[loc] ? loc : "en";
+    var url;
+    try {
+      url = new URL("/login", base + "/");
+    } catch (ignore) {
+      return base + "/login?lang=" + encodeURIComponent(code);
+    }
+    url.searchParams.set("lang", code);
+    return url.toString();
   }
 
   function ensureAuthEnvScript() {
@@ -624,14 +630,17 @@
         resolve();
       };
       s.onerror = function () {
-        console.warn("[landing-chrome] Không tải được js/hl-auth-env.js - dùng /login/ mặc định.");
+        console.warn("[landing-chrome] Không tải được js/hl-auth-env.js - dùng app /login mặc định.");
         resolve();
       };
       document.head.appendChild(s);
     });
   }
 
-  /** Rewrite `a[data-hl-dashboard-login]` by hostname (see hl-auth-env.js). */
+  /**
+   * Rewrite `a[data-hl-dashboard-login]` → Next app `/login?lang=…`
+   * (legacy houselink.com.vn still opens dashboard root).
+   */
   function wireDashboardLoginLinks() {
     var env =
       typeof window !== "undefined" && typeof window.HL_resolveAuthEnv === "function"
@@ -639,15 +648,20 @@
         : null;
 
     document.querySelectorAll("a[data-hl-dashboard-login]").forEach(function (a) {
-      var loc = (a.getAttribute("data-hl-login-locale") || "vi").toLowerCase().trim();
-      if (!DASHBOARD_LOGIN_LOCALES[loc]) loc = "vi";
+      var fromAttr = (a.getAttribute("data-hl-login-locale") || "").toLowerCase().trim();
+      var fromPage = langPack();
+      var loc = DASHBOARD_LOGIN_LOCALES[fromAttr]
+        ? fromAttr
+        : DASHBOARD_LOGIN_LOCALES[fromPage]
+          ? fromPage
+          : "en";
 
-      if (env && env.useLandingLogin) {
-        a.href = LANDING_LOGIN_PATHS[loc] || LANDING_LOGIN_PATHS.vi;
-      } else if (env && env.appBase) {
+      if (env && env.isMainDomain && env.appBase) {
         a.href = appRootHref(env.appBase);
+      } else if (env && env.appBase) {
+        a.href = appLoginHref(env.appBase, loc);
       } else {
-        a.href = LANDING_LOGIN_PATHS[loc] || LANDING_LOGIN_PATHS.vi;
+        a.href = appLoginHref("http://localhost:3333", loc);
       }
 
       a.removeAttribute("target");

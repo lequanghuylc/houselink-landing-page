@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Event detail – HOUSELINK</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../landing-chrome.css">
+<style>
+:root{
+  --font-main:"Inter",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  --off-white:#f4f6f8;
+  --navy:#00466E;
+  --green:#2D8B48;
+  --max-w:1120px;
+  --gray-100:#e8ecf0;
+  --gray-500:#6b7280;
+  --gray-600:#4b5563;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+body.hl-with-fixed-header{font-family:var(--font-main);line-height:1.7;overflow-x:hidden;}
+.pg-hero{background:linear-gradient(150deg,#003554 0%,var(--navy) 100%);padding:calc(var(--header-h,72px) + 48px) 0 64px;}
+.pg-inner,.si{max-width:var(--max-w);margin:0 auto;padding:0 40px;}
+.pg-h1{font-size:clamp(26px,3.2vw,44px);font-weight:600;color:#fff;line-height:1.2;margin-bottom:16px;}
+.pg-sub{font-size:15.5px;color:rgba(255,255,255,.62);line-height:1.75;max-width:640px;}
+.bc{display:flex;gap:8px;flex-wrap:wrap;font-size:12.5px;color:rgba(255,255,255,.5);margin-bottom:16px;}
+.bc a{color:rgba(255,255,255,.55);text-decoration:none;}
+.sec{padding:72px 0;}
+.art-cover{width:100%;border-radius:16px;margin-bottom:28px;max-height:480px;object-fit:cover;}
+.art-meta-bar{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:22px;padding-bottom:18px;border-bottom:1px solid var(--gray-100);}
+.art-date{font-size:13px;color:var(--gray-500);}
+.art-sep{width:3px;height:3px;border-radius:50%;background:var(--gray-100);}
+.art-lead{font-size:16px;color:var(--gray-600);line-height:1.78;font-weight:500;margin-bottom:26px;padding:18px 20px;background:var(--off-white);border-left:4px solid var(--green);border-radius:0 8px 8px 0;}
+.art-content{font-size:15.5px;color:var(--gray-600);line-height:1.82;}
+.art-content img{max-width:100%;height:auto;}
+.art-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:28px;}
+.art-tag{font-size:12px;font-weight:600;color:var(--navy);background:#f4f6f8;padding:5px 14px;border-radius:100px;border:1px solid var(--gray-100);}
+.sec-green{background:var(--green);padding:56px 0;text-align:center;color:#fff;}
+.sec-green a{display:inline-block;background:#fff;color:var(--green);font-weight:700;padding:12px 26px;border-radius:8px;text-decoration:none;margin-top:12px;}
+.back-news{font-weight:700;color:var(--navy);text-decoration:none;}
+</style>
+</head>
+<body class="hl-with-fixed-header" data-hl-page="events-calendar-detail">
+<div id="hl-chrome-header"></div>
+<div id="hl-event-cms-root">
+  <div class="si" style="padding:48px 0;color:var(--gray-500);">Loading event…</div>
+</div>
+<div id="hl-chrome-footer"></div>
+<script src="../../js/hl-auth-env.js"></script>
+<script src="../../landing-chrome.js" defer></script>
+<script src="../../js/auth-locale-validation.js" defer></script>
+<script src="../../js/hl-cms-event.js" defer></script>
+</body>
+</html>

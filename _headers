@@ -1,0 +1,21 @@
+# Avoid stale CMS/landing JS after manual Netlify deploys (non-hashed filenames).
+/js/*
+  Cache-Control: public, max-age=0, must-revalidate
+
+/landing-chrome.js
+  Cache-Control: public, max-age=0, must-revalidate
+
+/news/*
+  Cache-Control: public, max-age=0, must-revalidate
+
+/vi/news/*
+  Cache-Control: public, max-age=0, must-revalidate
+
+/ja/news/*
+  Cache-Control: public, max-age=0, must-revalidate
+
+/ko/news/*
+  Cache-Control: public, max-age=0, must-revalidate
+
+/zh/news/*
+  Cache-Control: public, max-age=0, must-revalidate

@@ -93,6 +93,8 @@
       phoneEmpty: "Please enter your phone number.",
       registerNotReady:
         "Registration is not available on this page. Please refresh and try again.",
+      loginNotReady:
+        "Sign-in is not ready on this page. Please refresh and try again.",
     },
     vi: {
       emailEmpty: "Vui lòng nhập địa chỉ email.",
@@ -113,6 +115,8 @@
       phoneEmpty: "Vui lòng nhập số điện thoại.",
       registerNotReady:
         "Đăng ký chưa sẵn sàng trên trang này. Vui lòng tải lại trang và thử lại.",
+      loginNotReady:
+        "Đăng nhập chưa sẵn sàng trên trang này. Vui lòng tải lại trang và thử lại.",
     },
     ja: {
       emailEmpty: "メールアドレスを入力してください。",
@@ -133,6 +137,8 @@
       phoneEmpty: "電話番号を入力してください。",
       registerNotReady:
         "このページでは登録を利用できません。再読み込みしてからお試しください。",
+      loginNotReady:
+        "このページではサインインを利用できません。再読み込みしてからお試しください。",
     },
     ko: {
       emailEmpty: "이메일을 입력해 주세요.",
@@ -153,6 +159,8 @@
       phoneEmpty: "전화번호를 입력하세요.",
       registerNotReady:
         "이 페이지에서 등록을 사용할 수 없습니다. 새로고침 후 다시 시도하세요.",
+      loginNotReady:
+        "이 페이지에서 로그인을 사용할 수 없습니다. 새로고침 후 다시 시도하세요.",
     },
     zh: {
       emailEmpty: "请输入电子邮箱地址。",
@@ -172,6 +180,7 @@
       eventRegConsentRequired: "请同意接收确认邮件及隐私相关条款。",
       phoneEmpty: "请输入电话号码。",
       registerNotReady: "此页面暂无法注册，请刷新页面后重试。",
+      loginNotReady: "此页面暂无法登录，请刷新页面后重试。",
     },
   };
 
@@ -247,6 +256,7 @@
           window.hlSubmitLoginAfterValidate(form, emailIn.value.trim(), pwLogin.value);
           return;
         }
+        showMsg(form, msg("loginNotReady"));
         return;
       }
 

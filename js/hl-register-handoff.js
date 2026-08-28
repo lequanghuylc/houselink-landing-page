@@ -107,7 +107,7 @@
 
   function redirectWithAuthCode(code) {
     var lang = detectLang();
-    var url = APP_BASE + "/?authCode=" + encodeURIComponent(code);
+    var url = APP_BASE + "/dashboard?authCode=" + encodeURIComponent(code);
     if (lang !== "en") {
       url += "&lang=" + encodeURIComponent(lang);
     }

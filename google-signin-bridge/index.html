@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="google-signin-client_id"
+    content="469850979907-38gtnnfs1lofvd1djbehnnp6t70961tv.apps.googleusercontent.com"
+  />
+  <title>HOUSELINK — Google sign-in</title>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    body{
+      min-height:100vh;display:flex;align-items:center;justify-content:center;
+      font-family:Inter,system-ui,-apple-system,sans-serif;background:#F4F6F8;color:#0D1F2D;
+      padding:24px;
+    }
+    .box{width:100%;max-width:360px;text-align:center;}
+    h1{font-size:18px;font-weight:600;color:#00466E;margin-bottom:8px;}
+    p{font-size:13.5px;color:#7E8F9A;line-height:1.55;margin-bottom:20px;}
+    #hl-google-host{display:flex;justify-content:center;min-height:48px;}
+    .err{color:#C2410C;font-size:13px;margin-top:14px;display:none;}
+  </style>
+</head>
+<body>
+  <div class="box">
+    <h1>Continue with Google</h1>
+    <p id="hl-sub">Choose your Google account to return to HOUSELINK.</p>
+    <div id="hl-google-host"></div>
+    <p class="err" id="hl-err" role="alert"></p>
+  </div>
+  <script>
+(function () {
+  "use strict";
+
+  var PARAMS = new URLSearchParams(window.location.search || "");
+  var openerOrigin = String(PARAMS.get("openerOrigin") || "").replace(/\/+$/, "");
+  var locale = String(PARAMS.get("lang") || "en").toLowerCase();
+
+  var ALLOWED_OPENERS = {
+    "http://localhost:3333": 1,
+    "http://127.0.0.1:3333": 1,
+    "https://app.houselink.com.vn": 1,
+    "https://dashboard.houselink.com.vn": 1,
+  };
+
+  var COPY = {
+    en: {
+      title: "Continue with Google",
+      sub: "Choose your Google account to return to HOUSELINK.",
+      badOpener: "Invalid return origin. Close this window and try again from the app.",
+      noOpener: "Open this page from the HOUSELINK sign-in button.",
+      fail: "Google sign-in failed. Close this window and try again.",
+    },
+    vi: {
+      title: "Tiếp tục với Google",
+      sub: "Chọn tài khoản Google để quay lại HOUSELINK.",
+      badOpener: "Origin trả về không hợp lệ. Đóng cửa sổ và thử lại từ ứng dụng.",
+      noOpener: "Hãy mở trang này từ nút đăng nhập HOUSELINK.",
+      fail: "Đăng nhập Google thất bại. Đóng cửa sổ và thử lại.",
+    },
+  };
+  var L = COPY[locale] || COPY.en;
+  document.title = "HOUSELINK — " + L.title;
+  document.querySelector("h1").textContent = L.title;
+  document.getElementById("hl-sub").textContent = L.sub;
+
+  function showErr(msg) {
+    var el = document.getElementById("hl-err");
+    el.style.display = "block";
+    el.textContent = msg;
+  }
+
+  function getClientId() {
+    var m = document.querySelector('meta[name="google-signin-client_id"]');
+    return m && m.getAttribute("content") ? String(m.getAttribute("content")).trim() : "";
+  }
+
+  function postCredential(credential) {
+    if (!window.opener || !openerOrigin || !ALLOWED_OPENERS[openerOrigin]) {
+      showErr(L.badOpener);
+      return;
+    }
+    try {
+      window.opener.postMessage(
+        { type: "hl-google-credential", credential: credential },
+        openerOrigin
+      );
+    } catch (e) {
+      showErr(L.fail);
+      return;
+    }
+    window.close();
+  }
+
+  if (!openerOrigin || !ALLOWED_OPENERS[openerOrigin]) {
+    showErr(L.badOpener);
+    return;
+  }
+  if (!window.opener) {
+    showErr(L.noOpener);
+    return;
+  }
+
+  var clientId = getClientId();
+  if (!clientId) {
+    showErr(L.fail);
+    return;
+  }
+
+  function loadGsi(cb) {
+    if (window.google && window.google.accounts && window.google.accounts.id) {
+      cb();
+      return;
+    }
+    var s = document.createElement("script");
+    s.src = "https://accounts.google.com/gsi/client";
+    s.async = true;
+    s.defer = true;
+    s.referrerPolicy = "strict-origin-when-cross-origin";
+    s.onload = cb;
+    document.head.appendChild(s);
+  }
+
+  loadGsi(function () {
+    var host = document.getElementById("hl-google-host");
+    if (!host || !window.google || !window.google.accounts || !window.google.accounts.id) {
+      showErr(L.fail);
+      return;
+    }
+    window.google.accounts.id.initialize({
+      client_id: clientId,
+      callback: function (resp) {
+        if (resp && resp.credential) postCredential(resp.credential);
+        else showErr(L.fail);
+      },
+    });
+    var w = Math.min(Math.max(host.offsetWidth || 320, 280), 360);
+    window.google.accounts.id.renderButton(host, {
+      type: "standard",
+      theme: "outline",
+      size: "large",
+      text: "continue_with",
+      shape: "rectangular",
+      logo_alignment: "left",
+      width: w,
+      locale: locale === "zh" ? "zh-CN" : locale,
+    });
+  });
+})();
+  </script>
+</body>
+</html>

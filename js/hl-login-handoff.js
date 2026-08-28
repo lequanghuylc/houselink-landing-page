@@ -10,6 +10,8 @@
 
   /** Email for POST /auth-code/verify-totp - from login form or Google credential payload. */
   var handoffEmail = null;
+  /** Prevents double POST /auth-code (double-click / Enter+click) which overwrites the handoff code. */
+  var loginSubmitInFlight = false;
 
   function detectLang() {
     var p = location.pathname;
@@ -161,14 +163,63 @@
   }
 
   /**
+   * Open-redirect-safe in-app path from `?next=` (relative `/…` only).
+   * Mirrors `safeInternalNextPath` in the Next app (`landingUrls.ts`).
+   */
+  function safeInternalNextPath(raw) {
+    if (raw == null) return null;
+    var value = String(raw).trim();
+    if (!value) return null;
+    try {
+      if (value.indexOf("%") >= 0) {
+        value = decodeURIComponent(value);
+      }
+    } catch (e) {
+      return null;
+    }
+    value = String(value).trim();
+    if (value.charAt(0) !== "/" || value.indexOf("//") === 0) return null;
+    if (value.indexOf("\\") >= 0) return null;
+    if (/^[a-zA-Z][a-zA-Z0-9+.-]*:/.test(value)) return null;
+    if (/[\x00-\x1f\x7f]/.test(value)) return null;
+    return value;
+  }
+
+  function getSafeNextFromLoginQuery() {
+    try {
+      return safeInternalNextPath(
+        new URLSearchParams(window.location.search).get("next")
+      );
+    } catch (e) {
+      return null;
+    }
+  }
+
+  /**
    * Default locale is English - paths use /login/ with no /en/ prefix.
    * Only append &lang= for non-English handoffs so the app URL stays clean for en.
+   * Honors safe `?next=` so deep links survive the authCode handoff.
    */
   function redirectWithAuthCode(code) {
     var lang = detectLang();
-    var url = APP_BASE + "/?authCode=" + encodeURIComponent(code);
-    if (lang !== "en") {
-      url += "&lang=" + encodeURIComponent(lang);
+    var nextPath = getSafeNextFromLoginQuery() || "/dashboard";
+    var url;
+    try {
+      var appOrigin = new URL(APP_BASE).origin;
+      var target = new URL(nextPath, APP_BASE);
+      if (target.origin !== appOrigin) {
+        target = new URL("/dashboard", APP_BASE);
+      }
+      target.searchParams.set("authCode", code);
+      if (lang !== "en") {
+        target.searchParams.set("lang", lang);
+      }
+      url = target.toString();
+    } catch (e) {
+      url = APP_BASE + "/dashboard?authCode=" + encodeURIComponent(code);
+      if (lang !== "en") {
+        url += "&lang=" + encodeURIComponent(lang);
+      }
     }
     window.location.href = url;
   }
@@ -438,6 +489,7 @@
 
   function showLoginStep(form, panel) {
     handoffEmail = null;
+    loginSubmitInFlight = false;
     if (panel) panel.style.display = "none";
     var top = document.querySelector(".auth-box > .auth-top");
     if (top) top.style.display = "";
@@ -721,6 +773,9 @@
   });
 
   window.hlSubmitLoginAfterValidate = function (form, email, password) {
+    if (loginSubmitInFlight) return;
+    loginSubmitInFlight = true;
+
     var btn = form.querySelector('.btn-auth[type="submit"]');
     var prev = btn ? btn.textContent : "";
     if (btn) {
@@ -739,14 +794,30 @@
         });
       })
       .then(function (res) {
+        var d = res && res.data && res.data.data;
+        var willRedirect =
+          res &&
+          res.ok &&
+          res.data &&
+          res.data.success &&
+          d &&
+          d.requiresTotp !== true &&
+          d.authCode;
+        if (willRedirect) {
+          // Keep button disabled; navigation is about to leave this page.
+          handleAuthCodeApiJson(res, form);
+          return;
+        }
+
+        loginSubmitInFlight = false;
         if (btn) {
           btn.disabled = false;
           btn.textContent = prev;
         }
-
         handleAuthCodeApiJson(res, form);
       })
       .catch(function () {
+        loginSubmitInFlight = false;
         if (btn) {
           btn.disabled = false;
           btn.textContent = prev;
