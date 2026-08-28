@@ -11,7 +11,103 @@
   var LOAD_MORE_SIZE = 9;
   var loadMoreClickBound = false;
   var filterBarBound = false;
-  var insightsState = { allPosts: [], filter: "all" };
+  var insightsState = { allPosts: [], filter: "all", cmsMode: false, loadingFilter: false };
+
+  /**
+   * Single source for filter **tag-row** chips only (FDI, ESG, Learn, …).
+   * Card `.ic-tag` badges use original WP names (Thị trường / Học hỏi / …) — different source by design.
+   */
+  var INSIGHTS_KIND_CHIPS = [
+    {
+      key: "all",
+      labels: { en: "All", vi: "Tất cả", ja: "すべて", ko: "전체", zh: "全部" },
+    },
+    {
+      key: "learn",
+      labels: { en: "Learn", vi: "Học hỏi", ja: "学ぶ", ko: "학습", zh: "学习" },
+    },
+    {
+      key: "industrial",
+      category: "infra",
+      labels: {
+        en: "Industrial infrastructure",
+        vi: "Hạ tầng công nghiệp",
+        ja: "産業インフラ",
+        ko: "산업 인프라",
+        zh: "产业基础设施",
+      },
+    },
+    {
+      key: "fdi",
+      category: "fdi",
+      labels: { en: "FDI & Investment", vi: "FDI & Đầu tư", ja: "FDI・投資", ko: "FDI & 투자", zh: "FDI与投资" },
+    },
+    {
+      key: "esg",
+      category: "esg",
+      labels: { en: "ESG & Energy", vi: "ESG & Năng lượng", ja: "ESG・エネルギー", ko: "ESG & 에너지", zh: "ESG与能源" },
+    },
+    {
+      key: "supply",
+      category: "supply",
+      labels: { en: "Supply Chain", vi: "Chuỗi cung ứng", ja: "サプライチェーン", ko: "공급망", zh: "供应链" },
+    },
+    {
+      key: "textile",
+      category: "textile",
+      labels: { en: "Textile", vi: "Dệt may", ja: "繊維", ko: "섬유", zh: "纺织" },
+    },
+    {
+      key: "semi",
+      category: "semiconductor",
+      labels: {
+        en: "Semiconductors & Electronics",
+        vi: "Bán dẫn & Điện tử",
+        ja: "半導体・電子",
+        ko: "반도체 & 전자",
+        zh: "半导体与电子",
+      },
+    },
+  ];
+
+  function insightsKindChipByKey(key) {
+    var k = String(key || "").trim().toLowerCase();
+    for (var i = 0; i < INSIGHTS_KIND_CHIPS.length; i++) {
+      if (INSIGHTS_KIND_CHIPS[i].key === k) return INSIGHTS_KIND_CHIPS[i];
+    }
+    return null;
+  }
+
+  function insightsKindChipByCategory(category) {
+    var c = String(category || "").trim().toLowerCase();
+    if (!c) return null;
+    if (c === "infra" || c === "industrial") return insightsKindChipByKey("industrial");
+    if (c === "semiconductor" || c === "semi") return insightsKindChipByKey("semi");
+    for (var i = 0; i < INSIGHTS_KIND_CHIPS.length; i++) {
+      var chip = INSIGHTS_KIND_CHIPS[i];
+      if (chip.category && chip.category === c) return chip;
+    }
+    return null;
+  }
+
+  function insightsKindLabel(keyOrCategory) {
+    var chip =
+      insightsKindChipByKey(keyOrCategory) || insightsKindChipByCategory(keyOrCategory);
+    if (!chip) return "";
+    var k = langKey();
+    return chip.labels[k] || chip.labels.en || "";
+  }
+
+  /** Sync tag-row button text from INSIGHTS_KIND_CHIPS (same strings as card badges). */
+  function syncInsightsTagRowLabels() {
+    var bar = document.getElementById("hl-insights-tag-row");
+    if (!bar) return;
+    bar.querySelectorAll(".tag[data-hl-filter]").forEach(function (btn) {
+      var key = btn.getAttribute("data-hl-filter");
+      var label = insightsKindLabel(key);
+      if (label) btn.textContent = label;
+    });
+  }
 
   function langKey() {
     var raw = (document.documentElement.getAttribute("lang") || "en").toLowerCase();
@@ -100,6 +196,58 @@
       return stripHtml((cats[0] && cats[0].name) || "");
     } catch (ignore) {}
     return "";
+  }
+
+  function pickCategorySlug(post) {
+    try {
+      var terms = post && post._embedded && post._embedded["wp:term"];
+      if (!terms || !terms.length) return "";
+      var cats = terms[0];
+      if (!Array.isArray(cats) || !cats.length) return "";
+      return String((cats[0] && cats[0].slug) || "")
+        .trim()
+        .toLowerCase();
+    } catch (ignore) {}
+    return "";
+  }
+
+  /**
+   * Card badge = original WP category (Thị trường / Học hỏi / Công nghiệp / …).
+   * Filter tag-row chips stay separate (FDI, ESG, …) — do not overwrite badge with those.
+   */
+  function cardInsightsBadgeLabel(post) {
+    if (post && post.hlInsightsCms) {
+      var fromTags = wpBadgeLabelFromCmsTags(post.hlInsightsTags, langKey());
+      if (fromTags) return fromTags;
+      if (post.hlInsightsLearn === true) return learnCategoryLabel();
+      return marketFeedBadgeLabel();
+    }
+    var original = pickCategoryName(post);
+    if (original) return original;
+    if (isLearnInsightsPost(post)) return learnCategoryLabel();
+    return marketFeedBadgeLabel();
+  }
+
+  function marketFeedBadgeLabel() {
+    var k = langKey();
+    return (
+      { en: "Market", vi: "Thị trường", ja: "マーケット", ko: "시장", zh: "市场" }[k] || "Market"
+    );
+  }
+
+  function wpBadgeLabelFromCmsTags(tags, lang) {
+    if (!Array.isArray(tags) || !tags.length) return "";
+    var primary = lang === "vi" ? "wp-badge-vi:" : "wp-badge-en:";
+    var fallback = lang === "vi" ? "wp-badge-en:" : "wp-badge-vi:";
+    var legacy = "wp-badge:";
+    var found = "";
+    for (var i = 0; i < tags.length; i++) {
+      var t = String(tags[i] || "");
+      if (t.indexOf(primary) === 0) return t.slice(primary.length).trim();
+      if (!found && t.indexOf(fallback) === 0) found = t.slice(fallback.length).trim();
+      if (!found && t.indexOf(legacy) === 0) found = t.slice(legacy.length).trim();
+    }
+    return found;
   }
 
   function allTermNames(post, termIndex) {
@@ -280,11 +428,32 @@
 
   /**
    * Filter keys: all | learn | industrial | fdi | esg | supply | textile | semi
-   * Heuristics on title/excerpt/categories/tags (English source copy).
+   * CMS articles: exact contentKind / category (same as app + API).
+   * Legacy WP/JSON fallback: keyword heuristics.
    */
   function postMatchesFilter(post, key) {
     if (!key || key === "all") return true;
-    if (key === "learn") return isLearnInsightsPost(post);
+
+    if (post && post.hlInsightsCms) {
+      var isLearnCms = post.hlInsightsLearn === true;
+      if (key === "learn") return isLearnCms;
+      if (isLearnCms) return false;
+      var cat = String(post.hlInsightsCategory || "")
+        .trim()
+        .toLowerCase();
+      if (key === "industrial") return cat === "infra";
+      if (key === "fdi") return cat === "fdi";
+      if (key === "esg") return cat === "esg";
+      if (key === "supply") return cat === "supply";
+      if (key === "textile") return cat === "textile";
+      if (key === "semi") return cat === "semiconductor";
+      return true;
+    }
+
+    var isLearn =
+      (!post.hlInsightsCms && isLearnInsightsPost(post));
+    if (key === "learn") return isLearn;
+    if (isLearn) return false;
     var blob =
       stripHtml((post.title && post.title.rendered) || "").toLowerCase() +
       " " +
@@ -345,14 +514,156 @@
     return true;
   }
 
+  function learnCategoryLabel() {
+    return insightsKindLabel("learn");
+  }
+
+  function marketCategoryLabel(code) {
+    var chip = insightsKindChipByCategory(code);
+    if (chip) return insightsKindLabel(chip.key);
+    var c = String(code || "").trim().toLowerCase();
+    if (!c) {
+      var k = langKey();
+      return (
+        { en: "Market", vi: "Thị trường", ja: "マーケット", ko: "시장", zh: "市场" }[k] || "Market"
+      );
+    }
+    return c.replace(/_/g, " ");
+  }
+
   function getFilteredPosts() {
     if (!insightsState.allPosts || !insightsState.allPosts.length) return [];
+    // CMS list is already filtered server-side (contentKind / category).
+    if (insightsState.cmsMode) return insightsState.allPosts;
     return insightsState.allPosts.filter(function (p) {
       return postMatchesFilter(p, insightsState.filter);
     });
   }
 
+  function resolveInsightsApiBase() {
+    if (typeof window !== "undefined" && typeof window.HL_resolveNewsApiBase === "function") {
+      return String(window.HL_resolveNewsApiBase()).replace(/\/+$/, "");
+    }
+    if (typeof window !== "undefined" && typeof window.HL_resolveAuthEnv === "function") {
+      return String(window.HL_resolveAuthEnv().apiBase || "").replace(/\/+$/, "");
+    }
+    if (typeof window !== "undefined" && window.HL_AUTH_ENV && window.HL_AUTH_ENV.apiBase) {
+      return String(window.HL_AUTH_ENV.apiBase).replace(/\/+$/, "");
+    }
+    return "http://localhost:3001";
+  }
+
+  function insightsLocaleForApi() {
+    var k = langKey();
+    if (k === "vi") return "vi";
+    return "en";
+  }
+
+  function cmsInsightsDetailHref(slug) {
+    var u = "/insights/cms/?slug=" + encodeURIComponent(slug);
+    var k = langKey();
+    if (k !== "en") u += "&lang=" + encodeURIComponent(k);
+    return u;
+  }
+
+  function cmsInsightsArticleToPost(article) {
+    if (!article || !article.slug) return null;
+    var cover = article.coverImageUrl ? String(article.coverImageUrl) : "";
+    var isLearn = article.contentKind === "learn";
+    var tags = Array.isArray(article.tags) ? article.tags : [];
+    var catLabel = cardInsightsBadgeLabel({
+      hlInsightsCms: true,
+      hlInsightsLearn: isLearn,
+      hlInsightsTags: tags,
+    });
+    var catSlug = isLearn ? "learn" : "market";
+    return {
+      id: "insights-" + String(article.id || article.slug),
+      date: article.publishedAt || "",
+      modified: article.publishedAt || "",
+      link: cmsInsightsDetailHref(article.slug),
+      title: { rendered: String(article.title || "") },
+      excerpt: { rendered: String(article.excerpt || "") },
+      hlInsightsCms: true,
+      hlInsightsLearn: isLearn,
+      hlInsightsCategory: article.category || "",
+      hlInsightsTags: tags,
+      hlInsightsSlug: String(article.slug),
+      _embedded: {
+        "wp:featuredmedia": cover ? [{ source_url: cover }] : [],
+        // Preserve original WP badge label (Thị trường / Học hỏi / …), not filter-chip names.
+        "wp:term": [[{ id: 0, name: catLabel, slug: catSlug, taxonomy: "category" }]],
+      },
+    };
+  }
+
+  async function fetchInsightsCmsArticles(filterKey) {
+    var apiBase = resolveInsightsApiBase();
+    var locale = insightsLocaleForApi();
+    var url =
+      apiBase +
+      "/api/report-articles/insights?locale=" +
+      encodeURIComponent(locale);
+    var key = filterKey && filterKey !== "all" ? String(filterKey) : "";
+    if (key) url += "&insightsFilter=" + encodeURIComponent(key);
+    var res = await fetch(url, {
+      method: "GET",
+      headers: { Accept: "application/json" },
+      credentials: "omit",
+    });
+    if (!res.ok) throw new Error("insights_cms_http");
+    var body = await res.json();
+    if (!body || body.success !== true) throw new Error("insights_cms_shape");
+    var articles = (body.data && body.data.articles) || [];
+    if (!Array.isArray(articles)) return [];
+    return articles.map(cmsInsightsArticleToPost).filter(Boolean);
+  }
+
+  async function applyCmsFilter(container, filterKey) {
+    insightsState.loadingFilter = true;
+    insightsState.filter = filterKey || "all";
+    container.innerHTML =
+      '<p style="grid-column:1/-1;padding:36px 20px;text-align:center;font-size:15px;color:var(--gray-600);">…</p>';
+    try {
+      var posts = await fetchInsightsCmsArticles(filterKey);
+      clearInsightsPagination(container);
+      insightsState.allPosts = posts;
+      renderFeedFromCache(container);
+      bindLoadMoreOnce();
+    } catch (ignore) {
+      container.innerHTML =
+        '<p class="hl-insights-load-fail" style="grid-column:1/-1;padding:36px 20px;text-align:center;font-size:15px;color:var(--gray-600);">' +
+        esc(insightsLoadFailedHtml()) +
+        "</p>";
+    } finally {
+      insightsState.loadingFilter = false;
+    }
+  }
+
+  async function loadInsightsCmsPrimary(container) {
+    try {
+      var posts = await fetchInsightsCmsArticles("all");
+      if (!posts.length) throw new Error("insights_cms_empty");
+      insightsState.cmsMode = true;
+      if (container) container.setAttribute("data-hl-insights-cms", "1");
+      clearInsightsPagination(container);
+      insightsState.allPosts = posts;
+      insightsState.filter = "all";
+      renderFeedFromCache(container);
+      bindLoadMoreOnce();
+      bindFilterBarOnce();
+      return true;
+    } catch (ignore) {
+      insightsState.cmsMode = false;
+      if (container) container.removeAttribute("data-hl-insights-cms");
+      return false;
+    }
+  }
+
   function detailHrefForPost(post) {
+    if (post && post.hlInsightsCms && post.hlInsightsSlug) {
+      return cmsInsightsDetailHref(post.hlInsightsSlug);
+    }
     if ((useVcEnMarketFeed() || useVcViMarketFeed()) && post && post.id != null && String(post.id).match(/^\d+$/)) {
       var u = "/news/article/?id=" + encodeURIComponent(post.id);
       var k = langKey();
@@ -368,7 +679,7 @@
     var date = fmtDate(post && (post.modified || post.date));
     var href = detailHrefForPost(post);
     var img = pickImage(post);
-    var cat = pickCategoryName(post);
+    var cat = cardInsightsBadgeLabel(post);
     var linkLbl = readMoreLabel();
 
     var cls = "ic" + (isFeatured ? " hero" : "");
@@ -474,14 +785,18 @@
       var resetBtn = container.querySelector(".hl-insights-reset-filter");
       if (resetBtn) {
         resetBtn.addEventListener("click", function () {
-          insightsState.filter = "all";
           var bar = document.getElementById("hl-insights-tag-row");
           if (bar) {
             bar.querySelectorAll(".tag").forEach(function (b) {
               b.classList.toggle("on", b.getAttribute("data-hl-filter") === "all");
             });
           }
-          renderFeedFromCache(container);
+          if (insightsState.cmsMode) {
+            void applyCmsFilter(container, "all");
+          } else {
+            insightsState.filter = "all";
+            renderFeedFromCache(container);
+          }
         });
       }
     } else {
@@ -502,19 +817,26 @@
     var bar = document.getElementById("hl-insights-tag-row");
     if (!bar) return;
     filterBarBound = true;
+    syncInsightsTagRowLabels();
     bar.addEventListener("click", function (e) {
       var btn = e.target && e.target.closest && e.target.closest(".tag");
       if (!btn || !bar.contains(btn)) return;
-      if (!insightsState.allPosts.length) return;
+      if (insightsState.loadingFilter) return;
       var key = btn.getAttribute("data-hl-filter");
       if (!key) return;
       bar.querySelectorAll(".tag").forEach(function (b) {
         b.classList.remove("on");
       });
       btn.classList.add("on");
-      insightsState.filter = key;
       var c = document.getElementById("hl-insights-feed");
-      if (c) renderFeedFromCache(c);
+      if (!c) return;
+      if (insightsState.cmsMode) {
+        void applyCmsFilter(c, key);
+        return;
+      }
+      if (!insightsState.allPosts.length) return;
+      insightsState.filter = key;
+      renderFeedFromCache(c);
     });
   }
 
@@ -606,6 +928,9 @@
   }
 
   async function loadInto(container) {
+    try {
+      if (await loadInsightsCmsPrimary(container)) return;
+    } catch (ignoreCms) {}
     try {
       if ((useVcEnMarketFeed() || useVcViMarketFeed()) && window.HL_VietnamConstruction) {
         try {

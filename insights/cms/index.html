@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Report – HOUSELINK Insights</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../landing-chrome.css">
+<style>
+body.hl-with-fixed-header{font-family:"Inter",system-ui,sans-serif;line-height:1.7;color:#0D1F2D;}
+.pg-hero{background:linear-gradient(150deg,#003457 0%,#00466E 100%);padding:96px 0 52px;color:#fff;}
+.pg-inner{max-width:1240px;margin:0 auto;padding:0 40px;}
+.bc{font-size:12.5px;color:rgba(255,255,255,.55);margin-bottom:14px;}
+.bc a{color:rgba(255,255,255,.55);text-decoration:none;}
+.pg-h1{font-size:clamp(26px,3.2vw,42px);font-weight:600;line-height:1.2;margin:0;}
+.sec{padding:56px 0;}
+.si{max-width:1240px;margin:0 auto;padding:0 40px;}
+.art-meta{display:flex;gap:12px;align-items:center;margin-bottom:20px;font-size:13px;color:#7E8F9A;}
+.art-cat{font-weight:700;color:#2D8B48;text-transform:uppercase;font-size:11px;letter-spacing:.1em;}
+.art-cover{width:100%;max-height:420px;object-fit:cover;border-radius:14px;margin-bottom:24px;display:none;}
+.art-content{font-size:15.5px;color:#4A5A65;line-height:1.82;}
+.art-content img{max-width:100%;height:auto;}
+</style>
+</head>
+<body class="hl-with-fixed-header" data-hl-page="insights-cms">
+<div id="hl-chrome-header"></div>
+<section class="pg-hero">
+  <div class="pg-inner">
+    <div class="bc">
+      <a href="/">Home</a> › <a href="/insights/" id="hl-insights-cms-bc-insights">Market Insights</a> › <span>Report</span>
+    </div>
+    <h1 class="pg-h1" id="hl-insights-cms-title">Loading…</h1>
+  </div>
+</section>
+<section class="sec">
+  <div class="si">
+    <img id="hl-insights-cms-cover" class="art-cover" alt="">
+    <div class="art-meta">
+      <span class="art-cat" id="hl-insights-cms-cat">Report</span>
+      <span id="hl-insights-cms-date"></span>
+    </div>
+    <div class="art-content" id="hl-insights-cms-body">Loading…</div>
+  </div>
+</section>
+<div id="hl-chrome-footer"></div>
+<script src="../../js/hl-auth-env.js"></script>
+<script src="../../js/hl-news-api-base.js"></script>
+<script src="../../landing-chrome.js" defer></script>
+<script src="../../js/hl-insights-cms.js" defer></script>
+</body>
+</html>
