@@ -34,6 +34,9 @@
   }
 
   function resolveApiBase() {
+    if (typeof window !== "undefined" && typeof window.HL_resolveNewsApiBase === "function") {
+      return String(window.HL_resolveNewsApiBase()).replace(/\/+$/, "");
+    }
     if (typeof window !== "undefined" && typeof window.HL_resolveAuthEnv === "function") {
       return String(window.HL_resolveAuthEnv().apiBase || "").replace(/\/+$/, "");
     }
@@ -43,21 +46,29 @@
     return "http://localhost:3001";
   }
 
-  function ensureAuthEnv() {
-    if (typeof window !== "undefined" && typeof window.HL_resolveAuthEnv === "function") {
-      return Promise.resolve();
-    }
+  function loadScript(relativePath) {
     return new Promise(function (resolve) {
       var s = document.createElement("script");
       try {
-        s.src = new URL("../js/hl-auth-env.js", document.baseURI).href;
+        s.src = new URL(relativePath, document.baseURI).href;
       } catch (ignore) {
-        s.src = "/js/hl-auth-env.js";
+        s.src = "/" + String(relativePath || "").replace(/^\/+/, "");
       }
       s.onload = function () { resolve(); };
       s.onerror = function () { resolve(); };
       document.head.appendChild(s);
     });
+  }
+
+  function ensureCmsApiBase() {
+    var tasks = [];
+    if (typeof window === "undefined" || typeof window.HL_resolveNewsApiBase !== "function") {
+      tasks.push(loadScript("js/hl-news-api-base.js"));
+    }
+    if (typeof window === "undefined" || typeof window.HL_resolveAuthEnv !== "function") {
+      tasks.push(loadScript("js/hl-auth-env.js"));
+    }
+    return Promise.all(tasks);
   }
 
   function esc(s) {
@@ -121,7 +132,7 @@
       showError("Missing event slug.");
       return;
     }
-    ensureAuthEnv()
+    ensureCmsApiBase()
       .then(function () {
         var locale = langKey();
         return fetch(

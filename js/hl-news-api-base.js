@@ -1,6 +1,6 @@
 /**
- * News CMS API host — separate from hl-auth-env (login/partner logos keep dashboard API).
- * Live houselink.com.vn news reads app.houselink.com.vn data via 2026-api until prod API has CMS.
+ * CMS API host (news + events calendar) — separate from hl-auth-env.
+ * Login/partner logos keep dashboard API; live houselink.com.vn CMS reads 2026-api until prod API has CMS.
  */
 (function (global) {
   "use strict";
