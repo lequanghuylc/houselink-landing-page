@@ -115,6 +115,26 @@
     return { day: day, mon: mon, dow: dow };
   }
 
+  function eventDateYmd(iso) {
+    var s = String(iso || "").slice(0, 10);
+    return /^\d{4}-\d{2}-\d{2}$/.test(s) ? s : "";
+  }
+
+  function todayYmd() {
+    var d = new Date();
+    var y = d.getFullYear();
+    var m = String(d.getMonth() + 1).padStart(2, "0");
+    var day = String(d.getDate()).padStart(2, "0");
+    return y + "-" + m + "-" + day;
+  }
+
+  /** Past when CMS flagged concluded, or the event day is before today. */
+  function isEventPast(ev) {
+    if (ev && ev.isPast) return true;
+    var ymd = eventDateYmd(ev && ev.eventDate);
+    return Boolean(ymd) && ymd < todayYmd();
+  }
+
   function defaultRegisterUrl() {
     return sitePrefix() + "contact/";
   }
@@ -224,13 +244,32 @@
     );
   }
 
+  function monthKey(year, monthIndex) {
+    return year + "-" + String(monthIndex + 1).padStart(2, "0");
+  }
+
+  function eventDateValue(ev) {
+    return String((ev && ev.eventDate) || "");
+  }
+
+  function sortByEventDateAsc(a, b) {
+    return eventDateValue(a).localeCompare(eventDateValue(b));
+  }
+
+  function sortByEventDateDesc(a, b) {
+    return eventDateValue(b).localeCompare(eventDateValue(a));
+  }
+
   function groupByMonth(events) {
     var map = {};
     events.forEach(function (ev) {
       var d = new Date(ev.eventDate + "T12:00:00");
-      var key = d.getFullYear() + "-" + (d.getMonth() + 1);
+      var key = monthKey(d.getFullYear(), d.getMonth());
       if (!map[key]) map[key] = { year: d.getFullYear(), month: d.getMonth(), events: [] };
       map[key].events.push(ev);
+    });
+    Object.keys(map).forEach(function (k) {
+      map[k].events.sort(sortByEventDateAsc);
     });
     return Object.keys(map)
       .sort()
@@ -241,7 +280,7 @@
     eventDaysByMonth = {};
     events.forEach(function (ev) {
       var d = new Date(ev.eventDate + "T12:00:00");
-      var key = d.getFullYear() + "-" + (d.getMonth() + 1);
+      var key = monthKey(d.getFullYear(), d.getMonth());
       if (!eventDaysByMonth[key]) eventDaysByMonth[key] = [];
       eventDaysByMonth[key].push(d.getDate());
     });
@@ -254,14 +293,9 @@
       list.innerHTML = '<p style="padding:24px;color:var(--gray-500);">No upcoming events.</p>';
       return;
     }
-    var past = events.filter(function (e) { return e.isPast; });
-    var upcoming = events.filter(function (e) { return !e.isPast; });
+    var past = events.filter(function (e) { return e.isPast; }).sort(sortByEventDateDesc);
+    var upcoming = events.filter(function (e) { return !e.isPast; }).sort(sortByEventDateAsc);
     var html = "";
-    if (past.length) {
-      html += '<div class="month-section past-section"><div class="past-label"><span class="past-tag">Past</span><div style="flex:1;height:1px;background:var(--gray-100);"></div></div>';
-      past.forEach(function (ev) { html += renderCard(ev); });
-      html += "</div>";
-    }
     groupByMonth(upcoming).forEach(function (group) {
       html += '<div class="month-section" data-month="' + (group.month + 1) + '">';
       html += '<div class="month-header"><span class="month-tag">' + esc(monthLabel(group.month)) + '</span>';
@@ -269,6 +303,11 @@
       group.events.forEach(function (ev) { html += renderCard(ev); });
       html += "</div>";
     });
+    if (past.length) {
+      html += '<div class="month-section past-section"><div class="past-label"><span class="past-tag">Past</span><div style="flex:1;height:1px;background:var(--gray-100);"></div></div>';
+      past.forEach(function (ev) { html += renderCard(ev); });
+      html += "</div>";
+    }
     list.innerHTML = html;
     applyEventListFilters();
   }
@@ -325,7 +364,7 @@
     labelEl.textContent = monthLabel(curMonth) + ", " + curYear;
     var days = getDaysInMonth(curYear, curMonth);
     var firstDay = getFirstDay(curYear, curMonth);
-    var key = curYear + "-" + (curMonth + 1);
+    var key = monthKey(curYear, curMonth);
     var evDays = eventDaysByMonth[key] || [];
     var html = "";
     for (var i = 0; i < firstDay; i++) html += '<div class="mc-day empty"></div>';
@@ -363,7 +402,9 @@
     if (!res.ok) throw new Error("events_http");
     var body = await res.json();
     if (!body || body.success !== true) throw new Error("events_shape");
-    allEvents = (body.data && body.data.events) || [];
+    allEvents = ((body.data && body.data.events) || []).map(function (ev) {
+      return Object.assign({}, ev, { isPast: isEventPast(ev) });
+    });
     rebuildEventDays(allEvents);
     renderEventsList(allEvents);
     renderMiniCal();

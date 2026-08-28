@@ -265,22 +265,32 @@
         en: {
           submitting: "Submitting…",
           success: "Thanks - you’re registered for weekly updates.",
+          successEvents: "Thanks. Check your inbox (and spam) for the HOUSELINK event confirmation.",
+          error: "Could not subscribe. Please try again."
         },
         vi: {
           submitting: "Đang gửi…",
           success: "Cảm ơn bạn - bạn đã đăng ký nhận cập nhật thị trường hàng tuần.",
+          successEvents: "Cảm ơn bạn. Hãy kiểm tra hộp thư (và spam) — HOUSELINK vừa gửi xác nhận lịch sự kiện.",
+          error: "Không đăng ký được. Vui lòng thử lại."
         },
         ja: {
           submitting: "送信中…",
           success: "ありがとうございます。週次マーケットアップデートの登録が完了しました。",
+          successEvents: "ありがとうございます。HOUSELINKのイベント確認メールをご確認ください（迷惑メールも）。",
+          error: "登録できませんでした。もう一度お試しください。"
         },
         ko: {
           submitting: "전송 중…",
           success: "감사합니다. 주간 시장 업데이트 구독이 완료되었습니다.",
+          successEvents: "감사합니다. HOUSELINK 이벤트 확인 메일을 받은편지함(스팸함 포함)에서 확인해 주세요.",
+          error: "구독하지 못했습니다. 다시 시도해 주세요."
         },
         zh: {
           submitting: "提交中…",
           success: "感谢您！您已成功订阅每周市场更新。",
+          successEvents: "感谢您。请查看收件箱（含垃圾邮件）中的 HOUSELINK 活动确认邮件。",
+          error: "订阅失败，请重试。"
         },
       };
       return (T[k] && T[k][which]) || T.en[which] || "";
@@ -330,6 +340,56 @@
       }
     }
 
+    function newsletterLocaleCode() {
+      var p = (window.location && window.location.pathname) || "/";
+      if (p.indexOf("/vi/") === 0) return "vi";
+      if (p.indexOf("/ja/") === 0) return "ja";
+      if (p.indexOf("/ko/") === 0) return "ko";
+      if (p.indexOf("/zh/") === 0) return "zh";
+      return "en";
+    }
+
+    function resolveCmsApiBase() {
+      if (typeof window.HL_resolveNewsApiBase === "function") {
+        return String(window.HL_resolveNewsApiBase()).replace(/\/+$/, "");
+      }
+      var host =
+        window.location && window.location.hostname
+          ? String(window.location.hostname).toLowerCase()
+          : "";
+      if (host === "houselink.com.vn" || host === "www.houselink.com.vn") {
+        return "https://2026-api.houselink.com.vn";
+      }
+      if (typeof window.HL_resolveAuthEnv === "function") {
+        return String(window.HL_resolveAuthEnv().apiBase || "").replace(/\/+$/, "");
+      }
+      if (window.HL_AUTH_ENV && window.HL_AUTH_ENV.apiBase) {
+        return String(window.HL_AUTH_ENV.apiBase).replace(/\/+$/, "");
+      }
+      return "http://localhost:3001";
+    }
+
+    function postEventCalendarSubscribe(email, locale) {
+      return fetch(resolveCmsApiBase() + "/api/events/subscribe", {
+        method: "POST",
+        headers: { Accept: "application/json", "Content-Type": "application/json" },
+        credentials: "omit",
+        body: JSON.stringify({ email: email, locale: locale })
+      }).then(function (res) {
+        return res
+          .json()
+          .catch(function () {
+            return {};
+          })
+          .then(function (body) {
+            if (!res.ok || !body || body.success !== true) {
+              throw new Error((body && body.error) || "subscribe_failed");
+            }
+            return body;
+          });
+      });
+    }
+
     if (typeof window.hlNewsletterOnValid !== "function") {
       window.hlNewsletterOnValid = function (form) {
         var emailEl = form && form.querySelector ? form.querySelector('input[type="email"]') : null;
@@ -338,11 +398,23 @@
 
         setMsg(form, newsletterMsg("submitting"), "");
         var lang = detectNewsletterLanguageValue();
-        submitToGoogleForm(email, lang);
-        setMsg(form, newsletterMsg("success"), "ok");
-        try {
-          form.reset();
-        } catch (ignore) {}
+        var list = form.getAttribute("data-hl-list") || "";
+        var finishOk = function () {
+          submitToGoogleForm(email, lang);
+          setMsg(form, newsletterMsg(list === "events-calendar" ? "successEvents" : "success"), "ok");
+          try {
+            form.reset();
+          } catch (ignore) {}
+        };
+        if (list === "events-calendar") {
+          postEventCalendarSubscribe(email, newsletterLocaleCode())
+            .then(finishOk)
+            .catch(function () {
+              setMsg(form, newsletterMsg("error"), "err");
+            });
+          return;
+        }
+        finishOk();
       };
     }
   }
