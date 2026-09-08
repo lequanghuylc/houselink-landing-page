@@ -79,6 +79,31 @@
       .replace(/"/g, "&quot;");
   }
 
+  function looksLikeHtml(s) {
+    return /<\s*[a-z][\s\S]*>/i.test(String(s || ""));
+  }
+
+  function formatExcerptHtml(raw) {
+    var s = String(raw || "");
+    if (!s.trim()) return { html: "", isHtml: false };
+    if (looksLikeHtml(s)) {
+      return {
+        html: s
+          .replace(/<script\b[\s\S]*?<\/script>/gi, "")
+          .replace(/<style\b[\s\S]*?<\/style>/gi, ""),
+        isHtml: true
+      };
+    }
+    return { html: esc(s), isHtml: false };
+  }
+
+  function excerptBlock(className, raw) {
+    var formatted = formatExcerptHtml(raw);
+    if (!formatted.html) return "";
+    var cls = className + (formatted.isHtml ? "" : " ev-cms-excerpt--plain");
+    return '<div class="' + cls + '">' + formatted.html + "</div>";
+  }
+
   function getSlug() {
     return new URLSearchParams(window.location.search).get("slug") || "";
   }
@@ -112,12 +137,12 @@
       '<a href="' + esc(sitePrefix() + "events-calendar/") + '">Events calendar</a><span>/</span>' +
       '<span>' + esc(ev.title) + "</span></div>" +
       '<h1 class="pg-h1">' + esc(ev.title) + "</h1>" +
-      (ev.excerpt ? '<p class="pg-sub">' + esc(ev.excerpt) + "</p>" : "") +
+      excerptBlock("pg-sub ev-cms-excerpt", ev.excerpt) +
       "</div></section>" +
       '<section class="sec"><div class="si"><div class="art-layout"><div class="art-body">' +
       cover +
       '<div class="art-meta-bar">' + meta.join('<span class="art-sep"></span>') + "</div>" +
-      (ev.excerpt ? '<p class="art-lead">' + esc(ev.excerpt) + "</p>" : "") +
+      excerptBlock("art-lead ev-cms-excerpt", ev.excerpt) +
       '<div class="art-content">' + (ev.body || "") + "</div>" +
       (tags ? '<div class="art-tags">' + tags + "</div>" : "") +
       "</div></div></div></section>" +

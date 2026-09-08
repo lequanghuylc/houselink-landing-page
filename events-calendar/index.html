@@ -100,7 +100,21 @@ a{text-decoration:none;color:inherit;}
 .tag-featured{background:var(--navy);color:#fff;}
 
 .ev-card-title{font-size:16px;font-weight:700;color:var(--navy);line-height:1.35;margin-bottom:8px;}
-.ev-card-desc{font-size:13.5px;color:var(--gray-600);line-height:1.6;margin-bottom:12px;}
+.ev-card-desc{margin-bottom:12px;}
+.ev-card-desc-text{font-size:13.5px;color:var(--gray-600);line-height:1.65;text-align:justify;overflow:hidden;max-height:calc(1.65em * 3);word-break:break-word;white-space:pre-wrap;}
+.ev-card-desc.is-expanded .ev-card-desc-text{max-height:none;overflow:visible;}
+.ev-card-desc-text--plain{text-align:start;white-space:pre-wrap;}
+.ev-card-desc-text p{margin:0 0 .85em;line-height:1.65;text-align:justify;}
+.ev-card-desc-text p:last-child{margin-bottom:0;}
+.ev-card-desc-text div{margin:0;}
+.ev-card-desc-text ul,.ev-card-desc-text ol{margin:0 0 .85em 1.25em;padding:0;text-align:start;}
+.ev-card-desc-text li{line-height:1.65;}
+.ev-card-desc-text blockquote{margin:0 0 .85em;padding:.35em 0 .35em .85em;border-left:3px solid rgba(19,127,236,.45);}
+.ev-card-desc-text b,.ev-card-desc-text strong{font-weight:700;}
+.ev-card-desc-text i,.ev-card-desc-text em{font-style:italic;}
+.ev-card-desc-text u{text-decoration:underline;}
+.ev-card-more{display:none;margin-top:6px;padding:0;border:0;background:none;font-family:inherit;font-size:13px;font-weight:700;color:var(--green);cursor:pointer;}
+.ev-card-desc.is-clamped .ev-card-more,.ev-card-desc.is-expanded .ev-card-more{display:inline-block;}
 .ev-card-meta{display:flex;flex-wrap:wrap;gap:14px;}
 .ev-meta-item{display:flex;align-items:center;gap:6px;font-size:12.5px;color:var(--gray-400);}
 
@@ -331,7 +345,7 @@ body.hl-with-fixed-header.hl-event-news-page .reg-card {
 
 <script src="../js/hl-auth-env.js"></script>
 <script src="../js/hl-news-api-base.js"></script>
-<script src="../js/hl-events-calendar.js?v=20260828-sort-date" defer></script>
+<script src="../js/hl-events-calendar.js?v=20260908-excerpt-prose" defer></script>
 
 <div id="hl-chrome-footer"></div>
   <script src="../landing-chrome.js?v=20260828-event-mail" defer></script>

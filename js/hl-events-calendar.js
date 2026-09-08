@@ -181,6 +181,68 @@
     return null;
   }
 
+  function looksLikeHtml(s) {
+    return /<\s*[a-z][\s\S]*>/i.test(String(s || ""));
+  }
+
+  function formatExcerptHtml(raw) {
+    var s = String(raw || "");
+    if (!s.trim()) return { html: "", isHtml: false };
+    if (looksLikeHtml(s)) {
+      return {
+        html: s
+          .replace(/<script\b[\s\S]*?<\/script>/gi, "")
+          .replace(/<style\b[\s\S]*?<\/style>/gi, ""),
+        isHtml: true
+      };
+    }
+    return { html: esc(s), isHtml: false };
+  }
+
+  var SEE_MORE = { en: "See more", vi: "Xem thêm", ja: "続きを見る", ko: "더 보기", zh: "查看更多" };
+  var SEE_LESS = { en: "See less", vi: "Thu gọn", ja: "閉じる", ko: "접기", zh: "收起" };
+
+  function bindExcerptToggles() {
+    var lang = langKey();
+    var moreLabel = SEE_MORE[lang] || SEE_MORE.en;
+    var lessLabel = SEE_LESS[lang] || SEE_LESS.en;
+    document.querySelectorAll(".ev-card-desc").forEach(function (wrap) {
+      var text = wrap.querySelector(".ev-card-desc-text");
+      var btn = wrap.querySelector(".ev-card-more");
+      if (!text || !btn) return;
+      if (btn.getAttribute("data-bound") !== "1") {
+        btn.setAttribute("data-bound", "1");
+        btn.addEventListener("click", function (e) {
+          e.preventDefault();
+          e.stopPropagation();
+          var open = wrap.classList.toggle("is-expanded");
+          wrap.classList.toggle("is-clamped", !open);
+          btn.textContent = open ? lessLabel : moreLabel;
+          btn.setAttribute("aria-expanded", open ? "true" : "false");
+        });
+      }
+      if (wrap.classList.contains("is-expanded")) return;
+      var card = wrap.closest(".ev-card");
+      if (card && card.style.display === "none") return;
+      var needs = text.scrollHeight > text.clientHeight + 2;
+      wrap.classList.toggle("is-clamped", needs);
+      btn.textContent = moreLabel;
+      btn.setAttribute("aria-expanded", "false");
+    });
+  }
+
+  function renderExcerpt(ev) {
+    var formatted = formatExcerptHtml(ev && ev.excerpt);
+    if (!formatted.html) return "";
+    var cls = "ev-card-desc-text" + (formatted.isHtml ? "" : " ev-card-desc-text--plain");
+    return (
+      '<div class="ev-card-desc">' +
+      '<div class="' + cls + '">' + formatted.html + "</div>" +
+      '<button type="button" class="ev-card-more" aria-expanded="false"></button>' +
+      "</div>"
+    );
+  }
+
   function renderTagSpans(ev) {
     var html = "";
     var tags = ev.tags || [];
@@ -238,7 +300,7 @@
       '</div><div class="ev-dow">' + esc(parts.dow) + "</div></div>" +
       '<div class="ev-body"><div class="ev-tags">' + renderTagSpans(ev) + "</div>" +
       '<div class="ev-card-title">' + esc(ev.title) + "</div>" +
-      '<div class="ev-card-desc">' + esc(ev.excerpt) + "</div>" +
+      renderExcerpt(ev) +
       '<div class="ev-card-meta">' + renderMeta(ev) + "</div></div>" +
       '<div class="ev-action-col">' + actions + "</div></div>"
     );
@@ -310,6 +372,7 @@
     }
     list.innerHTML = html;
     applyEventListFilters();
+    window.requestAnimationFrame(bindExcerptToggles);
   }
 
   function calCardTagList(tagsStr) {
@@ -338,6 +401,7 @@
       });
       section.style.display = anyVisible ? "" : "none";
     });
+    window.requestAnimationFrame(bindExcerptToggles);
   }
 
   window.filterEvents = function (tag, btn) {
