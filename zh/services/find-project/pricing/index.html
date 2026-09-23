@@ -214,7 +214,7 @@ img{max-width:100%;display:block;}
           <li class="feat-item no">来自HOUSELINK的直接咨询</li>
                     <li class="feat-item no">营销与公关</li>
         </ul>
-        <a href="/zh/services/find-project/contract/?plan=starter" class="plan-btn outline">注册Starter</a>
+        <button type="button" class="plan-btn outline" data-hl-register-gate>注册Starter</button>
       </div>
 
       <!-- STANDARD - FEATURED -->
@@ -245,7 +245,7 @@ img{max-width:100%;display:block;}
           <li class="feat-item">在HOUSELINK主页显示logo</li>
           <li class="feat-item no">VietnamConstruction营销</li>
         </ul>
-        <a href="/zh/services/find-project/contract/?plan=standard" class="plan-btn white">注册Standard</a>
+        <button type="button" class="plan-btn white" data-hl-register-gate>注册Standard</button>
       </div>
 
       <!-- PROFESSIONAL -->
@@ -276,7 +276,7 @@ img{max-width:100%;display:block;}
           <li class="feat-item no">向80,000名投资商发送Email营销</li>
           <li class="feat-item no">定期行业报告</li>
         </ul>
-        <a href="/zh/services/find-project/contract/?plan=professional" class="plan-btn outline">注册Professional</a>
+        <button type="button" class="plan-btn outline" data-hl-register-gate>注册Professional</button>
       </div>
 
       <!-- PREMIUM -->
@@ -307,7 +307,7 @@ img{max-width:100%;display:block;}
           <li class="feat-item">优先对接战略工业园区投资商</li>
           <li class="feat-item">每月全面效果报告</li>
         </ul>
-        <a href="/zh/services/find-project/contract/?plan=premium" class="plan-btn primary">注册Premium</a>
+        <button type="button" class="plan-btn primary" data-hl-register-gate>注册Premium</button>
       </div>
 
     </div><!-- /pricing-grid -->
@@ -320,7 +320,7 @@ img{max-width:100%;display:block;}
       </div>
       <div class="ent-btns">
         <a href="/zh/contact/" class="btn-ent-white">联系咨询</a>
-        <a href="/zh/services/find-project/contract/?plan=enterprise" class="btn-ent-outline">申请报价</a>
+        <a href="/zh/contact/" class="btn-ent-outline">申请报价</a>
       </div>
     </div>
 
@@ -498,9 +498,9 @@ img{max-width:100%;display:block;}
 <section class="cta-bar">
   <div class="si">
     <h2>今天就开始接触项目</h2>
-    <p>选择适合的套餐，在线签合同，24小时内获得账户。</p>
+    <p>选择套餐后，请先注册账户、认领企业，再在系统内购买。</p>
     <div class="cta-btns">
-      <a href="/zh/services/find-project/contract/?plan=standard" class="btn-white">注册Standard ⭐</a>
+      <button type="button" class="btn-white" data-hl-register-gate>注册Standard ⭐</button>
       <a href="/zh/contact/" class="btn-outline-green">免费咨询</a>
     </div>
   </div>
@@ -542,8 +542,9 @@ const plan = params.get('plan');
 
 if(plan) {
   document.querySelectorAll('.plan-card').forEach(c => {
-    const btn = c.querySelector('.plan-btn');
-    if(btn && btn.href.includes('plan='+plan)){
+    const btn = c.querySelector('.plan-btn[data-hl-register-gate]');
+    const name = (c.querySelector('.plan-name') || {}).textContent || '';
+    if(btn && name.trim().toLowerCase() === String(plan).toLowerCase()){
       c.style.boxShadow = '0 0 0 3px #2D8B48';
       c.scrollIntoView({behavior:'smooth',block:'center'});
     }
@@ -552,6 +553,7 @@ if(plan) {
 </script>
 
 <div id="hl-chrome-footer"></div>
+<script src="/js/hl-pricing-register-gate.js" defer></script>
 <script src="../../../../landing-chrome.js" defer></script>
 </body>
 </html>

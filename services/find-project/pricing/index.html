@@ -214,7 +214,7 @@ img{max-width:100%;display:block;}
           <li class="feat-item no">Direct advisory from HOUSELINK</li>
                     <li class="feat-item no">Marketing & PR</li>
         </ul>
-        <a href="/services/find-project/contract/?plan=starter" class="plan-btn outline">Register Starter</a>
+        <button type="button" class="plan-btn outline" data-hl-register-gate>Register Starter</button>
       </div>
 
       <!-- STANDARD - FEATURED -->
@@ -245,7 +245,7 @@ img{max-width:100%;display:block;}
           <li class="feat-item">Logo displayed on HOUSELINK homepage</li>
           <li class="feat-item no">Marketing on VietnamConstruction</li>
         </ul>
-        <a href="/services/find-project/contract/?plan=standard" class="plan-btn white">Register Standard</a>
+        <button type="button" class="plan-btn white" data-hl-register-gate>Register Standard</button>
       </div>
 
       <!-- PROFESSIONAL -->
@@ -276,7 +276,7 @@ img{max-width:100%;display:block;}
           <li class="feat-item no">Email Marketing to 80,000 investors</li>
           <li class="feat-item no">Periodic industry reports</li>
         </ul>
-        <a href="/services/find-project/contract/?plan=professional" class="plan-btn outline">Register Professional</a>
+        <button type="button" class="plan-btn outline" data-hl-register-gate>Register Professional</button>
       </div>
 
       <!-- PREMIUM -->
@@ -307,7 +307,7 @@ img{max-width:100%;display:block;}
           <li class="feat-item">Priority connection to strategic IP investors</li>
           <li class="feat-item">Comprehensive monthly performance report</li>
         </ul>
-        <a href="/services/find-project/contract/?plan=premium" class="plan-btn primary">Register Premium</a>
+        <button type="button" class="plan-btn primary" data-hl-register-gate>Register Premium</button>
       </div>
 
     </div><!-- /pricing-grid -->
@@ -320,7 +320,7 @@ img{max-width:100%;display:block;}
       </div>
       <div class="ent-btns">
         <a href="/contact/" class="btn-ent-white">Contact for Advisory</a>
-        <a href="/services/find-project/contract/?plan=enterprise" class="btn-ent-outline">Request a Quote</a>
+        <a href="/contact/" class="btn-ent-outline">Request a Quote</a>
       </div>
     </div>
 
@@ -498,9 +498,9 @@ img{max-width:100%;display:block;}
 <section class="cta-bar">
   <div class="si">
     <h2>Start Reaching Projects Today</h2>
-    <p>Choose your plan, sign online and receive your account within 24 hours.</p>
+    <p>Choose a plan, create an account, claim your company, and purchase in the app.</p>
     <div class="cta-btns">
-      <a href="/services/find-project/contract/?plan=standard" class="btn-white">Register Standard ⭐</a>
+      <button type="button" class="btn-white" data-hl-register-gate>Register Standard ⭐</button>
       <a href="/contact/" class="btn-outline-green">Free Consultation</a>
     </div>
   </div>
@@ -542,8 +542,9 @@ const plan = params.get('plan');
 
 if(plan) {
   document.querySelectorAll('.plan-card').forEach(c => {
-    const btn = c.querySelector('.plan-btn');
-    if(btn && btn.href.includes('plan='+plan)){
+    const btn = c.querySelector('.plan-btn[data-hl-register-gate]');
+    const name = (c.querySelector('.plan-name') || {}).textContent || '';
+    if(btn && name.trim().toLowerCase() === String(plan).toLowerCase()){
       c.style.boxShadow = '0 0 0 3px #2D8B48';
       c.scrollIntoView({behavior:'smooth',block:'center'});
     }
@@ -552,6 +553,7 @@ if(plan) {
 </script>
 
 <div id="hl-chrome-footer"></div>
+<script src="/js/hl-pricing-register-gate.js" defer></script>
 <script src="../../../landing-chrome.js" defer></script>
 </body>
 </html>

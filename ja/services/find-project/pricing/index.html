@@ -214,7 +214,7 @@ img{max-width:100%;display:block;}
           <li class="feat-item no">HouseLINKからの直接アドバイザリー</li>
                     <li class="feat-item no">マーケティング＆PR</li>
         </ul>
-        <a href="/ja/services/find-project/contract/?plan=starter" class="plan-btn outline">Starterに登録</a>
+        <button type="button" class="plan-btn outline" data-hl-register-gate>Starterに登録</button>
       </div>
 
       <!-- STANDARD - FEATURED -->
@@ -245,7 +245,7 @@ img{max-width:100%;display:block;}
           <li class="feat-item">HouseLINKホームページにロゴ表示</li>
           <li class="feat-item no">VietnamConstructionでのマーケティング</li>
         </ul>
-        <a href="/ja/services/find-project/contract/?plan=standard" class="plan-btn white">Standardに登録</a>
+        <button type="button" class="plan-btn white" data-hl-register-gate>Standardに登録</button>
       </div>
 
       <!-- PROFESSIONAL -->
@@ -276,7 +276,7 @@ img{max-width:100%;display:block;}
           <li class="feat-item no">8万人の投資家へのメールマーケティング</li>
           <li class="feat-item no">定期業界レポート</li>
         </ul>
-        <a href="/ja/services/find-project/contract/?plan=professional" class="plan-btn outline">Professionalに登録</a>
+        <button type="button" class="plan-btn outline" data-hl-register-gate>Professionalに登録</button>
       </div>
 
       <!-- PREMIUM -->
@@ -307,7 +307,7 @@ img{max-width:100%;display:block;}
           <li class="feat-item">戦略的工業団地投資家との優先接続</li>
           <li class="feat-item">月次総合効果レポート</li>
         </ul>
-        <a href="/ja/services/find-project/contract/?plan=premium" class="plan-btn primary">Premiumに登録</a>
+        <button type="button" class="plan-btn primary" data-hl-register-gate>Premiumに登録</button>
       </div>
 
     </div><!-- /pricing-grid -->
@@ -320,7 +320,7 @@ img{max-width:100%;display:block;}
       </div>
       <div class="ent-btns">
         <a href="/ja/contact/" class="btn-ent-white">相談のお問い合わせ</a>
-        <a href="/ja/services/find-project/contract/?plan=enterprise" class="btn-ent-outline">見積もりを依頼</a>
+        <a href="/ja/contact/" class="btn-ent-outline">見積もりを依頼</a>
       </div>
     </div>
 
@@ -498,9 +498,9 @@ img{max-width:100%;display:block;}
 <section class="cta-bar">
   <div class="si">
     <h2>今日からプロジェクトへのアクセスを開始</h2>
-    <p>プランを選び、オンラインで契約して24時間以内にアカウントを受け取りましょう。</p>
+    <p>プランを選び、アカウント登録・企業クレーム後にアプリ内で購入してください。</p>
     <div class="cta-btns">
-      <a href="/ja/services/find-project/contract/?plan=standard" class="btn-white">Standardに登録 ⭐</a>
+      <button type="button" class="btn-white" data-hl-register-gate>Standardに登録 ⭐</button>
       <a href="/ja/contact/" class="btn-outline-green">無料相談</a>
     </div>
   </div>
@@ -542,8 +542,9 @@ const plan = params.get('plan');
 
 if(plan) {
   document.querySelectorAll('.plan-card').forEach(c => {
-    const btn = c.querySelector('.plan-btn');
-    if(btn && btn.href.includes('plan='+plan)){
+    const btn = c.querySelector('.plan-btn[data-hl-register-gate]');
+    const name = (c.querySelector('.plan-name') || {}).textContent || '';
+    if(btn && name.trim().toLowerCase() === String(plan).toLowerCase()){
       c.style.boxShadow = '0 0 0 3px #2D8B48';
       c.scrollIntoView({behavior:'smooth',block:'center'});
     }
@@ -552,6 +553,7 @@ if(plan) {
 </script>
 
 <div id="hl-chrome-footer"></div>
+<script src="/js/hl-pricing-register-gate.js" defer></script>
 <script src="../../../../landing-chrome.js" defer></script>
 </body>
 </html>

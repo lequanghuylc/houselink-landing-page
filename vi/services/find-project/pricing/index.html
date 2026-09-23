@@ -214,7 +214,7 @@ img{max-width:100%;display:block;}
           <li class="feat-item no">Tư vấn trực tiếp từ HOUSELINK</li>
                     <li class="feat-item no">Marketing & PR</li>
         </ul>
-        <a href="/vi/services/find-project/contract/?plan=starter" class="plan-btn outline">Đăng ký Starter</a>
+        <button type="button" class="plan-btn outline" data-hl-register-gate>Đăng ký Starter</button>
       </div>
 
       <!-- STANDARD - FEATURED -->
@@ -245,7 +245,7 @@ img{max-width:100%;display:block;}
           <li class="feat-item">Hiển thị logo trên homepage HOUSELINK</li>
           <li class="feat-item no">Marketing trên VietnamConstruction</li>
         </ul>
-        <a href="/vi/services/find-project/contract/?plan=standard" class="plan-btn white">Đăng ký Standard</a>
+        <button type="button" class="plan-btn white" data-hl-register-gate>Đăng ký Standard</button>
       </div>
 
       <!-- PROFESSIONAL -->
@@ -276,7 +276,7 @@ img{max-width:100%;display:block;}
           <li class="feat-item no">Email Marketing 80.000 chủ đầu tư</li>
           <li class="feat-item no">Báo cáo ngành định kỳ</li>
         </ul>
-        <a href="/vi/services/find-project/contract/?plan=professional" class="plan-btn outline">Đăng ký Professional</a>
+        <button type="button" class="plan-btn outline" data-hl-register-gate>Đăng ký Professional</button>
       </div>
 
       <!-- PREMIUM -->
@@ -307,7 +307,7 @@ img{max-width:100%;display:block;}
           <li class="feat-item">Ưu tiên kết nối Chủ đầu tư Khu công nghiệp chiến lược</li>
           <li class="feat-item">Báo cáo hiệu quả toàn diện hàng tháng</li>
         </ul>
-        <a href="/vi/services/find-project/contract/?plan=premium" class="plan-btn primary">Đăng ký Premium</a>
+        <button type="button" class="plan-btn primary" data-hl-register-gate>Đăng ký Premium</button>
       </div>
 
     </div><!-- /pricing-grid -->
@@ -320,7 +320,7 @@ img{max-width:100%;display:block;}
       </div>
       <div class="ent-btns">
         <a href="/vi/contact/" class="btn-ent-white">Liên hệ tư vấn</a>
-        <a href="/vi/services/find-project/contract/?plan=enterprise" class="btn-ent-outline">Yêu cầu báo giá</a>
+        <a href="/vi/contact/" class="btn-ent-outline">Yêu cầu báo giá</a>
       </div>
     </div>
 
@@ -498,9 +498,9 @@ img{max-width:100%;display:block;}
 <section class="cta-bar">
   <div class="si">
     <h2>Bắt đầu tiếp cận dự án ngay hôm nay</h2>
-    <p>Chọn gói phù hợp, ký hợp đồng online và nhận tài khoản trong 24 giờ.</p>
+    <p>Chọn gói phù hợp, đăng ký tài khoản, claim doanh nghiệp và mua gói trong hệ thống.</p>
     <div class="cta-btns">
-      <a href="/vi/services/find-project/contract/?plan=standard" class="btn-white">Đăng ký Standard ⭐</a>
+      <button type="button" class="btn-white" data-hl-register-gate>Đăng ký Standard ⭐</button>
       <a href="/vi/contact/" class="btn-outline-green">Tư vấn miễn phí</a>
     </div>
   </div>
@@ -542,8 +542,9 @@ const plan = params.get('plan');
 
 if(plan) {
   document.querySelectorAll('.plan-card').forEach(c => {
-    const btn = c.querySelector('.plan-btn');
-    if(btn && btn.href.includes('plan='+plan)){
+    const btn = c.querySelector('.plan-btn[data-hl-register-gate]');
+    const name = (c.querySelector('.plan-name') || {}).textContent || '';
+    if(btn && name.trim().toLowerCase() === String(plan).toLowerCase()){
       c.style.boxShadow = '0 0 0 3px #2D8B48';
       c.scrollIntoView({behavior:'smooth',block:'center'});
     }
@@ -552,6 +553,7 @@ if(plan) {
 </script>
 
 <div id="hl-chrome-footer"></div>
+<script src="/js/hl-pricing-register-gate.js" defer></script>
 <script src="../../../../landing-chrome.js" defer></script>
 </body>
 </html>

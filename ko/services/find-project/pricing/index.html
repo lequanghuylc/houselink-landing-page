@@ -214,7 +214,7 @@ img{max-width:100%;display:block;}
           <li class="feat-item no">HOUSELINK의 직접 자문</li>
                     <li class="feat-item no">마케팅 및 PR</li>
         </ul>
-        <a href="/ko/services/find-project/contract/?plan=starter" class="plan-btn outline">Starter 등록</a>
+        <button type="button" class="plan-btn outline" data-hl-register-gate>Starter 등록</button>
       </div>
 
       <!-- STANDARD - FEATURED -->
@@ -245,7 +245,7 @@ img{max-width:100%;display:block;}
           <li class="feat-item">HOUSELINK 홈페이지에 로고 표시</li>
           <li class="feat-item no">VietnamConstruction 마케팅</li>
         </ul>
-        <a href="/ko/services/find-project/contract/?plan=standard" class="plan-btn white">Standard 등록</a>
+        <button type="button" class="plan-btn white" data-hl-register-gate>Standard 등록</button>
       </div>
 
       <!-- PROFESSIONAL -->
@@ -276,7 +276,7 @@ img{max-width:100%;display:block;}
           <li class="feat-item no">8만 투자자에게 이메일 마케팅</li>
           <li class="feat-item no">정기 업계 보고서</li>
         </ul>
-        <a href="/ko/services/find-project/contract/?plan=professional" class="plan-btn outline">Professional 등록</a>
+        <button type="button" class="plan-btn outline" data-hl-register-gate>Professional 등록</button>
       </div>
 
       <!-- PREMIUM -->
@@ -307,7 +307,7 @@ img{max-width:100%;display:block;}
           <li class="feat-item">전략 산업단지 투자자와 우선 연결</li>
           <li class="feat-item">월간 종합 성과 보고서</li>
         </ul>
-        <a href="/ko/services/find-project/contract/?plan=premium" class="plan-btn primary">Premium 등록</a>
+        <button type="button" class="plan-btn primary" data-hl-register-gate>Premium 등록</button>
       </div>
 
     </div><!-- /pricing-grid -->
@@ -320,7 +320,7 @@ img{max-width:100%;display:block;}
       </div>
       <div class="ent-btns">
         <a href="/ko/contact/" class="btn-ent-white">상담 문의</a>
-        <a href="/ko/services/find-project/contract/?plan=enterprise" class="btn-ent-outline">견적 요청</a>
+        <a href="/ko/contact/" class="btn-ent-outline">견적 요청</a>
       </div>
     </div>
 
@@ -498,9 +498,9 @@ img{max-width:100%;display:block;}
 <section class="cta-bar">
   <div class="si">
     <h2>오늘 바로 프로젝트에 접근 시작</h2>
-    <p>적합한 요금제를 선택하고 온라인으로 계약하여 24시간 내에 계정을 받으세요.</p>
+    <p>패키지를 선택한 뒤 계정 등록, 기업 클레임 후 앱에서 구매하세요.</p>
     <div class="cta-btns">
-      <a href="/ko/services/find-project/contract/?plan=standard" class="btn-white">Standard 등록 ⭐</a>
+      <button type="button" class="btn-white" data-hl-register-gate>Standard 등록 ⭐</button>
       <a href="/ko/contact/" class="btn-outline-green">무료 상담</a>
     </div>
   </div>
@@ -542,8 +542,9 @@ const plan = params.get('plan');
 
 if(plan) {
   document.querySelectorAll('.plan-card').forEach(c => {
-    const btn = c.querySelector('.plan-btn');
-    if(btn && btn.href.includes('plan='+plan)){
+    const btn = c.querySelector('.plan-btn[data-hl-register-gate]');
+    const name = (c.querySelector('.plan-name') || {}).textContent || '';
+    if(btn && name.trim().toLowerCase() === String(plan).toLowerCase()){
       c.style.boxShadow = '0 0 0 3px #2D8B48';
       c.scrollIntoView({behavior:'smooth',block:'center'});
     }
@@ -552,6 +553,7 @@ if(plan) {
 </script>
 
 <div id="hl-chrome-footer"></div>
+<script src="/js/hl-pricing-register-gate.js" defer></script>
 <script src="../../../../landing-chrome.js" defer></script>
 </body>
 </html>
