@@ -381,8 +381,10 @@
   }
 
   function relatedHref(a) {
-    var path = String(a.landingPath || "").trim();
-    if (path && path.charAt(0) === "/") return path;
+    if (a.landingStaticReady) {
+      var path = String(a.landingPath || "").trim();
+      if (path && path.charAt(0) === "/") return path;
+    }
     var href = "/news/cms/?slug=" + encodeURIComponent(a.slug);
     if (langKey() !== "en") href += "&lang=" + encodeURIComponent(langKey());
     return href;

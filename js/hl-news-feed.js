@@ -84,9 +84,13 @@
     return type || "News";
   }
 
-  function cmsDetailHref(slug, landingPath) {
-    var path = String(landingPath || "").trim();
-    if (path && path.charAt(0) === "/") return path;
+  function cmsDetailHref(slug, landingPath, landingStaticReady) {
+    // Prefer static SEO URL only after backend has written the HTML file.
+    // Older published rows still lack static HTML → would 404 on /news/{slug}/.
+    if (landingStaticReady) {
+      var path = String(landingPath || "").trim();
+      if (path && path.charAt(0) === "/") return path;
+    }
     var u = "/news/cms/?slug=" + encodeURIComponent(slug);
     var k = langKey();
     if (k !== "en") u += "&lang=" + encodeURIComponent(k);
@@ -111,7 +115,7 @@
       id: "cms-" + String(article.id || article.slug),
       date: article.publishedAt || article.createdAt || "",
       modified: article.publishedAt || article.updatedAt || article.createdAt || "",
-      link: cmsDetailHref(article.slug, article.landingPath),
+      link: cmsDetailHref(article.slug, article.landingPath, !!article.landingStaticReady),
       title: { rendered: String(article.title || "") },
       excerpt: { rendered: String(article.excerpt || "") },
       hlCms: true,
