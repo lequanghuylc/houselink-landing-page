@@ -328,6 +328,66 @@
     );
   }
 
+  function ensureMeta(attrName, attrValue, content) {
+    if (!content) return;
+    var sel = 'meta[' + attrName + '="' + attrValue + '"]';
+    var el = document.head.querySelector(sel);
+    if (!el) {
+      el = document.createElement("meta");
+      el.setAttribute(attrName, attrValue);
+      document.head.appendChild(el);
+    }
+    el.setAttribute("content", content);
+  }
+
+  function ensureCanonical(href) {
+    if (!href) return;
+    var el = document.head.querySelector('link[rel="canonical"]');
+    if (!el) {
+      el = document.createElement("link");
+      el.setAttribute("rel", "canonical");
+      document.head.appendChild(el);
+    }
+    el.setAttribute("href", href);
+  }
+
+  function applySeo(article) {
+    var title = String(article.seoTitle || article.title || "").trim() || "Article";
+    var description = String(article.seoDescription || article.excerpt || "").trim();
+    var keywords =
+      String(article.seoKeywords || "").trim() ||
+      (Array.isArray(article.tags) ? article.tags.filter(Boolean).join(", ") : "");
+    var ogImage = String(article.ogImageUrl || article.coverImageUrl || "").trim();
+    var landingPath = String(article.landingPath || "").trim();
+    var canonical =
+      String(article.canonicalUrl || "").trim() ||
+      (landingPath ? window.location.origin + landingPath : window.location.href.split("#")[0]);
+
+    document.title = title + " – HOUSELINK";
+    ensureMeta("name", "description", description);
+    ensureMeta("name", "keywords", keywords);
+    ensureMeta("property", "og:type", "article");
+    ensureMeta("property", "og:title", title);
+    ensureMeta("property", "og:description", description);
+    ensureMeta("property", "og:url", canonical);
+    if (ogImage) {
+      ensureMeta("property", "og:image", resolveImageSrc(ogImage) || ogImage);
+      ensureMeta("name", "twitter:image", resolveImageSrc(ogImage) || ogImage);
+    }
+    ensureMeta("name", "twitter:card", "summary_large_image");
+    ensureMeta("name", "twitter:title", title);
+    ensureMeta("name", "twitter:description", description);
+    ensureCanonical(canonical);
+  }
+
+  function relatedHref(a) {
+    var path = String(a.landingPath || "").trim();
+    if (path && path.charAt(0) === "/") return path;
+    var href = "/news/cms/?slug=" + encodeURIComponent(a.slug);
+    if (langKey() !== "en") href += "&lang=" + encodeURIComponent(langKey());
+    return href;
+  }
+
   function renderRelated(articles, currentSlug) {
     var root = document.getElementById("hl-cms-related");
     if (!root) return;
@@ -341,8 +401,7 @@
     }
     root.innerHTML = others
       .map(function (a) {
-        var href = "/news/cms/?slug=" + encodeURIComponent(a.slug);
-        if (langKey() !== "en") href += "&lang=" + encodeURIComponent(langKey());
+        var href = relatedHref(a);
         var img = resolveImageSrc(a.coverImageUrl);
         var imgHtml = img
           ? '<img class="rel-img" src="' + img.replace(/"/g, "&quot;") + '" alt="" loading="lazy">'
@@ -367,7 +426,7 @@
     var copy = ui();
     var cat = categoryLabel(article.category, article.categoryLabel, article.categoryLabels);
     var date = fmtDate(article.publishedAt || article.createdAt);
-    document.title = String(article.title || copy.articleFallback) + " – HOUSELINK";
+    applySeo(article);
     setText("hl-cms-bc-last", article.title || copy.articleFallback);
     setText("hl-cms-hero-eyebrow", cat + (date ? " · " + date : ""));
     setText("hl-cms-hero-title", article.title || "");

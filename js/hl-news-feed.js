@@ -84,7 +84,9 @@
     return type || "News";
   }
 
-  function cmsDetailHref(slug) {
+  function cmsDetailHref(slug, landingPath) {
+    var path = String(landingPath || "").trim();
+    if (path && path.charAt(0) === "/") return path;
     var u = "/news/cms/?slug=" + encodeURIComponent(slug);
     var k = langKey();
     if (k !== "en") u += "&lang=" + encodeURIComponent(k);
@@ -109,7 +111,7 @@
       id: "cms-" + String(article.id || article.slug),
       date: article.publishedAt || article.createdAt || "",
       modified: article.publishedAt || article.updatedAt || article.createdAt || "",
-      link: cmsDetailHref(article.slug),
+      link: cmsDetailHref(article.slug, article.landingPath),
       title: { rendered: String(article.title || "") },
       excerpt: { rendered: String(article.excerpt || "") },
       hlCms: true,
@@ -327,12 +329,13 @@
     );
   }
 
-  /** CMS articles open at `/news/cms/?slug=`. */
+  /** Prefer API `landingPath` / post.link (static HTML); fall back to CMS shell. */
   function detailHrefForPost(post) {
+    if (post && post.link) return post.link;
     if (post && post.hlCms && post.hlCmsSlug) {
       return cmsDetailHref(post.hlCmsSlug);
     }
-    return (post && post.link) || "#";
+    return "#";
   }
 
   function renderCard(post, isFeatured) {
