@@ -1058,11 +1058,27 @@
 
   wireOpenConsultHeaderCta();
 
+  /** Product pages (e.g. FDIsignals) replace the HOUSELINK header logo via body data attributes. */
+  function applyProductHeaderLogo() {
+    var body = document.body;
+    var src = body && body.getAttribute("data-hl-header-logo");
+    if (!src) return;
+    var link = document.querySelector("#header .header-inner .logo");
+    var img = link && link.querySelector("img");
+    if (!img) return;
+    img.src = src;
+    img.alt = body.getAttribute("data-hl-header-logo-alt") || img.alt;
+    img.classList.add("hl-logo-img--product");
+    var href = body.getAttribute("data-hl-header-logo-href");
+    if (href) link.setAttribute("href", href);
+  }
+
   var pack = langPack();
   Promise.all([fetchPartial("header", pack), fetchPartial("footer", pack), ensureAuthEnvScript()])
     .then(function (parts) {
       inject("hl-chrome-header", parts[0]);
       inject("hl-chrome-footer", parts[1]);
+      applyProductHeaderLogo();
       wireDashboardLoginLinks();
       initHeaderScroll();
       populateLangSelect();

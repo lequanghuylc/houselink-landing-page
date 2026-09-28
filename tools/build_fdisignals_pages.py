@@ -12,14 +12,6 @@ LANDING = Path(__file__).resolve().parents[1]
 LOCALES = ("en", "vi", "ja", "ko", "zh")
 HTML_LANG = {"en": "en", "vi": "vi", "ja": "ja", "ko": "ko", "zh": "zh-CN"}
 
-NAV = {
-    "vi": ("Tín hiệu đầu tư", "Bảng giá"),
-    "en": ("Investment signals", "Pricing"),
-    "zh": ("投资信号", "价格"),
-    "ko": ("투자 시그널", "요금"),
-    "ja": ("投資シグナル", "料金"),
-}
-
 TITLES = {
     "home": {
         "vi": "FDIsignals by HOUSELINK - Radar tín hiệu đầu tư FDI vào Việt Nam",
@@ -77,20 +69,11 @@ STRIP_RULES = [
 ]
 
 SUBNAV_CSS = """
-.fdi-subnav{background:#fff;border-bottom:1px solid var(--line)}
-body.hl-with-fixed-header .fdi-subnav{margin-top:calc(var(--header-h) + env(safe-area-inset-top, 0px))}
-.fdi-subnav-inner{display:flex;align-items:center;gap:28px;min-height:64px;max-width:1360px}
-.fdi-brand{display:flex;align-items:center;line-height:0}
-.fdi-brand svg{height:42px;width:auto}
-.fdi-sublinks{display:flex;gap:22px;margin-left:auto}
-.fdi-sublinks a{color:#1d3142;text-decoration:none;font-size:14.5px;font-weight:500}
-.fdi-sublinks a.on,.fdi-sublinks a:hover{color:var(--navy);font-weight:600}
+body.hl-with-fixed-header .hero{margin-top:calc(var(--header-h) + env(safe-area-inset-top, 0px))}
 button.btn{font-family:inherit;cursor:pointer}
-@media(max-width:980px){
- .fdi-subnav-inner{flex-wrap:wrap;min-height:0;padding-top:10px;padding-bottom:10px}
- .fdi-sublinks{width:100%;margin-left:0}
-}
 """
+
+HEADER_LOGO = "/images/fdisignals/fdisignals_logo_ngang.svg"
 
 BILLING_JS = """
 var BILL='y';
@@ -155,11 +138,6 @@ def extract_blocks(html: str) -> dict:
     return blocks
 
 
-def extract_logo(html: str) -> str:
-    svg = re.search(r"(<svg viewBox=\"0 0 560 150\".*?</svg>)", html, re.S).group(1)
-    return svg.replace('height="48"', 'height="42"', 1)
-
-
 def rewrite(html: str, locale: str) -> str:
     def repl_register(match: re.Match) -> str:
         cls = match.group(1)
@@ -180,22 +158,7 @@ def rewrite(html: str, locale: str) -> str:
     return html
 
 
-def subnav(locale: str, kind: str, logo: str) -> str:
-    home_label, price_label = NAV[locale]
-    home_on = " on" if kind == "home" else ""
-    price_on = " on" if kind == "pricing" else ""
-    return (
-        '<nav class="fdi-subnav" aria-label="FDIsignals">'
-        '<div class="wrap fdi-subnav-inner">'
-        f'<a class="fdi-brand" href="{page_href(locale, "home")}">{logo}</a>'
-        '<div class="fdi-sublinks">'
-        f'<a class="{home_on.strip()}" href="{page_href(locale, "home")}">{home_label}</a>'
-        f'<a class="{price_on.strip()}" href="{page_href(locale, "pricing")}">{price_label}</a>'
-        "</div></div></nav>"
-    )
-
-
-def render(locale: str, kind: str, css: str, body: str, logo: str) -> str:
+def render(locale: str, kind: str, css: str, body: str) -> str:
     page_key = "fdisignals" if kind == "home" else "fdisignals-pricing"
     scripts = []
     if kind == "pricing":
@@ -219,9 +182,8 @@ def render(locale: str, kind: str, css: str, body: str, logo: str) -> str:
 </style>
 <link rel="stylesheet" href="{rel}landing-chrome.css">
 </head>
-<body class="hl-with-fixed-header" data-hl-page="{page_key}">
+<body class="hl-with-fixed-header" data-hl-page="{page_key}" data-hl-header-logo="{HEADER_LOGO}" data-hl-header-logo-alt="FDIsignals by HOUSELINK" data-hl-header-logo-href="{page_href(locale, "home")}">
 <div id="hl-chrome-header"></div>
-{subnav(locale, kind, logo)}
 {body}
 <div id="hl-chrome-footer"></div>
 {chr(10).join(scripts)}
@@ -233,7 +195,6 @@ def render(locale: str, kind: str, css: str, body: str, logo: str) -> str:
 def main() -> None:
     home_html = (SRC / "index.html").read_text(encoding="utf-8")
     pricing_html = (SRC / "pricing.html").read_text(encoding="utf-8")
-    logo = extract_logo(home_html)
     sources = {
         "home": (extract_style(home_html), extract_blocks(home_html)),
         "pricing": (extract_style(pricing_html), extract_blocks(pricing_html)),
@@ -252,7 +213,7 @@ def main() -> None:
             body = rewrite(blocks[locale], locale)
             dest = out_dir(locale, kind) / "index.html"
             dest.parent.mkdir(parents=True, exist_ok=True)
-            dest.write_text(render(locale, kind, css, body, logo), encoding="utf-8")
+            dest.write_text(render(locale, kind, css, body), encoding="utf-8")
             print(dest.relative_to(REPO))
 
 

@@ -124,6 +124,10 @@ footer .si {
   height: auto;
   max-height: 42px;
 }
+.header-inner .logo .hl-logo-img--product {
+  height: 46px;
+  max-height: 46px;
+}
 /* Wraps nav only; .hdr-actions is a sibling under #header. Desktop: display:contents → nav participates in #header flex. */
 .hl-nav-panel {
   display: contents;
