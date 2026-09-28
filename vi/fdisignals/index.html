@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>FDIsignals by HOUSELINK - Radar tín hiệu đầu tư FDI vào Việt Nam</title>
+<meta name="description" content="FDIsignals phát hiện nhà sản xuất sắp mở rộng hoặc dịch chuyển sản xuất vào Việt Nam trước khi thông tin trở thành tin tức.">
+<link rel="icon" href="/images/fdisignals/fdisignals_bieu_tuong.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+
+:root{--navy:#00466E;--navy-d:#003457;--ink:#0D1F2D;--muted:#5B6B78;--green:#2D8B48;--green-l:#7ED49A;--line:#DDE3E8;--soft:#F4F6F8;--amber:#F2A93B}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Inter,system-ui,-apple-system,'Segoe UI','Noto Sans SC','Noto Sans KR','Noto Sans JP',sans-serif;color:var(--ink);background:#fff;line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+.center{text-align:center}
+
+
+
+
+
+
+
+
+
+
+
+
+
+.btn{display:inline-flex;align-items:center;gap:6px;padding:14px 26px;border-radius:10px;text-decoration:none;font-weight:600;font-size:15px;transition:.15s;border:1.5px solid transparent;cursor:pointer}
+.btn.green{background:var(--green);color:#fff}
+.btn.green:hover{background:#257a3e}
+.btn.outline{border-color:rgba(255,255,255,.45);color:#fff}
+.btn.outline:hover{border-color:#fff}
+.btn.navy{background:var(--navy);color:#fff}
+.btn.line{border-color:#B8C9D9;color:#003366;background:#fff}
+.btn.sm{padding:9px 16px;font-size:13.5px;border-radius:9px}
+.hero{background:linear-gradient(135deg,#003457 0%,#00466E 60%,#004060 100%);color:#fff;position:relative;overflow:hidden}
+.hero:before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.06) 1px,transparent 1px);background-size:22px 22px;pointer-events:none}
+.hero .wrap{position:relative}
+.pill{display:inline-flex;align-items:center;gap:8px;background:rgba(45,139,72,.15);border:1px solid rgba(45,139,72,.35);color:var(--green-l);padding:6px 15px;border-radius:100px;font-size:11.5px;font-weight:700;letter-spacing:1.3px;text-transform:uppercase}
+.pill:before{content:"";width:6px;height:6px;border-radius:50%;background:var(--green-l)}
+.eyebrow{font-size:11.5px;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;color:var(--green);margin-bottom:12px}
+h1{font-size:50px;font-weight:600;line-height:1.14;letter-spacing:-1px}
+h1 .g{color:var(--green-l)}
+h2{font-size:38px;font-weight:600;line-height:1.2;letter-spacing:-.7px;color:var(--navy)}
+h2 .g{color:var(--green)}
+.lead{font-size:17px;color:rgba(255,255,255,.82);line-height:1.65}
+.sub{font-size:16px;color:var(--muted);max-width:760px}
+.sec{padding:84px 0}
+.sec.soft{background:var(--soft)}
+.card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:30px}
+.card.feat{background:var(--navy);border-color:var(--navy);color:#fff;border-top:4px solid var(--green)}
+.card h3{font-size:18px;font-weight:600;color:var(--navy);margin:14px 0 10px;line-height:1.35}
+.card.feat h3{color:#fff}
+.card p{font-size:14.5px;color:var(--muted);line-height:1.62}
+.card.feat p{color:rgba(255,255,255,.78)}
+.ico{font-size:28px;line-height:1}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:16px}
+.tag{font-size:11.5px;font-weight:600;color:var(--green);background:#EAF6EE;padding:4px 10px;border-radius:99px}
+.card.feat .tag{background:rgba(126,212,154,.14);color:var(--green-l)}
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.g2{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+
+
+
+@media(max-width:980px){
+ 
+ 
+ 
+ h1{font-size:34px}h2{font-size:28px}
+ .g2,.g3,.g4{grid-template-columns:1fr}
+ .sec{padding:56px 0}
+}
+
+.lhero{padding-top:64px;padding-bottom:76px}
+.lhero .cols{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+.lhero h1{margin:22px 0 18px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:24px 0 30px}
+.chip{border:1px solid rgba(255,255,255,.28);background:rgba(255,255,255,.05);color:#fff;padding:6px 13px;border-radius:99px;font-size:12.5px;font-weight:500}
+.btns{display:flex;gap:12px;flex-wrap:wrap}
+.stk{display:flex;flex-direction:column;gap:14px}
+.stc{display:flex;gap:18px;align-items:center;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.18);border-radius:14px;padding:18px 22px}
+.stc .i{font-size:26px}.stc b{display:block;font-size:22px;font-weight:600;color:var(--green-l);line-height:1.2}.stc span{font-size:13px;color:rgba(255,255,255,.72)}
+.shead{max-width:640px;margin-bottom:40px}
+.shead h2{margin:4px 0 14px}
+.tl{display:flex;flex-direction:column;gap:12px}
+.tlr{display:grid;grid-template-columns:150px 1fr;gap:18px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px 22px}
+.tlr.g{background:#F2FAF4;border-color:#BFE3CB}
+.tlr .t{font-weight:700;color:var(--navy);font-size:14.5px}.tlr.g .t{color:var(--green)}
+.tlr b{display:block;font-size:15.5px;font-weight:600;color:var(--ink)}.tlr span{font-size:14px;color:var(--muted)}
+.note{margin-top:22px;font-size:16px;font-weight:600;font-style:italic;color:var(--green)}
+.proc{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:start}
+.steps{display:flex;flex-direction:column;gap:12px}
+.step{border:1px solid var(--line);border-radius:14px;padding:18px 22px;background:#fff}
+.step .h{display:flex;gap:10px;align-items:center;font-weight:600;color:var(--navy);font-size:15.5px}
+.step .n{font-size:12px;font-weight:700;color:var(--green);letter-spacing:.5px}
+.step p{font-size:14px;color:var(--muted);margin-top:6px}
+.benefit{background:linear-gradient(160deg,#00466E,#003457);color:#fff;border-radius:18px;padding:34px;position:sticky;top:100px}
+.benefit .brandline{display:flex;align-items:center;gap:10px;font-weight:700;letter-spacing:.3px;margin-bottom:6px}
+.benefit h3{font-size:22px;font-weight:600;color:var(--green-l);margin-bottom:18px}
+.benefit li{list-style:none;display:flex;gap:10px;padding:10px 0;border-top:1px solid rgba(255,255,255,.12);font-size:14.5px}
+.logos{display:flex;flex-wrap:wrap;gap:16px;justify-content:center;margin-top:30px}
+.lg{border:1px solid var(--line);background:#fff;border-radius:14px;padding:22px 34px;font-weight:800;font-size:17px;color:var(--navy);letter-spacing:.4px}
+.tz{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:34px}
+.tzc{border:1px solid var(--line);border-radius:18px;padding:26px;background:#fff}
+.tzc.feat{background:var(--navy);border-color:var(--navy);color:#fff}
+.tzc h3{font-size:17px;font-weight:600;color:var(--navy)}.tzc.feat h3{color:var(--green-l)}
+.tzc .p{font-size:32px;font-weight:700;color:var(--navy);margin:12px 0 4px;letter-spacing:-.8px}.tzc.feat .p{color:#fff}
+.tzc .m{font-size:13px;color:var(--muted)}.tzc.feat .m{color:rgba(255,255,255,.65)}
+.lcta{background:linear-gradient(135deg,#003457 0%,#00466E 60%,#004060 100%);color:#fff;padding:78px 0;text-align:center}
+.lcta h2{color:#fff}.lcta .lead{max-width:680px;margin:14px auto 28px}
+@media(max-width:980px){.lhero .cols,.proc{grid-template-columns:1fr}.tz{grid-template-columns:1fr}.tlr{grid-template-columns:1fr;gap:4px}.benefit{position:static}}
+
+.fdi-subnav{background:#fff;border-bottom:1px solid var(--line)}
+body.hl-with-fixed-header .fdi-subnav{margin-top:calc(var(--header-h) + env(safe-area-inset-top, 0px))}
+.fdi-subnav-inner{display:flex;align-items:center;gap:28px;min-height:64px;max-width:1360px}
+.fdi-brand{display:flex;align-items:center;line-height:0}
+.fdi-brand svg{height:42px;width:auto}
+.fdi-sublinks{display:flex;gap:22px;margin-left:auto}
+.fdi-sublinks a{color:#1d3142;text-decoration:none;font-size:14.5px;font-weight:500}
+.fdi-sublinks a.on,.fdi-sublinks a:hover{color:var(--navy);font-weight:600}
+button.btn{font-family:inherit;cursor:pointer}
+@media(max-width:980px){
+ .fdi-subnav-inner{flex-wrap:wrap;min-height:0;padding-top:10px;padding-bottom:10px}
+ .fdi-sublinks{width:100%;margin-left:0}
+}
+
+</style>
+<link rel="stylesheet" href="../../landing-chrome.css">
+</head>
+<body class="hl-with-fixed-header" data-hl-page="fdisignals">
+<div id="hl-chrome-header"></div>
+<nav class="fdi-subnav" aria-label="FDIsignals"><div class="wrap fdi-subnav-inner"><a class="fdi-brand" href="/vi/fdisignals/"><svg viewBox="0 0 560 150" height="42" aria-label="FDIsignals by HOUSELINK" xmlns="http://www.w3.org/2000/svg">
+<g transform="translate(14,10)"><g fill="none" stroke="#00466E" stroke-linecap="round"><circle cx="52" cy="76" r="44" stroke-width="6.5"/><ellipse cx="52" cy="76" rx="18" ry="41.5" stroke-width="5.2"/><line x1="8" y1="76" x2="96" y2="76" stroke-width="5.2"/><path d="M15 54 Q52 62 89 54" stroke-width="3.6"/><path d="M15 98 Q52 90 89 98" stroke-width="3.6"/></g><circle cx="108" cy="26" r="6" fill="#2D8B48"/><g fill="none" stroke="#2D8B48" stroke-width="6.5" stroke-linecap="round"><path d="M108 12 A14 14 0 0 1 122 26"/><path d="M108 0 A26 26 0 0 1 134 26"/></g></g>
+<text x="166" y="92" font-family="Inter,Arial,sans-serif" font-size="62" font-weight="800" fill="#00466E" letter-spacing="-1.5">FDI<tspan font-weight="600" fill="#2D8B48">signals</tspan></text>
+<text x="169" y="125" font-family="Inter,Arial,sans-serif" font-size="17" font-weight="600" fill="#6B7C8A" letter-spacing="3.2">BY HOUSELINK</text></svg></a><div class="fdi-sublinks"><a class="on" href="/vi/fdisignals/">Tín hiệu đầu tư</a><a class="" href="/vi/fdisignals/pricing/">Bảng giá</a></div></div></nav>
+<section class="hero"><div class="wrap lhero"><div class="cols"><div>
+ <span class="pill">RADAR TÍN HIỆU ĐẦU TƯ FDI</span>
+ <h1><span class="g">Khi dự án lên báo,</span><br>nhà đầu tư đã chọn xong địa điểm</h1>
+ <p class="lead">FDIsignals phát hiện nhà sản xuất sắp mở rộng hoặc dịch chuyển sản xuất vào Việt Nam trước khi thông tin trở thành tin tức - giúp khu công nghiệp, nhà thầu và đơn vị dịch vụ tiếp cận đúng nhà đầu tư vào đúng thời điểm.</p>
+ <div class="chips"><span class="chip">Tín hiệu sớm</span><span class="chip">145 sàn toàn cầu</span><span class="chip">Dữ liệu thương mại</span><span class="chip">Hồ sơ 500+ KCN</span><span class="chip">Kiểm chứng 2 nguồn</span><span class="chip">Điều phối trung lập</span></div>
+ <div class="btns"><a class="btn green" href="/vi/contact/">Đăng ký tư vấn miễn phí →</a><a class="btn outline" href="/vi/fdisignals/pricing/">Xem bảng giá</a></div>
+</div><div class="stk"><div class="stc"><div class="i">📡</div><div><b>~11 tháng</b><span>Sớm hơn thời điểm cấp phép, trung vị trên mẫu đã đối chiếu</span></div></div><div class="stc"><div class="i">🌏</div><div><b>100.000+ hồ sơ</b><span>Nhà sản xuất toàn cầu trong cơ sở dữ liệu</span></div></div><div class="stc"><div class="i">🏭</div><div><b>500+ KCN &amp; CCN</b><span>Hồ sơ năng lực đã kiểm chứng để ghép tín hiệu</span></div></div><div class="stc"><div class="i">✅</div><div><b>2 nguồn</b><span>Số nguồn độc lập tối thiểu trước khi công bố</span></div></div></div></div></div></section>
+<section class="sec"><div class="wrap"><div class="shead"><div class="eyebrow">Bài toán</div><h2>Thông tin không bị giấu -<br><span class="g">chỉ là không ai đọc</span></h2><p class="sub">Một quyết định đặt nhà máy để lại dấu vết theo chuỗi khá ổn định. Vấn đề nằm ở chỗ những mắt xích đầu tiên nằm trong tài liệu tiếng Hàn, Nhật, Trung mà không phòng xúc tiến nào đủ người để đọc hết.</p></div>
+<div class="tl"><div class="tlr g"><div class="t">T-14 tháng</div><div><b>Hội đồng quản trị công ty mẹ ra nghị quyết đầu tư</b><span>Công bố công khai trên sàn chứng khoán</span></div></div><div class="tlr g"><div class="t">T-9 tháng</div><div><b>Nhập khẩu linh kiện tăng đều ba quý liên tiếp</b><span>Dữ liệu thương mại ghi nhận đầy đủ</span></div></div><div class="tlr "><div class="t">T-4 tháng</div><div><b>Đoàn khảo sát ba địa điểm, đã có phương án ưu tiên</b><span>KCN được chọn thường đã tiếp xúc từ trước</span></div></div><div class="tlr "><div class="t">T-0</div><div><b>Cấp phép, báo đưa tin</b><span>Mọi KCN cùng biết - chỉ còn cạnh tranh giá thuê</span></div></div></div><div class="note">Khoảng trống mười bốn tháng này là thứ FDIsignals lấp vào.</div></div></section>
+<section class="sec soft"><div class="wrap"><div class="shead"><div class="eyebrow">GIẢI PHÁP</div><h2>Biết sớm - và biết<br><span class="g">đúng cơ hội của mình</span></h2><p class="sub">FDIsignals là kênh duy nhất ghép tín hiệu từ tài liệu doanh nghiệp nước ngoài với hồ sơ năng lực khu công nghiệp Việt Nam.</p></div>
+<div class="g3"><div class="card feat"><div class="ico">📡</div><h3>Thu thập có chủ đích</h3><p>Theo dõi công bố bắt buộc trên 145 sàn giao dịch toàn cầu, trang quan hệ nhà đầu tư và dữ liệu thương mại theo mã hàng hóa. Không cào tràn lan - chỉ doanh nghiệp trong danh sách mục tiêu theo ngành và quốc tịch.</p><div class="tags"><span class=tag>EDINET · DART · MOPS</span><span class=tag>HS code</span></div></div><div class="card"><div class="ico">📑</div><h3>Đọc được cả tín hiệu không nhắc Việt Nam</h3><p>Phần lớn tài liệu giá trị nhất nói về áp lực công suất và kế hoạch đầu tư mà không nêu tên nước. Hệ thống ghép chúng với bối cảnh doanh nghiệp để nhận ra cơ hội.</p><div class="tags"><span class=tag>IR · Earnings call</span></div></div><div class="card"><div class="ico">🔎</div><h3>Kiểm chứng trước khi công bố</h3><p>Mỗi dữ kiện có trích dẫn nguyên văn và số trang. Dữ kiện tách khỏi suy luận. Hai nguồn độc lập trước khi tín hiệu tới tay khách hàng.</p><div class="tags"><span class=tag>S-06</span></div></div><div class="card"><div class="ico">🏭</div><h3>Ghép với hồ sơ khu công nghiệp</h3><p>Chấm điểm phù hợp trên bốn tiêu chí: vùng, ngành, điện sạch và quỹ đất. Mỗi đơn vị chỉ nhận tín hiệu hợp với chính mình.</p><div class="tags"><span class=tag>40 · 30 · 20 · 10</span></div></div><div class="card"><div class="ico">🤝</div><h3>Điều phối trung lập</h3><p>Không cung cấp đầu mối liên hệ trực tiếp. HOUSELINK thẩm định và trình tối đa ba phương án cho nhà đầu tư - chính vì vậy nhà đầu tư chịu nghe.</p><div class="tags"><span class=tag>Shortlist ≤ 3</span></div></div><div class="card"><div class="ico">🔔</div><h3>Cảnh báo và bản tin</h3><p>Tín hiệu khớp từ 70% gửi email ngay trong ngày. Tín hiệu còn lại tổng hợp trong bản tin sáng thứ Hai và bản tin tháng song ngữ.</p><div class="tags"><span class=tag>≥ 70%</span><span class=tag>Email</span></div></div></div></div></section>
+<section class="sec"><div class="wrap"><div class="proc"><div><div class="shead"><div class="eyebrow">QUY TRÌNH TRIỂN KHAI</div><h2>Lộ trình rõ ràng -<br><span class="g">kết quả cụ thể</span></h2><p class="sub">Từ lúc đăng ký tới buổi làm việc với nhà đầu tư, HOUSELINK đồng hành ở từng bước.</p></div><div class="steps"><div class="step"><div class="h"><span>📝</span><span class="n">01 ·</span>Đăng ký và tư vấn</div><p>Chuyên viên liên hệ trong một ngày làm việc để thống nhất ngành mục tiêu và gói phù hợp.</p></div><div class="step"><div class="h"><span>✅</span><span class="n">02 ·</span>Xây hồ sơ năng lực</div><p>KCN gửi thông tin theo mẫu một trang; HOUSELINK kiểm chứng từng trường với giấy tờ gốc.</p></div><div class="step"><div class="h"><span>📡</span><span class="n">03 ·</span>Nhận tín hiệu khớp</div><p>Mỗi thứ Hai nhận luồng tín hiệu đã xác minh kèm điểm khớp với hồ sơ của chính đơn vị.</p></div><div class="step"><div class="h"><span>💬</span><span class="n">04 ·</span>Gửi yêu cầu kết nối</div><p>Chọn tối đa ba luận điểm mạnh nhất; HOUSELINK thẩm định trong 48 giờ.</p></div><div class="step"><div class="h"><span>🤝</span><span class="n">05 ·</span>Vào shortlist trình nhà đầu tư</div><p>HOUSELINK trình tối đa ba phương án và đồng hành tới buổi khảo sát thực địa.</p></div></div></div>
+<div class="benefit"><div class="brandline">FDIsignals <span style="opacity:.6;font-weight:500">by HOUSELINK</span></div><h3>Đồng hành từ ngày đầu</h3><ul><li>✅ <span>Tín hiệu đã xác minh, cập nhật mỗi thứ Hai</span></li><li>✅ <span>Hồ sơ năng lực được HOUSELINK kiểm chứng</span></li><li>✅ <span>Điều phối trung lập, shortlist tối đa ba phương án</span></li><li>✅ <span>Nhật ký hiệu đính công khai cho mọi số liệu</span></li></ul></div></div></div></section>
+<section class="sec soft"><div class="wrap"><div class="shead"><div class="eyebrow">Dành cho ai</div><h2>Ba nhóm,<br><span class="g">ba thời điểm khác nhau</span></h2></div><div class="g3"><div class="card"><h3 style="margin-top:0">Khu công nghiệp</h3><p>Tiếp cận nhà đầu tư khi họ còn đang đặt tiêu chí, để tham gia định hình yêu cầu thay vì cạnh tranh bằng giá thuê.</p><div class="tags"><span class="tag">Tín hiệu giai đoạn sớm · điểm khớp hồ sơ · điều phối kết nối</span></div></div><div class="card"><h3 style="margin-top:0">Nhà thầu &amp; nhà cung cấp</h3><p>Biết dự án trước khi hồ sơ mời thầu phát hành, đủ thời gian tiếp cận chủ đầu tư và chuẩn bị năng lực.</p><div class="tags"><span class="tag">Tín hiệu giai đoạn dự án · tiến độ · gói thầu</span></div></div><div class="card"><h3 style="margin-top:0">Tài chính, luật, tư vấn</h3><p>Tiếp cận doanh nghiệp nước ngoài trước khi họ chọn xong nhà cung cấp dịch vụ tại Việt Nam.</p><div class="tags"><span class="tag">Tín hiệu lọc theo ngành và quốc tịch</span></div></div></div></div></section>
+<section class="sec soft"><div class="wrap"><div class="shead"><div class="eyebrow">Giới hạn</div><h2>Những gì FDIsignals<br><span class="g">không hứa</span></h2></div><div class="g3"><div class="card"><h3 style="margin-top:0">Không phải mọi tín hiệu đều thành dự án</h3><p>Có doanh nghiệp cân nhắc rồi chọn nước khác, hoặc hoãn kế hoạch. Điều nền tảng đảm bảo là quý vị biết khi vẫn còn thời gian để hành động.</p></div><div class="card"><h3 style="margin-top:0">Không thay thế đội xúc tiến</h3><p>Tín hiệu là điểm khởi đầu. Việc thuyết phục nhà đầu tư vẫn thuộc về con người, hạ tầng và năng lực đàm phán.</p></div><div class="card"><h3 style="margin-top:0">Không cung cấp đầu mối liên hệ</h3><p>Đây là lựa chọn có chủ đích. Khi nhiều đơn vị cùng liên hệ một nhà đầu tư, người đó sẽ ngừng trả lời tất cả.</p></div></div></div></section>
+<section class="sec"><div class="wrap"><div class="shead"><div class="eyebrow">BẢNG GIÁ</div><h2>Gói dịch vụ theo<br><span class="g">vai trò của quý vị</span></h2></div>
+<div class="tz"><div class="tzc feat"><div class="ico">🏭</div><h3 style="margin-top:12px">Khu công nghiệp</h3><div class="p">Từ $6.900</div><div class="m">/ năm</div></div><div class="tzc"><div class="ico">🏗️</div><h3 style="margin-top:12px">Nhà thầu &amp; nhà cung ứng</h3><div class="p">Từ $3.900</div><div class="m">/ năm</div></div><div class="tzc"><div class="ico">💼</div><h3 style="margin-top:12px">Dịch vụ chuyên nghiệp</h3><div class="p">Từ $2.900</div><div class="m">/ năm</div></div></div><div style="margin-top:26px"><a class="btn navy" href="/vi/fdisignals/pricing/">Xem bảng giá chi tiết →</a></div></div></section>
+<section class="lcta"><div class="wrap"><h2>Xem thử tín hiệu phù hợp với đơn vị của quý vị</h2><p class="lead">Đăng ký nhận tư vấn miễn phí. Chuyên viên HOUSELINK sẽ liên hệ trong một ngày làm việc để trao đổi về ngành mục tiêu và phạm vi phù hợp.</p>
+<div class="btns" style="justify-content:center"><a class="btn green" href="/vi/contact/">Đăng ký tư vấn →</a><a class="btn outline" href="/vi/fdisignals/pricing/">Xem bảng giá</a></div></div></section>
+<div id="hl-chrome-footer"></div>
+<script src="../../landing-chrome.js" defer></script>
+</body>
+</html>

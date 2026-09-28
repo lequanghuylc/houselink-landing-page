@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>FDIsignals by HOUSELINK - FDI 투자 시그널 레이더</title>
+<meta name="description" content="FDIsignals는 정보가 뉴스가 되기 전에 베트남으로 생산을 확대하거나 이전하려는 제조기업을 포착합니다.">
+<link rel="icon" href="/images/fdisignals/fdisignals_bieu_tuong.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+
+:root{--navy:#00466E;--navy-d:#003457;--ink:#0D1F2D;--muted:#5B6B78;--green:#2D8B48;--green-l:#7ED49A;--line:#DDE3E8;--soft:#F4F6F8;--amber:#F2A93B}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Inter,system-ui,-apple-system,'Segoe UI','Noto Sans SC','Noto Sans KR','Noto Sans JP',sans-serif;color:var(--ink);background:#fff;line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+.center{text-align:center}
+
+
+
+
+
+
+
+
+
+
+
+
+
+.btn{display:inline-flex;align-items:center;gap:6px;padding:14px 26px;border-radius:10px;text-decoration:none;font-weight:600;font-size:15px;transition:.15s;border:1.5px solid transparent;cursor:pointer}
+.btn.green{background:var(--green);color:#fff}
+.btn.green:hover{background:#257a3e}
+.btn.outline{border-color:rgba(255,255,255,.45);color:#fff}
+.btn.outline:hover{border-color:#fff}
+.btn.navy{background:var(--navy);color:#fff}
+.btn.line{border-color:#B8C9D9;color:#003366;background:#fff}
+.btn.sm{padding:9px 16px;font-size:13.5px;border-radius:9px}
+.hero{background:linear-gradient(135deg,#003457 0%,#00466E 60%,#004060 100%);color:#fff;position:relative;overflow:hidden}
+.hero:before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.06) 1px,transparent 1px);background-size:22px 22px;pointer-events:none}
+.hero .wrap{position:relative}
+.pill{display:inline-flex;align-items:center;gap:8px;background:rgba(45,139,72,.15);border:1px solid rgba(45,139,72,.35);color:var(--green-l);padding:6px 15px;border-radius:100px;font-size:11.5px;font-weight:700;letter-spacing:1.3px;text-transform:uppercase}
+.pill:before{content:"";width:6px;height:6px;border-radius:50%;background:var(--green-l)}
+.eyebrow{font-size:11.5px;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;color:var(--green);margin-bottom:12px}
+h1{font-size:50px;font-weight:600;line-height:1.14;letter-spacing:-1px}
+h1 .g{color:var(--green-l)}
+h2{font-size:38px;font-weight:600;line-height:1.2;letter-spacing:-.7px;color:var(--navy)}
+h2 .g{color:var(--green)}
+.lead{font-size:17px;color:rgba(255,255,255,.82);line-height:1.65}
+.sub{font-size:16px;color:var(--muted);max-width:760px}
+.sec{padding:84px 0}
+.sec.soft{background:var(--soft)}
+.card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:30px}
+.card.feat{background:var(--navy);border-color:var(--navy);color:#fff;border-top:4px solid var(--green)}
+.card h3{font-size:18px;font-weight:600;color:var(--navy);margin:14px 0 10px;line-height:1.35}
+.card.feat h3{color:#fff}
+.card p{font-size:14.5px;color:var(--muted);line-height:1.62}
+.card.feat p{color:rgba(255,255,255,.78)}
+.ico{font-size:28px;line-height:1}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:16px}
+.tag{font-size:11.5px;font-weight:600;color:var(--green);background:#EAF6EE;padding:4px 10px;border-radius:99px}
+.card.feat .tag{background:rgba(126,212,154,.14);color:var(--green-l)}
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.g2{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+
+
+
+@media(max-width:980px){
+ 
+ 
+ 
+ h1{font-size:34px}h2{font-size:28px}
+ .g2,.g3,.g4{grid-template-columns:1fr}
+ .sec{padding:56px 0}
+}
+
+.lhero{padding-top:64px;padding-bottom:76px}
+.lhero .cols{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+.lhero h1{margin:22px 0 18px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:24px 0 30px}
+.chip{border:1px solid rgba(255,255,255,.28);background:rgba(255,255,255,.05);color:#fff;padding:6px 13px;border-radius:99px;font-size:12.5px;font-weight:500}
+.btns{display:flex;gap:12px;flex-wrap:wrap}
+.stk{display:flex;flex-direction:column;gap:14px}
+.stc{display:flex;gap:18px;align-items:center;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.18);border-radius:14px;padding:18px 22px}
+.stc .i{font-size:26px}.stc b{display:block;font-size:22px;font-weight:600;color:var(--green-l);line-height:1.2}.stc span{font-size:13px;color:rgba(255,255,255,.72)}
+.shead{max-width:640px;margin-bottom:40px}
+.shead h2{margin:4px 0 14px}
+.tl{display:flex;flex-direction:column;gap:12px}
+.tlr{display:grid;grid-template-columns:150px 1fr;gap:18px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px 22px}
+.tlr.g{background:#F2FAF4;border-color:#BFE3CB}
+.tlr .t{font-weight:700;color:var(--navy);font-size:14.5px}.tlr.g .t{color:var(--green)}
+.tlr b{display:block;font-size:15.5px;font-weight:600;color:var(--ink)}.tlr span{font-size:14px;color:var(--muted)}
+.note{margin-top:22px;font-size:16px;font-weight:600;font-style:italic;color:var(--green)}
+.proc{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:start}
+.steps{display:flex;flex-direction:column;gap:12px}
+.step{border:1px solid var(--line);border-radius:14px;padding:18px 22px;background:#fff}
+.step .h{display:flex;gap:10px;align-items:center;font-weight:600;color:var(--navy);font-size:15.5px}
+.step .n{font-size:12px;font-weight:700;color:var(--green);letter-spacing:.5px}
+.step p{font-size:14px;color:var(--muted);margin-top:6px}
+.benefit{background:linear-gradient(160deg,#00466E,#003457);color:#fff;border-radius:18px;padding:34px;position:sticky;top:100px}
+.benefit .brandline{display:flex;align-items:center;gap:10px;font-weight:700;letter-spacing:.3px;margin-bottom:6px}
+.benefit h3{font-size:22px;font-weight:600;color:var(--green-l);margin-bottom:18px}
+.benefit li{list-style:none;display:flex;gap:10px;padding:10px 0;border-top:1px solid rgba(255,255,255,.12);font-size:14.5px}
+.logos{display:flex;flex-wrap:wrap;gap:16px;justify-content:center;margin-top:30px}
+.lg{border:1px solid var(--line);background:#fff;border-radius:14px;padding:22px 34px;font-weight:800;font-size:17px;color:var(--navy);letter-spacing:.4px}
+.tz{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:34px}
+.tzc{border:1px solid var(--line);border-radius:18px;padding:26px;background:#fff}
+.tzc.feat{background:var(--navy);border-color:var(--navy);color:#fff}
+.tzc h3{font-size:17px;font-weight:600;color:var(--navy)}.tzc.feat h3{color:var(--green-l)}
+.tzc .p{font-size:32px;font-weight:700;color:var(--navy);margin:12px 0 4px;letter-spacing:-.8px}.tzc.feat .p{color:#fff}
+.tzc .m{font-size:13px;color:var(--muted)}.tzc.feat .m{color:rgba(255,255,255,.65)}
+.lcta{background:linear-gradient(135deg,#003457 0%,#00466E 60%,#004060 100%);color:#fff;padding:78px 0;text-align:center}
+.lcta h2{color:#fff}.lcta .lead{max-width:680px;margin:14px auto 28px}
+@media(max-width:980px){.lhero .cols,.proc{grid-template-columns:1fr}.tz{grid-template-columns:1fr}.tlr{grid-template-columns:1fr;gap:4px}.benefit{position:static}}
+
+.fdi-subnav{background:#fff;border-bottom:1px solid var(--line)}
+body.hl-with-fixed-header .fdi-subnav{margin-top:calc(var(--header-h) + env(safe-area-inset-top, 0px))}
+.fdi-subnav-inner{display:flex;align-items:center;gap:28px;min-height:64px;max-width:1360px}
+.fdi-brand{display:flex;align-items:center;line-height:0}
+.fdi-brand svg{height:42px;width:auto}
+.fdi-sublinks{display:flex;gap:22px;margin-left:auto}
+.fdi-sublinks a{color:#1d3142;text-decoration:none;font-size:14.5px;font-weight:500}
+.fdi-sublinks a.on,.fdi-sublinks a:hover{color:var(--navy);font-weight:600}
+button.btn{font-family:inherit;cursor:pointer}
+@media(max-width:980px){
+ .fdi-subnav-inner{flex-wrap:wrap;min-height:0;padding-top:10px;padding-bottom:10px}
+ .fdi-sublinks{width:100%;margin-left:0}
+}
+
+</style>
+<link rel="stylesheet" href="../../landing-chrome.css">
+</head>
+<body class="hl-with-fixed-header" data-hl-page="fdisignals">
+<div id="hl-chrome-header"></div>
+<nav class="fdi-subnav" aria-label="FDIsignals"><div class="wrap fdi-subnav-inner"><a class="fdi-brand" href="/ko/fdisignals/"><svg viewBox="0 0 560 150" height="42" aria-label="FDIsignals by HOUSELINK" xmlns="http://www.w3.org/2000/svg">
+<g transform="translate(14,10)"><g fill="none" stroke="#00466E" stroke-linecap="round"><circle cx="52" cy="76" r="44" stroke-width="6.5"/><ellipse cx="52" cy="76" rx="18" ry="41.5" stroke-width="5.2"/><line x1="8" y1="76" x2="96" y2="76" stroke-width="5.2"/><path d="M15 54 Q52 62 89 54" stroke-width="3.6"/><path d="M15 98 Q52 90 89 98" stroke-width="3.6"/></g><circle cx="108" cy="26" r="6" fill="#2D8B48"/><g fill="none" stroke="#2D8B48" stroke-width="6.5" stroke-linecap="round"><path d="M108 12 A14 14 0 0 1 122 26"/><path d="M108 0 A26 26 0 0 1 134 26"/></g></g>
+<text x="166" y="92" font-family="Inter,Arial,sans-serif" font-size="62" font-weight="800" fill="#00466E" letter-spacing="-1.5">FDI<tspan font-weight="600" fill="#2D8B48">signals</tspan></text>
+<text x="169" y="125" font-family="Inter,Arial,sans-serif" font-size="17" font-weight="600" fill="#6B7C8A" letter-spacing="3.2">BY HOUSELINK</text></svg></a><div class="fdi-sublinks"><a class="on" href="/ko/fdisignals/">투자 시그널</a><a class="" href="/ko/fdisignals/pricing/">요금</a></div></div></nav>
+<section class="hero"><div class="wrap lhero"><div class="cols"><div>
+ <span class="pill">FDI 투자 시그널 레이더</span>
+ <h1><span class="g">기사가 나올 무렵,</span><br>투자자는 이미 부지를 정했습니다</h1>
+ <p class="lead">FDIsignals는 정보가 뉴스가 되기 전에 베트남으로 생산을 확대하거나 이전하려는 제조기업을 포착합니다 - 산업단지, 시공사, 서비스 기관이 적절한 시점에 적절한 투자자를 만나도록 돕습니다.</p>
+ <div class="chips"><span class="chip">조기 시그널</span><span class="chip">전 세계 145개 거래소</span><span class="chip">무역 데이터</span><span class="chip">500+ 단지 프로필</span><span class="chip">2개 소스 검증</span><span class="chip">중립적 조율</span></div>
+ <div class="btns"><a class="btn green" href="/ko/contact/">무료 상담 신청 →</a><a class="btn outline" href="/ko/fdisignals/pricing/">요금 보기</a></div>
+</div><div class="stk"><div class="stc"><div class="i">📡</div><div><b>~11 개월</b><span>인허가 시점보다 이른 정도, 대조 사례의 중앙값</span></div></div><div class="stc"><div class="i">🌏</div><div><b>100,000+ 건</b><span>데이터베이스에 수록된 전 세계 제조기업</span></div></div><div class="stc"><div class="i">🏭</div><div><b>500+ 단지·클러스터</b><span>매칭에 사용하는 검증된 역량 프로필</span></div></div><div class="stc"><div class="i">✅</div><div><b>2 개 소스</b><span>게시 전 필요한 독립 소스 최소 수</span></div></div></div></div></div></section>
+<section class="sec"><div class="wrap"><div class="shead"><div class="eyebrow">문제</div><h2>정보는 숨겨져 있지 않습니다 -<br><span class="g">아무도 읽지 않을 뿐입니다</span></h2><p class="sub">공장 설립 결정은 비교적 일정한 흔적을 남깁니다. 문제는 가장 이른 단계의 흔적이 한국어·일본어·중국어 문서 안에 있고, 이를 모두 읽을 인력을 갖춘 유치 부서가 없다는 점입니다.</p></div>
+<div class="tl"><div class="tlr g"><div class="t">T-14개월</div><div><b>모회사 이사회가 투자 결의를 의결</b><span>증권거래소에 공개 공시</span></div></div><div class="tlr g"><div class="t">T-9개월</div><div><b>부품 수입이 3개 분기 연속 꾸준히 증가</b><span>무역 데이터에 온전히 기록</span></div></div><div class="tlr "><div class="t">T-4개월</div><div><b>3개 후보지 실사, 이미 우선 안이 존재</b><span>선정된 단지는 대개 훨씬 전부터 접촉</span></div></div><div class="tlr "><div class="t">T-0</div><div><b>인허가, 언론 보도 시작</b><span>모든 단지가 동시에 인지 - 남은 경쟁 수단은 임대료뿐</span></div></div></div><div class="note">이 14개월의 공백을 FDIsignals가 메웁니다.</div></div></section>
+<section class="sec soft"><div class="wrap"><div class="shead"><div class="eyebrow">솔루션</div><h2>먼저 알고 -<br><span class="g">내 기회를 정확히 압니다</span></h2><p class="sub">FDIsignals는 외국 기업 문서의 시그널을 검증된 베트남 산업단지 프로필과 매칭하는 유일한 채널입니다.</p></div>
+<div class="g3"><div class="card feat"><div class="ico">📡</div><h3>의도적인 수집</h3><p>전 세계 145개 증권거래소의 의무 공시, 기업 IR 페이지, HS 코드별 무역 데이터를 추적합니다. 전면 크롤링이 아니라 업종과 국적으로 선별한 대상 기업만 봅니다.</p><div class="tags"><span class=tag>EDINET · DART · MOPS</span><span class=tag>HS code</span></div></div><div class="card"><div class="ico">📑</div><h3>베트남을 한 번도 언급하지 않는 시그널 읽기</h3><p>가장 가치 있는 문서는 생산능력 압박과 설비투자 계획을 말하면서 국가명은 밝히지 않습니다. 시스템은 이를 기업 맥락과 결합해 기회를 찾아냅니다.</p><div class="tags"><span class=tag>IR · Earnings call</span></div></div><div class="card"><div class="ico">🔎</div><h3>게시 전 검증</h3><p>모든 사실에는 원문 인용과 페이지가 붙습니다. 사실과 추론은 분리합니다. 고객에게 가기 전 독립된 두 개의 소스가 필요합니다.</p><div class="tags"><span class=tag>S-06</span></div></div><div class="card"><div class="ico">🏭</div><h3>단지 프로필과 매칭</h3><p>지역, 업종, 청정전력, 가용 부지 네 가지로 점수화합니다. 각 고객은 자신에게 맞는 시그널만 받습니다.</p><div class="tags"><span class=tag>40 · 30 · 20 · 10</span></div></div><div class="card"><div class="ico">🤝</div><h3>중립적 조율</h3><p>투자자 직접 연락처는 제공하지 않습니다. HOUSELINK가 심사해 최대 3개 안을 제시합니다 - 그래서 투자자가 귀를 기울입니다.</p><div class="tags"><span class=tag>Shortlist ≤ 3</span></div></div><div class="card"><div class="ico">🔔</div><h3>알림과 뉴스레터</h3><p>70% 이상 매칭된 시그널은 당일 이메일로 발송됩니다. 나머지는 월요일 다이제스트와 월간 2개 언어 뉴스레터로 정리합니다.</p><div class="tags"><span class=tag>≥ 70%</span><span class=tag>Email</span></div></div></div></div></section>
+<section class="sec"><div class="wrap"><div class="proc"><div><div class="shead"><div class="eyebrow">도입 절차</div><h2>명확한 로드맵 -<br><span class="g">구체적인 결과</span></h2><p class="sub">가입부터 투자자 미팅까지 HOUSELINK가 모든 단계를 함께합니다.</p></div><div class="steps"><div class="step"><div class="h"><span>📝</span><span class="n">01 ·</span>가입과 상담</div><p>담당자가 1영업일 내 연락해 목표 업종과 적합한 플랜을 정합니다.</p></div><div class="step"><div class="h"><span>✅</span><span class="n">02 ·</span>역량 프로필 구축</div><p>단지는 1페이지 양식을 제출하고, HOUSELINK가 항목별로 원본 서류와 대조합니다.</p></div><div class="step"><div class="h"><span>📡</span><span class="n">03 ·</span>매칭 시그널 수신</div><p>매주 월요일, 자체 프로필과의 매칭 점수가 붙은 검증 시그널을 받습니다.</p></div><div class="step"><div class="h"><span>💬</span><span class="n">04 ·</span>커넥션 요청</div><p>가장 강한 논점을 최대 3개 선택하면 HOUSELINK가 48시간 내 심사합니다.</p></div><div class="step"><div class="h"><span>🤝</span><span class="n">05 ·</span>투자자 쇼트리스트 포함</div><p>HOUSELINK가 최대 3개 안을 제시하고 현장 실사까지 동행합니다.</p></div></div></div>
+<div class="benefit"><div class="brandline">FDIsignals <span style="opacity:.6;font-weight:500">by HOUSELINK</span></div><h3>첫날부터 함께합니다</h3><ul><li>✅ <span>검증된 시그널, 매주 월요일 업데이트</span></li><li>✅ <span>HOUSELINK가 검증한 역량 프로필</span></li><li>✅ <span>중립적 조율, 쇼트리스트 최대 3개 안</span></li><li>✅ <span>모든 수치에 공개 정정 기록</span></li></ul></div></div></div></section>
+<section class="sec soft"><div class="wrap"><div class="shead"><div class="eyebrow">대상</div><h2>세 그룹,<br><span class="g">서로 다른 세 시점</span></h2></div><div class="g3"><div class="card"><h3 style="margin-top:0">산업단지</h3><p>투자자가 아직 기준을 세우는 단계에서 접촉해, 임대료 경쟁 대신 요구사항 형성에 참여합니다.</p><div class="tags"><span class="tag">초기 단계 시그널 · 프로필 매칭 점수 · 연결 조율</span></div></div><div class="card"><h3 style="margin-top:0">시공사·공급사</h3><p>입찰 서류가 나오기 전에 프로젝트를 파악해, 발주처 접촉과 역량 준비에 필요한 시간을 확보합니다.</p><div class="tags"><span class="tag">프로젝트 단계 시그널 · 일정 · 공종</span></div></div><div class="card"><h3 style="margin-top:0">금융·법률·자문</h3><p>외국 기업이 베트남 서비스 공급사를 확정하기 전에 접촉합니다.</p><div class="tags"><span class="tag">업종과 국적으로 필터링한 시그널</span></div></div></div></div></section>
+<section class="sec soft"><div class="wrap"><div class="shead"><div class="eyebrow">한계</div><h2>FDIsignals가<br><span class="g">약속하지 않는 것</span></h2></div><div class="g3"><div class="card"><h3 style="margin-top:0">모든 시그널이 프로젝트가 되지는 않습니다</h3><p>어떤 기업은 검토 후 다른 나라를 택하거나 계획을 미룹니다. 플랫폼이 보장하는 것은 아직 움직일 시간이 있을 때 아신다는 점입니다.</p></div><div class="card"><h3 style="margin-top:0">유치 조직을 대체하지 않습니다</h3><p>시그널은 출발점입니다. 투자자를 설득하는 일은 여전히 사람, 인프라, 협상력에 달려 있습니다.</p></div><div class="card"><h3 style="margin-top:0">직접 연락처는 제공하지 않습니다</h3><p>의도적인 선택입니다. 여러 곳이 동시에 한 투자자에게 연락하면 그 투자자는 모두에게 답을 멈춥니다.</p></div></div></div></section>
+<section class="sec"><div class="wrap"><div class="shead"><div class="eyebrow">요금</div><h2>역할에 맞춘<br><span class="g">플랜 구성</span></h2></div>
+<div class="tz"><div class="tzc feat"><div class="ico">🏭</div><h3 style="margin-top:12px">산업단지</h3><div class="p">부터 $6,900</div><div class="m">/ 연</div></div><div class="tzc"><div class="ico">🏗️</div><h3 style="margin-top:12px">시공사·공급사</h3><div class="p">부터 $3,900</div><div class="m">/ 연</div></div><div class="tzc"><div class="ico">💼</div><h3 style="margin-top:12px">전문 서비스</h3><div class="p">부터 $2,900</div><div class="m">/ 연</div></div></div><div style="margin-top:26px"><a class="btn navy" href="/ko/fdisignals/pricing/">요금 자세히 보기 →</a></div></div></section>
+<section class="lcta"><div class="wrap"><h2>귀 기관에 맞는 시그널을 확인해 보십시오</h2><p class="lead">무료 상담을 신청하십시오. HOUSELINK 담당자가 1영업일 이내에 연락드려 목표 업종과 적합한 범위를 논의합니다.</p>
+<div class="btns" style="justify-content:center"><a class="btn green" href="/ko/contact/">상담 신청 →</a><a class="btn outline" href="/ko/fdisignals/pricing/">요금 보기</a></div></div></section>
+<div id="hl-chrome-footer"></div>
+<script src="../../landing-chrome.js" defer></script>
+</body>
+</html>

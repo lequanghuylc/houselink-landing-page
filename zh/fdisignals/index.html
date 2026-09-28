@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>FDIsignals by HOUSELINK - FDI 投资信号雷达</title>
+<meta name="description" content="FDIsignals 在信息成为新闻之前，发现即将向越南扩产或转移产能的制造企业。">
+<link rel="icon" href="/images/fdisignals/fdisignals_bieu_tuong.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+
+:root{--navy:#00466E;--navy-d:#003457;--ink:#0D1F2D;--muted:#5B6B78;--green:#2D8B48;--green-l:#7ED49A;--line:#DDE3E8;--soft:#F4F6F8;--amber:#F2A93B}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Inter,system-ui,-apple-system,'Segoe UI','Noto Sans SC','Noto Sans KR','Noto Sans JP',sans-serif;color:var(--ink);background:#fff;line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+.center{text-align:center}
+
+
+
+
+
+
+
+
+
+
+
+
+
+.btn{display:inline-flex;align-items:center;gap:6px;padding:14px 26px;border-radius:10px;text-decoration:none;font-weight:600;font-size:15px;transition:.15s;border:1.5px solid transparent;cursor:pointer}
+.btn.green{background:var(--green);color:#fff}
+.btn.green:hover{background:#257a3e}
+.btn.outline{border-color:rgba(255,255,255,.45);color:#fff}
+.btn.outline:hover{border-color:#fff}
+.btn.navy{background:var(--navy);color:#fff}
+.btn.line{border-color:#B8C9D9;color:#003366;background:#fff}
+.btn.sm{padding:9px 16px;font-size:13.5px;border-radius:9px}
+.hero{background:linear-gradient(135deg,#003457 0%,#00466E 60%,#004060 100%);color:#fff;position:relative;overflow:hidden}
+.hero:before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.06) 1px,transparent 1px);background-size:22px 22px;pointer-events:none}
+.hero .wrap{position:relative}
+.pill{display:inline-flex;align-items:center;gap:8px;background:rgba(45,139,72,.15);border:1px solid rgba(45,139,72,.35);color:var(--green-l);padding:6px 15px;border-radius:100px;font-size:11.5px;font-weight:700;letter-spacing:1.3px;text-transform:uppercase}
+.pill:before{content:"";width:6px;height:6px;border-radius:50%;background:var(--green-l)}
+.eyebrow{font-size:11.5px;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;color:var(--green);margin-bottom:12px}
+h1{font-size:50px;font-weight:600;line-height:1.14;letter-spacing:-1px}
+h1 .g{color:var(--green-l)}
+h2{font-size:38px;font-weight:600;line-height:1.2;letter-spacing:-.7px;color:var(--navy)}
+h2 .g{color:var(--green)}
+.lead{font-size:17px;color:rgba(255,255,255,.82);line-height:1.65}
+.sub{font-size:16px;color:var(--muted);max-width:760px}
+.sec{padding:84px 0}
+.sec.soft{background:var(--soft)}
+.card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:30px}
+.card.feat{background:var(--navy);border-color:var(--navy);color:#fff;border-top:4px solid var(--green)}
+.card h3{font-size:18px;font-weight:600;color:var(--navy);margin:14px 0 10px;line-height:1.35}
+.card.feat h3{color:#fff}
+.card p{font-size:14.5px;color:var(--muted);line-height:1.62}
+.card.feat p{color:rgba(255,255,255,.78)}
+.ico{font-size:28px;line-height:1}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:16px}
+.tag{font-size:11.5px;font-weight:600;color:var(--green);background:#EAF6EE;padding:4px 10px;border-radius:99px}
+.card.feat .tag{background:rgba(126,212,154,.14);color:var(--green-l)}
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.g2{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+
+
+
+@media(max-width:980px){
+ 
+ 
+ 
+ h1{font-size:34px}h2{font-size:28px}
+ .g2,.g3,.g4{grid-template-columns:1fr}
+ .sec{padding:56px 0}
+}
+
+.lhero{padding-top:64px;padding-bottom:76px}
+.lhero .cols{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+.lhero h1{margin:22px 0 18px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:24px 0 30px}
+.chip{border:1px solid rgba(255,255,255,.28);background:rgba(255,255,255,.05);color:#fff;padding:6px 13px;border-radius:99px;font-size:12.5px;font-weight:500}
+.btns{display:flex;gap:12px;flex-wrap:wrap}
+.stk{display:flex;flex-direction:column;gap:14px}
+.stc{display:flex;gap:18px;align-items:center;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.18);border-radius:14px;padding:18px 22px}
+.stc .i{font-size:26px}.stc b{display:block;font-size:22px;font-weight:600;color:var(--green-l);line-height:1.2}.stc span{font-size:13px;color:rgba(255,255,255,.72)}
+.shead{max-width:640px;margin-bottom:40px}
+.shead h2{margin:4px 0 14px}
+.tl{display:flex;flex-direction:column;gap:12px}
+.tlr{display:grid;grid-template-columns:150px 1fr;gap:18px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px 22px}
+.tlr.g{background:#F2FAF4;border-color:#BFE3CB}
+.tlr .t{font-weight:700;color:var(--navy);font-size:14.5px}.tlr.g .t{color:var(--green)}
+.tlr b{display:block;font-size:15.5px;font-weight:600;color:var(--ink)}.tlr span{font-size:14px;color:var(--muted)}
+.note{margin-top:22px;font-size:16px;font-weight:600;font-style:italic;color:var(--green)}
+.proc{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:start}
+.steps{display:flex;flex-direction:column;gap:12px}
+.step{border:1px solid var(--line);border-radius:14px;padding:18px 22px;background:#fff}
+.step .h{display:flex;gap:10px;align-items:center;font-weight:600;color:var(--navy);font-size:15.5px}
+.step .n{font-size:12px;font-weight:700;color:var(--green);letter-spacing:.5px}
+.step p{font-size:14px;color:var(--muted);margin-top:6px}
+.benefit{background:linear-gradient(160deg,#00466E,#003457);color:#fff;border-radius:18px;padding:34px;position:sticky;top:100px}
+.benefit .brandline{display:flex;align-items:center;gap:10px;font-weight:700;letter-spacing:.3px;margin-bottom:6px}
+.benefit h3{font-size:22px;font-weight:600;color:var(--green-l);margin-bottom:18px}
+.benefit li{list-style:none;display:flex;gap:10px;padding:10px 0;border-top:1px solid rgba(255,255,255,.12);font-size:14.5px}
+.logos{display:flex;flex-wrap:wrap;gap:16px;justify-content:center;margin-top:30px}
+.lg{border:1px solid var(--line);background:#fff;border-radius:14px;padding:22px 34px;font-weight:800;font-size:17px;color:var(--navy);letter-spacing:.4px}
+.tz{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:34px}
+.tzc{border:1px solid var(--line);border-radius:18px;padding:26px;background:#fff}
+.tzc.feat{background:var(--navy);border-color:var(--navy);color:#fff}
+.tzc h3{font-size:17px;font-weight:600;color:var(--navy)}.tzc.feat h3{color:var(--green-l)}
+.tzc .p{font-size:32px;font-weight:700;color:var(--navy);margin:12px 0 4px;letter-spacing:-.8px}.tzc.feat .p{color:#fff}
+.tzc .m{font-size:13px;color:var(--muted)}.tzc.feat .m{color:rgba(255,255,255,.65)}
+.lcta{background:linear-gradient(135deg,#003457 0%,#00466E 60%,#004060 100%);color:#fff;padding:78px 0;text-align:center}
+.lcta h2{color:#fff}.lcta .lead{max-width:680px;margin:14px auto 28px}
+@media(max-width:980px){.lhero .cols,.proc{grid-template-columns:1fr}.tz{grid-template-columns:1fr}.tlr{grid-template-columns:1fr;gap:4px}.benefit{position:static}}
+
+.fdi-subnav{background:#fff;border-bottom:1px solid var(--line)}
+body.hl-with-fixed-header .fdi-subnav{margin-top:calc(var(--header-h) + env(safe-area-inset-top, 0px))}
+.fdi-subnav-inner{display:flex;align-items:center;gap:28px;min-height:64px;max-width:1360px}
+.fdi-brand{display:flex;align-items:center;line-height:0}
+.fdi-brand svg{height:42px;width:auto}
+.fdi-sublinks{display:flex;gap:22px;margin-left:auto}
+.fdi-sublinks a{color:#1d3142;text-decoration:none;font-size:14.5px;font-weight:500}
+.fdi-sublinks a.on,.fdi-sublinks a:hover{color:var(--navy);font-weight:600}
+button.btn{font-family:inherit;cursor:pointer}
+@media(max-width:980px){
+ .fdi-subnav-inner{flex-wrap:wrap;min-height:0;padding-top:10px;padding-bottom:10px}
+ .fdi-sublinks{width:100%;margin-left:0}
+}
+
+</style>
+<link rel="stylesheet" href="../../landing-chrome.css">
+</head>
+<body class="hl-with-fixed-header" data-hl-page="fdisignals">
+<div id="hl-chrome-header"></div>
+<nav class="fdi-subnav" aria-label="FDIsignals"><div class="wrap fdi-subnav-inner"><a class="fdi-brand" href="/zh/fdisignals/"><svg viewBox="0 0 560 150" height="42" aria-label="FDIsignals by HOUSELINK" xmlns="http://www.w3.org/2000/svg">
+<g transform="translate(14,10)"><g fill="none" stroke="#00466E" stroke-linecap="round"><circle cx="52" cy="76" r="44" stroke-width="6.5"/><ellipse cx="52" cy="76" rx="18" ry="41.5" stroke-width="5.2"/><line x1="8" y1="76" x2="96" y2="76" stroke-width="5.2"/><path d="M15 54 Q52 62 89 54" stroke-width="3.6"/><path d="M15 98 Q52 90 89 98" stroke-width="3.6"/></g><circle cx="108" cy="26" r="6" fill="#2D8B48"/><g fill="none" stroke="#2D8B48" stroke-width="6.5" stroke-linecap="round"><path d="M108 12 A14 14 0 0 1 122 26"/><path d="M108 0 A26 26 0 0 1 134 26"/></g></g>
+<text x="166" y="92" font-family="Inter,Arial,sans-serif" font-size="62" font-weight="800" fill="#00466E" letter-spacing="-1.5">FDI<tspan font-weight="600" fill="#2D8B48">signals</tspan></text>
+<text x="169" y="125" font-family="Inter,Arial,sans-serif" font-size="17" font-weight="600" fill="#6B7C8A" letter-spacing="3.2">BY HOUSELINK</text></svg></a><div class="fdi-sublinks"><a class="on" href="/zh/fdisignals/">投资信号</a><a class="" href="/zh/fdisignals/pricing/">价格</a></div></div></nav>
+<section class="hero"><div class="wrap lhero"><div class="cols"><div>
+ <span class="pill">FDI 投资信号雷达</span>
+ <h1><span class="g">当项目见报时,</span><br>投资者早已选定厂址</h1>
+ <p class="lead">FDIsignals 在信息成为新闻之前,发现即将向越南扩产或转移产能的制造企业 - 帮助工业园区、承包商与服务机构在正确的时点接触正确的投资者。</p>
+ <div class="chips"><span class="chip">早期信号</span><span class="chip">全球145个交易所</span><span class="chip">贸易数据</span><span class="chip">500+园区档案</span><span class="chip">双源核验</span><span class="chip">中立协调</span></div>
+ <div class="btns"><a class="btn green" href="/zh/contact/">预约免费咨询 →</a><a class="btn outline" href="/zh/fdisignals/pricing/">查看价格</a></div>
+</div><div class="stk"><div class="stc"><div class="i">📡</div><div><b>~11 个月</b><span>早于发证时点,已核对样本的中位数</span></div></div><div class="stc"><div class="i">🌏</div><div><b>100,000+ 条档案</b><span>数据库中的全球制造企业</span></div></div><div class="stc"><div class="i">🏭</div><div><b>500+ 园区与集群</b><span>用于匹配的已核验能力档案</span></div></div><div class="stc"><div class="i">✅</div><div><b>2 个信源</b><span>发布前所需的独立信源下限</span></div></div></div></div></div></section>
+<section class="sec"><div class="wrap"><div class="shead"><div class="eyebrow">问题所在</div><h2>信息并未被隐藏 -<br><span class="g">只是无人阅读</span></h2><p class="sub">建厂决策会留下相当稳定的痕迹。难点在于最早的那几环藏在韩文、日文、中文文件里,而招商部门没有足够人手全部读完。</p></div>
+<div class="tl"><div class="tlr g"><div class="t">T-14个月</div><div><b>母公司董事会通过投资决议</b><span>在证券交易所公开披露</span></div></div><div class="tlr g"><div class="t">T-9个月</div><div><b>零部件进口连续三个季度稳定增长</b><span>贸易数据完整记录</span></div></div><div class="tlr "><div class="t">T-4个月</div><div><b>考察三处厂址,已有优先方案</b><span>入选园区通常此前早有接触</span></div></div><div class="tlr "><div class="t">T-0</div><div><b>获发证照,媒体开始报道</b><span>所有园区同时获悉 - 只剩租金可比</span></div></div></div><div class="note">这十四个月的空白,正是 FDIsignals 所填补的。</div></div></section>
+<section class="sec soft"><div class="wrap"><div class="shead"><div class="eyebrow">解决方案</div><h2>提早知道 -<br><span class="g">并知道哪个机会属于您</span></h2><p class="sub">FDIsignals 是唯一将外国企业文件中的信号与越南工业园区已核验档案相匹配的渠道。</p></div>
+<div class="g3"><div class="card feat"><div class="ico">📡</div><h3>有的放矢地采集</h3><p>跟踪全球145个证券交易所的强制披露、企业投资者关系页面以及按HS编码的贸易数据。不做全网抓取 - 只覆盖按行业与国籍筛选的目标企业名单。</p><div class="tags"><span class=tag>EDINET · DART · MOPS</span><span class=tag>HS code</span></div></div><div class="card"><div class="ico">📑</div><h3>读懂从未提及越南的信号</h3><p>最有价值的文件往往谈产能压力与资本开支,却不点名国家。系统将其与企业背景结合,识别出机会。</p><div class="tags"><span class=tag>IR · Earnings call</span></div></div><div class="card"><div class="ico">🔎</div><h3>发布前先核验</h3><p>每条事实都附原文引用与页码。事实与推断分开。信号送达客户前必须有两个独立信源。</p><div class="tags"><span class=tag>S-06</span></div></div><div class="card"><div class="ico">🏭</div><h3>与园区档案匹配</h3><p>按区域、行业、清洁电力与可用土地四项打分。每家客户只收到与自身匹配的信号。</p><div class="tags"><span class=tag>40 · 30 · 20 · 10</span></div></div><div class="card"><div class="ico">🤝</div><h3>中立协调</h3><p>不提供投资者的直接联系方式。HOUSELINK 审核后最多提交三个方案 - 这正是投资者愿意倾听的原因。</p><div class="tags"><span class=tag>Shortlist ≤ 3</span></div></div><div class="card"><div class="ico">🔔</div><h3>预警与简报</h3><p>匹配70%以上的信号当天发送邮件。其余信号汇总于周一简报与每月双语简报。</p><div class="tags"><span class=tag>≥ 70%</span><span class=tag>Email</span></div></div></div></div></section>
+<section class="sec"><div class="wrap"><div class="proc"><div><div class="shead"><div class="eyebrow">实施流程</div><h2>路线清晰 -<br><span class="g">成果具体</span></h2><p class="sub">从注册到与投资者会面,HOUSELINK 全程陪伴。</p></div><div class="steps"><div class="step"><div class="h"><span>📝</span><span class="n">01 ·</span>注册与咨询</div><p>专员在一个工作日内联系,确定目标行业与合适方案。</p></div><div class="step"><div class="h"><span>✅</span><span class="n">02 ·</span>建立能力档案</div><p>园区按一页式模板提交信息;HOUSELINK 逐项与原始文件核对。</p></div><div class="step"><div class="h"><span>📡</span><span class="n">03 ·</span>接收匹配信号</div><p>每周一收到已核验信号,附与自身档案的匹配分。</p></div><div class="step"><div class="h"><span>💬</span><span class="n">04 ·</span>发送对接请求</div><p>选择最多三个最强论点;HOUSELINK 在48小时内审核。</p></div><div class="step"><div class="h"><span>🤝</span><span class="n">05 ·</span>进入投资者短名单</div><p>HOUSELINK 最多提交三个方案,并陪同至实地考察。</p></div></div></div>
+<div class="benefit"><div class="brandline">FDIsignals <span style="opacity:.6;font-weight:500">by HOUSELINK</span></div><h3>从第一天起同行</h3><ul><li>✅ <span>已核验信号,每周一更新</span></li><li>✅ <span>由 HOUSELINK 核验的能力档案</span></li><li>✅ <span>中立协调,短名单最多三个方案</span></li><li>✅ <span>所有数据均有公开更正记录</span></li></ul></div></div></div></section>
+<section class="sec soft"><div class="wrap"><div class="shead"><div class="eyebrow">适用对象</div><h2>三类客户,<br><span class="g">三个不同时点</span></h2></div><div class="g3"><div class="card"><h3 style="margin-top:0">工业园区</h3><p>在投资者仍在设定标准时接触,参与塑造需求,而不是靠租金竞争。</p><div class="tags"><span class="tag">早期信号 · 档案匹配分 · 对接协调</span></div></div><div class="card"><h3 style="margin-top:0">承包商与供应商</h3><p>在招标文件发布前获知项目,有时间接触业主并准备能力材料。</p><div class="tags"><span class="tag">项目期信号 · 进度 · 标段</span></div></div><div class="card"><h3 style="margin-top:0">金融、法律、咨询</h3><p>在外资企业敲定越南服务商之前接触他们。</p><div class="tags"><span class="tag">按行业与国籍筛选的信号</span></div></div></div></div></section>
+<section class="sec soft"><div class="wrap"><div class="shead"><div class="eyebrow">边界</div><h2>FDIsignals<br><span class="g">不作的承诺</span></h2></div><div class="g3"><div class="card"><h3 style="margin-top:0">并非每条信号都会变成项目</h3><p>有的企业权衡后选择其他国家,或推迟计划。平台保证的是:在还有时间行动时您就已知晓。</p></div><div class="card"><h3 style="margin-top:0">不能替代招商团队</h3><p>信号只是起点。说服投资者仍取决于人、基础设施与谈判能力。</p></div><div class="card"><h3 style="margin-top:0">不提供直接联系方式</h3><p>这是有意的选择。当多方同时联系同一位投资者,对方会对所有人停止回复。</p></div></div></div></section>
+<section class="sec"><div class="wrap"><div class="shead"><div class="eyebrow">价格</div><h2>按您的角色<br><span class="g">设计的方案</span></h2></div>
+<div class="tz"><div class="tzc feat"><div class="ico">🏭</div><h3 style="margin-top:12px">工业园区</h3><div class="p">起价 $6,900</div><div class="m">/ 年</div></div><div class="tzc"><div class="ico">🏗️</div><h3 style="margin-top:12px">承包商与供应商</h3><div class="p">起价 $3,900</div><div class="m">/ 年</div></div><div class="tzc"><div class="ico">💼</div><h3 style="margin-top:12px">专业服务</h3><div class="p">起价 $2,900</div><div class="m">/ 年</div></div></div><div style="margin-top:26px"><a class="btn navy" href="/zh/fdisignals/pricing/">查看详细价格 →</a></div></div></section>
+<section class="lcta"><div class="wrap"><h2>看看哪些信号适合贵单位</h2><p class="lead">预约免费咨询。HOUSELINK 专员将在一个工作日内与您联系,沟通目标行业与合适的服务范围。</p>
+<div class="btns" style="justify-content:center"><a class="btn green" href="/zh/contact/">预约咨询 →</a><a class="btn outline" href="/zh/fdisignals/pricing/">查看价格</a></div></div></section>
+<div id="hl-chrome-footer"></div>
+<script src="../../landing-chrome.js" defer></script>
+</body>
+</html>

@@ -520,6 +520,20 @@
       ko: "/ko/services/find-project/contract/",
       zh: "/zh/services/find-project/contract/",
     },
+    fdisignals: {
+      vi: "/vi/fdisignals/",
+      en: "/fdisignals/",
+      ja: "/ja/fdisignals/",
+      ko: "/ko/fdisignals/",
+      zh: "/zh/fdisignals/",
+    },
+    "fdisignals-pricing": {
+      vi: "/vi/fdisignals/pricing/",
+      en: "/fdisignals/pricing/",
+      ja: "/ja/fdisignals/pricing/",
+      ko: "/ko/fdisignals/pricing/",
+      zh: "/zh/fdisignals/pricing/",
+    },
     "case-exxon": {
       vi: "/vi/cases/exxon/",
       en: "/cases/exxon/",
@@ -653,7 +667,7 @@
 
   function fetchPartial(name, pack) {
     var path = "partials/" + name + "-" + pack + ".html";
-    return fetch(new URL(path, base), { credentials: "same-origin" }).then(function (r) {
+    return fetch(new URL(path, base), { credentials: "same-origin", cache: "no-store" }).then(function (r) {
       if (r.ok) return r.text();
       if (pack !== "en") return fetchPartial(name, "en");
       throw new Error(path);
