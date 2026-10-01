@@ -51,6 +51,20 @@
 /ko/team /ko/team/ 301
 /ko/team/ceo /ko/team/ceo/ 301
 
+# FDIsignals moved to its own domain
+/fdisignals https://fdisignals.com 301!
+/fdisignals/* https://fdisignals.com 301!
+/en/fdisignals https://fdisignals.com 301!
+/en/fdisignals/* https://fdisignals.com 301!
+/vi/fdisignals https://fdisignals.com 301!
+/vi/fdisignals/* https://fdisignals.com 301!
+/ja/fdisignals https://fdisignals.com 301!
+/ja/fdisignals/* https://fdisignals.com 301!
+/ko/fdisignals https://fdisignals.com 301!
+/ko/fdisignals/* https://fdisignals.com 301!
+/zh/fdisignals https://fdisignals.com 301!
+/zh/fdisignals/* https://fdisignals.com 301!
+
 # Localized 404 (Netlify): for paths under each locale with no matching static file,
 # return that locale's 404 body and HTTP 404. Shadowing: existing files (e.g. /ja/cases/exxon/index.html)
 # are always served - these rules do NOT replace real pages. Commit vi/ja/ko/zh/404.html in publish root;

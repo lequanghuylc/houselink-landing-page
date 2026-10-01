@@ -520,20 +520,6 @@
       ko: "/ko/services/find-project/contract/",
       zh: "/zh/services/find-project/contract/",
     },
-    fdisignals: {
-      vi: "/vi/fdisignals/",
-      en: "/fdisignals/",
-      ja: "/ja/fdisignals/",
-      ko: "/ko/fdisignals/",
-      zh: "/zh/fdisignals/",
-    },
-    "fdisignals-pricing": {
-      vi: "/vi/fdisignals/pricing/",
-      en: "/fdisignals/pricing/",
-      ja: "/ja/fdisignals/pricing/",
-      ko: "/ko/fdisignals/pricing/",
-      zh: "/zh/fdisignals/pricing/",
-    },
     "case-exxon": {
       vi: "/vi/cases/exxon/",
       en: "/cases/exxon/",
