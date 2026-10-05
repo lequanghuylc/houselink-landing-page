@@ -1,5 +1,5 @@
 /**
- * CMS API host (news + events calendar) — separate from hl-auth-env.
+ * CMS API host (news + events calendar) - separate from hl-auth-env.
  * Login/partner logos keep dashboard API; live houselink.com.vn CMS reads 2026-api until prod API has CMS.
  */
 (function (global) {

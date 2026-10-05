@@ -1,5 +1,5 @@
 /**
- * Landing events calendar — CMS-driven list (`GET /api/events`).
+ * Landing events calendar - CMS-driven list (`GET /api/events`).
  */
 (function () {
   "use strict";
@@ -108,7 +108,7 @@
 
   function formatDateParts(iso) {
     var d = new Date(iso + "T12:00:00");
-    if (isNaN(+d)) return { day: "—", mon: "", dow: "" };
+    if (isNaN(+d)) return { day: "-", mon: "", dow: "" };
     var day = String(d.getDate()).padStart(2, "0");
     var mon = "Th." + (d.getMonth() + 1);
     var dow = d.toLocaleDateString(langKey() === "vi" ? "vi-VN" : "en-US", { weekday: "long" });
@@ -140,7 +140,7 @@
   }
 
   function newsArticleHref(slug) {
-    // Same as hl-news-feed.js — /news/cms/ is EN-root only; locale via ?lang=
+    // Same as hl-news-feed.js - /news/cms/ is EN-root only; locale via ?lang=
     var u = "/news/cms/?slug=" + encodeURIComponent(slug);
     if (langKey() !== "en") u += "&lang=" + encodeURIComponent(langKey());
     return u;
@@ -170,7 +170,7 @@
   /**
    * Primary content link (Details / View Report):
    * linked news for this page locale only → detailUrl for this locale only.
-   * No cross-locale fallback and no default CMS page — missing link hides the button.
+   * No cross-locale fallback and no default CMS page - missing link hides the button.
    */
   function resolveDetailHref(ev) {
     if (ev.newsArticleSlug) return newsArticleHref(ev.newsArticleSlug);

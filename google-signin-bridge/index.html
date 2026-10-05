@@ -7,7 +7,7 @@
     name="google-signin-client_id"
     content="469850979907-38gtnnfs1lofvd1djbehnnp6t70961tv.apps.googleusercontent.com"
   />
-  <title>HOUSELINK — Google sign-in</title>
+  <title>HOUSELINK - Google sign-in</title>
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
     body{
@@ -20,6 +20,8 @@
     p{font-size:13.5px;color:#7E8F9A;line-height:1.55;margin-bottom:20px;}
     #hl-google-host{display:flex;justify-content:center;min-height:48px;}
     .err{color:#C2410C;font-size:13px;margin-top:14px;display:none;}
+    .busy{color:#00466E;font-size:13.5px;margin-top:14px;display:none;}
+    .back{display:none;margin-top:18px;font-size:13px;color:#2D8B48;font-weight:600;text-decoration:none;}
   </style>
 </head>
 <body>
@@ -27,7 +29,9 @@
     <h1>Continue with Google</h1>
     <p id="hl-sub">Choose your Google account to return to HOUSELINK.</p>
     <div id="hl-google-host"></div>
+    <p class="busy" id="hl-busy" role="status"></p>
     <p class="err" id="hl-err" role="alert"></p>
+    <a class="back" id="hl-back" href="#"></a>
   </div>
   <script>
 (function () {
@@ -36,12 +40,14 @@
   var PARAMS = new URLSearchParams(window.location.search || "");
   var openerOrigin = String(PARAMS.get("openerOrigin") || "").replace(/\/+$/, "");
   var locale = String(PARAMS.get("lang") || "en").toLowerCase();
+  var redirectMode = PARAMS.get("mode") === "redirect";
 
+  /** App origin → API that issues the authCode for that app (same-tab redirect mode). */
   var ALLOWED_OPENERS = {
-    "http://localhost:3333": 1,
-    "http://127.0.0.1:3333": 1,
-    "https://app.houselink.com.vn": 1,
-    "https://dashboard.houselink.com.vn": 1,
+    "http://localhost:3333": "http://localhost:3001",
+    "http://127.0.0.1:3333": "http://127.0.0.1:3001",
+    "https://app.houselink.com.vn": "https://2026-api.houselink.com.vn",
+    "https://dashboard.houselink.com.vn": "https://2026-api.houselink.com.vn",
   };
 
   var COPY = {
@@ -51,6 +57,10 @@
       badOpener: "Invalid return origin. Close this window and try again from the app.",
       noOpener: "Open this page from the HOUSELINK sign-in button.",
       fail: "Google sign-in failed. Close this window and try again.",
+      failRedirect: "Google sign-in failed. Go back to HOUSELINK and try again.",
+      busy: "Signing you in to HOUSELINK…",
+      back: "← Back to HOUSELINK sign-in",
+      needPassword: "This account needs email and password sign-in. Go back to HOUSELINK to continue.",
     },
     vi: {
       title: "Tiếp tục với Google",
@@ -58,10 +68,14 @@
       badOpener: "Origin trả về không hợp lệ. Đóng cửa sổ và thử lại từ ứng dụng.",
       noOpener: "Hãy mở trang này từ nút đăng nhập HOUSELINK.",
       fail: "Đăng nhập Google thất bại. Đóng cửa sổ và thử lại.",
+      failRedirect: "Đăng nhập Google thất bại. Quay lại HOUSELINK và thử lại.",
+      busy: "Đang đăng nhập vào HOUSELINK…",
+      back: "← Quay lại trang đăng nhập HOUSELINK",
+      needPassword: "Tài khoản này cần đăng nhập bằng email và mật khẩu. Quay lại HOUSELINK để tiếp tục.",
     },
   };
   var L = COPY[locale] || COPY.en;
-  document.title = "HOUSELINK — " + L.title;
+  document.title = "HOUSELINK - " + L.title;
   document.querySelector("h1").textContent = L.title;
   document.getElementById("hl-sub").textContent = L.sub;
 
@@ -69,6 +83,76 @@
     var el = document.getElementById("hl-err");
     el.style.display = "block";
     el.textContent = msg;
+  }
+
+  function showBusy(on) {
+    var el = document.getElementById("hl-busy");
+    el.textContent = L.busy;
+    el.style.display = on ? "block" : "none";
+    document.getElementById("hl-google-host").style.display = on ? "none" : "";
+  }
+
+  /** Relative in-app path only (mirrors safeInternalNextPath in the Next app). */
+  function safeNextPath(raw) {
+    var value = String(raw || "").trim();
+    if (!value || value.charAt(0) !== "/" || value.indexOf("//") === 0) return "/dashboard";
+    if (value.indexOf("\\") >= 0 || /^[a-zA-Z][a-zA-Z0-9+.-]*:/.test(value)) return "/dashboard";
+    if (/[\x00-\x1f\x7f]/.test(value)) return "/dashboard";
+    return value;
+  }
+  var nextPath = safeNextPath(PARAMS.get("next"));
+
+  function appLoginUrl() {
+    var url = new URL("/login", openerOrigin);
+    url.searchParams.set("lang", locale);
+    if (nextPath !== "/dashboard") url.searchParams.set("next", nextPath);
+    return url.toString();
+  }
+
+  function showBack() {
+    var el = document.getElementById("hl-back");
+    el.textContent = L.back;
+    el.href = appLoginUrl();
+    el.style.display = "inline-block";
+  }
+
+  function redirectWithAuthCode(authCode) {
+    var target = new URL("/dashboard", openerOrigin);
+    target.searchParams.set("authCode", authCode);
+    if (nextPath !== "/dashboard") target.searchParams.set("next", nextPath);
+    if (locale !== "en") target.searchParams.set("lang", locale);
+    window.location.replace(target.toString());
+  }
+
+  function exchangeCredential(credential) {
+    showBusy(true);
+    document.getElementById("hl-err").style.display = "none";
+    fetch(ALLOWED_OPENERS[openerOrigin] + "/api/users/auth-google", {
+      method: "POST",
+      headers: { "Content-Type": "application/json", Accept: "application/json" },
+      body: JSON.stringify({ credential: credential }),
+    })
+      .then(function (r) {
+        return r.json().catch(function () {
+          return null;
+        });
+      })
+      .then(function (json) {
+        var data = json && json.success ? json.data : null;
+        if (data && data.authCode && data.requiresTotp !== true) {
+          redirectWithAuthCode(data.authCode);
+          return;
+        }
+        showBusy(false);
+        if (data && data.requiresTotp === true) showErr(L.needPassword);
+        else showErr((json && json.error) || L.failRedirect);
+        showBack();
+      })
+      .catch(function () {
+        showBusy(false);
+        showErr(L.failRedirect);
+        showBack();
+      });
   }
 
   function getClientId() {
@@ -97,14 +181,15 @@
     showErr(L.badOpener);
     return;
   }
-  if (!window.opener) {
+  if (redirectMode) showBack();
+  if (!redirectMode && !window.opener) {
     showErr(L.noOpener);
     return;
   }
 
   var clientId = getClientId();
   if (!clientId) {
-    showErr(L.fail);
+    showErr(redirectMode ? L.failRedirect : L.fail);
     return;
   }
 
@@ -130,9 +215,14 @@
     }
     window.google.accounts.id.initialize({
       client_id: clientId,
+      use_fedcm_for_button: true,
       callback: function (resp) {
-        if (resp && resp.credential) postCredential(resp.credential);
-        else showErr(L.fail);
+        if (!resp || !resp.credential) {
+          showErr(redirectMode ? L.failRedirect : L.fail);
+          return;
+        }
+        if (redirectMode) exchangeCredential(resp.credential);
+        else postCredential(resp.credential);
       },
     });
     var w = Math.min(Math.max(host.offsetWidth || 320, 280), 360);

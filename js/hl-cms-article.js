@@ -140,7 +140,7 @@
       share: "分享:",
       metaCatFallback: "新闻",
       secGreenTitle: "每周市场更新",
-      secGreenBody: "FDI、工业园区与 ESG — 见主新闻页。",
+      secGreenBody: "FDI、工业园区与 ESG - 见主新闻页。",
       secGreenBtn: "新闻与活动 →",
       secGreenHref: "/zh/news/"
     }
@@ -460,7 +460,7 @@
 
     setHtml("hl-cms-body", rewriteBodyMediaHtml(article.body || ""));
 
-    // Tags are admin/ops metadata only — not shown on public detail (matches legacy landing).
+    // Tags are admin/ops metadata only - not shown on public detail (matches legacy landing).
     var tagsRoot = document.getElementById("hl-cms-tags");
     if (tagsRoot) {
       tagsRoot.style.display = "none";

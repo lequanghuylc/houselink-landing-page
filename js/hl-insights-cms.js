@@ -1,6 +1,6 @@
 /**
  * Renders an Insights report from CMS on /insights/cms/?slug=
- * Landing shows HTML article only — PDF download is app-only (paid members).
+ * Landing shows HTML article only - PDF download is app-only (paid members).
  */
 (function () {
   "use strict";

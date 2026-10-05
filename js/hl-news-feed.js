@@ -149,7 +149,7 @@
       .filter(Boolean);
   }
 
-  /** CMS feed — featured first, then publishedAt desc (matches admin + live news order). */
+  /** CMS feed - featured first, then publishedAt desc (matches admin + live news order). */
   async function loadCmsPrimary(container) {
     try {
       var cmsPosts = await fetchCmsArticles();

@@ -1,5 +1,5 @@
 /**
- * News index — 3 nearest upcoming (active) calendar events from GET /api/events.
+ * News index - 3 nearest upcoming (active) calendar events from GET /api/events.
  */
 (function () {
   "use strict";
@@ -95,7 +95,7 @@
 
   function dateParts(iso) {
     var ymd = eventDateYmd(iso);
-    if (!ymd) return { day: "—", mon: "" };
+    if (!ymd) return { day: "-", mon: "" };
     var parts = ymd.split("-");
     return { day: parts[2], mon: "Th." + Number(parts[1]) };
   }

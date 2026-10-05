@@ -15,7 +15,7 @@
 
   /**
    * Single source for filter **tag-row** chips only (FDI, ESG, Learn, …).
-   * Card `.ic-tag` badges use original WP names (Thị trường / Học hỏi / …) — different source by design.
+   * Card `.ic-tag` badges use original WP names (Thị trường / Học hỏi / …) - different source by design.
    */
   var INSIGHTS_KIND_CHIPS = [
     {
@@ -213,7 +213,7 @@
 
   /**
    * Card badge = original WP category (Thị trường / Học hỏi / Công nghiệp / …).
-   * Filter tag-row chips stay separate (FDI, ESG, …) — do not overwrite badge with those.
+   * Filter tag-row chips stay separate (FDI, ESG, …) - do not overwrite badge with those.
    */
   function cardInsightsBadgeLabel(post) {
     if (post && post.hlInsightsCms) {

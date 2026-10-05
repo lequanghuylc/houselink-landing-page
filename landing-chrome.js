@@ -271,7 +271,7 @@
         vi: {
           submitting: "Đang gửi…",
           success: "Cảm ơn bạn - bạn đã đăng ký nhận cập nhật thị trường hàng tuần.",
-          successEvents: "Cảm ơn bạn. Hãy kiểm tra hộp thư (và spam) — HOUSELINK vừa gửi xác nhận lịch sự kiện.",
+          successEvents: "Cảm ơn bạn. Hãy kiểm tra hộp thư (và spam) - HOUSELINK vừa gửi xác nhận lịch sự kiện.",
           error: "Không đăng ký được. Vui lòng thử lại."
         },
         ja: {
