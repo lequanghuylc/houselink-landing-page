@@ -95,6 +95,8 @@
         "Registration is not available on this page. Please refresh and try again.",
       loginNotReady:
         "Sign-in is not ready on this page. Please refresh and try again.",
+      forgotNotReady:
+        "Password reset is not ready on this page. Please refresh and try again.",
     },
     vi: {
       emailEmpty: "Vui lòng nhập địa chỉ email.",
@@ -117,6 +119,8 @@
         "Đăng ký chưa sẵn sàng trên trang này. Vui lòng tải lại trang và thử lại.",
       loginNotReady:
         "Đăng nhập chưa sẵn sàng trên trang này. Vui lòng tải lại trang và thử lại.",
+      forgotNotReady:
+        "Đặt lại mật khẩu chưa sẵn sàng trên trang này. Vui lòng tải lại trang và thử lại.",
     },
     ja: {
       emailEmpty: "メールアドレスを入力してください。",
@@ -139,6 +143,8 @@
         "このページでは登録を利用できません。再読み込みしてからお試しください。",
       loginNotReady:
         "このページではサインインを利用できません。再読み込みしてからお試しください。",
+      forgotNotReady:
+        "このページではパスワードの再設定を利用できません。再読み込みしてからお試しください。",
     },
     ko: {
       emailEmpty: "이메일을 입력해 주세요.",
@@ -161,6 +167,8 @@
         "이 페이지에서 등록을 사용할 수 없습니다. 새로고침 후 다시 시도하세요.",
       loginNotReady:
         "이 페이지에서 로그인을 사용할 수 없습니다. 새로고침 후 다시 시도하세요.",
+      forgotNotReady:
+        "이 페이지에서 비밀번호 재설정을 사용할 수 없습니다. 새로고침 후 다시 시도하세요.",
     },
     zh: {
       emailEmpty: "请输入电子邮箱地址。",
@@ -181,6 +189,7 @@
       phoneEmpty: "请输入电话号码。",
       registerNotReady: "此页面暂无法注册，请刷新页面后重试。",
       loginNotReady: "此页面暂无法登录，请刷新页面后重试。",
+      forgotNotReady: "此页面暂无法重置密码，请刷新页面后重试。",
     },
   };
 
@@ -346,9 +355,15 @@
           emailIn.focus();
           return;
         }
+        if (typeof window.hlSubmitForgotAfterValidate === "function") {
+          window.hlSubmitForgotAfterValidate(form, emailIn.value.trim().toLowerCase());
+          return;
+        }
         if (typeof window.showSent === "function") {
           window.showSent();
+          return;
         }
+        showMsg(form, msg("forgotNotReady"));
         return;
       }
     });
