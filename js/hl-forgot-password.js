@@ -134,6 +134,10 @@
   }
 
   function apiBase() {
+    // hl-auth-env points houselink.com.vn at api.houselink.com.vn, which has no DNS record.
+    if (typeof window.HL_resolveNewsApiBase === "function") {
+      return String(window.HL_resolveNewsApiBase()).replace(/\/+$/, "");
+    }
     if (typeof window.HL_resolveAuthEnv === "function") {
       return String(window.HL_resolveAuthEnv().apiBase || "").replace(/\/+$/, "");
     }
