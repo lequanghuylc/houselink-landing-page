@@ -27,6 +27,7 @@
       passwordMismatch: "Passwords do not match.",
       wrongCode: "The reset code is incorrect.",
       expiredCode: "The reset code has expired. Please request a new one.",
+      tooMany: "Too many incorrect codes. Please use “Resend code” to get a new one.",
       resetFailed: "Could not reset the password. Please try again.",
       done: "Your password has been reset. You can now sign in with the new password.",
       signIn: "Sign in",
@@ -49,6 +50,7 @@
       passwordMismatch: "Mật khẩu xác nhận không khớp.",
       wrongCode: "Mã đặt lại không đúng.",
       expiredCode: "Mã đặt lại đã hết hạn. Vui lòng yêu cầu mã mới.",
+      tooMany: "Nhập sai mã quá nhiều lần. Vui lòng bấm “Gửi lại mã” để nhận mã mới.",
       resetFailed: "Không đặt lại được mật khẩu. Vui lòng thử lại.",
       done: "Mật khẩu đã được đặt lại. Bạn có thể đăng nhập bằng mật khẩu mới.",
       signIn: "Đăng nhập",
@@ -71,6 +73,7 @@
       passwordMismatch: "パスワードが一致しません。",
       wrongCode: "リセットコードが正しくありません。",
       expiredCode: "リセットコードの有効期限が切れました。新しいコードをリクエストしてください。",
+      tooMany: "誤ったコードの入力が多すぎます。「コードを再送信」で新しいコードを取得してください。",
       resetFailed: "パスワードを再設定できませんでした。再度お試しください。",
       done: "パスワードを再設定しました。新しいパスワードでサインインできます。",
       signIn: "サインイン",
@@ -93,6 +96,7 @@
       passwordMismatch: "비밀번호가 일치하지 않습니다.",
       wrongCode: "재설정 코드가 올바르지 않습니다.",
       expiredCode: "재설정 코드가 만료되었습니다. 새 코드를 요청하세요.",
+      tooMany: "잘못된 코드를 너무 많이 입력했습니다. “코드 다시 보내기”로 새 코드를 받으세요.",
       resetFailed: "비밀번호를 재설정하지 못했습니다. 다시 시도하세요.",
       done: "비밀번호가 재설정되었습니다. 새 비밀번호로 로그인할 수 있습니다.",
       signIn: "로그인",
@@ -115,6 +119,7 @@
       passwordMismatch: "两次输入的密码不一致。",
       wrongCode: "重置验证码不正确。",
       expiredCode: "重置验证码已过期，请重新获取。",
+      tooMany: "错误验证码输入次数过多，请点击“重新发送验证码”获取新验证码。",
       resetFailed: "无法重置密码，请重试。",
       done: "密码已重置，您现在可以使用新密码登录。",
       signIn: "登录",
@@ -357,6 +362,7 @@
           setBusy(submit, false);
           var err = String(r.json.error || "");
           if (r.status === 404) show(form, msg("notFound"));
+          else if (r.status === 429) show(form, msg("tooMany"), null, code.input);
           else if (/expired/i.test(err)) show(form, msg("expiredCode"), null, code.input);
           else if (/invalid reset code/i.test(err)) show(form, msg("wrongCode"), null, code.input);
           else show(form, msg("resetFailed"));
