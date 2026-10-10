@@ -1,0 +1,32 @@
+name: Deploy to cPanel
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-production
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull latest code on server
+        uses: appleboy/ssh-action@v1.2.0
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          port: ${{ secrets.SSH_PORT }}
+          key: ${{ secrets.SSH_KEY }}
+          fingerprint: ${{ secrets.SSH_FINGERPRINT }}
+          script: |
+            set -e
+            umask 022
+            cd /home/quicklys/houselink.com.vn
+            git fetch --prune origin main
+            git reset --hard origin/main
+            find . -path ./.git -prune -o -type d ! -perm 755 -exec chmod 755 {} +
+            find . -path ./.git -prune -o -type f ! -perm 644 -exec chmod 644 {} +
+            echo "Deployed: $(git log -1 --format='%h %s')"

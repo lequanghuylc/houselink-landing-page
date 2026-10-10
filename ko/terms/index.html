@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>이용약관 – HOUSELINK</title>
+<title>이용약관 - HOUSELINK</title>
+<meta name="description" content="HOUSELINK 플랫폼 및 서비스 이용약관: 계정, 이용 규칙, 이용자 콘텐츠, 지식재산권, 요금 및 결제, 갱신과 환불, 책임의 제한, 분쟁 해결.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
@@ -785,17 +786,82 @@ footer { background: var(--navy); color: rgba(255,255,255,0.55); padding: 72px 0
 .highlight-box { background:var(--off-white); border-left:4px solid var(--green); border-radius:0 8px 8px 0; padding:14px 18px; margin:16px 0; font-size:14px; color:var(--gray-600); line-height:1.7; }
 @media(max-width:960px){ .legal-layout{grid-template-columns:1fr;} .legal-toc{position:static;} }
 </style>
+<style id="legal-v2">
+/* ── LEGAL PAGES v2 (privacy 2.0, terms 2026) ── */
+.legal-section ol { margin:10px 0 14px 22px; display:flex; flex-direction:column; gap:6px; }
+.legal-section ol li { font-size:14px; color:var(--gray-600); line-height:1.7; }
+.legal-section a { color:var(--green); text-decoration:underline; text-underline-offset:2px; }
+.legal-section a:hover { color:var(--navy); }
+.legal-layout > * { min-width:0; }
+.legal-toc { max-height:calc(100vh - 120px); overflow:auto; }
+.toc-item.active { color:var(--navy); font-weight:600; }
+.page-hero-meta { display:flex; flex-wrap:wrap; gap:8px; margin-top:22px; }
+.page-hero-meta span { font-size:12px; color:rgba(255,255,255,.82); border:1px solid rgba(255,255,255,.22); border-radius:999px; padding:5px 12px; }
+.sum-title { font-size:11px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--green); margin-bottom:12px; }
+.sum-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin:0 0 44px; }
+.sum-card { border:1px solid var(--gray-100); border-radius:12px; padding:16px; background:var(--white); }
+.sum-card .ic { width:34px; height:34px; border-radius:9px; background:var(--green-pale); color:var(--green); display:flex; align-items:center; justify-content:center; margin-bottom:10px; }
+.sum-card .ic svg { width:18px; height:18px; }
+.sum-card h4 { font-size:14px; color:var(--navy); margin-bottom:4px; line-height:1.4; }
+.sum-card p { font-size:13px; color:var(--gray-600); line-height:1.6; }
+.table-wrap { overflow-x:auto; margin:12px 0 18px; border:1px solid var(--gray-100); border-radius:10px; }
+.legal-table { width:100%; border-collapse:collapse; font-size:13.5px; min-width:520px; }
+.legal-table th { background:var(--off-white); color:var(--navy); font-weight:700; text-align:left; padding:10px 12px; border-bottom:1px solid var(--gray-100); }
+.legal-table td { padding:10px 12px; border-top:1px solid var(--gray-50); color:var(--gray-600); vertical-align:top; line-height:1.6; }
+.legal-table tbody tr:first-child td { border-top:none; }
+.legal-table td strong { color:var(--navy); }
+.rights-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:10px; margin:12px 0 16px; }
+.right-item { background:var(--off-white); border-radius:10px; padding:12px 14px; font-size:13.5px; color:var(--gray-600); line-height:1.6; }
+.right-item strong { display:block; color:var(--navy); font-size:14px; margin-bottom:2px; }
+.contact-card { display:grid; grid-template-columns:repeat(2,1fr); gap:12px; margin:14px 0; }
+.contact-item { border:1px solid var(--gray-100); border-radius:10px; padding:12px 14px; font-size:13.5px; color:var(--gray-600); line-height:1.6; }
+.contact-item span { display:block; font-size:11px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--green); margin-bottom:2px; }
+.contact-item a, .contact-item b { color:var(--navy); font-weight:600; text-decoration:none; }
+.btn-line { display:inline-flex; align-items:center; gap:8px; border:1.5px solid var(--navy); color:var(--navy); background:var(--white); border-radius:8px; padding:9px 16px; font:600 13.5px var(--font-main); cursor:pointer; text-decoration:none !important; margin:4px 8px 4px 0; }
+.btn-line:hover { background:var(--navy); color:var(--white); }
+.notice-warn { background:#FFF8E6; border-left:4px solid #D99A00; border-radius:0 8px 8px 0; padding:14px 18px; margin:16px 0; font-size:14px; color:var(--gray-600); line-height:1.7; }
+.notice-warn strong { color:var(--navy); }
+@media (max-width:960px) { .sum-grid { grid-template-columns:1fr 1fr; } }
+@media (max-width:640px) {
+  .sum-grid, .rights-grid, .contact-card { grid-template-columns:1fr; }
+  .page-hero-inner, .sub-content .si { padding:0 16px; }
+  .legal-section h2 { font-size:19px; }
+}
+@media print {
+  #hl-chrome-header, #hl-chrome-footer, .legal-toc, .btn-line { display:none !important; }
+  .page-hero { background:none; padding:0 0 12px !important; }
+  .page-h1, .page-sub { color:#000; }
+  .legal-layout { display:block; }
+}
+.legal-table.ver td:not(:last-child), .legal-table.ver th:not(:last-child) { white-space:nowrap; }
+html[lang="ja"] body { font-family:'Inter','Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Noto Sans JP',sans-serif; }
+html[lang="ko"] body { font-family:'Inter','Apple SD Gothic Neo','Malgun Gothic','Noto Sans KR',sans-serif; }
+html[lang="zh-Hans"] body { font-family:'Inter','PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif; }
+</style>
   <link rel="stylesheet" href="../../landing-chrome.css">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/icon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 </head>
 <body class="hl-with-fixed-header" data-hl-page="terms">
+<!--
+  Bản dịch tiếng Hàn của Điều khoản sử dụng TOS-2026/v3, hiệu lực 12/10/2026. Thay thế trang /ko/terms/.
+  Bản tiếng Việt được ưu tiên khi có khác biệt. Khi sửa bản tiếng Việt, sửa đồng thời các bản dịch.
+-->
 
 <div id="hl-chrome-header"></div>
 
 <section class="page-hero" style="padding-top:96px;">
   <div class="page-hero-inner">
-    <div class="page-eyebrow">이용 약관</div>
-    <h1 class="page-h1">이용 약관<br><em>HOUSELINK 서비스</em></h1>
-    <p class="page-sub">HOUSELINK 서비스를 사용하기 전에 이 약관을 주의 깊게 읽어보세요. 서비스 사용은아래 조항 수락을 의미합니다.</p>
+    <div class="page-eyebrow">이용약관</div>
+    <h1 class="page-h1">이용약관<br><em>HOUSELINK 플랫폼 및 서비스</em></h1>
+    <p class="page-sub">본 약관은 귀하가 HOUSELINK의 웹사이트에 접속하거나, 계정을 생성하거나, 서비스를 이용할 때 적용됩니다. 계약을 체결한 회원의 경우, 차이가 있으면 해당 계약이 우선 적용됩니다.</p>
+    <div class="page-hero-meta">
+      <span>버전 TOS-2026/v3</span>
+      <span>2026년 10월 12일부터 시행</span>
+      <span>적용 범위: houselink.com.vn · dashboard · fdisignals.com · vietnamconstruction.vn</span>
+    </div>
   </div>
 </section>
 
@@ -803,150 +869,293 @@ footer { background: var(--navy); color: rgba(255,255,255,0.55); padding: 72px 0
   <div class="si">
     <div class="legal-layout">
 
-      <div class="legal-toc">
+      <div class="legal-toc" role="navigation" aria-label="목차">
         <div class="toc-title">목차</div>
-        <a class="toc-item" href="#t1">1. 일반 조항</a>
-        <a class="toc-item" href="#t2">2. 가입 및 계정</a>
-        <a class="toc-item" href="#t3">3. 제공 서비스</a>
-        <a class="toc-item" href="#t4">4. 권리 및 의무</a>
-        <a class="toc-item" href="#t5">5. 지식재산권</a>
-        <a class="toc-item" href="#t6">6. 개인정보 및 데이터</a>
-        <a class="toc-item" href="#t7">7. 결제 및 요금</a>
-        <a class="toc-item" href="#t8">8. 책임 제한</a>
-        <a class="toc-item" href="#t9">9. 서비스 종료</a>
-        <a class="toc-item" href="#t10">10. 준거법</a>
-        <a class="toc-item" href="#t11">11. 연락처</a>
+        <a class="toc-item" href="#t1">1. 적용 범위 및 수락</a>
+        <a class="toc-item" href="#t2">2. HOUSELINK 정보</a>
+        <a class="toc-item" href="#t3">3. 용어 정의</a>
+        <a class="toc-item" href="#t4">4. HOUSELINK 서비스</a>
+        <a class="toc-item" href="#t5">5. 계정</a>
+        <a class="toc-item" href="#t6">6. 이용 규칙</a>
+        <a class="toc-item" href="#t7">7. 이용자 콘텐츠</a>
+        <a class="toc-item" href="#t8">8. 기업 정보 및 연결</a>
+        <a class="toc-item" href="#t9">9. 정보의 성격, HOUSELINK AI</a>
+        <a class="toc-item" href="#t10">10. 지식재산권</a>
+        <a class="toc-item" href="#t11">11. 요금, 결제, 세금계산서</a>
+        <a class="toc-item" href="#t12">12. 활성화, 갱신, 환불</a>
+        <a class="toc-item" href="#t13">13. 개인정보</a>
+        <a class="toc-item" href="#t14">14. 책임의 제한</a>
+        <a class="toc-item" href="#t15">15. 일시 정지 및 해지</a>
+        <a class="toc-item" href="#t16">16. 불가항력</a>
+        <a class="toc-item" href="#t17">17. 이의제기 및 분쟁</a>
+        <a class="toc-item" href="#t18">18. 약관 변경</a>
+        <a class="toc-item" href="#t19">19. 문의처</a>
       </div>
 
       <div class="legal-body">
 
         <div class="legal-meta">
-          <span><strong>버전：</strong> TOS-2025/v2</span>
-          <span><strong>업데이트일：</strong> 01/07/2025</span>
-          <span><strong>적용 시작：</strong> 01/07/2025</span>
+          <span><strong>버전:</strong> TOS-2026/v3, TOS-2025/v2를 대체</span>
+          <span><strong>수정일:</strong> 2026년 10월 12일</span>
+          <span><strong>시행일:</strong> 2026년 10월 12일</span>
+          <span><strong>언어:</strong> 본 페이지는 베트남어판의 번역본이며, 차이가 있는 경우 베트남어판이 우선 적용됩니다</span>
+        </div>
+
+        <div class="sum-title">한눈에 보기</div>
+        <div class="sum-grid">
+          <div class="sum-card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div><h4>계정당 1인 사용</h4><p>계정을 공유하거나 양도할 수 없습니다. 사용자가 더 필요하면 계정을 추가로 구매하십시오.</p></div>
+          <div class="sum-card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div><h4>참고용 정보</h4><p>프로젝트 정보는 업데이트 시점의 상황을 반영합니다. 결정을 내리기 전에 사업주에게 확인하십시오.</p></div>
+          <div class="sum-card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/></svg></div><h4>자동 수집 금지, 재판매 금지</h4><p>봇 사용, 대량 다운로드, 데이터 재판매 또는 학습 목적으로 AI 도구에 입력하는 행위를 금지합니다.</p></div>
+          <div class="sum-card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg></div><h4>별도로 체결한 계약이 우선</h4><p>유료 패키지는 계약서 또는 서비스 신청서에 따르며, 차이가 있는 경우 계약에 따릅니다.</p></div>
+          <div class="sum-card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg></div><h4>환불은 제12항에 따름</h4><p>이미 납부한 요금은 제12항 또는 계약에 명시된 경우에만 환불됩니다.</p></div>
+          <div class="sum-card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div><h4>이메일, 핫라인으로 이의제기</h4><p>HOUSELINK는 제17항에 따라 이의제기를 접수하고 회신합니다.</p></div>
         </div>
 
         <div class="legal-section" id="t1">
-          <h2>1. 일반 조항</h2>
-          <p>본 이용 약관("약관")은 다음 당사자 간의 관계를 규율합니다： <strong>HOUSELINK 주식회사</strong> ("HOUSELINK", "당사")와 사용자("귀하", "사용자") 간의 모든 서비스, 플랫폼 사용에 관한 v cng c do HOUSELINK cung cp.</p>
-          <p>HOUSELINK의 어떤 서비스에든 접근하거나 사용함으로써, 귀하는 읽고, 이해하고, 구속받는 데 동의했음을 확인합니다.본 약관 및 개인정보 처리방침 ca chng ti.</p>
-          <div class="highlight-box">어떤 조항에도 동의하지 않으면 HOUSELINK 서비스를 사용하지 마세요. 사용자는만 18세 이상이고 서비스를 사용할 완전한 법적 능력이 있어야 합니다.</div>
+          <h2>1. 적용 범위 및 약관의 수락</h2>
+          <p>본 이용약관("약관")은 houselink.com.vn 웹사이트, dashboard.houselink.com.vn의 회원 전용 플랫폼, fdisignals.com 웹사이트, vietnamconstruction.vn 웹사이트 및 <strong>HOUSELINK 주식회사</strong>("HOUSELINK" 또는 "당사")가 제공하는 서비스("서비스")의 접속 및 이용을 규율합니다.</p>
+          <ul>
+            <li><strong>수락:</strong> 귀하는 계정 생성 시 동의란에 체크하거나, 본 약관을 인용하는 계약 또는 서비스 신청서에 서명하거나, 제18항에 따라 새 버전이 시행된 후 서비스를 계속 이용함으로써 본 약관을 수락합니다. 약관의 수락은 개인정보에 관한 동의를 대체하지 않으며, 동의가 필요한 경우에는 <a href="/ko/privacy/">개인정보보호방침</a>에 따라 별도로 요청합니다.</li>
+            <li><strong>대상:</strong> 조직, 기업 및 완전한 민사행위능력을 갖춘 만 18세 이상의 개인. 조직을 대신하여 서비스에 가입하거나 서비스를 이용하는 경우, 귀하는 해당 조직을 구속할 권한이 있음을 보증합니다.</li>
+            <li><strong>우선순위:</strong> 차이가 있는 경우, 귀하와 HOUSELINK 간에 별도로 체결한 서비스 계약 및 부속서가 우선하며, 그다음으로 본 약관, 웹사이트상의 서비스 패키지 설명 순으로 적용됩니다. 개인정보에 관한 사항은 개인정보보호방침에 따릅니다.</li>
+            <li><strong>전자적 체결:</strong> 계약, 서비스 신청서 및 동의 확인은 전자적 수단과 전자서명으로 이루어질 수 있으며, 전자거래법(제20/2023/QH15호)에 따라 종이 문서와 동일한 효력을 가집니다.</li>
+          </ul>
+          <p>본 약관은 2015년 민법, 2005년 상법, 2023년 전자거래법, 2023년 소비자권익보호법, 2025년 전자상거래법 및 2025년 개인정보보호법에 따라 작성되었습니다.</p>
+          <div class="highlight-box">본 약관에 동의하지 않는 경우 계정을 등록하거나 서비스를 이용하지 마십시오.</div>
         </div>
 
         <div class="legal-section" id="t2">
-          <h2>2. 가입 및 계정</h2>
-          <h3>2.1. 계정 생성</h3>
-          <ul>
-            <li>등록 시 정확하고 완전하며 최신의 정보를 제공해야 합니다</li>
-            <li>각 개인/조직은 HOUSELINK의 허가가 없는 한 하나의 계정만 생성할 수 있습니다</li>
-            <li>계정은 제3자에게 양도할 수 없습니다</li>
-          </ul>
-          <h3>2.2. 계정 보안</h3>
-          <ul>
-            <li>귀하는 로그인 자격증명 보안 및 계정의 모든 활동에 대한 책임이 있습니다</li>
-            <li>무단 접근이 감지되면 즉시 HOUSELINK에 알리세요： info@houselink.com.vn</li>
-            <li>HOUSELINK는 귀하가 계정을 적절하게 보호하지 않아 발생한 손해에 대해 책임을 지지 않습니다</li>
-          </ul>
+          <h2>2. HOUSELINK 정보</h2>
+          <div class="table-wrap"><table class="legal-table">
+            <tbody>
+              <tr><td><strong>상호</strong></td><td>HOUSELINK 주식회사(HOUSELINK Joint Stock Company)</td></tr>
+              <tr><td><strong>기업등록번호, 납세자번호</strong></td><td>0104585924</td></tr>
+              <tr><td><strong>본사</strong></td><td>9th Floor, Sannam Building, 78 Duy Tan Street, Cau Giay Ward, Hanoi, Vietnam</td></tr>
+              <tr><td><strong>전화</strong></td><td>핫라인 (+84) 966 222 490 · 대표전화 024 3795 5620</td></tr>
+              <tr><td><strong>이메일</strong></td><td><a href="mailto:info@houselink.com.vn">info@houselink.com.vn</a></td></tr>
+            </tbody>
+          </table></div>
         </div>
 
         <div class="legal-section" id="t3">
-          <h2>3. HOUSELINK가 제공하는 서비스</h2>
-          <p>HOUSELINK는 구독 요금제와 특정 계약에 따라 다음 서비스를 제공합니다：</p>
+          <h2>3. 용어 정의</h2>
           <ul>
-            <li><strong>시장 조사 및 투자 자문：</strong> 베트남 맞춤형 보고서 및 전략 투자 자문</li>
-            <li><strong>부지 탐색 및 랜드 서칭：</strong> 산업단지 부지 조사 및 선정 지원</li>
-            <li><strong>HOUSELINK Database:</strong> 12만+ 공장 및 500+ 산업단지 데이터베이스 접근</li>
-            <li><strong>VietnamConstruction:</strong> 산업 건설 콘텐츠 및 연결 플랫폼</li>
-            <li><strong>ESG & Carbon Consulting:</strong> 기업을 위한 ESG 솔루션 자문 및 시행</li>
-            <li><strong>이벤트 및 비즈니스 매칭：</strong> 워크숍 및 비즈니스 네트워킹 이벤트 조직 및 참여</li>
+            <li><strong>플랫폼:</strong> HOUSELINK가 운영하는, 제1항에 명시된 웹사이트 및 애플리케이션을 말합니다.</li>
+            <li><strong>이용자, "귀하":</strong> 플랫폼에 접속하거나 서비스를 이용하는 조직 또는 개인을 말합니다.</li>
+            <li><strong>회원:</strong> 무료 또는 유료로 플랫폼에 계정을 보유한 이용자를 말합니다.</li>
+            <li><strong>서비스 패키지:</strong> 요금표, 서비스 신청서 또는 계약서에 기재된 접근 권한, 기능 및 부가 서비스의 묶음을 말합니다.</li>
+            <li><strong>프로젝트 정보:</strong> HOUSELINK가 취합하여 플랫폼에 업데이트하는 산업 투자·건설 프로젝트에 관한 정보를 말합니다.</li>
+            <li><strong>이용자 콘텐츠:</strong> 이용자가 플랫폼에 게시하거나 플랫폼을 통해 전송하는 정보, 자료, 리뷰, 견적 요청, 기업 프로필 및 기타 콘텐츠를 말합니다.</li>
+            <li><strong>서비스 계약:</strong> 서비스 패키지 또는 컨설팅 서비스에 관하여 이용자와 HOUSELINK 간에 체결한 계약, 부속서 또는 서비스 신청서를 말합니다.</li>
           </ul>
-          <p>HOUSELINK는 30일 전 통지(다음의 경우 제외)로 어떤 서비스든 변경, 중단 또는 종료할 권리가 있습니다.trng hp khn cp hoc bt buc theo php lut).</p>
         </div>
 
         <div class="legal-section" id="t4">
-          <h2>4. 당사자의 권리 및 의무</h2>
-          <h3>4.1. 사용자는 다음을 하지 않을 것을 약속합니다：</h3>
+          <h2>4. HOUSELINK 서비스</h2>
+          <p>서비스 패키지 및 서비스 계약에 따라 HOUSELINK는 다음을 제공합니다.</p>
           <ul>
-            <li>서비스를 불법적, 사기적 또는 해로운 목적으로 사용</li>
-            <li>HOUSELINK 콘텐츠를 허가 없이 복사, 배포 또는 판매</li>
-            <li>HOUSELINK 시스템이나 데이터에 무단으로 접근 시도</li>
-            <li>플랫폼에서 데이터를 수집하기 위해 자동화 도구(봇, 스크레이퍼)를 사용</li>
-            <li>불법적이거나 공격적이거나 오해를 일으키는 콘텐츠를 업로드하거나 전송</li>
+            <li><strong>정보 플랫폼:</strong> 프로젝트 정보, 기업 프로필, 산업단지 인프라 및 Insights 보고서의 조회 및 모니터링</li>
+            <li><strong>투자 시그널(FDIsignals):</strong> 동향 및 잠재 투자자에 관한 조기 정보</li>
+            <li><strong>HOUSELINK AI:</strong> 인공지능을 활용한 질의응답 어시스턴트</li>
+            <li><strong>컨설팅:</strong> 별도의 서비스 계약에 따른 시장 조사, 입지 물색, 투자 및 법인 설립 절차 지원, 프로젝트 실행, ESG 및 지속가능발전</li>
+            <li><strong>행사 및 Business Matching:</strong> 세미나, 비즈니스 연결 프로그램</li>
+            <li><strong>VietnamConstruction:</strong> 산업 건설 분야의 뉴스 및 전문 콘텐츠</li>
           </ul>
-          <h3>4.2. HOUSELINK는 다음을 약속합니다：</h3>
+          <p>각 패키지의 구체적인 범위는 요금표, 서비스 신청서 또는 서비스 계약에 명시됩니다. 서비스는 <strong>비독점적으로</strong> 제공됩니다. 즉, HOUSELINK는 귀하의 경쟁사를 포함한 다른 회원과 투자자, 산업단지 및 기타 조직에도 유사한 서비스와 정보를 제공합니다.</p>
+          <h3>4.1. HOUSELINK가 제공하지 않는 것</h3>
           <ul>
-            <li>약속대로 서비스를 제공하고 정보의 정확성을 보장하기 위해 노력</li>
-            <li>개인정보 처리방침에 따라 사용자 개인 데이터 보호</li>
-            <li>서비스에 영향을 미치는 중요한 변경 사항에 대해 사전 통보</li>
-            <li>합리적인 시간 내에 민원 처리</li>
+            <li>누구의 것이든 개인 연락처 정보(전화번호, 개인 이메일)의 판매, 임대 또는 이전, 또는 연락처 목록의 추출</li>
+            <li>이용자가 제공한 개인정보 목록의 처리(이용자를 대신한 이메일·메시지 발송, 목록 정제, 요청에 따른 연락 담당자 검색 포함)</li>
+            <li>공개되지 않은 입찰 정보 또는 HOUSELINK가 법령상 제공할 수 없는 정보</li>
+            <li>귀하가 입찰에 초청되거나, 낙찰되거나, 계약을 체결하거나, 특정 사업 성과를 달성할 것이라는 보장</li>
           </ul>
+          <h3>4.2. 서비스 변경</h3>
+          <p>HOUSELINK는 플랫폼을 유지보수 또는 업그레이드하거나 플랫폼의 기능을 변경할 수 있습니다. 계획된 유지보수의 경우 HOUSELINK는 가능한 때에 플랫폼에 사전 공지합니다. 유료 서비스의 제공 중단은 긴급한 경우 또는 법령상 의무인 경우를 제외하고 최소 30일 전에 통지하며, 미사용 기간에 해당하는 요금은 제12항에 따라 환불합니다.</p>
         </div>
 
         <div class="legal-section" id="t5">
-          <h2>5. 지식재산권</h2>
-          <p>HOUSELINK 플랫폼의 모든 콘텐츠 - 시장 보고서, 데이터베이스, 인터페이스, 로고, 기사 포함차트 및 분석 도구 - 는 HOUSELINK의 저작권 재산이거나 라이선스 사 dng.</p>
+          <h2>5. 계정</h2>
+          <h3>5.1. 계정 등록</h3>
           <ul>
-            <li>사용자는 다음 목적으로 콘텐츠를 사용할 수 있습니다： <strong>개인적 및 내부 목적</strong></li>
-            <li>서면 승인 없이 상업적 복사, 배포 또는 파생 저작물 생성 엄금</li>
-            <li>HOUSELINK 콘텐츠를 인용할 때 출처를 명확히 표시해야 합니다："© HOUSELINK" 및 원본 페이지 링크</li>
+            <li>귀하는 정확하고 완전한 정보를 제공하여야 하며, 변경 시 이를 업데이트하여야 합니다. HOUSELINK는 유료 패키지를 활성화하기 전에 조직 정보를 확인할 수 있습니다.</li>
+            <li>각 계정은 <strong>이름이 등록된 개인 1인</strong>에게만 부여되며, 공유, 양도하거나 여러 사람이 사용할 수 없습니다. 여러 이용자가 필요한 조직은 계정을 추가로 등록하여야 합니다.</li>
+            <li>조직은 자신이 지정한 이용자에 대해 책임을 지며, 이용자를 변경해야 하는 경우 HOUSELINK에 통지합니다.</li>
+          </ul>
+          <h3>5.2. 계정 보안</h3>
+          <ul>
+            <li>귀하는 로그인 정보를 비밀로 유지하고, 자신의 계정을 통해 이루어진 모든 활동에 대해 책임을 집니다.</li>
+            <li>계정에 대한 무단 접근을 발견한 경우 즉시 이메일(<a href="mailto:info@houselink.com.vn">info@houselink.com.vn</a>)로 HOUSELINK에 알려 주십시오.</li>
+            <li>계정 보호를 위해 HOUSELINK는 동시 접속 세션 수와 로그인 기기 수를 제한하고, 추가 인증을 요구하며, 개인정보보호방침에 따라 보안 기록을 보관할 수 있습니다.</li>
+            <li>HOUSELINK는 계정 탈취 또는 공유의 징후가 있는 경우 계정을 일시적으로 잠그고, 확인 후 다시 열 수 있습니다.</li>
           </ul>
         </div>
 
         <div class="legal-section" id="t6">
-          <h2>6. 보안 및 데이터</h2>
-          <p>개인 데이터의 수집 및 처리는 다음에 의해 규율됩니다： <a href="/ko/privacy/" style="color:var(--green);">개인정보 처리방침</a> HOUSELINK의, 본 약관에 참조로 통합됩니다. 사용 중 공유하는 콘텐츠서비스(예: 프로젝트 문서, 요청 정보)는 철저히 기밀이 유지되며 사전 명시적 동의 없이 제3자와 공유할 수 없습니다.</p>
+          <h2>6. 이용 규칙</h2>
+          <p>귀하는 플랫폼상의 정보와 자료를 자신의 내부 사업 활동에만 이용할 수 있습니다. 귀하는 다음 행위를 하여서는 안 됩니다.</p>
+          <ol>
+            <li>불법적이거나 부정한 목적으로 서비스를 이용하거나, HOUSELINK 또는 타인에게 해를 끼치는 행위</li>
+            <li>허위 정보를 제공하거나 다른 조직 또는 개인을 사칭하는 행위</li>
+            <li>데이터를 복제 또는 대량 다운로드하거나, 봇, 스크립트, 데이터 수집 도구 또는 기타 자동화된 수단을 이용하여 접속하거나 데이터를 추출하는 행위</li>
+            <li>계열회사를 포함한 제3자에게 플랫폼의 정보를 판매, 임대, 공유 또는 공개하는 행위. 다만, 특정 프로젝트의 정보를 해당 프로젝트에 함께 참여하며 동등한 비밀유지 의무를 지는 컨소시엄 파트너 또는 하도급업체와 공유하는 경우는 제외합니다.</li>
+            <li>플랫폼의 정보를 이용하여 HOUSELINK와 경쟁하는 데이터베이스, 제품 또는 서비스를 구축하는 행위</li>
+            <li>모델 학습 또는 데이터셋 구축을 목적으로 플랫폼의 콘텐츠를 제3자의 인공지능 도구에 입력하는 행위</li>
+            <li>플랫폼을 통해 얻은 개인에 관한 정보를 이용하여 해당 본인의 동의 없이 광고 또는 마케팅을 발송하는 행위</li>
+            <li>보안 조치를 우회하거나 무력화하는 행위, 플랫폼을 역설계하는 행위, 악성 코드를 유포하거나 시스템에 과부하를 일으키는 행위</li>
+            <li>HOUSELINK에 공개되지 않은 입찰 정보의 제공을 요구하거나, 귀하를 대신하여 사업주, 그 임직원 또는 직위·권한을 가진 사람에게 이익을 제공하거나 약속하도록 요구하는 행위</li>
+            <li>불법적이거나 모욕적이거나 허위인 콘텐츠, 또는 타인의 지식재산권이나 프라이버시를 침해하는 콘텐츠를 게시하는 행위</li>
+          </ol>
+          <p>위반 사항을 발견한 경우 HOUSELINK는 경고, 콘텐츠 삭제, 제15항에 따른 계정의 일시 정지 또는 해지, 손해배상 청구를 할 수 있으며, 법령이 요구하는 경우 관할 기관에 통보할 수 있습니다.</p>
         </div>
 
         <div class="legal-section" id="t7">
-          <h2>7. 결제 및 요금</h2>
+          <h2>7. 이용자가 제공하는 콘텐츠</h2>
           <ul>
-            <li>서비스 요금은 계약 또는 특정 서비스 제안에서 합의됩니다</li>
-            <li>합의된 일정 및 방법으로 결제; 연체 시 0.05%/일의 이자가 부과될 수 있습니다</li>
-            <li>모든 요금 분쟁은 청구서 수령 후 30일 이내에 서면으로 통보해야 합니다</li>
-            <li>요금 환불은 특정 서비스 계약의 조건에 따라서만 적용됩니다</li>
+            <li><strong>책임:</strong> 귀하는 이용자 콘텐츠가 정확하고 적법하며, 귀하가 이를 이용할 권리를 보유하고 있고, 그 안에 포함된 개인정보에 대한 적법한 근거를 갖추고 있음을 보증합니다.</li>
+            <li><strong>HOUSELINK의 이용 권리:</strong> 귀하는 HOUSELINK가 서비스 제공에 필요한 범위 내에서 이용자 콘텐츠를 저장, 표시, 형식 변환 및 전송하는 것(예: 귀하가 선택한 기업에 견적 요청을 전송하는 것)을 허락합니다. 이 권리는 비독점적이고 무상이며, 귀하가 콘텐츠를 삭제하면 종료됩니다. 다만, 귀하의 요청에 따라 수령인에게 이미 공유된 부분은 예외로 합니다.</li>
+            <li><strong>리뷰:</strong> 리뷰는 실제 경험에 기반해야 하며, 공개되지 않은 이해충돌이 없어야 합니다. HOUSELINK는 리뷰의 의미를 수정하지 않지만, 제6항을 위반한 리뷰는 숨기거나 삭제할 수 있습니다.</li>
+            <li><strong>기업 프로필 관리 권한 신청:</strong> 신청자는 해당 기업을 대표할 권한을 증명하는 서류를 제출하여야 합니다. HOUSELINK는 근거가 충분하지 않은 경우 신청을 거절할 수 있습니다. 승인된 사람은 프로필에 업데이트하는 정보에 대해 책임을 집니다.</li>
+            <li><strong>위반 콘텐츠 신고:</strong> 링크와 사유를 첨부하여 이메일(<a href="mailto:info@houselink.com.vn">info@houselink.com.vn</a>)로 보내 주십시오. HOUSELINK는 이를 검토하고 제6항에 따라 처리합니다. 불법 콘텐츠는 관할 기관의 요청에 따라 법령이 정한 기한 내에 삭제됩니다.</li>
           </ul>
         </div>
 
         <div class="legal-section" id="t8">
-          <h2>8. 책임 제한</h2>
-          <p>HOUSELINK는 "있는 그대로" 기준으로 서비스를 제공합니다. 당사는 다음을 보장하지 않습니다：</p>
+          <h2>8. 기업 정보, 연락 담당자 및 연결</h2>
           <ul>
-            <li>서비스가 완전히 오류 없이 또는 항상 24/7 이용 가능</li>
-            <li>데이터베이스의 정보가 항상 절대적으로 정확합니다(지속적으로 업데이트하기 위해 노력하지만)</li>
-            <li>자문 결과가 프로젝트 성공을 보장합니다(결과는 많은 객관적 요인에 달려 있습니다)</li>
+            <li>기업 정보(상호, 등록번호, 주소, 업종, 대표 이메일, 대표전화 번호)는 공개 출처 및 기업이 직접 업데이트한 정보에 따라 표시됩니다.</li>
+            <li>법적 대표자의 성명과 직함은 기업법에 따라 공개된 범위 내에서 표시됩니다.</li>
+            <li>기타 연락 담당자의 성명과 직함은 본인이 동의한 경우에만 표시되며, 동의가 없는 경우 플랫폼에는 부서 또는 일반적인 역할만 표시됩니다.</li>
+            <li>회원은 연락 담당자의 개인 전화번호나 이메일을 받지 않습니다. 연결 요청은 HOUSELINK를 통해 기업의 대표 이메일 또는 요청 수신에 동의한 사람에게 전달됩니다. 수신자의 회신 여부는 수신자가 결정합니다.</li>
+            <li>자신의 정보를 정정, 삭제 또는 제한하고자 하는 기업 또는 개인은 이메일(<a href="mailto:info@houselink.com.vn">info@houselink.com.vn</a>)로 요청을 보내 주십시오.</li>
           </ul>
-          <div class="highlight-box">모든 경우에 HOUSELINK의 최대 책임은 귀하가 실제로 지불한 서비스 요금을 초과하지 않습니다.trong 12 thng gn nht.</div>
         </div>
 
         <div class="legal-section" id="t9">
-          <h2>9. 서비스 종료</h2>
+          <h2>9. 정보의 성격 및 HOUSELINK AI</h2>
           <ul>
-            <li><strong>협약에 따라：</strong> 서비스 계약의 종료 조항에 따라</li>
-            <li><strong>약관 위반：</strong> 심각한 위반이 발견되면 HOUSELINK는 계정을 중지하거나 종료할 수 있습니다</li>
-            <li><strong>사용자 요청에 따라：</strong> 요청 보내기： info@houselink.com.vn 15영업일 이내 처리</li>
+            <li>프로젝트 정보, 보고서 및 컨설팅 내용은 업데이트 시점의 상황을 반영하는 <strong>시장 참고 정보</strong>입니다. 프로젝트는 사업주 또는 관할 기관의 결정에 따라 변경, 중단 또는 취소될 수 있습니다.</li>
+            <li>HOUSELINK는 적법한 출처로부터 정보를 취합하고, 게시 시점에 검증 절차에 따라 확인하며, 출처와 업데이트 일자를 기재하고, 오류를 발견하거나 통보받은 경우 신속히 수정합니다.</li>
+            <li>HOUSELINK AI의 답변을 포함하여 인공지능이 생성한 콘텐츠는 참고용일 뿐이며 오류가 있을 수 있습니다. 이용하기 전에 확인하십시오.</li>
+            <li>서비스 계약에 명시적으로 규정되지 않는 한, 서비스는 법률, 세무, 재무 또는 투자 자문이 아닙니다. 귀하는 정보를 스스로 평가하고, 거래 상대방과 직접 확인하며, 자신의 사업상 결정에 대해 스스로 책임을 집니다.</li>
           </ul>
-          <p>종료 시 개인 데이터는 개인정보 처리방침과 현행 법률 요건에 따라 처리됩니다.</p>
         </div>
 
         <div class="legal-section" id="t10">
-          <h2>10. 준거법 및 분쟁 해결</h2>
-          <p>본 약관은 베트남 사회주의 공화국 법률에 의해 규율됩니다. 발생하는 모든 분쟁 sc gii quyt theo trnh t:</p>
+          <h2>10. 지식재산권</h2>
           <ul>
-            <li><strong>협상：</strong> 양 당사자가 30일 이내에 해결하기 위해 노력</li>
-            <li><strong>조정：</strong> 양 당사자가 합의한 상사 조정 기관을 통해</li>
-            <li><strong>법원：</strong> 베트남 하노이의 관할 인민법원</li>
+            <li>HOUSELINK는 플랫폼, 소프트웨어, 인터페이스, 데이터베이스 및 데이터의 선별·배열 방식, 보고서, Insights, 기사, 차트, HOUSELINK, FDIsignals, VietnamConstruction의 명칭 및 로고와 관련 콘텐츠의 소유자이거나 적법하게 이용 허락을 받은 자입니다.</li>
+            <li>HOUSELINK는 귀하에게 서비스 이용 기간 동안 내부 사업 목적으로 한정된, 비독점적이며 양도 불가능한 접속 및 이용 권한을 부여합니다.</li>
+            <li>HOUSELINK의 콘텐츠를 인용하는 경우 출처를 "© HOUSELINK"로 명시하고 원본 페이지로 연결되는 링크를 기재하여야 합니다. 복제, 상업적 배포, 2차적 저작물 작성 또는 제3자 제공에는 HOUSELINK의 사전 서면 승인이 필요합니다.</li>
+            <li>귀하는 자신의 자료에 대한 권리를 보유합니다. 서비스 개선을 위해 귀하가 보낸 의견은 HOUSELINK가 대가 지급 의무 없이 이용할 수 있습니다.</li>
           </ul>
         </div>
 
         <div class="legal-section" id="t11">
-          <h2>11. 연락처</h2>
-          <p>이용 약관에 관한 질문은 연락하세요：</p>
+          <h2>11. 요금, 결제 및 세금계산서</h2>
           <ul>
-            <li><strong>HOUSELINK 주식회사</strong></li>
-            <li>📍 9층, Sannam 빌딩, 78 Duy Tan, Cau Giay, 하노이</li>
-            <li>✉ info@houselink.com.vn</li>
-            <li>📞 +84 966 222 490</li>
+            <li>서비스 패키지의 요금은 웹사이트에 공시된 요금표, 견적서 또는 서비스 계약에 따르며, 별도 표시가 없는 한 베트남 동(VND)으로 표시되고 부가가치세는 포함되지 않습니다. 부가가치세는 세금계산서 발행 시점에 유효한 세율에 따라 적용됩니다.</li>
+            <li>결제는 서비스 계약 또는 서비스 신청서의 일정에 따라 계좌이체로 합니다. HOUSELINK는 결제를 수령하면 규정에 따라 전자세금계산서를 발행합니다.</li>
+            <li>송금 수수료는 송금인이 부담하며, HOUSELINK가 전액을 수령할 수 있도록 하여야 합니다.</li>
+            <li>결제가 지연되는 경우 지연이자는 서비스 계약에 따르며, 계약에 규정이 없는 경우 상법에 따라 지급 시점의 시장 평균 연체 금리를 적용합니다.</li>
+            <li>요금에 관한 모든 이의제기는 세금계산서 수령일로부터 30일 이내에 서면으로 하여야 합니다.</li>
           </ul>
+        </div>
+
+        <div class="legal-section" id="t12">
+          <h2>12. 활성화, 갱신, 취소 및 환불</h2>
+          <ul>
+            <li><strong>활성화:</strong> 유료 패키지 계정은 HOUSELINK가 결제 금액 전액과 이용자 명단을 수령한 후 영업일 기준 1일 이내에 활성화됩니다. HOUSELINK는 확인 이메일을 발송하며, 이메일 발송일이 서비스 기간의 개시일이 됩니다.</li>
+            <li><strong>갱신:</strong> HOUSELINK는 만료 최소 30일 전에 통지합니다. 갱신은 귀하가 확인하고 결제한 때 효력이 발생하며, 갱신 요금은 갱신 시점의 요금표에 따릅니다. 서비스 계약에서 달리 정할 수 있습니다.</li>
+            <li><strong>만료:</strong> 계정은 제한 모드로 전환되며, 계정 데이터는 개인정보보호방침에 따라 보관 및 삭제됩니다.</li>
+            <li><strong>취소:</strong> 귀하는 언제든지 이용을 중단하거나 해지를 요청할 수 있습니다. 아래의 경우를 제외하고 이미 납부한 요금은 환불되지 않습니다.</li>
+          </ul>
+          <p>다음의 경우 HOUSELINK는 서비스 기간 중 남은 온전한 개월 수의 비율에 따라 서비스 요금 및 해당 부가가치세를 영업일 기준 15일 이내에 환불하며, 수정세금계산서를 함께 발행합니다.</p>
+          <ol>
+            <li>HOUSELINK가 의무를 중대하게 위반하고, 서면 요청을 받은 날로부터 15일 이내에 시정하지 않은 경우</li>
+            <li>HOUSELINK가 귀하가 이용 중인 유료 서비스의 제공을 중단한 경우</li>
+            <li>불가항력 사유로 HOUSELINK가 60일을 초과하여 서비스를 제공할 수 없는 경우</li>
+            <li>서비스 계약에 명시된 기타 경우</li>
+          </ol>
+          <p>개인적 소비 목적으로 서비스를 구매한 개인 이용자의 경우, 본 항과 다르더라도 소비자권익보호법에 따른 권리가 보장됩니다.</p>
+        </div>
+
+        <div class="legal-section" id="t13">
+          <h2>13. 개인정보 보호</h2>
+          <p>개인정보 처리는 본 약관의 일부인 <a href="/ko/privacy/">개인정보보호방침</a>에 따릅니다. 요약하면 다음과 같습니다.</p>
+          <ul>
+            <li>HOUSELINK는 개인정보를 판매하지 않으며, 개인별 이메일 열람이나 링크 클릭 여부를 측정하지 않습니다.</li>
+            <li>필수가 아닌 쿠키는 귀하가 켜기 전까지 꺼져 있습니다.</li>
+            <li>귀하는 열람, 정정, 삭제, 동의 철회 및 기타 권리를 가지며, 요청은 영업일 기준 2일 이내에 접수 확인됩니다.</li>
+            <li>개인정보에 관한 모든 요청은 이메일(<a href="mailto:info@houselink.com.vn">info@houselink.com.vn</a>)로 보내 주십시오.</li>
+          </ul>
+          <p>서비스 이용 중 귀하가 공유한 프로젝트 정보와 자료는 비밀로 유지되며, 법령이 요구하는 경우를 제외하고 귀하의 동의 없이 제3자와 공유되지 않습니다.</p>
+        </div>
+
+        <div class="legal-section" id="t14">
+          <h2>14. 책임의 제한</h2>
+          <p>HOUSELINK는 서비스를 안정적으로 유지하고 정보를 정확하게 제공하기 위해 노력하지만, 서비스가 결코 중단되지 않는다거나 정보가 모든 시점에 항상 완전하고 정확하다는 것을 보증하지 않습니다. HOUSELINK는 다음에 대해 책임을 지지 않습니다.</p>
+          <ul>
+            <li>서비스로부터 얻은 정보에 기초한 귀하의 사업상 결정</li>
+            <li>사업주, 파트너 또는 기타 제3자의 행위 및 결정</li>
+            <li>간접 손해, 이익 손실, 사업 기회 상실 또는 낙찰 실패</li>
+          </ul>
+          <p>무료 계정의 경우 서비스는 현 상태대로 제공되며, 법령에 달리 규정된 경우를 제외하고 HOUSELINK는 배상 책임을 지지 않습니다.</p>
+          <div class="highlight-box">귀하에 대한 HOUSELINK의 총 책임은 손해배상, 위약금 또는 환불 여부를 불문하고, 책임 발생 사유가 발생하기 전 12개월 동안 관련 서비스에 대해 귀하가 실제로 지급한 요금을 초과하지 않습니다. 이 제한은 손해가 HOUSELINK의 고의로 인한 경우, 또는 소비자권익보호법에 따른 소비자의 권리를 포함하여 법령상 책임 제한이 허용되지 않는 경우에는 적용되지 않습니다. 서비스 계약에서 달리 정할 수 있습니다.</div>
+        </div>
+
+        <div class="legal-section" id="t15">
+          <h2>15. 일시 정지 및 해지</h2>
+          <ul>
+            <li><strong>귀하의 요청에 따른 경우:</strong> 이메일(<a href="mailto:info@houselink.com.vn">info@houselink.com.vn</a>)로 계정 삭제 요청을 보내면, HOUSELINK는 개인정보보호방침에 정한 기한에 따라 처리합니다. 유료 패키지는 제12항 및 서비스 계약에 따릅니다.</li>
+            <li><strong>위반으로 인한 경우:</strong> 귀하가 제5항 또는 제6항을 위반하거나, 결제를 지연하거나, 시스템 보안 확보가 필요한 경우 HOUSELINK는 계정을 일시 정지하거나 해지할 수 있습니다. HOUSELINK는 그 사유를 통지하며, 자동화된 데이터 수집, 데이터 재판매 또는 불법 행위와 같은 중대한 위반의 경우 즉시 일시 정지할 수 있습니다.</li>
+            <li><strong>서비스 계약에 따른 경우:</strong> 그 밖의 해지 사유는 해당 계약에 따릅니다.</li>
+          </ul>
+          <p>해지 시 접속 권한은 종료되며, 개인정보는 개인정보보호방침에 따라 처리됩니다. 제6항, 제10항, 제11항(지급하여야 할 금액에 관한 부분), 제14항 및 제17항은 계속 효력을 가집니다.</p>
+        </div>
+
+        <div class="legal-section" id="t16">
+          <h2>16. 불가항력</h2>
+          <p>어느 당사자도 불가항력 사유로 인한 의무 불이행에 대해 책임을 지지 않습니다. 불가항력 사유란 필요한 모든 조치를 취하였음에도 예견할 수 없고 극복할 수 없는 객관적인 사건을 말하며, 자연재해, 감염병, 전쟁, 관할 국가기관의 결정, 또는 적절한 보안 및 예비 조치를 취하였음에도 합리적인 통제 범위를 벗어난 사이버 공격이나 제3자의 통신 인프라 또는 클라우드 컴퓨팅 장애 등이 이에 해당합니다. 지급 의무는 불가항력을 이유로 면제되지 않습니다.</p>
+        </div>
+
+        <div class="legal-section" id="t17">
+          <h2>17. 이의제기 및 분쟁 해결</h2>
+          <h3>17.1. 이의제기</h3>
+          <p>귀하는 이메일 <a href="mailto:info@houselink.com.vn">info@houselink.com.vn</a>, 핫라인 (+84) 966 222 490 또는 본사로 보내는 서면을 통해 서비스에 관한 이의를 제기할 수 있습니다. HOUSELINK는 이를 접수하여 합리적인 기간 내에, 통상 영업일 기준 15일 이내에 회신하며, 복잡한 사안의 경우 예상 처리 기한을 알려 드립니다. 개인정보에 관한 요청은 개인정보보호방침에 정한 기한에 따라 처리됩니다.</p>
+          <h3>17.2. 준거법 및 분쟁 해결</h3>
+          <ul>
+            <li>본 약관은 베트남사회주의공화국 법률을 준거법으로 합니다.</li>
+            <li><strong>협상:</strong> 당사자들은 일방이 분쟁에 관한 서면 통지를 보낸 날로부터 30일 이내에 신의성실에 따라 협의하여 해결합니다.</li>
+            <li><strong>조정:</strong> 당사자들은 양 당사자가 합의한 조정기관에서의 상사조정을 선택할 수 있습니다.</li>
+            <li><strong>법원:</strong> 분쟁이 해결되지 않는 경우, 서비스 계약에서 달리 정하지 않는 한 분쟁은 HOUSELINK 본사 소재지인 하노이시의 관할 인민법원에 제기됩니다. 소비자는 소비자권익보호법에 따라 소송을 제기할 권리를 행사할 수 있습니다.</li>
+          </ul>
+        </div>
+
+        <div class="legal-section" id="t18">
+          <h2>18. 약관 변경, 언어 및 효력</h2>
+          <ul>
+            <li>HOUSELINK는 법령 또는 서비스가 변경되는 경우 약관을 업데이트할 수 있습니다. 중요한 변경 사항은 시행 최소 7일 전에 웹사이트에 공지하고 회원에게 이메일로 통지합니다.</li>
+            <li>본 약관은 여러 언어로 공표되며, 차이가 있는 경우 베트남어판이 우선 적용됩니다.</li>
+            <li>약관의 어느 조항이 무효가 되더라도 나머지 조항은 계속 효력을 가집니다.</li>
+          </ul>
+          <div class="table-wrap"><table class="legal-table ver">
+            <thead><tr><th>버전</th><th>시행일</th><th>내용</th></tr></thead>
+            <tbody>
+              <tr><td>TOS-2025/v2</td><td>2025년 7월 1일</td><td>이전 버전</td></tr>
+              <tr><td>TOS-2026/v3</td><td>2026년 10월 12일</td><td>기업 정보, 계정 및 데이터 이용 규칙, 이용자 콘텐츠, 연락 담당자 표시 모델, HOUSELINK AI, 결제, 갱신 및 환불, 이의제기에 관한 조항 추가; 2025년 개인정보보호법 및 2025년 전자상거래법에 따른 업데이트</td></tr>
+            </tbody>
+          </table></div>
+        </div>
+
+        <div class="legal-section" id="t19">
+          <h2>19. 문의처</h2>
+          <div class="contact-card">
+            <div class="contact-item"><span>회사</span><b>HOUSELINK 주식회사</b><br>납세자번호 0104585924</div>
+            <div class="contact-item"><span>주소</span>9th Floor, Sannam Building, 78 Duy Tan Street, Cau Giay Ward, Hanoi, Vietnam</div>
+            <div class="contact-item"><span>이메일</span><a href="mailto:info@houselink.com.vn">info@houselink.com.vn</a></div>
+            <div class="contact-item"><span>전화</span><b>(+84) 966 222 490</b> (베트남어, 영어)<br>대표전화 <b>024 3795 5620</b></div>
+          </div>
+          <p><a class="btn-line" href="/ko/contact/">HOUSELINK에 문의하기</a><a class="btn-line" href="/ko/privacy/">개인정보보호방침</a></p>
         </div>
 
       </div>
@@ -955,6 +1164,31 @@ footer { background: var(--navy); color: rgba(255,255,255,0.55); padding: 72px 0
 </section>
 
 <div id="hl-chrome-footer"></div>
+<script>
+(function () {
+  var links = [].slice.call(document.querySelectorAll('.legal-toc .toc-item'));
+  var map = {};
+  links.forEach(function (a) { map[a.getAttribute('href').slice(1)] = a; });
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        links.forEach(function (l) { l.classList.remove('active'); });
+        if (map[e.target.id]) map[e.target.id].classList.add('active');
+      });
+    }, { rootMargin: '-110px 0px -70% 0px' });
+    [].forEach.call(document.querySelectorAll('.legal-section[id]'), function (s) { io.observe(s); });
+  }
+  // Cookie settings button: calls window.hlOpenCookieSettings() if the cookie banner exposes it,
+  // otherwise fires the "hl:open-cookie-settings" event for the banner script to handle.
+  [].forEach.call(document.querySelectorAll('[data-hl-cookie-settings]'), function (b) {
+    b.addEventListener('click', function () {
+      if (typeof window.hlOpenCookieSettings === 'function') { window.hlOpenCookieSettings(); }
+      else { document.dispatchEvent(new CustomEvent('hl:open-cookie-settings')); }
+    });
+  });
+})();
+</script>
   <script src="../../landing-chrome.js" defer></script>
 </body>
 </html>

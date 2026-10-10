@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>隐私政策 – HOUSELINK</title>
+<title>个人数据保护政策 - HOUSELINK</title>
+<meta name="description" content="说明HOUSELINK如何收集、使用、共享、存储和保护个人数据，以及您如何依据《个人数据保护法》（第91/2025/QH15号）和第356/2025/NĐ-CP号议定行使权利。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
@@ -785,17 +786,82 @@ footer { background: var(--navy); color: rgba(255,255,255,0.55); padding: 72px 0
 .highlight-box { background:var(--off-white); border-left:4px solid var(--green); border-radius:0 8px 8px 0; padding:14px 18px; margin:16px 0; font-size:14px; color:var(--gray-600); line-height:1.7; }
 @media(max-width:960px){ .legal-layout{grid-template-columns:1fr;} .legal-toc{position:static;} }
 </style>
+<style id="legal-v2">
+/* ── LEGAL PAGES v2 (privacy 2.0, terms 2026) ── */
+.legal-section ol { margin:10px 0 14px 22px; display:flex; flex-direction:column; gap:6px; }
+.legal-section ol li { font-size:14px; color:var(--gray-600); line-height:1.7; }
+.legal-section a { color:var(--green); text-decoration:underline; text-underline-offset:2px; }
+.legal-section a:hover { color:var(--navy); }
+.legal-layout > * { min-width:0; }
+.legal-toc { max-height:calc(100vh - 120px); overflow:auto; }
+.toc-item.active { color:var(--navy); font-weight:600; }
+.page-hero-meta { display:flex; flex-wrap:wrap; gap:8px; margin-top:22px; }
+.page-hero-meta span { font-size:12px; color:rgba(255,255,255,.82); border:1px solid rgba(255,255,255,.22); border-radius:999px; padding:5px 12px; }
+.sum-title { font-size:11px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--green); margin-bottom:12px; }
+.sum-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin:0 0 44px; }
+.sum-card { border:1px solid var(--gray-100); border-radius:12px; padding:16px; background:var(--white); }
+.sum-card .ic { width:34px; height:34px; border-radius:9px; background:var(--green-pale); color:var(--green); display:flex; align-items:center; justify-content:center; margin-bottom:10px; }
+.sum-card .ic svg { width:18px; height:18px; }
+.sum-card h4 { font-size:14px; color:var(--navy); margin-bottom:4px; line-height:1.4; }
+.sum-card p { font-size:13px; color:var(--gray-600); line-height:1.6; }
+.table-wrap { overflow-x:auto; margin:12px 0 18px; border:1px solid var(--gray-100); border-radius:10px; }
+.legal-table { width:100%; border-collapse:collapse; font-size:13.5px; min-width:520px; }
+.legal-table th { background:var(--off-white); color:var(--navy); font-weight:700; text-align:left; padding:10px 12px; border-bottom:1px solid var(--gray-100); }
+.legal-table td { padding:10px 12px; border-top:1px solid var(--gray-50); color:var(--gray-600); vertical-align:top; line-height:1.6; }
+.legal-table tbody tr:first-child td { border-top:none; }
+.legal-table td strong { color:var(--navy); }
+.rights-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:10px; margin:12px 0 16px; }
+.right-item { background:var(--off-white); border-radius:10px; padding:12px 14px; font-size:13.5px; color:var(--gray-600); line-height:1.6; }
+.right-item strong { display:block; color:var(--navy); font-size:14px; margin-bottom:2px; }
+.contact-card { display:grid; grid-template-columns:repeat(2,1fr); gap:12px; margin:14px 0; }
+.contact-item { border:1px solid var(--gray-100); border-radius:10px; padding:12px 14px; font-size:13.5px; color:var(--gray-600); line-height:1.6; }
+.contact-item span { display:block; font-size:11px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--green); margin-bottom:2px; }
+.contact-item a, .contact-item b { color:var(--navy); font-weight:600; text-decoration:none; }
+.btn-line { display:inline-flex; align-items:center; gap:8px; border:1.5px solid var(--navy); color:var(--navy); background:var(--white); border-radius:8px; padding:9px 16px; font:600 13.5px var(--font-main); cursor:pointer; text-decoration:none !important; margin:4px 8px 4px 0; }
+.btn-line:hover { background:var(--navy); color:var(--white); }
+.notice-warn { background:#FFF8E6; border-left:4px solid #D99A00; border-radius:0 8px 8px 0; padding:14px 18px; margin:16px 0; font-size:14px; color:var(--gray-600); line-height:1.7; }
+.notice-warn strong { color:var(--navy); }
+@media (max-width:960px) { .sum-grid { grid-template-columns:1fr 1fr; } }
+@media (max-width:640px) {
+  .sum-grid, .rights-grid, .contact-card { grid-template-columns:1fr; }
+  .page-hero-inner, .sub-content .si { padding:0 16px; }
+  .legal-section h2 { font-size:19px; }
+}
+@media print {
+  #hl-chrome-header, #hl-chrome-footer, .legal-toc, .btn-line { display:none !important; }
+  .page-hero { background:none; padding:0 0 12px !important; }
+  .page-h1, .page-sub { color:#000; }
+  .legal-layout { display:block; }
+}
+.legal-table.ver td:not(:last-child), .legal-table.ver th:not(:last-child) { white-space:nowrap; }
+html[lang="ja"] body { font-family:'Inter','Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Noto Sans JP',sans-serif; }
+html[lang="ko"] body { font-family:'Inter','Apple SD Gothic Neo','Malgun Gothic','Noto Sans KR',sans-serif; }
+html[lang="zh-Hans"] body { font-family:'Inter','PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif; }
+</style>
   <link rel="stylesheet" href="../../landing-chrome.css">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/icon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 </head>
 <body class="hl-with-fixed-header" data-hl-page="privacy">
+<!--
+  Bản dịch tiếng Trung giản thể của Chính sách bảo vệ dữ liệu cá nhân v2.0, hiệu lực 12/10/2026. Thay thế trang /zh/privacy/.
+  Bản tiếng Việt được ưu tiên khi có khác biệt. Khi sửa bản tiếng Việt, sửa đồng thời các bản dịch.
+-->
 
 <div id="hl-chrome-header"></div>
 
 <section class="page-hero" style="padding-top:96px;">
   <div class="page-hero-inner">
     <div class="page-eyebrow">隐私政策</div>
-    <h1 class="page-h1">隐私政策<br><em>个人信息与数据</em></h1>
-    <p class="page-sub">HOUSELINK承诺依照越南法律法规和国际国际标准。</p>
+    <h1 class="page-h1">个人数据保护政策<br><em>您在HOUSELINK上的隐私</em></h1>
+    <p class="page-sub">本政策依照越南《个人数据保护法》（第91/2025/QH15号）及第356/2025/NĐ-CP号议定，说明我们收集哪些数据、用于何种目的、与谁共享、保存多久，以及您如何行使自身权利。</p>
+    <div class="page-hero-meta">
+      <span>版本2.0</span>
+      <span>自2026年10月12日起生效</span>
+      <span>Tiếng Việt · English · 日本語 · 한국어 · 中文</span>
+    </div>
   </div>
 </section>
 
@@ -803,141 +869,321 @@ footer { background: var(--navy); color: rgba(255,255,255,0.55); padding: 72px 0
   <div class="si">
     <div class="legal-layout">
 
-      <!-- Table of Contents -->
-      <div class="legal-toc">
+      <div class="legal-toc" role="navigation" aria-label="目录">
         <div class="toc-title">目录</div>
-        <a class="toc-item" href="#s1">1. 目的与范围</a>
-        <a class="toc-item" href="#s2">2. 收集的信息</a>
-        <a class="toc-item" href="#s3">3. 使用目的</a>
-        <a class="toc-item" href="#s4">4. 存储与保护</a>
-        <a class="toc-item" href="#s5">5. 数据共享</a>
-        <a class="toc-item" href="#s6">6. 您的权利</a>
-        <a class="toc-item" href="#s7">7. Cookie & Tracking</a>
-        <a class="toc-item" href="#s8">8. 政策变更</a>
-        <a class="toc-item" href="#s9">9. 联系我们</a>
+        <a class="toc-item" href="#s1">1. 我们是谁</a>
+        <a class="toc-item" href="#s2">2. 术语解释</a>
+        <a class="toc-item" href="#s3">3. 我们处理的数据</a>
+        <a class="toc-item" href="#s4">4. 处理目的与依据</a>
+        <a class="toc-item" href="#s5">5. 企业信息与联系人</a>
+        <a class="toc-item" href="#s6">6. Cookie与营销邮件</a>
+        <a class="toc-item" href="#s7">7. HOUSELINK AI</a>
+        <a class="toc-item" href="#s8">8. 数据共享</a>
+        <a class="toc-item" href="#s9">9. 存储与跨境传输</a>
+        <a class="toc-item" href="#s10">10. 保存期限</a>
+        <a class="toc-item" href="#s11">11. 您的权利</a>
+        <a class="toc-item" href="#s12">12. 数据保护与事件处置</a>
+        <a class="toc-item" href="#s13">13. 儿童</a>
+        <a class="toc-item" href="#s14">14. 潜在风险</a>
+        <a class="toc-item" href="#s15">15. 政策变更</a>
+        <a class="toc-item" href="#s16">16. 联系我们</a>
       </div>
 
-      <!-- Content -->
       <div class="legal-body">
 
         <div class="legal-meta">
-          <span><strong>版本：</strong> QDNB-001/2025</span>
-          <span><strong>发布日期：</strong> 01/07/2025</span>
-          <span><strong>生效日期：</strong> 01/01/2026</span>
-          <span><strong>适用于：</strong> HOUSELINK的所有活动</span>
+          <span><strong>版本：</strong>2.0，取代QDNB-001/2025</span>
+          <span><strong>发布日期：</strong>2026年10月12日</span>
+          <span><strong>生效日期：</strong>2026年10月12日</span>
+          <span><strong>数据控制方：</strong>HOUSELINK股份公司</span>
+          <span><strong>语言：</strong>本页面为越南语版本的译文，如有不一致，以越南语版本为准</span>
+        </div>
+
+        <div class="sum-title">要点速览</div>
+        <div class="sum-grid">
+          <div class="sum-card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><h4>不出售个人数据</h4><p>无论何种服务套餐，均不出售、出租或转让个人联系信息。</p></div>
+          <div class="sum-card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19"/><line x1="1" y1="1" x2="23" y2="23"/></svg></div><h4>不追踪个人行为</h4><p>不按个人统计是否打开邮件或点击链接，不投放行为定向广告。</p></div>
+          <div class="sum-card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="9" cy="10" r="1"/><circle cx="15" cy="14" r="1"/><circle cx="10" cy="15" r="1"/></svg></div><h4>Cookie在您开启前保持关闭</h4><p>仅必要Cookie始终开启。“全部拒绝”按钮与“同意”按钮同样醒目。</p></div>
+          <div class="sum-card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><h4>联系人仅在同意后显示</h4><p>未获同意前，本平台仅显示部门或通用职能。</p></div>
+          <div class="sum-card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="7" rx="2"/><rect x="2" y="14" width="20" height="7" rx="2"/><line x1="6" y1="6.5" x2="6.01" y2="6.5"/><line x1="6" y1="17.5" x2="6.01" y2="17.5"/></svg></div><h4>数据存储于越南</h4><p>本平台的服务器、数据库及备份均位于越南。</p></div>
+          <div class="sum-card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><h4>2个工作日内回复</h4><p>有关您数据的所有请求均在2个工作日内予以确认，且不收取任何费用。</p></div>
         </div>
 
         <div class="legal-section" id="s1">
-          <h2>1. 目的与适用范围</h2>
-          <p>本政策由 <strong>HOUSELINK股份有限公司</strong> 以确保遵守越南关于信息安全、数据安全和个人数据保护的相关法规。个人数据，包括：</p>
+          <h2>1. 我们是谁以及本政策的适用范围</h2>
+          <p><strong>HOUSELINK股份公司</strong>（“HOUSELINK”或“我们”）是本政策所述个人数据的控制兼处理方：我们决定处理目的和处理方式，并直接处理数据。</p>
           <ul>
-            <li>2018年网络安全法</li>
-            <li>关于个人数据保护的13/2023/ND-CP号法令</li>
-            <li>2025年个人数据保护法（第91/2025/QH15号法律，自2026年01月01日起生效）</li>
+            <li><strong>企业代码：</strong>0104585924</li>
+            <li><strong>总部：</strong>9th Floor, Sannam Building, 78 Duy Tan Street, Cau Giay Ward, Hanoi, Vietnam</li>
+            <li><strong>个人数据事务联系人：</strong>个人数据保护负责人，电子邮箱<a href="mailto:info@houselink.com.vn">info@houselink.com.vn</a></li>
           </ul>
-          <p>本政策适用于访问和使用HOUSELINK服务的所有用户，包括网站houselink.com.vn, vietnamconstruction.vn, 移动应用和其他数字平台。</p>
-          <div class="highlight-box">使用HOUSELINK服务即表示您同意本隐私政策的条款。您有权可随时根据第91/2025/QH15号法律规定撤回同意。</div>
+          <p>本政策适用于：</p>
+          <ul>
+            <li>网站houselink.com.vn及位于dashboard.houselink.com.vn的会员平台；</li>
+            <li>网站fdisignals.com及投资信号（FDIsignals）服务；</li>
+            <li>网站vietnamconstruction.vn；</li>
+            <li>HOUSELINK发送的电子邮件，包括来自houselink.info域名的邮件；</li>
+            <li>HOUSELINK的活动、Business Matching、会员合同、招聘及各项咨询服务。</li>
+          </ul>
+          <p>本政策依据越南《个人数据保护法》（第91/2025/QH15号）、第356/2025/NĐ-CP号议定及越南《网络安全法》（第116/2025/QH15号）制定，取代隐私政策QDNB-001/2025。</p>
+          <div class="highlight-box">您访问网站、继续使用服务或保持沉默，<strong>均不视为同意</strong>。需要征得同意时，我们将针对每一项目的分别征询，不设预先勾选的选项，且您可随时撤回同意。</div>
         </div>
 
         <div class="legal-section" id="s2">
-          <h2>2. 我们收集的信息</h2>
-          <h3>2.1. 您直接提供的信息</h3>
+          <h2>2. 术语解释</h2>
           <ul>
-            <li><strong>身份信息：</strong> 姓名、职称、公司名称</li>
-            <li><strong>联系方式：</strong> 电子邮箱、电话、地址</li>
-            <li><strong>职业信息：</strong> 行业、企业规模、经营国家</li>
-            <li><strong>交流内容：</strong> 通过表单发送的咨询请求、问题、反馈</li>
+            <li><strong>个人数据：</strong>以数字或其他形式存在、能够识别或有助于识别特定自然人的数据或信息。有关企业、项目、工业园区的信息不属于个人数据，但与特定个人相关联的部分除外。</li>
+            <li><strong>敏感个人数据：</strong>属于第356/2025/NĐ-CP号议定所列类别的数据，例如健康数据、生物识别数据、位置数据、银行卡信息及银行交易记录、在线服务使用行为追踪数据。</li>
+            <li><strong>数据主体、“您”：</strong>个人数据所反映的自然人。</li>
+            <li><strong>个人数据处理：</strong>对数据产生影响的任何活动，例如收集、分析、存储、提供、公开、转让、删除。</li>
+            <li><strong>处理方：</strong>根据合同代表HOUSELINK处理数据的组织，例如服务器提供商和电子邮件服务提供商。</li>
+            <li><strong>会员：</strong>在HOUSELINK平台上拥有账户的组织或个人，包括免费会员和付费会员。</li>
+            <li><strong>联系人：</strong>HOUSELINK数据库中所列、任职于企业、项目业主、承包商或工业园区的个人。</li>
           </ul>
-          <h3>2.2. 自动收集的信息</h3>
-          <ul>
-            <li>IP地址、浏览器类型、操作系统</li>
-            <li>访问的页面、停留时间、导航行为</li>
-            <li>Cookie数据和类似追踪技术（见第7节）</li>
-          </ul>
-          <p>HOUSELINK <strong>仅收集必要数据</strong> 用于已告知的特定目的--根据13/2023/ND-CP号法令的数据最小化原则。</p>
         </div>
 
         <div class="legal-section" id="s3">
-          <h2>3. 数据使用目的</h2>
-          <p>HOUSELINK使用收集的信息用于：</p>
-          <ul>
-            <li>提供投资咨询、市场研究和您所需的其他服务</li>
-            <li>发送产品、服务、市场报告和活动信息（可随时取消订阅）</li>
-            <li>提升服务质量和用户体验</li>
-            <li>履行法律义务并保护各方合法权益</li>
-            <li>内部分析和报告以开发服务</li>
-          </ul>
-          <div class="highlight-box">您的数据 <strong>不得用于个人或商业目的</strong> 或出售给第三方。HOUSELINK不在其平台上运行第三方广告。</div>
+          <h2>3. 我们处理的个人数据</h2>
+          <p>我们仅收集为实现第4节所述目的所需的数据。</p>
+          <div class="table-wrap"><table class="legal-table">
+            <thead><tr><th>人员类别</th><th>数据</th><th>来源</th></tr></thead>
+            <tbody>
+              <tr><td><strong>用户、会员</strong></td><td>姓名、电子邮箱、职务、公司、电话号码（选填）、头像（如有上传）；如您选择使用Google账户登录，则包括Google账户信息；登录及安全日志（时间、IP地址、设备）；您自行保存的关注列表和筛选条件；您提交的询价请求和评价；向HOUSELINK AI提出的问题</td><td>来自您本人；您选择使用Google账户登录时，来自Google</td></tr>
+              <tr><td><strong>合同签署人、付款联系人</strong></td><td>姓名、职务、签名、所在组织的开票信息</td><td>来自您本人或您所在的组织</td></tr>
+              <tr><td><strong>企业法定代表人</strong></td><td>姓名、职务</td><td>国家企业登记信息门户及依法公开的其他来源</td></tr>
+              <tr><td><strong>企业、项目、工业园区的其他联系人</strong></td><td>姓名、职务、部门、工作电子邮箱和工作电话</td><td>来自本人；来自已认领企业档案的企业或工业园区；来自与HOUSELINK的业务往来</td></tr>
+              <tr><td><strong>认领企业档案的申请人</strong></td><td>姓名、职务、电子邮箱、电话号码；企业登记证书、介绍信</td><td>来自您本人。我们不接收公民身份证照片。</td></tr>
+              <tr><td><strong>新闻简报订阅者</strong></td><td>电子邮箱、姓名、公司、订阅或退订选择</td><td>来自您本人</td></tr>
+              <tr><td><strong>活动及Business Matching参与者</strong></td><td>姓名、职务、公司、电子邮箱、电话号码、对接需求；活动现场拍摄的照片和视频</td><td>来自您本人；经事先告知后在活动现场拍摄</td></tr>
+              <tr><td><strong>网站访问者</strong></td><td>必要Cookie；经您同意的统计分析Cookie；IP地址、浏览器类型；您通过联系表单提交的内容</td><td>来自浏览器及您本人</td></tr>
+              <tr><td><strong>求职者</strong></td><td>求职材料、联系信息</td><td>来自您本人</td></tr>
+              <tr><td><strong>合作伙伴、个人协作者</strong></td><td>姓名、联系信息、工作内容、工作质量评价</td><td>来自您本人、合同</td></tr>
+            </tbody>
+          </table></div>
+          <div class="highlight-box"><strong>敏感个人数据。</strong>我们不主动收集敏感个人数据。除保障系统安全所需的安全日志外，我们不记录个人的服务使用行为用于分析、画像或广告。如日后需要处理敏感个人数据，我们将明确告知其属于敏感个人数据，并在处理前另行征得您的单独同意。</div>
         </div>
 
         <div class="legal-section" id="s4">
-          <h2>4. 数据存储与保护</h2>
-          <h3>4.1. 安全系统</h3>
-          <ul>
-            <li>数据存储在具有端到端加密、防火墙和入侵防御软件的系统上</li>
-            <li>数据访问按"需知"原则控制</li>
-            <li>重要数据定期备份至安全位置</li>
-            <li>通过HTTPS/TLS加密通道传输数据</li>
-          </ul>
-          <h3>4.2. 存储期限</h3>
-          <p>个人数据仅在实现所述目的所需的时间内存储，或根据法律要求存储。律。此后数据将通过安全流程永久删除。</p>
+          <h2>4. 处理目的与依据</h2>
+          <p>每一项目的均有其单独的依据。以同意为依据时，您针对每一项目的分别作出同意，不设预先勾选的选项，且您可随时撤回。沉默或不作回应不视为同意。</p>
+          <div class="table-wrap"><table class="legal-table">
+            <thead><tr><th>目的</th><th>数据类别</th><th>依据</th></tr></thead>
+            <tbody>
+              <tr><td>提供账户、会员服务及客户支持</td><td>用户、会员</td><td>履行与您之间的协议</td></tr>
+              <tr><td>签订合同、付款、开具发票、会计核算</td><td>合同签署人、付款联系人</td><td>履行协议；会计及税务法律规定的义务</td></tr>
+              <tr><td>保障账户和系统安全，发现未经授权的访问</td><td>登录及安全日志</td><td>履行协议；法律规定的数据安全保障义务</td></tr>
+              <tr><td>展示企业信息，包括法定代表人</td><td>法定代表人</td><td>依照越南《企业法》已公开的信息，以已公开的范围为限</td></tr>
+              <tr><td>展示其他联系人并促成对接</td><td>联系人</td><td>被列名者本人的同意，以其选择的范围为限（第5节）</td></tr>
+              <tr><td>核验认领企业档案的申请</td><td>申请人</td><td>履行与您之间的协议</td></tr>
+              <tr><td>发送服务通知（续期、条款变更、安全警示）</td><td>用户、会员</td><td>履行与您之间的协议</td></tr>
+              <tr><td>发送新闻简报、营销信息</td><td>新闻简报订阅者</td><td>您的同意</td></tr>
+              <tr><td>组织活动、Business Matching、引荐对接</td><td>参与者</td><td>履行参会报名协议；每次引荐以及将照片用于宣传推广，均需另行征得单独同意</td></tr>
+              <tr><td>以汇总形式统计网站访问量</td><td>统计分析Cookie</td><td>通过Cookie设置面板作出的同意</td></tr>
+              <tr><td>招聘</td><td>求职者</td><td>您的同意</td></tr>
+              <tr><td>合作伙伴、协作者管理</td><td>合作伙伴</td><td>履行协议</td></tr>
+              <tr><td>执行主管国家机关的要求</td><td>依要求而定</td><td>依照法律规定</td></tr>
+            </tbody>
+          </table></div>
+          <p>如需将数据用于新的目的，我们将事先通知您，并在法律要求时征得您的同意。</p>
         </div>
 
         <div class="legal-section" id="s5">
-          <h2>5. 与第三方共享数据</h2>
-          <p>HOUSELINK <strong>不出售、不出租或交换</strong> 您的个人数据。我们仅在以下情况下共享数据：</p>
+          <h2>5. 平台上的企业信息和联系人</h2>
+          <p>HOUSELINK平台提供有关企业、项目和工业园区的信息。无论是按服务套餐还是应请求，我们均<strong>不出售、不出租、也不转让</strong>个人联系信息。</p>
           <ul>
-            <li><strong>服务合作伙伴：</strong> 签有严格保密合同的技术、数据存储和分析提供商</li>
-            <li><strong>法律要求：</strong> 根据主管国家机关的决定</li>
-            <li><strong>您的同意：</strong> 当您特别允许共享时，例如与HOUSELINK生态系统中的合作伙伴连接</li>
+            <li><strong>企业信息</strong>（名称、代码、地址、经营行业、公共邮箱、总机号码）不属于个人数据。</li>
+            <li><strong>法定代表人：</strong>仅按国家企业登记信息门户上的公开内容显示姓名和职务，并注明来源和更新日期。不显示法定代表人的电话号码、个人电子邮箱、证件号码或地址。</li>
+            <li><strong>其他联系人：</strong>姓名和职务仅在本人同意后显示。未获同意前，本平台仅显示部门或通用职能，例如“采购部”。</li>
+            <li><strong>个人的电话号码和电子邮箱</strong>不向会员显示。会员如需联系，应通过HOUSELINK发送对接请求；我们会将该请求转至企业的公共邮箱，或转给已同意接收对接请求的人员。</li>
           </ul>
+          <p>如您在本平台上看到自己的信息，可发送电子邮件至<a href="mailto:info@houselink.com.vn">info@houselink.com.vn</a>，并附上载有该信息的页面链接。</p>
         </div>
 
         <div class="legal-section" id="s6">
-          <h2>6. 您的法律权利</h2>
-          <p>根据13/2023/ND-CP号法令和91/2025/QH15号法律，您享有以下权利：</p>
+          <h2>6. Cookie、统计分析与营销邮件</h2>
+          <p>所有非必要Cookie在您开启前均保持关闭。您可在首次访问网站时通过Cookie设置面板进行选择，并可随时通过下方按钮或页脚的“Cookie设置”链接更改。“全部拒绝”按钮与“同意”按钮同样醒目。</p>
+          <div class="table-wrap"><table class="legal-table">
+            <thead><tr><th>Cookie类别</th><th>用途</th><th>默认状态</th></tr></thead>
+            <tbody>
+              <tr><td><strong>必要</strong></td><td>登录、安全、记住您的语言及Cookie选择</td><td>始终开启，因为缺少此类Cookie网站将无法运行</td></tr>
+              <tr><td><strong>统计分析</strong></td><td>使用Google Analytics以汇总形式统计访问量和热门页面，不与您的身份关联</td><td>关闭</td></tr>
+              <tr><td><strong>营销</strong></td><td>HOUSELINK不使用营销Cookie。如日后使用，我们将更新本政策，并仅在您同意后开启。</td><td>不使用</td></tr>
+            </tbody>
+          </table></div>
+          <p hidden><button type="button" class="btn-line" data-hl-cookie-settings>打开Cookie设置</button></p>
+          <p>我们不追踪您在其他网站上的活动，也不投放行为定向广告。企业档案的浏览量和关注人数仅以数字形式显示；企业不会获知谁浏览或关注了其档案。</p>
+          <h3>营销邮件与服务通知</h3>
           <ul>
-            <li><strong>知情权：</strong> 了解数据处理的目的和范围</li>
-            <li><strong>访问权：</strong> 申请查看HOUSELINK存储的个人数据</li>
-            <li><strong>更正权：</strong> 申请更正不准确的数据</li>
-            <li><strong>删除权：</strong> 当数据不再必要时申请删除</li>
-            <li><strong>限制处理权：</strong> 在特定情况下申请暂停处理</li>
-            <li><strong>撤回同意权：</strong> 随时撤回同意，不影响之前处理的合法性</li>
-            <li><strong>投诉权：</strong> 如认为您的权利受到侵犯，可向信息安全局（信息通信部）投诉</li>
+            <li>新闻简报和营销信息仅发送给已订阅的人员。订阅时，您将被告知发送的内容、形式和频率。</li>
+            <li>每封营销邮件均附有退订链接。您退订后，系统将立即停止发送，且不会再次发送。</li>
+            <li>我们<strong>不按个人统计您是否打开邮件或点击链接</strong>；仅查看整个营销活动的汇总数据。</li>
+            <li>我们不向外购名单或未作出同意的联系人发送营销邮件。</li>
+            <li>面向会员的服务通知（续期、条款变更、安全警示）单独发送，不附带广告。</li>
           </ul>
-          <p>要行使上述权利，请联系： <strong>info@houselink.com.vn</strong> --根据法律规定在30个工作日内答复。</p>
         </div>
 
         <div class="legal-section" id="s7">
-          <h2>7. Cookie与追踪技术</h2>
-          <p>HOUSELINK网站使用Cookie和类似技术来改善用户体验：</p>
+          <h2>7. HOUSELINK AI与自动化处理</h2>
+          <p>HOUSELINK AI在账户权限范围内回答有关项目、企业和工业园区的问题。</p>
           <ul>
-            <li><strong>必要Cookie：</strong> 运营网站必需，无法关闭</li>
-            <li><strong>分析Cookie：</strong> 帮助我们了解用户如何与网站互动（Google Analytics）</li>
-            <li><strong>Cookie marketing:</strong> 仅在您同意时使用，用于个性化内容</li>
+            <li>问答界面明确标示您正在向人工智能助手提问。</li>
+            <li>发送至模型的上下文不包含个人联系信息。HOUSELINK AI不回答旨在查询或汇总某一个人信息的问题。</li>
+            <li>请勿在问题中输入您本人或他人的个人信息。</li>
+            <li>问题在保存前与账户分离，并在90日后删除。</li>
+            <li>根据HOUSELINK所使用服务套餐的条款，发送至模型的数据不会被提供商用于训练模型。</li>
+            <li>借助人工智能撰写的Insights报告均加注标签，并在发布前经人工审核和批准。</li>
           </ul>
-          <p>您可以通过浏览器设置或首次访问时的Cookie横幅管理Cookie偏好。</p>
+          <p>我们不使用自动化处理作出对个人产生法律后果的决定。本平台上的排名和评分适用于企业，不适用于个人。您有权要求不将您的数据纳入自动化处理，并有权要求HOUSELINK工作人员复核系统生成的某项结果。</p>
         </div>
 
         <div class="legal-section" id="s8">
-          <h2>8. 政策变更</h2>
-          <p>HOUSELINK可能会不时更新本隐私政策，特别是在法律或服务发生变化时。服务。当发生重大变更时，我们将：</p>
-          <ul>
-            <li>通过电子邮件通知注册用户</li>
-            <li>在网站上显示显著通知</li>
-            <li>更新文件顶部的"发布日期"</li>
-          </ul>
+          <h2>8. 我们与谁共享数据</h2>
+          <p>我们<strong>不出售个人数据</strong>。数据仅在必要范围内提供给以下各方。</p>
+          <div class="table-wrap"><table class="legal-table">
+            <thead><tr><th>接收方</th><th>数据</th><th>条件</th></tr></thead>
+            <tbody>
+              <tr><td><strong>服务器、数据存储服务提供商</strong></td><td>本平台上的全部数据</td><td>数据处理合同；仅按HOUSELINK的指示处理</td></tr>
+              <tr><td><strong>Google</strong>（Google Workspace、使用Google账户登录、Google Analytics）</td><td>电子邮箱、姓名、邮件内容；您使用Google账户登录时的Google账户信息；您开启统计分析Cookie时的汇总访问数据</td><td>Google的数据处理条款；依照第9节向境外传输</td></tr>
+              <tr><td><strong>地图服务提供商</strong></td><td>地图加载时的IP地址及当前浏览的页面</td><td>项目页面中的地图仅在您点击查看时加载</td></tr>
+              <tr><td><strong>电子发票服务商、银行</strong></td><td>开票和付款信息</td><td>依照合同及会计、税务法律</td></tr>
+              <tr><td><strong>您向其提交询价请求或评价的企业</strong></td><td>您选择发送的信息，在发送按钮处即予列明</td><td>在您点击发送时</td></tr>
+              <tr><td><strong>Business Matching中的工业园区、投资者</strong></td><td>联系信息和对接需求</td><td>每次引荐均需获得您的同意</td></tr>
+              <tr><td><strong>活动赞助方、联合主办方</strong></td><td>姓名、职务、公司、电子邮箱</td><td>仅在您报名时勾选单独的同意选项后</td></tr>
+              <tr><td><strong>主管国家机关</strong></td><td>依要求而定</td><td>依照法律规定</td></tr>
+            </tbody>
+          </table></div>
+          <p>HOUSELINK进行企业重组（合并、分立、分离、转让）时，数据仅依照法律规定进行转移，我们将就此通知您。</p>
         </div>
 
         <div class="legal-section" id="s9">
-          <h2>9. 联系我们</h2>
-          <p>如有任何关于数据隐私或行使权利的问题或请求，请联系：</p>
+          <h2>9. 在越南存储及数据跨境传输</h2>
+          <p>HOUSELINK平台的应用服务器、数据库及备份均位于越南。</p>
+          <p>我们使用的部分Google服务可能在越南境外的数据中心处理数据：</p>
           <ul>
-            <li><strong>数据管理部门--HOUSELINK</strong></li>
-            <li>📍 9楼，Sannam大厦，78 Duy Tan街，桥纸坊，河内</li>
-            <li>✉ info@houselink.com.vn</li>
-            <li>📞 +84 966 222 490</li>
+            <li>电子邮箱、与HOUSELINK往来邮件的内容以及我们向您发送的邮件；</li>
+            <li>您选择使用Google账户登录时的Google账户信息；</li>
+            <li>您开启统计分析Cookie时的Google Analytics统计数据。</li>
           </ul>
+          <p>我们将向境外传输的数据限制在最低限度。</p>
+        </div>
+
+        <div class="legal-section" id="s10">
+          <h2>10. 保存期限</h2>
+          <p>数据仅在实现处理目的所需的期限内或法律要求的期限内保存。期满后，数据将被删除或去标识化。</p>
+          <div class="table-wrap"><table class="legal-table">
+            <thead><tr><th>数据</th><th>保存期限</th></tr></thead>
+            <tbody>
+              <tr><td>会员账户</td><td>服务使用期间；套餐到期后已有24个月未活动的账户将被删除或去标识化</td></tr>
+              <tr><td>合同、付款凭证</td><td>按会计法律规定的期限</td></tr>
+              <tr><td>认领企业档案申请时上传的文件</td><td>审核后最长90日；此后仅保留核验结果和核验日期</td></tr>
+              <tr><td>法定代表人</td><td>在信息仍处于公开状态期间；信息变更时予以更新</td></tr>
+              <tr><td>其他联系人</td><td>直至本人撤回同意或要求删除；对于未同意或未回复同意征询的人员：删除其个人信息，仅保留部门</td></tr>
+              <tr><td>向HOUSELINK AI提出的问题</td><td>90日，已与账户分离</td></tr>
+              <tr><td>登录日志、安全日志</td><td>24个月</td></tr>
+              <tr><td>新闻简报订阅</td><td>直至您退订；此后仅在禁发名单中保留电子邮箱，以确保不再发送</td></tr>
+              <tr><td>未被录用者的求职材料</td><td>招聘批次结束时删除；如您同意保留以备下次招聘，则保存12个月</td></tr>
+              <tr><td>活动照片、视频</td><td>作为内部资料保存36个月；用于宣传推广的照片以您同意的范围为限</td></tr>
+              <tr><td>Cookie</td><td>按各Cookie的有效期，最长13个月</td></tr>
+              <tr><td>数据事件记录</td><td>事件处置完毕后保存5年，以备检查</td></tr>
+            </tbody>
+          </table></div>
+        </div>
+
+        <div class="legal-section" id="s11">
+          <h2>11. 您的权利及行使方式</h2>
+          <p>根据越南《个人数据保护法》第4条，您享有以下权利：</p>
+          <div class="rights-grid">
+            <div class="right-item"><strong>知情</strong>了解对您个人数据的处理活动</div>
+            <div class="right-item"><strong>同意或不同意</strong>并要求撤回同意</div>
+            <div class="right-item"><strong>查阅和更正</strong>或要求更正数据</div>
+            <div class="right-item"><strong>要求提供、删除、限制处理</strong>以及反对数据处理</div>
+            <div class="right-item"><strong>投诉、举报、起诉</strong>并依法要求损害赔偿</div>
+            <div class="right-item"><strong>要求保护</strong>要求主管机关或相关方采取措施保护您的个人数据</div>
+          </div>
+          <h3>请求提交方式</h3>
+          <ul>
+            <li>发送电子邮件至<a href="mailto:info@houselink.com.vn">info@houselink.com.vn</a>，写明请求内容及需处理的信息；</li>
+            <li>在工作时间内拨打热线(+84) 966 222 490或总机024 3795 5620；</li>
+            <li>向HOUSELINK总部寄送书面函件或亲临总部；会员可在账户中的“我的隐私”页面提交请求。</li>
+          </ul>
+          <p>行使上述权利<strong>不收取任何费用</strong>。为避免将您的数据误提供给他人，我们将通过已登录的账户或已注册的电子邮箱进行身份核验。仅在该方式不足以核验时，我们才会要求提供补充信息；如非必要，不会要求提供公民身份证照片。</p>
+          <p><strong>处理时限</strong>依照第356/2025/NĐ-CP号议定第5条：</p>
+          <div class="table-wrap"><table class="legal-table">
+            <thead><tr><th>请求</th><th>回复</th><th>完成</th><th>需处理方配合时</th><th>延期</th></tr></thead>
+            <tbody>
+              <tr><td>撤回同意、限制处理、反对处理</td><td>2个工作日</td><td>15日</td><td>20日</td><td>1次，最长15日</td></tr>
+              <tr><td>查阅、更正、提供数据</td><td>2个工作日</td><td>10日</td><td>15日</td><td>1次，最长10日</td></tr>
+              <tr><td>删除数据</td><td>2个工作日</td><td>20日</td><td>30日</td><td>1次，最长20日</td></tr>
+            </tbody>
+          </table></div>
+          <p>如需延期，我们将在期限届满前告知您延期理由。退订新闻简报和关闭Cookie立即生效，无需等待上述期限。</p>
+          <p><strong>如我们无法完全满足您的请求</strong>，例如法律要求继续保存会计凭证，或提供数据会影响他人权利，我们将以书面形式答复，并说明理由和依据。</p>
+          <p><strong>投诉：</strong>您可以向HOUSELINK的个人数据保护负责人提出投诉。您亦有权向公安部个人数据保护专责机构投诉、举报，或向法院提起诉讼。</p>
+        </div>
+
+        <div class="legal-section" id="s12">
+          <h2>12. 数据保护与事件处置</h2>
+          <p>我们根据数据的风险等级采取相应的管理和技术措施：</p>
+          <ul>
+            <li>浏览器与服务器之间的连接加密（HTTPS/TLS）；备份受到保护；</li>
+            <li>基于角色的权限管理，遵循仅在工作需要时方可访问的原则；管理人员必须使用双因素认证；</li>
+            <li>个人的详细联系信息仅限少数管理员查看，每次查看均记录日志；</li>
+            <li>员工签署保密承诺并定期接受培训；</li>
+            <li>数据处理服务提供商须签订包含保密义务的合同；</li>
+            <li>使用个人数据的新功能在上线前须经评估。</li>
+          </ul>
+          <p>发生个人数据泄露、丢失或遭未经授权访问的事件时，我们将立即予以遏制。我们将<strong>在72小时内</strong>通知个人数据保护专责机构，并依照法律规定通知受影响人员。事件记录将予以保存，以备检查。</p>
+        </div>
+
+        <div class="legal-section" id="s13">
+          <h2>13. 儿童个人数据</h2>
+          <p>HOUSELINK的服务面向在工业地产和投资领域开展业务的组织、企业及成年人。HOUSELINK不会有意收集未满18周岁人员（包括儿童，即未满16周岁的人）的个人数据，亦不为儿童设计服务。</p>
+          <ul>
+            <li>注册账户时，您确认自己已年满18周岁。</li>
+            <li>如发现在未依照越南《个人数据保护法》（第91/2025/QH15号）第24条取得同意的情况下收集了儿童数据，HOUSELINK将毫不迟延地停止处理并删除该等数据。</li>
+            <li>父母或监护人可按照第16节所列方式联系我们，要求核查和删除。</li>
+          </ul>
+        </div>
+
+        <div class="legal-section" id="s14">
+          <h2>14. 可能发生的风险和不良后果</h2>
+          <p>尽管已采取第12节所述措施，但没有任何系统是绝对安全的。可能发生的风险包括：</p>
+          <ul>
+            <li>因网络攻击或软件漏洞导致的未经授权访问；</li>
+            <li>人为操作失误，例如误发电子邮件或误授权限；</li>
+            <li>因密码泄露或与其他服务共用密码导致账户被盗用；</li>
+            <li>冒充HOUSELINK进行诈骗的电子邮件、短信或电话。</li>
+          </ul>
+          <p>可能的后果包括收到垃圾邮件、遭受诈骗或被冒用身份。为降低风险，建议您为HOUSELINK设置专用密码，不与他人共享账户，并在公共设备上使用后退出登录。</p>
+          <div class="notice-warn"><strong>HOUSELINK绝不会通过电子邮件、短信或电话要求您提供密码、OTP验证码或转账。</strong>官方电子邮件仅从houselink.com.vn和houselink.info域名发出。如怀疑有人冒充HOUSELINK与您联系，请按照第16节告知我们。发生可能影响您的事件时，HOUSELINK将依照第12节通知您。</div>
+        </div>
+
+        <div class="legal-section" id="s15">
+          <h2>15. 政策变更与语言</h2>
+          <ul>
+            <li>本政策将定期审查，并在法律或HOUSELINK的数据处理活动发生变化时进行审查。</li>
+            <li>对于重大变更（新的目的、新的数据类型、新的接收方、新的数据跨境传输），HOUSELINK将至少在生效前7日在网站上发布通知，并通过电子邮件通知拥有账户的用户。如变更需要征得同意，HOUSELINK将重新征求您的同意；继续使用服务不视为同意。</li>
+            <li>本政策以越南语、英语、日语、韩语和中文（简体）发布，各语言版本的版本号和生效日期相同。如各版本之间存在差异，以越南语版本为准。</li>
+          </ul>
+          <div class="table-wrap"><table class="legal-table ver">
+            <thead><tr><th>版本</th><th>发布日期</th><th>生效日期</th><th>内容</th></tr></thead>
+            <tbody>
+              <tr><td>QDNB-001/2025</td><td>2025年7月1日</td><td>2026年1月1日</td><td>依据第13/2023/NĐ-CP号议定制定的隐私政策</td></tr>
+              <tr><td>2.0</td><td>2026年10月12日</td><td>2026年10月12日</td><td>依据第91/2025/QH15号法律及第356/2025/NĐ-CP号议定全面更新；取代QDNB-001/2025</td></tr>
+            </tbody>
+          </table></div>
+        </div>
+
+        <div class="legal-section" id="s16">
+          <h2>16. 联系我们</h2>
+          <p>如有任何关于个人数据的问题或请求，请联系<strong>HOUSELINK股份公司个人数据保护负责人</strong>。我们将确认收到您的请求，并在第11节所述期限内予以答复。</p>
+          <div class="contact-card">
+            <div class="contact-item"><span>个人数据事务邮箱</span><a href="mailto:info@houselink.com.vn">info@houselink.com.vn</a></div>
+            <div class="contact-item"><span>电话</span><b>(+84) 966 222 490</b> · 总机<b>024 3795 5620</b></div>
+            <div class="contact-item"><span>地址</span>9th Floor, Sannam Building, 78 Duy Tan Street, Cau Giay Ward, Hanoi, Vietnam</div>
+            <div class="contact-item"><span>工作时间</span>8:00 - 17:30，周一至周五，法定节假日除外</div>
+          </div>
+          <p><a class="btn-line" href="mailto:info@houselink.com.vn?subject=%E4%B8%AA%E4%BA%BA%E6%95%B0%E6%8D%AE%E7%9B%B8%E5%85%B3%E8%AF%B7%E6%B1%82">提交数据相关请求</a><a class="btn-line" href="/zh/terms/">查看使用条款</a></p>
         </div>
 
       </div>
@@ -946,6 +1192,31 @@ footer { background: var(--navy); color: rgba(255,255,255,0.55); padding: 72px 0
 </section>
 
 <div id="hl-chrome-footer"></div>
+<script>
+(function () {
+  var links = [].slice.call(document.querySelectorAll('.legal-toc .toc-item'));
+  var map = {};
+  links.forEach(function (a) { map[a.getAttribute('href').slice(1)] = a; });
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        links.forEach(function (l) { l.classList.remove('active'); });
+        if (map[e.target.id]) map[e.target.id].classList.add('active');
+      });
+    }, { rootMargin: '-110px 0px -70% 0px' });
+    [].forEach.call(document.querySelectorAll('.legal-section[id]'), function (s) { io.observe(s); });
+  }
+  // Cookie settings button: calls window.hlOpenCookieSettings() if the cookie banner exposes it,
+  // otherwise fires the "hl:open-cookie-settings" event for the banner script to handle.
+  [].forEach.call(document.querySelectorAll('[data-hl-cookie-settings]'), function (b) {
+    b.addEventListener('click', function () {
+      if (typeof window.hlOpenCookieSettings === 'function') { window.hlOpenCookieSettings(); }
+      else { document.dispatchEvent(new CustomEvent('hl:open-cookie-settings')); }
+    });
+  });
+})();
+</script>
   <script src="../../landing-chrome.js" defer></script>
 </body>
 </html>

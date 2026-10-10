@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Privacy Policy – HOUSELINK</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Personal Data Protection Policy - HOUSELINK</title>
+<meta name="description" content="How HOUSELINK collects, uses, shares, stores and protects personal data, and how you can exercise your rights under Law No. 91/2025/QH15 and Decree No. 356/2025/NĐ-CP.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 :root {
@@ -40,6 +41,681 @@
 }
 html { scroll-behavior: smooth; }
 body { font-family: var(--font-main); color: var(--text); background: var(--white); overflow-x: hidden; line-height: 1.7; }
+
+/* ── HEADER ── */
+#header {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  height: var(--header-h);
+  background: rgba(255,255,255,0.97);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--gray-100);
+  transition: box-shadow 0.3s;
+}
+#header.scrolled { box-shadow: 0 2px 32px rgba(0,70,110,0.10); }
+.header-inner {
+  max-width: var(--max-w); margin: 0 auto;
+  display: flex; align-items: center; justify-content: space-between;
+  height: 100%; padding: 0 40px;
+}
+.logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+.logo-icon {
+  width: 38px; height: 38px; border-radius: 9px;
+  background: var(--navy);
+  display: flex; align-items: center; justify-content: center;
+  position: relative; overflow: hidden;
+}
+.logo-icon::before {
+  content: 'H'; color: var(--green); font-weight: 900; font-size: 20px;
+  font-family: var(--font-main); letter-spacing: -1px;
+}
+.logo-text-block {}
+.logo-name { font-weight: 800; font-size: 17px; letter-spacing: 0.05em; color: var(--navy); text-transform: uppercase; display: block; line-height: 1; }
+.logo-tagline { font-size: 9.5px; color: var(--gray-400); letter-spacing: 0.13em; text-transform: uppercase; display: block; margin-top: 2px; }
+
+nav { display: flex; align-items: center; gap: 0; }
+nav > a, .has-mega > a {
+  font-size: 13.5px; font-weight: 500; color: var(--gray-600);
+  text-decoration: none; padding: 8px 14px; border-radius: 7px;
+  transition: all 0.18s; letter-spacing: 0.015em; cursor: pointer;
+  display: block;
+}
+nav > a:hover, .has-mega > a:hover { color: var(--navy); background: var(--gray-50); }
+
+.has-mega { position: relative; }
+.mega-dropdown {
+  display: none; position: absolute; top: calc(100% + 12px); left: 50%;
+  transform: translateX(-50%);
+  background: var(--white); border: 1px solid var(--gray-100);
+  border-radius: 14px; box-shadow: 0 20px 60px rgba(0,70,110,0.12);
+  padding: 20px; min-width: 580px;
+  grid-template-columns: 1fr 1fr; gap: 6px;
+}
+.has-mega:hover .mega-dropdown { display: grid; animation: fadeD 0.18s ease; }
+@keyframes fadeD { from{opacity:0;transform:translateX(-50%) translateY(-6px)} to{opacity:1;transform:translateX(-50%) translateY(0)} }
+.mega-item {
+  display: flex; align-items: flex-start; gap: 12px;
+  padding: 11px 12px; border-radius: 9px; text-decoration: none; transition: background 0.15s;
+}
+.mega-item:hover { background: var(--gray-50); }
+.mi-icon {
+  width: 34px; height: 34px; border-radius: 8px;
+  background: var(--green-pale); flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center; font-size: 15px;
+}
+.mi-title { font-size: 12.5px; font-weight: 700; color: var(--navy); line-height: 1.3; }
+.mi-desc { font-size: 11.5px; color: var(--gray-400); margin-top: 2px; line-height: 1.4; }
+
+.hdr-actions { display: flex; align-items: center; gap: 10px; }
+.btn-ghost { font-size: 13px; font-weight: 600; color: var(--navy); border: 1.5px solid var(--gray-200); border-radius: 8px; padding: 8px 18px; text-decoration: none; transition: all 0.18s; }
+.btn-ghost:hover { border-color: var(--navy); }
+.btn-navy { font-size: 13px; font-weight: 600; color: var(--white); background: var(--navy); border-radius: 8px; padding: 9px 20px; text-decoration: none; border: 1.5px solid var(--navy); transition: all 0.18s; }
+.btn-navy:hover { background: var(--navy-mid); border-color: var(--navy-mid); }
+
+/* ── HERO ── */
+#hero {
+  padding-top: var(--header-h);
+  min-height: 100vh;
+  display: grid; grid-template-columns: 1fr 1fr;
+  background: var(--navy);
+  position: relative; overflow: hidden;
+}
+.hero-bg {
+  position: absolute; inset: 0; pointer-events: none;
+  background:
+    radial-gradient(ellipse 60% 70% at 75% 50%, rgba(45,139,72,0.15) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 40% at 20% 80%, rgba(45,139,72,0.06) 0%, transparent 50%);
+}
+.hero-dots {
+  position: absolute; inset: 0; pointer-events: none;
+  background-image: radial-gradient(rgba(255,255,255,0.04) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+.hero-content {
+  position: relative; z-index: 2;
+  padding: 72px 56px 72px 72px;
+  display: flex; flex-direction: column; justify-content: center;
+  max-width: 660px;
+}
+.hero-eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(45,139,72,0.15); border: 1px solid rgba(45,139,72,0.35);
+  border-radius: 100px; padding: 5px 16px;
+  font-size: 11px; font-weight: 700; color: #7ED49A;
+  letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 28px; width: fit-content;
+}
+.hero-eyebrow::before { content:''; width:6px; height:6px; border-radius:50%; background:var(--green); flex-shrink:0; }
+h1.hero-h1 {
+  font-family: var(--font-serif);
+  font-size: clamp(28px, 3.4vw, 46px);
+  font-weight: 600; color: var(--white);
+  line-height: 1.18; letter-spacing: -0.02em; margin-bottom: 12px;
+}
+.hero-h1 em { color: var(--green-light); font-style: normal; }
+.hero-platform {
+  font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.5);
+  letter-spacing: 0.08em; text-transform: uppercase;
+  border-left: 2px solid var(--green-light); padding-left: 12px;
+  margin-bottom: 24px;
+}
+.hero-sub { font-size: 15.5px; color: rgba(255,255,255,0.62); line-height: 1.7; max-width: 480px; margin-bottom: 36px; }
+.hero-services-row {
+  display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 40px;
+}
+.hero-svc-tag {
+  font-size: 11.5px; font-weight: 600; color: rgba(255,255,255,0.65);
+  background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 100px; padding: 5px 14px; letter-spacing: 0.03em;
+}
+.hero-actions { display: flex; align-items: center; gap: 16px; margin-bottom: 52px; }
+.btn-gold {
+  background: var(--green); color: var(--white);
+  font-size: 13.5px; font-weight: 700; letter-spacing: 0.04em;
+  padding: 13px 28px; border-radius: 8px; text-decoration: none;
+  transition: all 0.18s; border: 2px solid var(--green);
+}
+.btn-gold:hover { background: var(--green-light); border-color: var(--green-light); }
+.btn-video {
+  color: rgba(255,255,255,0.75); font-size: 13.5px; font-weight: 500;
+  text-decoration: none; display: flex; align-items: center; gap: 10px; transition: color 0.18s;
+}
+.btn-video:hover { color: var(--white); }
+.play-btn {
+  width: 38px; height: 38px; border-radius: 50%;
+  border: 1.5px solid rgba(255,255,255,0.3);
+  display: flex; align-items: center; justify-content: center;
+}
+.play-btn::after { content:'▶'; font-size: 12px; margin-left: 2px; }
+.hero-stats {
+  display: flex; gap: 36px;
+  border-top: 1px solid rgba(255,255,255,0.1); padding-top: 32px;
+}
+.stat-n { font-family: var(--font-serif); font-size: 30px; font-weight: 600; color: #7ED49A; line-height: 1; }
+.stat-l { font-size: 11.5px; color: rgba(255,255,255,0.45); margin-top: 4px; letter-spacing: 0.06em; text-transform: uppercase; line-height: 1.4; }
+
+.hero-visual { position: relative; overflow: hidden; }
+.hero-img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.55) saturate(0.75); }
+.hero-gradient { position: absolute; inset: 0; background: linear-gradient(to right, var(--navy) 0%, rgba(0,70,110,0.3) 50%, transparent 100%); }
+.hero-card-tl {
+  position: absolute; top: 52px; right: 36px;
+  background: rgba(255,255,255,0.07); backdrop-filter: blur(16px);
+  border: 1px solid rgba(255,255,255,0.14); border-radius: 12px; padding: 16px 20px;
+  color: var(--white); min-width: 200px;
+}
+.hc-label { font-size: 10px; color: rgba(255,255,255,0.45); letter-spacing: 0.1em; text-transform: uppercase; }
+.hc-val { font-size: 22px; font-weight: 800; color: #7ED49A; margin: 4px 0 2px; line-height: 1; }
+.hc-sub { font-size: 11.5px; color: rgba(255,255,255,0.6); }
+.hero-card-br {
+  position: absolute; bottom: 48px; right: 36px;
+  background: rgba(0,70,110,0.85); backdrop-filter: blur(16px);
+  border: 1px solid rgba(45,139,72,0.25); border-radius: 12px; padding: 16px 20px;
+  color: var(--white); min-width: 200px;
+}
+
+/* ── SECTION BASE ── */
+.section { padding: 88px 0; }
+.si { max-width: var(--max-w); margin: 0 auto; padding: 0 40px; }
+.sec-label { font-size: 11.5px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--green); margin-bottom: 10px; }
+.sec-title { font-family: var(--font-serif); font-size: clamp(26px, 3.2vw, 42px); font-weight: 600; color: var(--navy); line-height: 1.22; letter-spacing: -0.02em; }
+.sec-title em { color: var(--green); font-style: normal; }
+.sec-sub { font-size: 15.5px; color: var(--gray-600); line-height: 1.72; max-width: 560px; margin-top: 14px; }
+.flex-sb { display: flex; justify-content: space-between; align-items: flex-end; }
+
+/* ── LOGO MARQUEE ── */
+#logos { background: var(--off-white); padding: 28px 0; overflow: hidden; border-top: 1px solid var(--gray-100); border-bottom: 1px solid var(--gray-100); }
+.logos-lbl { text-align: center; font-size: 11px; color: var(--gray-400); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 20px; }
+.marquee-wrap { overflow: hidden; }
+.marquee-track { display: flex; gap: 12px; width: max-content; animation: marquee 54s linear infinite; align-items: center; }
+@keyframes marquee { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+.logo-pill {
+  display: flex; align-items: center; gap: 8px;
+  background: var(--white); border: 1px solid var(--gray-100);
+  border-radius: 100px; padding: 9px 20px;
+  font-size: 12.5px; font-weight: 700; color: var(--navy);
+  letter-spacing: 0.03em; white-space: nowrap;
+}
+.lp-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--green); flex-shrink:0; }
+
+/* ── VALUE PROP (challenges) ── */
+#value { background: var(--white); }
+.value-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; margin-top: 52px; }
+.challenge-table { display: flex; flex-direction: column; gap: 0; }
+.chal-row {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 0;
+  border-bottom: 1px solid var(--gray-100);
+  padding: 20px 0;
+}
+.chal-row:first-child { padding-top: 0; }
+.chal-col-hdr { font-size: 11px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gray-400); padding-bottom: 8px; border-bottom: 2px solid var(--gray-100); }
+.chal-col-hdr.right { color: var(--teal); }
+.chal-item { font-size: 13.5px; color: var(--gray-600); line-height: 1.55; padding-right: 16px; }
+.chal-item.solution { color: var(--navy); font-weight: 500; padding-right: 0; padding-left: 16px; border-left: 1px solid var(--gray-100); }
+.value-right {}
+.benefit-box {
+  background: var(--navy); border-radius: 16px; padding: 36px 32px; color: var(--white); margin-bottom: 20px;
+}
+.benefit-box .sec-label { color: var(--green); }
+.benefit-box .sec-title { color: var(--white); font-size: 26px; }
+.benefit-list { margin-top: 24px; display: flex; flex-direction: column; gap: 14px; }
+.benefit-item { display: flex; gap: 12px; align-items: flex-start; }
+.benefit-icon { font-size: 16px; margin-top: 1px; flex-shrink: 0; }
+.benefit-text { font-size: 14px; color: rgba(255,255,255,0.75); line-height: 1.55; }
+.benefit-text strong { color: var(--white); font-weight: 600; display: block; font-size: 14px; }
+
+/* ── SERVICES ── */
+#services { background: var(--off-white); }
+.svc-tabs { display: flex; gap: 8px; flex-wrap: wrap; margin: 36px 0 20px; }
+.svc-tab {
+  font-size: 12.5px; font-weight: 600; color: var(--gray-600);
+  background: var(--white); border: 1px solid var(--gray-100);
+  border-radius: 100px; padding: 7px 18px; cursor: pointer;
+  transition: all 0.18s; text-decoration: none;
+}
+.svc-tab.active, .svc-tab:hover { background: var(--navy); color: var(--white); border-color: var(--navy); }
+.svc-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; margin-top: 8px; }
+.svc-card {
+  background: var(--white); border: 1px solid var(--gray-100);
+  border-radius: 16px; padding: 32px 28px;
+  position: relative; overflow: hidden; transition: all 0.25s; cursor: pointer;
+}
+.svc-card:hover { box-shadow: 0 8px 36px rgba(0,70,110,0.09); transform: translateY(-3px); border-color: var(--gray-200); }
+.svc-card.featured { background: var(--navy); border-color: var(--navy); }
+.svc-card.featured .svc-num, .svc-card.featured .svc-title, .svc-card.featured .svc-desc, .svc-card.featured .svc-link { color: rgba(255,255,255,0.9); }
+.svc-card.featured .svc-title { color: var(--white); }
+.svc-card.featured .svc-icon { background: rgba(255,255,255,0.1); }
+.svc-card::after { content:''; position:absolute; bottom:0; left:0; right:0; height:3px; background: linear-gradient(90deg, var(--green), var(--navy-mid)); transform:scaleX(0); transform-origin:left; transition:transform 0.3s; }
+.svc-card:hover::after { transform:scaleX(1); }
+.svc-card.featured::after { background: var(--green); transform: scaleX(1); }
+.svc-icon { width: 48px; height: 48px; border-radius: 12px; background: var(--green-pale); display: flex; align-items: center; justify-content: center; font-size: 20px; margin-bottom: 20px; }
+.svc-num { font-size: 10.5px; font-weight: 700; color: var(--gray-200); letter-spacing: 0.1em; margin-bottom: 8px; }
+.svc-title { font-size: 16.5px; font-weight: 700; color: var(--navy); margin-bottom: 10px; line-height: 1.3; }
+.svc-desc { font-size: 13.5px; color: var(--gray-600); line-height: 1.65; }
+.svc-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 16px; }
+.svc-tag-pill {
+  font-size: 11px; font-weight: 600; color: var(--teal);
+  background: rgba(45,139,72,0.08); border-radius: 100px; padding: 3px 10px;
+  letter-spacing: 0.03em;
+}
+.svc-card.featured .svc-tag-pill { color: var(--green-light); background: rgba(45,139,72,0.15); }
+.svc-link { font-size: 12.5px; font-weight: 600; color: var(--green); text-decoration: none; margin-top: 16px; display: inline-flex; align-items: center; gap: 5px; transition: gap 0.2s; }
+.svc-link:hover { gap: 9px; }
+
+
+/* ── LANGUAGE SWITCHER ── */
+.lang-switcher { display:flex; align-items:center; gap:4px; margin-right:4px; }
+.lang-btn {
+  font-size:12px; font-weight:700; letter-spacing:0.06em;
+  color:var(--gray-400); background:none; border:none; cursor:pointer;
+  padding:4px 6px; border-radius:5px; transition:all 0.15s;
+  font-family:var(--font-main);
+}
+.lang-btn.active { color:var(--navy); background:var(--gray-50); }
+.lang-btn:hover:not(.active) { color:var(--navy); }
+.lang-sep { font-size:11px; color:var(--gray-200); }
+.btn-login { display:flex; align-items:center; }
+
+/* ── AUDIENCE SWITCHER ── */
+#audience-switcher { background: var(--navy); padding: 56px 0 0; }
+.aud-tabs { display: flex; gap: 0; border-bottom: 1px solid rgba(255,255,255,0.1); }
+.aud-tab {
+  flex: 1; text-align: center; padding: 20px 24px;
+  font-size: 14px; font-weight: 700; letter-spacing: 0.04em;
+  color: rgba(255,255,255,0.45); border-bottom: 3px solid transparent;
+  cursor: pointer; transition: all 0.2s; text-transform: uppercase;
+}
+.aud-tab.active { color: var(--green-light); border-bottom-color: var(--green); }
+.aud-tab:hover:not(.active) { color: rgba(255,255,255,0.75); }
+
+/* ── CONTRACTOR/SUPPLIER SERVICES ── */
+#for-contractors { background: var(--off-white); }
+.segment-hero {
+  background: linear-gradient(135deg, var(--navy) 0%, #003457 60%, #005585 100%);
+  padding: 72px 0; position: relative; overflow: hidden;
+}
+.segment-hero::before {
+  content: ''; position: absolute; inset: 0; pointer-events: none;
+  background: radial-gradient(ellipse 50% 80% at 90% 50%, rgba(45,139,72,0.12) 0%, transparent 60%);
+}
+.segment-hero-inner { max-width: var(--max-w); margin: 0 auto; padding: 0 40px; display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; position: relative; z-index: 1; }
+.seg-label-alt { font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #7ED49A; margin-bottom: 10px; }
+.seg-title { font-family: var(--font-serif); font-size: clamp(28px, 3.2vw, 44px); font-weight: 600; color: var(--white); line-height: 1.2; letter-spacing: -0.02em; margin-bottom: 16px; }
+.seg-title em { color: var(--green-light); font-style: normal; }
+.seg-sub { font-size: 15.5px; color: rgba(255,255,255,0.62); line-height: 1.7; margin-bottom: 32px; }
+.seg-stats { display: flex; gap: 32px; padding-top: 28px; border-top: 1px solid rgba(255,255,255,0.1); }
+.seg-stat-n { font-family: var(--font-serif); font-size: 28px; font-weight: 600; color: #7ED49A; line-height: 1; }
+.seg-stat-l { font-size: 11px; color: rgba(255,255,255,0.45); margin-top: 4px; letter-spacing: 0.06em; text-transform: uppercase; }
+.seg-benefits-right { display: flex; flex-direction: column; gap: 16px; }
+.seg-benefit-card {
+  background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 12px; padding: 18px 20px;
+  display: flex; align-items: flex-start; gap: 14px; transition: all 0.2s;
+}
+.seg-benefit-card:hover { background: rgba(45,139,72,0.12); border-color: rgba(45,139,72,0.3); }
+.seg-benefit-icon { font-size: 20px; flex-shrink: 0; margin-top: 1px; }
+.seg-benefit-title { font-size: 14px; font-weight: 700; color: var(--white); margin-bottom: 4px; }
+.seg-benefit-desc { font-size: 13px; color: rgba(255,255,255,0.55); line-height: 1.55; }
+
+/* Contractor service cards */
+.ctr-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; margin-top: 48px; }
+.ctr-card {
+  background: var(--white); border: 1px solid var(--gray-100);
+  border-radius: 16px; padding: 30px 26px; transition: all 0.25s; position: relative; overflow: hidden;
+}
+.ctr-card:hover { box-shadow: 0 8px 36px rgba(0,70,110,0.09); transform: translateY(-3px); border-color: var(--gray-200); }
+.ctr-card.featured-ctr { background: var(--navy); border-color: var(--navy); }
+.ctr-card.featured-ctr .ctr-num, .ctr-card.featured-ctr .ctr-title, .ctr-card.featured-ctr .ctr-desc { color: rgba(255,255,255,0.85); }
+.ctr-card.featured-ctr .ctr-title { color: var(--white); }
+.ctr-card.featured-ctr .ctr-icon { background: rgba(255,255,255,0.1); }
+.ctr-card.featured-ctr .ctr-tag-pill { background: rgba(45,139,72,0.15); color: var(--green-light); }
+.ctr-card::after { content:''; position:absolute; bottom:0; left:0; right:0; height:3px; background: linear-gradient(90deg, var(--green), var(--teal)); transform:scaleX(0); transform-origin:left; transition:transform 0.3s; }
+.ctr-card:not(.featured-ctr):hover::after { transform:scaleX(1); }
+.ctr-card.featured-ctr::after { background: var(--green); transform: scaleX(1); }
+.ctr-icon { width: 46px; height: 46px; border-radius: 11px; background: var(--green-pale); display: flex; align-items: center; justify-content: center; font-size: 20px; margin-bottom: 18px; }
+.ctr-num { font-size: 10px; font-weight: 700; color: var(--gray-200); letter-spacing: 0.1em; margin-bottom: 8px; }
+.ctr-title { font-size: 16px; font-weight: 700; color: var(--navy); margin-bottom: 10px; line-height: 1.3; }
+.ctr-desc { font-size: 13.5px; color: var(--gray-600); line-height: 1.65; }
+.ctr-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
+.ctr-tag-pill { font-size: 11px; font-weight: 600; color: var(--teal); background: rgba(45,139,72,0.08); border-radius: 100px; padding: 3px 10px; }
+
+/* How it works flow */
+.flow-steps { display: grid; grid-template-columns: repeat(5,1fr); gap: 0; margin-top: 52px; position: relative; }
+.flow-steps::before { content:''; position:absolute; top:22px; left:10%; right:10%; height:1px; background:var(--gray-100); z-index:0; }
+.flow-step { text-align: center; padding: 0 10px; position: relative; z-index:1; }
+.flow-circle {
+  width: 44px; height: 44px; border-radius: 50%;
+  background: var(--white); border: 2px solid var(--gray-100);
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 18px; font-size: 15px; font-weight: 800; color: var(--gray-200);
+  transition: all 0.25s;
+}
+.flow-step:hover .flow-circle { border-color: var(--green); color: var(--green); background: var(--green-pale); }
+.flow-title { font-size: 13px; font-weight: 700; color: var(--navy); margin-bottom: 6px; }
+.flow-desc { font-size: 12px; color: var(--gray-600); line-height: 1.55; }
+
+/* Membership tiers */
+.tiers-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; margin-top: 48px; }
+.tier-card {
+  border: 1px solid var(--gray-100); border-radius: 16px; padding: 32px 28px;
+  transition: all 0.25s; position: relative;
+}
+.tier-card.recommended { border: 2px solid var(--green); background: var(--green-pale); }
+.tier-badge { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--green); color: var(--white); font-size: 11px; font-weight: 800; padding: 4px 16px; border-radius: 100px; letter-spacing: 0.06em; text-transform: uppercase; white-space: nowrap; }
+.tier-icon { font-size: 32px; margin-bottom: 16px; }
+.tier-name { font-size: 11px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: var(--navy); margin-bottom: 6px; }
+.tier-title { font-size: 20px; font-weight: 700; color: var(--navy); margin-bottom: 12px; }
+.tier-desc { font-size: 13.5px; color: var(--gray-600); line-height: 1.65; margin-bottom: 20px; }
+.tier-features { display: flex; flex-direction: column; gap: 9px; }
+.tier-feat { display: flex; gap: 10px; font-size: 13px; color: var(--gray-700); align-items: flex-start; }
+.feat-check { color: var(--green); font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+.tier-cta { margin-top: 24px; display: block; text-align: center; }
+
+/* ── DATABASE STATS ── */
+#database { background: var(--navy); color: var(--white); }
+.db-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
+.db-left {}
+.db-left .sec-label { color: #7ED49A; }
+.db-left .sec-title { color: var(--white); }
+.db-left .sec-sub { color: rgba(255,255,255,0.6); max-width: 460px; }
+.db-kv-list { display: flex; flex-direction: column; gap: 0; margin-top: 40px; }
+.db-kv {
+  display: flex; align-items: center; justify-content: space-between;
+  border-bottom: 1px solid rgba(255,255,255,0.08); padding: 18px 0;
+}
+.db-kv:first-child { padding-top: 0; }
+.db-kv-label { font-size: 14px; color: rgba(255,255,255,0.55); font-weight: 400; }
+.db-kv-value { font-family: var(--font-serif); font-size: 28px; font-weight: 600; color: #7ED49A; }
+.db-right { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.db-card {
+  background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 14px; padding: 24px 20px; text-align: center;
+  transition: all 0.25s;
+}
+.db-card:hover { background: rgba(45,139,72,0.12); border-color: rgba(45,139,72,0.3); }
+.db-card-n { font-family: var(--font-serif); font-size: 36px; font-weight: 600; color: #7ED49A; line-height: 1; }
+.db-card-l { font-size: 12px; color: rgba(255,255,255,0.5); margin-top: 6px; letter-spacing: 0.04em; line-height: 1.4; }
+.db-card-icon { font-size: 22px; margin-bottom: 10px; }
+
+/* ── PROCESS ── */
+#process { background: var(--white); }
+.process-track { display: grid; grid-template-columns: repeat(4,1fr); gap: 0; margin-top: 60px; position: relative; }
+.process-track::before { content:''; position:absolute; top:26px; left:12.5%; right:12.5%; height:1px; background:var(--gray-100); z-index:0; }
+.proc-step { text-align: center; padding: 0 20px; position: relative; z-index:1; }
+.proc-circle {
+  width: 52px; height: 52px; border-radius: 50%;
+  background: var(--white); border: 2px solid var(--gray-100);
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 22px; font-size: 17px; font-weight: 800; color: var(--gray-200);
+  transition: all 0.25s;
+}
+.proc-step:hover .proc-circle { border-color: var(--teal); color: var(--teal); background: rgba(45,139,72,0.06); }
+.proc-title { font-size: 14.5px; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
+.proc-desc { font-size: 13px; color: var(--gray-600); line-height: 1.6; }
+
+/* ── METHODOLOGY ── */
+#method { background: var(--off-white); }
+.method-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 20px; margin-top: 52px; }
+.method-card {
+  background: var(--white); border: 1px solid var(--gray-100);
+  border-radius: 14px; padding: 28px 22px; text-align: center; transition: all 0.2s;
+}
+.method-card:hover { box-shadow: 0 6px 24px rgba(0,70,110,0.07); border-color: var(--gray-200); transform: translateY(-2px); }
+.method-step { width: 36px; height: 36px; border-radius: 50%; background: var(--navy); color: #7ED49A; font-size: 14px; font-weight: 800; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; }
+.method-icon { font-size: 24px; margin-bottom: 10px; }
+.method-title { font-size: 14px; font-weight: 700; color: var(--navy); margin-bottom: 8px; line-height: 1.3; }
+.method-desc { font-size: 12.5px; color: var(--gray-600); line-height: 1.6; }
+
+/* ── CASE STUDIES ── */
+#cases { background: var(--white); }
+.cases-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 52px; }
+.case-card {
+  border: 1px solid var(--gray-100); border-radius: 16px; overflow: hidden;
+  transition: all 0.25s;
+}
+.case-card:hover { box-shadow: 0 10px 40px rgba(0,70,110,0.09); transform: translateY(-3px); }
+.case-img { width: 100%; height: 200px; object-fit: cover; object-position: center; display: block; background: var(--gray-50); }
+.case-body { padding: 28px 28px 24px; }
+.case-tag { font-size: 11px; font-weight: 700; color: var(--teal); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 10px; }
+.case-title { font-size: 17px; font-weight: 700; color: var(--navy); line-height: 1.3; margin-bottom: 12px; }
+.case-challenge { font-size: 13.5px; color: var(--gray-600); line-height: 1.6; margin-bottom: 16px; }
+.case-results { display: flex; flex-direction: column; gap: 6px; }
+.case-result-item { display: flex; gap: 8px; font-size: 13px; color: var(--gray-600); }
+.result-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--green); flex-shrink:0; margin-top: 7px; }
+.case-clients-row { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 16px; border-top: 1px solid var(--gray-50); padding-top: 14px; }
+.case-client-tag { font-size: 11.5px; font-weight: 600; color: var(--navy); background: var(--gray-50); border-radius: 100px; padding: 4px 12px; }
+
+/* ── COMMUNITY ── */
+#community { background: var(--off-white); }
+.community-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; margin-top: 52px; }
+.comm-card {
+  background: var(--white); border: 1px solid var(--gray-100);
+  border-radius: 16px; overflow: hidden; transition: all 0.25s;
+}
+.comm-card:hover { box-shadow: 0 8px 32px rgba(0,70,110,0.08); transform: translateY(-2px); }
+.comm-img { width:100%; height:180px; object-fit:cover; }
+.comm-body { padding: 22px; }
+.comm-tag { font-size: 11px; font-weight: 700; color: var(--green); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 8px; }
+.comm-title { font-size: 15px; font-weight: 700; color: var(--navy); margin-bottom: 8px; line-height: 1.3; }
+.comm-desc { font-size: 13px; color: var(--gray-600); line-height: 1.6; }
+
+/* ── CUSTOMERS LOGOS (match /clients .clients-logo-strip) ── */
+#customers { background: var(--white); }
+.customers-logo-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 44px;
+  background: transparent;
+  border: 0;
+  padding: 0;
+}
+.cust-logo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 60px;
+  padding: 0 10px;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  transition: transform 0.18s;
+}
+.cust-logo__img {
+  display: block;
+  height: 100%;
+  width: auto;
+  max-width: 240px;
+  object-fit: contain;
+}
+.cust-logo:hover { transform: translateY(-1px); }
+
+/* ── INSIGHTS ── */
+#insights { background: var(--off-white); }
+.insights-grid { display: grid; grid-template-columns: 1.6fr 1fr 1fr; gap: 22px; margin-top: 52px; }
+.insight-card {
+  background: var(--white); border: 1px solid var(--gray-100);
+  border-radius: 14px; overflow: hidden; transition: all 0.25s;
+}
+.insight-card:hover { box-shadow: 0 8px 32px rgba(0,70,110,0.08); transform: translateY(-3px); }
+.insight-img { width:100%; height:220px; object-fit:cover; }
+.insight-img-tall { height:280px; }
+.insight-body { padding: 22px; }
+.insight-tag { font-size: 11px; font-weight: 700; color: var(--navy); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 8px; }
+.insight-title { font-size: 15.5px; font-weight: 700; color: var(--navy); line-height: 1.35; margin-bottom: 8px; }
+.insight-date { font-size: 12px; color: var(--gray-400); }
+.insight-desc { font-size: 13px; color: var(--gray-600); line-height: 1.6; margin-top: 8px; }
+
+/* ── CTA BANNER ── */
+#cta-strip {
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-deep) 50%, var(--navy-mid) 100%);
+  padding: 80px 0;
+}
+.cta-inner { max-width: 820px; margin: 0 auto; padding: 0 40px; text-align: center; }
+.cta-inner h2 { font-family: var(--font-serif); font-size: clamp(26px, 3vw, 40px); font-weight: 600; color: var(--white); line-height: 1.22; margin-bottom: 14px; }
+.cta-inner p { font-size: 15.5px; color: rgba(255,255,255,0.68); margin-bottom: 36px; line-height: 1.65; }
+.cta-actions { display: flex; justify-content: center; gap: 14px; }
+.btn-cta-gold { background: var(--green); color: var(--white); font-size: 14px; font-weight: 700; padding: 14px 32px; border-radius: 8px; text-decoration: none; letter-spacing: 0.03em; transition: all 0.18s; }
+.btn-cta-gold:hover { background: var(--green-light); }
+.btn-cta-wht { background: rgba(255,255,255,0.1); color: var(--white); border: 1.5px solid rgba(255,255,255,0.3); font-size: 14px; font-weight: 600; padding: 14px 32px; border-radius: 8px; text-decoration: none; transition: all 0.18s; }
+.btn-cta-wht:hover { background: rgba(255,255,255,0.18); }
+
+/* ── FOOTER ── */
+footer { background: var(--navy); color: rgba(255,255,255,0.55); padding: 72px 0 40px; }
+.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 56px; }
+.ftr-logo-row { display: flex; align-items: center; gap: 10px; margin-bottom: 18px; }
+.ftr-logo-name { font-weight: 800; font-size: 16px; letter-spacing: 0.05em; color: var(--white); text-transform: uppercase; display: block; line-height:1; }
+.ftr-tagline { font-size: 9.5px; color: rgba(255,255,255,0.35); letter-spacing: 0.13em; text-transform: uppercase; display: block; margin-top: 2px; }
+.ftr-desc { font-size: 13.5px; color: rgba(255,255,255,0.45); line-height: 1.7; max-width: 280px; }
+.ftr-address { margin-top: 16px; font-size: 13px; color: rgba(255,255,255,0.4); line-height: 1.7; }
+.social-row { display: flex; gap: 8px; margin-top: 20px; }
+.soc-btn { width: 32px; height: 32px; border-radius: 8px; background: transparent; border: none; display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.5); font-size: 12px; font-weight: 700; text-decoration: none; }
+.ftr-col h4 { font-size: 11px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.35); margin-bottom: 18px; }
+.ftr-col a { display: block; font-size: 13.5px; color: rgba(255,255,255,0.6); text-decoration: none; margin-bottom: 9px; transition: color 0.18s; }
+.ftr-col a:hover { color: var(--green-light); }
+.ftr-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 28px; display: flex; justify-content: space-between; align-items: center; font-size: 12.5px; }
+.ftr-bottom a { color: rgba(255,255,255,0.35); text-decoration: none; transition: color 0.18s; }
+.ftr-bottom a:hover { color: rgba(255,255,255,0.7); }
+
+/* Mobile responsive */
+
+
+
+/* ── SERVICE DETAIL LINK ── */
+.svc-detail-link {
+  display:inline-flex; align-items:center; gap:6px;
+  font-size:12.5px; font-weight:700; color:var(--green);
+  text-decoration:none; margin-top:16px;
+  letter-spacing:0.02em; transition:gap 0.2s;
+  border-top:1px solid var(--gray-50); padding-top:14px;
+  width:100%;
+}
+.svc-detail-link:hover { gap:10px; }
+.svc-card.featured .svc-detail-link { color:#7ED49A; border-top-color:rgba(255,255,255,0.1); }
+.ctr-detail-link {
+  display:inline-flex; align-items:center; gap:6px;
+  font-size:12.5px; font-weight:700; color:var(--green);
+  text-decoration:none; margin-top:14px;
+  border-top:1px solid var(--gray-50); padding-top:12px;
+  width:100%; transition:gap 0.2s;
+}
+.ctr-detail-link:hover { gap:10px; }
+.ctr-card.featured-ctr .ctr-detail-link { color:#7ED49A; border-top-color:rgba(255,255,255,0.1); }
+
+/* ── CHALLENGE ACCORDION PILLS ── */
+.chal-compact { display:flex; flex-direction:column; gap:8px; }
+.chal-pill {
+  border:1px solid var(--gray-100); border-radius:10px;
+  overflow:hidden; cursor:pointer; transition:all 0.2s;
+  background:var(--white);
+}
+.chal-pill:hover { border-color:var(--green); }
+.chal-pill.open { border-color:var(--green); }
+.cp-head {
+  display:flex; align-items:center; gap:10px;
+  padding:13px 16px; font-size:13.5px; font-weight:600; color:var(--navy);
+}
+.cp-icon { font-size:16px; flex-shrink:0; }
+.cp-title { flex:1; }
+.cp-arrow {
+  font-size:16px; color:var(--gray-400); transition:transform 0.2s;
+  transform: rotate(0deg);
+}
+.chal-pill.open .cp-arrow { transform: rotate(90deg); color:var(--green); }
+.cp-body {
+  display:none; padding:0 16px 14px 42px;
+  font-size:13px; color:var(--gray-600); line-height:1.6;
+}
+.chal-pill.open .cp-body { display:block; }
+/* Benefit rows compact */
+.b-row {
+  display:flex; align-items:flex-start; gap:12px;
+  padding:12px 0; border-bottom:1px solid rgba(255,255,255,0.08);
+}
+.b-row:last-child { border-bottom:none; }
+.b-ico { font-size:18px; flex-shrink:0; margin-top:2px; }
+.b-row strong { display:block; font-size:13.5px; font-weight:700; color:var(--white); margin-bottom:2px; }
+.b-row span { font-size:12.5px; color:rgba(255,255,255,0.5); }
+
+/* ── DATABASE VISUAL ── */
+.db-visual-grid {
+  display: grid;
+  grid-template-columns: 1fr 240px 1fr;
+  grid-template-rows: auto auto auto;
+  gap: 20px;
+  align-items: center;
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.db-visual-grid::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 60% 60% at 50% 50%, rgba(45,139,72,0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+.dbv-center {
+  grid-column: 2; grid-row: 1/4;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 50%; width: 200px; height: 200px; margin: 0 auto;
+  text-align: center; padding: 20px; position: relative; z-index: 2;
+}
+.dbv-logo-icon {
+  width: 48px; height: 48px; border-radius: 10px;
+  background: var(--navy-mid); border: 2px solid var(--green);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 22px; font-weight: 900; color: var(--green);
+  font-family: var(--font-main); margin: 0 auto 8px;
+}
+.dbv-logo-text {
+  font-size: 11px; font-weight: 800; color: var(--white); letter-spacing: 0.06em; text-transform: uppercase; line-height: 1.4;
+}
+.dbv-logo-text span { font-size: 8px; color: rgba(255,255,255,0.4); letter-spacing: 0.12em; }
+.dbv-tagline { font-size: 10px; color: rgba(255,255,255,0.4); margin-top: 8px; line-height: 1.4; }
+.dbv-stat {
+  background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 14px; padding: 20px 18px; text-align: center;
+  transition: all 0.25s; position: relative; z-index: 1;
+}
+.dbv-stat:hover { background: rgba(45,139,72,0.1); border-color: rgba(45,139,72,0.3); transform: scale(1.02); }
+.dbv-top-left  { grid-column:1; grid-row:1; }
+.dbv-top-right { grid-column:3; grid-row:1; }
+.dbv-mid-left  { grid-column:1; grid-row:2; }
+.dbv-mid-right { grid-column:3; grid-row:2; }
+.dbv-bot-left  { grid-column:1; grid-row:3; }
+.dbv-bot-right { grid-column:3; grid-row:3; }
+.dbv-n {
+  font-family: var(--font-serif); font-size: 32px; font-weight: 600;
+  color: #7ED49A; line-height: 1;
+}
+.dbv-n span { font-size: 18px; }
+.dbv-icon { font-size: 20px; margin: 6px 0; }
+.dbv-l { font-size: 12px; color: rgba(255,255,255,0.5); line-height: 1.5; }
+@media (max-width:960px) {
+  .db-visual-grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
+  .dbv-center { display:none; }
+  .dbv-top-left,.dbv-top-right,.dbv-mid-left,.dbv-mid-right,.dbv-bot-left,.dbv-bot-right {
+    grid-column: auto; grid-row: auto;
+  }
+}
+
+@media (max-width: 960px) {
+  #hero { grid-template-columns: 1fr; }
+  .hero-visual { display: none; }
+  .hero-content { padding: 48px 28px; }
+  .svc-grid, .db-grid, .cases-grid, .community-grid { grid-template-columns: 1fr; }
+  .method-grid, .process-track { grid-template-columns: 1fr 1fr; }
+  .process-track::before { display:none; }
+  .insights-grid { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+  .value-grid { grid-template-columns: 1fr; }
+  .header-inner { padding: 0 20px; }
+  nav { display: none; }
+  .flex-sb { flex-direction: column; align-items: flex-start; gap: 20px; }
+}
+
 
 /* ── SUB-PAGE SPECIFIC ── */
 .page-hero {
@@ -90,6 +766,7 @@ body { font-family: var(--font-main); color: var(--text); background: var(--whit
 .sub-content { padding: 64px 0; }
 .sub-content .si { max-width: var(--max-w); margin: 0 auto; padding: 0 40px; }
 
+
 .legal-layout { display:grid; grid-template-columns:240px 1fr; gap:48px; align-items:start; }
 .legal-toc { position:sticky; top:100px; background:var(--white); border:1px solid var(--gray-100); border-radius:12px; padding:20px 18px; }
 .toc-title { font-size:11px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--green); margin-bottom:14px; }
@@ -109,17 +786,82 @@ body { font-family: var(--font-main); color: var(--text); background: var(--whit
 .highlight-box { background:var(--off-white); border-left:4px solid var(--green); border-radius:0 8px 8px 0; padding:14px 18px; margin:16px 0; font-size:14px; color:var(--gray-600); line-height:1.7; }
 @media(max-width:960px){ .legal-layout{grid-template-columns:1fr;} .legal-toc{position:static;} }
 </style>
+<style id="legal-v2">
+/* ── LEGAL PAGES v2 (privacy 2.0, terms 2026) ── */
+.legal-section ol { margin:10px 0 14px 22px; display:flex; flex-direction:column; gap:6px; }
+.legal-section ol li { font-size:14px; color:var(--gray-600); line-height:1.7; }
+.legal-section a { color:var(--green); text-decoration:underline; text-underline-offset:2px; }
+.legal-section a:hover { color:var(--navy); }
+.legal-layout > * { min-width:0; }
+.legal-toc { max-height:calc(100vh - 120px); overflow:auto; }
+.toc-item.active { color:var(--navy); font-weight:600; }
+.page-hero-meta { display:flex; flex-wrap:wrap; gap:8px; margin-top:22px; }
+.page-hero-meta span { font-size:12px; color:rgba(255,255,255,.82); border:1px solid rgba(255,255,255,.22); border-radius:999px; padding:5px 12px; }
+.sum-title { font-size:11px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--green); margin-bottom:12px; }
+.sum-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin:0 0 44px; }
+.sum-card { border:1px solid var(--gray-100); border-radius:12px; padding:16px; background:var(--white); }
+.sum-card .ic { width:34px; height:34px; border-radius:9px; background:var(--green-pale); color:var(--green); display:flex; align-items:center; justify-content:center; margin-bottom:10px; }
+.sum-card .ic svg { width:18px; height:18px; }
+.sum-card h4 { font-size:14px; color:var(--navy); margin-bottom:4px; line-height:1.4; }
+.sum-card p { font-size:13px; color:var(--gray-600); line-height:1.6; }
+.table-wrap { overflow-x:auto; margin:12px 0 18px; border:1px solid var(--gray-100); border-radius:10px; }
+.legal-table { width:100%; border-collapse:collapse; font-size:13.5px; min-width:520px; }
+.legal-table th { background:var(--off-white); color:var(--navy); font-weight:700; text-align:left; padding:10px 12px; border-bottom:1px solid var(--gray-100); }
+.legal-table td { padding:10px 12px; border-top:1px solid var(--gray-50); color:var(--gray-600); vertical-align:top; line-height:1.6; }
+.legal-table tbody tr:first-child td { border-top:none; }
+.legal-table td strong { color:var(--navy); }
+.rights-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:10px; margin:12px 0 16px; }
+.right-item { background:var(--off-white); border-radius:10px; padding:12px 14px; font-size:13.5px; color:var(--gray-600); line-height:1.6; }
+.right-item strong { display:block; color:var(--navy); font-size:14px; margin-bottom:2px; }
+.contact-card { display:grid; grid-template-columns:repeat(2,1fr); gap:12px; margin:14px 0; }
+.contact-item { border:1px solid var(--gray-100); border-radius:10px; padding:12px 14px; font-size:13.5px; color:var(--gray-600); line-height:1.6; }
+.contact-item span { display:block; font-size:11px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--green); margin-bottom:2px; }
+.contact-item a, .contact-item b { color:var(--navy); font-weight:600; text-decoration:none; }
+.btn-line { display:inline-flex; align-items:center; gap:8px; border:1.5px solid var(--navy); color:var(--navy); background:var(--white); border-radius:8px; padding:9px 16px; font:600 13.5px var(--font-main); cursor:pointer; text-decoration:none !important; margin:4px 8px 4px 0; }
+.btn-line:hover { background:var(--navy); color:var(--white); }
+.notice-warn { background:#FFF8E6; border-left:4px solid #D99A00; border-radius:0 8px 8px 0; padding:14px 18px; margin:16px 0; font-size:14px; color:var(--gray-600); line-height:1.7; }
+.notice-warn strong { color:var(--navy); }
+@media (max-width:960px) { .sum-grid { grid-template-columns:1fr 1fr; } }
+@media (max-width:640px) {
+  .sum-grid, .rights-grid, .contact-card { grid-template-columns:1fr; }
+  .page-hero-inner, .sub-content .si { padding:0 16px; }
+  .legal-section h2 { font-size:19px; }
+}
+@media print {
+  #hl-chrome-header, #hl-chrome-footer, .legal-toc, .btn-line { display:none !important; }
+  .page-hero { background:none; padding:0 0 12px !important; }
+  .page-h1, .page-sub { color:#000; }
+  .legal-layout { display:block; }
+}
+.legal-table.ver td:not(:last-child), .legal-table.ver th:not(:last-child) { white-space:nowrap; }
+html[lang="ja"] body { font-family:'Inter','Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Noto Sans JP',sans-serif; }
+html[lang="ko"] body { font-family:'Inter','Apple SD Gothic Neo','Malgun Gothic','Noto Sans KR',sans-serif; }
+html[lang="zh-Hans"] body { font-family:'Inter','PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif; }
+</style>
   <link rel="stylesheet" href="../landing-chrome.css">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/icon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 </head>
 <body class="hl-with-fixed-header" data-hl-page="privacy">
+<!--
+  Bản dịch tiếng Anh của Chính sách bảo vệ dữ liệu cá nhân v2.0, hiệu lực 12/10/2026. Thay thế trang /privacy/.
+  Bản tiếng Việt được ưu tiên khi có khác biệt. Khi sửa bản tiếng Việt, sửa đồng thời các bản dịch.
+-->
 
 <div id="hl-chrome-header"></div>
 
 <section class="page-hero" style="padding-top:96px;">
   <div class="page-hero-inner">
     <div class="page-eyebrow">Privacy Policy</div>
-    <h1 class="page-h1">Privacy Policy<br><em>Personal Information &amp; Data</em></h1>
-    <p class="page-sub">HOUSELINK is committed to protecting your privacy and personal data in accordance with Vietnamese law and international standards.</p>
+    <h1 class="page-h1">Personal Data Protection Policy<br><em>Your privacy on HOUSELINK</em></h1>
+    <p class="page-sub">What data we collect, what we use it for, who we share it with, how long we keep it and how you can exercise your rights, under the Law on Personal Data Protection No. 91/2025/QH15 and Decree No. 356/2025/NĐ-CP.</p>
+    <div class="page-hero-meta">
+      <span>Version 2.0</span>
+      <span>Effective from 12 October 2026</span>
+      <span>Tiếng Việt · English · 日本語 · 한국어 · 中文</span>
+    </div>
   </div>
 </section>
 
@@ -127,145 +869,354 @@ body { font-family: var(--font-main); color: var(--text); background: var(--whit
   <div class="si">
     <div class="legal-layout">
 
-      <div class="legal-toc">
-        <div class="toc-title">Table of Contents</div>
-        <a class="toc-item" href="#s1">1. Purpose &amp; Scope</a>
-        <a class="toc-item" href="#s2">2. Information Collected</a>
-        <a class="toc-item" href="#s3">3. Purpose of Use</a>
-        <a class="toc-item" href="#s4">4. Storage &amp; Protection</a>
-        <a class="toc-item" href="#s5">5. Data Sharing</a>
-        <a class="toc-item" href="#s6">6. Your Rights</a>
-        <a class="toc-item" href="#s7">7. Cookie &amp; Tracking</a>
-        <a class="toc-item" href="#s8">8. Policy Changes</a>
-        <a class="toc-item" href="#s9">9. Contact</a>
+      <div class="legal-toc" role="navigation" aria-label="Contents">
+        <div class="toc-title">Contents</div>
+        <a class="toc-item" href="#s1">1. Who we are</a>
+        <a class="toc-item" href="#s2">2. Definitions</a>
+        <a class="toc-item" href="#s3">3. Data we process</a>
+        <a class="toc-item" href="#s4">4. Purposes and legal bases</a>
+        <a class="toc-item" href="#s5">5. Company and contact data</a>
+        <a class="toc-item" href="#s6">6. Cookies and marketing emails</a>
+        <a class="toc-item" href="#s7">7. HOUSELINK AI</a>
+        <a class="toc-item" href="#s8">8. Data sharing</a>
+        <a class="toc-item" href="#s9">9. Storage and transfers abroad</a>
+        <a class="toc-item" href="#s10">10. Retention periods</a>
+        <a class="toc-item" href="#s11">11. Your rights</a>
+        <a class="toc-item" href="#s12">12. Data security and incidents</a>
+        <a class="toc-item" href="#s13">13. Children</a>
+        <a class="toc-item" href="#s14">14. Possible risks</a>
+        <a class="toc-item" href="#s15">15. Policy changes</a>
+        <a class="toc-item" href="#s16">16. Contact</a>
       </div>
 
       <div class="legal-body">
+
         <div class="legal-meta">
-          <span><strong>Version:</strong> QDNB-001/2025</span>
-          <span><strong>Issued:</strong> 01/07/2025</span>
-          <span><strong>Effective:</strong> 01/01/2026</span>
-          <span><strong>Applies to:</strong> All HOUSELINK operations</span>
+          <span><strong>Version:</strong> 2.0, replacing QDNB-001/2025</span>
+          <span><strong>Issued:</strong> 12 October 2026</span>
+          <span><strong>Effective:</strong> 12 October 2026</span>
+          <span><strong>Data controller:</strong> HOUSELINK Joint Stock Company</span>
+          <span><strong>Language:</strong> translation of the Vietnamese version, which prevails in case of any discrepancy</span>
+        </div>
+
+        <div class="sum-title">At a glance</div>
+        <div class="sum-grid">
+          <div class="sum-card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><h4>We do not sell personal data</h4><p>We do not sell, rent or transfer personal contact information under any service package.</p></div>
+          <div class="sum-card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19"/><line x1="1" y1="1" x2="23" y2="23"/></svg></div><h4>No individual tracking</h4><p>We do not measure whether each individual opens an email or clicks a link, and we do not use behavioural advertising.</p></div>
+          <div class="sum-card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="9" cy="10" r="1"/><circle cx="15" cy="14" r="1"/><circle cx="10" cy="15" r="1"/></svg></div><h4>Cookies off until you turn them on</h4><p>Only necessary cookies are always on. The "Reject all" button is as easy to see as the "Accept" button.</p></div>
+          <div class="sum-card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><h4>Contacts shown only with consent</h4><p>Without consent, the platform shows only a department or a generic role.</p></div>
+          <div class="sum-card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="7" rx="2"/><rect x="2" y="14" width="20" height="7" rx="2"/><line x1="6" y1="6.5" x2="6.01" y2="6.5"/><line x1="6" y1="17.5" x2="6.01" y2="17.5"/></svg></div><h4>Stored in Vietnam</h4><p>The platform's servers, databases and backups are located in Vietnam.</p></div>
+          <div class="sum-card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><h4>Response within 2 working days</h4><p>Every request concerning your data is acknowledged within 2 working days, free of charge.</p></div>
         </div>
 
         <div class="legal-section" id="s1">
-          <h2>1. Purpose &amp; Scope</h2>
-          <p>This Policy is issued by <strong>HOUSELINK Joint Stock Company</strong> to ensure compliance with Vietnamese regulations on information security, data safety and personal data protection, including:</p>
+          <h2>1. Who we are and where this policy applies</h2>
+          <p><strong>HOUSELINK Joint Stock Company</strong> ("HOUSELINK", "we") is the controller and processor of the personal data described in this policy: we determine the purposes and means of processing and process the data directly.</p>
           <ul>
-            <li>Cybersecurity Law 2018</li>
-            <li>Decree 13/2023/ND-CP on personal data protection</li>
-            <li>Personal Data Protection Law 2025 (Law No. 91/2025/QH15, effective 01/01/2026)</li>
+            <li><strong>Enterprise code:</strong> 0104585924</li>
+            <li><strong>Head office:</strong> 9th Floor, Sannam Building, 78 Duy Tan Street, Cau Giay Ward, Hanoi, Vietnam</li>
+            <li><strong>Contact for personal data matters:</strong> Personal Data Protection Officer, email <a href="mailto:info@houselink.com.vn">info@houselink.com.vn</a></li>
           </ul>
-          <p>This policy applies to all users who access and use HOUSELINK services, including the website houselink.com.vn, vietnamconstruction.vn, mobile applications and other digital platforms.</p>
-          <div class="highlight-box">By using HOUSELINK services, you agree to the terms of this Privacy Policy. You have the right to withdraw consent at any time as provided under Law 91/2025/QH15.</div>
+          <p>This policy applies to:</p>
+          <ul>
+            <li>the houselink.com.vn website and the members' platform at dashboard.houselink.com.vn;</li>
+            <li>the fdisignals.com website and the Investment Signals (FDIsignals) service;</li>
+            <li>the vietnamconstruction.vn website;</li>
+            <li>emails sent by HOUSELINK, including emails from the houselink.info domain;</li>
+            <li>HOUSELINK's events, Business Matching, membership contracts, recruitment and consultancy services.</li>
+          </ul>
+          <p>This policy has been prepared in accordance with the Law on Personal Data Protection No. 91/2025/QH15, Decree No. 356/2025/NĐ-CP and the Law on Cybersecurity No. 116/2025/QH15, and replaces Privacy Policy QDNB-001/2025.</p>
+          <div class="highlight-box">Visiting the website, continuing to use our services or remaining silent <strong>is not treated as consent</strong>. Where consent is required, we ask for it separately for each purpose, with no pre-ticked boxes, and you may withdraw it at any time.</div>
         </div>
 
         <div class="legal-section" id="s2">
-          <h2>2. Information We Collect</h2>
-          <h3>2.1. Information You Provide Directly</h3>
+          <h2>2. Definitions</h2>
           <ul>
-            <li><strong>Identification:</strong> Full name, title, company name</li>
-            <li><strong>Contact Details:</strong> Email, phone number, address</li>
-            <li><strong>Professional Info:</strong> Industry, business size, operating country</li>
-            <li><strong>Communication Content:</strong> Consultation requests, questions, feedback via forms</li>
+            <li><strong>Personal data:</strong> digital data or information in any other form that identifies or helps to identify a specific individual. Information about companies, projects and industrial parks is not personal data, except for any part linked to a specific individual.</li>
+            <li><strong>Sensitive personal data:</strong> data in the categories listed in Decree No. 356/2025/NĐ-CP, for example health, biometric and location data, card information and bank transaction history, and data tracking a person's behaviour when using online services.</li>
+            <li><strong>Data subject, "you":</strong> the individual to whom the personal data relates.</li>
+            <li><strong>Processing of personal data:</strong> any operation performed on data, such as collection, analysis, storage, provision, public disclosure, transfer and deletion.</li>
+            <li><strong>Processor:</strong> an organisation that processes data on behalf of HOUSELINK under a contract, for example server and email service providers.</li>
+            <li><strong>Member:</strong> an organisation or individual with an account on the HOUSELINK platform, whether free or paid.</li>
+            <li><strong>Contact person:</strong> an individual working at a company, project owner, contractor or industrial park who is listed in HOUSELINK's database.</li>
           </ul>
-          <h3>2.2. Automatically Collected Information</h3>
-          <ul>
-            <li>IP address, browser type, operating system</li>
-            <li>Pages visited, time spent, navigation behaviour</li>
-            <li>Cookie data and similar tracking technologies (see Section 7)</li>
-          </ul>
-          <p>HOUSELINK <strong>only collect necessary data</strong> for the specific notified purposes - the data minimisation principle under Decree 13/2023/ND-CP.</p>
         </div>
 
         <div class="legal-section" id="s3">
-          <h2>3. How We Use Your Data</h2>
-          <p>HOUSELINK uses collected information to:</p>
-          <ul>
-            <li>Provide investment advisory, market research and other services you request</li>
-            <li>Send information on products, services, market reports and events (unsubscribe at any time)</li>
-            <li>Improve service quality and user experience</li>
-            <li>Comply with legal obligations and protect legitimate interests of all parties</li>
-            <li>Internal analysis and reporting to develop services</li>
-          </ul>
-          <div class="highlight-box">Your data <strong>may not be used for personal or commercial purposes</strong> or sold to third parties. HOUSELINK does not run third-party advertising on its platform.</div>
+          <h2>3. Personal data we process</h2>
+          <p>We collect only the data needed for the purposes set out in section 4.</p>
+          <div class="table-wrap"><table class="legal-table">
+            <thead><tr><th>Category of person</th><th>Data</th><th>Source</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Users and members</strong></td><td>Full name, email, job title, company, phone number (optional), profile photo (if uploaded); Google account information if you choose to sign in with Google; login and security logs (time, IP address, device); watchlists and filters you save; quote requests and reviews you submit; questions submitted to HOUSELINK AI</td><td>From you; from Google when you choose to sign in with Google</td></tr>
+              <tr><td><strong>Contract signatories and billing contacts</strong></td><td>Full name, job title, signature, the organisation's invoicing details</td><td>From you or your organisation</td></tr>
+              <tr><td><strong>Legal representatives of companies</strong></td><td>Full name, job title</td><td>The National Business Registration Portal and other public sources as permitted by law</td></tr>
+              <tr><td><strong>Other contact persons of companies, projects and industrial parks</strong></td><td>Full name, job title, department, work email and work phone number</td><td>From the person themselves; from the company that has claimed management of its profile, or from the industrial park; from business dealings with HOUSELINK</td></tr>
+              <tr><td><strong>Persons requesting to claim management of a company profile</strong></td><td>Full name, job title, email, phone number; Enterprise Registration Certificate, letter of introduction</td><td>From you. We do not accept photos of citizen identity cards.</td></tr>
+              <tr><td><strong>Newsletter subscribers</strong></td><td>Email, name, company, subscription or unsubscription choices</td><td>From you</td></tr>
+              <tr><td><strong>Event and Business Matching attendees</strong></td><td>Full name, job title, company, email, phone number, networking needs; photos and videos recorded at events</td><td>From you; recorded at events after notice has been given</td></tr>
+              <tr><td><strong>Website visitors</strong></td><td>Necessary cookies; analytics cookies if you consent; IP address, browser type; content you submit through the contact form</td><td>From your browser and from you</td></tr>
+              <tr><td><strong>Job applicants</strong></td><td>Job applications, contact details</td><td>From you</td></tr>
+              <tr><td><strong>Individual partners and freelancers</strong></td><td>Full name, contact details, scope of work, assessments of work quality</td><td>From you; from the contract</td></tr>
+            </tbody>
+          </table></div>
+          <div class="highlight-box"><strong>Sensitive data.</strong> We do not actively collect sensitive personal data. Apart from the security logs needed to keep our systems secure, we do not record how each individual uses our services for analysis, profiling or advertising. If we need to process sensitive data in future, we will clearly inform you that it is sensitive data and obtain your separate consent before processing it.</div>
         </div>
 
         <div class="legal-section" id="s4">
-          <h2>4. Data Storage &amp; Protection</h2>
-          <h3>4.1. Security Systems</h3>
-          <ul>
-            <li>Data is stored on systems with end-to-end encryption, firewalls and intrusion prevention software</li>
-            <li>Data access controlled on a "need-to-know" basis</li>
-            <li>Important data backed up regularly at secure locations</li>
-            <li>Data transmitted via HTTPS/TLS encrypted channels</li>
-          </ul>
-          <h3>4.2. Retention Period</h3>
-          <p>Personal data is only stored for the time necessary to fulfil the stated purpose, or as required by law. Data will then be permanently deleted via a secure process.</p>
+          <h2>4. Purposes and legal bases for processing</h2>
+          <p>Each purpose has its own legal basis. Where the basis is consent, you give consent separately for each purpose, with no pre-ticked boxes, and may withdraw it at any time. Silence or failure to respond is not treated as consent.</p>
+          <div class="table-wrap"><table class="legal-table">
+            <thead><tr><th>Purpose</th><th>Data category</th><th>Legal basis</th></tr></thead>
+            <tbody>
+              <tr><td>Providing accounts and member services, and customer support</td><td>Users, members</td><td>Performance of an agreement with you</td></tr>
+              <tr><td>Entering into contracts, payment, invoicing and accounting</td><td>Contract signatories, billing contacts</td><td>Performance of an agreement; obligations under accounting and tax law</td></tr>
+              <tr><td>Keeping accounts and systems secure, detecting unauthorised access</td><td>Login and security logs</td><td>Performance of an agreement; legal obligation to ensure data security</td></tr>
+              <tr><td>Displaying company information, including legal representatives</td><td>Legal representatives</td><td>Information made public under the Law on Enterprises, within the scope already made public</td></tr>
+              <tr><td>Displaying and connecting with other contact persons</td><td>Contact persons</td><td>Consent of the named person, within the scope they choose (section 5)</td></tr>
+              <tr><td>Verifying requests to claim management of a company profile</td><td>Requesters</td><td>Performance of an agreement with you</td></tr>
+              <tr><td>Sending service notices (renewals, changes to terms, security alerts)</td><td>Users, members</td><td>Performance of an agreement with you</td></tr>
+              <tr><td>Sending newsletters and marketing information</td><td>Newsletter subscribers</td><td>Your consent</td></tr>
+              <tr><td>Organising events and Business Matching, making introductions</td><td>Attendees</td><td>Performance of the attendance registration agreement; separate consent for each introduction and for the use of photos for promotional purposes</td></tr>
+              <tr><td>Aggregate statistics on website traffic</td><td>Analytics cookies</td><td>Consent through the cookie settings panel</td></tr>
+              <tr><td>Recruitment</td><td>Job applicants</td><td>Your consent</td></tr>
+              <tr><td>Managing partners and freelancers</td><td>Partners</td><td>Performance of an agreement</td></tr>
+              <tr><td>Complying with requests from competent state authorities</td><td>As requested</td><td>As required by law</td></tr>
+            </tbody>
+          </table></div>
+          <p>Where we need to use data for a new purpose, we will notify you in advance and obtain your consent where the law requires it.</p>
         </div>
 
         <div class="legal-section" id="s5">
-          <h2>5. Sharing Data with Third Parties</h2>
-          <p>HOUSELINK <strong>does not sell, rent or trade</strong> your personal data. We only share data in the following cases:</p>
+          <h2>5. Company information and contact persons on the platform</h2>
+          <p>The HOUSELINK platform provides information about companies, projects and industrial parks. We <strong>do not sell, rent or transfer</strong> personal contact information, whether under a service package or on request.</p>
           <ul>
-            <li><strong>Service Partners:</strong> Technology, data storage and analytics providers bound by strict confidentiality contracts</li>
-            <li><strong>Legal Requirements:</strong> Per decisions of competent state authorities</li>
-            <li><strong>Your Consent:</strong> When you specifically permit sharing, e.g. connecting with partners in the HOUSELINK ecosystem</li>
+            <li><strong>Company information</strong> (name, enterprise code, address, business lines, general email, switchboard number) is not personal data.</li>
+            <li><strong>Legal representatives:</strong> only the full name and job title are displayed, exactly as published on the National Business Registration Portal, together with the source and date of update. The legal representative's phone number, personal email, identity document number and address are not displayed.</li>
+            <li><strong>Other contact persons:</strong> their full name and job title are displayed only if they consent. Without consent, the platform displays only a department or a generic role, for example "Purchasing department".</li>
+            <li><strong>Individuals' phone numbers and email addresses</strong> are not displayed to members. Members who wish to make contact send a connection request through HOUSELINK; we forward the request to the company's general email address or to a person who has agreed to receive connection requests.</li>
           </ul>
+          <p>If you find your information on the platform, you can email <a href="mailto:info@houselink.com.vn">info@houselink.com.vn</a> with a link to the page containing that information.</p>
         </div>
 
         <div class="legal-section" id="s6">
-          <h2>6. Your Legal Rights</h2>
-          <p>Under Decree 13/2023/ND-CP and Law 91/2025/QH15, you have the following rights:</p>
+          <h2>6. Cookies, analytics and marketing emails</h2>
+          <p>All non-essential cookies are off until you turn them on. You make your choices in the cookie settings panel when you first visit the website and can change them at any time using the button below or the "Cookie settings" link in the footer. The "Reject all" button is as easy to see as the "Accept" button.</p>
+          <div class="table-wrap"><table class="legal-table">
+            <thead><tr><th>Cookie category</th><th>Used for</th><th>Default</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Necessary</strong></td><td>Sign-in, security, remembering your language and your cookie choices</td><td>Always on, as the website cannot function without them</td></tr>
+              <tr><td><strong>Analytics</strong></td><td>Aggregate statistics on visits and the most viewed pages using Google Analytics, not linked to your identity</td><td>Off</td></tr>
+              <tr><td><strong>Marketing</strong></td><td>HOUSELINK does not use marketing cookies. If we use them in future, we will update this policy and turn them on only with your consent.</td><td>Not used</td></tr>
+            </tbody>
+          </table></div>
+          <p hidden><button type="button" class="btn-line" data-hl-cookie-settings>Open cookie settings</button></p>
+          <p>We do not track your activity on other websites and do not use behavioural advertising. View and follower counts for company profiles are shown only as numbers; companies are not told who has viewed or followed them.</p>
+          <h3>Marketing emails and service notices</h3>
           <ul>
-            <li><strong>Right to Know:</strong> Know the purpose and scope of your data processing</li>
-            <li><strong>Right of Access:</strong> Request to view personal data HOUSELINK holds</li>
-            <li><strong>Right of Rectification:</strong> Request correction of inaccurate data</li>
-            <li><strong>Right of Erasure:</strong> Request deletion of data when no longer necessary</li>
-            <li><strong>Right to Restrict Processing:</strong> Request suspension of processing in specific cases</li>
-            <li><strong>Right to Withdraw Consent:</strong> Withdraw consent at any time without affecting the lawfulness of prior processing</li>
-            <li><strong>Right to Lodge a Complaint:</strong> Complain to the Authority for Information Security (Ministry of Information &amp; Communications) if you believe your rights are violated</li>
+            <li>Newsletters and marketing information are sent only to people who have subscribed. When you subscribe, you are informed of the content, format and frequency of the mailings.</li>
+            <li>Every marketing email contains an unsubscribe link. When you unsubscribe, the system stops sending immediately and does not resume.</li>
+            <li>We <strong>do not measure email opens or link clicks person by person</strong>; we only look at aggregate figures for each campaign as a whole.</li>
+            <li>We do not send marketing emails to purchased lists or to contacts who have not consented.</li>
+            <li>Service notices to members (renewals, changes to terms, security alerts) are sent separately and contain no advertising.</li>
           </ul>
-          <p>To exercise these rights, please contact: <strong>info@houselink.com.vn</strong> - response within 30 working days as required by law.</p>
         </div>
 
         <div class="legal-section" id="s7">
-          <h2>7. Cookies &amp; Tracking Technologies</h2>
-          <p>The HOUSELINK website uses cookies and similar technologies to improve user experience:</p>
+          <h2>7. HOUSELINK AI and automated processing</h2>
+          <p>HOUSELINK AI answers questions about projects, companies and industrial parks within the permissions of your account.</p>
           <ul>
-            <li><strong>Essential Cookies:</strong> Necessary for website operation, cannot be disabled</li>
-            <li><strong>Analytics Cookies:</strong> Help us understand how users interact with the website (Google Analytics)</li>
-            <li><strong>Cookie marketing:</strong> Only used with your consent, to personalise content</li>
+            <li>The question box states clearly that you are asking an artificial intelligence assistant.</li>
+            <li>The context sent to the model contains no personal contact information. HOUSELINK AI does not answer questions aimed at looking up or compiling information about an individual.</li>
+            <li>Please do not enter your own or other people's personal information in your questions.</li>
+            <li>Questions are separated from your account before being stored and are deleted after 90 days.</li>
+            <li>Data sent to the model is not used by the provider to train models, under the terms of the service plan that HOUSELINK uses.</li>
+            <li>Insights reports prepared with the assistance of artificial intelligence are labelled as such and are reviewed and approved by a person before publication.</li>
           </ul>
-          <p>You can manage cookie preferences via browser settings or the cookie banner on first visit.</p>
+          <p>We do not use automated processing to make decisions that have legal effects on individuals. Rankings and ratings on the platform apply to companies, not to individuals. You have the right to request that your data not be subject to automated processing, and to ask a member of HOUSELINK's staff to review a result generated by the system.</p>
         </div>
 
         <div class="legal-section" id="s8">
-          <h2>8. Policy Changes</h2>
-          <p>HOUSELINK may update this Privacy Policy from time to time, especially when there are changes in law or services. When significant changes occur, we will:</p>
-          <ul>
-            <li>Notify registered users via email</li>
-            <li>Display a prominent notice on the website</li>
-            <li>Update the "Issued" date at the top of the document</li>
-          </ul>
+          <h2>8. Who we share data with</h2>
+          <p>We <strong>do not sell personal data</strong>. Data is provided only to the parties listed below, to the extent necessary.</p>
+          <div class="table-wrap"><table class="legal-table">
+            <thead><tr><th>Recipient</th><th>Data</th><th>Conditions</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Server and data storage providers</strong></td><td>All data on the platform</td><td>Data processing agreement; processing only on HOUSELINK's instructions</td></tr>
+              <tr><td><strong>Google</strong> (Google Workspace, Sign in with Google, Google Analytics)</td><td>Email addresses, names, message content; Google account information when you sign in with Google; aggregate traffic data when you enable analytics cookies</td><td>Google's data processing terms; transfer abroad as described in section 9</td></tr>
+              <tr><td><strong>Map service providers</strong></td><td>IP address, the page being viewed when the map loads</td><td>Maps on project pages load only when you click to view them</td></tr>
+              <tr><td><strong>E-invoicing providers and banks</strong></td><td>Invoicing and payment information</td><td>Under contract and in accordance with accounting and tax law</td></tr>
+              <tr><td><strong>Companies to which you send a quote request or review</strong></td><td>The information you choose to send, as stated next to the send button</td><td>When you click send</td></tr>
+              <tr><td><strong>Industrial parks and investors in Business Matching</strong></td><td>Contact information and networking needs</td><td>Your consent for each introduction</td></tr>
+              <tr><td><strong>Event sponsors and co-organisers</strong></td><td>Full name, job title, company, email</td><td>Only if you tick the separate consent box when registering</td></tr>
+              <tr><td><strong>Competent state authorities</strong></td><td>As requested</td><td>As required by law</td></tr>
+            </tbody>
+          </table></div>
+          <p>If HOUSELINK undergoes a corporate reorganisation (merger, division, separation or transfer), data will be transferred only in accordance with the law and we will notify you.</p>
         </div>
 
         <div class="legal-section" id="s9">
-          <h2>9. Contact</h2>
-          <p>For any questions, requests regarding data privacy or exercising your rights, please contact:</p>
+          <h2>9. Storage in Vietnam and transfers of data abroad</h2>
+          <p>The HOUSELINK platform's application servers, databases and backups are located in Vietnam.</p>
+          <p>Some Google services that we use may process data in data centres outside Vietnam:</p>
           <ul>
-            <li><strong>Data Management Department - HOUSELINK</strong></li>
-            <li>📍 Level 9, Sannam Building, 78 Duy Tan, Cau Giay, Hanoi</li>
-            <li>✉ info@houselink.com.vn</li>
-            <li>📞 +84 966 222 490</li>
+            <li>Email addresses, the content of correspondence with HOUSELINK and the emails we send to you;</li>
+            <li>Google account information when you choose to sign in with Google;</li>
+            <li>Google Analytics measurement data, when you enable analytics cookies.</li>
+          </ul>
+          <p>We keep the data sent abroad to a minimum.</p>
+        </div>
+
+        <div class="legal-section" id="s10">
+          <h2>10. Retention periods</h2>
+          <p>Data is kept only for as long as needed for the purposes of processing or for the period required by law. When that period ends, the data is deleted or de-identified.</p>
+          <div class="table-wrap"><table class="legal-table">
+            <thead><tr><th>Data</th><th>Retention period</th></tr></thead>
+            <tbody>
+              <tr><td>Member accounts</td><td>For as long as you use the services; accounts that remain inactive for 24 months after the package expires are deleted or de-identified</td></tr>
+              <tr><td>Contracts and payment records</td><td>For the period required by accounting law</td></tr>
+              <tr><td>Documents uploaded with a request to claim management of a profile</td><td>Up to 90 days after approval; thereafter only the verification result and date are kept</td></tr>
+              <tr><td>Legal representatives</td><td>For as long as the information remains public; updated when it changes</td></tr>
+              <tr><td>Other contact persons</td><td>Until the person withdraws consent or requests deletion; for persons who do not consent or do not respond to a request for consent, personal information is deleted and only the department is kept</td></tr>
+              <tr><td>Questions submitted to HOUSELINK AI</td><td>90 days, separated from the account</td></tr>
+              <tr><td>Login and security logs</td><td>24 months</td></tr>
+              <tr><td>Newsletter subscriptions</td><td>Until you unsubscribe; thereafter only your email address is kept on a do-not-send list to ensure that no further emails are sent</td></tr>
+              <tr><td>Unsuccessful job applications</td><td>Deleted at the end of the recruitment round; kept for 12 months if you agree to their retention for future rounds</td></tr>
+              <tr><td>Event photos and videos</td><td>36 months as internal records; photos used for promotional purposes within the scope you have consented to</td></tr>
+              <tr><td>Cookies</td><td>According to the lifetime of each cookie, up to 13 months</td></tr>
+              <tr><td>Data incident records</td><td>5 years after remediation, for inspection purposes</td></tr>
+            </tbody>
+          </table></div>
+        </div>
+
+        <div class="legal-section" id="s11">
+          <h2>11. Your rights and how to exercise them</h2>
+          <p>Under Article 4 of the Law on Personal Data Protection, you have the right:</p>
+          <div class="rights-grid">
+            <div class="right-item"><strong>To be informed</strong>about the processing of your personal data</div>
+            <div class="right-item"><strong>To give or refuse consent</strong>and to request the withdrawal of consent</div>
+            <div class="right-item"><strong>To access and rectify</strong>your data, or to request its rectification</div>
+            <div class="right-item"><strong>To request provision, deletion or restriction of processing</strong>and to object to the processing of your data</div>
+            <div class="right-item"><strong>To complain, report violations or take legal action</strong>and to claim compensation for damage in accordance with the law</div>
+            <div class="right-item"><strong>To request protection</strong>by asking a competent authority or a relevant party to take measures to protect your personal data</div>
+          </div>
+          <h3>How to submit a request</h3>
+          <ul>
+            <li>Email <a href="mailto:info@houselink.com.vn">info@houselink.com.vn</a>, clearly stating your request and the information concerned;</li>
+            <li>Call the hotline on (+84) 966 222 490 or the switchboard on 024 3795 5620 during working hours;</li>
+            <li>Write to or visit HOUSELINK's head office in person; members can submit requests on the "My privacy" page in their account.</li>
+          </ul>
+          <p>Exercising your rights is <strong>free of charge</strong>. To avoid disclosing your data to the wrong person, we verify your identity through your logged-in account or your registered email address. We ask for additional information only where this is not sufficient, and we do not request a photo of your citizen identity card unless it is necessary.</p>
+          <p><strong>Time limits</strong> under Article 5 of Decree No. 356/2025/NĐ-CP:</p>
+          <div class="table-wrap"><table class="legal-table">
+            <thead><tr><th>Request</th><th>Response</th><th>Completion</th><th>If a processor's cooperation is needed</th><th>Extension</th></tr></thead>
+            <tbody>
+              <tr><td>Withdrawal of consent, restriction of or objection to processing</td><td>2 working days</td><td>15 days</td><td>20 days</td><td>Once, up to 15 days</td></tr>
+              <tr><td>Access to, rectification or provision of data</td><td>2 working days</td><td>10 days</td><td>15 days</td><td>Once, up to 10 days</td></tr>
+              <tr><td>Deletion of data</td><td>2 working days</td><td>20 days</td><td>30 days</td><td>Once, up to 20 days</td></tr>
+            </tbody>
+          </table></div>
+          <p>If we extend a time limit, we will inform you of the reason before it expires. Unsubscribing from the newsletter and turning off cookies take effect immediately, without waiting for the time limits above.</p>
+          <p><strong>Where we cannot fully comply</strong>, for example where the law requires us to continue retaining accounting records, or where providing the data would affect the rights of others, we will reply in writing, stating the reasons and the legal basis.</p>
+          <p><strong>Complaints:</strong> you can submit a complaint to HOUSELINK's Personal Data Protection Officer. You also have the right to lodge a complaint or report a violation with the specialised personal data protection authority under the Ministry of Public Security, or to bring a lawsuit in court.</p>
+        </div>
+
+        <div class="legal-section" id="s12">
+          <h2>12. Data protection and incident handling</h2>
+          <p>We apply organisational and technical measures appropriate to the level of risk to the data:</p>
+          <ul>
+            <li>Encryption of connections between your browser and our servers (HTTPS/TLS); protected backups;</li>
+            <li>Role-based access control, under which access is granted only where needed for work; mandatory two-factor authentication for administrative staff;</li>
+            <li>Detailed personal contact information can be viewed only by a small number of administrators, and every view is logged;</li>
+            <li>Staff sign confidentiality undertakings and receive regular training;</li>
+            <li>Providers that process data must sign contracts containing confidentiality obligations;</li>
+            <li>New features that use personal data are assessed before launch.</li>
+          </ul>
+          <p>In the event of a leak or loss of, or unauthorised access to, personal data, we take immediate action to contain it. We notify the specialised personal data protection authority <strong>within 72 hours</strong> and notify affected individuals in accordance with the law. Incident records are retained for inspection purposes.</p>
+        </div>
+
+        <div class="legal-section" id="s13">
+          <h2>13. Children's personal data</h2>
+          <p>HOUSELINK's services are intended for organisations, companies and adults working in industrial real estate and investment. HOUSELINK does not knowingly collect personal data of persons under 18, including children (persons under 16), and does not design its services for children.</p>
+          <ul>
+            <li>When registering an account, you confirm that you are 18 or older.</li>
+            <li>If we discover that we have collected a child's data without consent as required by Article 24 of Law 91/2025/QH15, HOUSELINK will stop processing and delete that data without delay.</li>
+            <li>Parents or guardians may contact us as set out in section 16 to request a review and deletion.</li>
           </ul>
         </div>
+
+        <div class="legal-section" id="s14">
+          <h2>14. Possible risks and unintended consequences</h2>
+          <p>Although we apply the measures described in section 12, no system is completely secure. Possible risks include:</p>
+          <ul>
+            <li>unauthorised access resulting from cyberattacks or software vulnerabilities;</li>
+            <li>human error, for example sending an email to the wrong recipient or granting the wrong permissions;</li>
+            <li>account takeover because a password has been exposed or is reused on other services;</li>
+            <li>emails, messages or calls impersonating HOUSELINK for fraudulent purposes.</li>
+          </ul>
+          <p>Consequences may include receiving spam, being defrauded or being impersonated. To reduce these risks, you should use a unique password for HOUSELINK, not share your account and sign out of shared devices.</p>
+          <div class="notice-warn"><strong>HOUSELINK will never ask you to provide a password or OTP code, or to transfer money, by email, message or phone.</strong> Official emails are sent only from the houselink.com.vn and houselink.info domains. If you suspect that someone is impersonating HOUSELINK, please let us know as set out in section 16. If an incident occurs that may affect you, HOUSELINK will notify you as set out in section 12.</div>
+        </div>
+
+        <div class="legal-section" id="s15">
+          <h2>15. Changes to this policy and languages</h2>
+          <ul>
+            <li>This policy is reviewed periodically and whenever the law or HOUSELINK's data processing activities change.</li>
+            <li>For material changes (new purposes, new categories of data, new recipients, new transfers of data abroad), HOUSELINK gives notice on the website and by email to account holders at least 7 days before the changes take effect. If a change requires consent, HOUSELINK will ask for your consent again; continued use of the services is not treated as consent.</li>
+            <li>This policy is published in Vietnamese, English, Japanese, Korean and Chinese (Simplified) with the same version number and effective date. In case of any discrepancy between versions, the Vietnamese version prevails.</li>
+          </ul>
+          <div class="table-wrap"><table class="legal-table ver">
+            <thead><tr><th>Version</th><th>Issued</th><th>Effective</th><th>Description</th></tr></thead>
+            <tbody>
+              <tr><td>QDNB-001/2025</td><td>1 July 2025</td><td>1 January 2026</td><td>Privacy Policy under Decree 13/2023/NĐ-CP</td></tr>
+              <tr><td>2.0</td><td>12 October 2026</td><td>12 October 2026</td><td>Full revision under Law 91/2025/QH15 and Decree 356/2025/NĐ-CP; replaces QDNB-001/2025</td></tr>
+            </tbody>
+          </table></div>
+        </div>
+
+        <div class="legal-section" id="s16">
+          <h2>16. Contact</h2>
+          <p>For any questions or requests concerning personal data, please contact the <strong>Personal Data Protection Officer, HOUSELINK Joint Stock Company</strong>. We will acknowledge receipt of your request and reply within the time limits set out in section 11.</p>
+          <div class="contact-card">
+            <div class="contact-item"><span>Personal data email</span><a href="mailto:info@houselink.com.vn">info@houselink.com.vn</a></div>
+            <div class="contact-item"><span>Phone</span><b>(+84) 966 222 490</b> · Switchboard <b>024 3795 5620</b></div>
+            <div class="contact-item"><span>Address</span>9th Floor, Sannam Building, 78 Duy Tan Street, Cau Giay Ward, Hanoi, Vietnam</div>
+            <div class="contact-item"><span>Working hours</span>8:00 - 17:30, Monday to Friday, excluding public holidays</div>
+          </div>
+          <p><a class="btn-line" href="mailto:info@houselink.com.vn?subject=Personal%20data%20request">Submit a data request</a><a class="btn-line" href="/terms/">View the Terms of Use</a></p>
+        </div>
+
       </div>
     </div>
   </div>
 </section>
 
 <div id="hl-chrome-footer"></div>
+<script>
+(function () {
+  var links = [].slice.call(document.querySelectorAll('.legal-toc .toc-item'));
+  var map = {};
+  links.forEach(function (a) { map[a.getAttribute('href').slice(1)] = a; });
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        links.forEach(function (l) { l.classList.remove('active'); });
+        if (map[e.target.id]) map[e.target.id].classList.add('active');
+      });
+    }, { rootMargin: '-110px 0px -70% 0px' });
+    [].forEach.call(document.querySelectorAll('.legal-section[id]'), function (s) { io.observe(s); });
+  }
+  // Cookie settings button: calls window.hlOpenCookieSettings() if the cookie banner exposes it,
+  // otherwise fires the "hl:open-cookie-settings" event for the banner script to handle.
+  [].forEach.call(document.querySelectorAll('[data-hl-cookie-settings]'), function (b) {
+    b.addEventListener('click', function () {
+      if (typeof window.hlOpenCookieSettings === 'function') { window.hlOpenCookieSettings(); }
+      else { document.dispatchEvent(new CustomEvent('hl:open-cookie-settings')); }
+    });
+  });
+})();
+</script>
   <script src="../landing-chrome.js" defer></script>
 </body>
 </html>

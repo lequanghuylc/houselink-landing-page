@@ -39,7 +39,7 @@ img{max-width:100%;display:block;}
 .svc-hero{background:linear-gradient(135deg,var(--navy-deep) 0%,var(--navy) 60%,#004060 100%);padding:72px 0 64px;position:relative;overflow:hidden;}
 .svc-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 55% 80% at 80% 50%,rgba(45,139,72,0.12) 0%,transparent 60%);pointer-events:none;}
 .svc-hero::after{content:'';position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,0.03) 1px,transparent 1px);background-size:28px 28px;pointer-events:none;}
-.hero-wrap{max-width:1200px;margin:0 auto;padding:0 40px;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;position:relative;z-index:1;}
+.hero-wrap{max-width:1200px;margin:0 auto;padding:0 40px;display:grid;grid-template-columns:minmax(0,760px);gap:64px;align-items:center;position:relative;z-index:1;}
 .hero-badge{display:inline-flex;align-items:center;gap:7px;background:rgba(45,139,72,0.15);border:1px solid rgba(45,139,72,0.35);border-radius:100px;padding:5px 14px;font-size:11px;font-weight:700;color:#7ED49A;letter-spacing:.1em;text-transform:uppercase;margin-bottom:20px;}
 .hero-badge::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--green);}
 .hero-h1{font-family:var(--font-serif);font-size:clamp(28px,3.8vw,50px);font-weight:600;color:#fff;line-height:1.16;letter-spacing:-.02em;margin-bottom:18px;}
@@ -239,6 +239,10 @@ img{max-width:100%;display:block;}
 
 </style>
   <link rel="stylesheet" href="../../../landing-chrome.css">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/icon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 </head>
 <body class="hl-with-fixed-header" data-hl-page="services-esg">
 
@@ -267,24 +271,6 @@ img{max-width:100%;display:block;}
       <div class="hero-ctas">
         <a href="/zh/contact/" class="btn-g">免费ESG与DPPA咨询 →</a>
         <a href="#architecture" class="btn-outline-w">查看集成模型</a>
-      </div>
-    </div>
-    <div class="hero-right">
-      <div class="hsc">
-        <div class="hsc-ico">🏭</div>
-        <div><div class="hsc-n">478 工业园区</div><div class="hsc-l">全国--40–50%必须在2030年前达到EIP</div></div>
-      </div>
-      <div class="hsc">
-        <div class="hsc-ico">🌿</div>
-        <div><div class="hsc-n">ISO 14067</div><div class="hsc-l">Glassdome--首个经验证的PCF平台</div></div>
-      </div>
-      <div class="hsc">
-        <div class="hsc-ico">⚡</div>
-        <div><div class="hsc-n">30–70%</div><div class="hsc-l">工业园区DPPA直供绿色电力比例</div></div>
-      </div>
-      <div class="hsc">
-        <div class="hsc-ico">📅</div>
-        <div><div class="hsc-n">01/01/2026</div><div class="hsc-l">CBAM正式生效--需立即行动</div></div>
       </div>
     </div>
   </div>

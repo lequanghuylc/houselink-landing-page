@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>プライバシーポリシー – HOUSELINK</title>
+<title>個人データ保護方針 - HOUSELINK</title>
+<meta name="description" content="HOUSELINKによる個人データの収集、利用、共有、保存、保護の方法と、個人データ保護法（第91/2025/QH15号）および政令第356/2025/NĐ-CP号に基づく権利の行使方法をご案内します。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
@@ -785,17 +786,82 @@ footer { background: var(--navy); color: rgba(255,255,255,0.55); padding: 72px 0
 .highlight-box { background:var(--off-white); border-left:4px solid var(--green); border-radius:0 8px 8px 0; padding:14px 18px; margin:16px 0; font-size:14px; color:var(--gray-600); line-height:1.7; }
 @media(max-width:960px){ .legal-layout{grid-template-columns:1fr;} .legal-toc{position:static;} }
 </style>
+<style id="legal-v2">
+/* ── LEGAL PAGES v2 (privacy 2.0, terms 2026) ── */
+.legal-section ol { margin:10px 0 14px 22px; display:flex; flex-direction:column; gap:6px; }
+.legal-section ol li { font-size:14px; color:var(--gray-600); line-height:1.7; }
+.legal-section a { color:var(--green); text-decoration:underline; text-underline-offset:2px; }
+.legal-section a:hover { color:var(--navy); }
+.legal-layout > * { min-width:0; }
+.legal-toc { max-height:calc(100vh - 120px); overflow:auto; }
+.toc-item.active { color:var(--navy); font-weight:600; }
+.page-hero-meta { display:flex; flex-wrap:wrap; gap:8px; margin-top:22px; }
+.page-hero-meta span { font-size:12px; color:rgba(255,255,255,.82); border:1px solid rgba(255,255,255,.22); border-radius:999px; padding:5px 12px; }
+.sum-title { font-size:11px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--green); margin-bottom:12px; }
+.sum-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin:0 0 44px; }
+.sum-card { border:1px solid var(--gray-100); border-radius:12px; padding:16px; background:var(--white); }
+.sum-card .ic { width:34px; height:34px; border-radius:9px; background:var(--green-pale); color:var(--green); display:flex; align-items:center; justify-content:center; margin-bottom:10px; }
+.sum-card .ic svg { width:18px; height:18px; }
+.sum-card h4 { font-size:14px; color:var(--navy); margin-bottom:4px; line-height:1.4; }
+.sum-card p { font-size:13px; color:var(--gray-600); line-height:1.6; }
+.table-wrap { overflow-x:auto; margin:12px 0 18px; border:1px solid var(--gray-100); border-radius:10px; }
+.legal-table { width:100%; border-collapse:collapse; font-size:13.5px; min-width:520px; }
+.legal-table th { background:var(--off-white); color:var(--navy); font-weight:700; text-align:left; padding:10px 12px; border-bottom:1px solid var(--gray-100); }
+.legal-table td { padding:10px 12px; border-top:1px solid var(--gray-50); color:var(--gray-600); vertical-align:top; line-height:1.6; }
+.legal-table tbody tr:first-child td { border-top:none; }
+.legal-table td strong { color:var(--navy); }
+.rights-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:10px; margin:12px 0 16px; }
+.right-item { background:var(--off-white); border-radius:10px; padding:12px 14px; font-size:13.5px; color:var(--gray-600); line-height:1.6; }
+.right-item strong { display:block; color:var(--navy); font-size:14px; margin-bottom:2px; }
+.contact-card { display:grid; grid-template-columns:repeat(2,1fr); gap:12px; margin:14px 0; }
+.contact-item { border:1px solid var(--gray-100); border-radius:10px; padding:12px 14px; font-size:13.5px; color:var(--gray-600); line-height:1.6; }
+.contact-item span { display:block; font-size:11px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--green); margin-bottom:2px; }
+.contact-item a, .contact-item b { color:var(--navy); font-weight:600; text-decoration:none; }
+.btn-line { display:inline-flex; align-items:center; gap:8px; border:1.5px solid var(--navy); color:var(--navy); background:var(--white); border-radius:8px; padding:9px 16px; font:600 13.5px var(--font-main); cursor:pointer; text-decoration:none !important; margin:4px 8px 4px 0; }
+.btn-line:hover { background:var(--navy); color:var(--white); }
+.notice-warn { background:#FFF8E6; border-left:4px solid #D99A00; border-radius:0 8px 8px 0; padding:14px 18px; margin:16px 0; font-size:14px; color:var(--gray-600); line-height:1.7; }
+.notice-warn strong { color:var(--navy); }
+@media (max-width:960px) { .sum-grid { grid-template-columns:1fr 1fr; } }
+@media (max-width:640px) {
+  .sum-grid, .rights-grid, .contact-card { grid-template-columns:1fr; }
+  .page-hero-inner, .sub-content .si { padding:0 16px; }
+  .legal-section h2 { font-size:19px; }
+}
+@media print {
+  #hl-chrome-header, #hl-chrome-footer, .legal-toc, .btn-line { display:none !important; }
+  .page-hero { background:none; padding:0 0 12px !important; }
+  .page-h1, .page-sub { color:#000; }
+  .legal-layout { display:block; }
+}
+.legal-table.ver td:not(:last-child), .legal-table.ver th:not(:last-child) { white-space:nowrap; }
+html[lang="ja"] body { font-family:'Inter','Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Noto Sans JP',sans-serif; }
+html[lang="ko"] body { font-family:'Inter','Apple SD Gothic Neo','Malgun Gothic','Noto Sans KR',sans-serif; }
+html[lang="zh-Hans"] body { font-family:'Inter','PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif; }
+</style>
   <link rel="stylesheet" href="../../landing-chrome.css">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/icon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 </head>
 <body class="hl-with-fixed-header" data-hl-page="privacy">
+<!--
+  Bản dịch tiếng Nhật của Chính sách bảo vệ dữ liệu cá nhân v2.0, hiệu lực 12/10/2026. Thay thế trang /ja/privacy/.
+  Bản tiếng Việt được ưu tiên khi có khác biệt. Khi sửa bản tiếng Việt, sửa đồng thời các bản dịch.
+-->
 
 <div id="hl-chrome-header"></div>
 
 <section class="page-hero" style="padding-top:96px;">
   <div class="page-hero-inner">
     <div class="page-eyebrow">プライバシーポリシー</div>
-    <h1 class="page-h1">プライバシーポリシー<br><em>個人情報＆データ</em></h1>
-    <p class="page-sub">HouseLINKはベトナム法律および国際国際基準。</p>
+    <h1 class="page-h1">個人データ保護方針<br><em>HOUSELINKにおけるお客様のプライバシー</em></h1>
+    <p class="page-sub">当社がどのようなデータを収集し、何のために利用し、誰と共有し、どのくらいの期間保存するのか、またお客様がご自身の権利をどのように行使できるのかについて、個人データ保護法（第91/2025/QH15号）および政令第356/2025/NĐ-CP号に基づきご説明します。</p>
+    <div class="page-hero-meta">
+      <span>バージョン 2.0</span>
+      <span>2026年10月12日施行</span>
+      <span>Tiếng Việt · English · 日本語 · 한국어 · 中文</span>
+    </div>
   </div>
 </section>
 
@@ -803,141 +869,321 @@ footer { background: var(--navy); color: rgba(255,255,255,0.55); padding: 72px 0
   <div class="si">
     <div class="legal-layout">
 
-      <!-- Table of Contents -->
-      <div class="legal-toc">
+      <div class="legal-toc" role="navigation" aria-label="目次">
         <div class="toc-title">目次</div>
-        <a class="toc-item" href="#s1">1. 目的＆範囲</a>
-        <a class="toc-item" href="#s2">2. 収集情報</a>
-        <a class="toc-item" href="#s3">3. 利用目的</a>
-        <a class="toc-item" href="#s4">4. 保存＆保護</a>
-        <a class="toc-item" href="#s5">5. データ共有</a>
-        <a class="toc-item" href="#s6">6. お客様の権利</a>
-        <a class="toc-item" href="#s7">7. Cookie & Tracking</a>
-        <a class="toc-item" href="#s8">8. ポリシーの変更</a>
-        <a class="toc-item" href="#s9">9. お問い合わせ</a>
+        <a class="toc-item" href="#s1">1. 当社について</a>
+        <a class="toc-item" href="#s2">2. 用語の定義</a>
+        <a class="toc-item" href="#s3">3. 処理するデータ</a>
+        <a class="toc-item" href="#s4">4. 目的と根拠</a>
+        <a class="toc-item" href="#s5">5. 企業情報と連絡担当者</a>
+        <a class="toc-item" href="#s6">6. Cookieとマーケティングメール</a>
+        <a class="toc-item" href="#s7">7. HOUSELINK AI</a>
+        <a class="toc-item" href="#s8">8. データの共有</a>
+        <a class="toc-item" href="#s9">9. 保存と国外移転</a>
+        <a class="toc-item" href="#s10">10. 保存期間</a>
+        <a class="toc-item" href="#s11">11. お客様の権利</a>
+        <a class="toc-item" href="#s12">12. データ保護とインシデント</a>
+        <a class="toc-item" href="#s13">13. 児童</a>
+        <a class="toc-item" href="#s14">14. 想定されるリスク</a>
+        <a class="toc-item" href="#s15">15. 方針の変更</a>
+        <a class="toc-item" href="#s16">16. お問い合わせ</a>
       </div>
 
-      <!-- Content -->
       <div class="legal-body">
 
         <div class="legal-meta">
-          <span><strong>バージョン：</strong> QDNB-001/2025</span>
-          <span><strong>発行日：</strong> 01/07/2025</span>
-          <span><strong>発効日：</strong> 01/01/2026</span>
-          <span><strong>適用対象：</strong> HouseLINKの全活動</span>
+          <span><strong>バージョン：</strong>2.0（QDNB-001/2025に代わるもの）</span>
+          <span><strong>発行日：</strong>2026年10月12日</span>
+          <span><strong>施行日：</strong>2026年10月12日</span>
+          <span><strong>データ管理者：</strong>HOUSELINK株式会社</span>
+          <span><strong>言語：</strong>本ページはベトナム語版の翻訳であり、相違がある場合はベトナム語版が優先します</span>
+        </div>
+
+        <div class="sum-title">概要</div>
+        <div class="sum-grid">
+          <div class="sum-card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><h4>個人データを販売しません</h4><p>いかなるサービスプランにおいても、個人の連絡先情報を販売、貸与または譲渡することはありません。</p></div>
+          <div class="sum-card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19"/><line x1="1" y1="1" x2="23" y2="23"/></svg></div><h4>個人ごとの追跡を行いません</h4><p>個人ごとのメール開封やリンクのクリックを測定せず、行動ターゲティング広告も行いません。</p></div>
+          <div class="sum-card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="9" cy="10" r="1"/><circle cx="15" cy="14" r="1"/><circle cx="10" cy="15" r="1"/></svg></div><h4>Cookieはお客様が有効にするまでオフ</h4><p>常に有効なのは必須Cookieのみです。「すべて拒否」ボタンは「同意する」ボタンと同じように見やすく表示されます。</p></div>
+          <div class="sum-card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><h4>連絡担当者は同意がある場合のみ表示</h4><p>同意が得られていない場合、本プラットフォームには部署名または一般的な役割のみが表示されます。</p></div>
+          <div class="sum-card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="7" rx="2"/><rect x="2" y="14" width="20" height="7" rx="2"/><line x1="6" y1="6.5" x2="6.01" y2="6.5"/><line x1="6" y1="17.5" x2="6.01" y2="17.5"/></svg></div><h4>ベトナム国内で保存</h4><p>本プラットフォームのサーバー、データベースおよびバックアップは、ベトナム国内に設置されています。</p></div>
+          <div class="sum-card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><h4>2営業日以内に対応</h4><p>お客様のデータに関するすべてのご請求について、2営業日以内に無料で受領を確認します。</p></div>
         </div>
 
         <div class="legal-section" id="s1">
-          <h2>1. 目的＆適用範囲</h2>
-          <p>本ポリシーは <strong>HOUSELINK株式会社</strong> ベトナムの情報セキュリティ・データ安全・個人データ保護に関する規制の遵守を確保するために。個人データ、含む：</p>
+          <h2>1. 当社について、および本方針の適用範囲</h2>
+          <p><strong>HOUSELINK株式会社</strong>（以下「HOUSELINK」または「当社」）は、本方針に記載する個人データの管理者兼処理者です。当社は、処理の目的および手段を決定し、データを直接処理します。</p>
           <ul>
-            <li>2018年サイバーセキュリティ法</li>
-            <li>個人データ保護に関する政令13/2023/ND-CP</li>
-            <li>2025年個人データ保護法（法律第91/2025/QH15号、2026年01月01日施行）</li>
+            <li><strong>企業コード：</strong>0104585924</li>
+            <li><strong>本社所在地：</strong>9th Floor, Sannam Building, 78 Duy Tan Street, Cau Giay Ward, Hanoi, Vietnam</li>
+            <li><strong>個人データに関する窓口：</strong>個人データ保護担当者、メール：<a href="mailto:info@houselink.com.vn">info@houselink.com.vn</a></li>
           </ul>
-          <p>本ポリシーはhouselink.ウェブサイトを含むHouseLINKサービスにアクセスし使用するすべてのユーザーに適用されます。com.vn, vietnamconstruction.vn, モバイルアプリケーションおよびその他のデジタルプラットフォーム。</p>
-          <div class="highlight-box">HouseLINKサービスを使用することで、本プライバシーポリシーの条項に同意します。お客様は法律第91/2025/QH15の規定に従っていつでも同意を撤回できます。</div>
+          <p>本方針は、以下に適用されます。</p>
+          <ul>
+            <li>ウェブサイトhouselink.com.vn、およびdashboard.houselink.com.vnの会員向けプラットフォーム</li>
+            <li>ウェブサイトfdisignals.com、および投資シグナル（FDIsignals）サービス</li>
+            <li>ウェブサイトvietnamconstruction.vn</li>
+            <li>HOUSELINKが送信するメール（ドメインhouselink.infoから送信されるメールを含みます）</li>
+            <li>HOUSELINKのイベント、Business Matching、会員契約、採用活動および各種コンサルティングサービス</li>
+          </ul>
+          <p>本方針は、個人データ保護法（第91/2025/QH15号）、政令第356/2025/NĐ-CP号およびサイバーセキュリティ法（第116/2025/QH15号）に基づいて策定されたものであり、プライバシーポリシー（QDNB-001/2025）に代わるものです。</p>
+          <div class="highlight-box">お客様がウェブサイトにアクセスすること、サービスの利用を継続すること、または何も意思表示をしないことは、<strong>同意とはみなされません</strong>。同意が必要な場合、当社は目的ごとに個別に同意をお願いし、あらかじめチェックが入った欄は設けません。お客様はいつでも同意を撤回することができます。</div>
         </div>
 
         <div class="legal-section" id="s2">
-          <h2>2. 収集する情報</h2>
-          <h3>2.1. 直接提供した情報</h3>
+          <h2>2. 用語の定義</h2>
           <ul>
-            <li><strong>識別情報：</strong> 氏名・職位・会社名</li>
-            <li><strong>連絡先情報：</strong> メール・電話番号・住所</li>
-            <li><strong>職業情報：</strong> 業種・企業規模・運営国</li>
-            <li><strong>コミュニケーション内容：</strong> フォームで送信された相談要請・質問・フィードバック</li>
+            <li><strong>個人データ：</strong>特定の個人を識別し、または識別に役立つ、デジタルデータその他の形式の情報。企業、プロジェクトおよび工業団地に関する情報は、特定の個人に結び付く部分を除き、個人データではありません。</li>
+            <li><strong>機微な個人データ：</strong>政令第356/2025/NĐ-CP号に定める一覧に属する種類のデータ。例えば、健康データ、生体データ、位置データ、カード情報および銀行取引履歴、オンラインサービスの利用行動を追跡するデータなど。</li>
+            <li><strong>データ主体、「お客様」：</strong>個人データによって示される本人。</li>
+            <li><strong>個人データの処理：</strong>収集、分析、保存、提供、公開、移転、削除など、データに対して行われるあらゆる行為。</li>
+            <li><strong>処理者：</strong>契約に基づき、HOUSELINKに代わってデータを処理する組織。例えば、サーバーやメールサービスの提供事業者。</li>
+            <li><strong>会員：</strong>無料または有料で、HOUSELINKのプラットフォーム上にアカウントを有する組織または個人。</li>
+            <li><strong>連絡担当者：</strong>HOUSELINKのデータベースに掲載されている、企業、事業主、請負業者または工業団地に勤務する個人。</li>
           </ul>
-          <h3>2.2. 自動収集情報</h3>
-          <ul>
-            <li>IPアドレス・ブラウザタイプ・OS</li>
-            <li>訪問ページ・滞在時間・ナビゲーション行動</li>
-            <li>Cookieデータおよび類似のトラッキング技術（第7節参照）</li>
-          </ul>
-          <p>HOUSELINK <strong>必要なデータのみ収集</strong> 通知された特定の目的のために - 政令13/2023/ND-CPに基づくデータ最小化原則。</p>
         </div>
 
         <div class="legal-section" id="s3">
-          <h2>3. データ利用目的</h2>
-          <p>HouseLINKは収集した情報を以下の目的で使用します：</p>
-          <ul>
-            <li>お客様が要求する投資アドバイザリー・市場調査・その他サービスの提供</li>
-            <li>製品・サービス・市場レポート・イベント情報の送信（いつでも解除可能）</li>
-            <li>サービス品質とユーザー体験の向上</li>
-            <li>法的義務の遵守とすべての当事者の正当な利益の保護</li>
-            <li>サービス開発のための内部分析とレポート</li>
-          </ul>
-          <div class="highlight-box">お客様のデータ <strong>個人的または商業的目的に使用してはなりません</strong> または第三者に販売しません。HouseLINKは自社プラットフォームで第三者広告を掲載しません。</div>
+          <h2>3. 当社が処理する個人データ</h2>
+          <p>当社は、第4項に記載する目的に必要なデータのみを収集します。</p>
+          <div class="table-wrap"><table class="legal-table">
+            <thead><tr><th>対象者</th><th>データ</th><th>取得元</th></tr></thead>
+            <tbody>
+              <tr><td><strong>ユーザー、会員</strong></td><td>氏名、メールアドレス、役職、会社名、電話番号（任意）、プロフィール画像（アップロードした場合）。Googleでのログインを選択した場合のGoogleアカウント情報。ログインおよびセキュリティのログ（日時、IPアドレス、端末）。お客様がご自身で保存したウォッチリストおよびフィルター。お客様が送信した見積依頼および評価。HOUSELINK AIへの質問</td><td>お客様から取得。Googleでのログインを選択した場合はGoogleから取得</td></tr>
+              <tr><td><strong>契約署名者、支払担当者</strong></td><td>氏名、役職、署名、所属組織の請求書発行情報</td><td>お客様またはお客様の所属組織から取得</td></tr>
+              <tr><td><strong>企業の法定代表者</strong></td><td>氏名、役職</td><td>国家企業登録ポータルその他法令に基づく公開情報源</td></tr>
+              <tr><td><strong>企業、プロジェクト、工業団地のその他の連絡担当者</strong></td><td>氏名、役職、部署、業務用のメールアドレスおよび電話番号</td><td>ご本人から取得。企業プロフィールの管理申請が承認された企業または工業団地から取得。HOUSELINKとの業務上のやり取りから取得</td></tr>
+              <tr><td><strong>企業プロフィールの管理申請者</strong></td><td>氏名、役職、メールアドレス、電話番号。企業登録証明書、紹介状</td><td>お客様から取得。当社は国民IDカードの画像は受け付けません。</td></tr>
+              <tr><td><strong>ニュースレターの受信登録者</strong></td><td>メールアドレス、氏名、会社名、登録または登録解除の選択</td><td>お客様から取得</td></tr>
+              <tr><td><strong>イベント、Business Matchingの参加者</strong></td><td>氏名、役職、会社名、メールアドレス、電話番号、マッチングのニーズ。イベントで撮影された写真および動画</td><td>お客様から取得。イベントにおいて事前に告知したうえで撮影</td></tr>
+              <tr><td><strong>ウェブサイト訪問者</strong></td><td>必須Cookie。お客様が同意した場合の測定用Cookie。IPアドレス、ブラウザの種類。お問い合わせフォームを通じてお客様が送信した内容</td><td>ブラウザおよびお客様から取得</td></tr>
+              <tr><td><strong>応募者</strong></td><td>応募書類、連絡先情報</td><td>お客様から取得</td></tr>
+              <tr><td><strong>個人のパートナー、業務委託者</strong></td><td>氏名、連絡先情報、業務内容、業務品質の評価</td><td>お客様から取得、契約から取得</td></tr>
+            </tbody>
+          </table></div>
+          <div class="highlight-box"><strong>機微な個人データ。</strong>当社は、機微な個人データを能動的に収集することはありません。システムの安全確保に必要なセキュリティログを除き、分析、プロファイリングまたは広告を目的として、個人ごとのサービス利用行動を記録することはありません。将来、機微な個人データを処理する必要が生じた場合には、それが機微な個人データであることを明示したうえで、処理の前に個別に同意をお願いします。</div>
         </div>
 
         <div class="legal-section" id="s4">
-          <h2>4. データ保存＆保護</h2>
-          <h3>4.1. セキュリティシステム</h3>
-          <ul>
-            <li>データはエンドツーエンド暗号化・ファイアウォール・侵入防止ソフトウェアを備えたシステムに保存されます</li>
-            <li>データアクセスは「need-to-know」原則で管理されます</li>
-            <li>重要データは安全な場所に定期的にバックアップされます</li>
-            <li>HTTPS/TLS暗号化チャネルでのデータ転送</li>
-          </ul>
-          <h3>4.2. 保存期間</h3>
-          <p>個人データは記載された目的を達成するために必要な期間のみ、または法律の要求に従って保存されます。法律。その後データは安全なプロセスを通じて永久に削除されます。</p>
+          <h2>4. 処理の目的および根拠</h2>
+          <p>目的ごとに個別の根拠があります。根拠が同意である場合、お客様は目的ごとに個別に同意し（あらかじめチェックが入った欄は設けません）、いつでも同意を撤回することができます。何も意思表示をしないこと、または回答しないことは、同意とはみなされません。</p>
+          <div class="table-wrap"><table class="legal-table">
+            <thead><tr><th>目的</th><th>データ区分</th><th>根拠</th></tr></thead>
+            <tbody>
+              <tr><td>アカウント、会員サービスおよびカスタマーサポートの提供</td><td>ユーザー、会員</td><td>お客様との合意の履行</td></tr>
+              <tr><td>契約の締結、支払、請求書の発行、会計処理</td><td>契約署名者、支払担当者</td><td>合意の履行。会計および税務に関する法令上の義務</td></tr>
+              <tr><td>アカウントおよびシステムの安全確保、不正アクセスの検知</td><td>ログインおよびセキュリティのログ</td><td>合意の履行。法令に基づくデータの安全確保義務</td></tr>
+              <tr><td>法定代表者を含む企業情報の表示</td><td>法定代表者</td><td>企業法に基づき公開されている情報（公開されている範囲内）</td></tr>
+              <tr><td>その他の連絡担当者の表示および当該担当者へのコンタクト</td><td>連絡担当者</td><td>氏名が掲載される本人の同意（本人が選択した範囲による。第5項）</td></tr>
+              <tr><td>企業プロフィールの管理申請の確認</td><td>申請者</td><td>お客様との合意の履行</td></tr>
+              <tr><td>サービスに関するお知らせ（契約更新、規約変更、セキュリティ警告）の送信</td><td>ユーザー、会員</td><td>お客様との合意の履行</td></tr>
+              <tr><td>ニュースレター、マーケティング情報の送信</td><td>ニュースレターの受信登録者</td><td>お客様の同意</td></tr>
+              <tr><td>イベント、Business Matchingの開催、マッチング先の紹介</td><td>参加者</td><td>参加登録に関する合意の履行。各回の紹介および写真のプロモーション利用についての個別の同意</td></tr>
+              <tr><td>集計形式によるウェブサイトのアクセス統計</td><td>測定用Cookie</td><td>Cookie設定パネルを通じた同意</td></tr>
+              <tr><td>採用</td><td>応募者</td><td>お客様の同意</td></tr>
+              <tr><td>パートナー、業務委託者の管理</td><td>パートナー</td><td>合意の履行</td></tr>
+              <tr><td>権限を有する国家機関の要請への対応</td><td>要請に応じて</td><td>法令の定めによる</td></tr>
+            </tbody>
+          </table></div>
+          <p>データを新たな目的に利用する必要がある場合、当社は事前にお知らせし、法令で求められるときは同意をお願いします。</p>
         </div>
 
         <div class="legal-section" id="s5">
-          <h2>5. 第三者とのデータ共有</h2>
-          <p>HOUSELINK <strong>販売・賃貸・交換しません</strong> お客様の個人データ。以下の場合にのみデータを共有します：</p>
+          <h2>5. 本プラットフォーム上の企業情報および連絡担当者</h2>
+          <p>HOUSELINKのプラットフォームは、企業、プロジェクトおよび工業団地に関する情報を提供します。当社は、サービスプランの一部としても、個別の依頼に応じても、個人の連絡先情報を<strong>販売、貸与または譲渡することはありません</strong>。</p>
           <ul>
-            <li><strong>サービスパートナー：</strong> 厳格な機密契約を締結した技術・データ保存・分析プロバイダー</li>
-            <li><strong>法的要件：</strong> 管轄国家機関の決定に従って</li>
-            <li><strong>お客様の同意：</strong> お客様が特別に共有を許可した場合、例：HouseLINKエコシステムのパートナーとの接続</li>
+            <li><strong>企業情報</strong>（名称、企業コード、所在地、業種、代表メールアドレス、代表電話番号）は、個人データではありません。</li>
+            <li><strong>法定代表者：</strong>国家企業登録ポータルで公開されているとおりの氏名および役職のみを、情報源および更新日とともに表示します。代表者の電話番号、個人のメールアドレス、身分証明書類の番号または住所は表示しません。</li>
+            <li><strong>その他の連絡担当者：</strong>氏名および役職は、本人が同意した場合にのみ表示されます。同意が得られていない場合、本プラットフォームには部署名または一般的な役割（例：「購買部」）のみが表示されます。</li>
+            <li><strong>個人の電話番号およびメールアドレス</strong>は、会員には表示されません。連絡を希望する会員は、HOUSELINKを通じてコンタクト依頼を送信します。当社は、その依頼を企業の代表メールアドレス、またはコンタクト依頼の受け取りに同意した本人に転送します。</li>
           </ul>
+          <p>本プラットフォーム上にご自身の情報が掲載されていることにお気付きの場合は、その情報が掲載されているページのリンクを添えて、<a href="mailto:info@houselink.com.vn">info@houselink.com.vn</a>までメールでご連絡ください。</p>
         </div>
 
         <div class="legal-section" id="s6">
-          <h2>6. お客様の法的権利</h2>
-          <p>政令13/2023/ND-CPおよび法律91/2025/QH15に基づき、お客様は以下の権利を有します：</p>
+          <h2>6. Cookie、測定およびマーケティングメール</h2>
+          <p>必須ではないCookieは、お客様が有効にするまですべてオフになっています。お客様は、ウェブサイトに初めてアクセスした際にCookie設定パネルで選択することができ、下のボタンまたはフッターの「Cookie設定」リンクからいつでも変更できます。「すべて拒否」ボタンは「同意する」ボタンと同じように見やすく表示されます。</p>
+          <div class="table-wrap"><table class="legal-table">
+            <thead><tr><th>Cookieの種類</th><th>用途</th><th>初期設定</th></tr></thead>
+            <tbody>
+              <tr><td><strong>必須</strong></td><td>ログイン、セキュリティ、言語設定およびお客様のCookie選択の記憶</td><td>常にオン（これがないとウェブサイトが機能しないため）</td></tr>
+              <tr><td><strong>測定</strong></td><td>Google Analyticsを用いた、アクセス数および閲覧数の多いページに関する集計形式の統計（お客様の身元とは結び付けません）</td><td>オフ</td></tr>
+              <tr><td><strong>マーケティング</strong></td><td>HOUSELINKはマーケティングCookieを使用していません。将来使用する場合は、本方針を更新し、お客様が同意した場合にのみ有効にします。</td><td>使用しない</td></tr>
+            </tbody>
+          </table></div>
+          <p hidden><button type="button" class="btn-line" data-hl-cookie-settings>Cookie設定を開く</button></p>
+          <p>当社は、他のウェブサイトにおけるお客様の行動を追跡せず、行動ターゲティング広告も行いません。企業プロフィールの閲覧数およびフォロワー数は数値としてのみ表示され、企業は誰が閲覧またはフォローしたかを知ることはできません。</p>
+          <h3>マーケティングメールおよびサービスに関するお知らせ</h3>
           <ul>
-            <li><strong>知る権利：</strong> お客様のデータ処理の目的と範囲を知る</li>
-            <li><strong>アクセス権：</strong> HouseLINKが保有する個人データの閲覧を要求</li>
-            <li><strong>訂正権：</strong> 不正確なデータの訂正を要求</li>
-            <li><strong>削除権：</strong> 必要でなくなったときのデータ削除を要求</li>
-            <li><strong>処理制限権：</strong> 特定のケースでの処理中断を要求</li>
-            <li><strong>同意撤回権：</strong> 以前の処理の合法性に影響を与えることなくいつでも同意を撤回</li>
-            <li><strong>苦情申告権：</strong> 権利が侵害されたと考える場合は情報セキュリティ局（情報通信省）に苦情を申告</li>
+            <li>ニュースレターおよびマーケティング情報は、受信登録をした方にのみ送信します。登録の際に、送信する内容、形式および頻度をお知らせします。</li>
+            <li>すべてのマーケティングメールには登録解除のリンクがあります。登録を解除すると、システムは直ちに送信を停止し、再び送信することはありません。</li>
+            <li>当社は、<strong>お客様によるメールの開封やリンクのクリックを個人ごとに測定することはありません</strong>。確認するのはキャンペーン全体の集計データのみです。</li>
+            <li>外部から購入したリストや、同意していない連絡担当者に対して、マーケティングメールを送信することはありません。</li>
+            <li>会員向けのサービスに関するお知らせ（契約更新、規約変更、セキュリティ警告）は、広告を含めずに別途送信します。</li>
           </ul>
-          <p>これらの権利を行使するには、お問い合わせください： <strong>info@houselink.com.vn</strong> - 法律の規定に従い30営業日以内に回答。</p>
         </div>
 
         <div class="legal-section" id="s7">
-          <h2>7. Cookie＆トラッキング技術</h2>
-          <p>HouseLINKウェブサイトはユーザー体験を向上させるためにCookieおよび類似技術を使用します：</p>
+          <h2>7. HOUSELINK AIおよび自動処理</h2>
+          <p>HOUSELINK AIは、アカウントの権限の範囲内で、プロジェクト、企業および工業団地に関する質問に回答します。</p>
           <ul>
-            <li><strong>必須Cookie：</strong> ウェブサイト運営に必要、無効化不可</li>
-            <li><strong>分析Cookie：</strong> ユーザーがウェブサイトとどのように相互作用するかを把握するのに役立ちます（Google Analytics）</li>
-            <li><strong>Cookie marketing:</strong> お客様の同意を得た場合のみ、コンテンツのパーソナライズに使用</li>
+            <li>質問画面には、お客様が人工知能アシスタントに質問していることが明示されます。</li>
+            <li>モデルに送信されるコンテキストには、個人の連絡先情報は含まれません。HOUSELINK AIは、特定の個人に関する情報の検索または集約を目的とした質問には回答しません。</li>
+            <li>ご自身または他者の個人情報を質問に入力しないでください。</li>
+            <li>質問はアカウントから切り離したうえで保存され、90日後に削除されます。</li>
+            <li>モデルに送信されたデータは、HOUSELINKが利用するサービスプランの規約に基づき、提供事業者によるモデルの学習には使用されません。</li>
+            <li>人工知能の支援を受けて作成されたInsightsレポートにはその旨のラベルが付され、公開前に担当者が確認および承認します。</li>
           </ul>
-          <p>ブラウザ設定または初回訪問時のCookieバナーを通じてCookieの設定を管理できます。</p>
+          <p>当社は、個人に法的効果を及ぼす決定を自動処理によって行うことはありません。本プラットフォーム上のランキングおよび評価スコアは企業を対象とするものであり、個人には適用されません。お客様は、ご自身のデータを自動処理の対象としないよう求める権利、およびシステムが生成した結果についてHOUSELINKの担当者による再確認を求める権利を有します。</p>
         </div>
 
         <div class="legal-section" id="s8">
-          <h2>8. ポリシーの変更</h2>
-          <p>HouseLINKは特に法律やサービスに変更がある場合、随時本プライバシーポリシーを更新することがあります。サービス。重要な変更が生じた場合、当社は以下を実施します：</p>
-          <ul>
-            <li>登録ユーザーにメールで通知</li>
-            <li>ウェブサイトに目立つ通知を表示</li>
-            <li>文書上部の「発行日」を更新</li>
-          </ul>
+          <h2>8. データの共有先</h2>
+          <p>当社は<strong>個人データを販売しません</strong>。データは、以下の提供先に対し、必要な範囲内でのみ提供されます。</p>
+          <div class="table-wrap"><table class="legal-table">
+            <thead><tr><th>提供先</th><th>データ</th><th>条件</th></tr></thead>
+            <tbody>
+              <tr><td><strong>サーバー、データストレージの提供事業者</strong></td><td>本プラットフォーム上のすべてのデータ</td><td>データ処理契約による。HOUSELINKの指示に従ってのみ処理</td></tr>
+              <tr><td><strong>Google</strong>（Google Workspace、Googleでのログイン、Google Analytics）</td><td>メールアドレス、氏名、メールの内容。Googleでログインした場合のGoogleアカウント情報。測定用Cookieを有効にした場合の集計アクセスデータ</td><td>Googleのデータ処理規約による。国外移転は第9項に従う</td></tr>
+              <tr><td><strong>地図サービスの提供事業者</strong></td><td>地図の読み込み時のIPアドレス、閲覧中のページ</td><td>プロジェクトページ内の地図は、お客様が表示をクリックした場合にのみ読み込まれます</td></tr>
+              <tr><td><strong>電子請求書の事業者、銀行</strong></td><td>請求書発行情報、支払情報</td><td>契約ならびに会計および税務に関する法令による</td></tr>
+              <tr><td><strong>お客様が見積依頼または評価を送信する企業</strong></td><td>お客様が送信を選択した情報（送信ボタンの箇所に明示）</td><td>お客様が送信ボタンをクリックした場合</td></tr>
+              <tr><td><strong>Business Matchingにおける工業団地、投資家</strong></td><td>連絡先情報およびマッチングのニーズ</td><td>各回の紹介についてのお客様の同意</td></tr>
+              <tr><td><strong>スポンサー、イベントの共催者</strong></td><td>氏名、役職、会社名、メールアドレス</td><td>登録時にお客様が個別の同意欄を選択した場合のみ</td></tr>
+              <tr><td><strong>権限を有する国家機関</strong></td><td>要請に応じて</td><td>法令の定めによる</td></tr>
+            </tbody>
+          </table></div>
+          <p>HOUSELINKが組織再編（合併、分割、分社化、譲渡）を行う場合、データは法令の定めに従ってのみ移転され、当社はその旨をお客様にお知らせします。</p>
         </div>
 
         <div class="legal-section" id="s9">
-          <h2>9. お問い合わせ</h2>
-          <p>データプライバシーや権利行使に関する質問・要請は、こちらにお問い合わせください：</p>
+          <h2>9. ベトナム国内での保存およびデータの国外移転</h2>
+          <p>HOUSELINKのプラットフォームのアプリケーションサーバー、データベースおよびバックアップは、ベトナム国内に設置されています。</p>
+          <p>当社が利用する一部のGoogleサービスでは、ベトナム国外のデータセンターでデータが処理される場合があります。</p>
           <ul>
-            <li><strong>データ管理部門 - HouseLINK</strong></li>
-            <li>📍 9階、Sannamビル、78 Duy Tan、カウザイ、ハノイ</li>
-            <li>✉ info@houselink.com.vn</li>
-            <li>📞 +84 966 222 490</li>
+            <li>メールアドレス、HOUSELINKとやり取りしたメールの内容、および当社がお客様に送信するメール</li>
+            <li>お客様がGoogleでのログインを選択した場合のGoogleアカウント情報</li>
+            <li>お客様が測定用Cookieを有効にした場合のGoogle Analyticsの測定データ</li>
           </ul>
+          <p>当社は、国外に送信するデータを必要最小限に限定します。</p>
+        </div>
+
+        <div class="legal-section" id="s10">
+          <h2>10. 保存期間</h2>
+          <p>データは、処理の目的に必要な期間、または法令で定められた期間に限り保存されます。期間が満了したデータは、削除または非識別化されます。</p>
+          <div class="table-wrap"><table class="legal-table">
+            <thead><tr><th>データ</th><th>保存期間</th></tr></thead>
+            <tbody>
+              <tr><td>会員アカウント</td><td>サービスの利用期間中。プランの終了後24か月間利用のないアカウントは、削除または非識別化されます</td></tr>
+              <tr><td>契約書、支払証憑</td><td>会計に関する法令に定める期間</td></tr>
+              <tr><td>企業プロフィールの管理申請時にアップロードされた書類</td><td>承認後最長90日間。その後は確認結果および確認日のみを保持</td></tr>
+              <tr><td>法定代表者</td><td>情報が公開されている期間中。変更があった場合は更新</td></tr>
+              <tr><td>その他の連絡担当者</td><td>本人が同意を撤回するか、削除を請求するまで。同意しなかった方、または同意のお願いに回答しなかった方については、個人情報を削除し、部署名のみを保持</td></tr>
+              <tr><td>HOUSELINK AIへの質問</td><td>90日間（アカウントから切り離した状態で保存）</td></tr>
+              <tr><td>ログイン履歴、セキュリティログ</td><td>24か月</td></tr>
+              <tr><td>ニュースレターの受信登録</td><td>お客様が登録を解除するまで。その後は、再送信しないことを確保するため、配信停止リストにメールアドレスのみを保持</td></tr>
+              <tr><td>不採用となった応募書類</td><td>選考の終了時に削除。次回の選考のための保持にお客様が同意した場合は12か月</td></tr>
+              <tr><td>イベントの写真、動画</td><td>社内資料として36か月。プロモーションに使用する写真は、お客様が同意した範囲による</td></tr>
+              <tr><td>Cookie</td><td>各Cookieの有効期間による（最長13か月）</td></tr>
+              <tr><td>データインシデントの記録</td><td>対応完了後5年間（検査に備えるため）</td></tr>
+            </tbody>
+          </table></div>
+        </div>
+
+        <div class="legal-section" id="s11">
+          <h2>11. お客様の権利と行使方法</h2>
+          <p>個人データ保護法第4条に基づき、お客様は以下の権利を有します。</p>
+          <div class="rights-grid">
+            <div class="right-item"><strong>知る権利</strong>ご自身の個人データの処理活動について知る権利</div>
+            <div class="right-item"><strong>同意または不同意</strong>同意し、または同意せず、同意の撤回を求める権利</div>
+            <div class="right-item"><strong>閲覧および訂正</strong>データを閲覧および訂正し、または訂正を求める権利</div>
+            <div class="right-item"><strong>提供、削除、処理の制限の請求</strong>データの提供、削除、処理の制限を求め、データの処理に異議を申し立てる権利</div>
+            <div class="right-item"><strong>苦情申立て、告発、訴訟の提起</strong>苦情申立て、告発または訴訟の提起を行い、法令に基づき損害賠償を請求する権利</div>
+            <div class="right-item"><strong>保護の請求</strong>権限を有する機関または関係者に対し、ご自身の個人データを保護する措置を講じるよう求める権利</div>
+          </div>
+          <h3>請求の方法</h3>
+          <ul>
+            <li>メール：<a href="mailto:info@houselink.com.vn">info@houselink.com.vn</a>宛てに、請求内容および対象となる情報を明記してお送りください。</li>
+            <li>電話：営業時間内に、ホットライン(+84) 966 222 490または代表電話024 3795 5620までお電話ください。</li>
+            <li>書面または来訪：書面をお送りいただくか、HOUSELINKの本社に直接お越しください。会員は、アカウント内の「マイプライバシー」ページから請求を送信することもできます。</li>
+          </ul>
+          <p>権利の行使は<strong>無料</strong>です。お客様のデータを誤って他者に提供することがないよう、当社は、ログイン済みのアカウントまたは登録済みのメールアドレスを通じて本人確認を行います。この方法で不十分な場合に限り追加情報をお尋ねし、必要でない限り国民IDカードの画像を求めることはありません。</p>
+          <p><strong>対応期限</strong>は、政令第356/2025/NĐ-CP号第5条に基づき、以下のとおりです。</p>
+          <div class="table-wrap"><table class="legal-table">
+            <thead><tr><th>請求内容</th><th>初回回答</th><th>完了</th><th>処理者の協力が必要な場合</th><th>延長</th></tr></thead>
+            <tbody>
+              <tr><td>同意の撤回、処理の制限、処理への異議</td><td>2営業日</td><td>15日</td><td>20日</td><td>1回、最長15日</td></tr>
+              <tr><td>データの閲覧、訂正、提供</td><td>2営業日</td><td>10日</td><td>15日</td><td>1回、最長10日</td></tr>
+              <tr><td>データの削除</td><td>2営業日</td><td>20日</td><td>30日</td><td>1回、最長20日</td></tr>
+            </tbody>
+          </table></div>
+          <p>期限を延長する場合、当社は期限が到来する前にその理由をお客様にお知らせします。ニュースレターの登録解除およびCookieの無効化は、上記の期限を待たずに直ちに有効となります。</p>
+          <p><strong>当社が請求に完全には応じられない場合</strong>（例えば、法令により会計証憑の保存継続が義務付けられている場合や、データの提供が他者の権利に影響を及ぼす場合）には、理由および根拠を明記した書面で回答します。</p>
+          <p><strong>苦情申立て：</strong>お客様は、HOUSELINKの個人データ保護担当者に苦情を申し立てることができます。また、公安省の個人データ保護専門機関に苦情申立てもしくは告発を行い、または裁判所に訴訟を提起する権利も有します。</p>
+        </div>
+
+        <div class="legal-section" id="s12">
+          <h2>12. データ保護およびインシデント対応</h2>
+          <p>当社は、データのリスクの程度に応じて、以下の管理的および技術的措置を講じています。</p>
+          <ul>
+            <li>ブラウザとサーバー間の通信を暗号化（HTTPS/TLS）し、バックアップを保護しています。</li>
+            <li>業務上必要な場合にのみアクセスを認める原則に基づき、役割ごとに権限を設定しています。管理担当の従業員には二要素認証を義務付けています。</li>
+            <li>個人の詳細な連絡先情報を閲覧できるのは少数の管理者のみであり、閲覧のたびにログが記録されます。</li>
+            <li>従業員は秘密保持誓約書に署名し、定期的に研修を受けています。</li>
+            <li>データを処理する事業者は、秘密保持義務を定めた契約を締結しなければなりません。</li>
+            <li>個人データを使用する新機能は、リリース前に評価を行います。</li>
+          </ul>
+          <p>個人データの漏えい、滅失または不正アクセスのインシデントが発生した場合、当社は直ちに封じ込めの措置を講じます。法令の定めに従い、個人データ保護専門機関に<strong>72時間以内</strong>に通知するとともに、影響を受けた方にも通知します。インシデントの記録は、検査に備えて保存されます。</p>
+        </div>
+
+        <div class="legal-section" id="s13">
+          <h2>13. 児童の個人データ</h2>
+          <p>HOUSELINKのサービスは、工業用不動産および投資の分野で活動する組織、企業および成年者を対象としています。HOUSELINKは、児童（16歳未満の者）を含む18歳未満の者の個人データを意図的に収集することはなく、児童向けにサービスを設計していません。</p>
+          <ul>
+            <li>アカウントの登録時に、お客様は18歳以上であることを確認するものとします。</li>
+            <li>個人データ保護法（第91/2025/QH15号）第24条に基づく同意なく児童のデータを収集していたことが判明した場合、HOUSELINKは遅滞なく当該データの処理を停止し、これを削除します。</li>
+            <li>親または後見人は、第16項に記載の連絡先に連絡し、確認および削除を請求することができます。</li>
+          </ul>
+        </div>
+
+        <div class="legal-section" id="s14">
+          <h2>14. 発生し得るリスクおよび望ましくない結果</h2>
+          <p>第12項の措置を講じていても、完全に安全なシステムは存在しません。発生し得るリスクには、以下のものがあります。</p>
+          <ul>
+            <li>サイバー攻撃またはソフトウェアの脆弱性による不正アクセス</li>
+            <li>メールの誤送信や権限の誤付与など、人為的な操作ミス</li>
+            <li>パスワードの漏えい、または他のサービスとのパスワードの使い回しによるアカウントの乗っ取り</li>
+            <li>詐欺を目的としてHOUSELINKを装うメール、メッセージまたは電話</li>
+          </ul>
+          <p>その結果、迷惑メールの受信、詐欺被害またはなりすまし被害が生じるおそれがあります。リスクを低減するため、HOUSELINK専用のパスワードを使用し、アカウントを共有せず、共用端末からはログアウトすることをお勧めします。</p>
+          <div class="notice-warn"><strong>HOUSELINKが、メール、メッセージまたは電話で、パスワードやOTPコードの提供、または送金をお客様に求めることは決してありません。</strong>公式メールは、houselink.com.vnおよびhouselink.infoのドメインからのみ送信されます。HOUSELINKを装った連絡の疑いがある場合は、第16項に記載の連絡先までお知らせください。お客様に影響を及ぼすおそれのあるインシデントが発生した場合、HOUSELINKは第12項に従って通知します。</div>
+        </div>
+
+        <div class="legal-section" id="s15">
+          <h2>15. 方針の変更および言語</h2>
+          <ul>
+            <li>本方針は、定期的に、また法令もしくはHOUSELINKのデータ処理活動に変更があった場合に見直されます。</li>
+            <li>重要な変更（新たな目的、新たなデータの種類、新たな提供先、新たな国外移転）については、HOUSELINKは、施行の少なくとも7日前までに、ウェブサイト上およびアカウントを有するユーザーへのメールにより通知します。変更に同意が必要な場合、HOUSELINKは改めてお客様に同意をお願いします。サービスの利用を継続することは、同意とはみなされません。</li>
+            <li>本方針は、ベトナム語、英語、日本語、韓国語および中国語（簡体字）で、同一のバージョン番号および施行日により公表されます。各言語版の間に相違がある場合は、ベトナム語版が優先して適用されます。</li>
+          </ul>
+          <div class="table-wrap"><table class="legal-table ver">
+            <thead><tr><th>バージョン</th><th>発行日</th><th>施行日</th><th>内容</th></tr></thead>
+            <tbody>
+              <tr><td>QDNB-001/2025</td><td>2025年7月1日</td><td>2026年1月1日</td><td>政令第13/2023/NĐ-CP号に基づくプライバシーポリシー</td></tr>
+              <tr><td>2.0</td><td>2026年10月12日</td><td>2026年10月12日</td><td>個人データ保護法（第91/2025/QH15号）および政令第356/2025/NĐ-CP号に基づく全面改定。QDNB-001/2025に代わるもの</td></tr>
+            </tbody>
+          </table></div>
+        </div>
+
+        <div class="legal-section" id="s16">
+          <h2>16. お問い合わせ</h2>
+          <p>個人データに関するご質問やご請求は、<strong>HOUSELINK株式会社 個人データ保護担当者</strong>までご連絡ください。当社は、請求の受領を確認し、第11項に定める期限内に回答します。</p>
+          <div class="contact-card">
+            <div class="contact-item"><span>個人データに関するメール窓口</span><a href="mailto:info@houselink.com.vn">info@houselink.com.vn</a></div>
+            <div class="contact-item"><span>電話</span><b>(+84) 966 222 490</b> · 代表電話 <b>024 3795 5620</b></div>
+            <div class="contact-item"><span>所在地</span>9th Floor, Sannam Building, 78 Duy Tan Street, Cau Giay Ward, Hanoi, Vietnam</div>
+            <div class="contact-item"><span>受付時間</span>8:00 - 17:30（月曜日から金曜日、祝日を除く）</div>
+          </div>
+          <p><a class="btn-line" href="mailto:info@houselink.com.vn?subject=%E5%80%8B%E4%BA%BA%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AB%E9%96%A2%E3%81%99%E3%82%8B%E3%81%94%E8%AB%8B%E6%B1%82">データに関する請求を送信</a><a class="btn-line" href="/ja/terms/">利用規約を見る</a></p>
         </div>
 
       </div>
@@ -946,6 +1192,31 @@ footer { background: var(--navy); color: rgba(255,255,255,0.55); padding: 72px 0
 </section>
 
 <div id="hl-chrome-footer"></div>
+<script>
+(function () {
+  var links = [].slice.call(document.querySelectorAll('.legal-toc .toc-item'));
+  var map = {};
+  links.forEach(function (a) { map[a.getAttribute('href').slice(1)] = a; });
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        links.forEach(function (l) { l.classList.remove('active'); });
+        if (map[e.target.id]) map[e.target.id].classList.add('active');
+      });
+    }, { rootMargin: '-110px 0px -70% 0px' });
+    [].forEach.call(document.querySelectorAll('.legal-section[id]'), function (s) { io.observe(s); });
+  }
+  // Cookie settings button: calls window.hlOpenCookieSettings() if the cookie banner exposes it,
+  // otherwise fires the "hl:open-cookie-settings" event for the banner script to handle.
+  [].forEach.call(document.querySelectorAll('[data-hl-cookie-settings]'), function (b) {
+    b.addEventListener('click', function () {
+      if (typeof window.hlOpenCookieSettings === 'function') { window.hlOpenCookieSettings(); }
+      else { document.dispatchEvent(new CustomEvent('hl:open-cookie-settings')); }
+    });
+  });
+})();
+</script>
   <script src="../../landing-chrome.js" defer></script>
 </body>
 </html>

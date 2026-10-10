@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Chính sách Bảo mật – HOUSELINK</title>
+<title>Chính sách bảo vệ dữ liệu cá nhân - HOUSELINK</title>
+<meta name="description" content="Cách HOUSELINK thu thập, sử dụng, chia sẻ, lưu trữ và bảo vệ dữ liệu cá nhân, và cách bạn thực hiện quyền của mình theo Luật 91/2025/QH15 và Nghị định 356/2025/NĐ-CP.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
@@ -785,17 +786,83 @@ footer { background: var(--navy); color: rgba(255,255,255,0.55); padding: 72px 0
 .highlight-box { background:var(--off-white); border-left:4px solid var(--green); border-radius:0 8px 8px 0; padding:14px 18px; margin:16px 0; font-size:14px; color:var(--gray-600); line-height:1.7; }
 @media(max-width:960px){ .legal-layout{grid-template-columns:1fr;} .legal-toc{position:static;} }
 </style>
+<style id="legal-v2">
+/* ── LEGAL PAGES v2 (privacy 2.0, terms 2026) ── */
+.legal-section ol { margin:10px 0 14px 22px; display:flex; flex-direction:column; gap:6px; }
+.legal-section ol li { font-size:14px; color:var(--gray-600); line-height:1.7; }
+.legal-section a { color:var(--green); text-decoration:underline; text-underline-offset:2px; }
+.legal-section a:hover { color:var(--navy); }
+.legal-layout > * { min-width:0; }
+.legal-toc { max-height:calc(100vh - 120px); overflow:auto; }
+.toc-item.active { color:var(--navy); font-weight:600; }
+.page-hero-meta { display:flex; flex-wrap:wrap; gap:8px; margin-top:22px; }
+.page-hero-meta span { font-size:12px; color:rgba(255,255,255,.82); border:1px solid rgba(255,255,255,.22); border-radius:999px; padding:5px 12px; }
+.sum-title { font-size:11px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--green); margin-bottom:12px; }
+.sum-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin:0 0 44px; }
+.sum-card { border:1px solid var(--gray-100); border-radius:12px; padding:16px; background:var(--white); }
+.sum-card .ic { width:34px; height:34px; border-radius:9px; background:var(--green-pale); color:var(--green); display:flex; align-items:center; justify-content:center; margin-bottom:10px; }
+.sum-card .ic svg { width:18px; height:18px; }
+.sum-card h4 { font-size:14px; color:var(--navy); margin-bottom:4px; line-height:1.4; }
+.sum-card p { font-size:13px; color:var(--gray-600); line-height:1.6; }
+.table-wrap { overflow-x:auto; margin:12px 0 18px; border:1px solid var(--gray-100); border-radius:10px; }
+.legal-table { width:100%; border-collapse:collapse; font-size:13.5px; min-width:520px; }
+.legal-table th { background:var(--off-white); color:var(--navy); font-weight:700; text-align:left; padding:10px 12px; border-bottom:1px solid var(--gray-100); }
+.legal-table td { padding:10px 12px; border-top:1px solid var(--gray-50); color:var(--gray-600); vertical-align:top; line-height:1.6; }
+.legal-table tbody tr:first-child td { border-top:none; }
+.legal-table td strong { color:var(--navy); }
+.rights-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:10px; margin:12px 0 16px; }
+.right-item { background:var(--off-white); border-radius:10px; padding:12px 14px; font-size:13.5px; color:var(--gray-600); line-height:1.6; }
+.right-item strong { display:block; color:var(--navy); font-size:14px; margin-bottom:2px; }
+.contact-card { display:grid; grid-template-columns:repeat(2,1fr); gap:12px; margin:14px 0; }
+.contact-item { border:1px solid var(--gray-100); border-radius:10px; padding:12px 14px; font-size:13.5px; color:var(--gray-600); line-height:1.6; }
+.contact-item span { display:block; font-size:11px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--green); margin-bottom:2px; }
+.contact-item a, .contact-item b { color:var(--navy); font-weight:600; text-decoration:none; }
+.btn-line { display:inline-flex; align-items:center; gap:8px; border:1.5px solid var(--navy); color:var(--navy); background:var(--white); border-radius:8px; padding:9px 16px; font:600 13.5px var(--font-main); cursor:pointer; text-decoration:none !important; margin:4px 8px 4px 0; }
+.btn-line:hover { background:var(--navy); color:var(--white); }
+.notice-warn { background:#FFF8E6; border-left:4px solid #D99A00; border-radius:0 8px 8px 0; padding:14px 18px; margin:16px 0; font-size:14px; color:var(--gray-600); line-height:1.7; }
+.notice-warn strong { color:var(--navy); }
+@media (max-width:960px) { .sum-grid { grid-template-columns:1fr 1fr; } }
+@media (max-width:640px) {
+  .sum-grid, .rights-grid, .contact-card { grid-template-columns:1fr; }
+  .page-hero-inner, .sub-content .si { padding:0 16px; }
+  .legal-section h2 { font-size:19px; }
+}
+@media print {
+  #hl-chrome-header, #hl-chrome-footer, .legal-toc, .btn-line { display:none !important; }
+  .page-hero { background:none; padding:0 0 12px !important; }
+  .page-h1, .page-sub { color:#000; }
+  .legal-layout { display:block; }
+}
+.legal-table.ver td:not(:last-child), .legal-table.ver th:not(:last-child) { white-space:nowrap; }
+</style>
   <link rel="stylesheet" href="../../landing-chrome.css">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/icon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 </head>
 <body class="hl-with-fixed-header" data-hl-page="privacy">
+<!--
+  GHI CHÚ CHO NGƯỜI CẬP NHẬT WEBSITE (có thể xóa khối này)
+  - Trang thay thế /vi/privacy/ (Chính sách bảo mật QDNB-001/2025). Phiên bản 2.0, ban hành và hiệu lực 12/10/2026.
+  - Giữ nguyên landing-chrome.css/js và khối CSS chung; CSS mới nằm trong <style id="legal-v2">.
+  - Anchor đổi theo số mục mới: dữ liệu thu thập #s2 -> #s3; cookie #s7 -> #s6; quyền #s6 -> #s11; liên hệ #s9 -> #s16. Rà các liên kết đang trỏ tới anchor cũ.
+  - Nút "Mở cài đặt cookie" gọi window.hlOpenCookieSettings() hoặc phát sự kiện "hl:open-cookie-settings"; nối với banner cookie hiện có.
+  - Đăng đồng thời bản EN, JA, KO, ZH cùng số phiên bản sau khi cập nhật theo nội dung trang này.
+-->
 
 <div id="hl-chrome-header"></div>
 
 <section class="page-hero" style="padding-top:96px;">
   <div class="page-hero-inner">
-    <div class="page-eyebrow">Chính sách bảo mật</div>
-    <h1 class="page-h1">Chính sách Bảo mật<br><em>Thông tin & Dữ liệu cá nhân</em></h1>
-    <p class="page-sub">HOUSELINK cam kết bảo vệ quyền riêng tư và dữ liệu cá nhân của bạn theo đúng quy định pháp luật Việt Nam và tiêu chuẩn quốc tế.</p>
+    <div class="page-eyebrow">Chính sách bảo vệ dữ liệu cá nhân</div>
+    <h1 class="page-h1">Chính sách bảo vệ dữ liệu cá nhân<br><em>Quyền riêng tư của bạn trên HOUSELINK</em></h1>
+    <p class="page-sub">Chúng tôi thu thập dữ liệu gì, dùng để làm gì, chia sẻ với ai, lưu bao lâu và bạn thực hiện quyền của mình như thế nào, theo Luật Bảo vệ dữ liệu cá nhân số 91/2025/QH15 và Nghị định số 356/2025/NĐ-CP.</p>
+    <div class="page-hero-meta">
+      <span>Phiên bản 2.0</span>
+      <span>Hiệu lực từ 12/10/2026</span>
+      <span>Tiếng Việt · English · 日本語 · 한국어 · 中文</span>
+    </div>
   </div>
 </section>
 
@@ -803,141 +870,320 @@ footer { background: var(--navy); color: rgba(255,255,255,0.55); padding: 72px 0
   <div class="si">
     <div class="legal-layout">
 
-      <!-- Table of Contents -->
-      <div class="legal-toc">
+      <div class="legal-toc" role="navigation" aria-label="Mục lục">
         <div class="toc-title">Mục lục</div>
-        <a class="toc-item" href="#s1">1. Mục đích & Phạm vi</a>
-        <a class="toc-item" href="#s2">2. Thông tin thu thập</a>
-        <a class="toc-item" href="#s3">3. Mục đích sử dụng</a>
-        <a class="toc-item" href="#s4">4. Lưu trữ & Bảo vệ</a>
-        <a class="toc-item" href="#s5">5. Chia sẻ dữ liệu</a>
-        <a class="toc-item" href="#s6">6. Quyền của bạn</a>
-        <a class="toc-item" href="#s7">7. Cookie & Tracking</a>
-        <a class="toc-item" href="#s8">8. Thay đổi chính sách</a>
-        <a class="toc-item" href="#s9">9. Liên hệ</a>
+        <a class="toc-item" href="#s1">1. Chúng tôi là ai</a>
+        <a class="toc-item" href="#s2">2. Giải thích từ ngữ</a>
+        <a class="toc-item" href="#s3">3. Dữ liệu chúng tôi xử lý</a>
+        <a class="toc-item" href="#s4">4. Mục đích và căn cứ</a>
+        <a class="toc-item" href="#s5">5. Thông tin doanh nghiệp và đầu mối</a>
+        <a class="toc-item" href="#s6">6. Cookie và email tiếp thị</a>
+        <a class="toc-item" href="#s7">7. HOUSELINK AI</a>
+        <a class="toc-item" href="#s8">8. Chia sẻ dữ liệu</a>
+        <a class="toc-item" href="#s9">9. Lưu trữ và chuyển ra nước ngoài</a>
+        <a class="toc-item" href="#s10">10. Thời hạn lưu trữ</a>
+        <a class="toc-item" href="#s11">11. Quyền của bạn</a>
+        <a class="toc-item" href="#s12">12. Bảo vệ dữ liệu và sự cố</a>
+        <a class="toc-item" href="#s13">13. Trẻ em</a>
+        <a class="toc-item" href="#s14">14. Rủi ro có thể xảy ra</a>
+        <a class="toc-item" href="#s15">15. Thay đổi chính sách</a>
+        <a class="toc-item" href="#s16">16. Liên hệ</a>
       </div>
 
-      <!-- Content -->
       <div class="legal-body">
 
         <div class="legal-meta">
-          <span><strong>Phiên bản:</strong> QDNB-001/2025</span>
-          <span><strong>Ngày ban hành:</strong> 01/07/2025</span>
-          <span><strong>Hiệu lực:</strong> 01/01/2026</span>
-          <span><strong>Áp dụng:</strong> Toàn bộ hoạt động của HOUSELINK</span>
+          <span><strong>Phiên bản:</strong> 2.0, thay thế QDNB-001/2025</span>
+          <span><strong>Ban hành:</strong> 12/10/2026</span>
+          <span><strong>Hiệu lực:</strong> 12/10/2026</span>
+          <span><strong>Bên kiểm soát dữ liệu:</strong> Công ty Cổ phần HOUSELINK</span>
+        </div>
+
+        <div class="sum-title">Tóm tắt nhanh</div>
+        <div class="sum-grid">
+          <div class="sum-card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><h4>Không bán dữ liệu cá nhân</h4><p>Không bán, cho thuê hay chuyển giao thông tin liên hệ cá nhân, theo bất kỳ gói dịch vụ nào.</p></div>
+          <div class="sum-card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19"/><line x1="1" y1="1" x2="23" y2="23"/></svg></div><h4>Không theo dõi từng người</h4><p>Không đo việc từng người mở email hay bấm liên kết, không quảng cáo theo hành vi.</p></div>
+          <div class="sum-card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="9" cy="10" r="1"/><circle cx="15" cy="14" r="1"/><circle cx="10" cy="15" r="1"/></svg></div><h4>Cookie tắt cho đến khi bạn bật</h4><p>Chỉ cookie cần thiết luôn bật. Nút "Từ chối tất cả" dễ thấy như nút "Đồng ý".</p></div>
+          <div class="sum-card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><h4>Đầu mối chỉ hiện khi đồng ý</h4><p>Chưa có đồng ý, nền tảng chỉ hiển thị phòng ban hoặc vai trò chung.</p></div>
+          <div class="sum-card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="7" rx="2"/><rect x="2" y="14" width="20" height="7" rx="2"/><line x1="6" y1="6.5" x2="6.01" y2="6.5"/><line x1="6" y1="17.5" x2="6.01" y2="17.5"/></svg></div><h4>Lưu trữ tại Việt Nam</h4><p>Máy chủ, cơ sở dữ liệu và bản sao lưu của nền tảng đặt tại Việt Nam.</p></div>
+          <div class="sum-card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><h4>Phản hồi trong 2 ngày làm việc</h4><p>Mọi yêu cầu về dữ liệu của bạn được xác nhận trong 2 ngày làm việc, miễn phí.</p></div>
         </div>
 
         <div class="legal-section" id="s1">
-          <h2>1. Mục đích & Phạm vi áp dụng</h2>
-          <p>Chính sách này được ban hành bởi <strong>Công ty Cổ phần HOUSELINK</strong> nhằm đảm bảo tuân thủ các quy định pháp luật Việt Nam về bảo mật thông tin, an toàn dữ liệu và bảo vệ dữ liệu cá nhân, bao gồm:</p>
+          <h2>1. Chúng tôi là ai và chính sách này áp dụng cho đâu</h2>
+          <p><strong>Công ty Cổ phần HOUSELINK</strong> ("HOUSELINK", "chúng tôi") là bên kiểm soát và xử lý dữ liệu cá nhân được nêu trong chính sách này: chúng tôi quyết định mục đích, phương tiện xử lý và trực tiếp xử lý dữ liệu.</p>
           <ul>
-            <li>Luật An ninh mạng 2018</li>
-            <li>Nghị định 13/2023/NĐ-CP về bảo vệ dữ liệu cá nhân</li>
-            <li>Luật Bảo vệ dữ liệu cá nhân 2025 (Luật số 91/2025/QH15, hiệu lực từ 01/01/2026)</li>
+            <li><strong>Mã số doanh nghiệp:</strong> 0104585924</li>
+            <li><strong>Trụ sở:</strong> Tầng 9, Tòa nhà Sannam, 78 Duy Tân, phường Cầu Giấy, thành phố Hà Nội</li>
+            <li><strong>Đầu mối về dữ liệu cá nhân:</strong> Nhân sự bảo vệ dữ liệu cá nhân, email <a href="mailto:info@houselink.com.vn">info@houselink.com.vn</a></li>
           </ul>
-          <p>Chính sách áp dụng cho tất cả người dùng truy cập và sử dụng dịch vụ của HOUSELINK, bao gồm website houselink.com.vn, vietnamconstruction.vn, ứng dụng di động và các nền tảng kỹ thuật số khác.</p>
-          <div class="highlight-box">Bằng việc sử dụng dịch vụ của HOUSELINK, bạn đồng ý với các điều khoản trong Chính sách Bảo mật này. Bạn có quyền rút lại sự đồng ý bất kỳ lúc nào theo quy định của Luật 91/2025/QH15.</div>
+          <p>Chính sách áp dụng cho:</p>
+          <ul>
+            <li>Website houselink.com.vn và nền tảng dành cho hội viên tại dashboard.houselink.com.vn;</li>
+            <li>Website fdisignals.com và dịch vụ Tín hiệu đầu tư (FDIsignals);</li>
+            <li>Website vietnamconstruction.vn;</li>
+            <li>Email do HOUSELINK gửi, gồm email từ tên miền houselink.info;</li>
+            <li>Sự kiện, Business Matching, hợp đồng hội viên, tuyển dụng và các dịch vụ tư vấn của HOUSELINK.</li>
+          </ul>
+          <p>Chính sách được xây dựng theo Luật Bảo vệ dữ liệu cá nhân số 91/2025/QH15, Nghị định số 356/2025/NĐ-CP và Luật An ninh mạng số 116/2025/QH15, thay thế Chính sách bảo mật QDNB-001/2025.</p>
+          <div class="highlight-box">Việc bạn truy cập website, tiếp tục sử dụng dịch vụ hay im lặng <strong>không được coi là đồng ý</strong>. Khi cần sự đồng ý, chúng tôi hỏi riêng cho từng mục đích, không có ô được chọn sẵn, và bạn có thể rút lại bất kỳ lúc nào.</div>
         </div>
 
         <div class="legal-section" id="s2">
-          <h2>2. Thông tin chúng tôi thu thập</h2>
-          <h3>2.1. Thông tin bạn cung cấp trực tiếp</h3>
+          <h2>2. Giải thích từ ngữ</h2>
           <ul>
-            <li><strong>Thông tin nhận dạng:</strong> Họ tên, chức danh, tên công ty</li>
-            <li><strong>Thông tin liên lạc:</strong> Email, số điện thoại, địa chỉ</li>
-            <li><strong>Thông tin nghề nghiệp:</strong> Ngành nghề, quy mô doanh nghiệp, quốc gia hoạt động</li>
-            <li><strong>Nội dung trao đổi:</strong> Yêu cầu tư vấn, câu hỏi, phản hồi gửi qua biểu mẫu</li>
+            <li><strong>Dữ liệu cá nhân:</strong> dữ liệu số hoặc thông tin dưới dạng khác xác định hoặc giúp xác định một con người cụ thể. Thông tin về doanh nghiệp, dự án, khu công nghiệp không phải dữ liệu cá nhân, trừ phần gắn với một người cụ thể.</li>
+            <li><strong>Dữ liệu cá nhân nhạy cảm:</strong> các loại dữ liệu thuộc danh mục tại Nghị định số 356/2025/NĐ-CP, ví dụ dữ liệu sức khỏe, sinh trắc học, vị trí, thông tin thẻ và lịch sử giao dịch ngân hàng, dữ liệu theo dõi hành vi sử dụng dịch vụ trực tuyến.</li>
+            <li><strong>Chủ thể dữ liệu, "bạn":</strong> người được dữ liệu cá nhân phản ánh.</li>
+            <li><strong>Xử lý dữ liệu cá nhân:</strong> mọi hoạt động tác động tới dữ liệu, như thu thập, phân tích, lưu trữ, cung cấp, công khai, chuyển giao, xóa.</li>
+            <li><strong>Bên xử lý:</strong> tổ chức xử lý dữ liệu thay mặt HOUSELINK theo hợp đồng, ví dụ nhà cung cấp máy chủ và dịch vụ email.</li>
+            <li><strong>Hội viên:</strong> tổ chức, cá nhân có tài khoản trên nền tảng HOUSELINK, miễn phí hoặc trả phí.</li>
+            <li><strong>Đầu mối liên hệ:</strong> cá nhân làm việc tại doanh nghiệp, chủ đầu tư, nhà thầu hoặc khu công nghiệp được nêu trong cơ sở dữ liệu của HOUSELINK.</li>
           </ul>
-          <h3>2.2. Thông tin thu thập tự động</h3>
-          <ul>
-            <li>Địa chỉ IP, loại trình duyệt, hệ điều hành</li>
-            <li>Trang web đã truy cập, thời gian ở lại, hành vi điều hướng</li>
-            <li>Dữ liệu cookie và công nghệ theo dõi tương tự (xem Mục 7)</li>
-          </ul>
-          <p>HOUSELINK <strong>chỉ thu thập dữ liệu cần thiết</strong> cho mục đích cụ thể đã thông báo - nguyên tắc tối thiểu hóa dữ liệu theo Nghị định 13/2023/NĐ-CP.</p>
         </div>
 
         <div class="legal-section" id="s3">
-          <h2>3. Mục đích sử dụng dữ liệu</h2>
-          <p>HOUSELINK sử dụng thông tin thu thập được để:</p>
-          <ul>
-            <li>Cung cấp dịch vụ tư vấn đầu tư, nghiên cứu thị trường và các dịch vụ khác mà bạn yêu cầu</li>
-            <li>Gửi thông tin về sản phẩm, dịch vụ, báo cáo thị trường và sự kiện (có thể hủy đăng ký bất kỳ lúc nào)</li>
-            <li>Cải thiện chất lượng dịch vụ và trải nghiệm người dùng</li>
-            <li>Tuân thủ nghĩa vụ pháp lý và bảo vệ quyền lợi hợp pháp của các bên</li>
-            <li>Phân tích và báo cáo nội bộ nhằm phát triển dịch vụ</li>
-          </ul>
-          <div class="highlight-box">Dữ liệu của bạn <strong>không được sử dụng cho mục đích cá nhân, thương mại hóa</strong> hoặc bán cho bên thứ ba. HOUSELINK không chạy quảng cáo của bên thứ ba trên nền tảng của mình.</div>
+          <h2>3. Dữ liệu cá nhân chúng tôi xử lý</h2>
+          <p>Chúng tôi chỉ thu thập dữ liệu cần cho mục đích đã nêu ở mục 4.</p>
+          <div class="table-wrap"><table class="legal-table">
+            <thead><tr><th>Nhóm người</th><th>Dữ liệu</th><th>Nguồn</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Người dùng, hội viên</strong></td><td>Họ tên, email, chức danh, công ty, số điện thoại (tùy chọn), ảnh đại diện (nếu tải lên); thông tin tài khoản Google nếu bạn chọn đăng nhập bằng Google; nhật ký đăng nhập và bảo mật (thời điểm, địa chỉ IP, thiết bị); danh sách theo dõi và bộ lọc bạn tự lưu; yêu cầu báo giá, đánh giá bạn gửi; câu hỏi gửi HOUSELINK AI</td><td>Từ bạn; từ Google khi bạn chọn đăng nhập bằng Google</td></tr>
+              <tr><td><strong>Người ký hợp đồng, người liên hệ thanh toán</strong></td><td>Họ tên, chức danh, chữ ký, thông tin xuất hóa đơn của tổ chức</td><td>Từ bạn hoặc tổ chức của bạn</td></tr>
+              <tr><td><strong>Người đại diện theo pháp luật của doanh nghiệp</strong></td><td>Họ tên, chức danh</td><td>Cổng thông tin quốc gia về đăng ký doanh nghiệp và nguồn công khai khác theo quy định</td></tr>
+              <tr><td><strong>Đầu mối liên hệ khác của doanh nghiệp, dự án, khu công nghiệp</strong></td><td>Họ tên, chức danh, phòng ban, email và số điện thoại công việc</td><td>Từ chính người đó; từ doanh nghiệp đã nhận quản lý hồ sơ hoặc khu công nghiệp; từ trao đổi công việc với HOUSELINK</td></tr>
+              <tr><td><strong>Người gửi yêu cầu nhận quản lý hồ sơ doanh nghiệp</strong></td><td>Họ tên, chức danh, email, số điện thoại; Giấy chứng nhận đăng ký doanh nghiệp, giấy giới thiệu</td><td>Từ bạn. Chúng tôi không nhận ảnh căn cước công dân.</td></tr>
+              <tr><td><strong>Người đăng ký nhận bản tin</strong></td><td>Email, tên, công ty, lựa chọn đăng ký hoặc hủy</td><td>Từ bạn</td></tr>
+              <tr><td><strong>Người tham dự sự kiện, Business Matching</strong></td><td>Họ tên, chức danh, công ty, email, số điện thoại, nhu cầu kết nối; hình ảnh, video ghi tại sự kiện</td><td>Từ bạn; ghi hình tại sự kiện sau khi đã thông báo</td></tr>
+              <tr><td><strong>Khách truy cập website</strong></td><td>Cookie cần thiết; cookie đo lường nếu bạn đồng ý; địa chỉ IP, loại trình duyệt; nội dung bạn gửi qua biểu mẫu liên hệ</td><td>Từ trình duyệt và từ bạn</td></tr>
+              <tr><td><strong>Ứng viên</strong></td><td>Hồ sơ xin việc, thông tin liên hệ</td><td>Từ bạn</td></tr>
+              <tr><td><strong>Đối tác, cộng tác viên cá nhân</strong></td><td>Họ tên, thông tin liên hệ, nội dung công việc, đánh giá chất lượng công việc</td><td>Từ bạn, hợp đồng</td></tr>
+            </tbody>
+          </table></div>
+          <div class="highlight-box"><strong>Dữ liệu nhạy cảm.</strong> Chúng tôi không chủ động thu thập dữ liệu cá nhân nhạy cảm. Ngoài nhật ký bảo mật cần cho an toàn hệ thống, chúng tôi không ghi lại hành vi sử dụng dịch vụ của từng người để phân tích, lập hồ sơ hay quảng cáo. Nếu sau này cần xử lý dữ liệu nhạy cảm, chúng tôi sẽ thông báo rõ đó là dữ liệu nhạy cảm và xin đồng ý riêng trước khi xử lý.</div>
         </div>
 
         <div class="legal-section" id="s4">
-          <h2>4. Lưu trữ & Bảo vệ dữ liệu</h2>
-          <h3>4.1. Hệ thống bảo mật</h3>
-          <ul>
-            <li>Dữ liệu được lưu trữ trên hệ thống có mã hóa đầu-cuối, tường lửa và phần mềm chống xâm nhập</li>
-            <li>Truy cập dữ liệu được kiểm soát theo nguyên tắc "cần biết" (need-to-know)</li>
-            <li>Dữ liệu quan trọng được sao lưu định kỳ tại các vị trí an toàn</li>
-            <li>Truyền tải dữ liệu qua kênh mã hóa HTTPS/TLS</li>
-          </ul>
-          <h3>4.2. Thời gian lưu trữ</h3>
-          <p>Dữ liệu cá nhân chỉ được lưu trữ trong thời gian cần thiết để thực hiện mục đích đã nêu, hoặc theo yêu cầu pháp luật. Sau đó dữ liệu sẽ được xóa vĩnh viễn theo quy trình an toàn.</p>
+          <h2>4. Mục đích và căn cứ xử lý</h2>
+          <p>Mỗi mục đích có một căn cứ riêng. Khi căn cứ là sự đồng ý, bạn đồng ý riêng cho từng mục đích, không có ô được chọn sẵn, và có thể rút lại bất kỳ lúc nào. Im lặng hoặc không phản hồi không được coi là đồng ý.</p>
+          <div class="table-wrap"><table class="legal-table">
+            <thead><tr><th>Mục đích</th><th>Nhóm dữ liệu</th><th>Căn cứ</th></tr></thead>
+            <tbody>
+              <tr><td>Cung cấp tài khoản, dịch vụ hội viên, hỗ trợ khách hàng</td><td>Người dùng, hội viên</td><td>Thực hiện thỏa thuận với bạn</td></tr>
+              <tr><td>Ký kết hợp đồng, thanh toán, xuất hóa đơn, kế toán</td><td>Người ký hợp đồng, thanh toán</td><td>Thực hiện thỏa thuận; nghĩa vụ theo pháp luật kế toán, thuế</td></tr>
+              <tr><td>Bảo đảm an toàn tài khoản và hệ thống, phát hiện truy cập trái phép</td><td>Nhật ký đăng nhập và bảo mật</td><td>Thực hiện thỏa thuận; nghĩa vụ bảo đảm an toàn dữ liệu theo pháp luật</td></tr>
+              <tr><td>Hiển thị thông tin doanh nghiệp, gồm người đại diện theo pháp luật</td><td>Người đại diện theo pháp luật</td><td>Thông tin đã được công khai theo Luật Doanh nghiệp, trong phạm vi đã công khai</td></tr>
+              <tr><td>Hiển thị và kết nối với đầu mối liên hệ khác</td><td>Đầu mối liên hệ</td><td>Sự đồng ý của người được nêu tên, theo phạm vi họ chọn (mục 5)</td></tr>
+              <tr><td>Xác minh yêu cầu nhận quản lý hồ sơ doanh nghiệp</td><td>Người gửi yêu cầu</td><td>Thực hiện thỏa thuận với bạn</td></tr>
+              <tr><td>Gửi thông báo dịch vụ (gia hạn, thay đổi điều khoản, cảnh báo bảo mật)</td><td>Người dùng, hội viên</td><td>Thực hiện thỏa thuận với bạn</td></tr>
+              <tr><td>Gửi bản tin, thông tin tiếp thị</td><td>Người đăng ký nhận bản tin</td><td>Sự đồng ý của bạn</td></tr>
+              <tr><td>Tổ chức sự kiện, Business Matching, giới thiệu kết nối</td><td>Người tham dự</td><td>Thực hiện thỏa thuận đăng ký tham dự; sự đồng ý riêng cho từng lần giới thiệu và cho việc dùng ảnh để quảng bá</td></tr>
+              <tr><td>Thống kê lượt truy cập website ở dạng tổng hợp</td><td>Cookie đo lường</td><td>Sự đồng ý qua bảng cài đặt cookie</td></tr>
+              <tr><td>Tuyển dụng</td><td>Ứng viên</td><td>Sự đồng ý của bạn</td></tr>
+              <tr><td>Quản lý đối tác, cộng tác viên</td><td>Đối tác</td><td>Thực hiện thỏa thuận</td></tr>
+              <tr><td>Thực hiện yêu cầu của cơ quan nhà nước có thẩm quyền</td><td>Theo yêu cầu</td><td>Theo quy định của pháp luật</td></tr>
+            </tbody>
+          </table></div>
+          <p>Khi cần dùng dữ liệu cho mục đích mới, chúng tôi thông báo trước và xin đồng ý nếu pháp luật yêu cầu.</p>
         </div>
 
         <div class="legal-section" id="s5">
-          <h2>5. Chia sẻ dữ liệu với bên thứ ba</h2>
-          <p>HOUSELINK <strong>không bán, cho thuê hoặc trao đổi</strong> dữ liệu cá nhân của bạn. Chúng tôi chỉ chia sẻ dữ liệu trong các trường hợp:</p>
+          <h2>5. Thông tin doanh nghiệp và đầu mối liên hệ trên nền tảng</h2>
+          <p>Nền tảng HOUSELINK cung cấp thông tin về doanh nghiệp, dự án và khu công nghiệp. Chúng tôi <strong>không bán, không cho thuê và không chuyển giao</strong> thông tin liên hệ cá nhân theo gói dịch vụ hay theo yêu cầu.</p>
           <ul>
-            <li><strong>Đối tác dịch vụ:</strong> Các nhà cung cấp công nghệ, lưu trữ dữ liệu và phân tích được ký kết hợp đồng bảo mật chặt chẽ</li>
-            <li><strong>Yêu cầu pháp lý:</strong> Theo quyết định của cơ quan nhà nước có thẩm quyền</li>
-            <li><strong>Đồng ý của bạn:</strong> Khi bạn cho phép chia sẻ cụ thể, ví dụ kết nối với đối tác trong hệ sinh thái HOUSELINK</li>
+            <li><strong>Thông tin doanh nghiệp</strong> (tên, mã số, địa chỉ, ngành nghề, email chung, số tổng đài) không phải dữ liệu cá nhân.</li>
+            <li><strong>Người đại diện theo pháp luật:</strong> chỉ hiển thị họ tên, chức danh đúng như đã công khai trên Cổng thông tin quốc gia về đăng ký doanh nghiệp, kèm nguồn và ngày cập nhật. Không hiển thị số điện thoại, email cá nhân, số giấy tờ hay địa chỉ của người đại diện.</li>
+            <li><strong>Đầu mối liên hệ khác:</strong> họ tên, chức danh chỉ hiển thị khi người đó đồng ý. Khi chưa có đồng ý, nền tảng chỉ hiển thị phòng ban hoặc vai trò chung, ví dụ "Bộ phận mua hàng".</li>
+            <li><strong>Số điện thoại, email của cá nhân</strong> không hiển thị cho hội viên. Hội viên muốn liên hệ gửi đề nghị kết nối thông qua HOUSELINK; chúng tôi chuyển lời đề nghị tới email chung của doanh nghiệp hoặc tới người đã đồng ý nhận đề nghị kết nối.</li>
           </ul>
+          <p>Nếu thấy thông tin của mình trên nền tảng, bạn có thể gửi email tới <a href="mailto:info@houselink.com.vn">info@houselink.com.vn</a> kèm đường dẫn tới trang có thông tin đó.</p>
         </div>
 
         <div class="legal-section" id="s6">
-          <h2>6. Quyền của bạn theo pháp luật</h2>
-          <p>Theo Nghị định 13/2023/NĐ-CP và Luật 91/2025/QH15, bạn có các quyền sau:</p>
+          <h2>6. Cookie, đo lường và email tiếp thị</h2>
+          <p>Cookie không cần thiết đều tắt cho đến khi bạn bật. Bạn chọn trong bảng cài đặt cookie khi vào website lần đầu và có thể đổi lại bất kỳ lúc nào bằng nút bên dưới hoặc liên kết "Cài đặt cookie" ở chân trang. Nút "Từ chối tất cả" dễ thấy như nút "Đồng ý".</p>
+          <div class="table-wrap"><table class="legal-table">
+            <thead><tr><th>Nhóm cookie</th><th>Dùng để</th><th>Mặc định</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Cần thiết</strong></td><td>Đăng nhập, bảo mật, ghi nhớ ngôn ngữ và lựa chọn cookie của bạn</td><td>Luôn bật, vì website không hoạt động nếu thiếu</td></tr>
+              <tr><td><strong>Đo lường</strong></td><td>Thống kê lượt truy cập, trang được xem nhiều ở dạng tổng hợp bằng Google Analytics, không gắn với danh tính của bạn</td><td>Tắt</td></tr>
+              <tr><td><strong>Tiếp thị</strong></td><td>HOUSELINK không sử dụng cookie tiếp thị. Nếu sau này sử dụng, chúng tôi sẽ cập nhật chính sách và chỉ bật khi bạn đồng ý.</td><td>Không sử dụng</td></tr>
+            </tbody>
+          </table></div>
+          <p hidden><button type="button" class="btn-line" data-hl-cookie-settings>Mở cài đặt cookie</button></p>
+          <p>Chúng tôi không theo dõi hoạt động của bạn trên các website khác và không quảng cáo theo hành vi. Lượt xem và số người theo dõi hồ sơ doanh nghiệp chỉ hiển thị dạng con số; doanh nghiệp không được biết ai đã xem hay theo dõi họ.</p>
+          <h3>Email tiếp thị và thông báo dịch vụ</h3>
           <ul>
-            <li><strong>Quyền được biết:</strong> Biết mục đích, phạm vi xử lý dữ liệu của bạn</li>
-            <li><strong>Quyền truy cập:</strong> Yêu cầu xem dữ liệu cá nhân mà HOUSELINK đang lưu trữ</li>
-            <li><strong>Quyền chỉnh sửa:</strong> Yêu cầu sửa dữ liệu không chính xác</li>
-            <li><strong>Quyền xóa:</strong> Yêu cầu xóa dữ liệu khi không còn cần thiết</li>
-            <li><strong>Quyền hạn chế xử lý:</strong> Yêu cầu tạm dừng xử lý trong trường hợp cụ thể</li>
-            <li><strong>Quyền rút lại đồng ý:</strong> Rút lại sự đồng ý bất kỳ lúc nào mà không ảnh hưởng đến tính hợp pháp của việc xử lý trước đó</li>
-            <li><strong>Quyền khiếu nại:</strong> Khiếu nại đến Cục An toàn thông tin (Bộ TT&TT) nếu cho rằng quyền của bạn bị vi phạm</li>
+            <li>Bản tin và thông tin tiếp thị chỉ gửi tới người đã đăng ký nhận. Khi đăng ký, bạn được thông báo nội dung, hình thức và tần suất gửi.</li>
+            <li>Mỗi email tiếp thị có liên kết hủy đăng ký. Khi bạn hủy, hệ thống ngừng gửi ngay và không gửi lại.</li>
+            <li>Chúng tôi <strong>không đo việc bạn mở email hay bấm liên kết theo từng người</strong>; chỉ xem số liệu tổng hợp của cả chiến dịch.</li>
+            <li>Chúng tôi không gửi email tiếp thị tới danh sách mua ngoài hoặc tới đầu mối chưa đồng ý.</li>
+            <li>Thông báo dịch vụ cho hội viên (gia hạn, thay đổi điều khoản, cảnh báo bảo mật) được gửi tách riêng, không kèm quảng cáo.</li>
           </ul>
-          <p>Để thực hiện các quyền trên, vui lòng liên hệ: <strong>info@houselink.com.vn</strong> - phản hồi trong vòng 30 ngày làm việc theo quy định pháp luật.</p>
         </div>
 
         <div class="legal-section" id="s7">
-          <h2>7. Cookie & Công nghệ theo dõi</h2>
-          <p>Trang web HOUSELINK sử dụng cookie và các công nghệ tương tự để cải thiện trải nghiệm người dùng:</p>
+          <h2>7. HOUSELINK AI và xử lý tự động</h2>
+          <p>HOUSELINK AI trả lời câu hỏi về dự án, doanh nghiệp và khu công nghiệp trong phạm vi quyền của tài khoản.</p>
           <ul>
-            <li><strong>Cookie thiết yếu:</strong> Cần thiết để vận hành website, không thể tắt</li>
-            <li><strong>Cookie phân tích:</strong> Giúp chúng tôi hiểu cách người dùng tương tác với website (Google Analytics)</li>
-            <li><strong>Cookie marketing:</strong> Chỉ sử dụng khi bạn đồng ý, để cá nhân hóa nội dung</li>
+            <li>Khung hỏi đáp ghi rõ bạn đang hỏi một trợ lý trí tuệ nhân tạo.</li>
+            <li>Ngữ cảnh gửi tới mô hình không chứa thông tin liên hệ của cá nhân. HOUSELINK AI không trả lời câu hỏi nhằm tra cứu hoặc tổng hợp thông tin về một cá nhân.</li>
+            <li>Vui lòng không nhập thông tin cá nhân của bạn hoặc của người khác vào câu hỏi.</li>
+            <li>Câu hỏi được tách khỏi tài khoản trước khi lưu và xóa sau 90 ngày.</li>
+            <li>Dữ liệu gửi tới mô hình không được nhà cung cấp dùng để huấn luyện mô hình, theo điều khoản của gói dịch vụ HOUSELINK sử dụng.</li>
+            <li>Báo cáo Insights soạn có hỗ trợ của trí tuệ nhân tạo được ghi nhãn và được người kiểm tra, duyệt trước khi xuất bản.</li>
           </ul>
-          <p>Bạn có thể quản lý tùy chọn cookie qua cài đặt trình duyệt hoặc banner cookie khi truy cập lần đầu.</p>
+          <p>Chúng tôi không dùng xử lý tự động để ra quyết định có hệ quả pháp lý đối với cá nhân. Xếp hạng và điểm đánh giá trên nền tảng áp dụng cho doanh nghiệp, không áp dụng cho cá nhân. Bạn có quyền yêu cầu không đưa dữ liệu của mình vào xử lý tự động, và yêu cầu người của HOUSELINK xem lại một kết quả do hệ thống tạo ra.</p>
         </div>
 
         <div class="legal-section" id="s8">
-          <h2>8. Thay đổi chính sách</h2>
-          <p>HOUSELINK có thể cập nhật Chính sách Bảo mật này theo thời gian, đặc biệt khi có thay đổi về pháp luật hoặc dịch vụ. Khi có thay đổi đáng kể, chúng tôi sẽ:</p>
-          <ul>
-            <li>Thông báo qua email đến người dùng đăng ký</li>
-            <li>Hiển thị thông báo nổi bật trên website</li>
-            <li>Cập nhật ngày "Ngày ban hành" ở đầu tài liệu</li>
-          </ul>
+          <h2>8. Chúng tôi chia sẻ dữ liệu với ai</h2>
+          <p>Chúng tôi <strong>không bán dữ liệu cá nhân</strong>. Dữ liệu chỉ được cung cấp cho các bên dưới đây, trong phạm vi cần thiết.</p>
+          <div class="table-wrap"><table class="legal-table">
+            <thead><tr><th>Bên nhận</th><th>Dữ liệu</th><th>Điều kiện</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Nhà cung cấp máy chủ, lưu trữ dữ liệu</strong></td><td>Toàn bộ dữ liệu trên nền tảng</td><td>Hợp đồng xử lý dữ liệu; chỉ xử lý theo chỉ dẫn của HOUSELINK</td></tr>
+              <tr><td><strong>Google</strong> (Google Workspace, đăng nhập bằng Google, Google Analytics)</td><td>Email, tên, nội dung thư; thông tin tài khoản Google khi bạn đăng nhập bằng Google; dữ liệu truy cập tổng hợp khi bạn bật cookie đo lường</td><td>Điều khoản xử lý dữ liệu của Google; chuyển ra nước ngoài theo mục 9</td></tr>
+              <tr><td><strong>Nhà cung cấp dịch vụ bản đồ</strong></td><td>Địa chỉ IP, trang đang xem khi bản đồ được tải</td><td>Bản đồ trong trang dự án chỉ tải khi bạn bấm xem</td></tr>
+              <tr><td><strong>Đơn vị hóa đơn điện tử, ngân hàng</strong></td><td>Thông tin xuất hóa đơn, thanh toán</td><td>Theo hợp đồng và pháp luật kế toán, thuế</td></tr>
+              <tr><td><strong>Doanh nghiệp bạn gửi yêu cầu báo giá hoặc đánh giá</strong></td><td>Thông tin bạn chọn gửi, được nêu ngay tại nút gửi</td><td>Khi bạn bấm gửi</td></tr>
+              <tr><td><strong>Khu công nghiệp, nhà đầu tư trong Business Matching</strong></td><td>Thông tin liên hệ và nhu cầu kết nối</td><td>Sự đồng ý của bạn cho từng lần giới thiệu</td></tr>
+              <tr><td><strong>Nhà tài trợ, đơn vị đồng tổ chức sự kiện</strong></td><td>Họ tên, chức danh, công ty, email</td><td>Chỉ khi bạn chọn ô đồng ý riêng khi đăng ký</td></tr>
+              <tr><td><strong>Cơ quan nhà nước có thẩm quyền</strong></td><td>Theo yêu cầu</td><td>Theo quy định của pháp luật</td></tr>
+            </tbody>
+          </table></div>
+          <p>Khi HOUSELINK tổ chức lại doanh nghiệp (sáp nhập, chia, tách, chuyển nhượng), dữ liệu chỉ được chuyển giao theo quy định của pháp luật và chúng tôi sẽ thông báo cho bạn.</p>
         </div>
 
         <div class="legal-section" id="s9">
-          <h2>9. Liên hệ</h2>
-          <p>Mọi thắc mắc, yêu cầu về bảo mật dữ liệu hoặc thực hiện quyền của bạn, vui lòng liên hệ:</p>
+          <h2>9. Lưu trữ tại Việt Nam và chuyển dữ liệu ra nước ngoài</h2>
+          <p>Máy chủ ứng dụng, cơ sở dữ liệu và bản sao lưu của nền tảng HOUSELINK đặt tại Việt Nam.</p>
+          <p>Một số dịch vụ của Google mà chúng tôi sử dụng có thể xử lý dữ liệu tại trung tâm dữ liệu ngoài Việt Nam:</p>
           <ul>
-            <li><strong>Bộ phận Quản lý Dữ liệu - HOUSELINK</strong></li>
-            <li>📍 Tầng 9, Tòa nhà Sannam, 78 Duy Tân, Cầu Giấy, Hà Nội</li>
-            <li>✉ info@houselink.com.vn</li>
-            <li>📞 (+84) 966-222-490</li>
+            <li>Email, nội dung thư trao đổi với HOUSELINK và email chúng tôi gửi tới bạn;</li>
+            <li>Thông tin tài khoản Google khi bạn chọn đăng nhập bằng Google;</li>
+            <li>Dữ liệu đo lường của Google Analytics, khi bạn bật cookie đo lường.</li>
           </ul>
+          <p>Chúng tôi giới hạn dữ liệu gửi đi ở mức tối thiểu.</p>
+        </div>
+
+        <div class="legal-section" id="s10">
+          <h2>10. Thời hạn lưu trữ</h2>
+          <p>Dữ liệu chỉ được lưu trong thời gian cần cho mục đích xử lý hoặc theo thời hạn pháp luật yêu cầu. Hết hạn, dữ liệu được xóa hoặc khử nhận dạng.</p>
+          <div class="table-wrap"><table class="legal-table">
+            <thead><tr><th>Dữ liệu</th><th>Thời hạn lưu</th></tr></thead>
+            <tbody>
+              <tr><td>Tài khoản hội viên</td><td>Trong thời gian sử dụng dịch vụ; tài khoản không hoạt động 24 tháng sau khi hết gói được xóa hoặc khử nhận dạng</td></tr>
+              <tr><td>Hợp đồng, chứng từ thanh toán</td><td>Theo thời hạn của pháp luật kế toán</td></tr>
+              <tr><td>Giấy tờ tải lên khi yêu cầu nhận quản lý hồ sơ</td><td>Tối đa 90 ngày sau khi duyệt; sau đó chỉ giữ kết quả và ngày xác minh</td></tr>
+              <tr><td>Người đại diện theo pháp luật</td><td>Trong thời gian thông tin còn được công khai; cập nhật khi thay đổi</td></tr>
+              <tr><td>Đầu mối liên hệ khác</td><td>Cho đến khi người đó rút đồng ý hoặc yêu cầu xóa; người không đồng ý hoặc không phản hồi đợt xin đồng ý: xóa thông tin cá nhân, chỉ giữ phòng ban</td></tr>
+              <tr><td>Câu hỏi gửi HOUSELINK AI</td><td>90 ngày, đã tách khỏi tài khoản</td></tr>
+              <tr><td>Nhật ký đăng nhập, nhật ký bảo mật</td><td>24 tháng</td></tr>
+              <tr><td>Đăng ký nhận bản tin</td><td>Cho đến khi bạn hủy; sau đó chỉ giữ email trong danh sách không gửi để bảo đảm không gửi lại</td></tr>
+              <tr><td>Hồ sơ xin việc không trúng tuyển</td><td>Xóa khi kết thúc đợt tuyển; 12 tháng nếu bạn đồng ý giữ cho đợt sau</td></tr>
+              <tr><td>Hình ảnh, video sự kiện</td><td>36 tháng làm tư liệu nội bộ; ảnh dùng để quảng bá theo phạm vi bạn đã đồng ý</td></tr>
+              <tr><td>Cookie</td><td>Theo thời hạn của từng cookie, tối đa 13 tháng</td></tr>
+              <tr><td>Hồ sơ sự cố dữ liệu</td><td>5 năm sau khi khắc phục, để phục vụ kiểm tra</td></tr>
+            </tbody>
+          </table></div>
+        </div>
+
+        <div class="legal-section" id="s11">
+          <h2>11. Quyền của bạn và cách thực hiện</h2>
+          <p>Theo Điều 4 Luật Bảo vệ dữ liệu cá nhân, bạn có quyền:</p>
+          <div class="rights-grid">
+            <div class="right-item"><strong>Được biết</strong>về hoạt động xử lý dữ liệu cá nhân của mình</div>
+            <div class="right-item"><strong>Đồng ý hoặc không đồng ý</strong>và yêu cầu rút lại sự đồng ý</div>
+            <div class="right-item"><strong>Xem và chỉnh sửa</strong>hoặc yêu cầu chỉnh sửa dữ liệu</div>
+            <div class="right-item"><strong>Yêu cầu cung cấp, xóa, hạn chế xử lý</strong>và phản đối xử lý dữ liệu</div>
+            <div class="right-item"><strong>Khiếu nại, tố cáo, khởi kiện</strong>và yêu cầu bồi thường thiệt hại theo quy định của pháp luật</div>
+            <div class="right-item"><strong>Yêu cầu bảo vệ</strong>cơ quan có thẩm quyền hoặc bên liên quan thực hiện biện pháp bảo vệ dữ liệu cá nhân của mình</div>
+          </div>
+          <h3>Cách gửi yêu cầu</h3>
+          <ul>
+            <li>Email tới <a href="mailto:info@houselink.com.vn">info@houselink.com.vn</a>, ghi rõ yêu cầu và thông tin cần xử lý;</li>
+            <li>Gọi đường dây nóng (+84) 966 222 490 hoặc tổng đài 024 3795 5620 trong giờ làm việc;</li>
+            <li>Gửi văn bản hoặc đến trực tiếp trụ sở HOUSELINK; hội viên có thể gửi yêu cầu tại trang "Quyền riêng tư của tôi" trong tài khoản.</li>
+          </ul>
+          <p>Việc thực hiện quyền <strong>không mất phí</strong>. Để không cung cấp nhầm dữ liệu của bạn cho người khác, chúng tôi xác minh qua tài khoản đã đăng nhập hoặc email đã đăng ký. Chúng tôi chỉ hỏi thêm thông tin khi cách này không đủ, và không yêu cầu ảnh căn cước công dân nếu không cần thiết.</p>
+          <p><strong>Thời hạn</strong> theo Điều 5 Nghị định số 356/2025/NĐ-CP:</p>
+          <div class="table-wrap"><table class="legal-table">
+            <thead><tr><th>Yêu cầu</th><th>Phản hồi</th><th>Hoàn thành</th><th>Nếu cần bên xử lý phối hợp</th><th>Gia hạn</th></tr></thead>
+            <tbody>
+              <tr><td>Rút đồng ý, hạn chế, phản đối xử lý</td><td>2 ngày làm việc</td><td>15 ngày</td><td>20 ngày</td><td>1 lần, tối đa 15 ngày</td></tr>
+              <tr><td>Xem, chỉnh sửa, cung cấp dữ liệu</td><td>2 ngày làm việc</td><td>10 ngày</td><td>15 ngày</td><td>1 lần, tối đa 10 ngày</td></tr>
+              <tr><td>Xóa dữ liệu</td><td>2 ngày làm việc</td><td>20 ngày</td><td>30 ngày</td><td>1 lần, tối đa 20 ngày</td></tr>
+            </tbody>
+          </table></div>
+          <p>Khi gia hạn, chúng tôi báo bạn lý do trước khi hết hạn. Hủy đăng ký bản tin và tắt cookie có hiệu lực ngay, không chờ thời hạn trên.</p>
+          <p><strong>Khi chúng tôi không thể đáp ứng đầy đủ</strong>, ví dụ khi pháp luật yêu cầu tiếp tục lưu chứng từ kế toán, hoặc khi việc cung cấp dữ liệu ảnh hưởng tới quyền của người khác, chúng tôi trả lời bằng văn bản, nêu rõ lý do và căn cứ.</p>
+          <p><strong>Khiếu nại:</strong> bạn có thể gửi khiếu nại tới Nhân sự bảo vệ dữ liệu cá nhân của HOUSELINK. Bạn cũng có quyền khiếu nại, tố cáo tới cơ quan chuyên trách bảo vệ dữ liệu cá nhân thuộc Bộ Công an, hoặc khởi kiện tại Tòa án.</p>
+        </div>
+
+        <div class="legal-section" id="s12">
+          <h2>12. Bảo vệ dữ liệu và xử lý sự cố</h2>
+          <p>Chúng tôi áp dụng biện pháp quản lý và kỹ thuật phù hợp với mức rủi ro của dữ liệu:</p>
+          <ul>
+            <li>Mã hóa kết nối giữa trình duyệt và máy chủ (HTTPS/TLS); bản sao lưu được bảo vệ;</li>
+            <li>Phân quyền theo vai trò, theo nguyên tắc chỉ truy cập khi cần cho công việc; nhân viên quản trị bắt buộc xác thực hai lớp;</li>
+            <li>Thông tin liên hệ chi tiết của cá nhân chỉ một số ít quản trị viên được xem, mỗi lần xem được ghi nhật ký;</li>
+            <li>Nhân viên ký cam kết bảo mật và được đào tạo định kỳ;</li>
+            <li>Nhà cung cấp xử lý dữ liệu phải ký hợp đồng với nghĩa vụ bảo mật;</li>
+            <li>Tính năng mới có dùng dữ liệu cá nhân được đánh giá trước khi ra mắt.</li>
+          </ul>
+          <p>Khi xảy ra sự cố lộ, mất hoặc truy cập trái phép dữ liệu cá nhân, chúng tôi ngăn chặn ngay. Chúng tôi thông báo cho cơ quan chuyên trách bảo vệ dữ liệu cá nhân <strong>trong 72 giờ</strong> và cho người bị ảnh hưởng theo quy định của pháp luật. Hồ sơ sự cố được lưu trữ để phục vụ kiểm tra.</p>
+        </div>
+
+        <div class="legal-section" id="s13">
+          <h2>13. Dữ liệu cá nhân của trẻ em</h2>
+          <p>Dịch vụ của HOUSELINK dành cho tổ chức, doanh nghiệp và người đã thành niên hoạt động trong lĩnh vực bất động sản công nghiệp và đầu tư. HOUSELINK không chủ ý thu thập dữ liệu cá nhân của người dưới 18 tuổi, trong đó có trẻ em (người dưới 16 tuổi), và không thiết kế dịch vụ cho trẻ em.</p>
+          <ul>
+            <li>Khi đăng ký tài khoản, bạn xác nhận mình đủ 18 tuổi trở lên.</li>
+            <li>Nếu phát hiện đã thu thập dữ liệu của trẻ em mà không có sự đồng ý theo Điều 24 Luật 91/2025/QH15, HOUSELINK sẽ dừng xử lý và xóa dữ liệu đó không chậm trễ.</li>
+            <li>Cha mẹ hoặc người giám hộ có thể liên hệ theo mục 16 để yêu cầu kiểm tra và xóa.</li>
+          </ul>
+        </div>
+
+        <div class="legal-section" id="s14">
+          <h2>14. Rủi ro và hậu quả không mong muốn có thể xảy ra</h2>
+          <p>Dù đã áp dụng các biện pháp ở mục 12, không hệ thống nào an toàn tuyệt đối. Các rủi ro có thể xảy ra gồm:</p>
+          <ul>
+            <li>truy cập trái phép do tấn công mạng hoặc lỗ hổng phần mềm;</li>
+            <li>lỗi thao tác của con người, ví dụ gửi nhầm email hoặc cấp nhầm quyền;</li>
+            <li>tài khoản bị chiếm đoạt do mật khẩu bị lộ hoặc dùng chung với dịch vụ khác;</li>
+            <li>email, tin nhắn hoặc cuộc gọi giả mạo HOUSELINK nhằm lừa đảo.</li>
+          </ul>
+          <p>Hậu quả có thể là nhận thư rác, bị lừa đảo hoặc bị mạo danh. Để giảm rủi ro, bạn nên dùng mật khẩu riêng cho HOUSELINK, không chia sẻ tài khoản và đăng xuất khỏi thiết bị dùng chung.</p>
+          <div class="notice-warn"><strong>HOUSELINK không bao giờ yêu cầu bạn cung cấp mật khẩu, mã OTP hoặc chuyển tiền qua email, tin nhắn hay điện thoại.</strong> Email chính thức chỉ được gửi từ các tên miền houselink.com.vn và houselink.info. Nếu nghi ngờ một liên hệ mạo danh HOUSELINK, hãy báo cho chúng tôi theo mục 16. Khi xảy ra sự cố có thể ảnh hưởng đến bạn, HOUSELINK sẽ thông báo theo mục 12.</div>
+        </div>
+
+        <div class="legal-section" id="s15">
+          <h2>15. Thay đổi chính sách và ngôn ngữ</h2>
+          <ul>
+            <li>Chính sách này được rà soát định kỳ và khi pháp luật hoặc hoạt động xử lý dữ liệu của HOUSELINK thay đổi.</li>
+            <li>Với thay đổi quan trọng (mục đích mới, loại dữ liệu mới, bên nhận mới, chuyển dữ liệu ra nước ngoài mới), HOUSELINK thông báo trên website và qua email cho người dùng có tài khoản ít nhất 7 ngày trước khi có hiệu lực. Nếu thay đổi cần sự đồng ý, HOUSELINK sẽ xin lại sự đồng ý của bạn; việc tiếp tục sử dụng dịch vụ không được coi là đồng ý.</li>
+            <li>Chính sách được công bố bằng tiếng Việt, tiếng Anh, tiếng Nhật, tiếng Hàn và tiếng Trung (giản thể) với cùng số phiên bản và ngày hiệu lực. Nếu có khác biệt giữa các bản, bản tiếng Việt được ưu tiên áp dụng.</li>
+          </ul>
+          <div class="table-wrap"><table class="legal-table ver">
+            <thead><tr><th>Phiên bản</th><th>Ban hành</th><th>Hiệu lực</th><th>Nội dung</th></tr></thead>
+            <tbody>
+              <tr><td>QDNB-001/2025</td><td>01/07/2025</td><td>01/01/2026</td><td>Chính sách bảo mật theo Nghị định 13/2023/NĐ-CP</td></tr>
+              <tr><td>2.0</td><td>12/10/2026</td><td>12/10/2026</td><td>Cập nhật toàn bộ theo Luật 91/2025/QH15 và Nghị định 356/2025/NĐ-CP; thay thế QDNB-001/2025</td></tr>
+            </tbody>
+          </table></div>
+        </div>
+
+        <div class="legal-section" id="s16">
+          <h2>16. Liên hệ</h2>
+          <p>Mọi câu hỏi, yêu cầu về dữ liệu cá nhân, vui lòng liên hệ <strong>Nhân sự bảo vệ dữ liệu cá nhân, Công ty Cổ phần HOUSELINK</strong>. Chúng tôi xác nhận đã nhận yêu cầu và trả lời trong thời hạn nêu tại mục 11.</p>
+          <div class="contact-card">
+            <div class="contact-item"><span>Email về dữ liệu cá nhân</span><a href="mailto:info@houselink.com.vn">info@houselink.com.vn</a></div>
+            <div class="contact-item"><span>Điện thoại</span><b>(+84) 966 222 490</b> · Tổng đài <b>024 3795 5620</b></div>
+            <div class="contact-item"><span>Địa chỉ</span>Tầng 9, Tòa nhà Sannam, 78 Duy Tân, phường Cầu Giấy, thành phố Hà Nội</div>
+            <div class="contact-item"><span>Giờ làm việc</span>8:00 - 17:30, thứ Hai đến thứ Sáu, trừ ngày lễ</div>
+          </div>
+          <p><a class="btn-line" href="mailto:info@houselink.com.vn?subject=Y%C3%AAu%20c%E1%BA%A7u%20v%E1%BB%81%20d%E1%BB%AF%20li%E1%BB%87u%20c%C3%A1%20nh%C3%A2n">Gửi yêu cầu về dữ liệu</a><a class="btn-line" href="/vi/terms/">Xem Điều khoản sử dụng</a></p>
         </div>
 
       </div>
@@ -946,6 +1192,31 @@ footer { background: var(--navy); color: rgba(255,255,255,0.55); padding: 72px 0
 </section>
 
 <div id="hl-chrome-footer"></div>
+<script>
+(function () {
+  var links = [].slice.call(document.querySelectorAll('.legal-toc .toc-item'));
+  var map = {};
+  links.forEach(function (a) { map[a.getAttribute('href').slice(1)] = a; });
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        links.forEach(function (l) { l.classList.remove('active'); });
+        if (map[e.target.id]) map[e.target.id].classList.add('active');
+      });
+    }, { rootMargin: '-110px 0px -70% 0px' });
+    [].forEach.call(document.querySelectorAll('.legal-section[id]'), function (s) { io.observe(s); });
+  }
+  // Cookie settings button: calls window.hlOpenCookieSettings() if the cookie banner exposes it,
+  // otherwise fires the "hl:open-cookie-settings" event for the banner script to handle.
+  [].forEach.call(document.querySelectorAll('[data-hl-cookie-settings]'), function (b) {
+    b.addEventListener('click', function () {
+      if (typeof window.hlOpenCookieSettings === 'function') { window.hlOpenCookieSettings(); }
+      else { document.dispatchEvent(new CustomEvent('hl:open-cookie-settings')); }
+    });
+  });
+})();
+</script>
   <script src="../../landing-chrome.js" defer></script>
 </body>
 </html>

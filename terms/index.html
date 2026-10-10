@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Terms of Use – HOUSELINK</title>
+<title>Terms of Use - HOUSELINK</title>
+<meta name="description" content="Terms of use of the HOUSELINK platform and services: accounts, acceptable use, user content, intellectual property, payment, renewal, refunds, limitation of liability and dispute resolution.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
@@ -785,17 +786,82 @@ footer { background: var(--navy); color: rgba(255,255,255,0.55); padding: 72px 0
 .highlight-box { background:var(--off-white); border-left:4px solid var(--green); border-radius:0 8px 8px 0; padding:14px 18px; margin:16px 0; font-size:14px; color:var(--gray-600); line-height:1.7; }
 @media(max-width:960px){ .legal-layout{grid-template-columns:1fr;} .legal-toc{position:static;} }
 </style>
+<style id="legal-v2">
+/* ── LEGAL PAGES v2 (privacy 2.0, terms 2026) ── */
+.legal-section ol { margin:10px 0 14px 22px; display:flex; flex-direction:column; gap:6px; }
+.legal-section ol li { font-size:14px; color:var(--gray-600); line-height:1.7; }
+.legal-section a { color:var(--green); text-decoration:underline; text-underline-offset:2px; }
+.legal-section a:hover { color:var(--navy); }
+.legal-layout > * { min-width:0; }
+.legal-toc { max-height:calc(100vh - 120px); overflow:auto; }
+.toc-item.active { color:var(--navy); font-weight:600; }
+.page-hero-meta { display:flex; flex-wrap:wrap; gap:8px; margin-top:22px; }
+.page-hero-meta span { font-size:12px; color:rgba(255,255,255,.82); border:1px solid rgba(255,255,255,.22); border-radius:999px; padding:5px 12px; }
+.sum-title { font-size:11px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--green); margin-bottom:12px; }
+.sum-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin:0 0 44px; }
+.sum-card { border:1px solid var(--gray-100); border-radius:12px; padding:16px; background:var(--white); }
+.sum-card .ic { width:34px; height:34px; border-radius:9px; background:var(--green-pale); color:var(--green); display:flex; align-items:center; justify-content:center; margin-bottom:10px; }
+.sum-card .ic svg { width:18px; height:18px; }
+.sum-card h4 { font-size:14px; color:var(--navy); margin-bottom:4px; line-height:1.4; }
+.sum-card p { font-size:13px; color:var(--gray-600); line-height:1.6; }
+.table-wrap { overflow-x:auto; margin:12px 0 18px; border:1px solid var(--gray-100); border-radius:10px; }
+.legal-table { width:100%; border-collapse:collapse; font-size:13.5px; min-width:520px; }
+.legal-table th { background:var(--off-white); color:var(--navy); font-weight:700; text-align:left; padding:10px 12px; border-bottom:1px solid var(--gray-100); }
+.legal-table td { padding:10px 12px; border-top:1px solid var(--gray-50); color:var(--gray-600); vertical-align:top; line-height:1.6; }
+.legal-table tbody tr:first-child td { border-top:none; }
+.legal-table td strong { color:var(--navy); }
+.rights-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:10px; margin:12px 0 16px; }
+.right-item { background:var(--off-white); border-radius:10px; padding:12px 14px; font-size:13.5px; color:var(--gray-600); line-height:1.6; }
+.right-item strong { display:block; color:var(--navy); font-size:14px; margin-bottom:2px; }
+.contact-card { display:grid; grid-template-columns:repeat(2,1fr); gap:12px; margin:14px 0; }
+.contact-item { border:1px solid var(--gray-100); border-radius:10px; padding:12px 14px; font-size:13.5px; color:var(--gray-600); line-height:1.6; }
+.contact-item span { display:block; font-size:11px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--green); margin-bottom:2px; }
+.contact-item a, .contact-item b { color:var(--navy); font-weight:600; text-decoration:none; }
+.btn-line { display:inline-flex; align-items:center; gap:8px; border:1.5px solid var(--navy); color:var(--navy); background:var(--white); border-radius:8px; padding:9px 16px; font:600 13.5px var(--font-main); cursor:pointer; text-decoration:none !important; margin:4px 8px 4px 0; }
+.btn-line:hover { background:var(--navy); color:var(--white); }
+.notice-warn { background:#FFF8E6; border-left:4px solid #D99A00; border-radius:0 8px 8px 0; padding:14px 18px; margin:16px 0; font-size:14px; color:var(--gray-600); line-height:1.7; }
+.notice-warn strong { color:var(--navy); }
+@media (max-width:960px) { .sum-grid { grid-template-columns:1fr 1fr; } }
+@media (max-width:640px) {
+  .sum-grid, .rights-grid, .contact-card { grid-template-columns:1fr; }
+  .page-hero-inner, .sub-content .si { padding:0 16px; }
+  .legal-section h2 { font-size:19px; }
+}
+@media print {
+  #hl-chrome-header, #hl-chrome-footer, .legal-toc, .btn-line { display:none !important; }
+  .page-hero { background:none; padding:0 0 12px !important; }
+  .page-h1, .page-sub { color:#000; }
+  .legal-layout { display:block; }
+}
+.legal-table.ver td:not(:last-child), .legal-table.ver th:not(:last-child) { white-space:nowrap; }
+html[lang="ja"] body { font-family:'Inter','Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Noto Sans JP',sans-serif; }
+html[lang="ko"] body { font-family:'Inter','Apple SD Gothic Neo','Malgun Gothic','Noto Sans KR',sans-serif; }
+html[lang="zh-Hans"] body { font-family:'Inter','PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif; }
+</style>
   <link rel="stylesheet" href="../landing-chrome.css">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/icon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 </head>
 <body class="hl-with-fixed-header" data-hl-page="terms">
+<!--
+  Bản dịch tiếng Anh của Điều khoản sử dụng TOS-2026/v3, hiệu lực 12/10/2026. Thay thế trang /terms/.
+  Bản tiếng Việt được ưu tiên khi có khác biệt. Khi sửa bản tiếng Việt, sửa đồng thời các bản dịch.
+-->
 
 <div id="hl-chrome-header"></div>
 
 <section class="page-hero" style="padding-top:96px;">
   <div class="page-hero-inner">
     <div class="page-eyebrow">Terms of Use</div>
-    <h1 class="page-h1">Terms of Use<br><em>HOUSELINK Services</em></h1>
-    <p class="page-sub">Please read these terms carefully before using HOUSELINK services. Use of the service constitutes acceptance of the following terms.</p>
+    <h1 class="page-h1">Terms of Use<br><em>HOUSELINK Platform and Services</em></h1>
+    <p class="page-sub">These terms apply when you access the website, create an account or use HOUSELINK's services. For members who have signed a contract, the contract prevails in case of any discrepancy.</p>
+    <div class="page-hero-meta">
+      <span>Version TOS-2026/v3</span>
+      <span>Effective from 12 October 2026</span>
+      <span>Applies to: houselink.com.vn · dashboard · fdisignals.com · vietnamconstruction.vn</span>
+    </div>
   </div>
 </section>
 
@@ -803,150 +869,293 @@ footer { background: var(--navy); color: rgba(255,255,255,0.55); padding: 72px 0
   <div class="si">
     <div class="legal-layout">
 
-      <div class="legal-toc">
-        <div class="toc-title">Table of Contents</div>
-        <a class="toc-item" href="#t1">1. General Terms</a>
-        <a class="toc-item" href="#t2">2. Registration &amp; Account</a>
-        <a class="toc-item" href="#t3">3. Services Provided</a>
-        <a class="toc-item" href="#t4">4. Rights &amp; Obligations</a>
-        <a class="toc-item" href="#t5">5. Intellectual Property</a>
-        <a class="toc-item" href="#t6">6. Privacy &amp; Data</a>
-        <a class="toc-item" href="#t7">7. Payment &amp; Fees</a>
-        <a class="toc-item" href="#t8">8. Limitation of Liability</a>
-        <a class="toc-item" href="#t9">9. Service Termination</a>
-        <a class="toc-item" href="#t10">10. Governing Law</a>
-        <a class="toc-item" href="#t11">11. Contact</a>
+      <div class="legal-toc" role="navigation" aria-label="Contents">
+        <div class="toc-title">Contents</div>
+        <a class="toc-item" href="#t1">1. Scope and acceptance</a>
+        <a class="toc-item" href="#t2">2. About HOUSELINK</a>
+        <a class="toc-item" href="#t3">3. Definitions</a>
+        <a class="toc-item" href="#t4">4. HOUSELINK's Services</a>
+        <a class="toc-item" href="#t5">5. Accounts</a>
+        <a class="toc-item" href="#t6">6. Rules of use</a>
+        <a class="toc-item" href="#t7">7. User Content</a>
+        <a class="toc-item" href="#t8">8. Companies and connections</a>
+        <a class="toc-item" href="#t9">9. Information and HOUSELINK AI</a>
+        <a class="toc-item" href="#t10">10. Intellectual property</a>
+        <a class="toc-item" href="#t11">11. Pricing, payment, invoicing</a>
+        <a class="toc-item" href="#t12">12. Activation, renewal, refunds</a>
+        <a class="toc-item" href="#t13">13. Personal data</a>
+        <a class="toc-item" href="#t14">14. Limitation of liability</a>
+        <a class="toc-item" href="#t15">15. Suspension and termination</a>
+        <a class="toc-item" href="#t16">16. Force majeure</a>
+        <a class="toc-item" href="#t17">17. Complaints and disputes</a>
+        <a class="toc-item" href="#t18">18. Changes to the Terms</a>
+        <a class="toc-item" href="#t19">19. Contact</a>
       </div>
 
       <div class="legal-body">
 
         <div class="legal-meta">
-          <span><strong>Version:</strong> TOS-2025/v2</span>
-          <span><strong>Last Updated:</strong> 01/07/2025</span>
-          <span><strong>Effective from:</strong> 01/07/2025</span>
+          <span><strong>Version:</strong> TOS-2026/v3, replacing TOS-2025/v2</span>
+          <span><strong>Last updated:</strong> 12 October 2026</span>
+          <span><strong>Effective:</strong> 12 October 2026</span>
+          <span><strong>Language:</strong> translation of the Vietnamese version, which prevails in case of any discrepancy</span>
+        </div>
+
+        <div class="sum-title">At a glance</div>
+        <div class="sum-grid">
+          <div class="sum-card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div><h4>One account per person</h4><p>Accounts may not be shared or transferred. If you need more users, purchase additional accounts.</p></div>
+          <div class="sum-card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div><h4>Information for reference</h4><p>Project Leads reflect the situation at the time of update. Verify with the project owner before making decisions.</p></div>
+          <div class="sum-card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/></svg></div><h4>No scraping, no reselling</h4><p>Bots, bulk downloads, reselling data and feeding it into AI tools for training are prohibited.</p></div>
+          <div class="sum-card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg></div><h4>Separately signed contracts prevail</h4><p>Paid Packages are governed by a contract or registration form; in case of any discrepancy, the contract prevails.</p></div>
+          <div class="sum-card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg></div><h4>Refunds under section 12</h4><p>Fees paid are refunded only in the cases set out in section 12 or in the contract.</p></div>
+          <div class="sum-card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div><h4>Complaints by email or hotline</h4><p>HOUSELINK receives and responds to complaints in accordance with section 17.</p></div>
         </div>
 
         <div class="legal-section" id="t1">
-          <h2>1. General Terms</h2>
-          <p>These Terms of Use ("Terms") govern the relationship between <strong>HOUSELINK Joint Stock Company</strong> ("HOUSELINK", "we") and users ("you", "user") in the use of all services, platforms v cng c do HOUSELINK cung cp.</p>
-          <p>By accessing or using any HOUSELINK service, you confirm that you have read, understood and agree to be bound by these Terms and our Privacy Policy.</p>
-          <div class="highlight-box">If you disagree with any term, please do not use HOUSELINK services. Users must be at least 18 years old and have full legal capacity to use the services.</div>
+          <h2>1. Scope and acceptance of the Terms</h2>
+          <p>These Terms of Use (the "Terms") govern access to and use of the houselink.com.vn website, the members' platform at dashboard.houselink.com.vn, the fdisignals.com website, the vietnamconstruction.vn website and the services provided by <strong>HOUSELINK Joint Stock Company</strong> ("HOUSELINK", "we") (the "Services").</p>
+          <ul>
+            <li><strong>Acceptance:</strong> you accept the Terms when you tick the box to agree when creating an account, when you sign a contract or service registration form that refers to the Terms, or when you continue to use the Services after a new version takes effect in accordance with section 18. Acceptance of the Terms does not replace consent concerning personal data; where consent is required, it is requested separately in accordance with the <a href="/privacy/">Personal Data Protection Policy</a>.</li>
+            <li><strong>Eligibility:</strong> organisations, companies and individuals aged 18 or over with full legal capacity for civil acts. When you register for or use the Services on behalf of an organisation, you represent that you have authority to bind that organisation.</li>
+            <li><strong>Order of precedence:</strong> in case of any discrepancy, the Service Contract and any appendices signed separately between you and HOUSELINK prevail, followed by these Terms and then the Package descriptions on the website. Matters relating to personal data are governed by the Personal Data Protection Policy.</li>
+            <li><strong>Electronic contracting:</strong> contracts, registration forms and confirmations of consent may be concluded by electronic means and with electronic signatures, and have the same validity as paper documents under the Law on Electronic Transactions No. 20/2023/QH15.</li>
+          </ul>
+          <p>These Terms have been prepared in accordance with the Civil Code 2015, the Commercial Law 2005, the Law on Electronic Transactions 2023, the Law on Protection of Consumers' Rights 2023, the Law on E-commerce 2025 and the Law on Personal Data Protection 2025.</p>
+          <div class="highlight-box">If you do not agree to the Terms, please do not register an account or use the Services.</div>
         </div>
 
         <div class="legal-section" id="t2">
-          <h2>2. Registration &amp; Account</h2>
-          <h3>2.1. Account Creation</h3>
-          <ul>
-            <li>You must provide accurate, complete and up-to-date information when registering</li>
-            <li>Each person/organisation may only create one account unless permitted by HOUSELINK</li>
-            <li>Accounts may not be transferred to third parties</li>
-          </ul>
-          <h3>2.2. Account Security</h3>
-          <ul>
-            <li>You are responsible for the security of login credentials and all activity under the account</li>
-            <li>Notify HOUSELINK immediately if unauthorised access is detected: info@houselink.com.vn</li>
-            <li>HOUSELINK is not liable for damage caused by your failure to protect your account properly</li>
-          </ul>
+          <h2>2. About HOUSELINK</h2>
+          <div class="table-wrap"><table class="legal-table">
+            <tbody>
+              <tr><td><strong>Company name</strong></td><td>HOUSELINK Joint Stock Company</td></tr>
+              <tr><td><strong>Enterprise code and tax code</strong></td><td>0104585924</td></tr>
+              <tr><td><strong>Head office</strong></td><td>9th Floor, Sannam Building, 78 Duy Tan Street, Cau Giay Ward, Hanoi, Vietnam</td></tr>
+              <tr><td><strong>Phone</strong></td><td>Hotline (+84) 966 222 490 · Switchboard 024 3795 5620</td></tr>
+              <tr><td><strong>Email</strong></td><td><a href="mailto:info@houselink.com.vn">info@houselink.com.vn</a></td></tr>
+            </tbody>
+          </table></div>
         </div>
 
         <div class="legal-section" id="t3">
-          <h2>3. Services HOUSELINK Provides</h2>
-          <p>HOUSELINK provides the following services, subject to subscription plan and specific agreement:</p>
+          <h2>3. Definitions</h2>
           <ul>
-            <li><strong>Market Research &amp; Investment Advisory:</strong> Custom reports and strategic investment advisory in Vietnam</li>
-            <li><strong>Site Search &amp; Land Searching:</strong> Support for surveying and selecting industrial parks sites</li>
-            <li><strong>HOUSELINK Database:</strong> Access to a database of 120,000+ factories and 500+ industrial parks</li>
-            <li><strong>VietnamConstruction:</strong> Industrial construction content and connection platform</li>
-            <li><strong>ESG &amp; Carbon Consulting:</strong> Advisory and implementation of ESG solutions for businesses</li>
-            <li><strong>Events &amp; Business Matching:</strong> Organise and participate in workshops and business networking events</li>
+            <li><strong>Platform:</strong> the websites and applications listed in section 1 that are operated by HOUSELINK.</li>
+            <li><strong>User, "you":</strong> an organisation or individual that accesses the Platform or uses the Services.</li>
+            <li><strong>Member:</strong> a user with an account on the Platform, whether free or paid.</li>
+            <li><strong>Package:</strong> a set of access rights, features and accompanying services described in the price list, registration form or contract.</li>
+            <li><strong>Project Leads:</strong> information on industrial investment and construction projects compiled and updated by HOUSELINK on the Platform.</li>
+            <li><strong>User Content:</strong> information, documents, reviews, quote requests, company profiles and other content posted or sent by users through the Platform.</li>
+            <li><strong>Service Contract:</strong> a contract, appendix or registration form signed between a user and HOUSELINK for a Package or a consultancy service.</li>
           </ul>
-          <p>HOUSELINK has the right to change, suspend or discontinue any service with 30 days' prior notice (except trng hp khn cp hoc bt buc theo php lut).</p>
         </div>
 
         <div class="legal-section" id="t4">
-          <h2>4. Rights &amp; Obligations of Parties</h2>
-          <h3>4.1. Users commit not to:</h3>
+          <h2>4. HOUSELINK's Services</h2>
+          <p>Depending on the Package and the Service Contract, HOUSELINK provides:</p>
           <ul>
-            <li>Use the service for illegal, fraudulent or harmful purposes</li>
-            <li>Copy, distribute or sell HOUSELINK content without permission</li>
-            <li>Attempt unauthorised access to HOUSELINK systems or data</li>
-            <li>Use automated tools (bots, scrapers) to collect data from the platform</li>
-            <li>Upload or transmit content that is illegal, offensive or misleading</li>
+            <li><strong>Information platform:</strong> searching and tracking Project Leads, company profiles, industrial park infrastructure and Insights reports;</li>
+            <li><strong>Investment Signals (FDIsignals):</strong> early information on trends and potential investors;</li>
+            <li><strong>HOUSELINK AI:</strong> a question-and-answer assistant using artificial intelligence;</li>
+            <li><strong>Consultancy:</strong> market research, site selection, support with investment and company establishment procedures, project implementation, ESG and sustainable development, under a separate Service Contract;</li>
+            <li><strong>Events and Business Matching:</strong> conferences and business networking programmes;</li>
+            <li><strong>VietnamConstruction:</strong> news and specialist content on industrial construction.</li>
           </ul>
-          <h3>4.2. HOUSELINK commits to:</h3>
+          <p>The specific scope of each Package is set out in the price list, registration form or Service Contract. The Services are provided on a <strong>non-exclusive</strong> basis: HOUSELINK provides similar services and information to other members, including your competitors, and to investors, industrial parks and other organisations.</p>
+          <h3>4.1. What HOUSELINK does not provide</h3>
           <ul>
-            <li>Deliver services as committed and endeavour to ensure information accuracy</li>
-            <li>Protect user personal data per the Privacy Policy</li>
-            <li>Provide advance notice of important changes affecting the service</li>
-            <li>Handle complaints within a reasonable time</li>
+            <li>Selling, renting or transferring anyone's personal contact information (phone numbers, personal email addresses), or exporting contact lists;</li>
+            <li>Processing lists of personal data supplied by users, including sending emails or messages on users' behalf, cleaning lists or finding contacts on request;</li>
+            <li>Bidding information that has not been made public, or information that HOUSELINK is not permitted by law to provide;</li>
+            <li>Any guarantee that you will be invited to bid, win a bid, sign a contract or achieve a specific business result.</li>
           </ul>
+          <h3>4.2. Changes to the Services</h3>
+          <p>HOUSELINK may maintain, upgrade and change the features of the Platform. For scheduled maintenance, HOUSELINK gives advance notice on the Platform where possible. The discontinuation of a paid service is notified at least 30 days in advance, except in an emergency or where required by law; fees for the unused period are refunded in accordance with section 12.</p>
         </div>
 
         <div class="legal-section" id="t5">
-          <h2>5. Intellectual property</h2>
-          <p>All content on the HOUSELINK platform - including market reports, databases, interfaces, logos, articles charts and analysis tools - are the copyrighted property of HOUSELINK or are licensed use dng.</p>
+          <h2>5. Accounts</h2>
+          <h3>5.1. Registration</h3>
           <ul>
-            <li>Users may use content for <strong>personal and internal purposes</strong></li>
-            <li>Strictly prohibited: commercial copying, distribution or derivative works without written approval</li>
-            <li>When citing HOUSELINK content, the source must be clearly stated: "© HOUSELINK" with a link to the original page</li>
+            <li>You must provide accurate and complete information and update it when it changes. HOUSELINK may verify an organisation's details before activating a paid Package.</li>
+            <li>Each account is issued to <strong>one named individual</strong> only and may not be shared, transferred or used by more than one person. Organisations that need several users must register additional accounts.</li>
+            <li>Organisations are responsible for the users they designate and must notify HOUSELINK when a user needs to be replaced.</li>
+          </ul>
+          <h3>5.2. Account security</h3>
+          <ul>
+            <li>You must keep your login credentials confidential and are responsible for all activity carried out through your account.</li>
+            <li>Notify HOUSELINK immediately at <a href="mailto:info@houselink.com.vn">info@houselink.com.vn</a> if you discover unauthorised access to your account.</li>
+            <li>To protect accounts, HOUSELINK may limit the number of concurrent sessions and devices, require additional authentication and keep security logs in accordance with the Personal Data Protection Policy.</li>
+            <li>HOUSELINK may temporarily lock an account where there are signs that it has been taken over or shared, and reopen it after verification.</li>
           </ul>
         </div>
 
         <div class="legal-section" id="t6">
-          <h2>6. Privacy &amp; Data</h2>
-          <p>The collection and processing of personal data is governed by <a href="/privacy/" style="color:var(--green);">Privacy Policy</a> of HOUSELINK, incorporated by reference into these Terms. Content you share during the use of services (such as project documents, request information) are kept strictly confidential and may not be shared with third parties without prior consent of HOUSELINK.</p>
+          <h2>6. Rules of use</h2>
+          <p>You may use information and materials on the Platform only for your own internal business activities. You must not:</p>
+          <ol>
+            <li>use the Services for unlawful or fraudulent purposes, or to harm HOUSELINK or others;</li>
+            <li>provide false information, or impersonate another organisation or individual;</li>
+            <li>copy or bulk-download content, or use bots, scripts, scraping tools or other automated means to access or extract data;</li>
+            <li>sell, rent, share or disclose information from the Platform to third parties, including affiliates, except for sharing information about a specific project with a joint venture partner or subcontractor participating in that project who is bound by equivalent confidentiality obligations;</li>
+            <li>use information from the Platform to build databases, products or services that compete with HOUSELINK;</li>
+            <li>feed content from the Platform into third-party artificial intelligence tools to train models or build datasets;</li>
+            <li>use information about individuals obtained through the Platform to send advertising or marketing without that person's consent;</li>
+            <li>circumvent or disable security measures, reverse engineer the Platform, distribute malware or overload the system;</li>
+            <li>ask HOUSELINK to provide bidding information that has not been made public, or to give or promise benefits, on your behalf, to project owners, their personnel or persons holding positions of authority;</li>
+            <li>post content that is unlawful, offensive or untrue, or that infringes the intellectual property rights or privacy of others.</li>
+          </ol>
+          <p>If a violation is detected, HOUSELINK may issue a warning, remove content, suspend or terminate the account in accordance with section 15, claim compensation for damage, and notify the competent authorities where required by law.</p>
         </div>
 
         <div class="legal-section" id="t7">
-          <h2>7. Payment &amp; Service Fees</h2>
+          <h2>7. Content provided by users</h2>
           <ul>
-            <li>Service fees are agreed in the contract or specific service proposal</li>
-            <li>Payment per agreed schedule and method; late payment may incur interest of 0.05%/day</li>
-            <li>All fee disputes must be notified in writing within 30 days of receiving the invoice</li>
-            <li>Fee refunds only apply per the terms in the specific service contract</li>
+            <li><strong>Responsibility:</strong> you warrant that User Content is accurate and lawful, that you have the right to use it, and that you have a lawful basis for any personal data it contains.</li>
+            <li><strong>HOUSELINK's right of use:</strong> you permit HOUSELINK to store, display, format and transmit User Content to the extent necessary to provide the Services, for example sending a quote request to a company you select. This right is non-exclusive and free of charge and ends when you delete the content, except for any part already shared with recipients at your request.</li>
+            <li><strong>Reviews:</strong> reviews must be based on genuine experience and must not involve undisclosed conflicts of interest. HOUSELINK does not alter the meaning of reviews, but may hide or remove reviews that breach section 6.</li>
+            <li><strong>Claiming management of a company profile:</strong> the requester must provide documents proving their authority to represent the company. HOUSELINK may refuse a request where the evidence is insufficient. The approved person is responsible for the information they update on the profile.</li>
+            <li><strong>Reporting infringing content:</strong> email <a href="mailto:info@houselink.com.vn">info@houselink.com.vn</a> with the link and the reason. HOUSELINK reviews reports and handles them in accordance with section 6. Unlawful content is removed at the request of competent authorities within the time limits prescribed by law.</li>
           </ul>
         </div>
 
         <div class="legal-section" id="t8">
-          <h2>8. Limitation of liability</h2>
-          <p>HOUSELINK provides services on an "as-is" basis. We do not guarantee that:</p>
+          <h2>8. Company information, contact persons and connections</h2>
           <ul>
-            <li>Service is completely error-free or always available 24/7</li>
-            <li>Information in the database is absolutely accurate at all times (although we endeavour to update continuously)</li>
-            <li>Advisory results guarantee project success (results depend on many objective factors)</li>
+            <li>Company information (name, enterprise code, address, business lines, general email, switchboard number) is displayed on the basis of public sources and information updated by the companies themselves.</li>
+            <li>The full name and job title of a legal representative are displayed to the extent already made public under the Law on Enterprises.</li>
+            <li>The full name and job title of other contact persons are displayed only with that person's consent; without consent, the platform displays only a department or a generic role.</li>
+            <li>Members do not receive contact persons' phone numbers or personal email addresses. Connection requests are sent through HOUSELINK to the company's general email address or to a person who has agreed to receive requests. Whether the recipient responds is for them to decide.</li>
+            <li>Companies or individuals wishing to correct, delete or restrict their information should send a request to <a href="mailto:info@houselink.com.vn">info@houselink.com.vn</a>.</li>
           </ul>
-          <div class="highlight-box">HOUSELINK's maximum liability in all cases shall not exceed the actual service fees you have paid trong 12 thng gn nht.</div>
         </div>
 
         <div class="legal-section" id="t9">
-          <h2>9. Service Termination</h2>
+          <h2>9. Nature of information and HOUSELINK AI</h2>
           <ul>
-            <li><strong>Per Agreement:</strong> Per termination clauses in the service contract</li>
-            <li><strong>Terms Violations:</strong> HOUSELINK may suspend or terminate accounts upon discovery of serious violations</li>
-            <li><strong>Per User Request:</strong> Send requests to info@houselink.com.vn processed within 15 working days</li>
+            <li>Project Leads, reports and consultancy content are <strong>market reference information</strong> reflecting the situation at the time of update. Projects may be changed, suspended or cancelled by decision of the project owner or the competent authorities.</li>
+            <li>HOUSELINK compiles information from lawful sources, checks it under its verification process at the time of publication, records the source and date of update, and promptly corrects errors when they are discovered or reported.</li>
+            <li>Content generated by artificial intelligence, including answers from HOUSELINK AI, is for reference only and may contain errors. Please check it before use.</li>
+            <li>The Services do not constitute legal, tax, financial or investment advice unless expressly provided in a Service Contract. You evaluate the information yourself, verify it directly with your counterparties and bear sole responsibility for your business decisions.</li>
           </ul>
-          <p>Upon termination, personal data will be processed per the Privacy Policy and applicable legal requirements.</p>
         </div>
 
         <div class="legal-section" id="t10">
-          <h2>10. Governing Law &amp; Dispute Resolution</h2>
-          <p>These Terms are governed by the laws of the Socialist Republic of Vietnam. Any disputes arising sc gii quyt theo trnh t:</p>
+          <h2>10. Intellectual property</h2>
           <ul>
-            <li><strong>Negotiation:</strong> Both parties endeavour to resolve within 30 days</li>
-            <li><strong>Mediation:</strong> Through a commercial mediation body agreed by both parties</li>
-            <li><strong>Court:</strong> Competent People's Court in Hanoi, Vietnam</li>
+            <li>HOUSELINK owns or is lawfully licensed to use the Platform, software, interfaces, databases and the selection and arrangement of data, reports, Insights, articles, charts, the HOUSELINK, FDIsignals and VietnamConstruction names and logos, and related content.</li>
+            <li>HOUSELINK grants you a limited, non-exclusive, non-transferable right of access and use for internal business purposes for as long as you use the Services.</li>
+            <li>When quoting HOUSELINK content, you must cite the source as "© HOUSELINK" and link to the original page. Copying, commercial distribution, creating derivative works or providing content to third parties requires HOUSELINK's prior written approval.</li>
+            <li>You retain your rights in your own materials. Feedback you submit to improve the Services may be used by HOUSELINK without giving rise to any payment obligation.</li>
           </ul>
         </div>
 
         <div class="legal-section" id="t11">
-          <h2>11. Contact</h2>
-          <p>For any questions about the Terms of Use, please contact:</p>
+          <h2>11. Pricing, payment and invoicing</h2>
           <ul>
-            <li><strong>HOUSELINK Joint Stock Company</strong></li>
-            <li>📍 Level 9, Sannam Building, 78 Duy Tan, Cau Giay, Hanoi</li>
-            <li>✉ info@houselink.com.vn</li>
-            <li>📞 +84 966 222 490</li>
+            <li>Package prices are as stated in the price list published on the website, a quotation or the Service Contract, are denominated in Vietnamese dong and exclude value added tax unless otherwise stated. VAT is charged at the rate in force at the time of invoicing.</li>
+            <li>Payment is made by bank transfer according to the schedule in the Service Contract or registration form. HOUSELINK issues electronic invoices in accordance with regulations upon receipt of payment.</li>
+            <li>Transfer fees are borne by the paying party so that HOUSELINK receives the full amount.</li>
+            <li>In the event of late payment, interest on late payment is charged as set out in the Service Contract or, if the contract does not provide for it, at the average market interest rate for overdue debts at the time of payment, in accordance with the Commercial Law.</li>
+            <li>Any complaint about fees must be made in writing within 30 days of receipt of the invoice.</li>
           </ul>
+        </div>
+
+        <div class="legal-section" id="t12">
+          <h2>12. Activation, renewal, cancellation and refunds</h2>
+          <ul>
+            <li><strong>Activation:</strong> paid Package accounts are activated within 1 working day after HOUSELINK receives full payment and the list of users. HOUSELINK sends a confirmation email; the date on which the email is sent is the start date of the service term.</li>
+            <li><strong>Renewal:</strong> HOUSELINK gives notice at least 30 days before expiry. Renewal takes effect when you confirm and pay; renewal prices follow the price list in force at the time of renewal. The Service Contract may provide otherwise.</li>
+            <li><strong>Expiry:</strong> the account reverts to restricted mode; account data is retained and deleted in accordance with the Personal Data Protection Policy.</li>
+            <li><strong>Cancellation:</strong> you may stop using the Services or request termination at any time. Fees paid are non-refundable, except in the cases below.</li>
+          </ul>
+          <p>HOUSELINK refunds the service fees and the corresponding VAT (with an adjustment invoice) in proportion to the number of full months remaining in the service term, within 15 working days, where:</p>
+          <ol>
+            <li>HOUSELINK seriously breaches its obligations and fails to remedy the breach within 15 days of receiving a written request;</li>
+            <li>HOUSELINK discontinues a paid service that you are using;</li>
+            <li>a force majeure event prevents HOUSELINK from providing the Services for more than 60 days;</li>
+            <li>other cases specified in the Service Contract apply.</li>
+          </ol>
+          <p>For individual users purchasing services for consumer purposes, their rights under the Law on Protection of Consumers' Rights are guaranteed, even where these differ from this section.</p>
+        </div>
+
+        <div class="legal-section" id="t13">
+          <h2>13. Personal data protection</h2>
+          <p>Personal data is processed in accordance with the <a href="/privacy/">Personal Data Protection Policy</a>, which forms part of these Terms. In summary:</p>
+          <ul>
+            <li>HOUSELINK does not sell personal data and does not measure whether each individual opens emails or clicks links;</li>
+            <li>Non-essential cookies are off until you turn them on;</li>
+            <li>You have the right to access, correct and delete your data, to withdraw consent and other rights; requests are acknowledged within 2 working days;</li>
+            <li>All requests concerning personal data should be sent to <a href="mailto:info@houselink.com.vn">info@houselink.com.vn</a>.</li>
+          </ul>
+          <p>Project information and documents that you share when using the Services are kept confidential and are not shared with third parties without your consent, except where required by law.</p>
+        </div>
+
+        <div class="legal-section" id="t14">
+          <h2>14. Limitation of liability</h2>
+          <p>HOUSELINK endeavours to keep the Services stable and the information accurate, but does not guarantee that the Services will never be interrupted or that the information will be complete and accurate at all times. HOUSELINK is not liable for:</p>
+          <ul>
+            <li>your business decisions based on information from the Services;</li>
+            <li>the acts or decisions of project owners, partners or other third parties;</li>
+            <li>indirect damage, loss of profit, loss of business opportunity or failure to win a bid.</li>
+          </ul>
+          <p>For free accounts, the Services are provided on an "as is" basis and HOUSELINK is not liable to pay compensation, except where the law provides otherwise.</p>
+          <div class="highlight-box">HOUSELINK's total liability to you, whether by way of compensation, penalties for breach or refunds, does not exceed the fees you have actually paid for the relevant Services in the 12 months preceding the event giving rise to the liability. This limitation does not apply where the damage results from HOUSELINK's intentional fault or where the law does not permit such a limitation, including consumer rights under the Law on Protection of Consumers' Rights. The Service Contract may provide otherwise.</div>
+        </div>
+
+        <div class="legal-section" id="t15">
+          <h2>15. Suspension and termination</h2>
+          <ul>
+            <li><strong>At your request:</strong> send an account deletion request to <a href="mailto:info@houselink.com.vn">info@houselink.com.vn</a>; HOUSELINK processes it within the time limits set out in the Personal Data Protection Policy. Paid Packages are governed by section 12 and the Service Contract.</li>
+            <li><strong>For breach:</strong> HOUSELINK may suspend or terminate an account if you breach section 5 or section 6, fail to pay on time, or where necessary to ensure system security. HOUSELINK notifies you of the reason; for serious breaches such as automated data collection, reselling data or unlawful conduct, suspension may take effect immediately.</li>
+            <li><strong>Under the Service Contract:</strong> other cases of termination are governed by the contract.</li>
+          </ul>
+          <p>Upon termination, access rights end; personal data is handled in accordance with the Personal Data Protection Policy. Sections 6, 10, 11 (amounts payable), 14 and 17 remain in effect.</p>
+        </div>
+
+        <div class="legal-section" id="t16">
+          <h2>16. Force majeure</h2>
+          <p>Neither party is liable for failure to perform its obligations due to a force majeure event, meaning an event that occurs objectively, cannot be foreseen and cannot be remedied despite all necessary measures having been taken, such as natural disasters, epidemics, war, decisions of competent state authorities, or cyberattacks and failures of third-party telecommunications or cloud computing infrastructure that are beyond reasonable control despite appropriate security and contingency measures having been applied. Payment obligations are not excused on grounds of force majeure.</p>
+        </div>
+
+        <div class="legal-section" id="t17">
+          <h2>17. Complaints and dispute resolution</h2>
+          <h3>17.1. Complaints</h3>
+          <p>You may submit complaints about the Services by email to <a href="mailto:info@houselink.com.vn">info@houselink.com.vn</a>, through the hotline on (+84) 966 222 490 or in writing to our head office. HOUSELINK receives and responds to complaints within a reasonable time, normally no more than 15 working days; in complex cases, we will inform you of the expected timeframe. Requests concerning personal data are handled within the time limits set out in the Personal Data Protection Policy.</p>
+          <h3>17.2. Governing law and disputes</h3>
+          <ul>
+            <li>These Terms are governed by the laws of the Socialist Republic of Vietnam.</li>
+            <li><strong>Negotiation:</strong> the parties will seek to resolve disputes in good faith within 30 days of the date on which one party sends written notice of the dispute.</li>
+            <li><strong>Mediation:</strong> the parties may choose commercial mediation at a mediation organisation agreed by both parties.</li>
+            <li><strong>Courts:</strong> if the dispute cannot be resolved, it will be brought before the competent People's Court in Hanoi, where HOUSELINK has its head office, unless the Service Contract provides otherwise. Consumers may exercise their right to bring legal action in accordance with the Law on Protection of Consumers' Rights.</li>
+          </ul>
+        </div>
+
+        <div class="legal-section" id="t18">
+          <h2>18. Changes to the Terms, language and validity</h2>
+          <ul>
+            <li>HOUSELINK may update the Terms when the law or the Services change. Material changes are notified on the website and by email to members at least 7 days before they take effect.</li>
+            <li>The Terms are published in several languages; in case of any discrepancy, the Vietnamese version prevails.</li>
+            <li>If any provision is held to be invalid, the remaining provisions remain in effect.</li>
+          </ul>
+          <div class="table-wrap"><table class="legal-table ver">
+            <thead><tr><th>Version</th><th>Effective</th><th>Description</th></tr></thead>
+            <tbody>
+              <tr><td>TOS-2025/v2</td><td>1 July 2025</td><td>Previous version</td></tr>
+              <tr><td>TOS-2026/v3</td><td>12 October 2026</td><td>Added company information, rules on accounts and data use, User Content, the contact display model, HOUSELINK AI, payment, renewal and refunds, and complaints; updated in line with the Law on Personal Data Protection 2025 and the Law on E-commerce 2025</td></tr>
+            </tbody>
+          </table></div>
+        </div>
+
+        <div class="legal-section" id="t19">
+          <h2>19. Contact</h2>
+          <div class="contact-card">
+            <div class="contact-item"><span>Company</span><b>HOUSELINK Joint Stock Company</b><br>Tax code 0104585924</div>
+            <div class="contact-item"><span>Address</span>9th Floor, Sannam Building, 78 Duy Tan Street, Cau Giay Ward, Hanoi, Vietnam</div>
+            <div class="contact-item"><span>Email</span><a href="mailto:info@houselink.com.vn">info@houselink.com.vn</a></div>
+            <div class="contact-item"><span>Phone</span><b>(+84) 966 222 490</b> (Vietnamese, English)<br>Switchboard <b>024 3795 5620</b></div>
+          </div>
+          <p><a class="btn-line" href="/contact/">Contact HOUSELINK</a><a class="btn-line" href="/privacy/">Personal Data Protection Policy</a></p>
         </div>
 
       </div>
@@ -955,6 +1164,31 @@ footer { background: var(--navy); color: rgba(255,255,255,0.55); padding: 72px 0
 </section>
 
 <div id="hl-chrome-footer"></div>
+<script>
+(function () {
+  var links = [].slice.call(document.querySelectorAll('.legal-toc .toc-item'));
+  var map = {};
+  links.forEach(function (a) { map[a.getAttribute('href').slice(1)] = a; });
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        links.forEach(function (l) { l.classList.remove('active'); });
+        if (map[e.target.id]) map[e.target.id].classList.add('active');
+      });
+    }, { rootMargin: '-110px 0px -70% 0px' });
+    [].forEach.call(document.querySelectorAll('.legal-section[id]'), function (s) { io.observe(s); });
+  }
+  // Cookie settings button: calls window.hlOpenCookieSettings() if the cookie banner exposes it,
+  // otherwise fires the "hl:open-cookie-settings" event for the banner script to handle.
+  [].forEach.call(document.querySelectorAll('[data-hl-cookie-settings]'), function (b) {
+    b.addEventListener('click', function () {
+      if (typeof window.hlOpenCookieSettings === 'function') { window.hlOpenCookieSettings(); }
+      else { document.dispatchEvent(new CustomEvent('hl:open-cookie-settings')); }
+    });
+  });
+})();
+</script>
   <script src="../landing-chrome.js" defer></script>
 </body>
 </html>

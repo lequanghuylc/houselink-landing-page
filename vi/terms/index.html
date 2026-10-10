@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Điều khoản Sử dụng – HOUSELINK</title>
+<title>Điều khoản sử dụng - HOUSELINK</title>
+<meta name="description" content="Điều khoản sử dụng nền tảng và dịch vụ HOUSELINK: tài khoản, quy tắc sử dụng, nội dung người dùng, sở hữu trí tuệ, thanh toán, gia hạn, hoàn phí, giới hạn trách nhiệm và giải quyết tranh chấp.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
@@ -785,17 +786,82 @@ footer { background: var(--navy); color: rgba(255,255,255,0.55); padding: 72px 0
 .highlight-box { background:var(--off-white); border-left:4px solid var(--green); border-radius:0 8px 8px 0; padding:14px 18px; margin:16px 0; font-size:14px; color:var(--gray-600); line-height:1.7; }
 @media(max-width:960px){ .legal-layout{grid-template-columns:1fr;} .legal-toc{position:static;} }
 </style>
+<style id="legal-v2">
+/* ── LEGAL PAGES v2 (privacy 2.0, terms 2026) ── */
+.legal-section ol { margin:10px 0 14px 22px; display:flex; flex-direction:column; gap:6px; }
+.legal-section ol li { font-size:14px; color:var(--gray-600); line-height:1.7; }
+.legal-section a { color:var(--green); text-decoration:underline; text-underline-offset:2px; }
+.legal-section a:hover { color:var(--navy); }
+.legal-layout > * { min-width:0; }
+.legal-toc { max-height:calc(100vh - 120px); overflow:auto; }
+.toc-item.active { color:var(--navy); font-weight:600; }
+.page-hero-meta { display:flex; flex-wrap:wrap; gap:8px; margin-top:22px; }
+.page-hero-meta span { font-size:12px; color:rgba(255,255,255,.82); border:1px solid rgba(255,255,255,.22); border-radius:999px; padding:5px 12px; }
+.sum-title { font-size:11px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--green); margin-bottom:12px; }
+.sum-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin:0 0 44px; }
+.sum-card { border:1px solid var(--gray-100); border-radius:12px; padding:16px; background:var(--white); }
+.sum-card .ic { width:34px; height:34px; border-radius:9px; background:var(--green-pale); color:var(--green); display:flex; align-items:center; justify-content:center; margin-bottom:10px; }
+.sum-card .ic svg { width:18px; height:18px; }
+.sum-card h4 { font-size:14px; color:var(--navy); margin-bottom:4px; line-height:1.4; }
+.sum-card p { font-size:13px; color:var(--gray-600); line-height:1.6; }
+.table-wrap { overflow-x:auto; margin:12px 0 18px; border:1px solid var(--gray-100); border-radius:10px; }
+.legal-table { width:100%; border-collapse:collapse; font-size:13.5px; min-width:520px; }
+.legal-table th { background:var(--off-white); color:var(--navy); font-weight:700; text-align:left; padding:10px 12px; border-bottom:1px solid var(--gray-100); }
+.legal-table td { padding:10px 12px; border-top:1px solid var(--gray-50); color:var(--gray-600); vertical-align:top; line-height:1.6; }
+.legal-table tbody tr:first-child td { border-top:none; }
+.legal-table td strong { color:var(--navy); }
+.rights-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:10px; margin:12px 0 16px; }
+.right-item { background:var(--off-white); border-radius:10px; padding:12px 14px; font-size:13.5px; color:var(--gray-600); line-height:1.6; }
+.right-item strong { display:block; color:var(--navy); font-size:14px; margin-bottom:2px; }
+.contact-card { display:grid; grid-template-columns:repeat(2,1fr); gap:12px; margin:14px 0; }
+.contact-item { border:1px solid var(--gray-100); border-radius:10px; padding:12px 14px; font-size:13.5px; color:var(--gray-600); line-height:1.6; }
+.contact-item span { display:block; font-size:11px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--green); margin-bottom:2px; }
+.contact-item a, .contact-item b { color:var(--navy); font-weight:600; text-decoration:none; }
+.btn-line { display:inline-flex; align-items:center; gap:8px; border:1.5px solid var(--navy); color:var(--navy); background:var(--white); border-radius:8px; padding:9px 16px; font:600 13.5px var(--font-main); cursor:pointer; text-decoration:none !important; margin:4px 8px 4px 0; }
+.btn-line:hover { background:var(--navy); color:var(--white); }
+.notice-warn { background:#FFF8E6; border-left:4px solid #D99A00; border-radius:0 8px 8px 0; padding:14px 18px; margin:16px 0; font-size:14px; color:var(--gray-600); line-height:1.7; }
+.notice-warn strong { color:var(--navy); }
+@media (max-width:960px) { .sum-grid { grid-template-columns:1fr 1fr; } }
+@media (max-width:640px) {
+  .sum-grid, .rights-grid, .contact-card { grid-template-columns:1fr; }
+  .page-hero-inner, .sub-content .si { padding:0 16px; }
+  .legal-section h2 { font-size:19px; }
+}
+@media print {
+  #hl-chrome-header, #hl-chrome-footer, .legal-toc, .btn-line { display:none !important; }
+  .page-hero { background:none; padding:0 0 12px !important; }
+  .page-h1, .page-sub { color:#000; }
+  .legal-layout { display:block; }
+}
+.legal-table.ver td:not(:last-child), .legal-table.ver th:not(:last-child) { white-space:nowrap; }
+</style>
   <link rel="stylesheet" href="../../landing-chrome.css">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/icon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 </head>
 <body class="hl-with-fixed-header" data-hl-page="terms">
+<!--
+  GHI CHÚ CHO NGƯỜI CẬP NHẬT WEBSITE (có thể xóa khối này)
+  - Trang thay thế /vi/terms/ (TOS-2025/v2). Phiên bản TOS-2026/v3, hiệu lực 12/10/2026.
+  - Anchor #t1 đến #t11 vẫn tồn tại nhưng nội dung đổi số: luật áp dụng #t10 -> #t17; liên hệ #t11 -> #t19.
+  - Nếu website có chức năng đặt mua hoặc ký hợp đồng trực tuyến, rà nghĩa vụ thông báo website thương mại điện tử với Bộ Công Thương (Luật Thương mại điện tử 2025, Nghị định 248/2026/NĐ-CP) và gắn biểu tượng ở chân trang khi được xác nhận.
+  - Nên bổ sung mã số doanh nghiệp 0104585924 vào chân trang (partials/footer-*.html).
+-->
 
 <div id="hl-chrome-header"></div>
 
 <section class="page-hero" style="padding-top:96px;">
   <div class="page-hero-inner">
     <div class="page-eyebrow">Điều khoản sử dụng</div>
-    <h1 class="page-h1">Điều khoản Sử dụng<br><em>Dịch vụ HOUSELINK</em></h1>
-    <p class="page-sub">Vui lòng đọc kỹ các điều khoản này trước khi sử dụng dịch vụ của HOUSELINK. Việc sử dụng dịch vụ đồng nghĩa với việc bạn chấp nhận các điều khoản dưới đây.</p>
+    <h1 class="page-h1">Điều khoản sử dụng<br><em>Nền tảng và dịch vụ HOUSELINK</em></h1>
+    <p class="page-sub">Các điều khoản này áp dụng khi bạn truy cập website, tạo tài khoản hoặc sử dụng dịch vụ của HOUSELINK. Với hội viên đã ký hợp đồng, hợp đồng được ưu tiên áp dụng khi có khác biệt.</p>
+    <div class="page-hero-meta">
+      <span>Phiên bản TOS-2026/v3</span>
+      <span>Hiệu lực từ 12/10/2026</span>
+      <span>Áp dụng: houselink.com.vn · dashboard · fdisignals.com · vietnamconstruction.vn</span>
+    </div>
   </div>
 </section>
 
@@ -803,150 +869,292 @@ footer { background: var(--navy); color: rgba(255,255,255,0.55); padding: 72px 0
   <div class="si">
     <div class="legal-layout">
 
-      <div class="legal-toc">
+      <div class="legal-toc" role="navigation" aria-label="Mục lục">
         <div class="toc-title">Mục lục</div>
-        <a class="toc-item" href="#t1">1. Điều khoản chung</a>
-        <a class="toc-item" href="#t2">2. Đăng ký & Tài khoản</a>
-        <a class="toc-item" href="#t3">3. Dịch vụ cung cấp</a>
-        <a class="toc-item" href="#t4">4. Quyền & Nghĩa vụ</a>
-        <a class="toc-item" href="#t5">5. Sở hữu trí tuệ</a>
-        <a class="toc-item" href="#t6">6. Bảo mật & Dữ liệu</a>
-        <a class="toc-item" href="#t7">7. Thanh toán & Phí</a>
-        <a class="toc-item" href="#t8">8. Giới hạn trách nhiệm</a>
-        <a class="toc-item" href="#t9">9. Chấm dứt dịch vụ</a>
-        <a class="toc-item" href="#t10">10. Luật áp dụng</a>
-        <a class="toc-item" href="#t11">11. Liên hệ</a>
+        <a class="toc-item" href="#t1">1. Phạm vi và chấp nhận</a>
+        <a class="toc-item" href="#t2">2. Thông tin về HOUSELINK</a>
+        <a class="toc-item" href="#t3">3. Giải thích từ ngữ</a>
+        <a class="toc-item" href="#t4">4. Dịch vụ của HOUSELINK</a>
+        <a class="toc-item" href="#t5">5. Tài khoản</a>
+        <a class="toc-item" href="#t6">6. Quy tắc sử dụng</a>
+        <a class="toc-item" href="#t7">7. Nội dung người dùng</a>
+        <a class="toc-item" href="#t8">8. Thông tin doanh nghiệp và kết nối</a>
+        <a class="toc-item" href="#t9">9. Tính chất thông tin, HOUSELINK AI</a>
+        <a class="toc-item" href="#t10">10. Sở hữu trí tuệ</a>
+        <a class="toc-item" href="#t11">11. Giá, thanh toán, hóa đơn</a>
+        <a class="toc-item" href="#t12">12. Kích hoạt, gia hạn, hoàn phí</a>
+        <a class="toc-item" href="#t13">13. Dữ liệu cá nhân</a>
+        <a class="toc-item" href="#t14">14. Giới hạn trách nhiệm</a>
+        <a class="toc-item" href="#t15">15. Tạm ngừng và chấm dứt</a>
+        <a class="toc-item" href="#t16">16. Bất khả kháng</a>
+        <a class="toc-item" href="#t17">17. Khiếu nại và tranh chấp</a>
+        <a class="toc-item" href="#t18">18. Thay đổi điều khoản</a>
+        <a class="toc-item" href="#t19">19. Liên hệ</a>
       </div>
 
       <div class="legal-body">
 
         <div class="legal-meta">
-          <span><strong>Phiên bản:</strong> TOS-2025/v2</span>
-          <span><strong>Ngày cập nhật:</strong> 01/07/2025</span>
-          <span><strong>Áp dụng từ:</strong> 01/07/2025</span>
+          <span><strong>Phiên bản:</strong> TOS-2026/v3, thay thế TOS-2025/v2</span>
+          <span><strong>Ngày cập nhật:</strong> 12/10/2026</span>
+          <span><strong>Hiệu lực:</strong> 12/10/2026</span>
+        </div>
+
+        <div class="sum-title">Tóm tắt nhanh</div>
+        <div class="sum-grid">
+          <div class="sum-card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div><h4>Mỗi tài khoản cho một người</h4><p>Không dùng chung, không chuyển nhượng tài khoản. Cần thêm người thì mua thêm tài khoản.</p></div>
+          <div class="sum-card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div><h4>Thông tin để tham khảo</h4><p>Thông tin dự án phản ánh thời điểm cập nhật. Hãy xác minh với chủ đầu tư trước khi quyết định.</p></div>
+          <div class="sum-card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/></svg></div><h4>Không thu thập tự động, không bán lại</h4><p>Cấm bot, tải hàng loạt, bán lại dữ liệu hoặc đưa vào công cụ AI để huấn luyện.</p></div>
+          <div class="sum-card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg></div><h4>Hợp đồng ký riêng được ưu tiên</h4><p>Gói trả phí theo hợp đồng hoặc phiếu đăng ký; khác biệt thì theo hợp đồng.</p></div>
+          <div class="sum-card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg></div><h4>Hoàn phí theo mục 12</h4><p>Phí đã thanh toán chỉ được hoàn trong các trường hợp nêu tại mục 12 hoặc trong hợp đồng.</p></div>
+          <div class="sum-card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div><h4>Khiếu nại qua email, đường dây nóng</h4><p>HOUSELINK tiếp nhận và phản hồi khiếu nại theo mục 17.</p></div>
         </div>
 
         <div class="legal-section" id="t1">
-          <h2>1. Điều khoản chung</h2>
-          <p>Các Điều khoản Sử dụng này ("Điều khoản") điều chỉnh mối quan hệ giữa <strong>Công ty Cổ phần HOUSELINK</strong> ("HOUSELINK", "chúng tôi") và người dùng ("bạn", "người dùng") trong việc sử dụng tất cả các dịch vụ, nền tảng và công cụ do HOUSELINK cung cấp.</p>
-          <p>Bằng việc truy cập hoặc sử dụng bất kỳ dịch vụ nào của HOUSELINK, bạn xác nhận đã đọc, hiểu và đồng ý bị ràng buộc bởi các Điều khoản này và Chính sách Bảo mật của chúng tôi.</p>
-          <div class="highlight-box">Nếu bạn không đồng ý với bất kỳ điều khoản nào, vui lòng không sử dụng dịch vụ của HOUSELINK. Người dùng phải đủ 18 tuổi và có đầy đủ năng lực pháp lý để sử dụng dịch vụ.</div>
+          <h2>1. Phạm vi áp dụng và chấp nhận điều khoản</h2>
+          <p>Các Điều khoản sử dụng này ("Điều khoản") điều chỉnh việc truy cập và sử dụng website houselink.com.vn, nền tảng dành cho hội viên tại dashboard.houselink.com.vn, website fdisignals.com, website vietnamconstruction.vn và các dịch vụ do <strong>Công ty Cổ phần HOUSELINK</strong> ("HOUSELINK", "chúng tôi") cung cấp ("Dịch vụ").</p>
+          <ul>
+            <li><strong>Chấp nhận:</strong> bạn chấp nhận Điều khoản khi đánh dấu đồng ý lúc tạo tài khoản, khi ký hợp đồng hoặc phiếu đăng ký dịch vụ có dẫn chiếu Điều khoản, hoặc khi tiếp tục sử dụng Dịch vụ sau khi phiên bản mới có hiệu lực theo mục 18. Việc chấp nhận Điều khoản không thay thế sự đồng ý về dữ liệu cá nhân; các trường hợp cần đồng ý được hỏi riêng theo <a href="/vi/privacy/">Chính sách bảo vệ dữ liệu cá nhân</a>.</li>
+            <li><strong>Đối tượng:</strong> tổ chức, doanh nghiệp và cá nhân từ đủ 18 tuổi, có năng lực hành vi dân sự đầy đủ. Khi đăng ký hoặc sử dụng Dịch vụ thay mặt một tổ chức, bạn cam đoan có thẩm quyền ràng buộc tổ chức đó.</li>
+            <li><strong>Thứ tự ưu tiên:</strong> nếu có khác biệt, hợp đồng dịch vụ và phụ lục ký riêng giữa bạn và HOUSELINK được ưu tiên, sau đó đến Điều khoản này và mô tả gói dịch vụ trên website. Nội dung về dữ liệu cá nhân thực hiện theo Chính sách bảo vệ dữ liệu cá nhân.</li>
+            <li><strong>Giao kết điện tử:</strong> hợp đồng, phiếu đăng ký và xác nhận đồng ý có thể được thực hiện bằng phương tiện điện tử và chữ ký điện tử, có giá trị như văn bản giấy theo Luật Giao dịch điện tử số 20/2023/QH15.</li>
+          </ul>
+          <p>Điều khoản được xây dựng theo Bộ luật Dân sự 2015, Luật Thương mại 2005, Luật Giao dịch điện tử 2023, Luật Bảo vệ quyền lợi người tiêu dùng 2023, Luật Thương mại điện tử 2025 và Luật Bảo vệ dữ liệu cá nhân 2025.</p>
+          <div class="highlight-box">Nếu bạn không đồng ý với Điều khoản, vui lòng không đăng ký tài khoản và không sử dụng Dịch vụ.</div>
         </div>
 
         <div class="legal-section" id="t2">
-          <h2>2. Đăng ký & Tài khoản</h2>
-          <h3>2.1. Tạo tài khoản</h3>
-          <ul>
-            <li>Bạn phải cung cấp thông tin chính xác, đầy đủ và cập nhật khi đăng ký</li>
-            <li>Mỗi người/tổ chức chỉ được tạo một tài khoản trừ khi được HOUSELINK cho phép</li>
-            <li>Tài khoản không được chuyển nhượng cho bên thứ ba</li>
-          </ul>
-          <h3>2.2. Bảo mật tài khoản</h3>
-          <ul>
-            <li>Bạn chịu trách nhiệm bảo mật thông tin đăng nhập và mọi hoạt động dưới tài khoản</li>
-            <li>Thông báo ngay cho HOUSELINK nếu phát hiện truy cập trái phép: info@houselink.com.vn</li>
-            <li>HOUSELINK không chịu trách nhiệm về thiệt hại do bạn không bảo vệ tài khoản đúng cách</li>
-          </ul>
+          <h2>2. Thông tin về HOUSELINK</h2>
+          <div class="table-wrap"><table class="legal-table">
+            <tbody>
+              <tr><td><strong>Tên doanh nghiệp</strong></td><td>Công ty Cổ phần HOUSELINK (HOUSELINK Joint Stock Company)</td></tr>
+              <tr><td><strong>Mã số doanh nghiệp, mã số thuế</strong></td><td>0104585924</td></tr>
+              <tr><td><strong>Trụ sở</strong></td><td>Tầng 9, Tòa nhà Sannam, 78 Duy Tân, phường Cầu Giấy, thành phố Hà Nội</td></tr>
+              <tr><td><strong>Điện thoại</strong></td><td>Đường dây nóng (+84) 966 222 490 · Tổng đài 024 3795 5620</td></tr>
+              <tr><td><strong>Email</strong></td><td><a href="mailto:info@houselink.com.vn">info@houselink.com.vn</a></td></tr>
+            </tbody>
+          </table></div>
         </div>
 
         <div class="legal-section" id="t3">
-          <h2>3. Dịch vụ HOUSELINK cung cấp</h2>
-          <p>HOUSELINK cung cấp các dịch vụ sau, tùy thuộc vào gói đăng ký và thỏa thuận riêng:</p>
+          <h2>3. Giải thích từ ngữ</h2>
           <ul>
-            <li><strong>Nghiên cứu thị trường & Tư vấn đầu tư:</strong> Báo cáo tùy chỉnh và tư vấn chiến lược đầu tư tại Việt Nam</li>
-            <li><strong>Tìm kiếm địa điểm & Land Searching:</strong> Hỗ trợ khảo sát và lựa chọn địa điểm Khu công nghiệp</li>
-            <li><strong>HOUSELINK Database:</strong> Truy cập cơ sở dữ liệu 120,000+ nhà máy và 500+ Khu công nghiệp</li>
-            <li><strong>VietnamConstruction:</strong> Nền tảng nội dung và kết nối ngành xây dựng công nghiệp</li>
-            <li><strong>ESG & Carbon Consulting:</strong> Tư vấn và triển khai giải pháp ESG cho doanh nghiệp</li>
-            <li><strong>Sự kiện & Business Matching:</strong> Tổ chức và tham gia hội thảo, sự kiện kết nối kinh doanh</li>
+            <li><strong>Nền tảng:</strong> các website và ứng dụng nêu tại mục 1 do HOUSELINK vận hành.</li>
+            <li><strong>Người dùng, "bạn":</strong> tổ chức hoặc cá nhân truy cập Nền tảng hoặc sử dụng Dịch vụ.</li>
+            <li><strong>Hội viên:</strong> người dùng có tài khoản trên Nền tảng, miễn phí hoặc trả phí.</li>
+            <li><strong>Gói dịch vụ:</strong> tập hợp quyền truy cập, tính năng và dịch vụ kèm theo được mô tả trong bảng giá, phiếu đăng ký hoặc hợp đồng.</li>
+            <li><strong>Thông tin dự án:</strong> thông tin về dự án đầu tư, xây dựng công nghiệp do HOUSELINK tổng hợp, cập nhật trên Nền tảng.</li>
+            <li><strong>Nội dung người dùng:</strong> thông tin, tài liệu, đánh giá, yêu cầu báo giá, hồ sơ doanh nghiệp và nội dung khác do người dùng đăng tải hoặc gửi qua Nền tảng.</li>
+            <li><strong>Hợp đồng dịch vụ:</strong> hợp đồng, phụ lục hoặc phiếu đăng ký ký giữa người dùng và HOUSELINK cho một Gói dịch vụ hoặc dịch vụ tư vấn.</li>
           </ul>
-          <p>HOUSELINK có quyền thay đổi, tạm dừng hoặc ngừng cung cấp bất kỳ dịch vụ nào với thông báo trước 30 ngày (trừ trường hợp khẩn cấp hoặc bắt buộc theo pháp luật).</p>
         </div>
 
         <div class="legal-section" id="t4">
-          <h2>4. Quyền & Nghĩa vụ của các bên</h2>
-          <h3>4.1. Người dùng cam kết không:</h3>
+          <h2>4. Dịch vụ của HOUSELINK</h2>
+          <p>Tùy Gói dịch vụ và Hợp đồng dịch vụ, HOUSELINK cung cấp:</p>
           <ul>
-            <li>Sử dụng dịch vụ cho mục đích bất hợp pháp, gian lận hoặc gây hại</li>
-            <li>Sao chép, phân phối hoặc bán nội dung của HOUSELINK khi chưa có phép</li>
-            <li>Cố gắng truy cập trái phép vào hệ thống hoặc dữ liệu của HOUSELINK</li>
-            <li>Sử dụng công cụ tự động (bot, scraper) để thu thập dữ liệu từ nền tảng</li>
-            <li>Đăng tải hoặc truyền tải nội dung vi phạm pháp luật, xúc phạm hoặc gây hiểu nhầm</li>
+            <li><strong>Nền tảng thông tin:</strong> tra cứu, theo dõi Thông tin dự án, hồ sơ doanh nghiệp, hạ tầng khu công nghiệp và báo cáo Insights;</li>
+            <li><strong>Tín hiệu đầu tư (FDIsignals):</strong> thông tin sớm về xu hướng và nhà đầu tư tiềm năng;</li>
+            <li><strong>HOUSELINK AI:</strong> trợ lý hỏi đáp sử dụng trí tuệ nhân tạo;</li>
+            <li><strong>Tư vấn:</strong> nghiên cứu thị trường, tìm kiếm địa điểm, hỗ trợ thủ tục đầu tư và thành lập doanh nghiệp, triển khai dự án, ESG và phát triển bền vững, theo Hợp đồng dịch vụ riêng;</li>
+            <li><strong>Sự kiện và Business Matching:</strong> hội thảo, chương trình kết nối kinh doanh;</li>
+            <li><strong>VietnamConstruction:</strong> tin tức và nội dung chuyên ngành xây dựng công nghiệp.</li>
           </ul>
-          <h3>4.2. HOUSELINK cam kết:</h3>
+          <p>Phạm vi cụ thể của từng gói được nêu trong bảng giá, phiếu đăng ký hoặc Hợp đồng dịch vụ. Dịch vụ được cung cấp <strong>không độc quyền</strong>: HOUSELINK cung cấp dịch vụ và thông tin tương tự cho các hội viên khác, kể cả đối thủ cạnh tranh của bạn, và cho nhà đầu tư, khu công nghiệp, tổ chức khác.</p>
+          <h3>4.1. Những gì HOUSELINK không cung cấp</h3>
           <ul>
-            <li>Cung cấp dịch vụ đúng cam kết và nỗ lực đảm bảo tính chính xác của thông tin</li>
-            <li>Bảo vệ dữ liệu cá nhân của người dùng theo Chính sách Bảo mật</li>
-            <li>Thông báo trước về các thay đổi quan trọng ảnh hưởng đến dịch vụ</li>
-            <li>Xử lý khiếu nại trong thời gian hợp lý</li>
+            <li>Bán, cho thuê hoặc chuyển giao thông tin liên hệ cá nhân (số điện thoại, email cá nhân) của bất kỳ ai, hoặc xuất danh sách liên hệ;</li>
+            <li>Xử lý danh sách dữ liệu cá nhân do người dùng đưa, bao gồm gửi email, tin nhắn thay người dùng, làm sạch danh sách hoặc tìm đầu mối theo yêu cầu;</li>
+            <li>Thông tin đấu thầu chưa được công khai hoặc thông tin mà HOUSELINK không được phép cung cấp theo pháp luật;</li>
+            <li>Bảo đảm bạn sẽ được mời thầu, trúng thầu, ký hợp đồng hay đạt một kết quả kinh doanh cụ thể.</li>
           </ul>
+          <h3>4.2. Thay đổi dịch vụ</h3>
+          <p>HOUSELINK có thể bảo trì, nâng cấp, thay đổi tính năng của Nền tảng. Khi bảo trì theo kế hoạch, HOUSELINK thông báo trước trên Nền tảng khi có thể. Việc ngừng cung cấp một dịch vụ trả phí được thông báo trước ít nhất 30 ngày, trừ trường hợp khẩn cấp hoặc bắt buộc theo pháp luật; phần phí của thời gian chưa sử dụng được hoàn theo mục 12.</p>
         </div>
 
         <div class="legal-section" id="t5">
-          <h2>5. Sở hữu trí tuệ</h2>
-          <p>Toàn bộ nội dung trên nền tảng HOUSELINK - bao gồm báo cáo thị trường, cơ sở dữ liệu, giao diện, logo, bài viết, biểu đồ và công cụ phân tích - là tài sản thuộc bản quyền của HOUSELINK hoặc được cấp phép sử dụng.</p>
+          <h2>5. Tài khoản</h2>
+          <h3>5.1. Đăng ký</h3>
           <ul>
-            <li>Người dùng được phép sử dụng nội dung cho mục đích <strong>cá nhân và nội bộ</strong></li>
-            <li>Nghiêm cấm sao chép, phân phối thương mại hoặc tạo tác phẩm phái sinh khi chưa có văn bản chấp thuận</li>
-            <li>Khi trích dẫn nội dung HOUSELINK, phải ghi rõ nguồn: "© HOUSELINK" và liên kết về trang gốc</li>
+            <li>Bạn cung cấp thông tin chính xác, đầy đủ và cập nhật khi có thay đổi. HOUSELINK có thể xác minh thông tin tổ chức trước khi kích hoạt gói trả phí.</li>
+            <li>Mỗi tài khoản chỉ cấp cho <strong>một cá nhân có tên</strong>, không được dùng chung, chuyển nhượng hoặc để nhiều người sử dụng. Tổ chức cần nhiều người dùng thì đăng ký thêm tài khoản.</li>
+            <li>Tổ chức chịu trách nhiệm về người dùng được tổ chức chỉ định và thông báo cho HOUSELINK khi cần thay người dùng.</li>
+          </ul>
+          <h3>5.2. Bảo mật tài khoản</h3>
+          <ul>
+            <li>Bạn giữ bí mật thông tin đăng nhập và chịu trách nhiệm về mọi hoạt động thực hiện qua tài khoản của mình.</li>
+            <li>Báo ngay cho HOUSELINK qua <a href="mailto:info@houselink.com.vn">info@houselink.com.vn</a> khi phát hiện tài khoản bị truy cập trái phép.</li>
+            <li>Để bảo vệ tài khoản, HOUSELINK có thể giới hạn số phiên, số thiết bị đăng nhập đồng thời, yêu cầu xác thực bổ sung và lưu nhật ký bảo mật theo Chính sách bảo vệ dữ liệu cá nhân.</li>
+            <li>HOUSELINK có thể tạm khóa tài khoản khi có dấu hiệu bị chiếm đoạt hoặc dùng chung, và mở lại sau khi xác minh.</li>
           </ul>
         </div>
 
         <div class="legal-section" id="t6">
-          <h2>6. Bảo mật & Dữ liệu</h2>
-          <p>Việc thu thập và xử lý dữ liệu cá nhân được điều chỉnh bởi <a href="/vi/privacy/" style="color:var(--green);">Chính sách Bảo mật</a> của HOUSELINK, được tích hợp bởi tham chiếu vào Điều khoản này. Nội dung mà bạn chia sẻ trong quá trình sử dụng dịch vụ (như tài liệu dự án, thông tin yêu cầu) được bảo mật tuyệt đối và không được chia sẻ với bên thứ ba khi chưa có sự đồng ý.</p>
+          <h2>6. Quy tắc sử dụng</h2>
+          <p>Bạn chỉ sử dụng thông tin, tài liệu trên Nền tảng cho hoạt động kinh doanh nội bộ của mình. Bạn không được:</p>
+          <ol>
+            <li>sử dụng Dịch vụ cho mục đích trái pháp luật, gian lận, hoặc gây hại cho HOUSELINK hay người khác;</li>
+            <li>cung cấp thông tin sai, mạo danh tổ chức hoặc cá nhân khác;</li>
+            <li>sao chép, tải xuống hàng loạt, hoặc dùng bot, mã lệnh, công cụ thu thập dữ liệu hay phương tiện tự động khác để truy cập, trích xuất dữ liệu;</li>
+            <li>bán, cho thuê, chia sẻ, công bố thông tin từ Nền tảng cho bên thứ ba, kể cả công ty liên kết, trừ việc chia sẻ thông tin của một dự án cụ thể cho đối tác liên danh hoặc nhà thầu phụ cùng tham gia dự án đó và chịu nghĩa vụ bảo mật tương đương;</li>
+            <li>dùng thông tin từ Nền tảng để xây dựng cơ sở dữ liệu, sản phẩm, dịch vụ cạnh tranh với HOUSELINK;</li>
+            <li>đưa nội dung từ Nền tảng vào công cụ trí tuệ nhân tạo của bên thứ ba nhằm huấn luyện mô hình hoặc xây dựng bộ dữ liệu;</li>
+            <li>dùng thông tin về cá nhân có được qua Nền tảng để gửi quảng cáo, tiếp thị khi chưa có sự đồng ý của người đó;</li>
+            <li>vượt qua, vô hiệu hóa biện pháp bảo mật, dịch ngược Nền tảng, phát tán mã độc hoặc gây quá tải hệ thống;</li>
+            <li>yêu cầu HOUSELINK cung cấp thông tin đấu thầu chưa công khai, hoặc đưa, hứa hẹn lợi ích cho chủ đầu tư, nhân sự của họ hay người có chức vụ, quyền hạn thay mặt bạn;</li>
+            <li>đăng tải nội dung trái pháp luật, xúc phạm, sai sự thật, xâm phạm quyền sở hữu trí tuệ hoặc quyền riêng tư của người khác.</li>
+          </ol>
+          <p>Khi phát hiện vi phạm, HOUSELINK có thể nhắc nhở, gỡ nội dung, tạm ngừng hoặc chấm dứt tài khoản theo mục 15, yêu cầu bồi thường thiệt hại, và thông báo cho cơ quan có thẩm quyền khi pháp luật yêu cầu.</p>
         </div>
 
         <div class="legal-section" id="t7">
-          <h2>7. Thanh toán & Phí dịch vụ</h2>
+          <h2>7. Nội dung do người dùng cung cấp</h2>
           <ul>
-            <li>Phí dịch vụ được thỏa thuận trong hợp đồng hoặc đề xuất dịch vụ cụ thể</li>
-            <li>Thanh toán theo lịch và phương thức thỏa thuận; trễ hạn có thể bị tính phí lãi suất 0.05%/ngày</li>
-            <li>Mọi tranh chấp về phí phải được thông báo bằng văn bản trong vòng 30 ngày từ ngày nhận hóa đơn</li>
-            <li>Hoàn trả phí chỉ áp dụng theo điều khoản trong hợp đồng dịch vụ cụ thể</li>
+            <li><strong>Trách nhiệm:</strong> bạn bảo đảm Nội dung người dùng là chính xác, hợp pháp, bạn có quyền sử dụng, và bạn có căn cứ hợp pháp cho dữ liệu cá nhân có trong đó.</li>
+            <li><strong>Quyền sử dụng của HOUSELINK:</strong> bạn cho phép HOUSELINK lưu trữ, hiển thị, định dạng và chuyển Nội dung người dùng trong phạm vi cần để cung cấp Dịch vụ, ví dụ gửi yêu cầu báo giá tới doanh nghiệp bạn chọn. Quyền này không độc quyền, không thu phí và chấm dứt khi bạn xóa nội dung, trừ phần đã chia sẻ cho bên nhận theo yêu cầu của bạn.</li>
+            <li><strong>Đánh giá:</strong> đánh giá phải dựa trên trải nghiệm thực tế, không có xung đột lợi ích chưa công khai. HOUSELINK không sửa ý nghĩa của đánh giá, nhưng có thể ẩn hoặc gỡ đánh giá vi phạm mục 6.</li>
+            <li><strong>Nhận quản lý hồ sơ doanh nghiệp:</strong> người gửi yêu cầu phải cung cấp giấy tờ chứng minh quyền đại diện cho doanh nghiệp. HOUSELINK có thể từ chối khi chưa đủ căn cứ. Người được duyệt chịu trách nhiệm về thông tin cập nhật vào hồ sơ.</li>
+            <li><strong>Báo cáo nội dung vi phạm:</strong> gửi email tới <a href="mailto:info@houselink.com.vn">info@houselink.com.vn</a> kèm đường dẫn và lý do. HOUSELINK xem xét và xử lý theo mục 6. Nội dung trái pháp luật được gỡ theo yêu cầu của cơ quan có thẩm quyền trong thời hạn pháp luật quy định.</li>
           </ul>
         </div>
 
         <div class="legal-section" id="t8">
-          <h2>8. Giới hạn trách nhiệm</h2>
-          <p>HOUSELINK cung cấp dịch vụ trên cơ sở "nguyên trạng". Chúng tôi không đảm bảo rằng:</p>
+          <h2>8. Thông tin doanh nghiệp, đầu mối liên hệ và kết nối</h2>
           <ul>
-            <li>Dịch vụ hoàn toàn không có lỗi hoặc luôn sẵn sàng 24/7</li>
-            <li>Thông tin trong database là tuyệt đối chính xác tại mọi thời điểm (mặc dù chúng tôi nỗ lực cập nhật liên tục)</li>
-            <li>Kết quả tư vấn đảm bảo thành công dự án (kết quả phụ thuộc vào nhiều yếu tố khách quan)</li>
+            <li>Thông tin doanh nghiệp (tên, mã số, địa chỉ, ngành nghề, email chung, số tổng đài) được hiển thị theo nguồn công khai và thông tin doanh nghiệp tự cập nhật.</li>
+            <li>Họ tên, chức danh của người đại diện theo pháp luật được hiển thị trong phạm vi đã công khai theo Luật Doanh nghiệp.</li>
+            <li>Họ tên, chức danh của đầu mối liên hệ khác chỉ hiển thị khi người đó đồng ý; khi chưa có đồng ý, nền tảng chỉ hiển thị phòng ban hoặc vai trò chung.</li>
+            <li>Hội viên không nhận số điện thoại, email cá nhân của đầu mối. Đề nghị kết nối được gửi thông qua HOUSELINK, tới email chung của doanh nghiệp hoặc tới người đã đồng ý nhận đề nghị. Việc người nhận có phản hồi hay không do họ quyết định.</li>
+            <li>Doanh nghiệp hoặc cá nhân muốn sửa, xóa hoặc hạn chế thông tin của mình gửi yêu cầu tới <a href="mailto:info@houselink.com.vn">info@houselink.com.vn</a>.</li>
           </ul>
-          <div class="highlight-box">Trách nhiệm tối đa của HOUSELINK trong mọi trường hợp không vượt quá số phí dịch vụ thực tế bạn đã thanh toán trong 12 tháng gần nhất.</div>
         </div>
 
         <div class="legal-section" id="t9">
-          <h2>9. Chấm dứt dịch vụ</h2>
+          <h2>9. Tính chất thông tin và HOUSELINK AI</h2>
           <ul>
-            <li><strong>Theo thỏa thuận:</strong> Theo điều khoản chấm dứt trong hợp đồng dịch vụ</li>
-            <li><strong>Vi phạm Điều khoản:</strong> HOUSELINK có thể tạm dừng hoặc chấm dứt tài khoản khi phát hiện vi phạm nghiêm trọng</li>
-            <li><strong>Theo yêu cầu người dùng:</strong> Gửi yêu cầu đến info@houselink.com.vn, xử lý trong 15 ngày làm việc</li>
+            <li>Thông tin dự án, báo cáo và nội dung tư vấn là <strong>thông tin tham khảo thị trường</strong>, phản ánh tình hình tại thời điểm cập nhật. Dự án có thể thay đổi, tạm dừng hoặc hủy bỏ theo quyết định của chủ đầu tư hoặc cơ quan có thẩm quyền.</li>
+            <li>HOUSELINK tổng hợp thông tin từ các nguồn hợp pháp, kiểm tra theo quy trình xác minh tại thời điểm đăng tải, ghi nhận nguồn và ngày cập nhật, và chỉnh sửa kịp thời khi phát hiện hoặc được thông báo sai sót.</li>
+            <li>Nội dung do trí tuệ nhân tạo tạo ra, bao gồm câu trả lời của HOUSELINK AI, chỉ để tham khảo và có thể có sai sót. Hãy kiểm tra trước khi sử dụng.</li>
+            <li>Dịch vụ không phải là tư vấn pháp lý, thuế, tài chính hay đầu tư, trừ khi Hợp đồng dịch vụ quy định rõ. Bạn tự đánh giá thông tin, xác minh trực tiếp với đối tác và tự chịu trách nhiệm về quyết định kinh doanh của mình.</li>
           </ul>
-          <p>Khi chấm dứt, dữ liệu cá nhân sẽ được xử lý theo Chính sách Bảo mật và yêu cầu pháp luật hiện hành.</p>
         </div>
 
         <div class="legal-section" id="t10">
-          <h2>10. Luật áp dụng & Giải quyết tranh chấp</h2>
-          <p>Điều khoản này được điều chỉnh bởi pháp luật nước Cộng hòa Xã hội Chủ nghĩa Việt Nam. Mọi tranh chấp phát sinh sẽ được giải quyết theo trình tự:</p>
+          <h2>10. Sở hữu trí tuệ</h2>
           <ul>
-            <li><strong>Thương lượng:</strong> Hai bên nỗ lực giải quyết trong vòng 30 ngày</li>
-            <li><strong>Hòa giải:</strong> Thông qua cơ quan hòa giải thương mại được hai bên đồng ý</li>
-            <li><strong>Tòa án:</strong> Tòa án nhân dân có thẩm quyền tại Hà Nội, Việt Nam</li>
+            <li>HOUSELINK là chủ sở hữu hoặc được cấp phép hợp pháp đối với Nền tảng, phần mềm, giao diện, cơ sở dữ liệu và cách tuyển chọn, sắp xếp dữ liệu, báo cáo, Insights, bài viết, biểu đồ, tên gọi, biểu trưng HOUSELINK, FDIsignals, VietnamConstruction và nội dung liên quan.</li>
+            <li>HOUSELINK cấp cho bạn quyền truy cập và sử dụng có giới hạn, không độc quyền, không chuyển nhượng, cho mục đích kinh doanh nội bộ trong thời gian sử dụng Dịch vụ.</li>
+            <li>Khi trích dẫn nội dung HOUSELINK, bạn ghi rõ nguồn "© HOUSELINK" và liên kết về trang gốc. Việc sao chép, phân phối thương mại, tạo tác phẩm phái sinh hoặc cung cấp cho bên thứ ba cần chấp thuận trước bằng văn bản của HOUSELINK.</li>
+            <li>Bạn giữ quyền đối với tài liệu của mình. Góp ý bạn gửi để cải thiện Dịch vụ có thể được HOUSELINK sử dụng mà không phát sinh nghĩa vụ thanh toán.</li>
           </ul>
         </div>
 
         <div class="legal-section" id="t11">
-          <h2>11. Liên hệ</h2>
-          <p>Mọi câu hỏi về Điều khoản Sử dụng, vui lòng liên hệ:</p>
+          <h2>11. Giá, thanh toán và hóa đơn</h2>
           <ul>
-            <li><strong>Công ty Cổ phần HOUSELINK</strong></li>
-            <li>📍 Tầng 9, Tòa nhà Sannam, 78 Duy Tân, Cầu Giấy, Hà Nội</li>
-            <li>✉ info@houselink.com.vn</li>
-            <li>📞 (+84) 966-222-490</li>
+            <li>Giá Gói dịch vụ theo bảng giá công bố trên website, báo giá hoặc Hợp đồng dịch vụ, tính bằng đồng Việt Nam và chưa gồm thuế giá trị gia tăng nếu không ghi khác. Thuế GTGT áp dụng theo thuế suất có hiệu lực tại thời điểm xuất hóa đơn.</li>
+            <li>Thanh toán bằng chuyển khoản theo lịch trong Hợp đồng dịch vụ hoặc phiếu đăng ký. HOUSELINK xuất hóa đơn điện tử theo quy định khi nhận được thanh toán.</li>
+            <li>Phí chuyển tiền do bên chuyển chịu, bảo đảm HOUSELINK nhận đủ số tiền.</li>
+            <li>Khi chậm thanh toán, lãi chậm trả theo Hợp đồng dịch vụ; nếu hợp đồng không quy định, theo lãi suất nợ quá hạn trung bình trên thị trường tại thời điểm thanh toán theo Luật Thương mại.</li>
+            <li>Mọi khiếu nại về phí gửi bằng văn bản trong vòng 30 ngày kể từ ngày nhận hóa đơn.</li>
           </ul>
+        </div>
+
+        <div class="legal-section" id="t12">
+          <h2>12. Kích hoạt, gia hạn, hủy và hoàn phí</h2>
+          <ul>
+            <li><strong>Kích hoạt:</strong> tài khoản gói trả phí được kích hoạt trong vòng 01 ngày làm việc sau khi HOUSELINK nhận đủ thanh toán và danh sách người dùng. HOUSELINK gửi email xác nhận; ngày gửi email là ngày bắt đầu thời hạn dịch vụ.</li>
+            <li><strong>Gia hạn:</strong> HOUSELINK thông báo ít nhất 30 ngày trước khi hết hạn. Việc gia hạn có hiệu lực khi bạn xác nhận và thanh toán; giá gia hạn theo bảng giá tại thời điểm gia hạn. Hợp đồng dịch vụ có thể quy định khác.</li>
+            <li><strong>Hết hạn:</strong> tài khoản chuyển về chế độ hạn chế; dữ liệu tài khoản được lưu và xóa theo Chính sách bảo vệ dữ liệu cá nhân.</li>
+            <li><strong>Hủy:</strong> bạn có thể ngừng sử dụng hoặc yêu cầu chấm dứt bất kỳ lúc nào. Phí đã thanh toán không được hoàn lại, trừ các trường hợp dưới đây.</li>
+          </ul>
+          <p>HOUSELINK hoàn lại phí dịch vụ và thuế GTGT tương ứng (kèm hóa đơn điều chỉnh) theo tỷ lệ số tháng trọn vẹn còn lại của thời hạn dịch vụ, trong vòng 15 ngày làm việc, khi:</p>
+          <ol>
+            <li>HOUSELINK vi phạm nghiêm trọng nghĩa vụ và không khắc phục trong vòng 15 ngày kể từ khi nhận yêu cầu bằng văn bản;</li>
+            <li>HOUSELINK ngừng cung cấp dịch vụ trả phí mà bạn đang sử dụng;</li>
+            <li>sự kiện bất khả kháng làm HOUSELINK không thể cung cấp Dịch vụ quá 60 ngày;</li>
+            <li>các trường hợp khác được nêu trong Hợp đồng dịch vụ.</li>
+          </ol>
+          <p>Với người dùng là cá nhân mua dịch vụ cho nhu cầu tiêu dùng, các quyền theo Luật Bảo vệ quyền lợi người tiêu dùng được bảo đảm, kể cả khi khác với mục này.</p>
+        </div>
+
+        <div class="legal-section" id="t13">
+          <h2>13. Bảo vệ dữ liệu cá nhân</h2>
+          <p>Việc xử lý dữ liệu cá nhân thực hiện theo <a href="/vi/privacy/">Chính sách bảo vệ dữ liệu cá nhân</a>, là một phần của Điều khoản này. Tóm tắt:</p>
+          <ul>
+            <li>HOUSELINK không bán dữ liệu cá nhân và không đo việc từng người mở email hay bấm liên kết;</li>
+            <li>Cookie không cần thiết tắt cho đến khi bạn bật;</li>
+            <li>Bạn có quyền xem, sửa, xóa, rút đồng ý và các quyền khác; yêu cầu được xác nhận trong 2 ngày làm việc;</li>
+            <li>Mọi yêu cầu về dữ liệu cá nhân gửi tới <a href="mailto:info@houselink.com.vn">info@houselink.com.vn</a>.</li>
+          </ul>
+          <p>Thông tin, tài liệu dự án bạn chia sẻ khi sử dụng Dịch vụ được bảo mật và không được chia sẻ với bên thứ ba khi chưa có sự đồng ý của bạn, trừ trường hợp pháp luật yêu cầu.</p>
+        </div>
+
+        <div class="legal-section" id="t14">
+          <h2>14. Giới hạn trách nhiệm</h2>
+          <p>HOUSELINK nỗ lực duy trì Dịch vụ ổn định và thông tin chính xác, nhưng không bảo đảm Dịch vụ không bao giờ gián đoạn hay thông tin luôn đầy đủ, chính xác tại mọi thời điểm. HOUSELINK không chịu trách nhiệm đối với:</p>
+          <ul>
+            <li>quyết định kinh doanh của bạn dựa trên thông tin từ Dịch vụ;</li>
+            <li>hành vi, quyết định của chủ đầu tư, đối tác hoặc bên thứ ba khác;</li>
+            <li>thiệt hại gián tiếp, mất lợi nhuận, mất cơ hội kinh doanh hoặc không trúng thầu.</li>
+          </ul>
+          <p>Với tài khoản miễn phí, Dịch vụ được cung cấp theo hiện trạng và HOUSELINK không chịu trách nhiệm bồi thường, trừ trường hợp pháp luật quy định khác.</p>
+          <div class="highlight-box">Tổng trách nhiệm của HOUSELINK đối với bạn, dù là bồi thường, phạt vi phạm hay hoàn phí, không vượt quá số phí bạn đã thực tế thanh toán cho Dịch vụ liên quan trong 12 tháng trước sự kiện phát sinh trách nhiệm. Giới hạn này không áp dụng khi thiệt hại do lỗi cố ý của HOUSELINK hoặc khi pháp luật không cho phép giới hạn, kể cả quyền của người tiêu dùng theo Luật Bảo vệ quyền lợi người tiêu dùng. Hợp đồng dịch vụ có thể quy định khác.</div>
+        </div>
+
+        <div class="legal-section" id="t15">
+          <h2>15. Tạm ngừng và chấm dứt</h2>
+          <ul>
+            <li><strong>Theo yêu cầu của bạn:</strong> gửi yêu cầu xóa tài khoản tới <a href="mailto:info@houselink.com.vn">info@houselink.com.vn</a>; HOUSELINK xử lý theo thời hạn tại Chính sách bảo vệ dữ liệu cá nhân. Gói trả phí thực hiện theo mục 12 và Hợp đồng dịch vụ.</li>
+            <li><strong>Do vi phạm:</strong> HOUSELINK có thể tạm ngừng hoặc chấm dứt tài khoản khi bạn vi phạm mục 5 hoặc mục 6, chậm thanh toán, hoặc khi cần bảo đảm an toàn hệ thống. HOUSELINK thông báo lý do; với vi phạm nghiêm trọng như thu thập dữ liệu tự động, bán lại dữ liệu hay hành vi trái pháp luật, việc tạm ngừng có thể thực hiện ngay.</li>
+            <li><strong>Theo Hợp đồng dịch vụ:</strong> các trường hợp chấm dứt khác thực hiện theo hợp đồng.</li>
+          </ul>
+          <p>Khi chấm dứt, quyền truy cập kết thúc; dữ liệu cá nhân được xử lý theo Chính sách bảo vệ dữ liệu cá nhân. Các mục 6, 10, 11 (khoản phải thanh toán), 14, 17 tiếp tục có hiệu lực.</p>
+        </div>
+
+        <div class="legal-section" id="t16">
+          <h2>16. Bất khả kháng</h2>
+          <p>Không bên nào chịu trách nhiệm về việc không thực hiện nghĩa vụ do sự kiện bất khả kháng: sự kiện xảy ra khách quan, không thể lường trước và không thể khắc phục dù đã áp dụng mọi biện pháp cần thiết, như thiên tai, dịch bệnh, chiến tranh, quyết định của cơ quan nhà nước có thẩm quyền, hoặc tấn công mạng, sự cố hạ tầng viễn thông, điện toán đám mây của bên thứ ba vượt ngoài khả năng kiểm soát hợp lý khi đã áp dụng biện pháp bảo mật, dự phòng phù hợp. Nghĩa vụ thanh toán không được miễn vì lý do bất khả kháng.</p>
+        </div>
+
+        <div class="legal-section" id="t17">
+          <h2>17. Khiếu nại và giải quyết tranh chấp</h2>
+          <h3>17.1. Khiếu nại</h3>
+          <p>Bạn có thể khiếu nại về Dịch vụ qua email <a href="mailto:info@houselink.com.vn">info@houselink.com.vn</a>, đường dây nóng (+84) 966 222 490 hoặc văn bản gửi tới trụ sở. HOUSELINK tiếp nhận và trả lời trong thời gian hợp lý, thông thường không quá 15 ngày làm việc; trường hợp phức tạp, chúng tôi thông báo thời hạn dự kiến. Yêu cầu về dữ liệu cá nhân xử lý theo thời hạn tại Chính sách bảo vệ dữ liệu cá nhân.</p>
+          <h3>17.2. Luật áp dụng và tranh chấp</h3>
+          <ul>
+            <li>Điều khoản được điều chỉnh bởi pháp luật nước Cộng hòa xã hội chủ nghĩa Việt Nam.</li>
+            <li><strong>Thương lượng:</strong> các bên giải quyết thiện chí trong vòng 30 ngày kể từ ngày một bên gửi thông báo bằng văn bản về tranh chấp.</li>
+            <li><strong>Hòa giải:</strong> các bên có thể chọn hòa giải thương mại tại một tổ chức hòa giải được hai bên đồng ý.</li>
+            <li><strong>Tòa án:</strong> nếu không giải quyết được, tranh chấp được đưa ra Tòa án nhân dân có thẩm quyền tại thành phố Hà Nội, nơi HOUSELINK đặt trụ sở, trừ khi Hợp đồng dịch vụ quy định khác. Người tiêu dùng được thực hiện quyền khởi kiện theo Luật Bảo vệ quyền lợi người tiêu dùng.</li>
+          </ul>
+        </div>
+
+        <div class="legal-section" id="t18">
+          <h2>18. Thay đổi điều khoản, ngôn ngữ và hiệu lực</h2>
+          <ul>
+            <li>HOUSELINK có thể cập nhật Điều khoản khi pháp luật hoặc Dịch vụ thay đổi. Thay đổi quan trọng được thông báo trên website và qua email cho hội viên ít nhất 7 ngày trước khi có hiệu lực.</li>
+            <li>Điều khoản được công bố bằng nhiều ngôn ngữ; nếu có khác biệt, bản tiếng Việt được ưu tiên áp dụng.</li>
+            <li>Nếu một điều khoản bị vô hiệu, các điều khoản còn lại vẫn có hiệu lực.</li>
+          </ul>
+          <div class="table-wrap"><table class="legal-table ver">
+            <thead><tr><th>Phiên bản</th><th>Hiệu lực</th><th>Nội dung</th></tr></thead>
+            <tbody>
+              <tr><td>TOS-2025/v2</td><td>01/07/2025</td><td>Phiên bản trước</td></tr>
+              <tr><td>TOS-2026/v3</td><td>12/10/2026</td><td>Bổ sung thông tin doanh nghiệp, quy tắc tài khoản và sử dụng dữ liệu, nội dung người dùng, mô hình hiển thị đầu mối, HOUSELINK AI, thanh toán, gia hạn và hoàn phí, khiếu nại; cập nhật theo Luật Bảo vệ dữ liệu cá nhân 2025 và Luật Thương mại điện tử 2025</td></tr>
+            </tbody>
+          </table></div>
+        </div>
+
+        <div class="legal-section" id="t19">
+          <h2>19. Liên hệ</h2>
+          <div class="contact-card">
+            <div class="contact-item"><span>Doanh nghiệp</span><b>Công ty Cổ phần HOUSELINK</b><br>MST 0104585924</div>
+            <div class="contact-item"><span>Địa chỉ</span>Tầng 9, Tòa nhà Sannam, 78 Duy Tân, phường Cầu Giấy, thành phố Hà Nội</div>
+            <div class="contact-item"><span>Email</span><a href="mailto:info@houselink.com.vn">info@houselink.com.vn</a></div>
+            <div class="contact-item"><span>Điện thoại</span><b>(+84) 966 222 490</b> (Tiếng Việt, English)<br>Tổng đài <b>024 3795 5620</b></div>
+          </div>
+          <p><a class="btn-line" href="/vi/contact/">Liên hệ HOUSELINK</a><a class="btn-line" href="/vi/privacy/">Chính sách bảo vệ dữ liệu cá nhân</a></p>
         </div>
 
       </div>
@@ -955,6 +1163,31 @@ footer { background: var(--navy); color: rgba(255,255,255,0.55); padding: 72px 0
 </section>
 
 <div id="hl-chrome-footer"></div>
+<script>
+(function () {
+  var links = [].slice.call(document.querySelectorAll('.legal-toc .toc-item'));
+  var map = {};
+  links.forEach(function (a) { map[a.getAttribute('href').slice(1)] = a; });
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        links.forEach(function (l) { l.classList.remove('active'); });
+        if (map[e.target.id]) map[e.target.id].classList.add('active');
+      });
+    }, { rootMargin: '-110px 0px -70% 0px' });
+    [].forEach.call(document.querySelectorAll('.legal-section[id]'), function (s) { io.observe(s); });
+  }
+  // Cookie settings button: calls window.hlOpenCookieSettings() if the cookie banner exposes it,
+  // otherwise fires the "hl:open-cookie-settings" event for the banner script to handle.
+  [].forEach.call(document.querySelectorAll('[data-hl-cookie-settings]'), function (b) {
+    b.addEventListener('click', function () {
+      if (typeof window.hlOpenCookieSettings === 'function') { window.hlOpenCookieSettings(); }
+      else { document.dispatchEvent(new CustomEvent('hl:open-cookie-settings')); }
+    });
+  });
+})();
+</script>
   <script src="../../landing-chrome.js" defer></script>
 </body>
 </html>

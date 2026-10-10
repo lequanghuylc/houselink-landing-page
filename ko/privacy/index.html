@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>개인정보 처리방침 – HOUSELINK</title>
+<title>개인정보보호방침 - HOUSELINK</title>
+<meta name="description" content="HOUSELINK가 개인정보를 수집, 이용, 공유, 보관, 보호하는 방법과 개인정보보호법(제91/2025/QH15호) 및 시행령 제356/2025/NĐ-CP호에 따른 권리 행사 방법을 안내합니다.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
@@ -785,17 +786,82 @@ footer { background: var(--navy); color: rgba(255,255,255,0.55); padding: 72px 0
 .highlight-box { background:var(--off-white); border-left:4px solid var(--green); border-radius:0 8px 8px 0; padding:14px 18px; margin:16px 0; font-size:14px; color:var(--gray-600); line-height:1.7; }
 @media(max-width:960px){ .legal-layout{grid-template-columns:1fr;} .legal-toc{position:static;} }
 </style>
+<style id="legal-v2">
+/* ── LEGAL PAGES v2 (privacy 2.0, terms 2026) ── */
+.legal-section ol { margin:10px 0 14px 22px; display:flex; flex-direction:column; gap:6px; }
+.legal-section ol li { font-size:14px; color:var(--gray-600); line-height:1.7; }
+.legal-section a { color:var(--green); text-decoration:underline; text-underline-offset:2px; }
+.legal-section a:hover { color:var(--navy); }
+.legal-layout > * { min-width:0; }
+.legal-toc { max-height:calc(100vh - 120px); overflow:auto; }
+.toc-item.active { color:var(--navy); font-weight:600; }
+.page-hero-meta { display:flex; flex-wrap:wrap; gap:8px; margin-top:22px; }
+.page-hero-meta span { font-size:12px; color:rgba(255,255,255,.82); border:1px solid rgba(255,255,255,.22); border-radius:999px; padding:5px 12px; }
+.sum-title { font-size:11px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--green); margin-bottom:12px; }
+.sum-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin:0 0 44px; }
+.sum-card { border:1px solid var(--gray-100); border-radius:12px; padding:16px; background:var(--white); }
+.sum-card .ic { width:34px; height:34px; border-radius:9px; background:var(--green-pale); color:var(--green); display:flex; align-items:center; justify-content:center; margin-bottom:10px; }
+.sum-card .ic svg { width:18px; height:18px; }
+.sum-card h4 { font-size:14px; color:var(--navy); margin-bottom:4px; line-height:1.4; }
+.sum-card p { font-size:13px; color:var(--gray-600); line-height:1.6; }
+.table-wrap { overflow-x:auto; margin:12px 0 18px; border:1px solid var(--gray-100); border-radius:10px; }
+.legal-table { width:100%; border-collapse:collapse; font-size:13.5px; min-width:520px; }
+.legal-table th { background:var(--off-white); color:var(--navy); font-weight:700; text-align:left; padding:10px 12px; border-bottom:1px solid var(--gray-100); }
+.legal-table td { padding:10px 12px; border-top:1px solid var(--gray-50); color:var(--gray-600); vertical-align:top; line-height:1.6; }
+.legal-table tbody tr:first-child td { border-top:none; }
+.legal-table td strong { color:var(--navy); }
+.rights-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:10px; margin:12px 0 16px; }
+.right-item { background:var(--off-white); border-radius:10px; padding:12px 14px; font-size:13.5px; color:var(--gray-600); line-height:1.6; }
+.right-item strong { display:block; color:var(--navy); font-size:14px; margin-bottom:2px; }
+.contact-card { display:grid; grid-template-columns:repeat(2,1fr); gap:12px; margin:14px 0; }
+.contact-item { border:1px solid var(--gray-100); border-radius:10px; padding:12px 14px; font-size:13.5px; color:var(--gray-600); line-height:1.6; }
+.contact-item span { display:block; font-size:11px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--green); margin-bottom:2px; }
+.contact-item a, .contact-item b { color:var(--navy); font-weight:600; text-decoration:none; }
+.btn-line { display:inline-flex; align-items:center; gap:8px; border:1.5px solid var(--navy); color:var(--navy); background:var(--white); border-radius:8px; padding:9px 16px; font:600 13.5px var(--font-main); cursor:pointer; text-decoration:none !important; margin:4px 8px 4px 0; }
+.btn-line:hover { background:var(--navy); color:var(--white); }
+.notice-warn { background:#FFF8E6; border-left:4px solid #D99A00; border-radius:0 8px 8px 0; padding:14px 18px; margin:16px 0; font-size:14px; color:var(--gray-600); line-height:1.7; }
+.notice-warn strong { color:var(--navy); }
+@media (max-width:960px) { .sum-grid { grid-template-columns:1fr 1fr; } }
+@media (max-width:640px) {
+  .sum-grid, .rights-grid, .contact-card { grid-template-columns:1fr; }
+  .page-hero-inner, .sub-content .si { padding:0 16px; }
+  .legal-section h2 { font-size:19px; }
+}
+@media print {
+  #hl-chrome-header, #hl-chrome-footer, .legal-toc, .btn-line { display:none !important; }
+  .page-hero { background:none; padding:0 0 12px !important; }
+  .page-h1, .page-sub { color:#000; }
+  .legal-layout { display:block; }
+}
+.legal-table.ver td:not(:last-child), .legal-table.ver th:not(:last-child) { white-space:nowrap; }
+html[lang="ja"] body { font-family:'Inter','Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Noto Sans JP',sans-serif; }
+html[lang="ko"] body { font-family:'Inter','Apple SD Gothic Neo','Malgun Gothic','Noto Sans KR',sans-serif; }
+html[lang="zh-Hans"] body { font-family:'Inter','PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif; }
+</style>
   <link rel="stylesheet" href="../../landing-chrome.css">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/icon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 </head>
 <body class="hl-with-fixed-header" data-hl-page="privacy">
+<!--
+  Bản dịch tiếng Hàn của Chính sách bảo vệ dữ liệu cá nhân v2.0, hiệu lực 12/10/2026. Thay thế trang /ko/privacy/.
+  Bản tiếng Việt được ưu tiên khi có khác biệt. Khi sửa bản tiếng Việt, sửa đồng thời các bản dịch.
+-->
 
 <div id="hl-chrome-header"></div>
 
 <section class="page-hero" style="padding-top:96px;">
   <div class="page-hero-inner">
     <div class="page-eyebrow">개인정보 처리방침</div>
-    <h1 class="page-h1">개인정보 처리방침<br><em>개인정보 및 데이터</em></h1>
-    <p class="page-sub">HOUSELINK는 베트남 법률 및 국제국제 기준.</p>
+    <h1 class="page-h1">개인정보보호방침<br><em>HOUSELINK 이용 시 귀하의 프라이버시</em></h1>
+    <p class="page-sub">개인정보보호법(제91/2025/QH15호) 및 시행령 제356/2025/NĐ-CP호에 따라, 당사가 어떤 정보를 수집하고 어떤 목적으로 이용하며 누구와 공유하고 얼마 동안 보관하는지, 그리고 귀하가 자신의 권리를 어떻게 행사할 수 있는지를 설명합니다.</p>
+    <div class="page-hero-meta">
+      <span>버전 2.0</span>
+      <span>2026년 10월 12일부터 시행</span>
+      <span>Tiếng Việt · English · 日本語 · 한국어 · 中文</span>
+    </div>
   </div>
 </section>
 
@@ -803,141 +869,321 @@ footer { background: var(--navy); color: rgba(255,255,255,0.55); padding: 72px 0
   <div class="si">
     <div class="legal-layout">
 
-      <!-- Table of Contents -->
-      <div class="legal-toc">
+      <div class="legal-toc" role="navigation" aria-label="목차">
         <div class="toc-title">목차</div>
-        <a class="toc-item" href="#s1">1. 목적 및 범위</a>
-        <a class="toc-item" href="#s2">2. 수집 정보</a>
-        <a class="toc-item" href="#s3">3. 사용 목적</a>
-        <a class="toc-item" href="#s4">4. 저장 및 보호</a>
-        <a class="toc-item" href="#s5">5. 데이터 공유</a>
-        <a class="toc-item" href="#s6">6. 귀하의 권리</a>
-        <a class="toc-item" href="#s7">7. Cookie & Tracking</a>
-        <a class="toc-item" href="#s8">8. 정책 변경</a>
-        <a class="toc-item" href="#s9">9. 연락처</a>
+        <a class="toc-item" href="#s1">1. 당사 소개</a>
+        <a class="toc-item" href="#s2">2. 용어 정의</a>
+        <a class="toc-item" href="#s3">3. 처리하는 개인정보</a>
+        <a class="toc-item" href="#s4">4. 처리 목적 및 근거</a>
+        <a class="toc-item" href="#s5">5. 기업 정보 및 연락 담당자</a>
+        <a class="toc-item" href="#s6">6. 쿠키 및 마케팅 이메일</a>
+        <a class="toc-item" href="#s7">7. HOUSELINK AI</a>
+        <a class="toc-item" href="#s8">8. 개인정보의 공유</a>
+        <a class="toc-item" href="#s9">9. 보관 및 국외 이전</a>
+        <a class="toc-item" href="#s10">10. 보유 기간</a>
+        <a class="toc-item" href="#s11">11. 귀하의 권리</a>
+        <a class="toc-item" href="#s12">12. 보호 조치 및 사고 대응</a>
+        <a class="toc-item" href="#s13">13. 아동</a>
+        <a class="toc-item" href="#s14">14. 발생 가능한 위험</a>
+        <a class="toc-item" href="#s15">15. 방침 변경</a>
+        <a class="toc-item" href="#s16">16. 문의처</a>
       </div>
 
-      <!-- Content -->
       <div class="legal-body">
 
         <div class="legal-meta">
-          <span><strong>버전：</strong> QDNB-001/2025</span>
-          <span><strong>발행일：</strong> 01/07/2025</span>
-          <span><strong>유효일：</strong> 01/01/2026</span>
-          <span><strong>적용 대상：</strong> HOUSELINK의 모든 활동</span>
+          <span><strong>버전:</strong> 2.0, QDNB-001/2025를 대체</span>
+          <span><strong>공고일:</strong> 2026년 10월 12일</span>
+          <span><strong>시행일:</strong> 2026년 10월 12일</span>
+          <span><strong>개인정보 통제자:</strong> HOUSELINK 주식회사</span>
+          <span><strong>언어:</strong> 본 페이지는 베트남어판의 번역본이며, 차이가 있는 경우 베트남어판이 우선 적용됩니다</span>
+        </div>
+
+        <div class="sum-title">한눈에 보기</div>
+        <div class="sum-grid">
+          <div class="sum-card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><h4>개인정보를 판매하지 않습니다</h4><p>어떠한 서비스 패키지에서도 개인 연락처 정보를 판매, 임대 또는 이전하지 않습니다.</p></div>
+          <div class="sum-card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19"/><line x1="1" y1="1" x2="23" y2="23"/></svg></div><h4>개인별 추적을 하지 않습니다</h4><p>개인별 이메일 열람이나 링크 클릭 여부를 측정하지 않으며, 행태 기반 광고를 하지 않습니다.</p></div>
+          <div class="sum-card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="9" cy="10" r="1"/><circle cx="15" cy="14" r="1"/><circle cx="10" cy="15" r="1"/></svg></div><h4>쿠키는 귀하가 켜기 전까지 꺼져 있습니다</h4><p>필수 쿠키만 항상 켜져 있습니다. "모두 거부" 버튼은 "동의" 버튼만큼 쉽게 찾을 수 있습니다.</p></div>
+          <div class="sum-card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><h4>연락 담당자는 동의한 경우에만 표시</h4><p>동의가 없는 경우 플랫폼에는 부서 또는 일반적인 역할만 표시됩니다.</p></div>
+          <div class="sum-card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="7" rx="2"/><rect x="2" y="14" width="20" height="7" rx="2"/><line x1="6" y1="6.5" x2="6.01" y2="6.5"/><line x1="6" y1="17.5" x2="6.01" y2="17.5"/></svg></div><h4>베트남 내 보관</h4><p>플랫폼의 서버, 데이터베이스 및 백업은 베트남에 있습니다.</p></div>
+          <div class="sum-card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><h4>영업일 기준 2일 이내 회신</h4><p>귀하의 개인정보에 관한 모든 요청은 무료이며, 영업일 기준 2일 이내에 접수를 확인해 드립니다.</p></div>
         </div>
 
         <div class="legal-section" id="s1">
-          <h2>1. 목적 및 적용 범위</h2>
-          <p>본 정책은 <strong>HOUSELINK 주식회사</strong> 정보 보안, 데이터 안전, 개인정보 보호에 관한 베트남 규정 준수를 보장하기 위해.개인 데이터, 포함：</p>
+          <h2>1. 당사 소개 및 본 방침의 적용 범위</h2>
+          <p><strong>HOUSELINK 주식회사</strong>("HOUSELINK" 또는 "당사")는 본 방침에 기재된 개인정보의 통제자 겸 처리자입니다. 즉, 당사는 처리 목적과 처리 수단을 결정하고 개인정보를 직접 처리합니다.</p>
           <ul>
-            <li>2018년 사이버보안법</li>
-            <li>개인정보 보호에 관한 시행령 13/2023/ND-CP</li>
-            <li>2025년 개인정보 보호법(법률 제91/2025/QH15호, 2026년 01월 01일 발효)</li>
+            <li><strong>기업등록번호:</strong> 0104585924</li>
+            <li><strong>본사:</strong> 9th Floor, Sannam Building, 78 Duy Tan Street, Cau Giay Ward, Hanoi, Vietnam</li>
+            <li><strong>개인정보 관련 연락 창구:</strong> 개인정보보호 담당자, 이메일 <a href="mailto:info@houselink.com.vn">info@houselink.com.vn</a></li>
           </ul>
-          <p>이 정책은 houselink 웹사이트를 포함한 HOUSELINK 서비스에 접근하고 사용하는 모든 사용자에게 적용됩니다.com.vn, vietnamconstruction.vn, 모바일 애플리케이션 및 기타 디지털 플랫폼.</p>
-          <div class="highlight-box">HOUSELINK 서비스를 사용함으로써 본 개인정보 처리방침의 약관에 동의합니다. 귀하는법률 제91/2025/QH15의 규정에 따라 언제든지 동의를 철회할 수 있습니다.</div>
+          <p>본 방침은 다음에 적용됩니다.</p>
+          <ul>
+            <li>houselink.com.vn 웹사이트 및 dashboard.houselink.com.vn의 회원 전용 플랫폼</li>
+            <li>fdisignals.com 웹사이트 및 투자 시그널(FDIsignals) 서비스</li>
+            <li>vietnamconstruction.vn 웹사이트</li>
+            <li>houselink.info 도메인에서 발송되는 이메일을 포함하여 HOUSELINK가 발송하는 이메일</li>
+            <li>HOUSELINK의 행사, Business Matching, 회원 계약, 채용 및 각종 컨설팅 서비스</li>
+          </ul>
+          <p>본 방침은 개인정보보호법(제91/2025/QH15호), 시행령 제356/2025/NĐ-CP호 및 사이버보안법(제116/2025/QH15호)에 따라 수립되었으며, 보안정책 QDNB-001/2025를 대체합니다.</p>
+          <div class="highlight-box">귀하가 웹사이트에 접속하거나, 서비스를 계속 이용하거나, 아무런 의사표시를 하지 않는 것은 <strong>동의로 간주되지 않습니다</strong>. 동의가 필요한 경우 당사는 목적별로 각각 동의를 요청하며, 미리 선택된 체크박스는 없고, 귀하는 언제든지 동의를 철회할 수 있습니다.</div>
         </div>
 
         <div class="legal-section" id="s2">
-          <h2>2. 수집하는 정보</h2>
-          <h3>2.1. 직접 제공한 정보</h3>
+          <h2>2. 용어 정의</h2>
           <ul>
-            <li><strong>식별 정보：</strong> 성명, 직위, 회사명</li>
-            <li><strong>연락처 정보：</strong> 이메일, 전화번호, 주소</li>
-            <li><strong>직업 정보：</strong> 업종, 기업 규모, 운영 국가</li>
-            <li><strong>소통 내용：</strong> 양식을 통해 제출한 상담 요청, 질문, 피드백</li>
+            <li><strong>개인정보:</strong> 특정 개인을 식별하거나 식별하는 데 도움이 되는 디지털 데이터 또는 그 밖의 형태의 정보를 말합니다. 기업, 프로젝트, 산업단지에 관한 정보는 특정 개인과 연결된 부분을 제외하고는 개인정보가 아닙니다.</li>
+            <li><strong>민감정보:</strong> 시행령 제356/2025/NĐ-CP호에 규정된 목록에 속하는 정보를 말하며, 예를 들어 건강 정보, 생체인식 정보, 위치 정보, 카드 정보 및 은행 거래 내역, 온라인 서비스 이용 행태 추적 정보 등이 이에 해당합니다.</li>
+            <li><strong>정보주체, "귀하":</strong> 해당 개인정보가 나타내는 사람을 말합니다.</li>
+            <li><strong>개인정보 처리:</strong> 수집, 분석, 저장, 제공, 공개, 이전, 삭제 등 개인정보에 영향을 미치는 모든 행위를 말합니다.</li>
+            <li><strong>처리자(수탁자):</strong> 계약에 따라 HOUSELINK를 대신하여 개인정보를 처리하는 조직을 말하며, 예를 들어 서버 제공업체 및 이메일 서비스 제공업체가 이에 해당합니다.</li>
+            <li><strong>회원:</strong> 무료 또는 유료로 HOUSELINK 플랫폼에 계정을 보유한 조직 또는 개인을 말합니다.</li>
+            <li><strong>연락 담당자:</strong> HOUSELINK 데이터베이스에 기재된 기업, 사업주, 시공사 또는 산업단지에 근무하는 개인을 말합니다.</li>
           </ul>
-          <h3>2.2. 자동 수집 정보</h3>
-          <ul>
-            <li>IP 주소, 브라우저 유형, 운영체제</li>
-            <li>방문한 페이지, 체류 시간, 탐색 행동</li>
-            <li>쿠키 데이터 및 유사 추적 기술(7장 참조)</li>
-          </ul>
-          <p>HOUSELINK <strong>필요한 데이터만 수집</strong> 통보된 특정 목적을 위해 - 시행령 13/2023/ND-CP에 따른 데이터 최소화 원칙.</p>
         </div>
 
         <div class="legal-section" id="s3">
-          <h2>3. 데이터 사용 목적</h2>
-          <p>HOUSELINK는 수집된 정보를 다음 목적으로 사용합니다：</p>
-          <ul>
-            <li>귀하가 요청한 투자 자문, 시장 조사 및 기타 서비스 제공</li>
-            <li>제품, 서비스, 시장 보고서, 이벤트 정보 발송(언제든지 구독 취소 가능)</li>
-            <li>서비스 품질 및 사용자 경험 개선</li>
-            <li>법적 의무 준수 및 모든 당사자의 합법적 이익 보호</li>
-            <li>서비스 개발을 위한 내부 분석 및 보고</li>
-          </ul>
-          <div class="highlight-box">귀하의 데이터 <strong>개인적 또는 상업적 목적으로 사용할 수 없습니다</strong> 또는 제3자에게 판매하지 않습니다. HOUSELINK는 자체 플랫폼에서 제3자 광고를 운영하지 않습니다.</div>
+          <h2>3. 당사가 처리하는 개인정보</h2>
+          <p>당사는 제4항에 명시된 목적에 필요한 정보만 수집합니다.</p>
+          <div class="table-wrap"><table class="legal-table">
+            <thead><tr><th>대상자</th><th>개인정보 항목</th><th>출처</th></tr></thead>
+            <tbody>
+              <tr><td><strong>이용자, 회원</strong></td><td>성명, 이메일, 직함, 회사, 전화번호(선택), 프로필 사진(업로드한 경우); Google 로그인을 선택한 경우 Google 계정 정보; 로그인 및 보안 기록(일시, IP 주소, 기기); 귀하가 직접 저장한 관심 목록 및 필터; 귀하가 보낸 견적 요청 및 리뷰; HOUSELINK AI에 보낸 질문</td><td>귀하로부터; Google 로그인을 선택한 경우 Google로부터</td></tr>
+              <tr><td><strong>계약 서명자, 결제 담당자</strong></td><td>성명, 직함, 서명, 소속 조직의 세금계산서 발행 정보</td><td>귀하 또는 귀하의 조직으로부터</td></tr>
+              <tr><td><strong>기업의 법적 대표자</strong></td><td>성명, 직함</td><td>국가기업등록포털 및 관련 규정에 따른 기타 공개 출처</td></tr>
+              <tr><td><strong>기업, 프로젝트, 산업단지의 기타 연락 담당자</strong></td><td>성명, 직함, 부서, 업무용 이메일 및 전화번호</td><td>본인으로부터; 프로필 관리 권한을 승인받은 기업 또는 산업단지로부터; HOUSELINK와의 업무상 교신으로부터</td></tr>
+              <tr><td><strong>기업 프로필 관리 권한 신청자</strong></td><td>성명, 직함, 이메일, 전화번호; 기업등록증명서, 회사 명의 소개장</td><td>귀하로부터. 당사는 신분증 사진을 받지 않습니다.</td></tr>
+              <tr><td><strong>뉴스레터 구독자</strong></td><td>이메일, 이름, 회사, 구독 또는 구독 취소 선택</td><td>귀하로부터</td></tr>
+              <tr><td><strong>행사, Business Matching 참가자</strong></td><td>성명, 직함, 회사, 이메일, 전화번호, 매칭 희망 사항; 행사 중 촬영된 사진 및 영상</td><td>귀하로부터; 사전 고지 후 행사 현장 촬영</td></tr>
+              <tr><td><strong>웹사이트 방문자</strong></td><td>필수 쿠키; 귀하가 동의한 경우 측정 쿠키; IP 주소, 브라우저 유형; 문의 양식을 통해 보낸 내용</td><td>브라우저 및 귀하로부터</td></tr>
+              <tr><td><strong>입사 지원자</strong></td><td>입사 지원서, 연락처 정보</td><td>귀하로부터</td></tr>
+              <tr><td><strong>파트너, 개인 협력자</strong></td><td>성명, 연락처 정보, 업무 내용, 업무 품질 평가</td><td>귀하로부터, 계약서</td></tr>
+            </tbody>
+          </table></div>
+          <div class="highlight-box"><strong>민감정보.</strong> 당사는 민감정보를 능동적으로 수집하지 않습니다. 시스템 보안에 필요한 보안 기록 외에는, 분석, 프로파일링 또는 광고를 목적으로 개인별 서비스 이용 행태를 기록하지 않습니다. 향후 민감정보를 처리해야 하는 경우, 당사는 해당 정보가 민감정보임을 명확히 고지하고 처리 전에 별도의 동의를 요청합니다.</div>
         </div>
 
         <div class="legal-section" id="s4">
-          <h2>4. 데이터 저장 및 보호</h2>
-          <h3>4.1. 보안 시스템</h3>
-          <ul>
-            <li>데이터는 엔드-투-엔드 암호화, 방화벽, 침입 방지 소프트웨어가 있는 시스템에 저장됩니다</li>
-            <li>데이터 접근은 "필요한 경우에만" 원칙으로 관리됩니다</li>
-            <li>중요 데이터는 안전한 위치에 정기적으로 백업됩니다</li>
-            <li>HTTPS/TLS 암호화 채널을 통한 데이터 전송</li>
-          </ul>
-          <h3>4.2. 보존 기간</h3>
-          <p>개인 데이터는 명시된 목적을 달성하는 데 필요한 기간 동안만 저장되며, 법률이 요구하는 경우 그에 따릅니다.법률. 이후 데이터는 안전한 절차를 통해 영구적으로 삭제됩니다.</p>
+          <h2>4. 처리 목적 및 근거</h2>
+          <p>각 목적에는 각각의 근거가 있습니다. 근거가 동의인 경우 귀하는 목적별로 각각 동의하며, 미리 선택된 체크박스는 없고, 언제든지 동의를 철회할 수 있습니다. 아무런 의사표시를 하지 않거나 응답하지 않는 것은 동의로 간주되지 않습니다.</p>
+          <div class="table-wrap"><table class="legal-table">
+            <thead><tr><th>목적</th><th>정보 구분</th><th>근거</th></tr></thead>
+            <tbody>
+              <tr><td>계정, 회원 서비스 및 고객 지원 제공</td><td>이용자, 회원</td><td>귀하와의 계약 이행</td></tr>
+              <tr><td>계약 체결, 결제, 세금계산서 발행, 회계</td><td>계약 서명자, 결제 담당자</td><td>계약 이행; 회계·세무 법령상 의무</td></tr>
+              <tr><td>계정 및 시스템 보안 확보, 무단 접근 탐지</td><td>로그인 및 보안 기록</td><td>계약 이행; 법령에 따른 데이터 보안 의무</td></tr>
+              <tr><td>법적 대표자를 포함한 기업 정보 표시</td><td>법적 대표자</td><td>기업법에 따라 공개된 정보로서, 공개된 범위 내</td></tr>
+              <tr><td>기타 연락 담당자의 표시 및 연결</td><td>연락 담당자</td><td>해당 본인이 선택한 범위에 따른 본인의 동의(제5항)</td></tr>
+              <tr><td>기업 프로필 관리 권한 신청의 검증</td><td>신청자</td><td>귀하와의 계약 이행</td></tr>
+              <tr><td>서비스 공지 발송(갱신, 약관 변경, 보안 경고)</td><td>이용자, 회원</td><td>귀하와의 계약 이행</td></tr>
+              <tr><td>뉴스레터 및 마케팅 정보 발송</td><td>뉴스레터 구독자</td><td>귀하의 동의</td></tr>
+              <tr><td>행사 및 Business Matching 개최, 연결 소개</td><td>참가자</td><td>참가 신청 계약의 이행; 각 소개 건별 및 홍보용 사진 이용에 대한 별도 동의</td></tr>
+              <tr><td>집계 형태의 웹사이트 방문 통계</td><td>측정 쿠키</td><td>쿠키 설정 패널을 통한 동의</td></tr>
+              <tr><td>채용</td><td>지원자</td><td>귀하의 동의</td></tr>
+              <tr><td>파트너, 협력자 관리</td><td>파트너</td><td>계약 이행</td></tr>
+              <tr><td>관할 국가기관의 요청 이행</td><td>요청에 따름</td><td>법령에 따름</td></tr>
+            </tbody>
+          </table></div>
+          <p>개인정보를 새로운 목적으로 이용해야 하는 경우, 당사는 사전에 고지하고 법령이 요구하는 경우 동의를 요청합니다.</p>
         </div>
 
         <div class="legal-section" id="s5">
-          <h2>5. 제3자와의 데이터 공유</h2>
-          <p>HOUSELINK <strong>판매, 임대 또는 교환하지 않습니다</strong> 귀하의 개인 데이터. 당사는 다음의 경우에만 데이터를 공유합니다：</p>
+          <h2>5. 플랫폼상의 기업 정보 및 연락 담당자</h2>
+          <p>HOUSELINK 플랫폼은 기업, 프로젝트 및 산업단지에 관한 정보를 제공합니다. 당사는 서비스 패키지에 따라서든 요청에 따라서든 개인 연락처 정보를 <strong>판매, 임대 또는 이전하지 않습니다</strong>.</p>
           <ul>
-            <li><strong>서비스 파트너：</strong> 엄격한 기밀 계약을 맺은 기술, 데이터 저장, 분석 제공업체</li>
-            <li><strong>법적 요구사항：</strong> 관할 국가 기관의 결정에 따라</li>
-            <li><strong>귀하의 동의：</strong> 귀하가 특별히 공유를 허용하는 경우, 예: HOUSELINK 생태계의 파트너와 연결</li>
+            <li><strong>기업 정보</strong>(상호, 등록번호, 주소, 업종, 대표 이메일, 대표전화 번호)는 개인정보가 아닙니다.</li>
+            <li><strong>법적 대표자:</strong> 국가기업등록포털에 공개된 그대로의 성명과 직함만 출처 및 업데이트 일자와 함께 표시합니다. 대표자의 전화번호, 개인 이메일, 신분증명서 번호 또는 주소는 표시하지 않습니다.</li>
+            <li><strong>기타 연락 담당자:</strong> 성명과 직함은 본인이 동의한 경우에만 표시됩니다. 동의가 없는 경우 플랫폼에는 "구매부서"와 같은 부서 또는 일반적인 역할만 표시됩니다.</li>
+            <li><strong>개인의 전화번호 및 이메일</strong>은 회원에게 표시되지 않습니다. 연락을 원하는 회원은 HOUSELINK를 통해 연결 요청을 보내며, 당사는 해당 요청을 기업의 대표 이메일 또는 연결 요청 수신에 동의한 사람에게 전달합니다.</li>
           </ul>
+          <p>플랫폼에서 본인의 정보를 발견한 경우, 해당 정보가 있는 페이지의 링크를 첨부하여 이메일(<a href="mailto:info@houselink.com.vn">info@houselink.com.vn</a>)로 보내실 수 있습니다.</p>
         </div>
 
         <div class="legal-section" id="s6">
-          <h2>6. 귀하의 법적 권리</h2>
-          <p>시행령 13/2023/ND-CP 및 법률 91/2025/QH15에 따라 귀하는 다음의 권리를 가집니다：</p>
+          <h2>6. 쿠키, 측정 및 마케팅 이메일</h2>
+          <p>필수가 아닌 쿠키는 귀하가 켜기 전까지 모두 꺼져 있습니다. 웹사이트를 처음 방문할 때 쿠키 설정 패널에서 선택할 수 있으며, 아래 버튼 또는 페이지 하단의 "쿠키 설정" 링크를 통해 언제든지 변경할 수 있습니다. "모두 거부" 버튼은 "동의" 버튼만큼 쉽게 찾을 수 있습니다.</p>
+          <div class="table-wrap"><table class="legal-table">
+            <thead><tr><th>쿠키 유형</th><th>용도</th><th>기본 설정</th></tr></thead>
+            <tbody>
+              <tr><td><strong>필수</strong></td><td>로그인, 보안, 언어 및 쿠키 선택 사항 저장</td><td>항상 켜짐(없으면 웹사이트가 작동하지 않음)</td></tr>
+              <tr><td><strong>측정</strong></td><td>Google Analytics를 이용한 방문 수 및 많이 조회된 페이지의 집계 통계로, 귀하의 신원과 연결되지 않음</td><td>꺼짐</td></tr>
+              <tr><td><strong>마케팅</strong></td><td>HOUSELINK는 마케팅 쿠키를 사용하지 않습니다. 향후 사용하게 되는 경우 본 방침을 업데이트하고 귀하가 동의한 경우에만 켭니다.</td><td>사용하지 않음</td></tr>
+            </tbody>
+          </table></div>
+          <p hidden><button type="button" class="btn-line" data-hl-cookie-settings>쿠키 설정 열기</button></p>
+          <p>당사는 다른 웹사이트에서의 귀하의 활동을 추적하지 않으며 행태 기반 광고를 하지 않습니다. 기업 프로필의 조회 수와 팔로워 수는 숫자로만 표시되며, 기업은 누가 자신을 조회하거나 팔로우했는지 알 수 없습니다.</p>
+          <h3>마케팅 이메일 및 서비스 공지</h3>
           <ul>
-            <li><strong>알 권리：</strong> 귀하의 데이터 처리 목적 및 범위 파악</li>
-            <li><strong>열람권：</strong> HOUSELINK가 보유한 개인 데이터 열람 요청</li>
-            <li><strong>수정권：</strong> 부정확한 데이터 수정 요청</li>
-            <li><strong>삭제권：</strong> 더 이상 필요하지 않을 때 데이터 삭제 요청</li>
-            <li><strong>처리 제한권：</strong> 특정 경우에 처리 중단 요청</li>
-            <li><strong>동의 철회권：</strong> 이전 처리의 합법성에 영향을 미치지 않으면서 언제든지 동의 철회</li>
-            <li><strong>민원 제기권：</strong> 권리가 침해되었다고 판단되는 경우 정보보안국(정보통신부)에 민원 제기</li>
+            <li>뉴스레터와 마케팅 정보는 구독을 신청한 사람에게만 발송됩니다. 구독 신청 시 발송 내용, 형식 및 빈도를 안내받습니다.</li>
+            <li>모든 마케팅 이메일에는 구독 취소 링크가 있습니다. 구독을 취소하면 시스템은 즉시 발송을 중단하며 다시 발송하지 않습니다.</li>
+            <li>당사는 <strong>귀하의 이메일 열람이나 링크 클릭 여부를 개인별로 측정하지 않으며</strong>, 캠페인 전체의 집계 수치만 확인합니다.</li>
+            <li>당사는 외부에서 구매한 명단이나 동의하지 않은 연락 담당자에게 마케팅 이메일을 보내지 않습니다.</li>
+            <li>회원에 대한 서비스 공지(갱신, 약관 변경, 보안 경고)는 별도로 발송되며 광고를 포함하지 않습니다.</li>
           </ul>
-          <p>이러한 권리를 행사하려면 연락하세요： <strong>info@houselink.com.vn</strong> - 법률 규정에 따라 30영업일 이내 응답.</p>
         </div>
 
         <div class="legal-section" id="s7">
-          <h2>7. 쿠키 및 추적 기술</h2>
-          <p>HOUSELINK 웹사이트는 사용자 경험을 개선하기 위해 쿠키 및 유사 기술을 사용합니다：</p>
+          <h2>7. HOUSELINK AI 및 자동화된 처리</h2>
+          <p>HOUSELINK AI는 계정 권한 범위 내에서 프로젝트, 기업 및 산업단지에 관한 질문에 답변합니다.</p>
           <ul>
-            <li><strong>필수 쿠키：</strong> 웹사이트 운영에 필수, 비활성화 불가</li>
-            <li><strong>분석 쿠키：</strong> 사용자가 웹사이트와 어떻게 상호작용하는지 파악하는 데 도움을 줍니다(Google Analytics)</li>
-            <li><strong>Cookie marketing:</strong> 귀하의 동의하에만 사용, 콘텐츠 개인화를 위해</li>
+            <li>질의응답 창에는 귀하가 인공지능 어시스턴트에게 질문하고 있다는 사실이 명시됩니다.</li>
+            <li>모델로 전송되는 컨텍스트에는 개인의 연락처 정보가 포함되지 않습니다. HOUSELINK AI는 특정 개인에 관한 정보를 조회하거나 취합하려는 질문에는 답변하지 않습니다.</li>
+            <li>질문에 귀하 또는 타인의 개인정보를 입력하지 마십시오.</li>
+            <li>질문은 저장 전에 계정과 분리되며 90일 후 삭제됩니다.</li>
+            <li>HOUSELINK가 이용하는 서비스 패키지의 약관에 따라, 모델로 전송된 데이터는 제공업체가 모델 학습에 사용하지 않습니다.</li>
+            <li>인공지능의 지원을 받아 작성된 Insights 보고서에는 그 사실이 표시되며, 게시 전에 사람이 검토하고 승인합니다.</li>
           </ul>
-          <p>브라우저 설정 또는 첫 방문 시 쿠키 배너를 통해 쿠키 기본 설정을 관리할 수 있습니다.</p>
+          <p>당사는 개인에게 법적 효과를 미치는 결정을 내리기 위해 자동화된 처리를 사용하지 않습니다. 플랫폼의 순위와 평가 점수는 기업에 적용되며 개인에게는 적용되지 않습니다. 귀하는 자신의 정보를 자동화된 처리에 포함하지 않도록 요구할 권리와, 시스템이 생성한 결과를 HOUSELINK 담당자가 재검토하도록 요구할 권리가 있습니다.</p>
         </div>
 
         <div class="legal-section" id="s8">
-          <h2>8. 정책 변경</h2>
-          <p>HOUSELINK는 특히 법률이나 서비스에 변경 사항이 있을 때 수시로 본 개인정보 처리방침을 업데이트할 수 있습니다.서비스. 중요한 변경 사항이 발생하면 당사는 다음을 실시합니다：</p>
-          <ul>
-            <li>등록된 사용자에게 이메일로 통보</li>
-            <li>웹사이트에 눈에 띄는 공지 표시</li>
-            <li>문서 상단의 "발행일" 업데이트</li>
-          </ul>
+          <h2>8. 개인정보를 공유하는 대상</h2>
+          <p>당사는 <strong>개인정보를 판매하지 않습니다</strong>. 개인정보는 필요한 범위 내에서 아래의 수령인에게만 제공됩니다.</p>
+          <div class="table-wrap"><table class="legal-table">
+            <thead><tr><th>수령인</th><th>개인정보</th><th>조건</th></tr></thead>
+            <tbody>
+              <tr><td><strong>서버 및 데이터 저장 서비스 제공업체</strong></td><td>플랫폼상의 모든 데이터</td><td>개인정보 처리 계약 체결; HOUSELINK의 지시에 따라서만 처리</td></tr>
+              <tr><td><strong>Google</strong> (Google Workspace, Google 로그인, Google Analytics)</td><td>이메일, 이름, 메일 내용; Google 로그인 시 Google 계정 정보; 측정 쿠키를 켠 경우 집계 접속 데이터</td><td>Google의 데이터 처리 약관; 제9항에 따른 국외 이전</td></tr>
+              <tr><td><strong>지도 서비스 제공업체</strong></td><td>지도가 로드될 때의 IP 주소 및 조회 중인 페이지</td><td>프로젝트 페이지의 지도는 귀하가 보기를 클릭한 경우에만 로드됨</td></tr>
+              <tr><td><strong>전자세금계산서 서비스 업체, 은행</strong></td><td>세금계산서 발행 정보, 결제 정보</td><td>계약 및 회계·세무 법령에 따름</td></tr>
+              <tr><td><strong>귀하가 견적 요청 또는 리뷰를 보낸 기업</strong></td><td>귀하가 보내기로 선택한 정보로, 전송 버튼에 바로 표시됨</td><td>귀하가 전송을 클릭한 경우</td></tr>
+              <tr><td><strong>Business Matching의 산업단지, 투자자</strong></td><td>연락처 정보 및 매칭 희망 사항</td><td>각 소개 건별 귀하의 동의</td></tr>
+              <tr><td><strong>행사 후원사, 공동 주최 기관</strong></td><td>성명, 직함, 회사, 이메일</td><td>신청 시 별도 동의란에 체크한 경우에만</td></tr>
+              <tr><td><strong>관할 국가기관</strong></td><td>요청에 따름</td><td>법령에 따름</td></tr>
+            </tbody>
+          </table></div>
+          <p>HOUSELINK가 기업 구조를 재편(합병, 분할, 분리, 양도)하는 경우, 개인정보는 법령에 따라서만 이전되며 당사는 이를 귀하에게 통지합니다.</p>
         </div>
 
         <div class="legal-section" id="s9">
-          <h2>9. 연락처</h2>
-          <p>데이터 개인정보 보호 또는 권리 행사에 관한 질문이나 요청이 있으면 연락하세요：</p>
+          <h2>9. 베트남 내 보관 및 개인정보의 국외 이전</h2>
+          <p>HOUSELINK 플랫폼의 애플리케이션 서버, 데이터베이스 및 백업은 베트남에 있습니다.</p>
+          <p>당사가 이용하는 일부 Google 서비스는 베트남 외부의 데이터 센터에서 데이터를 처리할 수 있습니다.</p>
           <ul>
-            <li><strong>데이터 관리 부서 - HOUSELINK</strong></li>
-            <li>📍 9층, Sannam 빌딩, 78 Duy Tan, Cau Giay, 하노이</li>
-            <li>✉ info@houselink.com.vn</li>
-            <li>📞 +84 966 222 490</li>
+            <li>이메일, HOUSELINK와 주고받은 메일 내용 및 당사가 귀하에게 보내는 이메일</li>
+            <li>귀하가 Google 로그인을 선택한 경우 Google 계정 정보</li>
+            <li>귀하가 측정 쿠키를 켠 경우 Google Analytics의 측정 데이터</li>
           </ul>
+          <p>당사는 국외로 전송되는 정보를 최소한으로 제한합니다.</p>
+        </div>
+
+        <div class="legal-section" id="s10">
+          <h2>10. 보유 기간</h2>
+          <p>개인정보는 처리 목적에 필요한 기간 또는 법령이 요구하는 기간 동안만 보관됩니다. 기간이 만료되면 개인정보는 삭제되거나 비식별화됩니다.</p>
+          <div class="table-wrap"><table class="legal-table">
+            <thead><tr><th>개인정보</th><th>보유 기간</th></tr></thead>
+            <tbody>
+              <tr><td>회원 계정</td><td>서비스 이용 기간 동안; 패키지 종료 후 24개월간 활동이 없는 계정은 삭제 또는 비식별화</td></tr>
+              <tr><td>계약서, 결제 증빙</td><td>회계 법령에 정한 보존 기간에 따름</td></tr>
+              <tr><td>프로필 관리 권한 신청 시 업로드한 서류</td><td>승인 후 최대 90일; 이후에는 검증 결과와 검증 일자만 보관</td></tr>
+              <tr><td>법적 대표자</td><td>해당 정보가 공개되어 있는 기간 동안; 변경 시 업데이트</td></tr>
+              <tr><td>기타 연락 담당자</td><td>본인이 동의를 철회하거나 삭제를 요청할 때까지; 동의하지 않았거나 동의 요청에 응답하지 않은 사람의 경우 개인정보를 삭제하고 부서 정보만 보관</td></tr>
+              <tr><td>HOUSELINK AI에 보낸 질문</td><td>90일(계정과 분리된 상태)</td></tr>
+              <tr><td>로그인 기록, 보안 기록</td><td>24개월</td></tr>
+              <tr><td>뉴스레터 구독</td><td>귀하가 구독을 취소할 때까지; 이후에는 재발송 방지를 위해 수신 거부 목록에 이메일만 보관</td></tr>
+              <tr><td>불합격자의 입사 지원서</td><td>채용 절차 종료 시 삭제; 다음 채용을 위해 보관하는 데 동의한 경우 12개월</td></tr>
+              <tr><td>행사 사진, 영상</td><td>내부 자료로 36개월; 홍보용 사진은 귀하가 동의한 범위에 따름</td></tr>
+              <tr><td>쿠키</td><td>각 쿠키의 유효 기간에 따름(최대 13개월)</td></tr>
+              <tr><td>개인정보 사고 기록</td><td>조치 완료 후 5년(점검 대응용)</td></tr>
+            </tbody>
+          </table></div>
+        </div>
+
+        <div class="legal-section" id="s11">
+          <h2>11. 귀하의 권리 및 행사 방법</h2>
+          <p>개인정보보호법 제4조에 따라 귀하는 다음과 같은 권리를 가집니다.</p>
+          <div class="rights-grid">
+            <div class="right-item"><strong>알 권리</strong>본인의 개인정보 처리 활동에 대해 알 권리</div>
+            <div class="right-item"><strong>동의 또는 부동의</strong>동의 여부를 결정하고 동의 철회를 요구할 권리</div>
+            <div class="right-item"><strong>열람 및 정정</strong>개인정보를 열람·정정하거나 정정을 요구할 권리</div>
+            <div class="right-item"><strong>제공, 삭제, 처리 제한 요구</strong>개인정보의 제공·삭제·처리 제한을 요구하고 처리에 반대할 권리</div>
+            <div class="right-item"><strong>이의제기, 신고, 소송</strong>이의제기·신고·소송을 제기하고 법령에 따라 손해배상을 청구할 권리</div>
+            <div class="right-item"><strong>보호 요청</strong>관할 기관 또는 관련 당사자에게 본인의 개인정보 보호 조치를 취하도록 요구할 권리</div>
+          </div>
+          <h3>요청 방법</h3>
+          <ul>
+            <li>이메일 <a href="mailto:info@houselink.com.vn">info@houselink.com.vn</a> 발송(요청 사항과 처리 대상 정보를 명확히 기재)</li>
+            <li>업무 시간 중 핫라인 (+84) 966 222 490 또는 대표전화 024 3795 5620으로 전화</li>
+            <li>서면 발송 또는 HOUSELINK 본사 직접 방문. 회원은 계정 내 "내 개인정보" 페이지에서 요청을 제출할 수 있습니다.</li>
+          </ul>
+          <p>권리 행사는 <strong>무료</strong>입니다. 귀하의 정보가 다른 사람에게 잘못 제공되지 않도록, 당사는 로그인된 계정 또는 등록된 이메일을 통해 본인 확인을 합니다. 이 방법으로 충분하지 않은 경우에만 추가 정보를 요청하며, 꼭 필요한 경우가 아니면 신분증 사진을 요구하지 않습니다.</p>
+          <p><strong>처리 기한</strong>은 시행령 제356/2025/NĐ-CP호 제5조에 따라 다음과 같습니다.</p>
+          <div class="table-wrap"><table class="legal-table">
+            <thead><tr><th>요청</th><th>회신</th><th>처리 완료</th><th>처리자(수탁자) 협조가 필요한 경우</th><th>연장</th></tr></thead>
+            <tbody>
+              <tr><td>동의 철회, 처리 제한, 처리 반대</td><td>영업일 기준 2일</td><td>15일</td><td>20일</td><td>1회, 최대 15일</td></tr>
+              <tr><td>열람, 정정, 개인정보 제공</td><td>영업일 기준 2일</td><td>10일</td><td>15일</td><td>1회, 최대 10일</td></tr>
+              <tr><td>개인정보 삭제</td><td>영업일 기준 2일</td><td>20일</td><td>30일</td><td>1회, 최대 20일</td></tr>
+            </tbody>
+          </table></div>
+          <p>기한을 연장하는 경우, 당사는 기한이 만료되기 전에 그 사유를 귀하에게 알립니다. 뉴스레터 구독 취소와 쿠키 끄기는 위 기한을 기다리지 않고 즉시 효력이 발생합니다.</p>
+          <p><strong>요청을 전부 이행할 수 없는 경우</strong>, 예를 들어 법령상 회계 증빙을 계속 보관해야 하거나 개인정보 제공이 타인의 권리에 영향을 미치는 경우, 당사는 사유와 근거를 명시하여 서면으로 회신합니다.</p>
+          <p><strong>이의제기:</strong> 귀하는 HOUSELINK의 개인정보보호 담당자에게 이의를 제기할 수 있습니다. 또한 공안부 산하 개인정보보호 전담기관에 이의를 제기하거나 신고할 권리, 또는 법원에 소송을 제기할 권리가 있습니다.</p>
+        </div>
+
+        <div class="legal-section" id="s12">
+          <h2>12. 개인정보 보호 및 사고 대응</h2>
+          <p>당사는 개인정보의 위험 수준에 맞는 관리적·기술적 조치를 적용합니다.</p>
+          <ul>
+            <li>브라우저와 서버 간 연결을 암호화(HTTPS/TLS)하고, 백업을 보호합니다.</li>
+            <li>업무상 필요한 경우에만 접근하는 원칙에 따라 역할별로 권한을 부여하며, 관리 직원에게는 2단계 인증을 의무화합니다.</li>
+            <li>개인의 상세 연락처 정보는 소수의 관리자만 열람할 수 있으며, 열람할 때마다 기록이 남습니다.</li>
+            <li>직원은 비밀유지 서약서에 서명하고 정기적으로 교육을 받습니다.</li>
+            <li>개인정보를 처리하는 공급업체는 비밀유지 의무가 포함된 계약을 체결해야 합니다.</li>
+            <li>개인정보를 이용하는 신규 기능은 출시 전에 평가를 거칩니다.</li>
+          </ul>
+          <p>개인정보의 유출, 분실 또는 무단 접근 사고가 발생하면 당사는 즉시 차단 조치를 취합니다. 당사는 <strong>72시간 이내에</strong> 개인정보보호 전담기관에 통지하고, 법령에 따라 영향을 받은 사람에게 통지합니다. 사고 기록은 점검에 대비하여 보관합니다.</p>
+        </div>
+
+        <div class="legal-section" id="s13">
+          <h2>13. 아동의 개인정보</h2>
+          <p>HOUSELINK의 서비스는 산업용 부동산 및 투자 분야에서 활동하는 조직, 기업 및 성인을 대상으로 합니다. HOUSELINK는 아동(16세 미만인 사람)을 포함하여 18세 미만인 사람의 개인정보를 의도적으로 수집하지 않으며, 아동을 위한 서비스를 설계하지 않습니다.</p>
+          <ul>
+            <li>계정 등록 시 귀하는 만 18세 이상임을 확인합니다.</li>
+            <li>개인정보보호법(제91/2025/QH15호) 제24조에 따른 동의 없이 아동의 개인정보를 수집한 사실이 발견되는 경우, HOUSELINK는 지체 없이 처리를 중단하고 해당 정보를 삭제합니다.</li>
+            <li>부모 또는 후견인은 제16항에 따라 연락하여 확인 및 삭제를 요청할 수 있습니다.</li>
+          </ul>
+        </div>
+
+        <div class="legal-section" id="s14">
+          <h2>14. 발생할 수 있는 위험 및 예기치 않은 결과</h2>
+          <p>제12항의 조치를 적용하고 있더라도 절대적으로 안전한 시스템은 없습니다. 발생할 수 있는 위험은 다음과 같습니다.</p>
+          <ul>
+            <li>사이버 공격 또는 소프트웨어 취약점으로 인한 무단 접근</li>
+            <li>이메일 오발송, 권한 오부여 등 사람의 조작 실수</li>
+            <li>비밀번호 유출 또는 다른 서비스와 같은 비밀번호 사용으로 인한 계정 탈취</li>
+            <li>사기를 목적으로 HOUSELINK를 사칭하는 이메일, 메시지 또는 전화</li>
+          </ul>
+          <p>그 결과로 스팸 메일 수신, 사기 피해 또는 명의 도용이 발생할 수 있습니다. 위험을 줄이기 위해 HOUSELINK 전용 비밀번호를 사용하고, 계정을 공유하지 말며, 공용 기기에서는 로그아웃하시기 바랍니다.</p>
+          <div class="notice-warn"><strong>HOUSELINK는 이메일, 메시지 또는 전화로 비밀번호나 OTP 코드를 요구하거나 송금을 요청하는 일이 절대 없습니다.</strong> 공식 이메일은 houselink.com.vn 및 houselink.info 도메인에서만 발송됩니다. HOUSELINK를 사칭하는 연락이 의심되는 경우 제16항에 따라 당사에 알려 주십시오. 귀하에게 영향을 미칠 수 있는 사고가 발생한 경우 HOUSELINK는 제12항에 따라 통지합니다.</div>
+        </div>
+
+        <div class="legal-section" id="s15">
+          <h2>15. 방침 변경 및 언어</h2>
+          <ul>
+            <li>본 방침은 정기적으로, 그리고 법령 또는 HOUSELINK의 개인정보 처리 활동이 변경될 때 검토됩니다.</li>
+            <li>중요한 변경(새로운 목적, 새로운 정보 유형, 새로운 수령인, 새로운 국외 이전)의 경우, HOUSELINK는 시행 최소 7일 전에 웹사이트에 공지하고 계정을 보유한 이용자에게 이메일로 통지합니다. 변경에 동의가 필요한 경우 HOUSELINK는 귀하의 동의를 다시 요청하며, 서비스를 계속 이용하는 것은 동의로 간주되지 않습니다.</li>
+            <li>본 방침은 베트남어, 영어, 일본어, 한국어 및 중국어(간체)로 동일한 버전 번호와 시행일로 공표됩니다. 각 언어본 간에 차이가 있는 경우 베트남어판이 우선 적용됩니다.</li>
+          </ul>
+          <div class="table-wrap"><table class="legal-table ver">
+            <thead><tr><th>버전</th><th>공고일</th><th>시행일</th><th>내용</th></tr></thead>
+            <tbody>
+              <tr><td>QDNB-001/2025</td><td>2025년 7월 1일</td><td>2026년 1월 1일</td><td>시행령 제13/2023/NĐ-CP호에 따른 보안정책</td></tr>
+              <tr><td>2.0</td><td>2026년 10월 12일</td><td>2026년 10월 12일</td><td>개인정보보호법(제91/2025/QH15호) 및 시행령 제356/2025/NĐ-CP호에 따른 전면 개정; QDNB-001/2025 대체</td></tr>
+            </tbody>
+          </table></div>
+        </div>
+
+        <div class="legal-section" id="s16">
+          <h2>16. 문의처</h2>
+          <p>개인정보에 관한 모든 문의 및 요청은 <strong>HOUSELINK 주식회사 개인정보보호 담당자</strong>에게 연락해 주시기 바랍니다. 당사는 요청 접수를 확인하고 제11항에 명시된 기한 내에 회신합니다.</p>
+          <div class="contact-card">
+            <div class="contact-item"><span>개인정보 관련 이메일</span><a href="mailto:info@houselink.com.vn">info@houselink.com.vn</a></div>
+            <div class="contact-item"><span>전화</span><b>(+84) 966 222 490</b> · 대표전화 <b>024 3795 5620</b></div>
+            <div class="contact-item"><span>주소</span>9th Floor, Sannam Building, 78 Duy Tan Street, Cau Giay Ward, Hanoi, Vietnam</div>
+            <div class="contact-item"><span>업무 시간</span>8:00 - 17:30, 월요일부터 금요일까지(공휴일 제외)</div>
+          </div>
+          <p><a class="btn-line" href="mailto:info@houselink.com.vn?subject=%EA%B0%9C%EC%9D%B8%EC%A0%95%EB%B3%B4%20%EA%B4%80%EB%A0%A8%20%EC%9A%94%EC%B2%AD">개인정보 관련 요청하기</a><a class="btn-line" href="/ko/terms/">이용약관 보기</a></p>
         </div>
 
       </div>
@@ -946,6 +1192,31 @@ footer { background: var(--navy); color: rgba(255,255,255,0.55); padding: 72px 0
 </section>
 
 <div id="hl-chrome-footer"></div>
+<script>
+(function () {
+  var links = [].slice.call(document.querySelectorAll('.legal-toc .toc-item'));
+  var map = {};
+  links.forEach(function (a) { map[a.getAttribute('href').slice(1)] = a; });
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        links.forEach(function (l) { l.classList.remove('active'); });
+        if (map[e.target.id]) map[e.target.id].classList.add('active');
+      });
+    }, { rootMargin: '-110px 0px -70% 0px' });
+    [].forEach.call(document.querySelectorAll('.legal-section[id]'), function (s) { io.observe(s); });
+  }
+  // Cookie settings button: calls window.hlOpenCookieSettings() if the cookie banner exposes it,
+  // otherwise fires the "hl:open-cookie-settings" event for the banner script to handle.
+  [].forEach.call(document.querySelectorAll('[data-hl-cookie-settings]'), function (b) {
+    b.addEventListener('click', function () {
+      if (typeof window.hlOpenCookieSettings === 'function') { window.hlOpenCookieSettings(); }
+      else { document.dispatchEvent(new CustomEvent('hl:open-cookie-settings')); }
+    });
+  });
+})();
+</script>
   <script src="../../landing-chrome.js" defer></script>
 </body>
 </html>

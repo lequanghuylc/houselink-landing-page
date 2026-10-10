@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="zh-Hans">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>使用条款 – HOUSELINK</title>
+<title>使用条款 - HOUSELINK</title>
+<meta name="description" content="HOUSELINK平台及服务使用条款：账户、使用规则、用户内容、知识产权、费用与支付、续费与退款、责任限制及争议解决。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
@@ -785,17 +786,82 @@ footer { background: var(--navy); color: rgba(255,255,255,0.55); padding: 72px 0
 .highlight-box { background:var(--off-white); border-left:4px solid var(--green); border-radius:0 8px 8px 0; padding:14px 18px; margin:16px 0; font-size:14px; color:var(--gray-600); line-height:1.7; }
 @media(max-width:960px){ .legal-layout{grid-template-columns:1fr;} .legal-toc{position:static;} }
 </style>
+<style id="legal-v2">
+/* ── LEGAL PAGES v2 (privacy 2.0, terms 2026) ── */
+.legal-section ol { margin:10px 0 14px 22px; display:flex; flex-direction:column; gap:6px; }
+.legal-section ol li { font-size:14px; color:var(--gray-600); line-height:1.7; }
+.legal-section a { color:var(--green); text-decoration:underline; text-underline-offset:2px; }
+.legal-section a:hover { color:var(--navy); }
+.legal-layout > * { min-width:0; }
+.legal-toc { max-height:calc(100vh - 120px); overflow:auto; }
+.toc-item.active { color:var(--navy); font-weight:600; }
+.page-hero-meta { display:flex; flex-wrap:wrap; gap:8px; margin-top:22px; }
+.page-hero-meta span { font-size:12px; color:rgba(255,255,255,.82); border:1px solid rgba(255,255,255,.22); border-radius:999px; padding:5px 12px; }
+.sum-title { font-size:11px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--green); margin-bottom:12px; }
+.sum-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin:0 0 44px; }
+.sum-card { border:1px solid var(--gray-100); border-radius:12px; padding:16px; background:var(--white); }
+.sum-card .ic { width:34px; height:34px; border-radius:9px; background:var(--green-pale); color:var(--green); display:flex; align-items:center; justify-content:center; margin-bottom:10px; }
+.sum-card .ic svg { width:18px; height:18px; }
+.sum-card h4 { font-size:14px; color:var(--navy); margin-bottom:4px; line-height:1.4; }
+.sum-card p { font-size:13px; color:var(--gray-600); line-height:1.6; }
+.table-wrap { overflow-x:auto; margin:12px 0 18px; border:1px solid var(--gray-100); border-radius:10px; }
+.legal-table { width:100%; border-collapse:collapse; font-size:13.5px; min-width:520px; }
+.legal-table th { background:var(--off-white); color:var(--navy); font-weight:700; text-align:left; padding:10px 12px; border-bottom:1px solid var(--gray-100); }
+.legal-table td { padding:10px 12px; border-top:1px solid var(--gray-50); color:var(--gray-600); vertical-align:top; line-height:1.6; }
+.legal-table tbody tr:first-child td { border-top:none; }
+.legal-table td strong { color:var(--navy); }
+.rights-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:10px; margin:12px 0 16px; }
+.right-item { background:var(--off-white); border-radius:10px; padding:12px 14px; font-size:13.5px; color:var(--gray-600); line-height:1.6; }
+.right-item strong { display:block; color:var(--navy); font-size:14px; margin-bottom:2px; }
+.contact-card { display:grid; grid-template-columns:repeat(2,1fr); gap:12px; margin:14px 0; }
+.contact-item { border:1px solid var(--gray-100); border-radius:10px; padding:12px 14px; font-size:13.5px; color:var(--gray-600); line-height:1.6; }
+.contact-item span { display:block; font-size:11px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--green); margin-bottom:2px; }
+.contact-item a, .contact-item b { color:var(--navy); font-weight:600; text-decoration:none; }
+.btn-line { display:inline-flex; align-items:center; gap:8px; border:1.5px solid var(--navy); color:var(--navy); background:var(--white); border-radius:8px; padding:9px 16px; font:600 13.5px var(--font-main); cursor:pointer; text-decoration:none !important; margin:4px 8px 4px 0; }
+.btn-line:hover { background:var(--navy); color:var(--white); }
+.notice-warn { background:#FFF8E6; border-left:4px solid #D99A00; border-radius:0 8px 8px 0; padding:14px 18px; margin:16px 0; font-size:14px; color:var(--gray-600); line-height:1.7; }
+.notice-warn strong { color:var(--navy); }
+@media (max-width:960px) { .sum-grid { grid-template-columns:1fr 1fr; } }
+@media (max-width:640px) {
+  .sum-grid, .rights-grid, .contact-card { grid-template-columns:1fr; }
+  .page-hero-inner, .sub-content .si { padding:0 16px; }
+  .legal-section h2 { font-size:19px; }
+}
+@media print {
+  #hl-chrome-header, #hl-chrome-footer, .legal-toc, .btn-line { display:none !important; }
+  .page-hero { background:none; padding:0 0 12px !important; }
+  .page-h1, .page-sub { color:#000; }
+  .legal-layout { display:block; }
+}
+.legal-table.ver td:not(:last-child), .legal-table.ver th:not(:last-child) { white-space:nowrap; }
+html[lang="ja"] body { font-family:'Inter','Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Noto Sans JP',sans-serif; }
+html[lang="ko"] body { font-family:'Inter','Apple SD Gothic Neo','Malgun Gothic','Noto Sans KR',sans-serif; }
+html[lang="zh-Hans"] body { font-family:'Inter','PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif; }
+</style>
   <link rel="stylesheet" href="../../landing-chrome.css">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/icon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 </head>
 <body class="hl-with-fixed-header" data-hl-page="terms">
+<!--
+  Bản dịch tiếng Trung giản thể của Điều khoản sử dụng TOS-2026/v3, hiệu lực 12/10/2026. Thay thế trang /zh/terms/.
+  Bản tiếng Việt được ưu tiên khi có khác biệt. Khi sửa bản tiếng Việt, sửa đồng thời các bản dịch.
+-->
 
 <div id="hl-chrome-header"></div>
 
 <section class="page-hero" style="padding-top:96px;">
   <div class="page-hero-inner">
     <div class="page-eyebrow">使用条款</div>
-    <h1 class="page-h1">HOUSELINK 服务<br><em>使用条款</em></h1>
-    <p class="page-sub">使用HOUSELINK服务前请仔细阅读本条款。使用服务即代表接受以下条款。</p>
+    <h1 class="page-h1">使用条款<br><em>HOUSELINK平台与服务</em></h1>
+    <p class="page-sub">当您访问网站、创建账户或使用HOUSELINK的服务时，适用本条款。对于已签订合同的会员，如本条款与合同存在差异，以合同为准。</p>
+    <div class="page-hero-meta">
+      <span>版本TOS-2026/v3</span>
+      <span>自2026年10月12日起生效</span>
+      <span>适用于：houselink.com.vn · dashboard · fdisignals.com · vietnamconstruction.vn</span>
+    </div>
   </div>
 </section>
 
@@ -803,150 +869,293 @@ footer { background: var(--navy); color: rgba(255,255,255,0.55); padding: 72px 0
   <div class="si">
     <div class="legal-layout">
 
-      <div class="legal-toc">
+      <div class="legal-toc" role="navigation" aria-label="目录">
         <div class="toc-title">目录</div>
-        <a class="toc-item" href="#t1">1. 一般条款</a>
-        <a class="toc-item" href="#t2">2. 注册与账户</a>
-        <a class="toc-item" href="#t3">3. 提供的服务</a>
-        <a class="toc-item" href="#t4">4. 权利与义务</a>
-        <a class="toc-item" href="#t5">5. 知识产权</a>
-        <a class="toc-item" href="#t6">6. 隐私与数据</a>
-        <a class="toc-item" href="#t7">7. 付款与费用</a>
-        <a class="toc-item" href="#t8">8. 责任限制</a>
-        <a class="toc-item" href="#t9">9. 服务终止</a>
-        <a class="toc-item" href="#t10">10. 适用法律</a>
-        <a class="toc-item" href="#t11">11. 联系我们</a>
+        <a class="toc-item" href="#t1">1. 适用范围与接受</a>
+        <a class="toc-item" href="#t2">2. HOUSELINK基本信息</a>
+        <a class="toc-item" href="#t3">3. 术语解释</a>
+        <a class="toc-item" href="#t4">4. HOUSELINK的服务</a>
+        <a class="toc-item" href="#t5">5. 账户</a>
+        <a class="toc-item" href="#t6">6. 使用规则</a>
+        <a class="toc-item" href="#t7">7. 用户内容</a>
+        <a class="toc-item" href="#t8">8. 企业信息与对接</a>
+        <a class="toc-item" href="#t9">9. 信息性质与HOUSELINK AI</a>
+        <a class="toc-item" href="#t10">10. 知识产权</a>
+        <a class="toc-item" href="#t11">11. 价格、付款与发票</a>
+        <a class="toc-item" href="#t12">12. 开通、续期与退款</a>
+        <a class="toc-item" href="#t13">13. 个人数据</a>
+        <a class="toc-item" href="#t14">14. 责任限制</a>
+        <a class="toc-item" href="#t15">15. 暂停与终止</a>
+        <a class="toc-item" href="#t16">16. 不可抗力</a>
+        <a class="toc-item" href="#t17">17. 投诉与争议</a>
+        <a class="toc-item" href="#t18">18. 条款变更</a>
+        <a class="toc-item" href="#t19">19. 联系我们</a>
       </div>
 
       <div class="legal-body">
 
         <div class="legal-meta">
-          <span><strong>版本：</strong> TOS-2025/v2</span>
-          <span><strong>更新日期：</strong> 01/07/2025</span>
-          <span><strong>生效日期：</strong> 01/07/2025</span>
+          <span><strong>版本：</strong>TOS-2026/v3，取代TOS-2025/v2</span>
+          <span><strong>更新日期：</strong>2026年10月12日</span>
+          <span><strong>生效日期：</strong>2026年10月12日</span>
+          <span><strong>语言：</strong>本页面为越南语版本的译文，如有不一致，以越南语版本为准</span>
+        </div>
+
+        <div class="sum-title">要点速览</div>
+        <div class="sum-grid">
+          <div class="sum-card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div><h4>一个账户仅限一人使用</h4><p>账户不得共用或转让。如需增加使用人员，请另行购买账户。</p></div>
+          <div class="sum-card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div><h4>信息仅供参考</h4><p>项目信息反映的是更新时的情况。作出决定前，请向项目业主核实。</p></div>
+          <div class="sum-card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/></svg></div><h4>禁止自动采集，禁止转售</h4><p>禁止使用机器人程序、批量下载、转售数据或将数据输入AI工具用于训练。</p></div>
+          <div class="sum-card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg></div><h4>单独签订的合同优先</h4><p>付费套餐依照合同或登记表执行；如有差异，以合同为准。</p></div>
+          <div class="sum-card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg></div><h4>依照第12节退款</h4><p>已支付的费用仅在第12节或合同所述情形下予以退还。</p></div>
+          <div class="sum-card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div><h4>通过电子邮件、热线投诉</h4><p>HOUSELINK依照第17节受理并答复投诉。</p></div>
         </div>
 
         <div class="legal-section" id="t1">
-          <h2>1. 一般条款</h2>
-          <p>本使用条款（"条款"）规范 <strong>HOUSELINK股份有限公司</strong> ("HOUSELINK","我们")与用户（"您","用户"）在使用所有服务、平台 v cng c do HOUSELINK cung cp.</p>
-          <p>通过访问或使用HOUSELINK的任何服务，您确认已阅读、理解并同意受本条款和我们的隐私政策约束。</p>
-          <div class="highlight-box">如果您不同意任何条款，请不要使用HOUSELINK服务。用户必须年满18周岁且具有使用服务的完全法律行为能力。</div>
+          <h2>1. 适用范围与条款接受</h2>
+          <p>本使用条款（“本条款”）规范对网站houselink.com.vn、位于dashboard.houselink.com.vn的会员平台、网站fdisignals.com、网站vietnamconstruction.vn以及由<strong>HOUSELINK股份公司</strong>（“HOUSELINK”或“我们”）提供的各项服务（“本服务”）的访问和使用。</p>
+          <ul>
+            <li><strong>接受：</strong>当您在创建账户时勾选同意、签署援引本条款的合同或服务登记表，或在新版本依照第18节生效后继续使用本服务时，即表示您接受本条款。接受本条款并不替代有关个人数据的同意；需要征得同意的情形将依照<a href="/zh/privacy/">《个人数据保护政策》</a>另行征询。</li>
+            <li><strong>适用对象：</strong>组织、企业以及年满18周岁、具有完全民事行为能力的个人。代表某一组织注册或使用本服务时，您保证自己有权约束该组织。</li>
+            <li><strong>优先顺序：</strong>如存在差异，您与HOUSELINK单独签订的服务合同及附件优先适用，其次为本条款及网站上的服务套餐说明。有关个人数据的事项依照《个人数据保护政策》执行。</li>
+            <li><strong>电子订立：</strong>合同、登记表及同意确认可通过电子方式和电子签名进行，依照越南《电子交易法》（第20/2023/QH15号）具有与纸质文件同等的效力。</li>
+          </ul>
+          <p>本条款依据越南2015年《民法典》、2005年《商法》、2023年《电子交易法》、2023年《消费者权益保护法》、2025年《电子商务法》及2025年《个人数据保护法》制定。</p>
+          <div class="highlight-box">如您不同意本条款，请勿注册账户，也请勿使用本服务。</div>
         </div>
 
         <div class="legal-section" id="t2">
-          <h2>2. 注册与账户</h2>
-          <h3>2.1. 创建账户</h3>
-          <ul>
-            <li>注册时必须提供准确、完整和最新的信息</li>
-            <li>每个人/组织只能创建一个账户，除非获得HOUSELINK许可</li>
-            <li>账户不得转让给第三方</li>
-          </ul>
-          <h3>2.2. 账户安全</h3>
-          <ul>
-            <li>您负责保护登录信息安全以及账户下的所有活动</li>
-            <li>如发现未授权访问，立即通知HOUSELINK： info@houselink.com.vn</li>
-            <li>HOUSELINK不对因您未妥善保护账户而造成的损害负责</li>
-          </ul>
+          <h2>2. HOUSELINK基本信息</h2>
+          <div class="table-wrap"><table class="legal-table">
+            <tbody>
+              <tr><td><strong>企业名称</strong></td><td>HOUSELINK股份公司（HOUSELINK Joint Stock Company）</td></tr>
+              <tr><td><strong>企业代码、税号</strong></td><td>0104585924</td></tr>
+              <tr><td><strong>总部</strong></td><td>9th Floor, Sannam Building, 78 Duy Tan Street, Cau Giay Ward, Hanoi, Vietnam</td></tr>
+              <tr><td><strong>电话</strong></td><td>热线(+84) 966 222 490 · 总机024 3795 5620</td></tr>
+              <tr><td><strong>电子邮箱</strong></td><td><a href="mailto:info@houselink.com.vn">info@houselink.com.vn</a></td></tr>
+            </tbody>
+          </table></div>
         </div>
 
         <div class="legal-section" id="t3">
-          <h2>3. HOUSELINK提供的服务</h2>
-          <p>HOUSELINK根据订阅套餐和具体协议提供以下服务：</p>
+          <h2>3. 术语解释</h2>
           <ul>
-            <li><strong>市场研究与投资咨询：</strong> 越南定制报告和战略投资咨询</li>
-            <li><strong>选址与土地搜索：</strong> 支持工业园区选址调研</li>
-            <li><strong>HOUSELINK Database:</strong> 访问12万+工厂和500+工业园区数据库</li>
-            <li><strong>VietnamConstruction:</strong> 工业建筑内容与连接平台</li>
-            <li><strong>ESG & Carbon Consulting:</strong> 为企业提供ESG解决方案咨询和实施</li>
-            <li><strong>活动与商务配对：</strong> 组织和参加研讨会、商务对接活动</li>
+            <li><strong>本平台：</strong>由HOUSELINK运营的、第1节所列的各网站和应用程序。</li>
+            <li><strong>用户、“您”：</strong>访问本平台或使用本服务的组织或个人。</li>
+            <li><strong>会员：</strong>在本平台上拥有账户的用户，包括免费会员和付费会员。</li>
+            <li><strong>服务套餐：</strong>价目表、登记表或合同中所述的访问权限、功能及配套服务的组合。</li>
+            <li><strong>项目信息：</strong>由HOUSELINK汇总并在本平台上更新的有关投资项目和工业建设项目的信息。</li>
+            <li><strong>用户内容：</strong>用户通过本平台发布或提交的信息、资料、评价、询价请求、企业档案及其他内容。</li>
+            <li><strong>服务合同：</strong>用户与HOUSELINK就某一服务套餐或咨询服务签订的合同、附件或登记表。</li>
           </ul>
-          <p>HOUSELINK有权在提前30天通知的情况下更改、暂停或停止提供任何服务（除trng hp khn cp hoc bt buc theo php lut).</p>
         </div>
 
         <div class="legal-section" id="t4">
-          <h2>4. 权利与义务</h2>
-          <h3>4.1. 用户不得从事下列行为：</h3>
+          <h2>4. HOUSELINK的服务</h2>
+          <p>根据服务套餐和服务合同，HOUSELINK提供：</p>
           <ul>
-            <li>将服务用于非法、欺诈或有害目的</li>
-            <li>未经许可复制、分发或出售HOUSELINK内容</li>
-            <li>试图未授权访问HOUSELINK系统或数据</li>
-            <li>使用自动化工具（机器人、爬虫）从平台收集数据</li>
-            <li>上传或传播违法、冒犯性或误导性内容</li>
+            <li><strong>信息平台：</strong>查询、跟踪项目信息、企业档案、工业园区基础设施及Insights报告；</li>
+            <li><strong>投资信号（FDIsignals）：</strong>有关趋势和潜在投资者的早期信息；</li>
+            <li><strong>HOUSELINK AI：</strong>使用人工智能的问答助手；</li>
+            <li><strong>咨询：</strong>市场研究、选址、投资及企业设立手续协助、项目实施、ESG与可持续发展，依照单独的服务合同提供；</li>
+            <li><strong>活动与Business Matching：</strong>研讨会、商务对接活动；</li>
+            <li><strong>VietnamConstruction：</strong>工业建设领域的新闻和专业内容。</li>
           </ul>
-          <h3>4.2. HOUSELINK承诺：</h3>
+          <p>各套餐的具体范围在价目表、登记表或服务合同中列明。本服务以<strong>非独家</strong>方式提供：HOUSELINK向其他会员（包括您的竞争对手）以及投资者、工业园区和其他组织提供类似的服务和信息。</p>
+          <h3>4.1. HOUSELINK不提供的内容</h3>
           <ul>
-            <li>按承诺提供服务并努力确保信息准确性</li>
-            <li>根据隐私政策保护用户个人数据</li>
-            <li>提前通知影响服务的重要变更</li>
-            <li>在合理时间内处理投诉</li>
+            <li>出售、出租或转让任何人的个人联系信息（电话号码、个人电子邮箱），或导出联系人名单；</li>
+            <li>处理用户提供的个人数据名单，包括代用户发送电子邮件、短信，清洗名单或按要求查找联系人；</li>
+            <li>尚未公开的招标信息，或HOUSELINK依法不得提供的信息；</li>
+            <li>保证您将获得投标邀请、中标、签订合同或取得特定的经营成果。</li>
           </ul>
+          <h3>4.2. 服务变更</h3>
+          <p>HOUSELINK可对本平台进行维护、升级及功能变更。进行计划内维护时，HOUSELINK将在可能的情况下事先在本平台上发布通知。停止提供某项付费服务时，将至少提前30日通知，但紧急情况或法律强制要求的情形除外；未使用期间对应的费用将依照第12节退还。</p>
         </div>
 
         <div class="legal-section" id="t5">
-          <h2>5. 知识产权</h2>
-          <p>HOUSELINK平台上的所有内容--包括市场报告、数据库、界面、标志、文章图表和分析工具--是HOUSELINK的版权财产或经许可使 dng.</p>
+          <h2>5. 账户</h2>
+          <h3>5.1. 注册</h3>
           <ul>
-            <li>用户可将内容用于 <strong>个人和内部目的</strong></li>
-            <li>严禁未经书面批准进行复制、商业分发或创作衍生作品</li>
-            <li>引用HOUSELINK内容时，必须注明来源："©HOUSELINK"并链接至原始页面</li>
+            <li>您应提供准确、完整的信息，并在信息变更时及时更新。HOUSELINK可在开通付费套餐前核验组织信息。</li>
+            <li>每个账户仅授予<strong>一名具名个人</strong>，不得共用、转让或供多人使用。组织如需多名用户，应另行注册账户。</li>
+            <li>组织对其指定的用户负责，并在需要更换用户时通知HOUSELINK。</li>
+          </ul>
+          <h3>5.2. 账户安全</h3>
+          <ul>
+            <li>您应对登录信息保密，并对通过您账户进行的一切活动负责。</li>
+            <li>发现账户遭未经授权访问时，请立即通过<a href="mailto:info@houselink.com.vn">info@houselink.com.vn</a>告知HOUSELINK。</li>
+            <li>为保护账户安全，HOUSELINK可限制同时登录的会话数和设备数，要求进行额外验证，并依照《个人数据保护政策》保存安全日志。</li>
+            <li>当出现账户被盗用或共用的迹象时，HOUSELINK可暂时锁定账户，并在核实后予以解锁。</li>
           </ul>
         </div>
 
         <div class="legal-section" id="t6">
-          <h2>6. 隐私与数据</h2>
-          <p>个人数据的收集和处理受 <a href="/zh/privacy/" style="color:var(--green);">隐私政策</a> 的HOUSELINK，通过引用纳入本条款。您在使用过程中分享的内容服务（如项目文件、需求信息）须严格保密，未经HOUSELINK事先明确同意不得与第三方共享。</p>
+          <h2>6. 使用规则</h2>
+          <p>您仅可将本平台上的信息和资料用于您自身的内部经营活动。您不得：</p>
+          <ol>
+            <li>将本服务用于违法、欺诈目的，或损害HOUSELINK或他人；</li>
+            <li>提供虚假信息，冒充其他组织或个人；</li>
+            <li>复制、批量下载，或使用机器人程序、代码脚本、数据采集工具或其他自动化手段访问、提取数据；</li>
+            <li>向第三方（包括关联公司）出售、出租、分享、公开本平台上的信息，但将某一特定项目的信息分享给共同参与该项目且承担同等保密义务的联合体伙伴或分包商的除外；</li>
+            <li>利用本平台上的信息构建与HOUSELINK竞争的数据库、产品或服务；</li>
+            <li>将本平台上的内容输入第三方人工智能工具，用于训练模型或构建数据集；</li>
+            <li>未经相关个人同意，利用通过本平台获取的个人信息向其发送广告或营销信息；</li>
+            <li>规避、破坏安全措施，对本平台进行逆向工程，传播恶意代码或造成系统过载；</li>
+            <li>要求HOUSELINK提供尚未公开的招标信息，或代表您向项目业主、其工作人员或担任职务、享有职权的人员给予或承诺给予利益；</li>
+            <li>发布违法、侮辱性、虚假，或侵犯他人知识产权或隐私权的内容。</li>
+          </ol>
+          <p>发现违规行为时，HOUSELINK可进行提醒、删除内容、依照第15节暂停或终止账户、要求损害赔偿，并在法律要求时通知主管机关。</p>
         </div>
 
         <div class="legal-section" id="t7">
-          <h2>7. 付款与服务费用</h2>
+          <h2>7. 用户提供的内容</h2>
           <ul>
-            <li>服务费用在合同或具体服务提案中约定</li>
-            <li>按约定时间表和方式付款；逾期可能收取0.05%/天的利息</li>
-            <li>所有费用争议必须在收到发票后30天内以书面形式通知</li>
-            <li>退款仅按具体服务合同条款适用</li>
+            <li><strong>责任：</strong>您保证用户内容准确、合法，您有权使用该等内容，且对其中所含的个人数据具有合法依据。</li>
+            <li><strong>HOUSELINK的使用权：</strong>您允许HOUSELINK在提供本服务所需的范围内存储、显示、格式化和传输用户内容，例如将询价请求发送给您选择的企业。该项权利为非独家、免费的权利，并在您删除内容时终止，但已应您的要求分享给接收方的部分除外。</li>
+            <li><strong>评价：</strong>评价必须基于真实体验，且不存在未披露的利益冲突。HOUSELINK不会修改评价的含义，但可以隐藏或删除违反第6节的评价。</li>
+            <li><strong>认领企业档案：</strong>申请人须提供证明其有权代表该企业的文件。依据不足时，HOUSELINK可予以拒绝。获批准者对其更新至档案中的信息负责。</li>
+            <li><strong>举报违规内容：</strong>发送电子邮件至<a href="mailto:info@houselink.com.vn">info@houselink.com.vn</a>，并附上链接和理由。HOUSELINK将依照第6节进行审查和处理。违法内容将依照主管机关的要求，在法律规定的期限内删除。</li>
           </ul>
         </div>
 
         <div class="legal-section" id="t8">
-          <h2>8. 责任限制</h2>
-          <p>HOUSELINK以"现状"为基础提供服务。我们不保证：</p>
+          <h2>8. 企业信息、联系人与对接</h2>
           <ul>
-            <li>服务完全无错误或始终24/7可用</li>
-            <li>数据库中的信息在任何时候都是绝对准确的（尽管我们努力持续更新）</li>
-            <li>咨询结果保证项目成功（结果取决于许多客观因素）</li>
+            <li>企业信息（名称、代码、地址、经营行业、公共邮箱、总机号码）依据公开来源及企业自行更新的信息显示。</li>
+            <li>法定代表人的姓名和职务在依照越南《企业法》已公开的范围内显示。</li>
+            <li>其他联系人的姓名和职务仅在本人同意后显示；未获同意前，本平台仅显示部门或通用职能。</li>
+            <li>会员不会获得联系人的电话号码和个人电子邮箱。对接请求通过HOUSELINK发送至企业的公共邮箱，或发送给已同意接收请求的人员。接收方是否回复由其自行决定。</li>
+            <li>企业或个人如需更正、删除或限制其信息，请将请求发送至<a href="mailto:info@houselink.com.vn">info@houselink.com.vn</a>。</li>
           </ul>
-          <div class="highlight-box">HOUSELINK在任何情况下的最大责任不超过您实际支付的服务费用。trong 12 thng gn nht.</div>
         </div>
 
         <div class="legal-section" id="t9">
-          <h2>9. 服务终止</h2>
+          <h2>9. 信息性质与HOUSELINK AI</h2>
           <ul>
-            <li><strong>根据协议：</strong> 根据服务合同中的终止条款</li>
-            <li><strong>违反条款：</strong> 发现严重违规时，HOUSELINK可暂停或终止账户</li>
-            <li><strong>根据用户要求：</strong> 将请求发送至 info@houselink.com.vn 在15个工作日内处理</li>
+            <li>项目信息、报告及咨询内容属于<strong>市场参考信息</strong>，反映的是更新时的情况。项目可能因项目业主或主管机关的决定而变更、暂停或取消。</li>
+            <li>HOUSELINK从合法来源汇总信息，在发布时按照核实流程进行检查，注明来源和更新日期，并在发现或接到通知存在错误时及时更正。</li>
+            <li>由人工智能生成的内容，包括HOUSELINK AI的回答，仅供参考，可能存在错误。请在使用前进行核实。</li>
+            <li>除非服务合同另有明确约定，本服务不构成法律、税务、财务或投资建议。您应自行评估信息，直接与合作方核实，并对自身的经营决策承担责任。</li>
           </ul>
-          <p>终止后，个人数据将按隐私政策和现行法律要求处理。</p>
         </div>
 
         <div class="legal-section" id="t10">
-          <h2>10. 适用法律与争议解决</h2>
-          <p>本条款受越南社会主义共和国法律约束。任何争议 sc gii quyt theo trnh t:</p>
+          <h2>10. 知识产权</h2>
           <ul>
-            <li><strong>协商：</strong> 双方努力在30天内解决</li>
-            <li><strong>调解：</strong> 通过双方同意的商业调解机构</li>
-            <li><strong>法院：</strong> 越南河内有管辖权的人民法院</li>
+            <li>HOUSELINK对本平台、软件、界面、数据库及数据的选择与编排方式、报告、Insights、文章、图表，HOUSELINK、FDIsignals、VietnamConstruction的名称和标识以及相关内容享有所有权或合法许可。</li>
+            <li>HOUSELINK授予您有限的、非独家、不可转让的访问和使用权，仅限于在使用本服务期间用于内部经营目的。</li>
+            <li>引用HOUSELINK的内容时，您应注明来源“© HOUSELINK”并链接至原始页面。复制、商业分发、创作衍生作品或提供给第三方，须事先获得HOUSELINK的书面同意。</li>
+            <li>您保留对自有资料的权利。您为改进本服务而提交的意见，HOUSELINK可以使用，且不因此产生付款义务。</li>
           </ul>
         </div>
 
         <div class="legal-section" id="t11">
-          <h2>11. 联系我们</h2>
-          <p>如有任何关于使用条款的问题，请联系：</p>
+          <h2>11. 价格、付款与发票</h2>
           <ul>
-            <li><strong>HOUSELINK股份有限公司</strong></li>
-            <li>📍 9楼，Sannam大厦，78 Duy Tan街，桥纸坊，河内</li>
-            <li>✉ info@houselink.com.vn</li>
-            <li>📞 +84 966 222 490</li>
+            <li>服务套餐价格以网站公布的价目表、报价单或服务合同为准，以越南盾计价，如无另行注明，不含增值税。增值税按开具发票时有效的税率计征。</li>
+            <li>依照服务合同或登记表中的时间表以银行转账方式付款。HOUSELINK在收到付款后依照规定开具电子发票。</li>
+            <li>汇款手续费由汇款方承担，并须确保HOUSELINK足额收到款项。</li>
+            <li>逾期付款时，迟延付款利息依照服务合同计算；合同未约定的，依照越南《商法》按付款时市场平均逾期贷款利率计算。</li>
+            <li>有关费用的任何投诉须自收到发票之日起30日内以书面形式提出。</li>
           </ul>
+        </div>
+
+        <div class="legal-section" id="t12">
+          <h2>12. 开通、续期、取消与退款</h2>
+          <ul>
+            <li><strong>开通：</strong>付费套餐账户将在HOUSELINK收到全额付款及用户名单后的1个工作日内开通。HOUSELINK将发送确认邮件；邮件发送之日即为服务期限的起始日。</li>
+            <li><strong>续期：</strong>HOUSELINK将在到期前至少30日发出通知。续期在您确认并付款后生效；续期价格以续期时的价目表为准。服务合同可另行约定。</li>
+            <li><strong>到期：</strong>账户将转为受限模式；账户数据依照《个人数据保护政策》保存和删除。</li>
+            <li><strong>取消：</strong>您可以随时停止使用或要求终止。除下列情形外，已支付的费用不予退还。</li>
+          </ul>
+          <p>在下列情形下，HOUSELINK将按服务期限内剩余完整月数的比例，在15个工作日内退还服务费及相应的增值税（并开具调整发票）：</p>
+          <ol>
+            <li>HOUSELINK严重违反义务，且自收到书面要求之日起15日内未予纠正；</li>
+            <li>HOUSELINK停止提供您正在使用的付费服务；</li>
+            <li>不可抗力事件导致HOUSELINK无法提供本服务超过60日；</li>
+            <li>服务合同中列明的其他情形。</li>
+          </ol>
+          <p>对于为满足消费需求而购买服务的个人用户，其依照越南《消费者权益保护法》享有的权利受到保障，即使与本节规定不同。</p>
+        </div>
+
+        <div class="legal-section" id="t13">
+          <h2>13. 个人数据保护</h2>
+          <p>个人数据的处理依照<a href="/zh/privacy/">《个人数据保护政策》</a>执行，该政策构成本条款的组成部分。摘要如下：</p>
+          <ul>
+            <li>HOUSELINK不出售个人数据，也不按个人统计是否打开邮件或点击链接；</li>
+            <li>非必要Cookie在您开启前保持关闭；</li>
+            <li>您享有查阅、更正、删除、撤回同意及其他权利；请求将在2个工作日内得到确认；</li>
+            <li>所有有关个人数据的请求请发送至<a href="mailto:info@houselink.com.vn">info@houselink.com.vn</a>。</li>
+          </ul>
+          <p>您在使用本服务时分享的项目信息和资料将予以保密，未经您同意不会与第三方分享，但法律要求的情形除外。</p>
+        </div>
+
+        <div class="legal-section" id="t14">
+          <h2>14. 责任限制</h2>
+          <p>HOUSELINK致力于维持本服务稳定和信息准确，但不保证本服务永不中断，也不保证信息在任何时候均完整、准确。HOUSELINK对以下事项不承担责任：</p>
+          <ul>
+            <li>您基于本服务所提供信息作出的经营决策；</li>
+            <li>项目业主、合作方或其他第三方的行为和决定；</li>
+            <li>间接损失、利润损失、商业机会损失或未能中标。</li>
+          </ul>
+          <p>对于免费账户，本服务按现状提供，HOUSELINK不承担赔偿责任，但法律另有规定的除外。</p>
+          <div class="highlight-box">HOUSELINK对您承担的全部责任，无论是赔偿、违约罚金还是退款，均不超过您在责任事件发生前12个月内就相关服务实际支付的费用。如损害系因HOUSELINK的故意过错造成，或法律不允许限制责任（包括消费者依照越南《消费者权益保护法》享有的权利），则本限制不适用。服务合同可另行约定。</div>
+        </div>
+
+        <div class="legal-section" id="t15">
+          <h2>15. 暂停与终止</h2>
+          <ul>
+            <li><strong>应您的要求：</strong>将删除账户的请求发送至<a href="mailto:info@houselink.com.vn">info@houselink.com.vn</a>；HOUSELINK将按照《个人数据保护政策》规定的期限处理。付费套餐依照第12节及服务合同执行。</li>
+            <li><strong>因违规：</strong>当您违反第5节或第6节、逾期付款，或为保障系统安全所需时，HOUSELINK可暂停或终止账户。HOUSELINK将告知理由；对于自动采集数据、转售数据或违法行为等严重违规，可立即暂停。</li>
+            <li><strong>依照服务合同：</strong>其他终止情形依照合同执行。</li>
+          </ul>
+          <p>终止后，访问权限随即结束；个人数据依照《个人数据保护政策》处理。第6、10、11（应付款项）、14、17节继续有效。</p>
+        </div>
+
+        <div class="legal-section" id="t16">
+          <h2>16. 不可抗力</h2>
+          <p>任何一方均不对因不可抗力事件而未履行义务承担责任。不可抗力事件是指客观发生、无法预见且已采取一切必要措施仍无法克服的事件，例如自然灾害、疫情、战争、主管国家机关的决定，或在已采取适当安全和备份措施的情况下，超出合理控制能力的网络攻击、第三方电信基础设施或云计算故障。付款义务不因不可抗力而免除。</p>
+        </div>
+
+        <div class="legal-section" id="t17">
+          <h2>17. 投诉与争议解决</h2>
+          <h3>17.1. 投诉</h3>
+          <p>您可以通过电子邮件<a href="mailto:info@houselink.com.vn">info@houselink.com.vn</a>、热线(+84) 966 222 490或寄往总部的书面函件就本服务提出投诉。HOUSELINK将在合理期限内受理并答复，通常不超过15个工作日；情况复杂的，我们将告知预计期限。有关个人数据的请求依照《个人数据保护政策》规定的期限处理。</p>
+          <h3>17.2. 适用法律与争议</h3>
+          <ul>
+            <li>本条款受越南社会主义共和国法律管辖。</li>
+            <li><strong>协商：</strong>各方应自一方发出争议书面通知之日起30日内本着诚信原则协商解决。</li>
+            <li><strong>调解：</strong>各方可选择在双方同意的调解组织进行商事调解。</li>
+            <li><strong>法院：</strong>如未能解决，争议将提交HOUSELINK总部所在地河内市有管辖权的人民法院处理，但服务合同另有约定的除外。消费者可依照越南《消费者权益保护法》行使起诉权。</li>
+          </ul>
+        </div>
+
+        <div class="legal-section" id="t18">
+          <h2>18. 条款变更、语言与效力</h2>
+          <ul>
+            <li>HOUSELINK可在法律或本服务发生变化时更新本条款。重大变更将至少在生效前7日在网站上公布，并通过电子邮件通知会员。</li>
+            <li>本条款以多种语言发布；如存在差异，以越南语版本为准。</li>
+            <li>如本条款中某一条款被认定无效，其余条款仍然有效。</li>
+          </ul>
+          <div class="table-wrap"><table class="legal-table ver">
+            <thead><tr><th>版本</th><th>生效日期</th><th>内容</th></tr></thead>
+            <tbody>
+              <tr><td>TOS-2025/v2</td><td>2025年7月1日</td><td>上一版本</td></tr>
+              <tr><td>TOS-2026/v3</td><td>2026年10月12日</td><td>补充企业信息、账户规则与数据使用规则、用户内容、联系人显示模式、HOUSELINK AI、付款、续期与退款、投诉等内容；依照2025年《个人数据保护法》及2025年《电子商务法》进行更新</td></tr>
+            </tbody>
+          </table></div>
+        </div>
+
+        <div class="legal-section" id="t19">
+          <h2>19. 联系我们</h2>
+          <div class="contact-card">
+            <div class="contact-item"><span>企业</span><b>HOUSELINK股份公司</b><br>税号0104585924</div>
+            <div class="contact-item"><span>地址</span>9th Floor, Sannam Building, 78 Duy Tan Street, Cau Giay Ward, Hanoi, Vietnam</div>
+            <div class="contact-item"><span>电子邮箱</span><a href="mailto:info@houselink.com.vn">info@houselink.com.vn</a></div>
+            <div class="contact-item"><span>电话</span><b>(+84) 966 222 490</b>（越南语、英语）<br>总机<b>024 3795 5620</b></div>
+          </div>
+          <p><a class="btn-line" href="/zh/contact/">联系HOUSELINK</a><a class="btn-line" href="/zh/privacy/">个人数据保护政策</a></p>
         </div>
 
       </div>
@@ -955,6 +1164,31 @@ footer { background: var(--navy); color: rgba(255,255,255,0.55); padding: 72px 0
 </section>
 
 <div id="hl-chrome-footer"></div>
+<script>
+(function () {
+  var links = [].slice.call(document.querySelectorAll('.legal-toc .toc-item'));
+  var map = {};
+  links.forEach(function (a) { map[a.getAttribute('href').slice(1)] = a; });
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        links.forEach(function (l) { l.classList.remove('active'); });
+        if (map[e.target.id]) map[e.target.id].classList.add('active');
+      });
+    }, { rootMargin: '-110px 0px -70% 0px' });
+    [].forEach.call(document.querySelectorAll('.legal-section[id]'), function (s) { io.observe(s); });
+  }
+  // Cookie settings button: calls window.hlOpenCookieSettings() if the cookie banner exposes it,
+  // otherwise fires the "hl:open-cookie-settings" event for the banner script to handle.
+  [].forEach.call(document.querySelectorAll('[data-hl-cookie-settings]'), function (b) {
+    b.addEventListener('click', function () {
+      if (typeof window.hlOpenCookieSettings === 'function') { window.hlOpenCookieSettings(); }
+      else { document.dispatchEvent(new CustomEvent('hl:open-cookie-settings')); }
+    });
+  });
+})();
+</script>
   <script src="../../landing-chrome.js" defer></script>
 </body>
 </html>
