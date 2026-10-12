@@ -1,12 +1,8 @@
-# HL-34 #1: project links saved from the old system (houselink.vn now points at this landing).
-# Host-scoped so the Netlify preview landing does not send visitors to the live dashboard.
-https://houselink.vn/p/:id https://dashboard.houselink.com.vn/projects/:id 301!
-https://www.houselink.vn/p/:id https://dashboard.houselink.com.vn/projects/:id 301!
-https://houselink.vn/project/:id/* https://dashboard.houselink.com.vn/projects/:id 301!
-https://www.houselink.vn/project/:id/* https://dashboard.houselink.com.vn/projects/:id 301!
-https://houselink.vn/me/project/:id/* https://dashboard.houselink.com.vn/projects/:id 301!
-https://www.houselink.vn/me/project/:id/* https://dashboard.houselink.com.vn/projects/:id 301!
+# HL-34 #1: project links saved from the old system. Live houselink.com.vn (LiteSpeed) uses `.htaccess`;
+# these host-scoped rules only apply if that domain moves to Netlify.
 https://houselink.com.vn/p/:id https://dashboard.houselink.com.vn/projects/:id 301!
+https://houselink.com.vn/project/:id/* https://dashboard.houselink.com.vn/projects/:id 301!
+https://houselink.com.vn/me/project/:id/* https://dashboard.houselink.com.vn/projects/:id 301!
 
 # HOUSELINK_2026.xlsx: spreadsheet uses /en/... for English; site serves EN at root.
 # Static files under /en/ (e.g. en/jobs/* stubs) shadow these rules when present.

@@ -1,0 +1,9 @@
+# houselink.com.vn is served by LiteSpeed, which ignores Netlify `_redirects`.
+# Merge with any rules already in the hosting .htaccess instead of dropping them.
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+
+# HL-34 #1: project links saved from the old system (/p/{id}, /project/{id}/{slug}, /me/project/{id}/{slug}).
+RewriteRule ^(?:me/)?(?:p|project)/([0-9]+)(?:/.*)?$ https://dashboard.houselink.com.vn/projects/$1 [R=301,L]
+</IfModule>
