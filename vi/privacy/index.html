@@ -847,7 +847,7 @@ footer { background: var(--navy); color: rgba(255,255,255,0.55); padding: 72px 0
   - Trang thay thế /vi/privacy/ (Chính sách bảo mật QDNB-001/2025). Phiên bản 2.0, ban hành và hiệu lực 12/10/2026.
   - Giữ nguyên landing-chrome.css/js và khối CSS chung; CSS mới nằm trong <style id="legal-v2">.
   - Anchor đổi theo số mục mới: dữ liệu thu thập #s2 -> #s3; cookie #s7 -> #s6; quyền #s6 -> #s11; liên hệ #s9 -> #s16. Rà các liên kết đang trỏ tới anchor cũ.
-  - Nút "Mở cài đặt cookie" gọi window.hlOpenCookieSettings() hoặc phát sự kiện "hl:open-cookie-settings"; nối với banner cookie hiện có.
+  - Nút "Mở cài đặt cookie" mở bảng cài đặt của hl-consent.js (đặt ở thư mục gốc website, cùng chỗ với landing-chrome.js).
   - Đăng đồng thời bản EN, JA, KO, ZH cùng số phiên bản sau khi cập nhật theo nội dung trang này.
 -->
 
@@ -1010,7 +1010,7 @@ footer { background: var(--navy); color: rgba(255,255,255,0.55); padding: 72px 0
               <tr><td><strong>Tiếp thị</strong></td><td>HOUSELINK không sử dụng cookie tiếp thị. Nếu sau này sử dụng, chúng tôi sẽ cập nhật chính sách và chỉ bật khi bạn đồng ý.</td><td>Không sử dụng</td></tr>
             </tbody>
           </table></div>
-          <p hidden><button type="button" class="btn-line" data-hl-cookie-settings>Mở cài đặt cookie</button></p>
+          <p><button type="button" class="btn-line" data-hl-cookie-settings>Mở cài đặt cookie</button></p>
           <p>Chúng tôi không theo dõi hoạt động của bạn trên các website khác và không quảng cáo theo hành vi. Lượt xem và số người theo dõi hồ sơ doanh nghiệp chỉ hiển thị dạng con số; doanh nghiệp không được biết ai đã xem hay theo dõi họ.</p>
           <h3>Email tiếp thị và thông báo dịch vụ</h3>
           <ul>
@@ -1217,6 +1217,7 @@ footer { background: var(--navy); color: rgba(255,255,255,0.55); padding: 72px 0
   });
 })();
 </script>
+  <script src="../../hl-consent.js" defer></script>
   <script src="../../landing-chrome.js" defer></script>
 </body>
 </html>

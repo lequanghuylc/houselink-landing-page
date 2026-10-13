@@ -1078,3 +1078,16 @@
       );
     });
 })();
+
+/* ==== HOUSELINK cookie consent loader (Chính sách bảo vệ dữ liệu cá nhân v2.0, mục 6) ====
+ * Nạp hl-consent.js (đặt cùng thư mục với landing-chrome.js) trên mọi trang dùng landing-chrome.js,
+ * để người dùng vào website lần đầu ở bất kỳ trang nào cũng được hỏi ý kiến về cookie.
+ * Bỏ qua nếu trang đã tự gắn <script src=".../hl-consent.js">. */
+(function () {
+  if (window.hlConsent || document.querySelector('script[src*="hl-consent.js"]')) return;
+  var cur = document.currentScript;
+  if (!cur || !cur.src) return;
+  var s = document.createElement("script");
+  s.src = new URL("hl-consent.js", cur.src).href;
+  document.head.appendChild(s);
+})();

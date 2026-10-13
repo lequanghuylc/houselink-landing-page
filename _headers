@@ -5,6 +5,9 @@
 /landing-chrome.js
   Cache-Control: public, max-age=0, must-revalidate
 
+/hl-consent.js
+  Cache-Control: public, max-age=0, must-revalidate
+
 /news/*
   Cache-Control: public, max-age=0, must-revalidate
 
