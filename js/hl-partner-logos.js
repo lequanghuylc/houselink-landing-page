@@ -1,6 +1,15 @@
 (function (global) {
   "use strict";
 
+  var selfSrc = "";
+  try {
+    if (document.currentScript && document.currentScript.src) {
+      selfSrc = String(document.currentScript.src);
+    }
+  } catch (ignore) {
+    selfSrc = "";
+  }
+
   function resolveApiBase() {
     if (global && typeof global.HL_resolveAuthEnv === "function") {
       return String(global.HL_resolveAuthEnv().apiBase || "").replace(/\/+$/, "");
@@ -11,42 +20,57 @@
     return "http://localhost:3001";
   }
 
-  function resolveImageSrc(imageUrl) {
+  function resolveImageSrc(imageUrl, apiBase) {
     var raw = String(imageUrl || "").trim();
     if (!raw) return "";
     if (/^https?:\/\//i.test(raw)) return raw;
-    if (raw.charAt(0) === "/") {
-      try {
-        return new URL(raw, global.location.origin).href;
-      } catch (ignore) {
-        return raw;
-      }
-    }
+    if (raw.charAt(0) === "/") return apiBase + raw;
     return raw;
   }
 
-  function renderLogoGrid(grid, logos) {
-    if (!grid || !Array.isArray(logos)) return;
-    var html = logos
-      .map(function (logo) {
-        var name = String(logo && logo.name ? logo.name : "").trim();
-        var src = resolveImageSrc(logo && logo.imageUrl);
-        if (!name || !src) return "";
-        return (
-          '<div class="cust-logo"><img class="cust-logo__img" src="' +
-          src.replace(/"/g, "&quot;") +
-          '" alt="' +
-          name.replace(/"/g, "&quot;") +
-          '" loading="lazy" decoding="async"></div>'
-        );
-      })
-      .join("");
-    grid.innerHTML = html;
+  function escapeAttr(value) {
+    return String(value || "")
+      .replace(/&/g, "&amp;")
+      .replace(/"/g, "&quot;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;");
+  }
+
+  function pillHtml(name, src) {
+    return (
+      '<div class="logo-pill logo-pill--img"><img class="logo-pill__img" src="' +
+      escapeAttr(src) +
+      '" alt="' +
+      escapeAttr(name) +
+      '" decoding="async"></div>'
+    );
+  }
+
+  function gridHtml(name, src) {
+    return (
+      '<div class="cust-logo"><img class="cust-logo__img" src="' +
+      escapeAttr(src) +
+      '" alt="' +
+      escapeAttr(name) +
+      '" loading="lazy" decoding="async"></div>'
+    );
+  }
+
+  function markupFor(kind, logos, apiBase) {
+    var html = "";
+    for (var i = 0; i < logos.length; i++) {
+      var logo = logos[i] || {};
+      var name = String(logo.name || "").trim();
+      var src = resolveImageSrc(logo.imageUrl, apiBase);
+      if (!name || !src) continue;
+      html += kind === "grid" ? gridHtml(name, src) : pillHtml(name, src);
+    }
+    return html;
   }
 
   function loadPartnerLogos() {
-    var grids = document.querySelectorAll(".customers-logo-grid[data-hl-partner-logos]");
-    if (!grids.length) return Promise.resolve();
+    var mounts = document.querySelectorAll("[data-hl-partner-logos]");
+    if (!mounts.length) return Promise.resolve();
 
     var apiBase = resolveApiBase();
     var url = apiBase + "/api/partner-logos";
@@ -55,6 +79,7 @@
       method: "GET",
       headers: { Accept: "application/json" },
       credentials: "omit",
+      cache: "no-store",
     })
       .then(function (res) {
         return res.json().then(function (body) {
@@ -66,9 +91,11 @@
           throw new Error("Partner logos request failed");
         }
         var logos = (result.body.data && result.body.data.logos) || [];
-        if (!logos.length) return;
-        grids.forEach(function (grid) {
-          renderLogoGrid(grid, logos);
+        var pill = markupFor("pill", logos, apiBase);
+        var grid = markupFor("grid", logos, apiBase);
+        mounts.forEach(function (mount) {
+          var kind = mount.getAttribute("data-hl-partner-logos");
+          mount.innerHTML = kind === "grid" ? grid : pill;
         });
       })
       .catch(function (err) {
@@ -78,17 +105,20 @@
       });
   }
 
+  function authEnvSrc() {
+    if (!selfSrc) return "";
+    return selfSrc.replace(/[^/]+$/, "hl-auth-env.js");
+  }
+
   function ensureAuthEnvThenLoad() {
     if (typeof global.HL_resolveAuthEnv === "function") {
       return loadPartnerLogos();
     }
+    var src = authEnvSrc();
+    if (!src) return loadPartnerLogos();
     return new Promise(function (resolve) {
       var s = document.createElement("script");
-      try {
-        s.src = new URL("js/hl-auth-env.js", document.baseURI).href;
-      } catch (ignore) {
-        s.src = "js/hl-auth-env.js";
-      }
+      s.src = src;
       s.onload = function () {
         loadPartnerLogos().finally(resolve);
       };
