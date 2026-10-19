@@ -11,6 +11,11 @@
   }
 
   function resolveApiBase() {
+    // hl-auth-env points houselink.com.vn at api.houselink.com.vn (no DNS).
+    // Partner logos live on the 2026 CMS API — same as news/events.
+    if (global && typeof global.HL_resolveNewsApiBase === "function") {
+      return String(global.HL_resolveNewsApiBase()).replace(/\/+$/, "");
+    }
     if (global && typeof global.HL_resolveAuthEnv === "function") {
       return String(global.HL_resolveAuthEnv().apiBase || "").replace(/\/+$/, "");
     }
@@ -105,35 +110,47 @@
       });
   }
 
-  function authEnvSrc() {
+  function siblingScriptSrc(fileName) {
     if (!selfSrc) return "";
-    return selfSrc.replace(/[^/]+$/, "hl-auth-env.js");
+    return selfSrc.replace(/[^/]+$/, fileName);
   }
 
-  function ensureAuthEnvThenLoad() {
-    if (typeof global.HL_resolveAuthEnv === "function") {
-      return loadPartnerLogos();
-    }
-    var src = authEnvSrc();
-    if (!src) return loadPartnerLogos();
+  function loadScript(src) {
     return new Promise(function (resolve) {
+      if (!src) {
+        resolve();
+        return;
+      }
       var s = document.createElement("script");
       s.src = src;
       s.onload = function () {
-        loadPartnerLogos().finally(resolve);
+        resolve();
       };
       s.onerror = function () {
-        loadPartnerLogos().finally(resolve);
+        resolve();
       };
       document.head.appendChild(s);
+    });
+  }
+
+  function ensureApiBaseThenLoad() {
+    var tasks = [];
+    if (typeof global.HL_resolveAuthEnv !== "function") {
+      tasks.push(loadScript(siblingScriptSrc("hl-auth-env.js")));
+    }
+    if (typeof global.HL_resolveNewsApiBase !== "function") {
+      tasks.push(loadScript(siblingScriptSrc("hl-news-api-base.js")));
+    }
+    return Promise.all(tasks).then(function () {
+      return loadPartnerLogos();
     });
   }
 
   global.HL_loadPartnerLogos = loadPartnerLogos;
 
   if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", ensureAuthEnvThenLoad);
+    document.addEventListener("DOMContentLoaded", ensureApiBaseThenLoad);
   } else {
-    ensureAuthEnvThenLoad();
+    ensureApiBaseThenLoad();
   }
 })(typeof window !== "undefined" ? window : this);
